@@ -2,6 +2,8 @@ require "cuba"
 require "mote"
 require "cuba/contrib"
 require "rack/protection"
+require "ohm"
+require "shield"
 
 APP_SECRET = ENV.fetch("APP_SECRET")
 
