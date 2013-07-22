@@ -1,0 +1,18 @@
+<form action="/company_signup" method="POST">
+  <label>Company name:</label>
+  <input type="text" name="company[company_name]"><br/>
+
+  <label>Company e-mail:</label>
+  <input type="text" name="company[company_email]"><br/>
+
+  <label>Company URL:</label>
+  <input type="text" name="company[company_url]"><br/>
+
+  <label>Password:</label>
+  <input type="password" name="company[password]"><br/>
+
+  <label>Password confirmation:</label>
+  <input type="password" name="company[password_confirmation]"><br/>
+
+  <button type="submit">Signup</button>
+</form>

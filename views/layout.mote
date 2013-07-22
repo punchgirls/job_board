@@ -9,8 +9,15 @@
     <title>{{ title }}</title>
   </head>
   <body>
+    {{ this.session.inspect }}
     <header>
       <h1>Job Board</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/company_signup">Company login/signup</a></li>
+        </ul>
+      </nav>
       <?xml version="1.0" encoding="UTF-8"?>
     </header>
 
