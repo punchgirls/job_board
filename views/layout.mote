@@ -15,7 +15,12 @@
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
-          <li><a href="/company_signup">Company login/signup</a></li>
+          % if current_company
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/logout">Logout</a></li>
+          % else
+            <li><a href="/company_signup">Company login/signup</a></li>
+          % end
         </ul>
       </nav>
       <?xml version="1.0" encoding="UTF-8"?>
