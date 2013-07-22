@@ -1,7 +1,7 @@
 class Companies < Cuba
   define do
     on "dashboard" do
-      res.write "Welcome to your company dashboard!"
+      render("company_dashboard", title: "Company dashboard")
     end
 
     on "logout" do
