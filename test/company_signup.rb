@@ -25,7 +25,7 @@ scope do
     assert last_response.body["All fields are required and must be valid"]
   end
 
-  test "should inform User of successfull signup" do
+  test "should inform User of successful signup" do
     post "/company_signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",

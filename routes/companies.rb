@@ -7,7 +7,7 @@ class Companies < Cuba
     on "logout" do
       logout(Company)
       session[:success] = "You have successfully logged out!"
-      res.redirect "/", 303
+      render("home", title: "Home")
     end
 
     on default do
