@@ -13,10 +13,10 @@ class Guests < Cuba
           res.redirect "/dashboard"
         elsif Company.with(:email, company_signup.email)
           session[:error] = "This e-mail is already registered"
-          res.redirect "/company_signup", 206
+          render("company_signup", title: "Company signup")
         else
           session[:error] = "All fields are required and must be valid"
-          res.redirect "/company_signup", 206
+          render("company_signup", title: "Company signup")
         end
       end
 
