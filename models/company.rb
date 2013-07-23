@@ -1,19 +1,19 @@
 class Company < Ohm::Model
   include Shield::Model
 
-  attribute :company_name
-  attribute :company_email
-  attribute :company_url
+  attribute :name
+  attribute :email
+  attribute :url
   attribute :crypted_password
 
-  unique :company_email
+  unique :email
 
   def self.fetch(identifier)
-    with(:company_email, identifier)
+    with(:email, identifier)
   end
 
   def posts
-    Post.find(:company_id => self.id)
+    Post.find(:id => self.id)
   end
 
   collection :posts, :Post

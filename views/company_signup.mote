@@ -1,12 +1,12 @@
 <form action="/company_signup" method="POST">
   <label for="company-name">Company name:</label>
-  <input type="text" name="company[company_name]" id="company-name"><br/>
+  <input type="text" name="company[name]" id="company-name"><br/>
 
   <label for="company-email">Company e-mail:</label>
-  <input type="text" name="company[company_email]" id="company-email"><br/>
+  <input type="text" name="company[email]" id="company-email"><br/>
 
   <label for="company-url">Company URL:</label>
-  <input type="text" name="company[company_url]" id="company-url"><br/>
+  <input type="text" name="company[url]" id="company-url"><br/>
 
   <label for="password">Password:</label>
   <input type="password" name="company[password]" id="password"><br/>

@@ -8,6 +8,7 @@ require "shield"
 APP_SECRET = ENV.fetch("APP_SECRET")
 REDIS_URL = ENV.fetch("REDIS_URL")
 
+
 Cuba.plugin Cuba::Mote
 Cuba.plugin Cuba::TextHelpers
 Cuba.plugin Shield::Helpers
