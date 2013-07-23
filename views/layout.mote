@@ -12,7 +12,7 @@
     {{ this.session.inspect }}
     <header>
       <h1>Job Board</h1>
-      {{ this.partial("views/notices.mote", session: this.session) }}
+      {{ this.partial("notices", session: this.session) }}
       <nav>
         <ul>
           <li><a href="/">Home</a></li>
