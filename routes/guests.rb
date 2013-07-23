@@ -10,7 +10,7 @@ class Guests < Cuba
           authenticate(company)
 
           session[:success] = "You have successfully signed up!"
-          res.redirect "/dashboard"
+          render("company_dashboard", title: "Company dashboard")
         elsif Company.with(:email, company_signup.email)
           session[:error] = "This e-mail is already registered"
           render("company_signup", title: "Company signup")
