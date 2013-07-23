@@ -5,10 +5,10 @@ This repository contains the app we will be developing during our participation 
 
 Description of project
 ----------------------
-The Open Source Job Board is a job board for developers built with the [Cuba] (http://cuba.is/) microframework. The application uses the developer's GitHub information as a substitution for filling out a CV and will simplify the process of applying for job offers.
+The Open Source Job Board is a job board for developers built with the Cuba microframework. The application uses the developer's GitHub information as a substitution for filling out a CV and will simplify the process of applying for job offers.
 
 The application uses the following:
-- Cuba: Microframework built in Ruby.
+- [Cuba:] (http://cuba.is/) Microframework built in Ruby.
 - [Mote:] (https://github.com/soveran/mote) Minimum Operational Template.
 - [Redis:] (http://www.redis.io) Open source database.
 - [Ohm:] (http://soveran.github.io/ohm/) Library that allows to store objects in Redis.
