@@ -12,9 +12,5 @@ class Company < Ohm::Model
     with(:email, identifier)
   end
 
-  def posts
-    Post.find(:id => self.id)
-  end
-
   collection :posts, :Post
 end
