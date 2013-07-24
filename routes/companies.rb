@@ -11,7 +11,7 @@ class Companies < Cuba
     end
 
     on default do
-      res.write "/dashboard"
+      render("company_dashboard", title: "Company dashboard")
     end
   end
 end

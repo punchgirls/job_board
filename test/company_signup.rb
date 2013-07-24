@@ -31,15 +31,28 @@ scope do
           url: "http://www.punchgirls.com",
           password: "1234",
           password_confirmation: "1234" }}
+    get "/dashboard"
     assert last_response.body["You have successfully signed up!"]
+    get "/logout"
+    assert last_response.body["You have successfully logged out!"]
   end
 
-  # test "should inform User of email already registered" do
-  #   post "/company_signup", { company: { name: "Punchgirls",
-  #         email: "punchgirls@mail.com",
-  #         url: "http://www.punchgirls.com",
-  #         password: "1234",
-  #         password_confirmation: "1234" }}
-  #   assert last_response.body["This e-mail is already registered"]
-  # end
+  test "should inform User of email already registered" do
+    post "/company_signup", { company: { name: "Punchgirls",
+          email: "punchgirls@mail.com",
+          url: "http://www.punchgirls.com",
+          password: "1234",
+          password_confirmation: "1234" }}
+    get "/dashboard"
+    assert last_response.body["You have successfully signed up!"]
+    get "/logout"
+    assert last_response.body["You have successfully logged out!"]
+
+    post "/company_signup", { company: { name: "Punchgirls",
+          email: "punchgirls@mail.com",
+          url: "http://www.punchgirls.com",
+          password: "1234",
+          password_confirmation: "1234" }}
+    assert last_response.body["This e-mail is already registered"]
+  end
 end
