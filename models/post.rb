@@ -1,8 +1,8 @@
 class Post < Ohm::Model
   include Shield::Model
 
-  attribute :post_title
-  attribute :post_description
+  attribute :title
+  attribute :description
 
   reference :company, :Company
 end

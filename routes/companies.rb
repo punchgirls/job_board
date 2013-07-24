@@ -4,6 +4,26 @@ class Companies < Cuba
       render("company_dashboard", title: "Company dashboard")
     end
 
+    on "post_job_offer" do
+      on post, param("post") do |params|
+        post_job_offer = PostJobOffer.new(params)
+
+        if post_job_offer.valid?
+          post = Post.create(params)
+
+          session[:success] = "You have successfully posted a job offer!"
+          res.redirect "/dashboard"
+        else
+          session[:error] = "All fields are required and must be valid"
+          render("post_job_offer", title: "Post job offer")
+        end
+      end
+
+      on default do
+        render("post_job_offer", title: "Post job offer")
+      end
+    end
+
     on "logout" do
       logout(Company)
       session[:success] = "You have successfully logged out!"

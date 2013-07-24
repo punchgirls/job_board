@@ -1,0 +1,10 @@
+<form action="/post_job_offer" method="POST">
+  <label for="title">Title:</label>
+  <input type="text" name="post[title]" id="title"><br/>
+
+  <label for="description">Description</label>
+  <textarea name="post[description]" id="description"></textarea><br/>
+
+
+  <button type="submit">Post</button>
+</form>
