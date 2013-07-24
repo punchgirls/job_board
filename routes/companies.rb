@@ -14,7 +14,7 @@ class Companies < Cuba
           session[:success] = "You have successfully posted a job offer!"
           res.redirect "/dashboard"
         else
-          session[:error] = "All fields are required and must be valid"
+          session[:error] = "All fields are required"
           render("post_job_offer", title: "Post job offer")
         end
       end
