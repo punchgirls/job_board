@@ -8,11 +8,10 @@
 
 <ul>
   % posts_ids.each do |id|
-  <p>
-    <li>{{ Post[id].title }}</li>
-    <li>{{ Post[id].description }}</li>
-  </p>
-
+    <p>
+      <li id="post-title">{{ Post[id].title }}</li>
+      <li>{{ Post[id].description }}</li>
+    </p>
   % end
 </ul>
 
