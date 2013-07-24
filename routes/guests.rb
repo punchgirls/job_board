@@ -32,7 +32,7 @@ class Guests < Cuba
           res.redirect "/dashboard"
         else
           session[:error] = "Invalid email and/or password combination"
-          res.redirect("/company_login")
+          render("company_login", title: "Company login")
         end
       end
       on default do
