@@ -8,11 +8,13 @@ end
 scope do
   test "should display homepage" do
     get "/"
+
     assert_equal 200, last_response.status
   end
 
   test "should display company signup" do
     get "/company_signup"
+
     assert_equal 200, last_response.status
   end
 
@@ -22,6 +24,7 @@ scope do
           url: "http://www.punchgirls.com",
           password: "1234",
           password_confirmation: "1234" }}
+
     assert last_response.body["All fields are required and must be valid"]
   end
 
@@ -31,9 +34,13 @@ scope do
           url: "http://www.punchgirls.com",
           password: "1234",
           password_confirmation: "1234" }}
+
     get "/dashboard"
+
     assert last_response.body["You have successfully signed up!"]
+
     get "/logout"
+
     assert last_response.body["You have successfully logged out!"]
   end
 
@@ -43,9 +50,13 @@ scope do
           url: "http://www.punchgirls.com",
           password: "1234",
           password_confirmation: "1234" }}
+
     get "/dashboard"
+
     assert last_response.body["You have successfully signed up!"]
+
     get "/logout"
+
     assert last_response.body["You have successfully logged out!"]
 
     post "/company_signup", { company: { name: "Punchgirls",
@@ -53,6 +64,7 @@ scope do
           url: "http://www.punchgirls.com",
           password: "1234",
           password_confirmation: "1234" }}
+
     assert last_response.body["This e-mail is already registered"]
   end
 end
