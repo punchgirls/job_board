@@ -2,16 +2,12 @@ require "cuba/test"
 require_relative "../app"
 
 prepare do
-  company = Company.with(:email, "punchgirls@mail.com")
+  Ohm.flush
 
-  if company
-    Company[company.id].delete
-  else
-    Company.create({ name: "Punchgirls",
+  Company.create({ name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
           password: "1234" })
-  end
 end
 
 scope do
