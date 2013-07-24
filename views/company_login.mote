@@ -1,0 +1,13 @@
+<form action="/company_login" method="POST">
+  <label for="company-email">Company e-mail:</label>
+  <input type="text" name="email" id="company-email"><br/>
+
+  <label for="password">Password:</label>
+  <input type="password" name="password" id="password"><br/>
+
+  <button type="submit">Login</button>
+</form>
+
+<hr/>
+
+<p><a href="/company_signup">Sign up</a></p>

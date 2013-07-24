@@ -25,6 +25,21 @@ class Guests < Cuba
       end
     end
 
+    on "company_login" do
+      on post, param("email"), param("password") do |user, pass|
+        if login(Company, user, pass)
+          session[:success] = "You have successfully logged in!"
+          res.redirect "/dashboard"
+        else
+          session[:error] = "Invalid email and/or password combination"
+          res.redirect("/company_login")
+        end
+      end
+      on default do
+        render("company_login", title: "Company login")
+      end
+    end
+
     on default do
       res.redirect "/"
     end
