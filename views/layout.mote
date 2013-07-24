@@ -9,7 +9,6 @@
     <title>{{ title }}</title>
   </head>
   <body>
-    {{ this.session.inspect }}
     <header>
       <h1>Job Board</h1>
       {{ this.partial("notices", session: this.session) }}

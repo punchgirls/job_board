@@ -40,6 +40,12 @@ class Guests < Cuba
       end
     end
 
+    on "jobs" do
+      on default do
+        render("jobs", title: "Jobs")
+      end
+    end
+
     on default do
       res.redirect "/"
     end

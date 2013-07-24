@@ -25,6 +25,10 @@ class Companies < Cuba
       end
     end
 
+    on "jobs" do
+      render("jobs", title: "Jobs")
+    end
+
     on "logout" do
       logout(Company)
       session[:success] = "You have successfully logged out!"

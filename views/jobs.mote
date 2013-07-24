@@ -1,0 +1,14 @@
+% posts = Post.all.ids
+
+<table>
+  % posts.each do |id|
+    <tr><td colspan="4">{{ Company[Post[id].company_id].name }}</td></tr>
+    <tr><td colspan="4">{{ Post[id].title }}</td></tr>
+    <tr>
+        <td>{{ Post[id].description }}</td>
+        <td>APPLY</td>
+        <td>FAVORITE</td>
+        <td>DELETE</td>
+    </tr>
+  % end
+</table>
