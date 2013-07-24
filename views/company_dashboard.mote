@@ -1,3 +1,18 @@
 <p>Welcome to your company dashboard!</p>
 
 <p><a href="/post_job_offer">Post job offer</a></p>
+
+% id = this.session["Company"]
+
+% posts_ids = Company[id].posts.ids
+
+<ul>
+  % posts_ids.each do |id|
+  <p>
+    <li>{{ Post[id].title }}</li>
+    <li>{{ Post[id].description }}</li>
+  </p>
+
+  % end
+</ul>
+

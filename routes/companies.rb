@@ -9,6 +9,7 @@ class Companies < Cuba
         post_job_offer = PostJobOffer.new(params)
 
         if post_job_offer.valid?
+          params[:company_id] = Company[session["Company"]].id
           post = Post.create(params)
 
           session[:success] = "You have successfully posted a job offer!"
