@@ -24,11 +24,11 @@ class Companies < Cuba
             unless Company[id].email == edit.email
               session[:error] = "E-mail is already registered"
               render("edit_company_account", title: "Edit company account", id: id)
-            else
-              Company[id].update(params)
-              session[:success] = "Your company account was successfully updated!"
-              res.redirect "/company_account"
             end
+          else
+            Company[id].update(params)
+            session[:success] = "Your company account was successfully updated!"
+            res.redirect "/company_account"
           end
         else
           if edit.errors == { :password=>[:not_confirmed] }
