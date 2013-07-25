@@ -1,0 +1,9 @@
+<h2>Account info</h2>
+
+% company = Company[this.session["Company"]]
+
+<p>{{ company.name }}</p>
+<p>{{ company.email }}</p>
+<p>{{ company.url }}</p>
+
+<p><a href="/edit_company_account/{{ company.id }}">Edit</a></p>
