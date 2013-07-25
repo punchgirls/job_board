@@ -15,7 +15,7 @@ scope do
     get "/company_login"
 
     post "/company_login", { email: "punchgirls@mail.com",
-          password: "1234"}
+          password: "1234" }
 
     get "/dashboard"
 
@@ -31,7 +31,7 @@ scope do
     get "/company_login"
 
     post "/company_login", { email: "punchgirls@mail.com",
-          password: "1234"}
+          password: "1234" }
 
     get "/dashboard"
 
@@ -49,7 +49,7 @@ scope do
     get "/company_login"
 
     post "/company_login", { email: "punchgirls@mail.com",
-          password: "1234"}
+          password: "1234" }
 
     get "/dashboard"
 
@@ -67,7 +67,7 @@ scope do
     get "/company_login"
 
     post "/company_login", { email: "punchgirls@mail.com",
-          password: "1234"}
+          password: "1234" }
 
     get "/dashboard"
 
@@ -87,7 +87,7 @@ scope do
     get "/company_login"
 
     post "/company_login", { email: "punchgirls@mail.com",
-          password: "1234"}
+          password: "1234" }
 
     get "/dashboard"
 

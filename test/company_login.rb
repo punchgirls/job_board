@@ -19,14 +19,14 @@ scope do
 
   test "should inform User in case of invalid login information" do
     post "/company_login", { email: "punchies@mail.com",
-          password: "1234"}
+          password: "1234" }
 
     assert last_response.body["Invalid email and/or password combination"]
   end
 
   test "should inform User of successful login" do
     post "/company_login", { email: "punchgirls@mail.com",
-          password: "1234"}
+          password: "1234" }
 
     get "/dashboard"
 
