@@ -60,6 +60,26 @@ scope do
 
     get "/dashboard"
 
-    assert last_response.body['<li id="post-title">']
+    assert last_response.body['<td colspan="3" id="post-title">']
+  end
+
+  test "should inform User of post deleted" do
+    get "/company_login"
+
+    post "/company_login", { email: "punchgirls@mail.com",
+          password: "1234"}
+
+    get "/dashboard"
+
+    get "/post_job_offer"
+
+    post "/post_job_offer", { post: {  title: "Ruby developer",
+          description: "Ruby oracle needed!" }}
+
+    get "/dashboard"
+
+    get "/remove_post/1"
+
+    assert last_response.body["Post successfully removed!"]
   end
 end
