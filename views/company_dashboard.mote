@@ -14,7 +14,7 @@
     </tr>
     <tr>
       <td>{{ Post[id].description }}</td>
-      <td>EDIT</td>
+      <td><a href="/edit_post/{{ id }}">EDIT</a></td>
       <td><a href="/remove_post/{{ id }}">REMOVE</a></td>
     </tr>
   % end

@@ -31,6 +31,26 @@ class Companies < Cuba
       render("company_dashboard", title: "Company dashboard")
     end
 
+    on "edit_post/:id" do |id|
+      on post, param("post") do |params|
+        post_job_offer = PostJobOffer.new(params)
+
+        if post_job_offer.valid?
+          Post[id].update(params)
+
+          session[:success] = "Post successfully edited!"
+          res.redirect "/dashboard"
+        else
+          session[:error] = "All fields are required"
+          render("post_job_offer", title: "Post job offer")
+        end
+      end
+
+      on default do
+        render("edit_post", title: "Edit post", id: id)
+      end
+    end
+
     on "jobs" do
       render("jobs", title: "Jobs")
     end
