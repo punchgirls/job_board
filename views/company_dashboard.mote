@@ -6,12 +6,16 @@
 
 % posts_ids = Company[id].posts.ids
 
-<ul>
-  % posts_ids.each do |id|
-    <p>
-      <li id="post-title">{{ Post[id].title }}</li>
-      <li>{{ Post[id].description }}</li>
-    </p>
-  % end
-</ul>
 
+<table>
+  % posts_ids.each do |id|
+    <tr>
+      <td colspan="3" id="post-title">{{ Post[id].title }}</td>
+    </tr>
+    <tr>
+      <td>{{ Post[id].description }}</td>
+      <td>EDIT</td>
+      <td>DELETE</td>
+    </tr>
+  % end
+</table>
