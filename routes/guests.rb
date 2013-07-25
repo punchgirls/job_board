@@ -35,6 +35,7 @@ class Guests < Cuba
           render("company_login", title: "Company login")
         end
       end
+
       on default do
         render("company_login", title: "Company login")
       end
