@@ -25,6 +25,12 @@ class Companies < Cuba
       end
     end
 
+    on "remove_post/:id" do |id|
+      Post[id].delete
+      session[:success] = "Post successfully removed!"
+      render("company_dashboard", title: "Company dashboard")
+    end
+
     on "jobs" do
       render("jobs", title: "Jobs")
     end
