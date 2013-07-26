@@ -28,7 +28,7 @@ scope do
     assert last_response.body["All fields are required and must be valid"]
   end
 
-  test "should inform User of successful signup" do
+  test "should inform User of successful signup and logout" do
     post "/company_signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
@@ -40,6 +40,8 @@ scope do
     assert last_response.body["You have successfully signed up!"]
 
     get "/logout"
+
+    get "/"
 
     assert last_response.body["You have successfully logged out!"]
   end
@@ -51,13 +53,7 @@ scope do
           password: "1234",
           password_confirmation: "1234" }}
 
-    get "/dashboard"
-
-    assert last_response.body["You have successfully signed up!"]
-
     get "/logout"
-
-    assert last_response.body["You have successfully logged out!"]
 
     post "/company_signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
