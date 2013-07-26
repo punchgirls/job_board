@@ -102,7 +102,7 @@ class Companies < Cuba
     on "logout" do
       logout(Company)
       session[:success] = "You have successfully logged out!"
-      render("home", title: "Home")
+      res.redirect "/"
     end
 
     on default do

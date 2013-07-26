@@ -26,7 +26,8 @@ Dir["./routes/**/*.rb"].each  { |rb| require rb }
 Dir["./helpers/**/*.rb"].each  { |rb| require rb }
 Dir["./lib/**/*.rb"].each { |rb| require rb }
 
-Cuba.plugin Helpers
+Cuba.plugin CompanyHelpers
+Cuba.plugin DeveloperHelpers
 
 Cuba.use Rack::MethodOverride
 Cuba.use Rack::Session::Cookie,
