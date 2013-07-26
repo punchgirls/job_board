@@ -4,9 +4,15 @@ require "cuba/contrib"
 require "rack/protection"
 require "ohm"
 require "shield"
+require "requests"
 
 APP_SECRET = ENV.fetch("APP_SECRET")
 REDIS_URL = ENV.fetch("REDIS_URL")
+GITHUB_CLIENT_ID = ENV.fetch("GITHUB_CLIENT_ID")
+GITHUB_CLIENT_SECRET = ENV.fetch("GITHUB_CLIENT_SECRET")
+GITHUB_OAUTH_AUTHORIZE = ENV.fetch("GITHUB_OAUTH_AUTHORIZE")
+GITHUB_OAUTH_ACCESS_TOKEN = ENV.fetch("GITHUB_OAUTH_ACCESS_TOKEN")
+GITHUB_FETCH_USER = ENV.fetch("GITHUB_FETCH_USER")
 
 Cuba.plugin Cuba::Mote
 Cuba.plugin Cuba::TextHelpers
@@ -18,6 +24,7 @@ Dir["./models/**/*.rb"].each  { |rb| require rb }
 Dir["./routes/**/*.rb"].each  { |rb| require rb }
 
 Dir["./helpers/**/*.rb"].each  { |rb| require rb }
+Dir["./lib/**/*.rb"].each { |rb| require rb }
 
 Cuba.plugin Helpers
 
@@ -42,6 +49,10 @@ Cuba.define do
 
   on authenticated(Company) do
     run Companies
+  end
+
+  on authenticated(Developer) do
+    run Developers
   end
 
   on default do

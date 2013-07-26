@@ -20,6 +20,7 @@
             <li><a href="/company_account">My account</a></li>
             <li><a href="/logout">Logout</a></li>
           % else
+            <li><a href="/github_oauth">GitHub login</a></li>
             <li><a href="/company_login">Company login/signup</a></li>
           % end
         </ul>
