@@ -37,7 +37,7 @@ Cuba.define do
   persist_session!
 
   on root do
-    render("home", title: "Home")
+    render("home", title: "Home", current_company: current_company)
   end
 
   on authenticated(Company) do

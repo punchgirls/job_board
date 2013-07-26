@@ -1,4 +1,9 @@
 <p>Welcome!</p>
 
-<p><a href="/company_login">Post job offer</a></p>
+% if current_company
+  <p><a href="/post_job_offer">Post job offer</a></p>
+% else
+  <p><a href="/company_login">Post job offer</a></p>
+% end
+
 <p><a href="/jobs">Search for jobs</a></p>
