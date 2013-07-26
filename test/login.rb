@@ -12,20 +12,20 @@ end
 
 scope do
   test "should display company login" do
-    get "/company_login"
+    get "/login"
 
     assert_equal 200, last_response.status
   end
 
   test "should inform User in case of invalid login information" do
-    post "/company_login", { email: "punchies@mail.com",
+    post "/login", { email: "punchies@mail.com",
           password: "1234" }
 
     assert last_response.body["Invalid email and/or password combination"]
   end
 
   test "should inform User of successful login" do
-    post "/company_login", { email: "punchgirls@mail.com",
+    post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
     get "/dashboard"

@@ -16,26 +16,24 @@ prepare do
 end
 
 scope do
-  test "should inform User of successful account update" do
-    get "/company_login"
-
-    post "/company_login", { email: "punchgirls@mail.com",
+  test "should inform User of successful profile update" do
+    post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    get "/company_account"
+    get "/profile"
 
-    get "/edit_company_account/1"
+    get "/edit/1"
 
     assert_equal 200, last_response.status
 
-    post "/edit_company_account/1", { company: {
+    post "/edit/1", { company: {
           name: "My Company",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
           password: "",
           password_confirmation: "" }}
 
-    get "/company_account"
+    get "/profile"
 
     assert last_response.body["My Company"]
 
@@ -43,14 +41,12 @@ scope do
   end
 
   test "should inform User in case of incomplete or invalid fields" do
-    get "/company_login"
-
-    post "/company_login", { email: "punchgirls@mail.com",
+    post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    get "/company_account"
+    get "/profile"
 
-    post "/edit_company_account/1", { company: {
+    post "/edit/1", { company: {
           name: "",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
@@ -61,14 +57,12 @@ scope do
   end
 
   test "should inform User in case of passwords not matching" do
-    get "/company_login"
-
-    post "/company_login", { email: "punchgirls@mail.com",
+    post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    get "/company_account"
+    get "/profile"
 
-    post "/edit_company_account/1", { company: {
+    post "/edit/1", { company: {
           name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
@@ -79,14 +73,12 @@ scope do
   end
 
   test "should inform User in case of e-mail already registered" do
-    get "/company_login"
-
-    post "/company_login", { email: "punchgirls@mail.com",
+    post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    get "/company_account"
+    get "/profile"
 
-    post "/edit_company_account/1", { company: {
+    post "/edit/1", { company: {
           name: "Punchgirls",
           email: "punchies@mail.com",
           url: "http://www.punchgirls.com",

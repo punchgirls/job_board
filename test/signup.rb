@@ -13,13 +13,13 @@ scope do
   end
 
   test "should display company signup" do
-    get "/company_signup"
+    get "/signup"
 
     assert_equal 200, last_response.status
   end
 
   test "should inform User in case of incomplete or invalid fields" do
-    post "/company_signup", { company: { name: "",
+    post "/signup", { company: { name: "",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
           password: "1234",
@@ -29,7 +29,7 @@ scope do
   end
 
   test "should inform User of successful signup and logout" do
-    post "/company_signup", { company: { name: "Punchgirls",
+    post "/signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
           password: "1234",
@@ -46,8 +46,8 @@ scope do
     assert last_response.body["You have successfully logged out!"]
   end
 
-  test "should inform User of email already registered" do
-    post "/company_signup", { company: { name: "Punchgirls",
+  test "should inform User of e-mail already registered" do
+    post "/signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
           password: "1234",
@@ -55,7 +55,7 @@ scope do
 
     get "/logout"
 
-    post "/company_signup", { company: { name: "Punchgirls",
+    post "/signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
           password: "1234",

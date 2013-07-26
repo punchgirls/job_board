@@ -11,13 +11,13 @@ prepare do
 end
 
 scope do
-  test "should display company account" do
-    get "/company_login"
+  test "should display company profile" do
+    get "/login"
 
-    post "/company_login", { email: "punchgirls@mail.com",
+    post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    get "/company_account"
+    get "/profile"
 
     assert last_response.body["punchgirls@mail.com"]
   end
