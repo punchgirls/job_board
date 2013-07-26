@@ -6,4 +6,4 @@
 <p>{{ company.email }}</p>
 <p>{{ company.url }}</p>
 
-<p><a href="/edit/{{ company.id }}">Edit</a></p>
+<p><a href="/edit">Edit</a></p>

@@ -1,6 +1,6 @@
-<form action="/company/edit/{{ id }}" method="POST">
+<form action="/edit" method="POST">
 
-% company = Company[id]
+% company = Company[this.session["Company"]]
 
   <label for="company-name">Company name:</label>
   <input type="text" name="company[name]" id="company-name" value="{{ company.name }}"><br/>
