@@ -1,4 +1,4 @@
-<form action="/edit_company_account/{{ id }}" method="POST">
+<form action="/company/edit/{{ id }}" method="POST">
 
 % company = Company[id]
 

@@ -1,4 +1,4 @@
-<form action="/company_login" method="POST">
+<form action="/login" method="POST">
   <label for="company-email">Company e-mail:</label>
   <input type="text" name="email" id="company-email"><br/>
 
@@ -10,4 +10,4 @@
 
 <hr/>
 
-<p><a href="/company_signup">Sign up</a></p>
+<p><a href="/signup">Sign up</a></p>

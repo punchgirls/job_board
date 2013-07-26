@@ -1,7 +1,7 @@
 class Developers < Cuba
   define do
     on "dashboard" do
-      render("developer_dashboard", title: "Developer dashboard")
+      render("developer/dashboard", title: "Dashboard")
     end
 
     on "logout" do
@@ -11,7 +11,7 @@ class Developers < Cuba
     end
 
     on default do
-      render("developer_dashboard", title: "Developer dashboard")
+      render("developer/dashboard", title: "Dashboard")
     end
   end
 end

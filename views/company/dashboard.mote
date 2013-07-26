@@ -1,6 +1,6 @@
 <p>Welcome to your company dashboard!</p>
 
-<p><a href="/post_job_offer">Post job offer</a></p>
+<p><a href="/jobs/new">Post job offer</a></p>
 
 % id = this.session["Company"]
 
@@ -14,8 +14,8 @@
     </tr>
     <tr>
       <td>{{ Post[id].description }}</td>
-      <td><a href="/edit_post/{{ id }}">EDIT</a></td>
-      <td><a href="/remove_post/{{ id }}">REMOVE</a></td>
+      <td><a href="/jobs/edit/{{ id }}">EDIT</a></td>
+      <td><a href="/jobs/remove/{{ id }}">REMOVE</a></td>
     </tr>
   % end
 </table>

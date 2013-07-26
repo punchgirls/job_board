@@ -1,4 +1,4 @@
-<form action="/company_signup" method="POST">
+<form action="/signup" method="POST">
   <label for="company-name">Company name:</label>
   <input type="text" name="company[name]" id="company-name"><br/>
 

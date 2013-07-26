@@ -1,14 +1,14 @@
 class Companies < Cuba
   define do
     on "dashboard" do
-      render("company_dashboard", title: "Company dashboard")
+      render("company/dashboard", title: "Dashboard")
     end
 
-    on "company_account" do
-      render("company_account", title: "Company account")
+    on "profile" do
+      render("company/profile", title: "Profile")
     end
 
-    on "edit_company_account/:id" do |id|
+    on "edit/:id" do |id|
       on post, param("company") do |params|
         edit = EditCompanyAccount.new(params)
 
@@ -23,36 +23,36 @@ class Companies < Cuba
           if Company[id].email != edit.email &&
             Company.with(:email, edit.email)
               session[:error] = "E-mail is already registered"
-              render("edit_company_account",
-                title: "Edit company account", id: id)
+              render("company/edit",
+                title: "Edit profile", id: id)
           else
               Company[id].update(params)
               session[:success] = "Your account was successfully updated!"
-              res.redirect "/company_account"
+              res.redirect "/profile"
           end
         else
           if edit.errors == { :password=>[:not_confirmed] }
             session[:error] = "Passwords don't match"
-            render("edit_company_account",
-                title: "Edit company account", id: id)
+            render("company/edit",
+                title: "Edit profile", id: id)
           else
             session[:error] = "Name, E-mail and URL are required and must be valid"
-            render("edit_company_account",
-                title: "Edit company account", id: id)
+            render("company/edit",
+                title: "Edit profile", id: id)
           end
         end
       end
 
       on default do
-        render("edit_company_account", title: "Edit company account", id: id)
+        render("company/edit", title: "Edit profile", id: id)
       end
     end
 
-    on "post_job_offer" do
+    on "jobs/new" do
       on post, param("post") do |params|
-        post_job_offer = PostJobOffer.new(params)
+        job = PostJobOffer.new(params)
 
-        if post_job_offer.valid?
+        if job.valid?
           params[:company_id] = Company[session["Company"]].id
           post = Post.create(params)
 
@@ -60,38 +60,38 @@ class Companies < Cuba
           res.redirect "/dashboard"
         else
           session[:error] = "All fields are required"
-          render("post_job_offer", title: "Post job offer")
+          render("company/jobs/new", title: "Post job offer")
         end
       end
 
       on default do
-        render("post_job_offer", title: "Post job offer")
+        render("company/jobs/new", title: "Post job offer")
       end
     end
 
-    on "remove_post/:id" do |id|
+    on "jobs/remove/:id" do |id|
       Post[id].delete
       session[:success] = "Post successfully removed!"
-      render("company_dashboard", title: "Company dashboard")
+      res.redirect "/dashboard"
     end
 
-    on "edit_post/:id" do |id|
+    on "jobs/edit/:id" do |id|
       on post, param("post") do |params|
-        post_job_offer = PostJobOffer.new(params)
+        job = PostJobOffer.new(params)
 
-        if post_job_offer.valid?
+        if job.valid?
           Post[id].update(params)
 
           session[:success] = "Post successfully edited!"
           res.redirect "/dashboard"
         else
           session[:error] = "All fields are required"
-          render("post_job_offer", title: "Post job offer")
+          render("company/jobs/edit", title: "Edit post")
         end
       end
 
       on default do
-        render("edit_post", title: "Edit post", id: id)
+        render("company/jobs/edit", title: "Edit post", id: id)
       end
     end
 
@@ -106,7 +106,7 @@ class Companies < Cuba
     end
 
     on default do
-      render("company_dashboard", title: "Company dashboard")
+      render("company/dashboard", title: "Dashboard")
     end
   end
 end

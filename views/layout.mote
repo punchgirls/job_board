@@ -17,15 +17,11 @@
           <li><a href="/">Home</a></li>
           % if current_company || current_developer
             <li><a href="/dashboard">Dashboard</a></li>
-            % if current_company
-              <li><a href="/company_account">Company account</a></li>
-            % elsif current_developer
-              <li><a href="/developer_account">Developer account</a></li>
-            % end
+            <li><a href="/profile">My account</a></li>
             <li><a href="/logout">Logout</a></li>
           % else
             <li><a href="/github_oauth">GitHub login</a></li>
-            <li><a href="/company_login">Company login/signup</a></li>
+            <li><a href="/login">Company login/signup</a></li>
           % end
         </ul>
       </nav>

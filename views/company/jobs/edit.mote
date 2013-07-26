@@ -1,4 +1,4 @@
-<form action="/edit_post/{{ id }}" method="POST">
+<form action="/jobs/edit/{{ id }}" method="POST">
   <label for="title">Title:</label>
   <input type="text" name="post[title]" id="title" value="{{ Post[id].title }}"><br/>
 
