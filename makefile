@@ -7,4 +7,4 @@ console:
 	env $$(cat env.sh) irb -r ./app -r ./cli
 
 test:
-	env $$(cat env.sh) cutest test/*
+	env $$(cat env.sh) cutest test/**/*.rb
