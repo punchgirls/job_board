@@ -20,12 +20,14 @@ class Companies < Cuba
         on edit.valid? do
           params.delete("password_confirmation")
 
-          if current_company.email != edit.email &&
-            Company.with(:email, edit.email)
+          on current_company.email != edit.email &&
+            Company.with(:email, edit.email) do
             session[:error] = "E-mail is already registered"
             render("company/edit",
                   title: "Edit profile")
-          else
+          end
+
+          on default do
             current_company.update(params)
             session[:success] = "Your account was successfully updated!"
             res.redirect "/profile"
