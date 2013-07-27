@@ -23,8 +23,7 @@ class Companies < Cuba
           on current_company.email != edit.email &&
             Company.with(:email, edit.email) do
             session[:error] = "E-mail is already registered"
-            render("company/edit",
-                  title: "Edit profile")
+            render("company/edit", title: "Edit profile")
           end
 
           on default do
@@ -34,16 +33,14 @@ class Companies < Cuba
           end
         end
 
-        on edit.errors == { :password=>[:not_confirmed] } do
+        on edit.errors[:password] == [:not_confirmed] do
           session[:error] = "Passwords don't match"
-          render("company/edit",
-                title: "Edit profile")
+          render("company/edit", title: "Edit profile")
         end
 
         on default do
           session[:error] = "Name, E-mail and URL are required and must be valid"
-          render("company/edit",
-                title: "Edit profile")
+          render("company/edit", title: "Edit profile")
         end
       end
 
