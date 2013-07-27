@@ -17,29 +17,31 @@ class Companies < Cuba
           edit.password_confirmation = current_company.crypted_password
         end
 
-        if edit.valid?
+        on edit.valid? do
           params.delete("password_confirmation")
 
           if current_company.email != edit.email &&
             Company.with(:email, edit.email)
-              session[:error] = "E-mail is already registered"
-              render("company/edit",
-                title: "Edit profile")
-          else
-              current_company.update(params)
-              session[:success] = "Your account was successfully updated!"
-              res.redirect "/profile"
-          end
-        else
-          if edit.errors == { :password=>[:not_confirmed] }
-            session[:error] = "Passwords don't match"
+            session[:error] = "E-mail is already registered"
             render("company/edit",
-                title: "Edit profile")
+                  title: "Edit profile")
           else
-            session[:error] = "Name, E-mail and URL are required and must be valid"
-            render("company/edit",
-                title: "Edit profile")
+            current_company.update(params)
+            session[:success] = "Your account was successfully updated!"
+            res.redirect "/profile"
           end
+        end
+
+        on edit.errors == { :password=>[:not_confirmed] } do
+          session[:error] = "Passwords don't match"
+          render("company/edit",
+                title: "Edit profile")
+        end
+
+        on default do
+          session[:error] = "Name, E-mail and URL are required and must be valid"
+          render("company/edit",
+                title: "Edit profile")
         end
       end
 

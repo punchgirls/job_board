@@ -4,21 +4,25 @@ class Guests < Cuba
       on post, param("company") do |params|
         signup = CompanySignup.new(params)
 
-        if signup.valid?
+        on signup.valid? do
           params.delete("password_confirmation")
           company = Company.create(params)
           authenticate(company)
 
           session[:success] = "You have successfully signed up!"
           res.redirect "/dashboard"
-        elsif Company.with(:email, signup.email)
+        end
+
+        on signup.errors[:email] == [:not_unique] do
           session[:error] = "This e-mail is already registered"
           render("company/signup", title: "Sign up")
-        else
+        end
+
+        on default do
           session[:error] = "All fields are required and must be valid"
           render("company/signup", title: "Sign up")
         end
-      end
+    end
 
       on default do
         render("company/signup", title: "Sign up")
