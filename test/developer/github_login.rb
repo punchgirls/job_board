@@ -3,6 +3,11 @@ require_relative "../../app"
 
 prepare do
   Ohm.flush
+
+  Developer.create({ username: "punchgirls",
+          github_id: 123456,
+          name: "Punchies",
+          email: "punchgirls@mail.com" })
 end
 
 scope do
@@ -12,9 +17,11 @@ scope do
     assert_equal 302, last_response.status
   end
 
-  test "should receive temporary code from GitHub" do
-    post "/github_oauth", { code: "000000" }
+  test "should inform User of successful signup" do
+    post "/github_login/117263273765215762"
 
-    assert_equal 302, last_response.status
+    get "/dashboard"
+
+    assert last_response.body["You have successfully logged in."]
   end
 end
