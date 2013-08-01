@@ -1,4 +1,5 @@
 % posts = Post.all.ids
+% developer = Developer[this.session["Developer"]] unless nil
 
 <table>
   % posts.each do |id|
@@ -6,9 +7,9 @@
     <tr><td colspan="4">{{ Post[id].title }}</td></tr>
     <tr>
         <td>{{ Post[id].description }}</td>
-        % if Developer[this.session["Developer"]].applications.ids.include?(id)
+        % if developer && developer.applications.ids.include?(id)
             <td>APPLIED</td>
-        % elsif this.session["Developer"]
+        % elsif developer
             <td><a href="/apply/{{ id }}">APPLY</a></td>
         % else
             <td><a href="/github_oauth">APPLY</a></td>

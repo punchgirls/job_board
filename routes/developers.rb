@@ -1,5 +1,3 @@
-require "date"
-
 class Developers < Cuba
   define do
     on "dashboard" do
