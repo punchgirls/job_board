@@ -10,6 +10,13 @@ prepare do
           email: "punchgirls@mail.com" })
 end
 
+module GitHub
+  def self.fetch_user(access_token)
+    return {:github_id=>"123456", :username=>"punchgirls",
+      :name=>"Punchies", :email=>"punchgirls@gmail.com"}
+  end
+end
+
 scope do
   test "should redirect to GitHub login" do
     get "/github_oauth"
