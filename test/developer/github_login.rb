@@ -10,6 +10,8 @@ prepare do
           email: "punchgirls@mail.com" })
 end
 
+# Redefine fetch_user method to fake GitHub response
+
 module GitHub
   def self.fetch_user(access_token)
     return {:github_id=>"123456", :username=>"punchgirls",
