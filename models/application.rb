@@ -6,5 +6,5 @@ class Application < Ohm::Model
   reference :post, :Post
   reference :developer, :Developer
 
-  collection :developers, :Developers
+  collection :developers, :Developer
 end
