@@ -1,11 +1,20 @@
+require "date"
+
 class Developers < Cuba
   define do
     on "dashboard" do
       render("developer/dashboard", title: "Dashboard")
     end
 
-    on "apply" do
+    on "apply/:id" do |id|
+      params = { date: Time.new,
+        developer_id: Developer[session["Developer"]].id,
+        post_id: id }
 
+      application = Application.create(params)
+
+      session[:success] = "You have successfully applied for a job!"
+      res.redirect "/dashboard"
     end
 
     on "logout" do
