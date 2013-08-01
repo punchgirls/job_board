@@ -11,4 +11,8 @@ class Developer < Ohm::Model
   def self.fetch(identifier)
     with(:github_id, identifier)
   end
+
+  reference :post, :Post
+
+  collection :posts, :Post
 end

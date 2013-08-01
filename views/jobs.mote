@@ -6,7 +6,11 @@
     <tr><td colspan="4">{{ Post[id].title }}</td></tr>
     <tr>
         <td>{{ Post[id].description }}</td>
-        <td>APPLY</td>
+        % if this.session["Developer"]
+            <td><a href="/apply">APPLY</a></td>
+        % else
+            <td><a href="/github_oauth">APPLY</a></td>
+        % end
         <td>FAVORITE</td>
         <td>DELETE</td>
     </tr>

@@ -4,6 +4,10 @@ class Developers < Cuba
       render("developer/dashboard", title: "Dashboard")
     end
 
+    on "apply" do
+
+    end
+
     on "logout" do
       logout(Developer)
       session[:success] = "You have successfully logged out!"
