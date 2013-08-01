@@ -12,7 +12,5 @@ class Developer < Ohm::Model
     with(:github_id, identifier)
   end
 
-  reference :post, :Post
-
-  collection :posts, :Post
+  collection :applications, :Application
 end

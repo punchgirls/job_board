@@ -5,7 +5,6 @@ class Post < Ohm::Model
   attribute :description
 
   reference :company, :Company
-  reference :developer, :Developer
 
-  collection :developers, :Developer
+  collection :applications, :Application
 end
