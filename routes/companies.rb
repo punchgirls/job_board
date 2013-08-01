@@ -96,6 +96,10 @@ class Companies < Cuba
       end
     end
 
+    on "jobs/applicants/:id" do |id|
+      render("company/jobs/applicants", title: "Applicants", id: id)
+    end
+
     on "jobs" do
       render("jobs", title: "Jobs")
     end

@@ -1,0 +1,18 @@
+% application_ids = Post[id].applications.ids
+
+<table>
+  % application_ids.each do |id|
+    % developer_id = Application[id].developer_id
+
+    <tr><td colspan="4">Applied on: {{ Application[id].date }}</td></tr>
+    <tr><td colspan="4">Name: {{ Developer[id].name }}</td></tr>
+    <tr><td colspan="4">Username: {{ Developer[id].username }}</td></tr>
+    <tr><td colspan="4"><a href="http://www.github.com/{{ Developer[id].username }}" target="_blank">GitHub account</a></td></tr>
+    <tr>
+        <td>{{ Developer[id].email }}</td>
+        <td>CONTACT</td>
+        <td>FAVORITE</td>
+        <td>DELETE</td>
+    </tr>
+  % end
+</table>
