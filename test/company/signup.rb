@@ -35,13 +35,13 @@ scope do
           password: "1234",
           password_confirmation: "1234" }}
 
-    get "/dashboard"
+    follow_redirect!
 
     assert last_response.body["You have successfully signed up!"]
 
     get "/logout"
 
-    get "/"
+    follow_redirect!
 
     assert last_response.body["You have successfully logged out!"]
   end

@@ -28,7 +28,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    get "/dashboard"
+    follow_redirect!
 
     assert last_response.body["You have successfully logged in!"]
   end

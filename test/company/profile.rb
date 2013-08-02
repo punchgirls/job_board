@@ -12,8 +12,6 @@ end
 
 scope do
   test "should display company profile" do
-    get "/login"
-
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 

@@ -32,11 +32,9 @@ scope do
   test "should inform User of successful application" do
     post "/github_login/117263273765215762"
 
-    get "/dashboard"
+    post "/apply/1"
 
-    get "/apply/1"
-
-    get "/dashboard"
+    follow_redirect!
 
     assert last_response.body["You have successfully applied for a job!"]
   end

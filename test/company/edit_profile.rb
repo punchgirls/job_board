@@ -20,12 +20,6 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    get "/profile"
-
-    get "/edit/1"
-
-    assert_equal 200, last_response.status
-
     post "/edit/1", { company: {
           name: "My Company",
           email: "punchgirls@mail.com",
@@ -33,7 +27,7 @@ scope do
           password: "",
           password_confirmation: "" }}
 
-    get "/profile"
+    follow_redirect!
 
     assert last_response.body["My Company"]
 
@@ -43,8 +37,6 @@ scope do
   test "should inform User in case of incomplete or invalid fields" do
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
-
-    get "/profile"
 
     post "/edit/1", { company: {
           name: "",
@@ -60,8 +52,6 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    get "/profile"
-
     post "/edit/1", { company: {
           name: "Punchgirls",
           email: "punchgirls@mail.com",
@@ -75,8 +65,6 @@ scope do
   test "should inform User in case of e-mail already registered" do
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
-
-    get "/profile"
 
     post "/edit/1", { company: {
           name: "Punchgirls",

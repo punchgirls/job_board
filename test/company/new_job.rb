@@ -15,8 +15,6 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    get "/jobs/new"
-
     post "/jobs/new", { post: {  title: "",
           description: "Ruby oracle needed!" }}
 
@@ -30,7 +28,7 @@ scope do
     post "/jobs/new", { post: {  title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
-    get "/dashboard"
+    follow_redirect!
 
     assert last_response.body["You have successfully posted a job offer!"]
   end
@@ -42,7 +40,7 @@ scope do
     post "/jobs/new", { post: {  title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
-    get "/dashboard"
+    follow_redirect!
 
     assert last_response.body['<td colspan="3" id="post-title">']
   end
@@ -54,11 +52,9 @@ scope do
     post "/jobs/new", { post: {  title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
-    get "/dashboard"
+    post "/jobs/remove/1"
 
-    get "/jobs/remove/1"
-
-    get "/dashboard"
+    follow_redirect!
 
     assert last_response.body["Post successfully removed!"]
   end
@@ -70,14 +66,10 @@ scope do
     post "/jobs/new", { post: {  title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
-    get "/dashboard"
-
-    get "/jobs/edit/1"
-
     post "/jobs/edit/1", { post: {  title: "Ruby master",
           description: "Ruby oracle needed!" }}
 
-    get "/dashboard"
+    follow_redirect!
 
     assert last_response.body["Post successfully edited!"]
 

@@ -29,7 +29,7 @@ scope do
   test "should inform User of successful signup" do
     post "/github_login/117263273765215762"
 
-    get "/dashboard"
+    follow_redirect!
 
     assert last_response.body["You have successfully logged in."]
   end
