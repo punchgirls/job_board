@@ -22,7 +22,7 @@ class Guests < Cuba
           session[:error] = "All fields are required and must be valid"
           render("company/signup", title: "Sign up")
         end
-    end
+      end
 
       on default do
         render("company/signup", title: "Sign up")
@@ -75,17 +75,41 @@ class Guests < Cuba
 
       developer = Developer.fetch(github_user["id"])
 
-      if developer.nil?
-        developer = Developer.create(github_id: github_user["id"],
-                          username: github_user["login"],
-                          name: github_user["name"],
-                          email: github_user["email"])
+      on developer.nil? do
+        render("confirm", title: "Confirm your user details", github_user: github_user)
       end
 
       authenticate(developer)
 
       session[:success] = "You have successfully logged in."
       res.redirect "/dashboard"
+    end
+
+    on "confirm" do
+      on post, param("developer") do |params|
+        login = DeveloperLogin.new(params)
+
+        on login.valid? do
+          developer = Developer.create(github_id: params["id"],
+            username: params["login"],
+            name: params["name"],
+            email: params["email"])
+
+          authenticate(developer)
+
+          session[:success] = "You have successfully logged in!"
+          res.redirect "/dashboard"
+        end
+
+        on default do
+          session[:error] = "All fields are required and must be valid"
+          render("confirm", title: "Confirm your user details", github_user: params)
+        end
+      end
+
+      on default do
+        render("confirm", title: "Confirm your user details")
+      end
     end
 
     on default do
