@@ -19,6 +19,18 @@ class Developers < Cuba
       render("developer/profile", title: "Profile")
     end
 
+    on "edit" do
+      on post, param("developer") do |params|
+        current_developer.update(params)
+            session[:success] = "Your account was successfully updated!"
+            res.redirect "/profile"
+      end
+
+      on default do
+        render("developer/edit", title: "Edit profile")
+      end
+    end
+
     on "logout" do
       logout(Developer)
       session[:success] = "You have successfully logged out!"

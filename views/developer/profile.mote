@@ -5,3 +5,5 @@
 <p>Name: {{ developer.name }}</p>
 <p>Username: {{ developer.username }}</p>
 <p>E-mail: {{ developer.email }}</p>
+
+<p><a href="/edit">Edit</a></p>
