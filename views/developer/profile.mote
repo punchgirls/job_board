@@ -1,0 +1,7 @@
+<h2>Account info</h2>
+
+% developer = Developer[this.session["Developer"]]
+
+<p>Name: {{ developer.name }}</p>
+<p>Username: {{ developer.username }}</p>
+<p>E-mail: {{ developer.email }}</p>

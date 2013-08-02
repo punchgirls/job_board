@@ -15,6 +15,10 @@ class Developers < Cuba
       res.redirect "/dashboard"
     end
 
+    on "profile" do
+      render("developer/profile", title: "Profile")
+    end
+
     on "logout" do
       logout(Developer)
       session[:success] = "You have successfully logged out!"
