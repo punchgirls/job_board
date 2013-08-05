@@ -22,10 +22,10 @@ end
 # Redefine fetch_user method to fake GitHub response
 
 module GitHub
-  def self.fetch_user(access_token)
-    return { :github_id=>"123456", :username=>"johndoe",
-      :name=>"John Doe", :email=>"johndoe@gmail.com" }
-  end
+ def self.fetch_user(access_token)
+   return { "id"=>"123456", :username=>"johndoe",
+     :name=>"John Doe", :email=>"johndoe@gmail.com" }
+ end
 end
 
 scope do

@@ -73,7 +73,7 @@ class Guests < Cuba
     on "github_login/:access_token" do |access_token|
       github_user = GitHub.fetch_user(access_token)
 
-      developer = Developer.fetch(github_user[:github_id])
+      developer = Developer.fetch(github_user["id"])
 
       on developer.nil? do
         render("confirm", title: "Confirm your user details", github_user: github_user)
