@@ -102,13 +102,30 @@ class Companies < Cuba
 
     on "jobs/contact/:id" do |id|
       on post, param("message") do |params|
-        Malone.deliver(to: Developer[id].email,
-          cc:Company[session["Company"]].email,
-          subject: params["subject"], text: params["body"])
+        mail = Contact.new(params)
 
-        session[:success] = "You just sent an e-mail to the applicant!"
+        if mail.valid?
+          company = Company[session["Company"]]
 
-        res.redirect "/dashboard"
+          Malone.deliver(to: Developer[id].email,
+            cc: company.email,
+            subject: params["subject"],
+            html: "<p>" + params["body"] +
+            "</p>" + "<a href='mailto:" +
+            company.email + "?subject=RE:" +
+            params["subject"] +
+            "&body=" +
+            params["body"] +
+            "'>Reply to company</a>")
+
+          session[:success] = "You just sent an e-mail to the applicant!"
+
+          res.redirect "/dashboard"
+        else
+          session[:error] = "All fields are required"
+          render("company/jobs/contact", title: "Contact developer", id: id)
+        end
+
       end
 
       on default do
