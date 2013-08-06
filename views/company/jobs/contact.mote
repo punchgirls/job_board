@@ -1,12 +1,12 @@
-<p>The following message will be sent to the applicants e-mail.</p>
+<p>The following message will be sent as an e-mail to {{ Developer[id].name }}, with a copy to your registered company e-mail address:</p>
 
 <form action="/jobs/contact/{{ id }}" method="POST">
 
   <label for="subject">Subject:</label>
-  <input type="text" name="" id="subject"><br/>
+  <input type="text" name="message[subject]" id="subject"><br/>
 
   <label for="message">Message:</label>
-  <textarea name="" id="message"></textarea><br/>
+  <textarea name="message[body]" id="message"></textarea><br/>
 
-  <button type="submit">Save</button>
+  <button type="submit">Send</button>
 </form>

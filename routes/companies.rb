@@ -101,6 +101,16 @@ class Companies < Cuba
     end
 
     on "jobs/contact/:id" do |id|
+      on post, param("message") do |params|
+        Malone.deliver(to: Developer[id].email,
+          cc:Company[session["Company"]].email,
+          subject: params["subject"], text: params["body"])
+
+        session[:success] = "You just sent an e-mail to the applicant!"
+
+        res.redirect "/dashboard"
+      end
+
       on default do
         render("company/jobs/contact", title: "Contact developer", id: id)
       end

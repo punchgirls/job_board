@@ -6,3 +6,4 @@ ohm -v 1.3.2
 shield -v 2.0.0
 rack-test -v 0.6.2
 requests -v 0.0.6
+malone -v 1.0.4

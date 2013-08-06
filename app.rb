@@ -5,6 +5,7 @@ require "rack/protection"
 require "ohm"
 require "shield"
 require "requests"
+require "malone"
 
 APP_SECRET = ENV.fetch("APP_SECRET")
 REDIS_URL = ENV.fetch("REDIS_URL")
@@ -19,6 +20,7 @@ Cuba.plugin Cuba::TextHelpers
 Cuba.plugin Shield::Helpers
 
 Ohm.connect(url: REDIS_URL)
+Malone.connect
 
 Dir["./models/**/*.rb"].each  { |rb| require rb }
 Dir["./routes/**/*.rb"].each  { |rb| require rb }
