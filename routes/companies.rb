@@ -100,6 +100,12 @@ class Companies < Cuba
       render("company/jobs/applicants", title: "Applicants", id: id)
     end
 
+    on "jobs/contact/:id" do |id|
+      on default do
+        render("company/jobs/contact", title: "Contact developer", id: id)
+      end
+    end
+
     on "jobs" do
       render("jobs", title: "Jobs")
     end

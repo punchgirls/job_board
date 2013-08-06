@@ -10,7 +10,7 @@
     <tr><td colspan="4"><a href="http://www.github.com/{{ Developer[id].username }}" target="_blank">GitHub account</a></td></tr>
     <tr>
         <td>{{ Developer[id].email }}</td>
-        <td>CONTACT</td>
+        <td><a href="/jobs/contact/{{ developer_id }}">CONTACT</a></td>
         <td>FAVORITE</td>
         <td>DELETE</td>
     </tr>
