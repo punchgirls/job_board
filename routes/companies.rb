@@ -114,7 +114,7 @@ class Companies < Cuba
             "</p>" + "<a href='mailto:" +
             company.email + "?subject=RE:" +
             params["subject"] +
-            "&body=" +
+            "&body=" + "From company\n" +
             params["body"] +
             "'>Reply to company</a>")
 
