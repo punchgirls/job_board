@@ -6,7 +6,7 @@ class Developers < Cuba
 
     on "apply/:id" do |id|
       params = { date: Time.new,
-        developer_id: Developer[session["Developer"]].id,
+        developer_id: current_developer.id,
         post_id: id }
 
       application = Application.create(params)

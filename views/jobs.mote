@@ -1,5 +1,5 @@
 % posts = Post.all.ids
-% developer = Developer[this.session["Developer"]] unless nil
+% developer = this.current_developer unless nil
 
 <table>
   % posts.each do |id|

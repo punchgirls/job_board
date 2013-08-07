@@ -54,7 +54,7 @@ class Companies < Cuba
         job = PostJobOffer.new(params)
 
         if job.valid?
-          params[:company_id] = Company[session["Company"]].id
+          params[:company_id] = current_company.id
           post = Post.create(params)
 
           session[:success] = "You have successfully posted a job offer!"
@@ -105,16 +105,16 @@ class Companies < Cuba
         mail = Contact.new(params)
 
         if mail.valid?
-          company = Company[session["Company"]]
+          company = current_company
 
           Malone.deliver(to: Developer[id].email,
             cc: company.email,
             subject: params["subject"],
             html: "<p>" + params["body"] +
             "</p>" + "<a href='mailto:" +
-            company.email + "?subject=RE:" +
+            company.email + "?subject=RE: " +
             params["subject"] +
-            "&body=" + "From company\n" +
+            "&body=" + "From " + company.name + ":\n" +
             params["body"] +
             "'>Reply to company</a>")
 

@@ -2,7 +2,7 @@
 
 <p><a href="/jobs/new">Post job offer</a></p>
 
-% id = this.session["Company"]
+% id = this.current_company.id
 
 % posts_ids = Company[id].posts.ids
 

@@ -1,6 +1,6 @@
 <h2>Account info</h2>
 
-% company = Company[this.session["Company"]]
+% company = this.current_company
 
 <p>{{ company.name }}</p>
 <p>{{ company.email }}</p>
