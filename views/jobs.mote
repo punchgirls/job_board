@@ -1,6 +1,8 @@
 % posts = Post.all.ids
 % developer = this.current_developer unless nil
 
+<h2>Search job posts and apply with a single click!</h2>
+
 <table>
   % posts.each do |id|
     <tr><td colspan="4">{{ Company[Post[id].company_id].name }}</td></tr>
