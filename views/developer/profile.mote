@@ -12,6 +12,6 @@
   <input type="text" name="developer[email]" id="developer-email"
   value="{{ this.current_user.email }}"><br/>
 
-  <button type="submit" onclick="/dashboard">Cancel</button>
   <button type="submit">Save</button>
+  <a href="/dashboard">Cancel</a>
 </form>

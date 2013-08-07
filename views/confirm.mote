@@ -1,4 +1,4 @@
-<p>Almost there! Confirm your details to start applying for jobs!</p>
+<h2>Almost there! Confirm your details to start applying for jobs!</h2>
 <form action="/confirm" method="POST">
   <label for="company-name">Name:</label>
   <input type="text" name="developer[name]" id="developer-name" value="{{ github_user['name'] }}"><br/>

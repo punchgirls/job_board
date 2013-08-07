@@ -1,3 +1,5 @@
+<h2>List of applicants</h2>
+
 % application_ids = Post[id].applications.ids
 
 <table>
