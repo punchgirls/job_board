@@ -30,6 +30,7 @@ Dir["./lib/**/*.rb"].each { |rb| require rb }
 
 Cuba.plugin CompanyHelpers
 Cuba.plugin DeveloperHelpers
+Cuba.plugin UserHelpers
 
 Cuba.use Rack::MethodOverride
 Cuba.use Rack::Session::Cookie,
@@ -47,7 +48,7 @@ Cuba.define do
   persist_session!
 
   on root do
-    render("home", title: "Home", current_company: current_company)
+    render("home", title: "Home")
   end
 
   on authenticated(Company) do

@@ -11,9 +11,9 @@
       <h1>Job Board</h1>
         <ul>
           <li><a href="/">Home</a></li>
-          % if current_company || current_developer
+          % if current_user
             <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/profile">My account</a></li>
+            <li><a href="/profile">{{ this.current_user.name }}</a></li>
             <li><a href="/logout">Logout</a></li>
           % else
             <li><a href="/github_oauth">GitHub login</a></li>

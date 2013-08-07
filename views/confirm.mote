@@ -1,3 +1,4 @@
+<p>Almost there! Confirm your details to start applying for jobs!</p>
 <form action="/confirm" method="POST">
   <label for="company-name">Name:</label>
   <input type="text" name="developer[name]" id="developer-name" value="{{ github_user['name'] }}"><br/>
@@ -7,7 +8,7 @@
   <input type="hidden" name="developer[id]" value="{{ github_user['id'] }}">
 
   <label for="developer-email">E-mail:</label>
-  <input type="text" name="developer[email]" id="developer-email" value="{{ github_user['email'] }}"><br/>
+  <input type="text" name="developer[email]" id="developer-email" value="{{ github_user['email'] }}"><br/><br/>
 
-  <button type="submit">Confirm</button>
+  <button type="submit">Confirm</button><br/>
 </form>
