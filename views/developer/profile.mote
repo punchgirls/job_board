@@ -1,9 +1,15 @@
-<h2>Account info</h2>
+<h2>Edit your profile</h2>
 
-% developer = Developer[this.session["Developer"]]
+<form action="/profile" method="POST">
+  <label for="company-name">Name:</label>
+  <input type="text" name="developer[name]" id="developer-name" value="{{ this.current_user.name }}"><br/>
 
-<p>Name: {{ developer.name }}</p>
-<p>Username: {{ developer.username }}</p>
-<p>E-mail: {{ developer.email }}</p>
+  <label for="developer-username">Username:</label>
+  <input disabled type="text" name="developer[username]" id="developer-username" value="{{ this.current_user.username }}"><br/>
 
-<p><a href="/edit">Edit</a></p>
+  <label for="developer-email">E-mail:</label>
+  <input type="text" name="developer[email]" id="developer-email" value="{{ this.current_user.email }}"><br/>
+
+  <button type="submit" onclick="/dashboard">Cancel</button>
+  <button type="submit">Save</button>
+</form>

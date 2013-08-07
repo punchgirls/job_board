@@ -16,27 +16,23 @@ class Developers < Cuba
     end
 
     on "profile" do
-      render("developer/profile", title: "Profile")
-    end
-
-    on "edit" do
       on post, param("developer") do |params|
         login = DeveloperLogin.new(params)
 
         on login.valid? do
           current_developer.update(params)
           session[:success] = "Your account was successfully updated!"
-          res.redirect "/profile"
+          res.redirect "/dashboard"
         end
 
         on default do
           session[:error] = "All fields are required and must be valid"
-          render("developer/edit", title: "Edit your user details")
+          render("developer/profile", title: "Edit profile")
         end
       end
 
       on default do
-        render("developer/edit", title: "Edit your user details")
+        render("developer/profile", title: "Edit profile")
       end
     end
 
