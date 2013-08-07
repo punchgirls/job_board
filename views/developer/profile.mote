@@ -2,13 +2,15 @@
 
 <form action="/profile" method="POST">
   <label for="company-name">Name:</label>
-  <input type="text" name="developer[name]" id="developer-name" value="{{ this.current_user.name }}"><br/>
+  <input type="text" name="developer[name]" id="developer-name"
+  value="{{ this.current_user.name }}"><br/>
 
   <label for="developer-username">Username:</label>
   <input disabled type="text" name="developer[username]" id="developer-username" value="{{ this.current_user.username }}"><br/>
 
   <label for="developer-email">E-mail:</label>
-  <input type="text" name="developer[email]" id="developer-email" value="{{ this.current_user.email }}"><br/>
+  <input type="text" name="developer[email]" id="developer-email"
+  value="{{ this.current_user.email }}"><br/>
 
   <button type="submit" onclick="/dashboard">Cancel</button>
   <button type="submit">Save</button>

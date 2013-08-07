@@ -1,3 +1,5 @@
+<h2>Already registered? Log in here!</h2>
+
 <form action="/login" method="POST">
   <label for="company-email">Email</label>
   <input type="text" name="email" id="company-email"><br/>
@@ -10,4 +12,6 @@
 
 <hr/>
 
-<p><a href="/signup">Sign up</a></p>
+<h3>Need an account?</h3>
+
+<p><a href="/signup">Sign up!</a></p>

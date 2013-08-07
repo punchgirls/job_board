@@ -1,3 +1,5 @@
+<h2>Sign up now to start posting jobs!</h2>
+
 <form action="/signup" method="POST">
   <label for="company-name">Company name:</label>
   <input type="text" name="company[name]" id="company-name"><br/>
