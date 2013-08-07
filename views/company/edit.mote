@@ -1,5 +1,3 @@
-<h2>Edit your profile</h2>
-
 <form action="/edit" method="POST">
 
 % company = this.current_company
@@ -22,5 +20,4 @@
   <input type="password" name="company[password_confirmation]" id="password-confirmation"><br/>
 
   <button type="submit">Save</button>
-  <a href="/dashboard">Cancel</a>
 </form>

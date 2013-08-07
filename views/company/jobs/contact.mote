@@ -1,5 +1,3 @@
-<h2>Contact developer</h2>
-
 <p>The following message will be sent as an e-mail to {{ Developer[id].name }}, with a copy to your registered company e-mail address:</p>
 
 <form action="/jobs/contact/{{ id }}" method="POST">

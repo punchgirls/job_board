@@ -1,9 +1,11 @@
-% id = this.current_company.id
-% posts_ids = Company[id].posts.ids
-
-<h2>Active job posts</h2>
+<p>Welcome to your company dashboard!</p>
 
 <p><a href="/jobs/new">Post job offer</a></p>
+
+% id = this.current_company.id
+
+% posts_ids = Company[id].posts.ids
+
 
 <table>
   % posts_ids.each do |id|
