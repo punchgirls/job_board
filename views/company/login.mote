@@ -1,11 +1,30 @@
-<form action="/login" method="POST">
-  <label for="company-email">Company e-mail:</label>
-  <input type="text" name="email" id="company-email"><br/>
-
-  <label for="password">Password:</label>
-  <input type="password" name="password" id="password"><br/>
-
-  <button type="submit">Login</button>
+<form class="form-horizontal" action="/login" method="POST">
+  <div class="form-group">
+    <label for="company-email" class="col-lg-2 control-label">Email</label>
+    <div class="col-lg-4">
+      <input type="text" class="form-control" name="email" id="company-email" placeholder="Email"><br/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="col-lg-2 control-label">Password</label>
+    <div class="col-lg-4">
+      <input type="password" class="form-control" name="password" id="password" placeholder="Password"><br/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <button type="submit" class="btn btn-default">Login</button>
+    </div>
+  </div>
 </form>
 
 <hr/>

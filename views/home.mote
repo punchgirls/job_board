@@ -1,9 +1,42 @@
-<p>Welcome!</p>
+<h2>How it works</h2>
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget tortor et ligula molestie mollis. Nam at ante et tortor elementum lobortis ut quis velit.
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <p>
+      <img src="http://placehold.it/550x250" class="img-rounded">
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-10 col-lg-offset-1">
+    <p>
+      Nulla ultrices sed nibh sed egestas. Nunc ultricies ac diam eget accumsan. Praesent et bibendum nulla. Integer vitae condimentum quam, vitae faucibus justo. Cras egestas auctor dolor sit amet faucibus.
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <p>
+      <img src="http://placehold.it/550x250" class="img-rounded">
+    </p>
+  </div>
+</div>
 
-% if current_company
-  <p><a href="/jobs/new">Post job offer</a></p>
-% else
-  <p><a href="/login">Post job offer</a></p>
-% end
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-3">
+    % if current_company
+      <a href="/jobs/new">Post job offer</a>
+    % else
+      <a class="btn btn-primary btn-lg" href="/login">Post job</a>
+    % end
+    <a class="btn btn-primary btn-lg col-lg-offset-5" href="/jobs">Search jobs</a>
+  </div>
+</div>
 
-<p><a href="/jobs">Search for jobs</a></p>
+

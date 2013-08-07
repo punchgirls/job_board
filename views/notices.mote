@@ -1,7 +1,13 @@
 % if session[:success]
-  <p>{{ session.delete(:success) }}</p>
+  <div class="alert alert-success container">
+    {{ session.delete(:success) }}
+  </div>
 % end
 
 % if session[:error]
-  <p>{{ session.delete(:error) }}</p>
+  <div class="alert alert-danger container">
+    {{ session.delete(:error) }}
+  </div>
 % end
+
+
