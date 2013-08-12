@@ -15,17 +15,17 @@ class Guests < Cuba
 
         on signup.errors[:email] == [:not_unique] do
           session[:error] = "This e-mail is already registered"
-          render("company/signup", title: "Sign up")
+          render("company/signup", title: "Sign up", company: params)
         end
 
         on default do
           session[:error] = "All fields are required and must be valid"
-          render("company/signup", title: "Sign up")
+          render("company/signup", title: "Sign up", company: params)
         end
       end
 
       on default do
-        render("company/signup", title: "Sign up")
+        render("company/signup", title: "Sign up", company: {})
       end
     end
 
