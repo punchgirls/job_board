@@ -119,17 +119,18 @@ class Companies < Cuba
             "'>Reply to company</a>")
 
           session[:success] = "You just sent an e-mail to the applicant!"
-
           res.redirect "/dashboard"
         else
           session[:error] = "All fields are required"
-          render("company/jobs/contact", title: "Contact developer", id: id)
+          render("company/jobs/contact", title: "Contact developer",
+            id: id, message: params)
         end
 
       end
 
       on default do
-        render("company/jobs/contact", title: "Contact developer", id: id)
+        render("company/jobs/contact", title: "Contact developer",
+          id: id, message: {})
       end
     end
 

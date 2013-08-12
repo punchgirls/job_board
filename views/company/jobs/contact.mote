@@ -5,10 +5,10 @@
 <form action="/jobs/contact/{{ id }}" method="POST">
 
   <label for="subject">Subject:</label>
-  <input type="text" name="message[subject]" id="subject"><br/>
+  <input type="text" name="message[subject]" id="subject" value="{{ message['subject'] }}"><br/>
 
   <label for="message">Message:</label>
-  <textarea name="message[body]" id="message"></textarea><br/>
+  <textarea name="message[body]" id="message">{{ message['body'] }}</textarea><br/>
 
   <button type="submit">Send</button>
 </form>
