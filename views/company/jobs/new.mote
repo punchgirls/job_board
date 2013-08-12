@@ -2,10 +2,10 @@
 
 <form action="/jobs/new" method="POST">
   <label for="title">Title:</label>
-  <input type="text" name="post[title]" id="title"><br/>
+  <input type="text" name="post[title]" id="title" value="{{ post['title'] }}"><br/>
 
   <label for="description">Description</label>
-  <textarea name="post[description]" id="description"></textarea><br/>
+  <textarea name="post[description]" id="description">{{ post['description'] }}</textarea><br/>
 
 
   <button type="submit">Post</button>
