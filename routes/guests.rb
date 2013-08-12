@@ -82,7 +82,8 @@ class Guests < Cuba
       developer = Developer.fetch(github_user["id"])
 
       on developer.nil? do
-        render("confirm", title: "Confirm your user details", github_user: github_user)
+        render("confirm", title: "Confirm your user details",
+          github_user: github_user)
       end
 
       authenticate(developer)
@@ -109,7 +110,8 @@ class Guests < Cuba
 
         on default do
           session[:error] = "All fields are required and must be valid"
-          render("confirm", title: "Confirm your user details", github_user: params)
+          render("confirm", title: "Confirm your user details",
+            github_user: params)
         end
       end
 
