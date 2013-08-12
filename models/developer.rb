@@ -12,5 +12,10 @@ class Developer < Ohm::Model
     with(:github_id, identifier)
   end
 
+  def applied?(post_id)
+    return Application.find(:post_id => post_id,
+      :developer_id => self.id).any?
+  end
+
   collection :applications, :Application
 end
