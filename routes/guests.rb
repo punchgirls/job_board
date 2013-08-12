@@ -36,12 +36,12 @@ class Guests < Cuba
           res.redirect "/dashboard"
         else
           session[:error] = "Invalid email and/or password combination"
-          render("company/login", title: "Login")
+          render("company/login", title: "Login", user: user)
         end
       end
 
       on default do
-        render("company/login", title: "Login")
+        render("company/login", title: "Login", user: "")
       end
     end
 
