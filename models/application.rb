@@ -5,6 +5,4 @@ class Application < Ohm::Model
 
   reference :post, :Post
   reference :developer, :Developer
-
-  collection :developers, :Developer
 end

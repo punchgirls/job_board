@@ -1,18 +1,17 @@
-% posts = Post.all.ids
-% developer = this.current_developer unless nil
+% developer = this.current_developer
 
 <h2>Search job posts and apply with a single click!</h2>
 
 <table>
-  % posts.each do |id|
-    <tr><td colspan="4">{{ Company[Post[id].company_id].name }}</td></tr>
-    <tr><td colspan="4">{{ Post[id].title }}</td></tr>
+  % Post.all.each do |job|
+    <tr><td colspan="4">{{ Company[job.company_id].name }}</td></tr>
+    <tr><td colspan="4">{{ job.title }}</td></tr>
     <tr>
-        <td>{{ Post[id].description }}</td>
-        % if developer && developer.applications.ids.include?(id)
+        <td>{{ job.description }}</td>
+        % if developer && developer.applications.ids.include?(job)
             <td>APPLIED</td>
         % elsif developer
-            <td><a href="/apply/{{ id }}">APPLY</a></td>
+            <td><a href="/apply/{{ job }}">APPLY</a></td>
         % else
             <td><a href="/github_oauth">APPLY</a></td>
         % end
