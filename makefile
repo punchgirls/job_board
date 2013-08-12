@@ -8,3 +8,7 @@ console:
 
 test:
 	env $$(cat env.sh) cutest test/**/*.rb
+
+push:
+	git push
+	git push heroku master
