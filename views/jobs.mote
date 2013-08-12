@@ -10,10 +10,8 @@
         <td>{{ job.description }}</td>
         % if developer && developer.applied?(job.id)
             <td>APPLIED</td>
-        % elsif developer
-            <td><a href="/apply/{{ job.id }}">APPLY</a></td>
         % else
-            <td><a href="/github_oauth">APPLY</a></td>
+            <td><a href="/apply/{{ job.id }}">APPLY</a></td>
         % end
         <td>FAVORITE</td>
         <td>DELETE</td>

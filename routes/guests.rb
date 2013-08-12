@@ -51,6 +51,12 @@ class Guests < Cuba
       end
     end
 
+    on "apply/:id" do |id|
+      session[:post_id] = id
+
+      res.redirect "/github_oauth"
+    end
+
     on "github_oauth" do
       on param("code") do |code|
         access_token = GitHub.fetch_access_token(code)

@@ -1,7 +1,16 @@
 class Developers < Cuba
   define do
     on "dashboard" do
-      render("developer/dashboard", title: "Dashboard")
+      id = session[:post_id]
+
+      if id
+        session.delete(:post_id)
+        res.redirect "/apply/#{id}"
+      end
+
+      on default do
+        render("developer/dashboard", title: "Dashboard")
+      end
     end
 
     on "apply/:id" do |id|
@@ -22,6 +31,7 @@ class Developers < Cuba
 
         on login.valid? do
           current_developer.update(params)
+
           session[:success] = "Your account was successfully updated!"
           res.redirect "/dashboard"
         end
@@ -39,6 +49,7 @@ class Developers < Cuba
 
     on "logout" do
       logout(Developer)
+
       session[:success] = "You have successfully logged out!"
       res.redirect "/"
     end
