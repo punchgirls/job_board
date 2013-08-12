@@ -8,7 +8,7 @@
     <tr><td colspan="4">{{ job.title }}</td></tr>
     <tr>
         <td>{{ job.description }}</td>
-        % if developer.applied?(job.id)
+        % if developer && developer.applied?(job.id)
             <td>APPLIED</td>
         % elsif developer
             <td><a href="/apply/{{ job.id }}">APPLY</a></td>
