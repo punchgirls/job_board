@@ -53,13 +53,25 @@ class Companies < Cuba
       on post, param("post") do |params|
         job = PostJobOffer.new(params)
 
-        if job.valid?
+        on job.valid? do
           params[:company_id] = current_company.id
           post = Post.create(params)
 
           session[:success] = "You have successfully posted a job offer!"
           res.redirect "/dashboard"
-        else
+        end
+
+        on job.errors[:title] == [:not_in_range] do
+          session[:error] = "Title should not exceed 80 characters"
+          render("company/jobs/new", title: "Post job offer", post: params)
+        end
+
+        on job.errors[:description] == [:not_in_range] do
+          session[:error] = "Description should not exceed 300 characters"
+          render("company/jobs/new", title: "Post job offer", post: params)
+        end
+
+        on default do
           session[:error] = "All fields are required"
           render("company/jobs/new", title: "Post job offer", post: params)
         end

@@ -4,9 +4,12 @@
   <label for="title">Title:</label>
   <input type="text" name="post[title]" id="title" value="{{ post['title'] }}"><br/>
 
-  <label for="description">Description</label>
-  <textarea name="post[description]" id="description">{{ post['description'] }}</textarea><br/>
+  <label for="description">Description</label><br/>
+  <textarea id="description" name="post[description]" id="description">{{ post['description'] }}</textarea><br/>
+  <span id="countdown"></span><br/>
 
 
   <button type="submit">Post</button>
 </form>
+
+<script src="../js/limit_description.js"></script>
