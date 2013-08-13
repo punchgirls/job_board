@@ -14,6 +14,10 @@ class Post < Ohm::Model
     return (expiration_date.to_i - Time.new.to_i) / (24 * 60 * 60)
   end
 
+  def expired?
+    return (expiration_date.to_i - Time.now.to_i) <= 0
+  end
+
   reference :company, :Company
 
   collection :applications, :Application

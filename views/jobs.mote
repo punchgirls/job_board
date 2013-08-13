@@ -4,25 +4,27 @@
 
 <table>
   % Post.all.each do |job|
-    <tr>
-        <td colspan="4">Posted on {{ job.posted }}</td>
-        <td colspan="4">{{ job.expires }} days left to apply</td>
-    </tr>
-    <tr>
-        <td colspan="4">{{ Company[job.company_id].name }}</td>
-    </tr>
-    <tr>
-        <td colspan="4">{{ job.title }}</td>
-    </tr>
-    <tr>
-        <td>{{ job.description }}</td>
-        % if developer && developer.applied?(job.id)
-            <td>APPLIED</td>
-        % else
-            <td><a href="/apply/{{ job.id }}">APPLY</a></td>
-        % end
-        <td>FAVORITE</td>
-        <td>DELETE</td>
-    </tr>
+    % if !job.expired?
+        <tr>
+            <td colspan="4">Posted on {{ job.posted }}</td>
+            <td colspan="4">{{ job.expires }} days left to apply</td>
+        </tr>
+        <tr>
+            <td colspan="4">{{ Company[job.company_id].name }}</td>
+        </tr>
+        <tr>
+            <td colspan="4">{{ job.title }}</td>
+        </tr>
+        <tr>
+            <td>{{ job.description }}</td>
+            % if developer && developer.applied?(job.id)
+                <td>APPLIED</td>
+            % else
+                <td><a href="/apply/{{ job.id }}">APPLY</a></td>
+            % end
+            <td>FAVORITE</td>
+            <td>DELETE</td>
+        </tr>
+    % end
   % end
 </table>
