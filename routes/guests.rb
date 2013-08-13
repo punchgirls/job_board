@@ -2,6 +2,10 @@ class Guests < Cuba
   define do
     on "signup" do
       on post, param("company") do |params|
+        if !params["url"].start_with?("http")
+          params["url"] = "http://" + params["url"]
+        end
+
         signup = CompanySignup.new(params)
 
         on signup.valid? do
