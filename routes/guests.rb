@@ -13,8 +13,33 @@ class Guests < Cuba
           res.redirect "/dashboard"
         end
 
+        on signup.errors[:name] == [:not_present] do
+          session[:error] = "Company name is required"
+          render("company/signup", title: "Sign up", company: params)
+        end
+
+        on signup.errors[:email] == [:not_email] do
+          session[:error] = "E-mail not valid"
+          render("company/signup", title: "Sign up", company: params)
+        end
+
         on signup.errors[:email] == [:not_unique] do
           session[:error] = "This e-mail is already registered"
+          render("company/signup", title: "Sign up", company: params)
+        end
+
+        on signup.errors[:url] == [:not_url] do
+          session[:error] = "URL not valid"
+          render("company/signup", title: "Sign up", company: params)
+        end
+
+        on signup.errors[:password] == [:not_present] do
+          session[:error] = "Password not present"
+          render("company/signup", title: "Sign up", company: params)
+        end
+
+        on signup.errors[:password] == [:not_confirmed] do
+          session[:error] = "Passwords don't match"
           render("company/signup", title: "Sign up", company: params)
         end
 
