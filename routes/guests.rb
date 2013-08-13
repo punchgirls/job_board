@@ -31,13 +31,20 @@ class Guests < Cuba
 
     on "login" do
       on post, param("email"), param("password") do |user, pass|
-        if login(Company, user, pass)
+        on login(Company, user, pass) do
           session[:success] = "You have successfully logged in!"
           res.redirect "/dashboard"
-        else
+        end
+
+        on default do
           session[:error] = "Invalid email and/or password combination"
           render("company/login", title: "Login", user: user)
         end
+      end
+
+      on post, param("email") do |user|
+        session[:error] = "No password provided"
+        render("company/login", title: "Login", user: user)
       end
 
       on default do
