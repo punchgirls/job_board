@@ -4,8 +4,16 @@
 
 <table>
   % Post.all.each do |job|
- <tr><td colspan="4">{{ Company[job.company_id].name }}</td></tr>
-    <tr><td colspan="4">{{ job.title }}</td></tr>
+    <tr>
+        <td colspan="4">Posted on {{ job.date }}</td>
+        <td colspan="4">{{ job.expires }} days left to apply</td>
+    </tr>
+    <tr>
+        <td colspan="4">{{ Company[job.company_id].name }}</td>
+    </tr>
+    <tr>
+        <td colspan="4">{{ job.title }}</td>
+    </tr>
     <tr>
         <td>{{ job.description }}</td>
         % if developer && developer.applied?(job.id)

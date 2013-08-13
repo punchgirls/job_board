@@ -54,7 +54,12 @@ class Companies < Cuba
         job = PostJobOffer.new(params)
 
         on job.valid? do
+          time = Time.new
+
           params[:company_id] = current_company.id
+          params[:date] = time.strftime("%d %B %Y")
+          params[:expiration_date] = time + (31*24*60*60)
+
           post = Post.create(params)
 
           session[:success] = "You have successfully posted a job offer!"

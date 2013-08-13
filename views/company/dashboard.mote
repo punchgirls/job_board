@@ -1,20 +1,21 @@
-% id = this.current_company.id
-% posts_ids = Company[id].posts.ids
-
 <h2>Active job posts</h2>
 
 <p><a href="/jobs/new">Post job offer</a></p>
 
 <table>
-  % posts_ids.each do |id|
+  % Post.all.each do |job|
     <tr>
-      <td colspan="3" id="post-title">{{ Post[id].title }}</td>
+        <td colspan="4">Posted on {{ job.date }}</td>
+        <td colspan="4">Expires in {{ job.expires }} days</td>
     </tr>
     <tr>
-      <td>{{ Post[id].description }}</td>
-      <td><a href="/jobs/applicants/{{ id }}">APPLICANTS</a></td>
-      <td><a href="/jobs/edit/{{ id }}">EDIT</a></td>
-      <td><a href="/jobs/remove/{{ id }}">REMOVE</a></td>
+      <td colspan="3" id="post-title">{{ job.title }}</td>
+    </tr>
+    <tr>
+      <td>{{ job.description }}</td>
+      <td><a href="/jobs/applicants/{{ job.id }}">APPLICANTS</a></td>
+      <td><a href="/jobs/edit/{{ job.id }}">EDIT</a></td>
+      <td><a href="/jobs/remove/{{ job.id }}">REMOVE</a></td>
     </tr>
   % end
 </table>
