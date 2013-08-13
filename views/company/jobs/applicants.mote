@@ -6,7 +6,7 @@
   % application_ids.each do |id|
     % developer_id = Application[id].developer_id
 
-    <tr><td colspan="4">{{ Application[id].date }}</td></tr>
+    <tr><td colspan="4">Applied on {{ Application[id].applied }}</td></tr>
     <tr><td colspan="4">Name: {{ Developer[developer_id].name }}</td></tr>
     <tr><td colspan="4">Username: {{ Developer[developer_id].username }}</td></tr>
     <tr><td colspan="4"><a href="http://www.github.com/{{ Developer[developer_id].username }}" target="_blank">GitHub account</a></td></tr>

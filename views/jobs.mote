@@ -5,7 +5,7 @@
 <table>
   % Post.all.each do |job|
     <tr>
-        <td colspan="4">Posted on {{ job.date }}</td>
+        <td colspan="4">Posted on {{ job.posted }}</td>
         <td colspan="4">{{ job.expires }} days left to apply</td>
     </tr>
     <tr>

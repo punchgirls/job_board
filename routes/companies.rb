@@ -54,10 +54,10 @@ class Companies < Cuba
         job = PostJobOffer.new(params)
 
         on job.valid? do
-          time = Time.new
+          time = Time.new.to_i
 
           params[:company_id] = current_company.id
-          params[:date] = time.strftime("%d %B %Y")
+          params[:date] = time
           params[:expiration_date] = time + (31*24*60*60)
 
           post = Post.create(params)

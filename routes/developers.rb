@@ -14,8 +14,9 @@ class Developers < Cuba
     end
 
     on "apply/:id" do |id|
-      time = Time.new
-      params = { date: time.strftime("%d %B %Y"),
+      time = Time.new.to_i
+
+      params = { date: time,
         developer_id: current_developer.id,
         post_id: id }
 
