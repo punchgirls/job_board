@@ -11,7 +11,7 @@ class Post < Ohm::Model
   end
 
   def expires
-    return (expiration_date.to_i - Time.new.to_i) / (24 * 60 * 60)
+    return (expiration_date.to_f - Time.new.to_i) / (60 * 60)
   end
 
   def expired?

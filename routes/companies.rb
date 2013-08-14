@@ -58,7 +58,7 @@ class Companies < Cuba
 
           params[:company_id] = current_company.id
           params[:date] = time
-          params[:expiration_date] = time + (31*24*60*60)
+          params[:expiration_date] = time + (1 * 60 * 60)
 
           post = Post.create(params)
 
