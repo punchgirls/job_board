@@ -5,7 +5,7 @@
   % developer.applications.each do |application|
     % job = application.post
 
-    % if !job.expired?
+    % if job && !job.expired?
       <tr>
         <td colspan="4">Posted on {{ job.posted }}</td>
         % time_left = job.expires
@@ -16,6 +16,9 @@
         % elsif time_left <= 1
           <td colspan="4">Expires in less than 1 hour!</td>
         % end
+      </tr>
+      <tr>
+        <td colspan="4">Applied on {{ application.applied }}</td>
       </tr>
       <tr>
         <td colspan="4">{{ Company[job.company_id].name }}</td>
@@ -31,6 +34,7 @@
             <td><a href="/apply/{{ job.id }}">APPLY</a></td>
         % end
         <td><a href="/favorite/{{ job.id }}?origin=applications">FAVORITE</a></td>
+        <td><a href="/remove/{{ application.id }}">REMOVE</a></td>
       </tr>
     % end
   % end

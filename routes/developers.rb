@@ -23,6 +23,12 @@ class Developers < Cuba
       render("developer/applications", title: "My applications")
     end
 
+    on "remove/:id" do |id|
+      Application[id].delete
+      session[:success] = "Application successfully removed!"
+      res.redirect "/dashboard"
+    end
+
     on "favorites" do
       render("developer/favorites", title: "Favorites")
     end
