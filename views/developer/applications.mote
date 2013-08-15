@@ -1,18 +1,20 @@
 % developer = this.current_developer
 
-<h2>Favorites</h2>
+<h2>My applications</h2>
 <table>
-  % developer.favorites.each do |job|
+  % developer.applications.each do |application|
+    % job = application.post
+
     % if !job.expired?
       <tr>
         <td colspan="4">Posted on {{ job.posted }}</td>
         % time_left = job.expires
         % if time_left > 24
-          <td colspan="4">{{ (job.expires / 24).ceil }} days left to apply</td>
+          <td colspan="4">Expires in {{ (job.expires / 24).ceil }} days</td>
         % elsif time_left <= 24 && time_left > 1
-          <td colspan="4">{{ job.expires.ceil }} hours left to apply</td>
+          <td colspan="4">Expires in {{ job.expires.ceil }} hours</td>
         % elsif time_left <= 1
-          <td colspan="4">Less than 1 hour left to apply!</td>
+          <td colspan="4">Expires in less than 1 hour!</td>
         % end
       </tr>
       <tr>
@@ -28,7 +30,7 @@
         % else
             <td><a href="/apply/{{ job.id }}">APPLY</a></td>
         % end
-        <td><a href="/favorite/{{ job.id }}?origin=favorites">FAVORITE</a></td>
+        <td><a href="/favorite/{{ job.id }}?origin=applications">FAVORITE</a></td>
       </tr>
     % end
   % end

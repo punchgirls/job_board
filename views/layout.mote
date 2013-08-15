@@ -26,6 +26,14 @@
       <?xml version="1.0" encoding="UTF-8"?>
     </header>
     <section>
+      % if current_user.instance_of?(Developer)
+        <nav>
+          <ul>
+            <li><a href="/applications">My applications</a></li>
+            <li><a href="/favorites">Favorites</a></li>
+          </ul>
+        </nav>
+      % end
       {{ this.partial("notices", session: this.session) }}
       {{ content }}
     </section>

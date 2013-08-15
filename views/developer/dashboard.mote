@@ -1,8 +1,1 @@
-<nav>
-  <ul>
-    <li>My applications</li>
-    <li><a href="/favorites">Favorites</a></li>
-  </ul>
-</nav>
-
 {{ this.partial("jobs") }}

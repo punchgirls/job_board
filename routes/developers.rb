@@ -19,6 +19,10 @@ class Developers < Cuba
       end
     end
 
+    on "applications" do
+      render("developer/applications", title: "My applications")
+    end
+
     on "favorites" do
       render("developer/favorites", title: "Favorites")
     end
@@ -49,6 +53,8 @@ class Developers < Cuba
       on param("origin") do |origin|
         if origin == "favorites"
           res.redirect "/favorites"
+        elsif origin == "applications"
+          res.redirect "/applications"
         else
           res.redirect "/dashboard"
         end
