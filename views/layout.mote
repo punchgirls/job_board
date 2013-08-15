@@ -10,17 +10,19 @@
   <body>
     <header>
       <h1>Job Board</h1>
-        <ul>
-          <li><a href="/">Home</a></li>
-          % if current_user
-            <li><a href="/dashboard">Dashboard</a></li>
-            <li><a href="/profile">{{ this.current_user.name }}</a></li>
-            <li><a href="/logout">Logout</a></li>
-          % else
-            <li><a href="/github_oauth">GitHub login</a></li>
-            <li><a href="/login">Company login/signup</a></li>
-          % end
-        </ul>
+        <nav>
+          <ul>
+            <li><a href="/">Home</a></li>
+            % if current_user
+              <li><a href="/dashboard">Dashboard</a></li>
+              <li><a href="/profile">{{ this.current_user.name }}</a></li>
+              <li><a href="/logout">Logout</a></li>
+            % else
+              <li><a href="/github_oauth">GitHub login</a></li>
+              <li><a href="/login">Company login/signup</a></li>
+            % end
+          </ul>
+        </nav>
       <?xml version="1.0" encoding="UTF-8"?>
     </header>
     <section>

@@ -18,4 +18,5 @@ class Developer < Ohm::Model
   end
 
   collection :applications, :Application
+  set :favorites, :Post
 end

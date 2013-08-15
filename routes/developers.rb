@@ -1,16 +1,26 @@
 class Developers < Cuba
   define do
     on "dashboard" do
-      id = session[:post_id]
+      apply_id = session[:apply_id]
+      favorite_id = session[:favorite_id]
 
-      if id
-        session.delete(:post_id)
-        res.redirect "/apply/#{id}"
+      if apply_id
+        session.delete(:apply_id)
+        res.redirect "/apply/#{apply_id}"
+      end
+
+      if favorite_id
+        session.delete(:favorite_id)
+        res.redirect "/favorite/#{favorite_id}"
       end
 
       on default do
         render("developer/dashboard", title: "Dashboard")
       end
+    end
+
+    on "favorites" do
+      render("developer/favorites", title: "Favorites")
     end
 
     on "apply/:id" do |id|
@@ -24,6 +34,29 @@ class Developers < Cuba
 
       session[:success] = "You have successfully applied for a job!"
       res.redirect "/dashboard"
+    end
+
+    on "favorite/:id" do |id|
+      post = Post[id]
+
+      if current_user.favorites.member?(post)
+        current_user.favorites.delete(post)
+      else
+        current_user.favorites.add(post)
+        session[:success] = "You have added a post to your favorites!"
+      end
+
+      on param("origin") do |origin|
+        if origin == "favorites"
+          res.redirect "/favorites"
+        else
+          res.redirect "/dashboard"
+        end
+      end
+
+      on default do
+        res.redirect "/dashboard"
+      end
     end
 
     on "profile" do

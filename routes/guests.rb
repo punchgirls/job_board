@@ -86,7 +86,13 @@ class Guests < Cuba
     end
 
     on "apply/:id" do |id|
-      session[:post_id] = id
+      session[:apply_id] = id
+
+      res.redirect "/github_oauth"
+    end
+
+    on "favorite/:id" do |id|
+      session[:favorite_id] = id
 
       res.redirect "/github_oauth"
     end

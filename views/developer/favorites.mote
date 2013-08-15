@@ -1,9 +1,8 @@
 % developer = this.current_developer
 
-<h2>Search job posts and apply with a single click!</h2>
-
+<h2>Favorites</h2>
 <table>
-  % Post.all.each do |job|
+  % developer.favorites.each do |job|
     % if !job.expired?
         <tr>
             <td colspan="4">Posted on {{ job.posted }}</td>
@@ -29,7 +28,7 @@
             % else
                 <td><a href="/apply/{{ job.id }}">APPLY</a></td>
             % end
-            <td><a href="/favorite/{{ job.id }}?origin=jobs">FAVORITE</a></td>
+            <td><a href="/favorite/{{ job.id }}?origin=favorites">FAVORITE</a></td>
         </tr>
     % end
   % end
