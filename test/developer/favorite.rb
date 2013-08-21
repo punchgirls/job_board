@@ -52,6 +52,8 @@ scope do
 
     assert last_response.body["You have added a post to your favorites!"]
 
+    assert last_response.body["Search job posts and apply with a single click!"]
+
     get "/favorites"
 
     assert last_response.body["Java developer"]
@@ -67,16 +69,6 @@ scope do
     get "/favorites"
 
     assert !last_response.body["Java developer"]
-  end
-
-  test "should redirect back to developer dashboard" do
-    post "/github_login/117263273765215762"
-
-    post "/favorite/1?origin=jobs"
-
-    follow_redirect!
-
-    assert last_response.body["Search job posts and apply with a single click!"]
   end
 
   test "should redirect back to origin favorites" do

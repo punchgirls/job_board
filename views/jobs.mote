@@ -29,7 +29,7 @@
         % else
           <td><a href="/apply/{{ job.id }}">APPLY</a></td>
         % end
-        <td><a href="/favorite/{{ job.id }}?origin=jobs">FAVORITE</a></td>
+        <td><a href="/favorite/{{ job.id }}">FAVORITE</a></td>
       </tr>
     % end
   % end

@@ -7,18 +7,16 @@
 
     % if job && !job.expired?
       <tr>
-        <td colspan="4">Posted on {{ job.posted }}</td>
+        <td>Posted on {{ job.posted }}</td>
+        <td>Applied on {{ application.applied }}</td>
         % time_left = job.expires
         % if time_left > 24
-          <td colspan="4">Expires in {{ (job.expires / 24).ceil }} days</td>
+          <td colspan="2">Expires in {{ (job.expires / 24).ceil }} days</td>
         % elsif time_left <= 24 && time_left > 1
-          <td colspan="4">Expires in {{ job.expires.ceil }} hours</td>
+          <td colspan="2">Expires in {{ job.expires.ceil }} hours</td>
         % elsif time_left <= 1
-          <td colspan="4">Expires in less than 1 hour!</td>
+          <td colspan="2">Expires in less than 1 hour!</td>
         % end
-      </tr>
-      <tr>
-        <td colspan="4">Applied on {{ application.applied }}</td>
       </tr>
       <tr>
         <td colspan="4">{{ Company[job.company_id].name }}</td>
@@ -27,13 +25,12 @@
         <td colspan="4">{{ job.title }}</td>
       </tr>
       <tr>
-        <td>{{ job.description }}</td>
+        <td colspan="2">{{ job.description }}</td>
         % if developer && developer.applied?(job.id)
             <td>APPLIED</td>
         % else
             <td><a href="/apply/{{ job.id }}">APPLY</a></td>
         % end
-        <td><a href="/favorite/{{ job.id }}?origin=applications">FAVORITE</a></td>
         <td><a href="/remove/{{ application.id }}">REMOVE</a></td>
       </tr>
     % end

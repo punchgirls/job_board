@@ -43,7 +43,16 @@ class Developers < Cuba
       application = Application.create(params)
 
       session[:success] = "You have successfully applied for a job!"
-      res.redirect "/dashboard"
+
+      on param("origin") do |origin|
+        if origin == "favorites"
+          res.redirect "/favorites"
+        end
+      end
+
+      on default do
+        res.redirect "/dashboard"
+      end
     end
 
     on "favorite/:id" do |id|
@@ -59,10 +68,6 @@ class Developers < Cuba
       on param("origin") do |origin|
         if origin == "favorites"
           res.redirect "/favorites"
-        elsif origin == "applications"
-          res.redirect "/applications"
-        else
-          res.redirect "/dashboard"
         end
       end
 
