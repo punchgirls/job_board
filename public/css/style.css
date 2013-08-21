@@ -1,3 +1,15 @@
 body {
-  margin: 1.25em;
+  margin: 0;
+}
+
+section, header {
+  margin: 50px;
+}
+
+table {
+  width: 1000px;
+}
+
+table tr td {
+  padding: 10px 10px 0 0;
 }
