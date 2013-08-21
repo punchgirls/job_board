@@ -104,7 +104,7 @@ class Companies < Cuba
           res.redirect "/dashboard"
         else
           session[:error] = "All fields are required"
-          render("company/jobs/edit", title: "Edit post")
+          render("company/jobs/edit", title: "Edit post", id: id)
         end
       end
 
