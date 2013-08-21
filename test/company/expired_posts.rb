@@ -13,8 +13,7 @@ prepare do
           expiration_date: "1373511600",
           title: "Ruby developer",
           description: "Ruby ninja needed!",
-          company_id: "1"
-          })
+          company_id: "1" })
 end
 
 scope do
