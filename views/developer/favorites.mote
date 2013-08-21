@@ -2,33 +2,39 @@
 
 <h2>Favorites</h2>
 <table>
-  % developer.favorites.each do |job|
-    % if !job.expired?
+  % developer.favorites.each do |post|
+    % if !post.expired?
       <tr>
-        <td>Posted on {{ job.posted }}</td>
-        % time_left = job.expires
+        <td>Posted on {{ post.posted }}</td>
+        % time_left = post.expires
         % if time_left > 24
-          <td colspan="2">{{ (job.expires / 24).ceil }} days left to apply</td>
+          <td colspan="2">{{ (post.expires / 24).ceil }} days left to apply</td>
         % elsif time_left <= 24 && time_left > 1
-          <td colspan="2">{{ job.expires.ceil }} hours left to apply</td>
+          <td colspan="2">{{ post.expires.ceil }} hours left to apply</td>
         % elsif time_left <= 1
           <td colspan="2">Less than 1 hour left to apply!</td>
         % end
       </tr>
       <tr>
-        <td colspan="3">{{ Company[job.company_id].name }}</td>
+        <td colspan="3">{{ Company[post.company_id].name }}</td>
       </tr>
       <tr>
-        <td colspan="3">{{ job.title }}</td>
+        <td colspan="3">{{ post.title }}</td>
       </tr>
       <tr>
-        <td>{{ job.description }}</td>
-        % if developer && developer.applied?(job.id)
+        <td>{{ post.description }}</td>
+        % if developer && developer.applied?(post.id)
             <td>APPLIED</td>
         % else
-            <td><a href="/apply/{{ job.id }}?origin=favorites">APPLY</a></td>
+            <td><a href="/apply/{{ post.id }}?origin=favorites">APPLY</a></td>
         % end
-        <td><a href="/favorite/{{ job.id }}?origin=favorites">FAVORITE</a></td>
+        <td><a href="/favorite/{{ post.id }}?origin=favorites">
+        % if this.current_user.favorites.member?(post)
+          FAVORITED
+        % else
+          FAVORITE
+        % end
+        </a></td>
       </tr>
     % end
   % end

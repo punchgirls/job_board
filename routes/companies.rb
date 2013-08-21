@@ -98,7 +98,7 @@ class Companies < Cuba
 
           Malone.deliver(to: developer.email,
                 cc: company.email,
-                subject: "Auto-notice: '" + post.title "' post has been removed",
+                subject: "Auto-notice: '" + post.title + "' post has been removed",
                 html: "<p>" + "Dear " + developer.name + "</p>" +
                 "<p>We are sorry to inform you that the post '" +
                 post.title + "' has been removed.</p>" +
@@ -186,6 +186,21 @@ class Companies < Cuba
       on default do
         render("company/post/contact", title: "Contact developer",
           id: id, message: {})
+      end
+    end
+
+    on "application/favorite/:id" do |id|
+      application = Application[id]
+      post = application.post
+
+      if post.favorites.member?(application)
+        post.favorites.delete(application)
+      else
+        post.favorites.add(application)
+      end
+
+      on default do
+        render("company/post/applications", title: "Applicants", id: post.id)
       end
     end
 

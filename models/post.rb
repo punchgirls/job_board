@@ -21,4 +21,5 @@ class Post < Ohm::Model
   reference :company, :Company
 
   collection :applications, :Application
+  set :favorites, :Application
 end
