@@ -3,7 +3,7 @@
 <p><a href="/jobs/new">Post job offer</a></p>
 
 <table>
-  % Post.all.each do |job|
+  % this.current_user.posts.each do |job|
     <tr>
         <td colspan="4">Posted on {{ job.posted }}</td>
         % time_left = job.expires
