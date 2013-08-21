@@ -15,7 +15,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    post "/jobs/new", { post: {  title: "",
+    post "/post/new", { post: {  title: "",
           description: "Ruby oracle needed!" }}
 
     assert last_response.body["All fields are required"]
@@ -25,7 +25,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    post "/jobs/new", { post: {  title: "Ruby developer",
+    post "/post/new", { post: {  title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
     follow_redirect!
@@ -37,7 +37,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    post "/jobs/new", { post: {  title: "Ruby developer",
+    post "/post/new", { post: {  title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
     follow_redirect!
@@ -49,10 +49,10 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    post "/jobs/new", { post: {  title: "Ruby developer",
+    post "/post/new", { post: {  title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
-    post "/jobs/remove/1"
+    post "/post/remove/1"
 
     follow_redirect!
 
@@ -63,10 +63,10 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    post "/jobs/new", { post: {  title: "Ruby developer",
+    post "/post/new", { post: {  title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
-    post "/jobs/edit/1", { post: {  title: "Ruby master",
+    post "/post/edit/1", { post: {  title: "Ruby master",
           description: "Ruby oracle needed!" }}
 
     follow_redirect!

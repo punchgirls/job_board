@@ -18,9 +18,9 @@
 </div>
 <div>
   % if this.current_company
-    <a href="/jobs/new">Post job offer</a>
+    <a href="/post/new">Post job offer</a>
   % else
     <a href="/login">Post job</a>
   % end
-    <a href="/jobs">Search jobs</a>
+    <a href="/posts">Search jobs</a>
 </div>

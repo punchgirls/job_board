@@ -28,7 +28,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "1234" }
 
-    post "/jobs/contact/1", { message: { subject: "Test",
+    post "/application/contact/1", { message: { subject: "Test",
           body: "This is a test message" }}
 
     follow_redirect!

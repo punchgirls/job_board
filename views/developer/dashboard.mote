@@ -1,1 +1,1 @@
-{{ this.partial("jobs") }}
+{{ this.partial("posts") }}

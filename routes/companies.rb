@@ -49,75 +49,95 @@ class Companies < Cuba
       end
     end
 
-    on "jobs/new" do
+    on "post/new" do
       on post, param("post") do |params|
-        job = PostJobOffer.new(params)
+        post = PostJobOffer.new(params)
 
-        on job.valid? do
+        on post.valid? do
           time = Time.new.to_i
 
           params[:company_id] = current_company.id
           params[:date] = time
           params[:expiration_date] = time + (30 * 24 * 60 * 60)
 
-          post = Post.create(params)
+          Post.create(params)
 
           session[:success] = "You have successfully posted a job offer!"
           res.redirect "/dashboard"
         end
 
-        on job.errors[:title] == [:not_in_range] do
+        on post.errors[:title] == [:not_in_range] do
           session[:error] = "Title should not exceed 80 characters"
-          render("company/jobs/new", title: "Post job offer", post: params)
+          render("company/post/new", title: "Post job offer", post: params)
         end
 
-        on job.errors[:description] == [:not_in_range] do
+        on post.errors[:description] == [:not_in_range] do
           session[:error] = "Description should not exceed 600 characters"
-          render("company/jobs/new", title: "Post job offer", post: params)
+          render("company/post/new", title: "Post job offer", post: params)
         end
 
         on default do
           session[:error] = "All fields are required"
-          render("company/jobs/new", title: "Post job offer", post: params)
+          render("company/post/new", title: "Post job offer", post: params)
         end
       end
 
       on default do
-        render("company/jobs/new", title: "Post job offer", post: {})
+        render("company/post/new", title: "Post job offer", post: {})
       end
     end
 
-    on "jobs/remove/:id" do |id|
+    on "post/remove/:id" do |id|
       Post[id].delete
       session[:success] = "Post successfully removed!"
       res.redirect "/dashboard"
     end
 
-    on "jobs/edit/:id" do |id|
+    on "post/edit/:id" do |id|
       on post, param("post") do |params|
-        job = PostJobOffer.new(params)
+        post = PostJobOffer.new(params)
 
-        if job.valid?
+        if post.valid?
           Post[id].update(params)
 
           session[:success] = "Post successfully edited!"
           res.redirect "/dashboard"
         else
           session[:error] = "All fields are required"
-          render("company/jobs/edit", title: "Edit post", id: id)
+          render("company/post/edit", title: "Edit post", id: id)
         end
       end
 
       on default do
-        render("company/jobs/edit", title: "Edit post", id: id)
+        render("company/post/edit", title: "Edit post", id: id)
       end
     end
 
-    on "jobs/applicants/:id" do |id|
-      render("company/jobs/applicants", title: "Applicants", id: id)
+    on "post/applications/:id" do |id|
+      render("company/post/applications", title: "Applicants", id: id)
     end
 
-    on "jobs/contact/:id" do |id|
+    on "application/remove/:id" do |id|
+      application = Application[id]
+      developer = application.developer
+      post = Application[id].post
+      company = post.company
+
+      Malone.deliver(to: developer.email,
+            cc: company.email,
+            subject: "Regarding" + post.title,
+            html: "<p>" + "Dear " + developer.name + "</p>" +
+            "<p>We are sorry to inform you that you have not been selected for the " +
+            post.title + "</p>" +
+            "<p>Remember that there are a lot more jobs waiting at jobboard.com!</p>")
+
+      Application[id].delete
+
+      session[:success] = "Applicant successfully removed!"
+      res.redirect "/dashboard"
+    end
+
+    on "application/contact/:id" do |id|
       on post, param("message") do |params|
         mail = Contact.new(params)
 
@@ -139,20 +159,20 @@ class Companies < Cuba
           res.redirect "/dashboard"
         else
           session[:error] = "All fields are required"
-          render("company/jobs/contact", title: "Contact developer",
+          render("company/post/contact", title: "Contact developer",
             id: id, message: params)
         end
 
       end
 
       on default do
-        render("company/jobs/contact", title: "Contact developer",
+        render("company/post/contact", title: "Contact developer",
           id: id, message: {})
       end
     end
 
-    on "jobs" do
-      render("jobs", title: "Jobs")
+    on "posts" do
+      render("posts", title: "Posts")
     end
 
     on "logout" do

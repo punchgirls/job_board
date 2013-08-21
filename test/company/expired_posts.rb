@@ -18,7 +18,7 @@ end
 
 scope do
   test "Should not list expired job posts" do
-    get "/jobs"
+    get "/posts"
 
     assert !last_response.body["Ruby ninja needed"]
   end

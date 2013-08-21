@@ -1,28 +1,28 @@
 <h2>Active job posts</h2>
 
-<p><a href="/jobs/new">Post job offer</a></p>
+<p><a href="/post/new">Post job offer</a></p>
 
 <table>
-  % this.current_user.posts.each do |job|
+  % this.current_user.posts.each do |post|
     <tr>
-        <td colspan="1">Posted on {{ job.posted }}</td>
-        % time_left = job.expires
+        <td colspan="1">Posted on {{ post.posted }}</td>
+        % time_left = post.expires
         % if time_left > 24
-          <td colspan="3">Expires in {{ (job.expires / 24).ceil }} days</td>
+          <td colspan="3">Expires in {{ (post.expires / 24).ceil }} days</td>
         % elsif time_left <= 24 && time_left > 1
-          <td colspan="3">Expires in {{ job.expires.ceil }} hours</td>
+          <td colspan="3">Expires in {{ post.expires.ceil }} hours</td>
         % elsif time_left <= 1
           <td colspan="3">Expires in less than 1 hour!</td>
         % end
     </tr>
     <tr>
-      <td colspan="4" id="post-title">{{ job.title }}</td>
+      <td colspan="4" id="post-title">{{ post.title }}</td>
     </tr>
     <tr>
-      <td>{{ job.description }}</td>
-      <td><a href="/jobs/applicants/{{ job.id }}">APPLICANTS</a></td>
-      <td><a href="/jobs/edit/{{ job.id }}">EDIT</a></td>
-      <td><a href="/jobs/remove/{{ job.id }}">REMOVE</a></td>
+      <td>{{ post.description }}</td>
+      <td><a href="/post/applications/{{ post.id }}">APPLICANTS</a></td>
+      <td><a href="/post/edit/{{ post.id }}">EDIT</a></td>
+      <td><a href="/post/remove/{{ post.id }}">REMOVE</a></td>
     </tr>
   % end
 </table>
