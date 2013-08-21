@@ -72,7 +72,7 @@ class Companies < Cuba
         end
 
         on job.errors[:description] == [:not_in_range] do
-          session[:error] = "Description should not exceed 300 characters"
+          session[:error] = "Description should not exceed 600 characters"
           render("company/jobs/new", title: "Post job offer", post: params)
         end
 
