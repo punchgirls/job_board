@@ -88,6 +88,24 @@ class Companies < Cuba
     end
 
     on "post/remove/:id" do |id|
+      applications = Post[id].applications
+
+      if !applications.empty?
+        applications.each do |application|
+          developer = application.developer
+          post = application.post
+          company = post.company
+
+          Malone.deliver(to: developer.email,
+                cc: company.email,
+                subject: "Auto-notice: '" + post.title "' post has been removed",
+                html: "<p>" + "Dear " + developer.name + "</p>" +
+                "<p>We are sorry to inform you that the post '" +
+                post.title + "' has been removed.</p>" +
+                "<p>Remember that there are a lot more jobs waiting at <a href='http://os-job-board.herokuapp.com'>Job Board</a>!</p>")
+        end
+      end
+
       Post[id].delete
       session[:success] = "Post successfully removed!"
       res.redirect "/dashboard"
@@ -120,16 +138,16 @@ class Companies < Cuba
     on "application/remove/:id" do |id|
       application = Application[id]
       developer = application.developer
-      post = Application[id].post
+      post = application.post
       company = post.company
 
       Malone.deliver(to: developer.email,
             cc: company.email,
-            subject: "Regarding" + post.title,
+            subject: "Auto-notice: Regarding '" + post.title + "' post",
             html: "<p>" + "Dear " + developer.name + "</p>" +
             "<p>We are sorry to inform you that you have not been selected for the " +
             post.title + "</p>" +
-            "<p>Remember that there are a lot more jobs waiting at jobboard.com!</p>")
+            "<p>Remember that there are a lot more jobs waiting at <a href='http://os-job-board.herokuapp.com'>Job Board</a>!</p>")
 
       Application[id].delete
 
