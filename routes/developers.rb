@@ -26,7 +26,7 @@ class Developers < Cuba
     on "remove/:id" do |id|
       Application[id].delete
       session[:success] = "Application successfully removed!"
-      res.redirect "/dashboard"
+      res.redirect "/applications"
     end
 
     on "favorites" do

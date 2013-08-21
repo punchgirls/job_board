@@ -6,21 +6,21 @@
   % Post.all.each do |job|
     % if !job.expired?
       <tr>
-        <td colspan="4">Posted on {{ job.posted }}</td>
+        <td colspan="1">Posted on {{ job.posted }}</td>
         % time_left = job.expires
         % if time_left > 24
-          <td colspan="4">{{ (job.expires / 24).ceil }} days left to apply</td>
+          <td colspan="2">{{ (job.expires / 24).ceil }} days left to apply</td>
         % elsif time_left <= 24 && time_left > 1
-          <td colspan="4">{{ job.expires.ceil }} hours left to apply</td>
+          <td colspan="2">{{ job.expires.ceil }} hours left to apply</td>
         % elsif time_left <= 1
-          <td colspan="4">Less than 1 hour left to apply!</td>
+          <td colspan="2">Less than 1 hour left to apply!</td>
         % end
       </tr>
       <tr>
-        <td colspan="4">{{ Company[job.company_id].name }}</td>
+        <td colspan="3">{{ Company[job.company_id].name }}</td>
       </tr>
       <tr>
-        <td colspan="4">{{ job.title }}</td>
+        <td colspan="3">{{ job.title }}</td>
       </tr>
       <tr>
         <td>{{ job.description }}</td>
