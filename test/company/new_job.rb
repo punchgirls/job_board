@@ -42,7 +42,7 @@ scope do
 
     follow_redirect!
 
-    assert last_response.body['<td colspan="3" id="post-title">']
+    assert last_response.body['<td colspan="4" id="post-title">']
   end
 
   test "should inform User of job deleted" do
