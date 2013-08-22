@@ -6,12 +6,6 @@ prepare do
 end
 
 scope do
-  test "should display homepage" do
-    get "/"
-
-    assert_equal 200, last_response.status
-  end
-
   test "should display company signup" do
     get "/signup"
 

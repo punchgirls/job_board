@@ -79,9 +79,9 @@ class Guests < Cuba
       end
     end
 
-    on "jobs" do
+    on "posts" do
       on default do
-        render("jobs", title: "Jobs")
+        render("posts", title: "Posts")
       end
     end
 

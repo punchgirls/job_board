@@ -1,6 +1,6 @@
 <h2>Edit post</h2>
 
-<form action="/jobs/edit/{{ id }}" method="POST">
+<form action="/post/edit/{{ id }}" method="POST">
   <label for="title">Title:</label>
   <input type="text" name="post[title]" id="title" value="{{ Post[id].title }}"><br/>
 
