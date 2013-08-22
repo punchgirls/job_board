@@ -60,8 +60,10 @@ class Developers < Cuba
 
       if current_user.favorites.member?(post)
         current_user.favorites.delete(post)
+        post.favorited_by.delete(current_user)
       else
         current_user.favorites.add(post)
+        post.favorited_by.add(current_user)
         session[:success] = "You have added a post to your favorites!"
       end
 

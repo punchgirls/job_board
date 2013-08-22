@@ -22,6 +22,11 @@ class Post < Ohm::Model
   def before_delete
     applications.each(&:delete)
     favorites.each(&:delete)
+
+    favorited_by.each do |developer|
+      developer.favorites.delete(self)
+    end
+
     super
   end
 
@@ -29,4 +34,5 @@ class Post < Ohm::Model
 
   collection :applications, :Application
   set :favorites, :Application
+  set :favorited_by, :Developer
 end
