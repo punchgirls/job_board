@@ -1,12 +1,13 @@
 % developer = this.current_developer
+% posts = Post.all
 
 <h2>Search job posts and apply with a single click!</h2>
 
-% if Post.all.empty?
+% if posts.empty?
   <p>There are no job posts yet.</p>
 % else
   <table>
-    % Post.all.each do |post|
+    % posts.each do |post|
       % if !post.expired?
         <tr>
           <td colspan="1">Posted on {{ post.posted }}</td>
@@ -20,7 +21,7 @@
           % end
         </tr>
         <tr>
-          <td colspan="3">{{ Company[post.company_id].name }}</td>
+          <td colspan="3">{{ post.company.name }}</td>
         </tr>
         <tr>
           <td colspan="3">{{ post.title }}</td>
@@ -33,7 +34,7 @@
             <td><a href="/apply/{{ post.id }}">APPLY</a></td>
           % end
           <td><a href="/favorite/{{ post.id }}">
-          % if this.current_user.favorites.member?(post)
+          % if developer && developer.favorites.member?(post)
             FAVORITED
           % else
             FAVORITE

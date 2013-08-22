@@ -214,6 +214,12 @@ class Companies < Cuba
       res.redirect "/"
     end
 
+    on "delete/:id" do |id|
+      Company[id].delete
+      session[:success] = "You have deleted your account."
+      res.redirect "/"
+    end
+
     on default do
       render("company/dashboard", title: "Dashboard")
     end

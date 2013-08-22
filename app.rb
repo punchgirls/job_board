@@ -6,6 +6,7 @@ require "ohm"
 require "shield"
 require "requests"
 require "malone"
+require "ohm/contrib"
 
 APP_SECRET = ENV.fetch("APP_SECRET")
 REDIS_URL = ENV.fetch("OPENREDIS_URL")

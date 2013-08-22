@@ -1,16 +1,18 @@
+% developer = this.current_user
+
 <h2>Edit your profile</h2>
 
 <form action="/profile" method="POST">
   <label for="company-name">Name:</label>
   <input type="text" name="developer[name]" id="developer-name"
-  value="{{ this.current_user.name }}"><br/>
+  value="{{ developer.name }}"><br/>
 
   <label for="developer-username">Username:</label>
-  <input disabled type="text" name="developer[username]" id="developer-username" value="{{ this.current_user.username }}"><br/>
+  <input disabled type="text" name="developer[username]" id="developer-username" value="{{ developer.username }}"><br/>
 
   <label for="developer-email">E-mail:</label>
   <input type="text" name="developer[email]" id="developer-email"
-  value="{{ this.current_user.email }}"><br/>
+  value="{{ developer.email }}"><br/>
 
   <button type="submit">Save</button>
   <a href="/dashboard">Cancel</a>

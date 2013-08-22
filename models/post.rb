@@ -1,5 +1,6 @@
 class Post < Ohm::Model
   include Shield::Model
+  include Ohm::Callbacks
 
   attribute :date
   attribute :expiration_date
@@ -16,6 +17,12 @@ class Post < Ohm::Model
 
   def expired?
     return (expiration_date.to_i - Time.now.to_i) <= 0
+  end
+
+  def before_delete
+    applications.each(&:delete)
+    favorites.each(&:delete)
+    super
   end
 
   reference :company, :Company
