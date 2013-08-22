@@ -1,41 +1,47 @@
 % developer = this.current_developer
+% favorites = developer.favorites
 
 <h2>Favorites</h2>
-<table>
-  % developer.favorites.each do |post|
-    % if !post.expired?
-      <tr>
-        <td>Posted on {{ post.posted }}</td>
-        % time_left = post.expires
-        % if time_left > 24
-          <td colspan="2">{{ (post.expires / 24).ceil }} days left to apply</td>
-        % elsif time_left <= 24 && time_left > 1
-          <td colspan="2">{{ post.expires.ceil }} hours left to apply</td>
-        % elsif time_left <= 1
-          <td colspan="2">Less than 1 hour left to apply!</td>
-        % end
-      </tr>
-      <tr>
-        <td colspan="3">{{ Company[post.company_id].name }}</td>
-      </tr>
-      <tr>
-        <td colspan="3">{{ post.title }}</td>
-      </tr>
-      <tr>
-        <td>{{ post.description }}</td>
-        % if developer && developer.applied?(post.id)
+
+% if favorites.empty?
+  <p>You have no favorite posts yet.</p>
+% else
+  <table>
+    % favorites.each do |post|
+      % if !post.expired?
+        <tr>
+          <td>Posted on {{ post.posted }}</td>
+          % time_left = post.expires
+          % if time_left > 24
+            <td colspan="2">{{ (post.expires / 24).ceil }} days left to apply</td>
+          % elsif time_left <= 24 && time_left > 1
+            <td colspan="2">{{ post.expires.ceil }} hours left to apply</td>
+          % elsif time_left <= 1
+            <td colspan="2">Less than 1 hour left to apply!</td>
+          % end
+        </tr>
+        <tr>
+          <td colspan="3">{{ Company[post.company_id].name }}</td>
+        </tr>
+        <tr>
+          <td colspan="3">{{ post.title }}</td>
+        </tr>
+        <tr>
+          <td>{{ post.description }}</td>
+          % if developer && developer.applied?(post.id)
             <td>APPLIED</td>
-        % else
+          % else
             <td><a href="/apply/{{ post.id }}?origin=favorites">APPLY</a></td>
-        % end
-        <td><a href="/favorite/{{ post.id }}?origin=favorites">
-        % if this.current_user.favorites.member?(post)
-          FAVORITED
-        % else
-          FAVORITE
-        % end
-        </a></td>
-      </tr>
+          % end
+          <td><a href="/favorite/{{ post.id }}?origin=favorites">
+          % if this.current_user.favorites.member?(post)
+            FAVORITED
+          % else
+            FAVORITE
+          % end
+          </a></td>
+        </tr>
+      % end
     % end
-  % end
-</table>
+  </table>
+% end

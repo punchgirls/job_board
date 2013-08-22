@@ -1,10 +1,18 @@
+% posts = this.current_user.posts
+
 <h2>Active job posts</h2>
 
 <p><a href="/post/new">Post job offer</a></p>
 
-<table>
-  % this.current_user.posts.each do |post|
-    <tr>
+% if posts.empty?
+  <p>
+    You haven't posted anything yet.
+    Click on "post job offer" to get started!
+  </p>
+% else
+  <table>
+    % posts.each do |post|
+      <tr>
         <td colspan="1">Posted on {{ post.posted }}</td>
         % time_left = post.expires
         % if time_left > 24
@@ -14,15 +22,16 @@
         % elsif time_left <= 1
           <td colspan="3">Expires in less than 1 hour!</td>
         % end
-    </tr>
-    <tr>
-      <td colspan="4" id="post-title">{{ post.title }}</td>
-    </tr>
-    <tr>
-      <td>{{ post.description }}</td>
-      <td><a href="/post/applications/{{ post.id }}">APPLICANTS</a></td>
-      <td><a href="/post/edit/{{ post.id }}">EDIT</a></td>
-      <td><a href="/post/remove/{{ post.id }}">REMOVE</a></td>
-    </tr>
-  % end
-</table>
+      </tr>
+      <tr>
+        <td colspan="4" id="post-title">{{ post.title }}</td>
+      </tr>
+      <tr>
+        <td>{{ post.description }}</td>
+        <td><a href="/post/applications/{{ post.id }}">APPLICANTS</a></td>
+        <td><a href="/post/edit/{{ post.id }}">EDIT</a></td>
+        <td><a href="/post/remove/{{ post.id }}">REMOVE</a></td>
+      </tr>
+    % end
+  </table>
+% end

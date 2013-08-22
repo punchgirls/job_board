@@ -2,41 +2,45 @@
 
 <h2>Search job posts and apply with a single click!</h2>
 
-<table>
-  % Post.all.each do |post|
-    % if !post.expired?
-      <tr>
-        <td colspan="1">Posted on {{ post.posted }}</td>
-        % time_left = post.expires
-        % if time_left > 24
-          <td colspan="2">{{ (post.expires / 24).ceil }} days left to apply</td>
-        % elsif time_left <= 24 && time_left > 1
-          <td colspan="2">{{ post.expires.ceil }} hours left to apply</td>
-        % elsif time_left <= 1
-          <td colspan="2">Less than 1 hour left to apply!</td>
-        % end
-      </tr>
-      <tr>
-        <td colspan="3">{{ Company[post.company_id].name }}</td>
-      </tr>
-      <tr>
-        <td colspan="3">{{ post.title }}</td>
-      </tr>
-      <tr>
-        <td>{{ post.description }}</td>
-        % if developer && developer.applied?(post.id)
-          <td>APPLIED</td>
-        % else
-          <td><a href="/apply/{{ post.id }}">APPLY</a></td>
-        % end
-        <td><a href="/favorite/{{ post.id }}">
-        % if this.current_user.favorites.member?(post)
-          FAVORITED
-        % else
-          FAVORITE
-        % end
-        </a></td>
-      </tr>
+% if Post.all.empty?
+  <p>There are no job posts yet.</p>
+% else
+  <table>
+    % Post.all.each do |post|
+      % if !post.expired?
+        <tr>
+          <td colspan="1">Posted on {{ post.posted }}</td>
+          % time_left = post.expires
+          % if time_left > 24
+            <td colspan="2">{{ (post.expires / 24).ceil }} days left to apply</td>
+          % elsif time_left <= 24 && time_left > 1
+            <td colspan="2">{{ post.expires.ceil }} hours left to apply</td>
+          % elsif time_left <= 1
+            <td colspan="2">Less than 1 hour left to apply!</td>
+          % end
+        </tr>
+        <tr>
+          <td colspan="3">{{ Company[post.company_id].name }}</td>
+        </tr>
+        <tr>
+          <td colspan="3">{{ post.title }}</td>
+        </tr>
+        <tr>
+          <td>{{ post.description }}</td>
+          % if developer && developer.applied?(post.id)
+            <td>APPLIED</td>
+          % else
+            <td><a href="/apply/{{ post.id }}">APPLY</a></td>
+          % end
+          <td><a href="/favorite/{{ post.id }}">
+          % if this.current_user.favorites.member?(post)
+            FAVORITED
+          % else
+            FAVORITE
+          % end
+          </a></td>
+        </tr>
+      % end
     % end
-  % end
-</table>
+  </table>
+% end

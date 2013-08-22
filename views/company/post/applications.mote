@@ -2,24 +2,28 @@
 
 % applications = Post[id].applications
 
-<table>
-  % applications.each do |application|
-    % developer = application.developer
+% if applications.empty?
+  <p>No applicants yet.</p>
+% else
+  <table>
+    % applications.each do |application|
+      % developer = application.developer
 
-    <tr><td colspan="4">Applied on {{ application.applied }}</td></tr>
-    <tr><td colspan="4">Name: {{ developer.name }}</td></tr>
-    <tr><td colspan="4">Username: {{ developer.username }}</td></tr>
-    <tr><td colspan="4"><a href="http://www.github.com/{{ developer.username }}" target="_blank">GitHub account</a></td></tr>
-    <tr>
-      <td><a href="/application/contact/{{ developer.id }}">CONTACT</a></td>
-      <td><a href="/application/favorite/{{ application.id }}">
-        % if Post[id].favorites.member?(application)
-          FAVORITED
-        % else
-          FAVORITE
-        % end
-        </a></td>
-      <td><a href="/application/remove/{{ application.id }}">DELETE</a></td>
-    </tr>
-  % end
-</table>
+      <tr><td colspan="4">Applied on {{ application.applied }}</td></tr>
+      <tr><td colspan="4">Name: {{ developer.name }}</td></tr>
+      <tr><td colspan="4">Username: {{ developer.username }}</td></tr>
+      <tr><td colspan="4"><a href="http://www.github.com/{{ developer.username }}" target="_blank">GitHub account</a></td></tr>
+      <tr>
+        <td><a href="/application/contact/{{ developer.id }}">CONTACT</a></td>
+        <td><a href="/application/favorite/{{ application.id }}">
+          % if Post[id].favorites.member?(application)
+            FAVORITED
+          % else
+            FAVORITE
+          % end
+          </a></td>
+        <td><a href="/application/remove/{{ application.id }}">DELETE</a></td>
+      </tr>
+    % end
+  </table>
+% end
