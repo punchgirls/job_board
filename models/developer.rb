@@ -1,5 +1,6 @@
 class Developer < Ohm::Model
   include Shield::Model
+  include Ohm::Callbacks
 
   attribute :username
   attribute :github_id
@@ -15,6 +16,17 @@ class Developer < Ohm::Model
   def applied?(post_id)
     return Application.find(:post_id => post_id,
       :developer_id => self.id).any?
+  end
+
+  def before_delete
+    applications.each(&:delete)
+
+    favorites.each do |post|
+      post.favorited_by.delete(self)
+      favorites.delete(post)
+    end
+
+    super
   end
 
   collection :applications, :Application

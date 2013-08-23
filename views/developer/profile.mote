@@ -17,3 +17,5 @@
   <button type="submit">Save</button>
   <a href="/dashboard">Cancel</a>
 </form>
+
+<p><a href="/delete/{{ developer.id }}">Delete account</a></p>

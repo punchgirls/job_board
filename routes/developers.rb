@@ -107,6 +107,13 @@ class Developers < Cuba
       res.redirect "/"
     end
 
+    on "delete/:id" do |id|
+      Developer[id].delete
+
+      session[:success] = "You have deleted your account."
+      res.redirect "/"
+    end
+
     on default do
       render("developer/dashboard", title: "Dashboard")
     end
