@@ -88,7 +88,20 @@ class Companies < Cuba
     end
 
     on "post/remove/:id" do |id|
-      Post[id].delete
+      post = Post[id]
+      developers = post.developers
+
+      developers.each do |developer|
+        Malone.deliver(to: developer.email,
+          subject: "Auto-notice: '" + post.title + "' post has been removed",
+          html: "<p>" + "Dear " + developer.name + "</p>" +
+          "<p>We are sorry to inform you that the post '" +
+          post.title + "' has been removed.</p>" +
+          "<p>Remember that there are a lot more jobs waiting at " +
+          "<a href='http://os-job-board.herokuapp.com'>Job Board</a>!</p>")
+      end
+
+      post.delete
       session[:success] = "Post successfully removed!"
       res.redirect "/dashboard"
     end
@@ -129,7 +142,8 @@ class Companies < Cuba
             html: "<p>" + "Dear " + developer.name + "</p>" +
             "<p>We are sorry to inform you that you have not been selected for the " +
             post.title + "</p>" +
-            "<p>Remember that there are a lot more jobs waiting at <a href='http://os-job-board.herokuapp.com'>Job Board</a>!</p>")
+            "<p>Remember that there are a lot more jobs waiting at " +
+            "<a href='http://os-job-board.herokuapp.com'>Job Board</a>!</p>")
 
       Application[id].delete
 
@@ -197,7 +211,29 @@ class Companies < Cuba
     end
 
     on "delete/:id" do |id|
-      Company[id].delete
+      company = Company[id]
+      posts = company.posts
+      developers = []
+
+      posts.each do |post|
+        post.developers.each do |developer|
+         if !final_emails.include?(developer)
+          developers << developer
+         end
+        end
+      end
+
+      developers.each do |developer|
+        Malone.deliver(to: developer.email,
+          subject: "Auto-notice: '" + company.name + "' removed their profile",
+          html: "<p>" + "Dear " + developer.name + "</p>" +
+          "<p>We are sorry to inform you that'" + company.name +
+          "' removed their profile and all posts by this company have been deleted.</p>" +
+          "<p>Remember that there are a lot more jobs waiting at " +
+          "<a href='http://os-job-board.herokuapp.com'>Job Board</a>!</p>")
+      end
+
+      company.delete
       session[:success] = "You have deleted your account."
       res.redirect "/"
     end
