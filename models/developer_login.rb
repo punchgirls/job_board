@@ -1,5 +1,5 @@
 class DeveloperLogin < Scrivener
-  attr_accessor :id, :login, :name, :email
+  attr_accessor :id, :login, :name, :email, :avatar
 
   def validate
     assert_present :name

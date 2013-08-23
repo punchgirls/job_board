@@ -5,11 +5,14 @@
 % if applications.empty?
   <p>No applicants yet.</p>
 % else
-  <table>
+  <table border="1">
     % applications.each do |application|
       % developer = application.developer
-
-      <tr><td colspan="4">Applied on {{ application.applied }}</td></tr>
+      <tr>
+        <td rowspan="5">
+          <img src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
+        </td>
+        <td colspan="4">Applied on {{ application.applied }}</td></tr>
       <tr><td colspan="4">Name: {{ developer.name }}</td></tr>
       <tr><td colspan="4">Username: {{ developer.username }}</td></tr>
       <tr><td colspan="4"><a href="http://www.github.com/{{ developer.username }}" target="_blank">GitHub account</a></td></tr>

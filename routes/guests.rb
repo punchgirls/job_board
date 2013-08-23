@@ -140,7 +140,8 @@ class Guests < Cuba
           developer = Developer.create(github_id: params["id"],
             username: params["login"],
             name: params["name"],
-            email: params["email"])
+            email: params["email"],
+            avatar: params["gravatar_id"])
 
           authenticate(developer)
 

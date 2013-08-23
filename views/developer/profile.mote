@@ -2,6 +2,8 @@
 
 <h2>Edit your profile</h2>
 
+<img src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
+
 <form action="/profile" method="POST">
   <label for="company-name">Name:</label>
   <input type="text" name="developer[name]" id="developer-name"

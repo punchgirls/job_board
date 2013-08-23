@@ -1,3 +1,5 @@
+% user = this.current_user
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,9 +15,13 @@
         <nav>
           <ul>
             <li><a href="/">Home</a></li>
-            % if current_user
+            % if user
               <li><a href="/dashboard">Dashboard</a></li>
-              <li><a href="/profile">{{ this.current_user.name }}</a></li>
+              <li><a href="/profile">
+              % if user.instance_of?(Developer)
+                <img src="http://www.gravatar.com/avatar/{{ user.avatar }}" />
+              % end
+                {{ user.name }}</a></li>
               <li><a href="/logout">Logout</a></li>
             % else
               <li><a href="/github_oauth">GitHub login</a></li>
@@ -26,7 +32,7 @@
       <?xml version="1.0" encoding="UTF-8"?>
     </header>
     <section>
-      % if current_user.instance_of?(Developer)
+      % if user.instance_of?(Developer)
         <nav>
           <ul>
             <li><a href="/applications">My applications</a></li>
