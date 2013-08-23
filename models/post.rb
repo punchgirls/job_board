@@ -19,7 +19,34 @@ class Post < Ohm::Model
     return (expiration_date.to_i - Time.now.to_i) <= 0
   end
 
+  def developers
+    developers = []
+
+    applications.each do |application|
+      if !developers.include?(application.developer)
+        developers << application.developer
+      end
+    end
+
+    favorited_by.each do |developer|
+      if !developers.include?(developer)
+        developers << developer
+      end
+    end
+
+    return developers
+  end
+
   def before_delete
+    developers.each do |developer|
+      Malone.deliver(to: developer.email,
+        subject: "Auto-notice: '" + self.title + "' post has been removed",
+        html: "<p>" + "Dear " + developer.name + "</p>" +
+        "<p>We are sorry to inform you that the post '" +
+        self.title + "' has been removed.</p>" +
+        "<p>Remember that there are a lot more jobs waiting at <a href='http://os-job-board.herokuapp.com'>Job Board</a>!</p>")
+    end
+
     applications.each(&:delete)
     favorites.each(&:delete)
 
