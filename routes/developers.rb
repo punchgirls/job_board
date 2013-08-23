@@ -80,19 +80,26 @@ class Developers < Cuba
 
     on "profile" do
       on post, param("developer") do |params|
-        login = DeveloperLogin.new(params)
+        developer = current_developer
 
-        on login.valid? do
-          current_developer.update(params)
+        on params["name"] !=  developer.name ||
+          params["email"] != developer.email do
 
-          session[:success] = "Your account was successfully updated!"
-          res.redirect "/dashboard"
+          login = DeveloperLogin.new(params)
+
+          if login.valid?
+            developer.update(params)
+
+            session[:success] = "Your account was successfully updated!"
+          end
+
+          on default do
+            session[:error] = "All fields are required and must be valid"
+            render("developer/profile", title: "Edit profile")
+          end
         end
 
-        on default do
-          session[:error] = "All fields are required and must be valid"
-          render("developer/profile", title: "Edit profile")
-        end
+        res.redirect "/dashboard"
       end
 
       on default do
