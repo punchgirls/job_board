@@ -10,38 +10,54 @@ class Companies < Cuba
 
     on "edit" do
       on post, param("company") do |params|
-        edit = EditCompanyAccount.new(params)
+        company = current_company
 
-        if edit.password.empty?
-          edit.password = current_company.crypted_password
-          edit.password_confirmation = current_company.crypted_password
+        values = []
+
+        company.attributes.each_value do |value|
+          values << value
         end
 
-        on edit.valid? do
-          params.delete("password_confirmation")
+        if params["password"].empty?
+          params["password"] = company.crypted_password
+          params["password_confirmation"] = company.crypted_password
+        end
 
-          on current_company.email != edit.email &&
-            Company.with(:email, edit.email) do
-            session[:error] = "E-mail is already registered"
-            render("company/edit", title: "Edit profile")
+        params.each_value do |value|
+          if !values.include?(value)
+            edit = EditCompanyAccount.new(params)
+
+            on edit.valid? do
+              params.delete("password_confirmation")
+
+              on company.email != edit.email &&
+                Company.with(:email, edit.email) do
+
+                session[:error] = "E-mail is already registered"
+                render("company/edit", title: "Edit profile")
+              end
+
+              on default do
+                current_company.update(params)
+
+                session[:success] = "Your account was successfully updated!"
+                res.redirect "/profile"
+              end
+            end
+
+            on edit.errors[:password] == [:not_confirmed] do
+              session[:error] = "Passwords don't match"
+              render("company/edit", title: "Edit profile")
+            end
+
+            on default do
+              session[:error] = "Name, E-mail and URL are required and must be valid"
+              render("company/edit", title: "Edit profile")
+            end
           end
-
-          on default do
-            current_company.update(params)
-            session[:success] = "Your account was successfully updated!"
-            res.redirect "/profile"
-          end
         end
 
-        on edit.errors[:password] == [:not_confirmed] do
-          session[:error] = "Passwords don't match"
-          render("company/edit", title: "Edit profile")
-        end
-
-        on default do
-          session[:error] = "Name, E-mail and URL are required and must be valid"
-          render("company/edit", title: "Edit profile")
-        end
+        res.redirect "/edit"
       end
 
       on default do
