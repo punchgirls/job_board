@@ -16,8 +16,8 @@ scope do
     post "/signup", { company: { name: "",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
-          password: "1234",
-          password_confirmation: "1234" }}
+          password: "12345678",
+          password_confirmation: "12345678" }}
 
     assert last_response.body["Company name is required"]
   end
@@ -26,8 +26,8 @@ scope do
     post "/signup", { company: { name: "Punchgirls",
           email: "punchgirlsmail.com",
           url: "http://www.punchgirls.com",
-          password: "1234",
-          password_confirmation: "1234" }}
+          password: "12345678",
+          password_confirmation: "12345678" }}
 
     assert last_response.body["E-mail not valid"]
   end
@@ -36,16 +36,16 @@ scope do
     post "/signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
-          password: "1234",
-          password_confirmation: "1234" }}
+          password: "12345678",
+          password_confirmation: "12345678" }}
 
     get "/logout"
 
     post "/signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
-          password: "1234",
-          password_confirmation: "1234" }}
+          password: "12345678",
+          password_confirmation: "12345678" }}
 
     assert last_response.body["This e-mail is already registered"]
   end
@@ -54,28 +54,28 @@ scope do
     post "/signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls",
-          password: "1234",
-          password_confirmation: "1234" }}
+          password: "12345678",
+          password_confirmation: "12345678" }}
 
     assert last_response.body["URL not valid"]
   end
 
-  test "should inform User in case of password not present" do
+  test "should inform User in case of password not in range" do
     post "/signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
           password: "",
           password_confirmation: "" }}
 
-    assert last_response.body["Password not present"]
+    assert last_response.body["The password lenght must be beween 8 to 32 characters"]
   end
 
   test "should inform User in case of password not matching" do
     post "/signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
-          password: "1234",
-          password_confirmation: "123" }}
+          password: "12345678",
+          password_confirmation: "1234" }}
 
     assert last_response.body["Passwords don't match"]
   end
@@ -84,8 +84,8 @@ scope do
     post "/signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
-          password: "1234",
-          password_confirmation: "1234" }}
+          password: "12345678",
+          password_confirmation: "12345678" }}
 
     follow_redirect!
 

@@ -18,7 +18,7 @@ prepare do
   Company.create({ name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
-          password: "1234" })
+          password: "12345678" })
 
   Post.create({ date: time,
         expiration_date: time + (30 * 24 * 60 * 60),

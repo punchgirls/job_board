@@ -45,6 +45,11 @@ class Companies < Cuba
               end
             end
 
+            on edit.errors[:password] == [:not_in_range] do
+              session[:error] = "The password must be at least 8 characters"
+              render("company/edit", title: "Edit profile")
+            end
+
             on edit.errors[:password] == [:not_confirmed] do
               session[:error] = "Passwords don't match"
               render("company/edit", title: "Edit profile")

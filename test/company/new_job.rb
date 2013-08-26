@@ -7,13 +7,13 @@ prepare do
   Company.create({ name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
-          password: "1234" })
+          password: "12345678" })
 end
 
 scope do
   test "should inform User in case of incomplete fields" do
     post "/login", { email: "punchgirls@mail.com",
-          password: "1234" }
+          password: "12345678" }
 
     post "/post/new", { post: {  title: "",
           description: "Ruby oracle needed!" }}
@@ -23,7 +23,7 @@ scope do
 
   test "should successfully post a new job offer" do
     post "/login", { email: "punchgirls@mail.com",
-          password: "1234" }
+          password: "12345678" }
 
     post "/post/new", { post: {  title: "Ruby developer",
           description: "Ruby oracle needed!" }}
@@ -35,7 +35,7 @@ scope do
 
   test "should display a list of posts" do
     post "/login", { email: "punchgirls@mail.com",
-          password: "1234" }
+          password: "12345678" }
 
     post "/post/new", { post: {  title: "Ruby developer",
           description: "Ruby oracle needed!" }}
@@ -47,7 +47,7 @@ scope do
 
   test "should inform User of job deleted" do
     post "/login", { email: "punchgirls@mail.com",
-          password: "1234" }
+          password: "12345678" }
 
     post "/post/new", { post: {  title: "Ruby developer",
           description: "Ruby oracle needed!" }}
@@ -61,7 +61,7 @@ scope do
 
   test "should inform User of job edited" do
     post "/login", { email: "punchgirls@mail.com",
-          password: "1234" }
+          password: "12345678" }
 
     post "/post/new", { post: {  title: "Ruby developer",
           description: "Ruby oracle needed!" }}

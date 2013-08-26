@@ -7,13 +7,13 @@ prepare do
   Company.create({ name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
-          password: "1234" })
+          password: "12345678" })
 end
 
 scope do
   test "should display company profile" do
     post "/login", { email: "punchgirls@mail.com",
-          password: "1234" }
+          password: "12345678" }
 
     get "/profile"
 

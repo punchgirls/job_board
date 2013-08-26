@@ -10,7 +10,7 @@ class CompanySignup < Scrivener
     assert_present :name
     assert_url :url
 
-    assert_length :password, 8..12
+    assert_length :password, 8..32
     assert password == password_confirmation, [:password, :not_confirmed]
   end
 end

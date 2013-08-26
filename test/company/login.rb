@@ -7,7 +7,7 @@ prepare do
   Company.create({ name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
-          password: "1234" })
+          password: "12345678" })
 end
 
 scope do
@@ -19,14 +19,14 @@ scope do
 
   test "should inform User in case of invalid login information" do
     post "/login", { email: "punchies@mail.com",
-          password: "1234" }
+          password: "12345678" }
 
     assert last_response.body["Invalid email and/or password combination"]
   end
 
   test "should inform User of successful login" do
     post "/login", { email: "punchgirls@mail.com",
-          password: "1234" }
+          password: "12345678" }
 
     follow_redirect!
 

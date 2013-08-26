@@ -7,7 +7,7 @@ prepare do
   Company.create({ name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
-          password: "1234" })
+          password: "12345678" })
 
   Post.create({ title: "Ruby developer",
           description: "Ruby ninja needed!",
@@ -26,7 +26,7 @@ end
 scope do
   test "should inform Company of mail sent successfully" do
     post "/login", { email: "punchgirls@mail.com",
-          password: "1234" }
+          password: "12345678" }
 
     post "/application/contact/1", { message: { subject: "Test",
           body: "This is a test message" }}
