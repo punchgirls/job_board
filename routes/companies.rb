@@ -10,6 +10,10 @@ class Companies < Cuba
 
     on "edit" do
       on post, param("company") do |params|
+        if !params["url"].start_with?("http")
+          params["url"] = "http://" + params["url"]
+        end
+
         company = current_company
 
         values = []
@@ -43,6 +47,21 @@ class Companies < Cuba
                 session[:success] = "Your account was successfully updated!"
                 res.redirect "/profile"
               end
+            end
+
+            on edit.errors[:name] == [:not_present] do
+              session[:error] = "Company name is required"
+              render("company/edit", title: "Edit profile")
+            end
+
+            on edit.errors[:email] == [:not_email] do
+              session[:error] = "E-mail not valid"
+              render("company/edit", title: "Edit profile")
+            end
+
+            on edit.errors[:url] == [:not_url] do
+              session[:error] = "URL not valid"
+              render("company/edit", title: "Edit profile")
             end
 
             on edit.errors[:password] == [:not_in_range] do
