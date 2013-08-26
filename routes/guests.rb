@@ -42,8 +42,8 @@ class Guests < Cuba
           render("company/signup", title: "Sign up", company: params)
         end
 
-        on signup.errors[:password] == [:not_confirmed] do
-          session[:error] = "Passwords don't match"
+        on signup.errors[:password] == [:not_in_range] do
+          session[:error] = "Password lenght must be beween 8 to 12 characters"
           render("company/signup", title: "Sign up", company: params)
         end
 
