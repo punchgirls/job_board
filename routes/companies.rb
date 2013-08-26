@@ -115,11 +115,8 @@ class Companies < Cuba
       developers.each do |developer|
         Malone.deliver(to: developer.email,
           subject: "Auto-notice: '" + post.title + "' post has been removed",
-          html: "<p>" + "Dear " + developer.name + "</p>" +
-          "<p>We are sorry to inform you that the post '" +
-          post.title + "' has been removed.</p>" +
-          "<p>Remember that there are a lot more jobs waiting at " +
-          "<a href='http://os-job-board.herokuapp.com'>Job Board</a>!</p>")
+          html: mote("views/company/message/remove_post.mote",
+            post: post, developer: developer))
       end
 
       post.delete
@@ -160,11 +157,8 @@ class Companies < Cuba
       Malone.deliver(to: developer.email,
             cc: company.email,
             subject: "Auto-notice: Regarding '" + post.title + "' post",
-            html: "<p>" + "Dear " + developer.name + "</p>" +
-            "<p>We are sorry to inform you that you have not been selected for the " +
-            post.title + "</p>" +
-            "<p>Remember that there are a lot more jobs waiting at " +
-            "<a href='http://os-job-board.herokuapp.com'>Job Board</a>!</p>")
+            html: mote("views/company/message/remove_application.mote",
+              post: post, developer: developer))
 
       Application[id].delete
 
@@ -182,13 +176,8 @@ class Companies < Cuba
           Malone.deliver(to: Developer[id].email,
             cc: company.email,
             subject: params["subject"],
-            html: "<p>" + params["body"] +
-            "</p>" + "<a href='mailto:" +
-            company.email + "?subject=RE: " +
-            params["subject"] +
-            "&body=" + "From " + company.name + ":\n" +
-            params["body"] +
-            "'>Reply to company</a>")
+            html: mote("views/company/message/contact.mote",
+              title: "Contact", params: params))
 
           session[:success] = "You just sent an e-mail to the applicant!"
           res.redirect "/dashboard"
@@ -197,7 +186,6 @@ class Companies < Cuba
           render("company/post/contact", title: "Contact developer",
             id: id, message: params)
         end
-
       end
 
       on default do
@@ -238,7 +226,7 @@ class Companies < Cuba
 
       posts.each do |post|
         post.developers.each do |developer|
-         if !final_emails.include?(developer)
+         if !developers.include?(developer)
           developers << developer
          end
         end
@@ -247,11 +235,8 @@ class Companies < Cuba
       developers.each do |developer|
         Malone.deliver(to: developer.email,
           subject: "Auto-notice: '" + company.name + "' removed their profile",
-          html: "<p>" + "Dear " + developer.name + "</p>" +
-          "<p>We are sorry to inform you that'" + company.name +
-          "' removed their profile and all posts by this company have been deleted.</p>" +
-          "<p>Remember that there are a lot more jobs waiting at " +
-          "<a href='http://os-job-board.herokuapp.com'>Job Board</a>!</p>")
+          html: mote("views/company/message/delete_account.mote",
+              developer: developer))
       end
 
       company.delete
