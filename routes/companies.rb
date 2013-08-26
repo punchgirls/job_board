@@ -38,7 +38,7 @@ class Companies < Cuba
               end
 
               on default do
-                current_company.update(params)
+                company.update(params)
 
                 session[:success] = "Your account was successfully updated!"
                 res.redirect "/profile"
@@ -57,7 +57,7 @@ class Companies < Cuba
           end
         end
 
-        res.redirect "/edit"
+        res.redirect "/profile"
       end
 
       on default do

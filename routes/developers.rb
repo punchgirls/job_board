@@ -106,7 +106,7 @@ class Developers < Cuba
           end
         end
 
-        res.redirect "/profile"
+        res.redirect "/dashboard"
       end
 
       on default do
