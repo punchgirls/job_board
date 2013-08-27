@@ -34,7 +34,7 @@ scope do
     assert last_response.body["Your account was successfully updated!"]
   end
 
-  test "should inform User in case of incomplete or invalid fields" do
+  test "should inform User in case of no name" do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
@@ -42,10 +42,52 @@ scope do
           name: "",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
+          password: "12345678",
+          password_confirmation: "12345678" }}
+
+    assert last_response.body["Company name is required"]
+  end
+
+  test "should inform User in case of invalid or missing email" do
+    post "/login", { email: "punchgirls@mail.com",
+          password: "12345678" }
+
+    post "/edit/1", { company: {
+          name: "Punchgirls",
+          email: "punchgirlsmail.com",
+          url: "http://www.punchgirls.com",
           password: "",
           password_confirmation: "" }}
 
-    assert last_response.body["Name, E-mail and URL are required and must be valid"]
+    assert last_response.body["E-mail not valid"]
+  end
+
+  test "should inform User in case of e-mail already registered" do
+    post "/login", { email: "punchgirls@mail.com",
+          password: "12345678" }
+
+    post "/edit/1", { company: {
+          name: "Punchgirls",
+          email: "punchies@mail.com",
+          url: "http://www.punchgirls.com",
+          password: "12345678",
+          password_confirmation: "12345678" }}
+
+    assert last_response.body["E-mail is already registered"]
+  end
+
+  test "should inform User in case of invalid or missing URL" do
+    post "/login", { email: "punchgirls@mail.com",
+          password: "12345678" }
+
+    post "/edit/1", { company: {
+          name: "Punchgirls",
+          email: "punchies@mail.com",
+          url: "ht://www.punchgirls.com",
+          password: "12345678",
+          password_confirmation: "12345678" }}
+
+    assert last_response.body["URL not valid"]
   end
 
   test "should inform User in case of password not in range" do
@@ -73,19 +115,5 @@ scope do
           password_confirmation: "12" }}
 
     assert last_response.body["Passwords don't match"]
-  end
-
-  test "should inform User in case of e-mail already registered" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
-
-    post "/edit/1", { company: {
-          name: "Punchgirls",
-          email: "punchies@mail.com",
-          url: "http://www.punchgirls.com",
-          password: "12345678",
-          password_confirmation: "12345678" }}
-
-    assert last_response.body["E-mail is already registered"]
   end
 end
