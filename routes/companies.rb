@@ -136,7 +136,7 @@ class Companies < Cuba
         post.update(expiration_date: new_date)
 
         session[:success] = "You have successfully extended your post
-          by #{days} days!"
+        by #{days} days!"
         res.redirect "/dashboard"
       end
 

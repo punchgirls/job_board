@@ -3,5 +3,7 @@
 <form action="/post/extend/{{ id }}" method="POST">
   <input type="radio" name="days" value="14">14 days<br/>
   <input type="radio" name="days" value="30">30 days<br/>
+
   <button type="submit">Extend</button>
+  <a href="/dashboard">Cancel</a>
 </form>
