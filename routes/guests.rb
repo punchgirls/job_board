@@ -38,7 +38,7 @@ class Guests < Cuba
         end
 
         on signup.errors[:password] == [:not_in_range] do
-          session[:error] = "The password lenght must be beween 8 to 32 characters"
+          session[:error] = "The password length must be between 8 to 32 characters"
           render("company/signup", title: "Sign up", company: params)
         end
 
@@ -104,7 +104,7 @@ class Guests < Cuba
         end
 
         on default do
-          session[:error] = "Can't find a user with that email."
+          session[:error] = "Can't find a user with that e-mail."
           res.redirect("/forgot-password", 303)
         end
       end
@@ -136,7 +136,7 @@ class Guests < Cuba
           end
 
           on reset.errors[:password] == [:not_in_range] do
-            session[:error] = "The password lenght must be beween 8 to 32 characters"
+            session[:error] = "The password length must be between 8 to 32 characters"
             render("otp", title: "Password recovery",
               company: company, signature: signature)
           end
@@ -148,7 +148,7 @@ class Guests < Cuba
           end
 
           on default do
-            session[:error] = "The password lenght must be beween 8 to 32 characters"
+            session[:error] = "The password length must be between 8 to 32 characters"
             render("otp", title: "Password recovery",
               company: company, signature: signature)
           end
