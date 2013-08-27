@@ -174,7 +174,6 @@ class Companies < Cuba
       company = post.company
 
       Malone.deliver(to: developer.email,
-            cc: company.email,
             subject: "Auto-notice: Regarding '" + post.title + "' post",
             html: mote("views/company/message/remove_application.mote",
               post: post, developer: developer))

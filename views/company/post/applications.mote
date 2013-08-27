@@ -1,11 +1,11 @@
-<h2>List of applicants</h2>
-
 % applications = Post[id].applications
+
+<h2>List of applicants ({{ applications.size }})</h2>
 
 % if applications.empty?
   <p>No applicants yet.</p>
 % else
-  <table border="1">
+  <table>
     % applications.each do |application|
       % developer = application.developer
       <tr>
