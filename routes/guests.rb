@@ -98,7 +98,8 @@ class Guests < Cuba
 
           Malone.deliver(to: company.email,
             subject: "Password recovery",
-            html: "Go to http://localhost:9393/otp/%s" % signature)
+            html: "Please follow this link to reset your password:
+            http://localhost:9393/otp/%s" % signature)
 
           res.redirect "/login/?recovery=true", 303
         end
@@ -161,7 +162,7 @@ class Guests < Cuba
       end
 
       on default do
-        session[:error] = "Invalid signature found"
+        session[:error] = "Invalid URL. Please try again!"
         res.redirect("/forgot-password")
       end
     end

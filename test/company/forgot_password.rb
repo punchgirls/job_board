@@ -85,6 +85,6 @@ scope do
 
     follow_redirect!
 
-    assert last_response.body["Invalid signature found"]
+    assert last_response.body["Invalid URL. Please try again!"]
   end
 end
