@@ -3,3 +3,4 @@ env.sh
 .DS_Store
 dump.rdb
 seed.rb
+gemfile.rb

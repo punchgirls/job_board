@@ -9,14 +9,14 @@ GEM
       rack
     cuba-contrib (3.1.0)
       cuba
-    cutest (1.2.0)
+    cutest (1.2.1)
     dep (1.0.6)
     excon (0.25.3)
     gemfile (0.0.2)
     gn (0.1.4)
       clap
       mote
-    gs (0.1.5)
+    gs (0.2.0)
     heroku (2.40.0)
       heroku-api
       launchy
@@ -39,6 +39,7 @@ GEM
     nest (1.1.2)
       redis
     netrc (0.7.7)
+    nobi (0.0.1)
     ohm (1.3.2)
       nest
       redis
@@ -58,6 +59,7 @@ GEM
     rest-client (1.6.7)
       mime-types
     rubyzip (0.9.9)
+    rvm (1.11.3.8)
     sc (0.0.1)
     scrivener (0.0.3)
     shield (2.0.0)
@@ -79,3 +81,4 @@ DEPENDENCIES
   requests (= 0.0.6)
   malone (= 1.0.4)
   ohm-contrib (= 1.2)
+  nobi (= 0.0.1)

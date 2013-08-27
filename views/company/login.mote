@@ -7,6 +7,8 @@
   <label for="password">Password</label>
   <input type="password" name="password" id="password"><br/>
 
+  <a href="/forgot-password">I forgot my password</a><br/>
+
   <button type="submit" >Login</button>
 </form>
 

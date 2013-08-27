@@ -74,8 +74,95 @@ class Guests < Cuba
         render("company/login", title: "Login", user: user)
       end
 
+      on param("recovery") do
+        session[:success] = "Check your e-mail and follow the instructions."
+        res.redirect "/login"
+      end
+
       on default do
         render("company/login", title: "Login", user: "")
+      end
+    end
+
+    on "forgot-password" do
+      on get do
+        render("forgot-password", title: "Password recovery")
+      end
+
+      on post do
+        company = Company.fetch(req[:email])
+
+        on company do
+          nobi = Nobi::TimestampSigner.new('my secret here')
+          signature = nobi.sign(String(company.id))
+
+          Malone.deliver(to: company.email,
+            subject: "Password recovery",
+            html: "Go to http://localhost:9393/otp/%s" % signature)
+
+          res.redirect "/login/?recovery=true", 303
+        end
+
+        on default do
+          session[:error] = "Can't find a user with that email."
+          res.redirect("/forgot-password", 303)
+        end
+      end
+    end
+
+    on "otp/:signature" do |signature|
+      nobi = Nobi::TimestampSigner.new('my secret here')
+
+      company =
+        begin
+          company_id = nobi.unsign(signature, max_age: 7200)
+
+          Company[company_id]
+        rescue Nobi::BadData
+        end
+
+      on company do
+        on post, param("company") do |params|
+          reset = PasswordRecovery.new(params)
+
+          on reset.valid? do
+            company.update(password: reset.password)
+
+            authenticate(company)
+
+            session[:success] = "You have successfully changed
+            your password and logged in!"
+            res.redirect "/", 303
+          end
+
+          on reset.errors[:password] == [:not_in_range] do
+            session[:error] = "The password lenght must be beween 8 to 32 characters"
+            render("otp", title: "Password recovery",
+              company: company, signature: signature)
+          end
+
+          on reset.errors[:password] == [:not_confirmed] do
+            session[:error] = "Passwords don't match"
+            render("otp", title: "Password recovery",
+              company: company, signature: signature)
+          end
+
+          on default do
+            session[:error] = "The password lenght must be beween 8 to 32 characters"
+            render("otp", title: "Password recovery",
+              company: company, signature: signature)
+          end
+        end
+
+        on default do
+          render("otp", title: "Password recovery",
+            company: company, signature: signature)
+        end
+      end
+
+      on default do
+        session[:error] = "Invalid signature found"
+        res.redirect("/forgot-password")
       end
     end
 

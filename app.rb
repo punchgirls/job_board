@@ -7,6 +7,7 @@ require "shield"
 require "requests"
 require "malone"
 require "ohm/contrib"
+require "nobi"
 
 APP_SECRET = ENV.fetch("APP_SECRET")
 REDIS_URL = ENV.fetch("OPENREDIS_URL")

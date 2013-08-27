@@ -1,0 +1,11 @@
+<h2>Create your new password</h2>
+
+<form action="/otp/{{ signature }}" method="POST">
+  <label for="password">Password:</label>
+  <input type="password" name="company[password]" id="password"><br/>
+
+  <label for="password-confirmation">Password confirmation:</label>
+  <input type="password" name="company[password_confirmation]" id="password-confirmation"><br/>
+
+  <button type="submit">Create new password</button>
+</form>
