@@ -24,6 +24,9 @@
           <td colspan="3">{{ post.company.name }}</td>
         </tr>
         <tr>
+          <td colspan="3"><a href="{{ post.company.url }}">Website</a></td>
+        </tr>
+        <tr>
           <td colspan="3">{{ post.title }}</td>
         </tr>
         <tr>
