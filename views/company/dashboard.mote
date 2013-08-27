@@ -14,14 +14,17 @@
     % posts.each do |post|
       <tr>
         <td colspan="1">Posted on {{ post.posted }}</td>
-        % time_left = post.expires
-        % if time_left > 24
-          <td colspan="3">Expires in {{ (post.expires / 24).ceil }} days</td>
-        % elsif time_left <= 24 && time_left > 1
-          <td colspan="3">Expires in {{ post.expires.ceil }} hours</td>
-        % elsif time_left <= 1
-          <td colspan="3">Expires in less than 1 hour!</td>
-        % end
+        <td colspan="3">Expires in
+          % time_left = post.expires
+          % if time_left > 24
+            {{ (post.expires / 24).ceil }} days
+          % elsif time_left <= 24 && time_left > 1
+            {{ post.expires.ceil }} hours
+          % elsif time_left <= 1
+            less than 1 hour!
+          % end
+          <a href="/post/extend/{{ post.id }}">Extend expiration date</a>
+        </td>
       </tr>
       <tr>
         <td colspan="4" id="post-title">{{ post.title }}</td>

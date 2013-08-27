@@ -9,7 +9,7 @@
 
   <a href="/forgot-password">I forgot my password</a><br/>
 
-  <button type="submit" >Login</button>
+  <button type="submit">Login</button>
 </form>
 
 <hr/>

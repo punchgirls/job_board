@@ -127,6 +127,24 @@ class Companies < Cuba
       end
     end
 
+    on "post/extend/:id" do |id|
+      on post, param("days") do |days|
+        post = Post[id]
+
+        new_date = post.expiration_date.to_i + (days.to_i * 24 * 60 * 60)
+
+        post.update(expiration_date: new_date)
+
+        session[:success] = "You have successfully extended your post
+          by #{days} days!"
+        res.redirect "/dashboard"
+      end
+
+      on default do
+        render("/company/post/extend", title: "Extend date", id: id)
+      end
+    end
+
     on "post/remove/:id" do |id|
       post = Post[id]
       developers = post.developers
