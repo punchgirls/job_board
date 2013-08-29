@@ -11,9 +11,11 @@ Usage
 ------------
 Clone this repository, then create a `env.sh` file in the project folder.
 
-`env.sh` *example*:
+*example*:
 
-```APP_SECRET='your app secret'
+``` ruby
+# cat env.sh
+APP_SECRET='your app secret'
 OPENREDIS_URL=redis://127.0.0.1:6379/
 GITHUB_CLIENT_ID='your GitHub client id'
 GITHUB_CLIENT_SECRET='your GitHub'client secret'
@@ -21,7 +23,8 @@ GITHUB_OAUTH_AUTHORIZE=https://github.com/login/oauth/authorize
 GITHUB_OAUTH_ACCESS_TOKEN=https://github.com/login/oauth/access_token
 GITHUB_FETCH_USER=https://api.github.com/user
 MALONE_URL=smtp://username:password@smtp.gmail.com:587
-RESET_URL=http://localhost:9393```
+RESET_URL=http://localhost:9393
+```
 
 Tools
 -----
@@ -37,4 +40,6 @@ Tools
 - [Malone:] (https://github.com/cyx/malone) for mailing.
 - [Nobi:] (https://github.com/cyx/nobi) for creating a password reset link.
 
-<sub>Disclaimer: If you break the internet by running this application we assume no responsibility!</sub>
+``` html
+Disclaimer: If you break the internet by running this application we assume no responsibility!
+```
