@@ -98,8 +98,8 @@ class Guests < Cuba
 
           Malone.deliver(to: company.email,
             subject: "Password recovery",
-            html: "Please follow this link to reset your password:
-            http://localhost:9393/otp/%s" % signature)
+            html: "Please follow this link to reset your password: " +
+            RESET_URL + "/otp/%s" % signature)
 
           res.redirect "/login/?recovery=true", 303
         end
