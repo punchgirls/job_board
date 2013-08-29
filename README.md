@@ -40,4 +40,4 @@ Tools
 - [Malone:] (https://github.com/cyx/malone) for mailing.
 - [Nobi:] (https://github.com/cyx/nobi) for creating a password reset link.
 
-Disclaimer: If you break the internet by running this application we assume no responsibility!
+<sub>Disclaimer: If you break the internet by running this application we assume no responsibility!</sub>
