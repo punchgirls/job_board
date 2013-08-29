@@ -1,6 +1,11 @@
 <h2>Create a new job offer</h2>
 
 <form action="/post/new" method="POST">
+  <select>
+    % SKILLS.each do |skill|
+      <option name="language" value="{{ skill }}">{{ skill }}</option>
+    % end
+  </select><br/>
   <label for="title">Title:</label>
   <input type="text" name="post[title]" id="title" value="{{ post['title'] }}"><br/>
 
