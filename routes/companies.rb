@@ -99,10 +99,9 @@ class Companies < Cuba
           params[:company_id] = current_company.id
           params[:date] = time
           params[:expiration_date] = time + (30 * 24 * 60 * 60)
+          params[:tags] = skills.join(", ")
 
           post = Post.create(params)
-
-          post.add_skills.sadd(skills)
 
           session[:success] = "You have successfully posted a job offer!"
           res.redirect "/dashboard"

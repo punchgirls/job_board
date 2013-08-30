@@ -4,8 +4,11 @@ class Post < Ohm::Model
 
   attribute :date
   attribute :expiration_date
+  attribute :tags
   attribute :title
   attribute :description
+
+  index :tag
 
   def posted
     return Time.at(date.to_i).strftime("%d %B %Y")
@@ -48,12 +51,8 @@ class Post < Ohm::Model
     super
   end
 
-  def add_skills
-    key[:skills]
-  end
-
-  def skills
-    return self.add_skills.smembers
+  def tag
+    tags.to_s.split(/\s*,\s*/).uniq
   end
 
   reference :company, :Company

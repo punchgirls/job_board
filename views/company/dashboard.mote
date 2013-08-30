@@ -30,7 +30,7 @@
         <td colspan="4" id="post-title">{{ post.title }}</td>
       </tr>
       <tr>
-        <td colspan="4" id="post-skills">{{ post.skills.join(", ") }}</td>
+        <td colspan="4" id="post-skills">{{ post.tags }}</td>
       </tr>
       <tr>
         <td>{{ post.description }}</td>
