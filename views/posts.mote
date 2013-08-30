@@ -30,6 +30,9 @@
           <td colspan="3">{{ post.title }}</td>
         </tr>
         <tr>
+          <td colspan="4" id="post-skills">{{ post.skills.join(", ") }}</td>
+        </tr>
+        <tr>
           <td>{{ post.description }}</td>
           % if developer && developer.applied?(post.id)
             <td>APPLIED</td>

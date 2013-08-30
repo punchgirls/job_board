@@ -30,9 +30,12 @@
         <td colspan="4" id="post-title">{{ post.title }}</td>
       </tr>
       <tr>
+        <td colspan="4" id="post-skills">{{ post.skills.join(", ") }}</td>
+      </tr>
+      <tr>
         <td>{{ post.description }}</td>
-        <td><a href="/post/applications/{{ post.id }}">APPLICANTS ({{ post.applications.size }})</a></td>
-        <td><a href="/post/edit/{{ post.id }}">EDIT</a></td>
+        <td style="width:150px;"><a href="/post/applications/{{ post.id }}">APPLICANTS ({{ post.applications.size }})</a></td>
+        <td style="width:150px;"><a href="/post/edit/{{ post.id }}">EDIT</a></td>
         <td><a href="/post/remove/{{ post.id }}">REMOVE</a></td>
       </tr>
     % end

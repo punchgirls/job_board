@@ -102,14 +102,10 @@ class Companies < Cuba
 
           post = Post.create(params)
 
-          skills.each do |skill|
-            post.add_skills.sadd(skill)
-          end
+          post.add_skills.sadd(skills)
 
-          res.write post.skills
-
-          # session[:success] = "You have successfully posted a job offer!"
-          # res.redirect "/dashboard"
+          session[:success] = "You have successfully posted a job offer!"
+          res.redirect "/dashboard"
         end
 
         on post.errors[:title] == [:not_in_range] do
