@@ -1,9 +1,8 @@
 <h2>Create a new job offer</h2>
-
 <form action="/post/new" method="POST">
-  <select>
+  <select multiple="multiple" name="skills[]" >
     % SKILLS.each do |skill|
-      <option name="language" value="{{ skill }}">{{ skill }}</option>
+      <option value="{{ skill }}">{{ skill }}</option>
     % end
   </select><br/>
   <label for="title">Title:</label>

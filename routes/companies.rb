@@ -90,7 +90,7 @@ class Companies < Cuba
     end
 
     on "post/new" do
-      on post, param("post") do |params|
+      on post, param("post"), param("skills") do |params, skills|
         post = PostJobOffer.new(params)
 
         on post.valid? do
@@ -100,10 +100,16 @@ class Companies < Cuba
           params[:date] = time
           params[:expiration_date] = time + (30 * 24 * 60 * 60)
 
-          Post.create(params)
+          post = Post.create(params)
 
-          session[:success] = "You have successfully posted a job offer!"
-          res.redirect "/dashboard"
+          skills.each do |skill|
+            post.add_skills.sadd(skill)
+          end
+
+          res.write post.skills
+
+          # session[:success] = "You have successfully posted a job offer!"
+          # res.redirect "/dashboard"
         end
 
         on post.errors[:title] == [:not_in_range] do

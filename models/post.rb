@@ -48,6 +48,14 @@ class Post < Ohm::Model
     super
   end
 
+  def add_skills
+    key[:skills]
+  end
+
+  def skills
+    return self.add_skills.smembers
+  end
+
   reference :company, :Company
 
   collection :applications, :Application
