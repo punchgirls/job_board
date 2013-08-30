@@ -1,1 +1,2 @@
-{{ this.partial("posts") }}
+{{ this.partial("search_box") }}
+{{ this.partial("search") }}

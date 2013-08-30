@@ -1,3 +1,5 @@
+{{ this.partial("search_box") }}
+
 <h2>How does it work?</h2>
 
 <div>
@@ -22,5 +24,5 @@
   % else
     <a href="/login">Post job</a>
   % end
-    <a href="/posts">Search jobs</a>
+    <a href="/search">Search jobs</a>
 </div>

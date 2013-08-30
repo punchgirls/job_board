@@ -167,9 +167,9 @@ class Guests < Cuba
       end
     end
 
-    on "posts" do
+    on "search" do
       on default do
-        render("posts", title: "Posts")
+        render("search", title: "Search")
       end
     end
 

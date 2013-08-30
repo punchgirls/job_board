@@ -247,8 +247,8 @@ class Companies < Cuba
       end
     end
 
-    on "posts" do
-      render("posts", title: "Posts")
+    on "search" do
+      render("search", title: "Search")
     end
 
     on "logout" do

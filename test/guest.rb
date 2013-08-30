@@ -13,7 +13,7 @@ scope do
   end
 
   test "should display posts" do
-    get "/posts"
+    get "/search"
 
     assert_equal 200, last_response.status
   end
