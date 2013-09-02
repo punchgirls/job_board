@@ -19,6 +19,22 @@ class Developers < Cuba
       end
     end
 
+    on "search" do
+      on post, param("skills") do |skills|
+        posts = Search.skills(skills)
+
+        render("search", title: "Search", posts: posts)
+      end
+
+      on param "all" do
+        render("search", title: "Search", posts: Post.all)
+      end
+
+      on default do
+        render("search", title: "Search", posts: nil)
+      end
+    end
+
     on "applications" do
       render("developer/applications", title: "My applications")
     end
@@ -47,6 +63,10 @@ class Developers < Cuba
       on param("origin") do |origin|
         if origin == "favorites"
           res.redirect "/favorites"
+        elsif origin == "applications"
+          res.redirect "/applications"
+        elsif origin == "search"
+          res.redirect "/applications"
         end
       end
 

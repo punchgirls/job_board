@@ -1,6 +1,6 @@
 <h2>Search for jobs</h2>
 <form action="/search" method="POST">
-  <select multiple="multiple" name="skills[]" >
+  <select multiple="multiple" name="skills[]" size="10">
     % SKILLS.each do |skill|
       <option value="{{ skill }}">{{ skill }}</option>
     % end
@@ -8,3 +8,5 @@
 
   <button type="submit">Search</button>
 </form>
+
+<p><a href="/search?all=true">Show all</a></p>

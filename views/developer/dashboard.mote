@@ -1,2 +1,1 @@
-{{ this.partial("search_box") }}
-{{ this.partial("search") }}
+{{ this.partial("search", posts: nil) }}

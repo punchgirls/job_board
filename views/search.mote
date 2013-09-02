@@ -1,10 +1,13 @@
 % developer = this.current_developer
-% posts = Post.all
 
 <h2>Search job posts and apply with a single click!</h2>
 
-% if posts.empty?
-  <p>There are no job posts yet.</p>
+{{ this.partial("search_box") }}
+
+% if posts.nil?
+  <p>Start searching by adding keywords.</p>
+% elsif posts.empty?
+  <p>No posts matched your search. Try again!</p>
 % else
   <table>
     % posts.each do |post|
@@ -36,16 +39,18 @@
           <td>{{ post.description }}</td>
           % if developer && developer.applied?(post.id)
             <td>APPLIED</td>
+          % elsif developer
+            <td><a href="/apply/{{ post.id }}?origin=search">APPLY</a></td>
           % else
-            <td><a href="/apply/{{ post.id }}">APPLY</a></td>
+            <td><a href="/search?company=true">APPLY</a></td>
           % end
-          <td><a href="/favorite/{{ post.id }}">
           % if developer && developer.favorites.member?(post)
-            FAVORITED
+            <td><a href="/favorite/{{ post.id }}">FAVORITED</a></td>
+          % elsif developer
+            <td><a href="/favorite/{{ post.id }}">FAVORITE</a></td>
           % else
-            FAVORITE
+            <td><a href="/search?company=true">FAVORITE</a></td>
           % end
-          </a></td>
         </tr>
       % end
     % end

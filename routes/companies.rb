@@ -1,7 +1,36 @@
 class Companies < Cuba
   define do
     on "dashboard" do
-      render("company/dashboard", title: "Dashboard")
+      on param "company" do
+        session[:error] = "You need to logout to sign in as a developer"
+        render("company/dashboard", title: "Dashboard")
+      end
+
+      on default do
+        render("company/dashboard", title: "Dashboard")
+      end
+    end
+
+    on "search" do
+      on post, param("skills") do |skills|
+        posts = Search.skills(skills)
+
+        render("search", title: "Search", posts: posts)
+      end
+
+      on param "all" do
+        render("search", title: "Search", posts: Post.all)
+      end
+
+      on param "company" do
+        session[:error] = "You have to login as developer to
+          perform this action"
+        render("search", title: "Search", posts: Post.all)
+      end
+
+      on default do
+        render("search", title: "Search", posts: nil)
+      end
     end
 
     on "profile" do

@@ -3,8 +3,10 @@
 
 <h2>My applications</h2>
 
+{{ this.partial("search_box") }}
+
 % if applications.empty?
-  <p>You haven't applied for any jobs yet. </p>
+  <p>You haven't applied for any jobs yet. Start your search now!</p>
 % else
   <table>
     % applications.each do |application|
@@ -34,7 +36,7 @@
           % if developer && developer.applied?(job.id)
             <td>APPLIED</td>
           % else
-            <td><a href="/apply/{{ job.id }}">APPLY</a></td>
+            <td><a href="/apply/{{ job.id }}?origin=applications">APPLY</a></td>
           % end
           <td><a href="/remove/{{ application.id }}">REMOVE</a></td>
         </tr>

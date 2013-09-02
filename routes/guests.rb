@@ -168,8 +168,18 @@ class Guests < Cuba
     end
 
     on "search" do
+      on post, param("skills") do |skills|
+        posts = Search.skills(skills)
+
+        render("search", title: "Search", posts: posts)
+      end
+
+      on param "all" do
+        render("search", title: "Search", posts: Post.all)
+      end
+
       on default do
-        render("search", title: "Search")
+        render("search", title: "Search", posts: nil)
       end
     end
 

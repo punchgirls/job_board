@@ -15,6 +15,7 @@
         <nav>
           <ul>
             <li><a href="/">Home</a></li>
+            <li><a href="/search">Search</a></li>
             % if user
               <li><a href="/dashboard">Dashboard</a></li>
               <li><a href="/profile">
