@@ -33,7 +33,7 @@
           <td colspan="3">{{ post.title }}</td>
         </tr>
         <tr>
-          <td colspan="4" id="post-skills">{{ post.tags }}</td>
+          <td colspan="4" id="post-tags">{{ post.tags }}</td>
         </tr>
         <tr>
           <td>{{ post.description }}</td>

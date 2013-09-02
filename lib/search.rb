@@ -1,13 +1,15 @@
 module Search
-  def self.skills(skills)
+  def self.tags(tags)
     posts = []
 
-    skills.each do |skill|
-      Post.find(:tag => skill).each do |post|
+    tags.each do |tag|
+      Post.find(:tag => tag).each do |post|
         posts << post
       end
     end
 
-    return posts.uniq!
+    posts.uniq!
+
+    return posts
   end
 end

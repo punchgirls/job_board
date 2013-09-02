@@ -12,8 +12,8 @@ class Companies < Cuba
     end
 
     on "search" do
-      on post, param("skills") do |skills|
-        posts = Search.skills(skills)
+      on post, param("tags") do |tags|
+        posts = Search.tags(tags)
 
         render("search", title: "Search", posts: posts)
       end
@@ -119,7 +119,7 @@ class Companies < Cuba
     end
 
     on "post/new" do
-      on post, param("post"), param("skills") do |params, skills|
+      on post, param("post") do |params|
         post = PostJobOffer.new(params)
 
         on post.valid? do
@@ -128,7 +128,7 @@ class Companies < Cuba
           params[:company_id] = current_company.id
           params[:date] = time
           params[:expiration_date] = time + (30 * 24 * 60 * 60)
-          params[:tags] = skills.join(", ")
+          params[:tags] = params["tags"].uniq.join(", ")
 
           post = Post.create(params)
 
@@ -193,17 +193,54 @@ class Companies < Cuba
 
     on "post/edit/:id" do |id|
       on post, param("post") do |params|
-        post = PostJobOffer.new(params)
 
-        if post.valid?
-          Post[id].update(params)
-
-          session[:success] = "Post successfully edited!"
-          res.redirect "/dashboard"
+        if params["tags"].nil?
+          params["tags"] = Post[id].tags
         else
-          session[:error] = "All fields are required"
-          render("company/post/edit", title: "Edit post", id: id)
+          params["tags"] = params["tags"].uniq.join(", ")
         end
+
+        values = []
+
+        Post[id].attributes.each_value do |value|
+          values << value
+        end
+
+        params.each_value do |value|
+          if !values.include?(value)
+
+            edit = PostJobOffer.new(params)
+
+            on edit.valid? do
+              Post[id].update(params)
+
+              session[:success] = "Post successfully edited!"
+              res.redirect "/dashboard"
+            end
+
+            on edit.errors[:tags] == [:not_present] do
+              session[:error] = "You need at least one tag!"
+              render("company/post/edit", title: "Edit profile", id: id)
+            end
+
+            on edit.errors[:title] == [:not_present, :not_in_range] do
+              session[:error] = "Add a post title"
+              render("company/post/edit", title: "Edit profile", id: id)
+            end
+
+            on edit.errors[:description] == [:not_present, :not_in_range] do
+              session[:error] = "Add a post description"
+              render("company/post/edit", title: "Edit profile", id: id)
+            end
+
+            on default do
+              session[:error] = "All fields are required"
+              render("company/post/edit", title: "Edit post", id: id)
+            end
+          end
+        end
+
+        res.redirect "/dashboard"
       end
 
       on default do

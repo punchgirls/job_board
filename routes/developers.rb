@@ -20,8 +20,8 @@ class Developers < Cuba
     end
 
     on "search" do
-      on post, param("skills") do |skills|
-        posts = Search.skills(skills)
+      on post, param("tags") do |tags|
+        posts = Search.tags(tags)
 
         render("search", title: "Search", posts: posts)
       end
