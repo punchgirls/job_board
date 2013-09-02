@@ -1,5 +1,5 @@
 require "cuba/test"
-require_relative "../app"
+require_relative "../../app"
 
 prepare do
   Ohm.flush
