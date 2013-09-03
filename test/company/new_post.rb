@@ -18,7 +18,7 @@ scope do
     post "/post/new", { post: {  title: "",
           description: "Ruby oracle needed!" }}
 
-    assert last_response.body["All fields are required"]
+    assert last_response.body["Title is required"]
   end
 
   test "should successfully post a new job offer" do

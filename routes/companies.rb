@@ -12,25 +12,7 @@ class Companies < Cuba
     end
 
     on "search" do
-      on post, param("tags") do |tags|
-        posts = Search.tags(tags)
-
-        render("search", title: "Search", posts: posts)
-      end
-
-      on param "all" do
-        render("search", title: "Search", posts: Post.all)
-      end
-
-      on param "company" do
-        session[:error] = "You have to login as developer to
-          perform this action"
-        render("search", title: "Search", posts: Post.all)
-      end
-
-      on default do
-        render("search", title: "Search", posts: nil)
-      end
+      run Searches
     end
 
     on "profile" do

@@ -92,7 +92,7 @@ scope do
 
   test "should inform User in case of password not in range" do
     post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+          password: "123456" }
 
     post "/edit/1", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
@@ -100,7 +100,7 @@ scope do
           password: "1234",
           password_confirmation: "1234" }}
 
-    assert last_response.body["The password must be at least 8 characters"]
+    assert last_response.body["The password length must be between 8 to 32 characters"]
   end
 
   test "should inform User in case of passwords not matching" do

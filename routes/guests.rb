@@ -130,19 +130,7 @@ class Guests < Cuba
     end
 
     on "search" do
-      on post, param("tags") do |tags|
-        posts = Search.tags(tags)
-
-        render("search", title: "Search", posts: posts)
-      end
-
-      on param "all" do
-        render("search", title: "Search", posts: Post.all)
-      end
-
-      on default do
-        render("search", title: "Search", posts: nil)
-      end
+      run Searches
     end
 
     on "apply/:id" do |id|
