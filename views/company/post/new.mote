@@ -1,3 +1,19 @@
+% if post.errors[:tags] == [:not_present]
+ <p>At least one skill is required</p>
+% end
+% if post.errors[:title].include?(:not_present)
+ <p>Title is required</p>
+% end
+% if post.errors[:title] == [:not_in_range]
+ <p>Title should not exceed 80 characters</p>
+% end
+% if post.errors[:description].include?(:not_present)
+ <p>Description is required</p>
+% end
+% if post.errors[:description] == [:not_in_range]
+ <p>Description should not exceed 600 characters</p>
+% end
+
 <h2>Create a new job offer</h2>
 <form action="/post/new" method="POST">
   <select multiple="multiple" name="post[tags][]" >
@@ -6,10 +22,10 @@
     % end
   </select><br/>
   <label for="title">Title:</label>
-  <input type="text" name="post[title]" id="title" value="{{ post['title'] }}"><br/>
+  <input type="text" name="post[title]" id="title" value="{{ post.title }}"><br/>
 
   <label for="description">Description</label><br/>
-  <textarea id="description" name="post[description]" id="description">{{ post['description'] }}</textarea><br/>
+  <textarea id="description" name="post[description]">{{ post.description }}</textarea><br/>
 
   <span id="countdown"></span><br/>
 

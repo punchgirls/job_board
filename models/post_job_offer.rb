@@ -3,6 +3,8 @@ class PostJobOffer < Scrivener
 
   def validate
     assert_present :tags
+    assert_present :title
+    assert_present :description
     assert_length :title, 1..80
     assert_length :description, 1..600
   end

@@ -59,7 +59,7 @@ class Companies < Cuba
             Company.with(:email, edit.email) do
 
             session[:error] = "E-mail is already registered"
-            render("company/edit", title: "Edit profile")
+            render("company/edit", title: "Edit profile", edit: edit)
           end
 
           on default do
@@ -70,39 +70,15 @@ class Companies < Cuba
           end
         end
 
-        on edit.errors[:name] == [:not_present] do
-          session[:error] = "Company name is required"
-          render("company/edit", title: "Edit profile")
-        end
-
-        on edit.errors[:email] == [:not_email] do
-          session[:error] = "E-mail not valid"
-          render("company/edit", title: "Edit profile")
-        end
-
-        on edit.errors[:url] == [:not_url] do
-          session[:error] = "URL not valid"
-          render("company/edit", title: "Edit profile")
-        end
-
-        on edit.errors[:password] == [:not_in_range] do
-          session[:error] = "The password must be at least 8 characters"
-          render("company/edit", title: "Edit profile")
-        end
-
-        on edit.errors[:password] == [:not_confirmed] do
-          session[:error] = "Passwords don't match"
-          render("company/edit", title: "Edit profile")
-        end
-
         on default do
-          session[:error] = "Name, E-mail and URL are required and must be valid"
-          render("company/edit", title: "Edit profile")
+          render("company/edit", title: "Edit profile", edit: edit)
         end
       end
 
       on default do
-        render("company/edit", title: "Edit profile")
+        edit = EditCompanyAccount.new({})
+
+        render("company/edit", title: "Edit profile", edit: edit)
       end
     end
 
@@ -118,30 +94,21 @@ class Companies < Cuba
           params[:expiration_date] = time + (30 * 24 * 60 * 60)
           params[:tags] = params["tags"].uniq.join(", ")
 
-          post = Post.create(params)
+          job = Post.create(params)
 
           session[:success] = "You have successfully posted a job offer!"
           res.redirect "/dashboard"
         end
 
-        on post.errors[:title] == [:not_in_range] do
-          session[:error] = "Title should not exceed 80 characters"
-          render("company/post/new", title: "Post job offer", post: params)
-        end
-
-        on post.errors[:description] == [:not_in_range] do
-          session[:error] = "Description should not exceed 600 characters"
-          render("company/post/new", title: "Post job offer", post: params)
-        end
-
         on default do
-          session[:error] = "All fields are required"
-          render("company/post/new", title: "Post job offer", post: params)
+          render("company/post/new", title: "Post job offer", post: post)
         end
       end
 
       on default do
-        render("company/post/new", title: "Post job offer", post: {})
+        post = PostJobOffer.new({})
+
+        render("company/post/new", title: "Post job offer", post: post)
       end
     end
 
@@ -198,29 +165,17 @@ class Companies < Cuba
           res.redirect "/dashboard"
         end
 
-        on edit.errors[:tags] == [:not_present] do
-          session[:error] = "You need at least one tag!"
-          render("company/post/edit", title: "Edit profile", id: id)
-        end
-
-        on edit.errors[:title] == [:not_in_range] do
-          session[:error] = "Title should not exceed 80 characters"
-          render("company/post/edit", title: "Edit profile", id: id)
-        end
-
-        on edit.errors[:description] == [:not_in_range] do
-          session[:error] = "Description should not exceed 600 characters"
-          render("company/post/edit", title: "Edit profile", id: id)
-        end
-
         on default do
-          session[:error] = "All fields are required"
-          render("company/post/edit", title: "Edit post", id: id)
+          render("company/post/edit", title: "Edit post",
+            id: id, edit: edit)
         end
       end
 
       on default do
-        render("company/post/edit", title: "Edit post", id: id)
+        edit = PostJobOffer.new({})
+
+        render("company/post/edit", title: "Edit post",
+          id: id, edit: edit)
       end
     end
 

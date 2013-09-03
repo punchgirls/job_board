@@ -17,36 +17,6 @@ class Guests < Cuba
           res.redirect "/dashboard"
         end
 
-        on signup.errors[:name] == [:not_present] do
-          session[:error] = "Company name is required"
-          render("company/signup", title: "Sign up", company: params)
-        end
-
-        on signup.errors[:email] == [:not_email] do
-          session[:error] = "E-mail not valid"
-          render("company/signup", title: "Sign up", company: params)
-        end
-
-        on signup.errors[:email] == [:not_unique] do
-          session[:error] = "This e-mail is already registered"
-          render("company/signup", title: "Sign up", company: params)
-        end
-
-        on signup.errors[:url] == [:not_url] do
-          session[:error] = "URL not valid"
-          render("company/signup", title: "Sign up", company: params)
-        end
-
-        on signup.errors[:password] == [:not_in_range] do
-          session[:error] = "The password length must be between 8 to 32 characters"
-          render("company/signup", title: "Sign up", company: params)
-        end
-
-        on signup.errors[:password] == [:not_confirmed] do
-          session[:error] = "Passwords don't match"
-          render("company/signup", title: "Sign up", company: params)
-        end
-
         on default do
           render("company/signup", title: "Sign up",
             company: params, signup: signup)
@@ -139,28 +109,17 @@ class Guests < Cuba
             res.redirect "/", 303
           end
 
-          on reset.errors[:password] == [:not_in_range] do
-            session[:error] = "The password length must be between 8 to 32 characters"
-            render("otp", title: "Password recovery",
-              company: company, signature: signature)
-          end
-
-          on reset.errors[:password] == [:not_confirmed] do
-            session[:error] = "Passwords don't match"
-            render("otp", title: "Password recovery",
-              company: company, signature: signature)
-          end
-
           on default do
-            session[:error] = "The password length must be between 8 to 32 characters"
             render("otp", title: "Password recovery",
-              company: company, signature: signature)
+              company: company, signature: signature, reset: reset)
           end
         end
 
         on default do
+          reset = PasswordRecovery.new({})
+
           render("otp", title: "Password recovery",
-            company: company, signature: signature)
+            company: company, signature: signature, reset: reset)
         end
       end
 
