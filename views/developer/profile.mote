@@ -16,6 +16,10 @@
   <input type="text" name="developer[email]" id="developer-email"
   value="{{ developer.email }}"><br/>
 
+  <label for="developer-url">Website:</label>
+  <input type="text" name="developer[url]" id="developer-url"
+  value="{{ developer.url }}"><br/>
+
   <button type="submit">Save</button>
   <a href="/dashboard">Cancel</a>
 </form>

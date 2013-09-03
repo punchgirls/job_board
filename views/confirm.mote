@@ -3,7 +3,7 @@
 <img src="http://www.gravatar.com/avatar/{{ github_user['gravatar_id'] }}" />
 
 <form action="/confirm" method="POST">
-  <label for="company-name">Name:</label>
+  <label for="developer-name">Name:</label>
   <input type="text" name="developer[name]" id="developer-name" value="{{ github_user['name'] }}"><br/>
 
   <input type="hidden" name="developer[login]" value="{{ github_user['login'] }}">
@@ -11,7 +11,10 @@
   <input type="hidden" name="developer[id]" value="{{ github_user['id'] }}">
 
   <label for="developer-email">E-mail:</label>
-  <input type="text" name="developer[email]" id="developer-email" value="{{ github_user['email'] }}"><br/><br/>
+  <input type="text" name="developer[email]" id="developer-email" value="{{ github_user['email'] }}"><br/>
+
+  <label for="developer-url">Website:</label>
+  <input type="text" name="developer[url]" id="developer-url" value="{{ github_user['blog'] }}"><br/>
 
   <button type="submit">Confirm</button><br/>
 </form>

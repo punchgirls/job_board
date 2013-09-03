@@ -6,6 +6,7 @@ class Developer < Ohm::Model
   attribute :github_id
   attribute :name
   attribute :email
+  attribute :url
   attribute :avatar
 
   unique :github_id
