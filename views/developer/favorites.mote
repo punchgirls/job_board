@@ -2,7 +2,7 @@
 % favorites = developer.favorites
 
 <h2>Favorites</h2>
-
+{{ this.partial("search", posts: nil) }}
 % if favorites.empty?
   <p>You have no favorite posts yet.</p>
 % else
