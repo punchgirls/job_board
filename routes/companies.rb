@@ -45,72 +45,60 @@ class Companies < Cuba
 
         company = current_company
 
-        values = []
-
-        company.attributes.each_value do |value|
-          values << value
-        end
-
         if params["password"].empty?
           params["password"] = company.crypted_password
           params["password_confirmation"] = company.crypted_password
         end
 
-        params.each_value do |value|
-          if !values.include?(value)
-            edit = EditCompanyAccount.new(params)
+        edit = EditCompanyAccount.new(params)
 
-            on edit.valid? do
-              params.delete("password_confirmation")
+        on edit.valid? do
+          params.delete("password_confirmation")
 
-              on company.email != edit.email &&
-                Company.with(:email, edit.email) do
+          on company.email != edit.email &&
+            Company.with(:email, edit.email) do
 
-                session[:error] = "E-mail is already registered"
-                render("company/edit", title: "Edit profile")
-              end
+            session[:error] = "E-mail is already registered"
+            render("company/edit", title: "Edit profile")
+          end
 
-              on default do
-                company.update(params)
+          on default do
+            company.update(params)
 
-                session[:success] = "Your account was successfully updated!"
-                res.redirect "/profile"
-              end
-            end
-
-            on edit.errors[:name] == [:not_present] do
-              session[:error] = "Company name is required"
-              render("company/edit", title: "Edit profile")
-            end
-
-            on edit.errors[:email] == [:not_email] do
-              session[:error] = "E-mail not valid"
-              render("company/edit", title: "Edit profile")
-            end
-
-            on edit.errors[:url] == [:not_url] do
-              session[:error] = "URL not valid"
-              render("company/edit", title: "Edit profile")
-            end
-
-            on edit.errors[:password] == [:not_in_range] do
-              session[:error] = "The password must be at least 8 characters"
-              render("company/edit", title: "Edit profile")
-            end
-
-            on edit.errors[:password] == [:not_confirmed] do
-              session[:error] = "Passwords don't match"
-              render("company/edit", title: "Edit profile")
-            end
-
-            on default do
-              session[:error] = "Name, E-mail and URL are required and must be valid"
-              render("company/edit", title: "Edit profile")
-            end
+            session[:success] = "Your account was successfully updated!"
+            res.redirect "/profile"
           end
         end
 
-        res.redirect "/profile"
+        on edit.errors[:name] == [:not_present] do
+          session[:error] = "Company name is required"
+          render("company/edit", title: "Edit profile")
+        end
+
+        on edit.errors[:email] == [:not_email] do
+          session[:error] = "E-mail not valid"
+          render("company/edit", title: "Edit profile")
+        end
+
+        on edit.errors[:url] == [:not_url] do
+          session[:error] = "URL not valid"
+          render("company/edit", title: "Edit profile")
+        end
+
+        on edit.errors[:password] == [:not_in_range] do
+          session[:error] = "The password must be at least 8 characters"
+          render("company/edit", title: "Edit profile")
+        end
+
+        on edit.errors[:password] == [:not_confirmed] do
+          session[:error] = "Passwords don't match"
+          render("company/edit", title: "Edit profile")
+        end
+
+        on default do
+          session[:error] = "Name, E-mail and URL are required and must be valid"
+          render("company/edit", title: "Edit profile")
+        end
       end
 
       on default do
@@ -193,6 +181,7 @@ class Companies < Cuba
 
     on "post/edit/:id" do |id|
       on post, param("post") do |params|
+        post = Post[id]
 
         if params["tags"].nil?
           params["tags"] = Post[id].tags
@@ -200,47 +189,34 @@ class Companies < Cuba
           params["tags"] = params["tags"].uniq.join(", ")
         end
 
-        values = []
+        edit = PostJobOffer.new(params)
 
-        Post[id].attributes.each_value do |value|
-          values << value
+        on edit.valid? do
+          post.update(params)
+
+          session[:success] = "Post successfully edited!"
+          res.redirect "/dashboard"
         end
 
-        params.each_value do |value|
-          if !values.include?(value)
-
-            edit = PostJobOffer.new(params)
-
-            on edit.valid? do
-              Post[id].update(params)
-
-              session[:success] = "Post successfully edited!"
-              res.redirect "/dashboard"
-            end
-
-            on edit.errors[:tags] == [:not_present] do
-              session[:error] = "You need at least one tag!"
-              render("company/post/edit", title: "Edit profile", id: id)
-            end
-
-            on edit.errors[:title] == [:not_present, :not_in_range] do
-              session[:error] = "Add a post title"
-              render("company/post/edit", title: "Edit profile", id: id)
-            end
-
-            on edit.errors[:description] == [:not_present, :not_in_range] do
-              session[:error] = "Add a post description"
-              render("company/post/edit", title: "Edit profile", id: id)
-            end
-
-            on default do
-              session[:error] = "All fields are required"
-              render("company/post/edit", title: "Edit post", id: id)
-            end
-          end
+        on edit.errors[:tags] == [:not_present] do
+          session[:error] = "You need at least one tag!"
+          render("company/post/edit", title: "Edit profile", id: id)
         end
 
-        res.redirect "/dashboard"
+        on edit.errors[:title] == [:not_in_range] do
+          session[:error] = "Title should not exceed 80 characters"
+          render("company/post/edit", title: "Edit profile", id: id)
+        end
+
+        on edit.errors[:description] == [:not_in_range] do
+          session[:error] = "Description should not exceed 600 characters"
+          render("company/post/edit", title: "Edit profile", id: id)
+        end
+
+        on default do
+          session[:error] = "All fields are required"
+          render("company/post/edit", title: "Edit post", id: id)
+        end
       end
 
       on default do

@@ -48,13 +48,16 @@ class Guests < Cuba
         end
 
         on default do
-          session[:error] = "All fields are required and must be valid"
-          render("company/signup", title: "Sign up", company: params)
+          render("company/signup", title: "Sign up",
+            company: params, signup: signup)
         end
       end
 
       on default do
-        render("company/signup", title: "Sign up", company: {})
+        signup = CompanySignup.new({})
+
+        render("company/signup", title: "Sign up",
+          company: {}, signup: signup)
       end
     end
 

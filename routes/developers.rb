@@ -102,31 +102,19 @@ class Developers < Cuba
       on post, param("developer") do |params|
         developer = current_developer
 
-        values = []
+        login = DeveloperLogin.new(params)
 
-        developer.attributes.each_value do |value|
-          values << value
+        on login.valid? do
+          developer.update(params)
+
+          session[:success] = "Your account was successfully updated!"
+          res.redirect "/profile"
         end
 
-        params.each_value do |value|
-          if !values.include?(value)
-            login = DeveloperLogin.new(params)
-
-            on login.valid? do
-              developer.update(params)
-
-              session[:success] = "Your account was successfully updated!"
-              res.redirect "/profile"
-            end
-
-            on default do
-              session[:error] = "All fields are required and must be valid"
-              render("developer/profile", title: "Edit profile")
-            end
-          end
+        on default do
+          session[:error] = "All fields are required and must be valid"
+          render("developer/profile", title: "Edit profile")
         end
-
-        res.redirect "/dashboard"
       end
 
       on default do

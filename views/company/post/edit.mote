@@ -5,7 +5,7 @@
 <form action="/post/edit/{{ id }}" method="POST">
   <label>Skills: {{ post.tags }}</label><br/>
 
-  <select multiple="multiple" name="post[tags][]" >
+  <select multiple="multiple" name="post[tags][]" size="10">
     % SKILLS.each do |skill|
       <option value="{{ skill }}">{{ skill }}</option>
     % end

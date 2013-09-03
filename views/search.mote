@@ -42,14 +42,14 @@
           % elsif developer
             <td><a href="/apply/{{ post.id }}?origin=search">APPLY</a></td>
           % else
-            <td><a href="/search?company=true">APPLY</a></td>
+            <td><a href="/apply/{{ post.id }}?company=true">APPLY</a></td>
           % end
           % if developer && developer.favorites.member?(post)
             <td><a href="/favorite/{{ post.id }}">FAVORITED</a></td>
           % elsif developer
             <td><a href="/favorite/{{ post.id }}">FAVORITE</a></td>
           % else
-            <td><a href="/search?company=true">FAVORITE</a></td>
+            <td><a href="/favorite/{{ post.id }}?company=true">FAVORITE</a></td>
           % end
         </tr>
       % end
