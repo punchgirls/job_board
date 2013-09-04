@@ -1,4 +1,6 @@
-SKILLS = ["Select skills...", "ABAP", "ASP", "ASP.NET",
+require "json"
+
+skills = ["ABAP", "ASP", "ASP.NET",
   "ActionScript", "Ada", "Android", "Apache", "ApacheConf",
   "Apex", "AppleScript", "Arc", "Arduino", "Assembly",
   "Augeas", "AutoHotkey", "Awk", "Batchfile", "Befunge",
@@ -45,3 +47,11 @@ SKILLS = ["Select skills...", "ABAP", "ASP", "ASP.NET",
   "XProc", "XQuery", "XS", "XSLT", "Xtend", "YAML",
   "Zend", "eC", "edn", "fish", "jQuery", "mupad",
   "ooc", "reStructuredText"]
+
+tags = []
+
+skills.each do |skill|
+  tags << { name: skill }
+end
+
+SKILLS = tags.to_json
