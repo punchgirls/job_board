@@ -1,12 +1,14 @@
 <h2>Search for jobs</h2>
-<form action="/search" method="POST">
-  <select multiple="multiple" name="tags[]" size="10">
-    % SKILLS.each do |skill|
-      <option value="{{ skill }}">{{ skill }}</option>
-    % end
-  </select><br/>
+<form id="search-form" action="/search" method="POST">
+  <label for="search-box">Search:</label>
+  <input type="text" id="search-box" name="search-box">
 
-  <button type="submit">Search</button>
+  <input type="hidden" id="tags" name="tags" value="">
+
+  <button id="search" type="submit">Search</button>
 </form>
 
+<script type="text/javascript" src="/js/search.js"></script>
+
 <p><a href="/search?all=true">Show all</a></p>
+
