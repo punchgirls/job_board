@@ -134,6 +134,8 @@ class Companies < Cuba
       on post, param("post") do |params|
         post = Post[id]
 
+        params["tags"] = params["tags"].split(",")
+
         if params["tags"].nil?
           params["tags"] = Post[id].tags
         else

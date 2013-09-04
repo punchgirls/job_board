@@ -1,3 +1,17 @@
+% require "json"
+
+% post = Post[id]
+
+% tags = post.tags.split(",")
+
+% new_tags = []
+
+% tags.each do |tag|
+  % new_tags << { name: tag}
+% end
+
+% new_tags = new_tags.to_json
+
 % if edit.errors[:tags] == [:not_present]
  <p>At least one skill is required</p>
 % end
@@ -14,18 +28,13 @@
  <p>Description should not exceed 600 characters</p>
 % end
 
-% post = Post[id]
-
 <h2>Edit post</h2>
 
-<form action="/post/edit/{{ id }}" method="POST">
-  <label>Skills: {{ post.tags }}</label><br/>
+<form id="edit-post" action="/post/edit/{{ id }}" method="POST">
+  <label for="add-skill">Skills:</label>
+  <input type="text" id="edit-skill" name="skills"><br/>
 
-  <select multiple="multiple" name="post[tags][]" size="10">
-    % SKILLS.each do |skill|
-      <option value="{{ skill }}">{{ skill }}</option>
-    % end
-  </select><br/>
+  <input type="hidden" id="tags" name="post[tags]" value="">
 
   <label for="title">Title:</label>
   <input type="text" name="post[title]" id="title" value="{{ post.title }}"><br/>
@@ -40,3 +49,26 @@
 </form>
 
 <script src="/js/limit_description.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#edit-skill").tokenInput(
+      {{ SKILLS }},
+      {
+        theme: "facebook",
+        prePopulate: {{ new_tags }}
+      }
+    );
+
+    $('#edit-post').submit(function(event) {
+      var tokens = $('#edit-skill').tokenInput("get"),
+          tags = [];
+
+      $.each(tokens, function (index, value) {
+        tags.push(value.name);
+      });
+
+      $('#tags').val(tags);
+    });
+  });
+</script>
