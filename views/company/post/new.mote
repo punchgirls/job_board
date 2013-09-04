@@ -15,12 +15,12 @@
 % end
 
 <h2>Create a new job offer</h2>
-<form action="/post/new" method="POST">
-  <select multiple="multiple" name="post[tags][]" >
-    % SKILLS.each do |skill|
-      <option value="{{ skill }}">{{ skill }}</option>
-    % end
-  </select><br/>
+<form id="new-post" action="/post/new" method="POST">
+  <label for="add-skill">Skills:</label>
+  <input type="text" id="search-skill" name="skills"><br/>
+
+  <input type="hidden" id="tags" name="post[tags]" value="">
+
   <label for="title">Title:</label>
   <input type="text" name="post[title]" id="title" value="{{ post.title }}"><br/>
 
@@ -33,3 +33,25 @@
 </form>
 
 <script src="/js/limit_description.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#search-skill").tokenInput(
+      {{ SKILLS }},
+      {
+        theme: "facebook"
+      }
+    );
+
+    $('#new-post').submit(function(event) {
+      var tokens = $('#search-skill').tokenInput("get"),
+          tags = [];
+
+      $.each(tokens, function (index, value) {
+        tags.push(value.name);
+      });
+
+      $('#tags').val(tags);
+    });
+  });
+</script>

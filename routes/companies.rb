@@ -66,6 +66,8 @@ class Companies < Cuba
 
     on "post/new" do
       on post, param("post") do |params|
+        params["tags"] = params["tags"].split(",")
+
         post = PostJobOffer.new(params)
 
         on post.valid? do
