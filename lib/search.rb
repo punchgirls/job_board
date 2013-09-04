@@ -1,16 +1,12 @@
 module Search
-  def self.tags(tags)
-    posts = []
+  def self.tags(_tags)
+    tags = _tags.dup.split(",")
 
-    tags = tags.split(",")
+    posts = Post.find(tag: tags.pop)
 
     tags.each do |tag|
-      Post.find(:tag => tag).each do |post|
-        posts << post
-      end
+        posts = posts.union(tag: tag)
     end
-
-    posts.uniq!
 
     return posts
   end
