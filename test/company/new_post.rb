@@ -15,7 +15,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/post/new", { post: { tags: [],
+    post "/post/new", { post: { tags: "",
           title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
@@ -26,7 +26,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/post/new", { post: { tags: ["Ruby", "Cuba"],
+    post "/post/new", { post: { tags: "Ruby, Cuba",
           title: "",
           description: "Ruby oracle needed!" }}
 
@@ -37,7 +37,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/post/new", { post: { tags: ["Ruby", "Cuba"],
+    post "/post/new", { post: { tags: "Ruby, Cuba",
           title: "Ruby developer",
           description: "" }}
 
@@ -48,7 +48,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/post/new", { post: {  tags: ["Ruby", "Cuba"],
+    post "/post/new", { post: {  tags: "Ruby, Cuba",
           title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
@@ -61,7 +61,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/post/new", { post: {  tags: ["Ruby", "Cuba"],
+    post "/post/new", { post: {  tags: "Ruby, Cuba",
           title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
@@ -74,7 +74,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/post/new", { post: {  tags: ["Ruby", "Cuba"],
+    post "/post/new", { post: {  tags: "Ruby, Cuba",
           title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 

@@ -66,11 +66,11 @@ class Companies < Cuba
 
     on "post/new" do
       on post, param("post") do |params|
-        params["tags"] = params["tags"].split(",")
-
         post = PostJobOffer.new(params)
 
         on post.valid? do
+          params["tags"] = params["tags"].split(",")
+
           time = Time.new.to_i
 
           params[:company_id] = current_company.id
@@ -227,10 +227,6 @@ class Companies < Cuba
       on default do
         render("company/post/applications", title: "Applicants", id: post.id)
       end
-    end
-
-    on "search" do
-      render("search", title: "Search")
     end
 
     on "logout" do

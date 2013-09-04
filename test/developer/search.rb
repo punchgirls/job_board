@@ -50,7 +50,7 @@ scope do
   test "should display Ruby developer post" do
     post "/github_login/117263273765215762"
 
-    post "/search", { tags: ["Ruby"] }
+    get "/search", { tags: "Ruby" }
 
     assert last_response.body["Ruby developer"]
   end
@@ -58,7 +58,7 @@ scope do
   test "should display no posts" do
     post "/github_login/117263273765215762"
 
-    post "/search", { tags: ["CSS"] }
+    get "/search", { tags: "CSS" }
 
     assert last_response.body["No posts matched your search. Try again!"]
   end

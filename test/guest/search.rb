@@ -36,13 +36,13 @@ end
 
 scope do
   test "should display Ruby developer post" do
-    post "/search", { tags: ["Ruby"] }
+    get "/search", { tags: "Ruby" }
 
     assert last_response.body["Ruby developer"]
   end
 
   test "should display no posts" do
-    post "/search", { tags: ["CSS"] }
+    get "/search", { tags: "CSS" }
 
     assert last_response.body["No posts matched your search. Try again!"]
   end

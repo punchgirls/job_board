@@ -13,7 +13,7 @@ prepare do
 
   Post.create({ date: time,
     expiration_date: time + (30 * 24 * 60 * 60),
-    tags: "",
+    tags: "Ruby",
     title: "Ruby developer",
     description: "Lorem ipsum dolor sit amet,
     consectetur adipiscing elit. Morbi condimentum,
@@ -27,7 +27,7 @@ scope do
       post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/post/edit/1", { post: {  tags: [],
+    post "/post/edit/1", { post: { tags: "",
           title: "Ruby master",
           description: "Ruby oracle needed!" }}
 
@@ -38,7 +38,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/post/edit/1", { post: {  tags: ["Ruby", "Cuba"],
+    post "/post/edit/1", { post: { tags: "Ruby, Cuba",
           title: "",
           description: "Ruby oracle needed!" }}
 
@@ -49,7 +49,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/post/edit/1", { post: {  tags: ["Ruby", "Cuba"],
+    post "/post/edit/1", { post: { tags: "Ruby, Cuba",
           title: "Ruby oracle needed! Ruby oracle needed!
             Ruby oracle needed! Ruby oracle needed!
             Ruby oracle needed! Ruby oracle needed!
@@ -63,7 +63,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/post/edit/1", { post: {  tags: ["Ruby", "Cuba"],
+    post "/post/edit/1", { post: { tags: "Ruby, Cuba",
           title: "Ruby master",
           description: "" }}
 
@@ -74,7 +74,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/post/edit/1", { post: {  tags: ["Ruby", "Cuba"],
+    post "/post/edit/1", { post: { tags: "Ruby, Cuba",
           title: "Ruby master",
           description: "Lorem ipsum dolor sit amet,
             consectetur adipiscing elit. Morbi condimentum,
@@ -109,7 +109,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/post/edit/1", { post: {  tags: ["Ruby", "Cuba"],
+    post "/post/edit/1", { post: { tags: "Ruby, Cuba",
           title: "Ruby master",
           description: "Ruby oracle needed!" }}
 

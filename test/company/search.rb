@@ -39,7 +39,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/search", { tags: ["Ruby"] }
+    get "/search", { tags: "Ruby" }
 
     assert last_response.body["Ruby developer"]
   end
@@ -48,7 +48,7 @@ scope do
     post "/login", { email: "punchgirls@mail.com",
           password: "12345678" }
 
-    post "/search", { tags: ["CSS"] }
+    get "/search", { tags: "CSS" }
 
     assert last_response.body["No posts matched your search. Try again!"]
   end
