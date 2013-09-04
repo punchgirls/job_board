@@ -1,7 +1,7 @@
 <h2>Search for jobs</h2>
-<form id="search-form" action="/search" method="POST">
-  <label for="search-box">Search:</label>
-  <input type="text" id="search-box" name="search-box">
+<form id="search-form" action="/search" method="GET">
+  <label for="q">Search:</label>
+  <input type="text" id="q" name="q">
 
   <input type="hidden" id="tags" name="tags" value="">
 
@@ -12,7 +12,7 @@
 
 <script type="text/javascript">
   $(document).ready(function () {
-    $("#search-box").tokenInput(
+    $("#q").tokenInput(
       {{ SKILLS }},
       {
         theme: "facebook"
@@ -20,7 +20,7 @@
     );
 
     $('#search-form').submit(function(event) {
-      var tokens = $('#search-box').tokenInput("get"),
+      var tokens = $('#q').tokenInput("get"),
           tags = [];
 
       $.each(tokens, function (index, value) {

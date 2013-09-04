@@ -1,7 +1,7 @@
 class Searches < Cuba
   define do
     on default do
-      on post, param("tags") do |tags|
+      on get, param("tags") do |tags|
         posts = Search.tags(tags)
 
         render("search", title: "Tags", posts: posts)
@@ -23,4 +23,3 @@ class Searches < Cuba
     end
   end
 end
-

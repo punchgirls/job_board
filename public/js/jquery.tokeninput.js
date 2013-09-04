@@ -21,7 +21,7 @@ var DEFAULT_SETTINGS = {
     jsonContainer: null,
 
 	// Display settings
-    hintText: "Type in a search term",
+    hintText: "Skills or Languages...",
     noResultsText: "No results",
     searchingText: "Searching...",
     deleteText: "&times;",
@@ -654,11 +654,13 @@ $.TokenList = function (input, url_or_data, settings) {
 
     // Highlight the query part of the search term
     function highlight_term(value, term) {
-        return value.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + term + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<b>$1</b>");
+        escaped = term.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+        return value.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + escaped + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<b>$1</b>");
     }
 
     function find_value_and_highlight_term(template, value, term) {
-        return template.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + value + ")(?![^<>]*>)(?![^&;]+;)", "g"), highlight_term(value, term));
+        escaped = value.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+        return template.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + escaped + ")(?![^<>]*>)(?![^&;]+;)", "g"), highlight_term(value, term));
     }
 
     // Populate the results dropdown with some results
