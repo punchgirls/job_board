@@ -17,8 +17,7 @@
           <td>{{ post.title }}</td>
           <td>{{ post.description }}</td>
           <td>{{ post.tags }}</td>
-          <td>Edit</td>
-          <td>Delete</td>
+          <td><a href="/remove/{{ application.id }}">REMOVE</a></td>
         </tr>
     % end
   </table>

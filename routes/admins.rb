@@ -172,6 +172,12 @@ class Admins < Cuba
         company: company, applications: applications)
     end
 
+    on "remove/:id" do |id|
+      Application[id].delete
+      session[:success] = "Application successfully removed!"
+      res.redirect "/developers"
+    end
+
     on "post/:id/favorited" do |id|
       post = Post[id]
       favorited_by = post.favorited_by
