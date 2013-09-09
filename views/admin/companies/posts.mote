@@ -20,7 +20,7 @@
         <td>{{ post.tags }}</td>
         <td><a href="/applications/{{ post.id }}">{{ post.applications.size }}</a></td>
         <td><a href="/post/{{ post.id }}/favorited">{{ post.favorited_by.size }}</a></td>
-        <td>Edit</td>
+        <td><a href="/post/edit/{{ post.id }}">EDIT</a></td>
         <td>Delete</td>
       </tr>
     % end

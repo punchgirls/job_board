@@ -81,6 +81,41 @@ class Admins < Cuba
         company: company, posts: posts)
     end
 
+    on "post/edit/:id" do |id|
+      on post, param("post") do |params|
+        post = Post[id]
+
+        params["tags"] = params["tags"].split(",")
+
+        if params["tags"].nil?
+          params["tags"] = Post[id].tags
+        else
+          params["tags"] = params["tags"].uniq.join(", ")
+        end
+
+        edit = PostJobOffer.new(params)
+
+        on edit.valid? do
+          post.update(params)
+
+          session[:success] = "Post successfully edited!"
+          res.redirect "/dashboard"
+        end
+
+        on default do
+          render("company/post/edit", title: "Edit post",
+            id: id, edit: edit)
+        end
+      end
+
+      on default do
+        edit = PostJobOffer.new({})
+
+        render("company/post/edit", title: "Edit post",
+          id: id, edit: edit)
+      end
+    end
+
     on "applications/:id" do |id|
       post = Post[id]
       company = post.company
