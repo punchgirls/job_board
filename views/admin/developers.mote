@@ -21,8 +21,8 @@
         <td><a href="http://www.github.com/{{ developer.username }}">{{ developer.username }}</a></td>
         <td><a href="/developer/{{ developer.id }}/applications">{{ developer.applications.size }}</a></td>
         <td><a href="/developer/{{ developer.id }}/favorites">{{ developer.favorites.size }}</a></td>
-        <td>Edit</td>
-        <td>Delete</td>
+        <td><a href="/profile/{{ developer.id }}">Edit</a></td>
+        <td><a href="developer/{{ developer.id }}/delete">Delete account</a></td>
       </tr>
     % end
   </table>

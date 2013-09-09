@@ -190,7 +190,7 @@ class Guests < Cuba
             name: params["name"],
             email: params["email"],
             url: params["url"],
-            avatar: params["gravatar_id"])
+            avatar: params["avatar"])
 
           authenticate(developer)
 

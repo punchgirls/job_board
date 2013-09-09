@@ -74,6 +74,37 @@ class Admins < Cuba
       res.redirect "/companies"
     end
 
+    on "profile/:id" do |id|
+      on post, param("developer") do |params|
+        developer = Developer[id]
+
+        login = DeveloperLogin.new(params)
+
+        on login.valid? do
+          developer.update(params)
+
+          session[:success] = "Your account was successfully updated!"
+          res.redirect "/developers"
+        end
+
+        on default do
+          session[:error] = "All fields are required and must be valid"
+          render("developer/profile", title: "Edit profile", id: id)
+        end
+      end
+
+      on default do
+        render("developer/profile", title: "Edit profile", id: id)
+      end
+    end
+
+    on "developer/:id/delete" do |id|
+      Developer[id].delete
+
+      session[:success] = "You have deleted your account."
+      res.redirect "/developers"
+    end
+
     on "posts/:id" do |id|
       company = Company[id]
       posts = company.posts
@@ -99,7 +130,7 @@ class Admins < Cuba
           post.update(params)
 
           session[:success] = "Post successfully edited!"
-          res.redirect "/dashboard"
+          res.redirect "/companies"
         end
 
         on default do
@@ -114,6 +145,22 @@ class Admins < Cuba
         render("company/post/edit", title: "Edit post",
           id: id, edit: edit)
       end
+    end
+
+    on "post/remove/:id" do |id|
+      post = Post[id]
+      developers = post.developers
+
+      developers.each do |developer|
+        Malone.deliver(to: developer.email,
+          subject: "Auto-notice: '" + post.title + "' post has been removed",
+          html: mote("views/company/message/remove_post.mote",
+            post: post, developer: developer))
+      end
+
+      post.delete
+      session[:success] = "Post successfully removed!"
+      res.redirect "/companies"
     end
 
     on "applications/:id" do |id|

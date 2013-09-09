@@ -1,10 +1,14 @@
-% developer = this.current_user
+% if this.current_user.instance_of?(Developer)
+  % developer = this.current_user
+% else
+  % developer = Developer[id]
+% end
 
 <h2>Edit your profile</h2>
 
 <img src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
 
-<form action="/profile" method="POST">
+<form action="/profile/{{ developer.id }}" method="POST">
   <label for="company-name">Name:</label>
   <input type="text" name="developer[name]" id="developer-name"
   value="{{ developer.name }}"><br/>
@@ -24,4 +28,6 @@
   <a href="/dashboard">Cancel</a>
 </form>
 
-<p><a href="/delete/{{ developer.id }}">Delete account</a></p>
+% if this.current_user.instance_of?(Developer)
+  <p><a href="/delete/{{ developer.id }}">Delete account</a></p>
+% end
