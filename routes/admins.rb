@@ -49,6 +49,31 @@ class Admins < Cuba
       end
     end
 
+    on "company/:id/delete" do |id|
+      company = Company[id]
+      posts = company.posts
+      developers = []
+
+      posts.each do |post|
+        post.developers.each do |developer|
+         if !developers.include?(developer)
+          developers << developer
+         end
+        end
+      end
+
+      developers.each do |developer|
+        Malone.deliver(to: developer.email,
+          subject: "Auto-notice: '" + company.name + "' removed their profile",
+          html: mote("views/company/message/delete_account.mote",
+              developer: developer))
+      end
+
+      company.delete
+      session[:success] = "You have deleted your account."
+      res.redirect "/"
+    end
+
     on "posts/:id" do |id|
       company = Company[id]
       posts = company.posts
