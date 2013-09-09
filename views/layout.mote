@@ -22,13 +22,17 @@
             <li><a href="/search">Search</a></li>
             % if user
               <li><a href="/dashboard">Dashboard</a></li>
-              <li><a href="/profile">
+              % if !user.instance_of?(Admin)
+                <li><a href="/profile">
+              % end
               % if user.instance_of?(Developer)
                 <img src="http://www.gravatar.com/avatar/{{ user.avatar }}" />
               % end
+              % if !user.instance_of?(Admin)
                 {{ user.name }}</a></li>
+              % end
               <li><a href="/logout">Logout</a></li>
-            % else
+            % elsif !user.instance_of?(Admin)
               <li><a href="/github_oauth">GitHub login</a></li>
               <li><a href="/login">Company login/signup</a></li>
             % end

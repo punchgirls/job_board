@@ -1,6 +1,7 @@
 module UserHelpers
   def current_user
-    authenticated(Developer) || authenticated(Company)
+    authenticated(Developer) || authenticated(Company) ||
+    authenticated(Admin)
   end
 
   def mote_vars(content)

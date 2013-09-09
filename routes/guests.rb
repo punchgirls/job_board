@@ -210,6 +210,27 @@ class Guests < Cuba
       end
     end
 
+    on "admin" do
+      on post, param("email"), param("password") do |admin, pass|
+        if login(Admin, admin, pass)
+          session[:success] = "You have successfully logged in!"
+          res.redirect "/dashboard"
+        else
+          session[:error] = "Invalid email and/or password combination"
+          render("admin/login", title: "Admin Login", admin: admin)
+        end
+      end
+
+      on post, param("email") do |admin|
+        session[:error] = "No password provided"
+        render("admin/login", title: "Admin Login", admin: admin)
+      end
+
+      on default do
+        render("admin/login", title: "Admin Login", admin: "")
+      end
+    end
+
     on default do
       res.redirect "/"
     end

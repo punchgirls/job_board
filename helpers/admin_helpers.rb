@@ -1,10 +1,10 @@
-module CompanyHelpers
-  def current_company
-    authenticated(Company)
+module AdminHelpers
+  def current_admin
+    authenticated(Admin)
   end
 
   def mote_vars(content)
-    super.merge(current_company: current_company)
+    super.merge(current_admin: current_admin)
   end
 
   def notfound(msg)

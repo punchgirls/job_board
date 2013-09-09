@@ -1,0 +1,30 @@
+<p><a href="/companies">Back to companies</a></p>
+
+<h3>{{ company.name }}'s posts</h3>
+
+% if posts
+  <table>
+    <tr>
+      <td>Title</td>
+      <td>Description</td>
+      <td>Tags</td>
+      <td>Applications</td>
+      <td>Favorited by</td>
+      <td></td>
+      <td></td>
+    </tr>
+    % posts.each do |post|
+      <tr>
+        <td>{{ post.title }}</td>
+        <td>{{ post.description }}</td>
+        <td>{{ post.tags }}</td>
+        <td><a href="/applications/{{ post.id }}">{{ post.applications.size }}</a></td>
+        <td><a href="/post/{{ post.id }}/favorited">{{ post.favorited_by.size }}</a></td>
+        <td>Edit</td>
+        <td>Delete</td>
+      </tr>
+    % end
+  </table>
+% else
+  <p>No posted jobs.</p>
+% end

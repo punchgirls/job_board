@@ -1,0 +1,29 @@
+<p><a href="/posts/{{ company.id }}">Back to {{ company.name }}´s posts</a></p>
+
+<h3>Applicants</h3>
+
+% if applications.any?
+    <table>
+      <tr>
+        <td>Name</td>
+        <td>E-mail</td>
+        <td>URL</td>
+        <td>GitHub</td>
+        <td></td>
+        <td></td>
+      </tr>
+      % applications.each do |application|
+        % developer = application.developer
+          <tr>
+            <td>{{ developer.name }}</td>
+            <td>{{ developer.email }}</td>
+            <td><a href="{{ developer.url }}">{{ developer.url }}</a></td>
+            <td><a href="http://www.github.com/{{ developer.username }}">{{ developer.username }}</a></td>
+            <td>Edit</td>
+            <td>Delete</td>
+          </tr>
+      % end
+    </table>
+% else
+  <p>No applications yet.</p>
+% end
