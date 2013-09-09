@@ -32,8 +32,8 @@ class Admins < Cuba
           on default do
             company.update(params)
 
-            session[:success] = "Your account was successfully updated!"
-            res.redirect "/profile"
+            session[:success] = "Company was successfully updated!"
+            res.redirect "/companies"
           end
         end
 
@@ -70,8 +70,8 @@ class Admins < Cuba
       end
 
       company.delete
-      session[:success] = "You have deleted your account."
-      res.redirect "/"
+      session[:success] = "You have deleted the company account."
+      res.redirect "/companies"
     end
 
     on "posts/:id" do |id|

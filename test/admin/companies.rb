@@ -16,6 +16,18 @@ prepare do
           email: "punchies@mail.com",
           url: "http://www.punchies.com",
           password: "12345678" })
+
+  time = Time.new.to_i
+
+  Post.create({ date: time,
+    expiration_date: time + (30 * 24 * 60 * 60),
+    tags: "Ruby",
+    title: "Ruby developer",
+    description: "Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit. Morbi condimentum,
+    odio at fringilla commodo, tellus nisi bibendum
+    ",
+    company_id: "1" })
 end
 
 scope do
@@ -45,7 +57,7 @@ scope do
 
     follow_redirect!
 
-    assert last_response.body["Your account was successfully updated!"]
+    assert last_response.body["Company was successfully updated!"]
   end
 
   test "should inform in case of missing company name" do
@@ -129,5 +141,16 @@ scope do
           password_confirmation: "12" }}
 
     assert last_response.body["Passwords don't match"]
+  end
+
+  test "should delete company and all related posts" do
+    post "/admin", { email: "team@punchgirls.com",
+          password: "12345678" }
+
+    get "/company/1/delete"
+
+    follow_redirect!
+    assert Post.all.empty?
+    assert last_response.body["You have deleted the company account."]
   end
 end
