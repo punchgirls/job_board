@@ -14,12 +14,15 @@
   <p>Passwords don't match</p>
 % end
 
+% if this.current_user.instance_of?(Company)
+  % company = this.current_company
+% else
+  % company = Company[id]
+% end
+
 <h2>Edit your profile</h2>
 
-<form action="/edit" method="POST">
-
-% company = this.current_company
-
+<form action="/edit/{{ company.id }}" method="POST">
   <label for="company-name">Company name:</label>
   <input type="text" name="company[name]" id="company-name" value="{{ company.name }}"><br/>
 

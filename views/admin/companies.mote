@@ -18,7 +18,7 @@
         <td>{{ company.email }}</td>
         <td>{{ company.url }}</td>
         <td><a href="/posts/{{ company.id }}">{{ company.posts.size }}</a></td>
-        <td>Edit</td>
+        <td><a href="/edit/{{ company.id }}">Edit</a></td>
         <td>Delete</td>
       </tr>
     % end

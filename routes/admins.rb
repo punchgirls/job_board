@@ -4,6 +4,51 @@ class Admins < Cuba
       render("admin/companies", title: "Companies")
     end
 
+    on "edit/:id" do |id|
+      on post, param("company") do |params|
+        if !params["url"].start_with?("http")
+          params["url"] = "http://" + params["url"]
+        end
+
+        company = Company[id]
+
+        if params["password"].empty?
+          params["password"] = company.crypted_password
+          params["password_confirmation"] = company.crypted_password
+        end
+
+        edit = EditCompanyAccount.new(params)
+
+        on edit.valid? do
+          params.delete("password_confirmation")
+
+          on company.email != edit.email &&
+            Company.with(:email, edit.email) do
+
+            session[:error] = "E-mail is already registered"
+            render("company/edit", title: "Edit profile", edit: edit, id: id)
+          end
+
+          on default do
+            company.update(params)
+
+            session[:success] = "Your account was successfully updated!"
+            res.redirect "/profile"
+          end
+        end
+
+        on default do
+          render("company/edit", title: "Edit profile", edit: edit, id: id)
+        end
+      end
+
+      on default do
+        edit = EditCompanyAccount.new({})
+
+        render("company/edit", title: "Edit profile", edit: edit, id: id)
+      end
+    end
+
     on "posts/:id" do |id|
       company = Company[id]
       posts = company.posts
