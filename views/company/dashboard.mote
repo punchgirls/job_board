@@ -33,6 +33,14 @@
         <td colspan="4" id="post-skills">{{ post.tags }}</td>
       </tr>
       <tr>
+        <td colspan="4" id="post-location">{{ post.location }}</td>
+      </tr>
+      % if post.remote
+        <tr>
+          <td colspan="4" id="post-remote">Remote work is OK</td>
+        </tr>
+      % end
+      <tr>
         <td>{{ post.description }}</td>
         <td style="width:150px;"><a href="/post/applications/{{ post.id }}">APPLICANTS ({{ post.applications.size }})</a></td>
         <td style="width:150px;"><a href="/post/edit/{{ post.id }}">EDIT</a></td>

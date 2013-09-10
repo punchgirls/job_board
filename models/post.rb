@@ -5,10 +5,14 @@ class Post < Ohm::Model
   attribute :date
   attribute :expiration_date
   attribute :tags
+  attribute :location
+  attribute :remote
   attribute :title
   attribute :description
 
   index :tag
+  index :location
+  index :remote
 
   def posted
     return Time.at(date.to_i).strftime("%d %B %Y")

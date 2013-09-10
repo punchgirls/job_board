@@ -69,14 +69,11 @@ class Companies < Cuba
         post = PostJobOffer.new(params)
 
         on post.valid? do
-          params["tags"] = params["tags"].split(",")
-
           time = Time.new.to_i
 
           params[:company_id] = current_company.id
           params[:date] = time
           params[:expiration_date] = time + (30 * 24 * 60 * 60)
-          params[:tags] = params["tags"].uniq.join(", ")
 
           job = Post.create(params)
 
