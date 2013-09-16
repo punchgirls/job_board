@@ -22,6 +22,8 @@ prepare do
 
   Post.create({ date: time,
         expiration_date: time + (30 * 24 * 60 * 60),
+        tags: "Java, C++",
+        location: "New York, NY",
         title: "Java developer",
         description: "Lorem ipsum dolor sit amet,
         consectetur adipiscing elit. Nulla a enim enim.

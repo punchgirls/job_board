@@ -16,6 +16,7 @@ scope do
           password: "12345678" }
 
     post "/post/new", { post: { tags: "",
+          location: "New York, NY",
           title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
@@ -27,6 +28,7 @@ scope do
           password: "12345678" }
 
     post "/post/new", { post: { tags: "Ruby, Cuba",
+          location: "New York, NY",
           title: "",
           description: "Ruby oracle needed!" }}
 
@@ -38,6 +40,7 @@ scope do
           password: "12345678" }
 
     post "/post/new", { post: { tags: "Ruby, Cuba",
+          location: "New York, NY",
           title: "Ruby developer",
           description: "" }}
 
@@ -49,6 +52,7 @@ scope do
           password: "12345678" }
 
     post "/post/new", { post: {  tags: "Ruby, Cuba",
+          location: "New York, NY",
           title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
@@ -62,6 +66,7 @@ scope do
           password: "12345678" }
 
     post "/post/new", { post: {  tags: "Ruby, Cuba",
+          location: "New York, NY",
           title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 
@@ -75,6 +80,7 @@ scope do
           password: "12345678" }
 
     post "/post/new", { post: {  tags: "Ruby, Cuba",
+          location: "New York, NY",
           title: "Ruby developer",
           description: "Ruby oracle needed!" }}
 

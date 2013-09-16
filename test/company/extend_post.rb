@@ -11,6 +11,8 @@ prepare do
 
   Post.create({ date: "1377621143",
           expiration_date: "1380213143",
+          tags: "Ruby, Cuba",
+          location: "New York, NY",
           title: "Ruby developer",
           description: "Ruby ninja needed!",
           company_id: "1" })

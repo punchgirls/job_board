@@ -11,6 +11,8 @@ prepare do
 
   Post.create({ title: "Ruby developer",
           description: "Ruby ninja needed!",
+          tags: "Ruby, Cuba",
+          location: "New York, NY",
           company_id: "1" })
 
   Developer.create({ username: "johndoe",

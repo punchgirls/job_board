@@ -14,6 +14,7 @@ prepare do
   Post.create({ date: time,
     expiration_date: time + (30 * 24 * 60 * 60),
     tags: "Ruby",
+    location: "New York, NY",
     title: "Ruby developer",
     description: "Lorem ipsum dolor sit amet,
     consectetur adipiscing elit. Morbi condimentum,
@@ -28,6 +29,7 @@ scope do
           password: "12345678" }
 
     post "/post/edit/1", { post: { tags: "",
+          location: "New York, NY",
           title: "Ruby master",
           description: "Ruby oracle needed!" }}
 
@@ -39,6 +41,7 @@ scope do
           password: "12345678" }
 
     post "/post/edit/1", { post: { tags: "Ruby, Cuba",
+          location: "New York, NY",
           title: "",
           description: "Ruby oracle needed!" }}
 
@@ -50,6 +53,7 @@ scope do
           password: "12345678" }
 
     post "/post/edit/1", { post: { tags: "Ruby, Cuba",
+          location: "New York, NY",
           title: "Ruby oracle needed! Ruby oracle needed!
             Ruby oracle needed! Ruby oracle needed!
             Ruby oracle needed! Ruby oracle needed!
@@ -64,6 +68,7 @@ scope do
           password: "12345678" }
 
     post "/post/edit/1", { post: { tags: "Ruby, Cuba",
+          location: "New York, NY",
           title: "Ruby master",
           description: "" }}
 
@@ -75,6 +80,7 @@ scope do
           password: "12345678" }
 
     post "/post/edit/1", { post: { tags: "Ruby, Cuba",
+          location: "New York, NY",
           title: "Ruby master",
           description: "Lorem ipsum dolor sit amet,
             consectetur adipiscing elit. Morbi condimentum,
@@ -110,6 +116,7 @@ scope do
           password: "12345678" }
 
     post "/post/edit/1", { post: { tags: "Ruby, Cuba",
+          location: "New York, NY",
           title: "Ruby master",
           description: "Ruby oracle needed!" }}
 

@@ -7,7 +7,7 @@ module Search
     result = Post.find(tag: tags.pop)
 
     tags.each do |tag|
-        result = result.union(tag: tag)
+      result = result.union(tag: tag)
     end
 
     if !location.empty?

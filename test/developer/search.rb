@@ -21,6 +21,7 @@ prepare do
   Post.create({ date: time,
     expiration_date: time + (30 * 24 * 60 * 60),
     tags: "Java, C++",
+    location: "New York, NY",
     title: "Java developer",
     description: "Lorem ipsum dolor sit amet,
     consectetur adipiscing elit. Nulla a enim enim.
@@ -32,6 +33,7 @@ prepare do
     Post.create({ date: time,
       expiration_date: time + (30 * 24 * 60 * 60),
       tags: "Ruby, Redis",
+      location: "New York, NY",
       title: "Ruby developer",
       description: "Lorem ipsum dolor sit amet,
     consectetur adipiscing elit. Nulla a enim enim.
@@ -50,7 +52,8 @@ scope do
   test "should display Ruby developer post" do
     post "/github_login/117263273765215762"
 
-    get "/search", { tags: "Ruby" }
+    get "/search", { post: { location: "",
+      tags: "Ruby" }}
 
     assert last_response.body["Ruby developer"]
   end
@@ -58,7 +61,8 @@ scope do
   test "should display no posts" do
     post "/github_login/117263273765215762"
 
-    get "/search", { tags: "CSS" }
+    get "/search", { post: { location: "",
+      tags: "CSS" }}
 
     assert last_response.body["No posts matched your search. Try again!"]
   end
