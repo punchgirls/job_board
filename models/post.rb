@@ -56,7 +56,7 @@ class Post < Ohm::Model
   end
 
   def tag
-    tags.to_s.split(/\s*,\s*/).uniq
+    tags.split(/\s*,\s*/).uniq
   end
 
   reference :company, :Company

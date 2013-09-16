@@ -1,13 +1,21 @@
 module Search
-  def self.tags(_tags)
-    tags = _tags.dup.split(",")
+  def self.posts(params)
+    location = params["location"]
+    remote = params["remote"]
+    tags = params["tags"].dup.split(",")
 
-    posts = Post.find(tag: tags.pop)
+    result = Post.find(tag: tags.pop)
 
     tags.each do |tag|
-        posts = posts.union(tag: tag)
+        result = result.union(tag: tag)
     end
 
-    return posts
+    if !location.empty?
+      result = result.find(location: location).union(remote: remote)
+    elsif remote
+      result = result.find(remote: remote)
+    end
+
+    return result
   end
 end

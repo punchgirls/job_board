@@ -3,7 +3,17 @@
   <label for="q">Search:</label>
   <input type="text" id="q" name="q">
 
-  <input type="hidden" id="tags" name="tags" value="">
+  <label for="searchTextField">Location:</label><br/>
+
+  <!-- START GOOGLE PLACE AUTOCOMPLETE -->
+
+  <input id="searchTextField" type="text" size="50" placeholder="Add your location" name="post[location]"><br/><br/>
+
+  <!-- END GOOGLE PLACE AUTOCOMPLETE -->
+
+  <input type="checkbox" name="post[remote]" value="true">Remote work is OK<br/>
+
+  <input type="hidden" id="tags" name="post[tags]" value="">
 
   <button id="search" type="submit">Search</button>
 </form>

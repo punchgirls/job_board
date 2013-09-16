@@ -18,6 +18,10 @@
         <td>{{ post.title }}</td>
         <td>{{ post.description }}</td>
         <td>{{ post.tags }}</td>
+        <td>{{ post.location }}</td>
+        % if post.remote
+          <td>Remote work is OK</td>
+        % end
         <td><a href="/applications/{{ post.id }}">{{ post.applications.size }}</a></td>
         <td><a href="/post/{{ post.id }}/favorited">{{ post.favorited_by.size }}</a></td>
         <td><a href="/post/edit/{{ post.id }}">EDIT</a></td>

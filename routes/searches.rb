@@ -1,8 +1,8 @@
 class Searches < Cuba
   define do
     on default do
-      on get, param("tags") do |tags|
-        posts = Search.tags(tags)
+      on get, param("post") do |params|
+        posts = Search.posts(params)
 
         render("search", title: "Tags", posts: posts)
       end

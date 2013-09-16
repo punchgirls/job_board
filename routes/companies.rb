@@ -75,6 +75,10 @@ class Companies < Cuba
           params[:date] = time
           params[:expiration_date] = time + (30 * 24 * 60 * 60)
 
+          if params["remote"].nil?
+            params["remote"] = false
+          end
+
           job = Post.create(params)
 
           session[:success] = "You have successfully posted a job offer!"
