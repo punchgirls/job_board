@@ -19,15 +19,15 @@
         var autocomplete = new google.maps.places.Autocomplete(input);
       }
 
-        // google.maps.event.addDomListener(window, 'load', initialize);
-        google.maps.event.addDomListener(window, 'load', initialize);
+      // google.maps.event.addDomListener(window, 'load', initialize);
+      google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="/js/jquery.tokeninput.js"></script>
-
+    <script src="/js/search.js"></script>
   </head>
   <body>
     <header>
