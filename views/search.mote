@@ -1,7 +1,5 @@
 % developer = this.current_developer
 
-<h2>Search job posts and apply with a single click!</h2>
-
 {{ this.partial("search_box") }}
 
 % if posts.nil?

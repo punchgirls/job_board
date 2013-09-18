@@ -42,7 +42,7 @@
                 <li><a href="/profile">
               % end
               % if user.instance_of?(Developer)
-                <img src="http://www.gravatar.com/avatar/{{ user.avatar }}" />
+                <img id="avatar" src="http://www.gravatar.com/avatar/{{ user.avatar }}" />
               % end
               % if !user.instance_of?(Admin)
                 {{ user.name }}</a></li>
