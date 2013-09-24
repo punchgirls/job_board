@@ -1,7 +1,11 @@
 <h2>Search for jobs</h2>
-<form id="search-form" action="/search" method="GET">
-  <label for="q">Search:</label>
-  <input type="text" id="q" name="q">
+<ul id="tokens"></ul>
+<form name="postFrm" action="/search" method="GET">
+  <label for="query">Search:</label><br/>
+  <input type="text" id="query" name="post[tags]" placeholder="Search for skill"
+  autocomplete="off" value=""><br/>
+
+  <ul id="autocomplete"></ul>
 
   <label for="searchTextField">Location:</label><br/>
 
@@ -12,8 +16,6 @@
   <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
   <input type="checkbox" name="post[remote]" value="true">Remote<br/>
-
-  <input type="hidden" id="tags" name="post[tags]" value="">
 
   <button id="search" type="submit">Search</button>
 </form>

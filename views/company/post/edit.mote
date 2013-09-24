@@ -29,12 +29,22 @@
 % end
 
 <h2>Edit post</h2>
+<ul id="tokens"></ul>
+<form id="new-post" name="postFrm" action="/post/edit/{{ id }}" method="POST">
+  <input id="tags" type="hidden" value="{{ post.tags }}"><br/>
 
-<form id="edit-post" action="/post/edit/{{ id }}" method="POST">
-  <label for="add-skill">Skills:</label>
-  <input type="text" id="edit-skill" name="skills"><br/>
+  <label for="query">Add skills:</label><br/>
+  <input type="text" id="query" name="post[tags]" placeholder="Search for skill" autocomplete="off" value=""><br/>
 
-  <input type="hidden" id="tags" name="post[tags]" value="">
+  <ul id="autocomplete"></ul>
+
+  <label for="searchTextField">Location:</label><br/>
+
+  <!-- START GOOGLE PLACE AUTOCOMPLETE -->
+
+  <input id="searchTextField" type="text" size="50" placeholder="Add your location" name="post[location]" value="{{ post.location }}"><br/><br/>
+
+  <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
   <label for="title">Title:</label>
   <input type="text" name="post[title]" id="title" value="{{ post.title }}"><br/>

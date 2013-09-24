@@ -14,17 +14,17 @@ table tr td {
   padding: 10px 10px 0 0;
 }
 
-ul {
+nav ul {
   list-style: none;
   padding: 0;
 }
 
-li {
+nav li {
     display: inline;
     padding: 0 20px 0 0;
 }
 
-a {
+nav a {
   text-decoration: none;
 }
 

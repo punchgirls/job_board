@@ -135,15 +135,8 @@ class Companies < Cuba
       on post, param("post") do |params|
         post = Post[id]
 
-        params["tags"] = params["tags"].split(",")
-
-        if params["tags"].nil?
-          params["tags"] = Post[id].tags
-        else
-          params["tags"] = params["tags"].uniq.join(", ")
-        end
-
         edit = PostJobOffer.new(params)
+        res.write edit.attributes
 
         on edit.valid? do
           post.update(params)

@@ -15,11 +15,13 @@
 % end
 
 <h2>Create a new job offer</h2>
-<form id="new-post" action="/post/new" method="POST">
-  <label for="add-skill">Skills:</label>
-  <input type="text" id="search-skill" name="skills"><br/>
+<ul id="tokens"></ul>
+<form id="new-post" name="postFrm" action="/post/new" method="POST">
+  <label for="query">Search:</label><br/>
+  <input type="text" id="query" name="post[tags]" placeholder="Search for skill"
+  autocomplete="off" value=""><br/>
 
-  <input type="hidden" id="tags" name="post[tags]" value="">
+  <ul id="autocomplete"></ul>
 
   <label for="searchTextField">Location:</label><br/>
 
