@@ -19,25 +19,3 @@
 </form>
 
 <p><a href="/search?all=true">Show all</a></p>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#q").tokenInput(
-      {{ SKILLS }},
-      {
-        theme: "facebook"
-      }
-    );
-
-    $('#search-form').submit(function(event) {
-      var tokens = $('#q').tokenInput("get"),
-          tags = [];
-
-      $.each(tokens, function (index, value) {
-        tags.push(value.name);
-      });
-
-      $('#tags').val(tags);
-    });
-  });
-</script>

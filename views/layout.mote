@@ -7,27 +7,6 @@
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/style.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" href="/css/token-input-facebook.css" type="text/css" />
-
-    <!-- START GOOGLE PLACE AUTOCOMPLETE -->
-
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-
-    <script>
-      function initialize() {
-        var input = /** @type {HTMLInputElement} */(document.getElementById('searchTextField'));
-        var autocomplete = new google.maps.places.Autocomplete(input);
-      }
-
-      // google.maps.event.addDomListener(window, 'load', initialize);
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-
-    <!-- END GOOGLE PLACE AUTOCOMPLETE -->
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="/js/jquery.tokeninput.js"></script>
-    <script src="/js/search.js"></script>
   </head>
   <body>
     <header>
@@ -68,5 +47,23 @@
       {{ this.partial("notices", session: this.session) }}
       {{ content }}
     </section>
+
+    <!-- START GOOGLE PLACE AUTOCOMPLETE -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+
+    <script>
+      function initialize() {
+        var input = /** @type {HTMLInputElement} */(document.getElementById('searchTextField'));
+        var autocomplete = new google.maps.places.Autocomplete(input);
+      }
+
+      // google.maps.event.addDomListener(window, 'load', initialize);
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
+    <!-- END GOOGLE PLACE AUTOCOMPLETE -->
+
+    <script src="/js/search.js"></script>
   </body>
 </html>

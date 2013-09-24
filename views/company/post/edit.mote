@@ -49,26 +49,3 @@
 </form>
 
 <script src="/js/limit_description.js"></script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#edit-skill").tokenInput(
-      {{ SKILLS }},
-      {
-        theme: "facebook",
-        prePopulate: {{ new_tags }}
-      }
-    );
-
-    $('#edit-post').submit(function(event) {
-      var tokens = $('#edit-skill').tokenInput("get"),
-          tags = [];
-
-      $.each(tokens, function (index, value) {
-        tags.push(value.name);
-      });
-
-      $('#tags').val(tags);
-    });
-  });
-</script>

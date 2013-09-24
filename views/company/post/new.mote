@@ -43,25 +43,3 @@
 </form>
 
 <script src="/js/limit_description.js"></script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-    $("#search-skill").tokenInput(
-      {{ SKILLS }},
-      {
-        theme: "facebook"
-      }
-    );
-
-    $('#new-post').submit(function(event) {
-      var tokens = $('#search-skill').tokenInput("get"),
-          tags = [];
-
-      $.each(tokens, function (index, value) {
-        tags.push(value.name);
-      });
-
-      $('#tags').val(tags);
-    });
-  });
-</script>
