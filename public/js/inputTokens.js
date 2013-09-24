@@ -8,10 +8,10 @@ var autocomplete = document.getElementById("autocomplete");
 var tokens = document.getElementById("tokens");
 var list = autocomplete.childNodes;
 var postFrm = document.postFrm;
-var tags = document.getElementById("tags").value;
+var tags = document.getElementById("tags");
 
 if (tags != null) {
-  tags = tags.split(",");
+  tags = tags.value.split(",");
 
   for(var i in tags) {
     addToken(tags[i]);

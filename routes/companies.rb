@@ -134,11 +134,17 @@ class Companies < Cuba
     on "post/edit/:id" do |id|
       on post, param("post") do |params|
         post = Post[id]
+        res.write params
 
         edit = PostJobOffer.new(params)
-        res.write edit.attributes
 
         on edit.valid? do
+          if params["remote"].nil?
+            params["remote"] = false
+          end
+
+          res.write params
+
           post.update(params)
 
           session[:success] = "Post successfully edited!"

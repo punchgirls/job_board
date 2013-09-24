@@ -19,6 +19,7 @@
         <td>{{ post.description }}</td>
         <td>{{ post.tags }}</td>
         <td>{{ post.location }}</td>
+        {{ post.remote }}
         % if post.remote
           <td>Remote work is OK</td>
         % end
