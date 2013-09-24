@@ -1,11 +1,16 @@
+var countdown = document.getElementById("countdown");
+var description = document.getElementById("description");
+
 function updateCountdown() {
     // 600 is the max message length
-    var remaining = 600 - jQuery('#description').val().length;
-    jQuery('#countdown').text(remaining + ' characters remaining.');
+    var remaining = 600 - description.value.length;
+    countdown.innerHTML = remaining + " characters remaining.";
 }
 
-jQuery(document).ready(function($) {
+description.onkeyup = function() {
     updateCountdown();
-    $('#description').change(updateCountdown);
-    $('#description').keyup(updateCountdown);
-});
+};
+
+window.onload = function() {
+    updateCountdown();
+};

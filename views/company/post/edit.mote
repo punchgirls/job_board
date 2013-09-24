@@ -42,7 +42,7 @@
   <label for="description">Description</label><br/>
   <textarea id="description" name="post[description]">{{ post.description }}</textarea><br/>
 
-  <span id="countdown"></span><br/>
+  <span id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/>
 
   <button type="submit">Save</button>
   <a href="/dashboard">Cancel</a>
