@@ -114,8 +114,17 @@ searchInput.onkeydown = function(e) {
     selectedToken = -1;
     return false;
   }
+
   if ((e.keyCode == '27') || (e.keyCode == '9')) {
     autocomplete.style.display = "none";
+  }
+
+  if (e.keyCode == '8') {
+    var skills = tokens.getElementsByTagName("li");
+    var lastX = skills[skills.length - 2];
+    var lastSkill = skills[skills.length - 3];
+
+    deleteToken(lastSkill, lastX);
   }
 };
 
