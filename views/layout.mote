@@ -8,11 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/style.css" rel="stylesheet" media="screen">
     <link href="/css/inputTokens.css" rel="stylesheet" media="screen">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
     <header>
       <h1>Job Board</h1>
-        <nav>
+      <nav>
           <ul>
             <li><a href="/">Home</a></li>
             <li><a href="/search">Search</a></li>
@@ -59,7 +60,6 @@
         var autocomplete = new google.maps.places.Autocomplete(input);
       }
 
-      // google.maps.event.addDomListener(window, 'load', initialize);
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
@@ -67,5 +67,6 @@
 
     <script src="/js/search.js"></script>
     <script src="/js/inputTokens.js"></script>
+    <script src="/js/favorites.js"></script>
   </body>
 </html>

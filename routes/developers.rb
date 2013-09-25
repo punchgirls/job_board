@@ -74,16 +74,6 @@ class Developers < Cuba
         post.favorited_by.add(current_user)
         session[:success] = "You have added a post to your favorites!"
       end
-
-      on param("origin") do |origin|
-        if origin == "favorites"
-          res.redirect "/favorites"
-        end
-      end
-
-      on default do
-        res.redirect "/dashboard"
-      end
     end
 
     on "profile" do

@@ -33,13 +33,9 @@
           % else
             <td><a href="/apply/{{ post.id }}?origin=favorites">APPLY</a></td>
           % end
-          <td><a href="/favorite/{{ post.id }}?origin=favorites">
-          % if this.current_user.favorites.member?(post)
-            FAVORITED
-          % else
-            FAVORITE
-          % end
-          </a></td>
+          <td>
+            <i onclick="favorite({{ post.id }})" id="{{ post.id }}" class="icon-heart red"></i>
+          </td>
         </tr>
       % end
     % end

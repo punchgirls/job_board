@@ -31,3 +31,15 @@ nav a {
 #avatar {
   width: 36px;
 }
+
+/* Favorites */
+.icon-heart {
+  font-size: 36px;
+  color: grey;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.red {
+  color: red;
+}

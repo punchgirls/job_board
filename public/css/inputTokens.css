@@ -20,6 +20,8 @@ input {
 #autocomplete li:hover,
 #autocomplete li:focus {
   background: #ECF0F1;
+  cursor: pointer;
+  cursor: hand;
 }
 
 #highlight {
@@ -44,6 +46,8 @@ input {
 
 #tokens li:nth-child(even) {
   color: #3498DB;
+  cursor: pointer;
+  cursor: hand;
   margin-right: 5px;
   border-top-right-radius: 1em 3em;
   border-bottom-right-radius: 4em 0.5em;
