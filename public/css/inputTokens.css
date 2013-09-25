@@ -15,6 +15,8 @@
 #autocomplete li:hover,
 #autocomplete li:focus {
   background: #ECF0F1;
+  cursor: pointer;
+  cursor: hand;
 }
 
 #highlight {
@@ -52,6 +54,8 @@
   margin-right: 5px;
   border-top-right-radius: 1em 3em;
   border-bottom-right-radius: 4em 0.5em;
+  cursor: pointer;
+  cursor: hand;
 }
 
 #tokens #token-input {
