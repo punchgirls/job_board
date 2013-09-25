@@ -21,25 +21,4 @@
 
     <button type="submit">Search</button>
   </form>
-<!-- <ul id="tokens"></ul>
-<form name="postFrm" action="/search" method="GET">
-  <label for="query">Search:</label><br/>
-  <input type="text" id="query" name="post[tags]" placeholder="Search for skill"
-  autocomplete="off" value=""><br/>
-
-  <ul id="autocomplete"></ul>
-
-  <label for="searchTextField">Location:</label><br/>
-
-  START GOOGLE PLACE AUTOCOMPLETE
-
-  <input id="searchTextField" type="text" size="50" placeholder="Add your location" name="post[location]">
-
-  <!-- END GOOGLE PLACE AUTOCOMPLETE -->
-
-  <!-- <input type="checkbox" name="post[remote]">Remote<br/>
-
-  <button id="search" type="submit">Search</button>
-</form> -->
-
 <p><a href="/search?all=true">Show all</a></p>

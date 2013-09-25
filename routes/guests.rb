@@ -177,6 +177,7 @@ class Guests < Cuba
       authenticate(developer)
 
       session[:success] = "You have successfully logged in."
+
       res.redirect "/dashboard"
     end
 

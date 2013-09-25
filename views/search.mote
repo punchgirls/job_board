@@ -51,7 +51,11 @@
             <td><a href="/apply/{{ post.id }}?company=true">APPLY</a></td>
           % end
           <td>
-            % if developer && developer.favorites.member?(post)
+            % if developer.nil?
+              <a href="/favorite/{{ post.id }}">
+                <i class="icon-heart"></i>
+              </a>
+            % elsif developer && developer.favorites.member?(post)
               <i onclick="favorite({{ post.id }})" id="{{ post.id }}" class="icon-heart red"></i>
             % else
               <i onclick="favorite({{ post.id }})" id="{{ post.id }}" class="icon-heart"></i>

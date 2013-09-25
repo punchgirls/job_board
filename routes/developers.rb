@@ -64,6 +64,7 @@ class Developers < Cuba
     end
 
     on "favorite/:id" do |id|
+      query = session[:query]
       post = Post[id]
 
       if current_user.favorites.member?(post)
@@ -73,6 +74,17 @@ class Developers < Cuba
         current_user.favorites.add(post)
         post.favorited_by.add(current_user)
         session[:success] = "You have added a post to your favorites!"
+      end
+
+      on default do
+        if query
+          posts = Search.posts(query)
+
+          session.delete(:query)
+          render("search", title: "Search", posts: posts)
+        else
+          res.redirect "/favorites"
+        end
       end
     end
 
