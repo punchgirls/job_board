@@ -1,12 +1,7 @@
-input {
-  height: 30px;
-  width: 300px;
-}
-
 #autocomplete {
   position: relative;
   display: none;
-  width: 304px;
+  width: 400px;
   padding: 0;
   border: solid 1px grey;
   margin: 0;
@@ -20,8 +15,6 @@ input {
 #autocomplete li:hover,
 #autocomplete li:focus {
   background: #ECF0F1;
-  cursor: pointer;
-  cursor: hand;
 }
 
 #highlight {
@@ -30,13 +23,23 @@ input {
 
 #tokens {
   padding: 0;
+  margin: 0;
+  overflow: hidden;
+  width: 400px;
+  border: solid 1px grey;
+  cursor: text;
+}
+
+#tokens input {
+  outline: none;
+  border: none;
+  padding: 5px;
 }
 
 #tokens li {
   display: inline;
   background: #ECF0F1;
   margin: 0;
-  padding: 5px;
 }
 
 #tokens li:nth-child(odd) {
@@ -46,10 +49,12 @@ input {
 
 #tokens li:nth-child(even) {
   color: #3498DB;
-  cursor: pointer;
-  cursor: hand;
   margin-right: 5px;
   border-top-right-radius: 1em 3em;
   border-bottom-right-radius: 4em 0.5em;
+}
+
+#tokens #token-input {
+  background-color: white;
 }
 

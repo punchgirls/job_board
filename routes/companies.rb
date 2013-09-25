@@ -143,8 +143,6 @@ class Companies < Cuba
             params["remote"] = false
           end
 
-          res.write params
-
           post.update(params)
 
           session[:success] = "Post successfully edited!"
