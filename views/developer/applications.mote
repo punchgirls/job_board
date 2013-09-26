@@ -40,7 +40,6 @@
                 <td><a href="/apply/{{ job.id }}?origin=applications">APPLY</a></td>
               % end
               <td><i onclick="removeApplication({{ application.id }})" class="icon-remove red"></i></td>
-              <!-- <td><a href="/remove/{{ application.id }}">REMOVE</a></td> -->
             </tr>
           </table>
         </li>
