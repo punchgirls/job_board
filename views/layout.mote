@@ -67,6 +67,6 @@
 
     <script src="/js/search.js"></script>
     <script src="/js/inputTokens.js"></script>
-    <script src="/js/favorites.js"></script>
+    <script src="/js/posts.js"></script>
   </body>
 </html>

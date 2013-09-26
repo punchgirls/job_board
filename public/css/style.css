@@ -32,12 +32,30 @@ nav a {
   width: 36px;
 }
 
-/* Favorites */
-.icon-heart {
+td a {
+  text-decoration: none;
+}
+
+#posts-list {
+  padding: 0;
+}
+
+.post-list-item {
+  list-style: none;
+ }
+/* Icons */
+i {
   font-size: 36px;
-  color: grey;
   cursor: pointer;
   cursor: hand;
+}
+
+.icon-heart {
+  color: grey;
+}
+
+.icon-pencil {
+  color: blue;
 }
 
 .red {

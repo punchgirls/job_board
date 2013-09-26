@@ -10,42 +10,44 @@
     Click on "post job offer" to get started!
   </p>
 % else
-  <table>
-    % posts.each do |post|
-      <tr>
-        <td colspan="1">Posted on {{ post.posted }}</td>
-        <td colspan="3">Expires in
-          % time_left = post.expires
-          % if time_left > 24
-            {{ (post.expires / 24).ceil }} days
-          % elsif time_left <= 24 && time_left > 1
-            {{ post.expires.ceil }} hours
-          % elsif time_left <= 1
-            less than 1 hour!
-          % end
-          <a href="/post/extend/{{ post.id }}">Extend expiration date</a>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="4" id="post-title">{{ post.title }}</td>
-      </tr>
-      <tr>
-        <td colspan="4" id="post-skills">{{ post.tags }}</td>
-      </tr>
-      <tr>
-        <td colspan="4" id="post-location">{{ post.location }}</td>
-      </tr>
-      % if post.remote == "true"
+  <ul id="posts-list">
+  % posts.each do |post|
+    <li id="{{ post.id}}" class="post-list-item">
+      <table>
         <tr>
-          <td colspan="4" id="post-remote">Remote work is OK</td>
+          <td colspan="1">Posted on {{ post.posted }}</td>
+          <td colspan="3">Expires in
+            % time_left = post.expires
+            % if time_left > 24
+              {{ (post.expires / 24).ceil }} days
+            % elsif time_left <= 24 && time_left > 1
+              {{ post.expires.ceil }} hours
+            % elsif time_left <= 1
+              less than 1 hour!
+            % end
+            <a href="/post/extend/{{ post.id }}">Extend expiration date</a>
+          </td>
         </tr>
-      % end
-      <tr>
-        <td>{{ post.description }}</td>
-        <td style="width:150px;"><a href="/post/applications/{{ post.id }}">APPLICANTS ({{ post.applications.size }})</a></td>
-        <td style="width:150px;"><a href="/post/edit/{{ post.id }}">EDIT</a></td>
-        <td><a href="/post/remove/{{ post.id }}">REMOVE</a></td>
-      </tr>
-    % end
-  </table>
+        <tr>
+          <td colspan="4" id="post-title">{{ post.title }}</td>
+        </tr>
+        <tr>
+          <td colspan="4" id="post-skills">{{ post.tags }}</td>
+        </tr>
+        <tr>
+          <td colspan="1" id="post-location">{{ post.location }}</td>
+          % if post.remote == "true"
+          <td id="post-remote">Remote work is OK</td>
+        % end
+        </tr>
+        <tr>
+          <td>{{ post.description }}</td>
+          <td style="width:150px;"><a href="/post/applications/{{ post.id }}">APPLICANTS ({{ post.applications.size }})</a></td>
+          <td style="width:150px;"><a href="/post/edit/{{ post.id }}"><i class="icon-pencil"></i></a></td>
+          <td><i onclick="removePost({{ post.id }})" class="icon-remove red"></i></td>
+        </tr>
+      </table>
+    </li>
+  % end
+  </ul>
 % end
