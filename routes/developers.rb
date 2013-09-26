@@ -39,23 +39,17 @@ class Developers < Cuba
 
     on "apply/:id" do |id|
       time = Time.new.to_i
+      developer = current_developer
+      post = Post[id]
 
       params = { date: time,
-        developer_id: current_developer.id,
+        developer_id: developer.id,
         post_id: id }
 
-      application = Application.create(params)
+      if !developer.applied?(post.id)
+        application = Application.create(params)
 
-      session[:success] = "You have successfully applied for a job!"
-
-      on param("origin") do |origin|
-        if origin == "favorites"
-          res.redirect "/favorites"
-        elsif origin == "applications"
-          res.redirect "/applications"
-        elsif origin == "search"
-          res.redirect "/applications"
-        end
+        session[:success] = "You have successfully applied for a job!"
       end
 
       on default do

@@ -43,13 +43,17 @@
         % end
         <tr>
           <td>{{ post.description }}</td>
-          % if developer && developer.applied?(post.id)
-            <td>APPLIED</td>
-          % elsif developer
-            <td><a href="/apply/{{ post.id }}?origin=search">APPLY</a></td>
-          % else
-            <td><a href="/apply/{{ post.id }}?company=true">APPLY</a></td>
-          % end
+          <td>
+            % if developer.nil?
+              <a href="/apply/{{ post.id }}">
+                APPLY
+              </a>
+            % elsif developer && developer.applied?(post.id)
+                APPLIED
+            % else
+              <span onclick="apply({{ post.id }})" id="apply_{{ post.id }}">APPLY</span>
+            % end
+          </td>
           <td>
             % if developer.nil?
               <a href="/favorite/{{ post.id }}">
