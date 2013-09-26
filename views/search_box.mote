@@ -17,7 +17,7 @@
 
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
-    <input type="checkbox" name="post[remote]">Remote<br/>
+    <input type="checkbox" name="post[remote]" value="true">Remote<br/>
 
     <button type="submit">Search</button>
   </form>
