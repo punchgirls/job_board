@@ -11,7 +11,6 @@ function favorite (id) {
   request.open("POST", url);
 
   request.onreadystatechange = function() {
-    console.log(request.readyState + " " + request.status );
     if ((request.readyState===4) && (request.status===200)) {
       if (post.className === "icon-heart red") {
         post.className = "icon-heart";

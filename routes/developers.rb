@@ -64,34 +64,33 @@ class Developers < Cuba
     end
 
     on "favorite/:id" do |id|
-      query = session[:query]
-      origin = session[:origin]
       post = Post[id]
+      favorites = current_user.favorites
+      favorited_by = post.favorited_by
 
-      if current_user.favorites.member?(post) && !origin
-        current_user.favorites.delete(post)
-        post.favorited_by.delete(current_user)
+      on !favorites.member?(post) do
+        favorites.add(post)
+        favorited_by.add(current_user)
+
+        res.redirect "/search"
       end
 
-      if current_user.favorites.member?(post) && origin
-        session.delete(:origin)
-        session.delete(:query)
-      end
+      on favorites.member?(post) do
+        on session[:origin] do
+          session.delete(:origin)
+          res.redirect "/search"
+        end
 
-      if current_user.favorites.add(post)
-        post.favorited_by.add(current_user)
-        session[:success] = "You have added a post to your favorites!"
+        on default do
+          favorites.delete(post)
+          favorited_by.delete(current_user)
+
+          res.redirect "/search"
+        end
       end
 
       on default do
-        if query
-          posts = Search.posts(query)
-
-          session.delete(:query)
-          render("search", title: "Search", posts: posts)
-        else
-          res.redirect "/favorites"
-        end
+        res.redirect "/favorites"
       end
     end
 

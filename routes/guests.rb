@@ -141,7 +141,7 @@ class Guests < Cuba
 
     on "favorite/:id" do |id|
       session[:favorite_id] = id
-      session[:origin] = "guests"
+      session[:origin] = { "guests" => "true" }
 
       res.redirect "/github_oauth"
     end
