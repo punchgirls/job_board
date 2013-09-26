@@ -65,13 +65,20 @@ class Developers < Cuba
 
     on "favorite/:id" do |id|
       query = session[:query]
+      origin = session[:origin]
       post = Post[id]
 
-      if current_user.favorites.member?(post)
+      if current_user.favorites.member?(post) && !origin
         current_user.favorites.delete(post)
         post.favorited_by.delete(current_user)
-      else
-        current_user.favorites.add(post)
+      end
+
+      if current_user.favorites.member?(post) && origin
+        session.delete(:origin)
+        session.delete(:query)
+      end
+
+      if current_user.favorites.add(post)
         post.favorited_by.add(current_user)
         session[:success] = "You have added a post to your favorites!"
       end
