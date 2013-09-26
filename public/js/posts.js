@@ -10,7 +10,7 @@ function apply (id) {
 
   request.open("POST", url);
 
-  request.onreadystatechange = function() {
+  request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
       if (post.innerHTML === "APPLIED") {
         post.innerHTML = "APPLY";
@@ -23,7 +23,15 @@ function apply (id) {
   request.send();
 }
 
-function favorite (id) {
+function favorite (icon) {
+  if (icon.className === "icon-heart red") {
+    icon.className = "icon-heart";
+  } else {
+    icon.className = "icon-heart red";
+  }
+}
+
+function favoritePost (id) {
   var post = document.getElementById(id);
   var url = "/favorite/" + id;
 
@@ -35,13 +43,32 @@ function favorite (id) {
 
   request.open("POST", url);
 
-  request.onreadystatechange = function() {
+  request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      if (post.className === "icon-heart red") {
-        post.className = "icon-heart";
-      } else {
-        post.className = "icon-heart red";
-      }
+      favorite(post);
+    }
+  };
+
+  request.send();
+}
+
+function favoriteApplicant (id) {
+  var application = document.getElementById(id);
+  var url = "/application/favorite/" + id;
+
+  console.log(url);
+
+  if (window.XMLHttpRequest) {
+    request = new XMLHttpRequest();
+  } else {
+    request = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  request.open("POST", url);
+
+  request.onreadystatechange = function () {
+    if ((request.readyState===4) && (request.status===200)) {
+      favorite(application);
     }
   };
 
@@ -61,7 +88,7 @@ function removePost (id) {
 
   request.open("POST", url);
 
-  request.onreadystatechange = function() {
+  request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
       posts.removeChild(post);
     }

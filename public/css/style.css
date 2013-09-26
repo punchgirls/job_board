@@ -34,6 +34,7 @@ nav a {
 
 td a {
   text-decoration: none;
+  color: black;
 }
 
 #posts-list {

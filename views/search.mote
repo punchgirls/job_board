@@ -60,9 +60,9 @@
                 <i class="icon-heart"></i>
               </a>
             % elsif developer && developer.favorites.member?(post)
-              <i onclick="favorite({{ post.id }})" id="{{ post.id }}" class="icon-heart red"></i>
+              <i onclick="favoritePost({{ post.id }})" id="{{ post.id }}" class="icon-heart red"></i>
             % else
-              <i onclick="favorite({{ post.id }})" id="{{ post.id }}" class="icon-heart"></i>
+              <i onclick="favoritePost({{ post.id }})" id="{{ post.id }}" class="icon-heart"></i>
             % end
           </td>
           % if this.current_user.instance_of?(Company)

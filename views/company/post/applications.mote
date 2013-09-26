@@ -17,15 +17,19 @@
       <tr><td colspan="4">Username: {{ developer.username }}</td></tr>
       <tr><td colspan="4"><a href="http://www.github.com/{{ developer.username }}" target="_blank">GitHub account</a></td></tr>
       <tr>
-        <td><a href="/application/contact/{{ developer.id }}">CONTACT</a></td>
-        <td><a href="/application/favorite/{{ application.id }}">
+        <td>
+          <a href="/application/contact/{{ developer.id }}"><i class="icon-envelope-alt"></i></a>
+        </td>
+        <td>
           % if Post[id].favorites.member?(application)
-            FAVORITED
+            <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="icon-heart red"></i>
           % else
-            FAVORITE
+            <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="icon-heart"></i>
           % end
-          </a></td>
-        <td><a href="/application/remove/{{ application.id }}">DELETE</a></td>
+        </td>
+        <td>
+          <i onclick="removePost({{ application.id }})" class="icon-remove red"></i>
+        </td>
       </tr>
     % end
   </table>
