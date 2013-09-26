@@ -40,7 +40,7 @@
             % end
           </td>
           <td>
-            <i onclick="favorite({{ post.id }})" id="{{ post.id }}" class="icon-heart red"></i>
+            <i onclick="favoritePost({{ post.id }})" id="{{ post.id }}" class="icon-heart red"></i>
           </td>
         </tr>
       % end
