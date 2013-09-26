@@ -3,7 +3,7 @@
 <h2>List of applicants ({{ applications.size }})</h2>
 
 % if applications.empty?
-  <p>No applicants yet.</p>
+  <p>No one applied to this post yet or the persons who applied removed their applications.</p>
 % else
   <table>
     % applications.each do |application|

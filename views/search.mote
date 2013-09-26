@@ -45,13 +45,13 @@
           <td>{{ post.description }}</td>
           <td>
             % if developer.nil?
-              <a href="/apply/{{ post.id }}">
+              <a href="/apply/{{ post.id }}" class="cursor">
                 APPLY
               </a>
             % elsif developer && developer.applied?(post.id)
                 APPLIED
             % else
-              <span onclick="apply({{ post.id }})" id="apply_{{ post.id }}">APPLY</span>
+              <span onclick="apply({{ post.id }})" id="apply_{{ post.id }}" class="cursor">APPLY</span>
             % end
           </td>
           <td>

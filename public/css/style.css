@@ -43,6 +43,15 @@ td a {
 .post-list-item {
   list-style: none;
  }
+
+ #applications-list {
+  padding: 0;
+}
+
+.application-list-item {
+  list-style: none;
+ }
+
 /* Icons */
 i {
   font-size: 36px;
@@ -60,4 +69,9 @@ i {
 
 .red {
   color: red;
+}
+
+.cursor {
+  cursor: pointer;
+  cursor: hand;
 }
