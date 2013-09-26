@@ -8,39 +8,42 @@
 % if applications.empty?
   <p>You haven't applied for any jobs yet. Start your search now!</p>
 % else
-  <table>
+  <ul id="applications-list">
     % applications.each do |application|
       % job = application.post
-
       % if job && !job.expired?
-        <tr>
-          <td>Posted on {{ job.posted }}</td>
-          <td>Applied on {{ application.applied }}</td>
-          % time_left = job.expires
-          % if time_left > 24
-            <td colspan="2">Expires in {{ (job.expires / 24).ceil }} days</td>
-          % elsif time_left <= 24 && time_left > 1
-            <td colspan="2">Expires in {{ job.expires.ceil }} hours</td>
-          % elsif time_left <= 1
-            <td colspan="2">Expires in less than 1 hour!</td>
-          % end
-        </tr>
-        <tr>
-          <td colspan="4">{{ Company[job.company_id].name }}</td>
-        </tr>
-        <tr>
-          <td colspan="4">{{ job.title }}</td>
-        </tr>
-        <tr>
-          <td colspan="2">{{ job.description }}</td>
-          % if developer && developer.applied?(job.id)
-            <td>APPLIED</td>
-          % else
-            <td><a href="/apply/{{ job.id }}?origin=applications">APPLY</a></td>
-          % end
-          <td><a href="/remove/{{ application.id }}">REMOVE</a></td>
-        </tr>
+        <li id="{{ application.id}}" class="application-list-item">
+          <table>
+            <tr>
+              <td>Posted on {{ job.posted }}</td>
+              <td>Applied on {{ application.applied }}</td>
+              % time_left = job.expires
+              % if time_left > 24
+                <td colspan="2">Expires in {{ (job.expires / 24).ceil }} days</td>
+              % elsif time_left <= 24 && time_left > 1
+                <td colspan="2">Expires in {{ job.expires.ceil }} hours</td>
+              % elsif time_left <= 1
+                <td colspan="2">Expires in less than 1 hour!</td>
+              % end
+            </tr>
+            <tr>
+              <td colspan="4">{{ Company[job.company_id].name }}</td>
+            </tr>
+            <tr>
+              <td colspan="4">{{ job.title }}</td>
+            </tr>
+            <tr>
+              <td colspan="2">{{ job.description }}</td>
+              % if developer && developer.applied?(job.id)
+                <td>APPLIED</td>
+              % else
+                <td><a href="/apply/{{ job.id }}?origin=applications">APPLY</a></td>
+              % end
+              <td><i onclick="removeApplication({{ application.id }})" class="icon-remove red"></i></td>
+            </tr>
+          </table>
+        </li>
       % end
     % end
-  </table>
+  </ul>
 % end

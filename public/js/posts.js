@@ -96,3 +96,25 @@ function removePost (id) {
 
   request.send();
 }
+
+function removeApplication (id) {
+  var application = document.getElementById(id);
+  var applications = document.getElementById("applications-list");
+  var url = "/remove/" + id;
+
+  if (window.XMLHttpRequest) {
+    request = new XMLHttpRequest();
+  } else {
+    request = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  request.open("POST", url);
+
+  request.onreadystatechange = function() {
+    if ((request.readyState===4) && (request.status===200)) {
+      applications.removeChild(application);
+    }
+  };
+
+  request.send();
+}
