@@ -68,5 +68,12 @@
     <script src="/js/search.js"></script>
     <script src="/js/inputTokens.js"></script>
     <script src="/js/posts.js"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+      // This identifies your website in the createToken call below
+      Stripe.setPublishableKey('pk_test_Vh6nOBooHks9VWXe09xTiQ4y');
+      // ...
+    </script>
+    <script type="text/javascript" src="/js/stripe.js"></script>
   </body>
 </html>

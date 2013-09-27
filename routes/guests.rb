@@ -1,7 +1,7 @@
 class Guests < Cuba
   define do
     on "signup" do
-      on post, param("company") do |params|
+      on post, param("stripeToken"), param("company") do |token, params|
         if !params["url"].start_with?("http")
           params["url"] = "http://" + params["url"]
         end
@@ -11,6 +11,23 @@ class Guests < Cuba
         on signup.valid? do
           params.delete("password_confirmation")
           company = Company.create(params)
+
+          # Create a Customer
+          customer = Stripe::Customer.create(
+            :card => token,
+            :description => company.email
+          )
+
+          # Charge the Customer instead of the card
+          Stripe::Charge.create(
+              :amount => 1000, # in cents
+              :currency => "usd",
+              :customer => customer.id
+          )
+
+          # Save the customer ID in your database so you can use it later
+          company.update(:customer_id => customer.id)
+
           authenticate(company)
 
           session[:success] = "You have successfully signed up!"

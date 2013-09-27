@@ -101,6 +101,13 @@ class Companies < Cuba
       on post, param("days") do |days|
         post = Post[id]
 
+        # Later...
+        #   Stripe::Charge.create(
+        #     :amount   => 1500, # $15.00 this time
+        #     :currency => "usd",
+        #     :customer => company.customer_id
+        #   )
+
         new_date = post.expiration_date.to_i + (days.to_i * 24 * 60 * 60)
 
         post.update(expiration_date: new_date)

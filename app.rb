@@ -8,6 +8,7 @@ require "requests"
 require "malone"
 require "ohm/contrib"
 require "nobi"
+require "stripe"
 
 APP_SECRET = ENV.fetch("APP_SECRET")
 REDIS_URL = ENV.fetch("OPENREDIS_URL")
@@ -17,6 +18,7 @@ GITHUB_OAUTH_AUTHORIZE = ENV.fetch("GITHUB_OAUTH_AUTHORIZE")
 GITHUB_OAUTH_ACCESS_TOKEN = ENV.fetch("GITHUB_OAUTH_ACCESS_TOKEN")
 GITHUB_FETCH_USER = ENV.fetch("GITHUB_FETCH_USER")
 RESET_URL = ENV.fetch("RESET_URL")
+Stripe.api_key = ENV.fetch("STRIPE_API_KEY")
 
 Cuba.plugin Cuba::Mote
 Cuba.plugin Cuba::TextHelpers

@@ -19,15 +19,20 @@
 
 <h2>Sign up now to start posting jobs!</h2>
 
-<form action="/signup" method="POST">
+<form action="/signup" method="POST" id="payment-form">
+  <span id="payment-errors"></span><br/>
+
   <label for="company-name">Company name:</label>
-  <input type="text" name="company[name]" id="company-name" value="{{ company['name'] }}"><br/>
+  <input type="text" name="company[name]" id="company-name"
+  value="{{ company['name'] }}"><br/>
 
   <label for="company-email">Company e-mail:</label>
-  <input type="text" name="company[email]" id="company-email" value="{{ company['email'] }}"><br/>
+  <input type="text" name="company[email]" id="company-email"
+  value="{{ company['email'] }}"><br/>
 
   <label for="company-url">Company URL:</label>
-  <input type="text" name="company[url]" id="company-url" value="{{ company['url'] }}"><br/>
+  <input type="text" name="company[url]" id="company-url"
+  value="{{ company['url'] }}"><br/>
 
   <label for="password">Password:</label>
   <input type="password" name="company[password]" id="password"><br/>
@@ -35,5 +40,16 @@
   <label for="password-confirmation">Password confirmation:</label>
   <input type="password" name="company[password_confirmation]" id="password-confirmation"><br/>
 
-  <button type="submit">Signup</button>
+  <label>Card Number</label>
+  <input type="text" size="20" data-stripe="number"/>
+
+  <label>CVC</label>
+  <input type="text" size="4" data-stripe="cvc"/><br/>
+
+  <label>Expiration (MM/YYYY)</label>
+  <input type="text" size="2" data-stripe="exp-month"/>
+  <span> / </span>
+  <input type="text" size="4" data-stripe="exp-year"/><br/>
+
+  <button type="submit" id="button">Signup</button>
 </form>

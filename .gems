@@ -9,3 +9,4 @@ requests -v 0.0.6
 malone -v 1.0.4
 ohm-contrib -v 1.2
 nobi -v 0.0.1
+stripe -v 1.8.7
