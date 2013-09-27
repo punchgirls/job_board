@@ -12,7 +12,6 @@
   </head>
   <body>
     <header>
-    {{ this.session.inspect }}
       <h1>Job Board</h1>
       <nav>
           <ul>
