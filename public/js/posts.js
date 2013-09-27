@@ -1,13 +1,18 @@
-function apply (id) {
-  var post = document.getElementById("apply_" + id);
-  var url = "/apply/" + id;
-
+function ajax () {
   if (window.XMLHttpRequest) {
     request = new XMLHttpRequest();
   } else {
     request = new ActiveXObject("Microsoft.XMLHTTP");
   }
 
+  return request;
+}
+
+function apply (id) {
+  var post = document.getElementById("apply_" + id);
+  var url = "/apply/" + id;
+
+  var request = ajax();
   request.open("POST", url);
 
   request.onreadystatechange = function () {
@@ -35,12 +40,7 @@ function favoritePost (id) {
   var post = document.getElementById(id);
   var url = "/favorite/" + id;
 
-  if (window.XMLHttpRequest) {
-    request = new XMLHttpRequest();
-  } else {
-    request = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-
+  var request = ajax();
   request.open("POST", url);
 
   request.onreadystatechange = function () {
@@ -56,14 +56,7 @@ function favoriteApplicant (id) {
   var application = document.getElementById(id);
   var url = "/application/favorite/" + id;
 
-  console.log(url);
-
-  if (window.XMLHttpRequest) {
-    request = new XMLHttpRequest();
-  } else {
-    request = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-
+  var request = ajax();
   request.open("POST", url);
 
   request.onreadystatechange = function () {
@@ -80,12 +73,7 @@ function removePost (id) {
   var posts = document.getElementById("posts-list");
   var url = "post/remove/" + id;
 
-  if (window.XMLHttpRequest) {
-    request = new XMLHttpRequest();
-  } else {
-    request = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-
+  var request = ajax();
   request.open("POST", url);
 
   request.onreadystatechange = function () {
@@ -104,12 +92,7 @@ function removeApplicant (id) {
   var value = numberOfApplicants.innerHTML
   var url = "/application/remove/" + id;
 
-  if (window.XMLHttpRequest) {
-    request = new XMLHttpRequest();
-  } else {
-    request = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-
+  var request = ajax();
   request.open("POST", url);
 
   request.onreadystatechange = function () {
@@ -127,12 +110,7 @@ function removeApplication (id) {
   var applications = document.getElementById("applications-list");
   var url = "/remove/" + id;
 
-  if (window.XMLHttpRequest) {
-    request = new XMLHttpRequest();
-  } else {
-    request = new ActiveXObject("Microsoft.XMLHTTP");
-  }
-
+  var request = ajax();
   request.open("POST", url);
 
   request.onreadystatechange = function() {
