@@ -1,36 +1,45 @@
 % applications = Post[id].applications
 
-<h2>List of applicants ({{ applications.size }})</h2>
+<h2>List of applicants (<span id="numer-of-applicants">{{ applications.size }}</span>)</h2>
 
 % if applications.empty?
   <p>No one applied to this post yet or the persons who applied removed their applications.</p>
 % else
-  <table>
+  <ul id="application-list">
     % applications.each do |application|
       % developer = application.developer
-      <tr>
-        <td rowspan="5">
-          <img src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
-        </td>
-        <td colspan="4">Applied on {{ application.applied }}</td></tr>
-      <tr><td colspan="4">Name: {{ developer.name }}</td></tr>
-      <tr><td colspan="4">Username: {{ developer.username }}</td></tr>
-      <tr><td colspan="4"><a href="http://www.github.com/{{ developer.username }}" target="_blank">GitHub account</a></td></tr>
-      <tr>
-        <td>
-          <a href="/application/contact/{{ developer.id }}"><i class="icon-envelope-alt"></i></a>
-        </td>
-        <td>
-          % if Post[id].favorites.member?(application)
-            <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="icon-heart red"></i>
-          % else
-            <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="icon-heart"></i>
-          % end
-        </td>
-        <td>
-          <i onclick="removePost({{ application.id }})" class="icon-remove red"></i>
-        </td>
-      </tr>
+      <li id="app_{{ application.id }}">
+        <table>
+          <tr>
+            <td rowspan="5">
+              <img src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
+            </td>
+            <td colspan="4">Applied on {{ application.applied }}</td>
+          </tr>
+          <tr><td colspan="4">Name: {{ developer.name }}</td></tr>
+          <tr>
+            <td colspan="4">Username: {{ developer.username }}</td>
+          </tr>
+          <tr>
+            <td colspan="4"><a href="http://www.github.com/{{ developer.username }}" target="_blank">GitHub account</a></td>
+          </tr>
+          <tr>
+            <td>
+              <a href="/application/contact/{{ developer.id }}"><i class="icon-envelope-alt"></i></a>
+            </td>
+            <td>
+              % if Post[id].favorites.member?(application)
+                <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="icon-heart red"></i>
+              % else
+                <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="icon-heart"></i>
+              % end
+            </td>
+            <td>
+              <i onclick="removeApplicant({{ application.id }})" class="icon-remove red"></i>
+            </td>
+          </tr>
+        </table>
+      </li>
     % end
-  </table>
+  </ul>
 % end

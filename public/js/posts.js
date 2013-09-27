@@ -97,6 +97,31 @@ function removePost (id) {
   request.send();
 }
 
+function removeApplicant (id) {
+  var applications = document.getElementById("application-list");
+  var application = document.getElementById("app_" + id);
+  var numberOfApplicants = document.getElementById("numer-of-applicants");
+  var value = numberOfApplicants.innerHTML
+  var url = "/application/remove/" + id;
+
+  if (window.XMLHttpRequest) {
+    request = new XMLHttpRequest();
+  } else {
+    request = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  request.open("POST", url);
+
+  request.onreadystatechange = function () {
+    if ((request.readyState===4) && (request.status===200)) {
+      applications.removeChild(application);
+      numberOfApplicants.innerHTML = parseInt(value) - 1;
+    }
+  };
+
+  request.send();
+}
+
 function removeApplication (id) {
   var application = document.getElementById(id);
   var applications = document.getElementById("applications-list");
