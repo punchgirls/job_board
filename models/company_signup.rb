@@ -1,6 +1,6 @@
 class CompanySignup < Scrivener
   attr_accessor :name, :email, :url,
-  :password, :password_confirmation, :customer_id
+  :password, :password_confirmation, :customer_id, :credits
 
   def validate
     if assert_email(:email)

@@ -7,6 +7,7 @@ class Company < Ohm::Model
   attribute :url
   attribute :crypted_password
   attribute :customer_id
+  attribute :credits
 
   unique :email
 

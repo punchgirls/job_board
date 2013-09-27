@@ -76,3 +76,12 @@ i {
   cursor: pointer;
   cursor: hand;
 }
+
+.package {
+  float: left;
+  margin: 20px;
+}
+
+.clear {
+  clear: both;
+}

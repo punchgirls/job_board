@@ -16,4 +16,11 @@
 
 <h3>Need an account?</h3>
 
-<p><a href="/signup">Sign up!</a></p>
+<div>
+  <form action="/signup" method="POST">
+
+    {{ this.partial("packages") }}
+
+    <button type="submit">SIGN UP!</button>
+  </form>
+</div>

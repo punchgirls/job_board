@@ -19,7 +19,7 @@
 
 <h2>Sign up now to start posting jobs!</h2>
 
-<form action="/signup" method="POST" id="payment-form">
+<form action="/customer" method="POST" id="payment-form">
   <span id="payment-errors"></span><br/>
 
   <label for="company-name">Company name:</label>
@@ -50,6 +50,8 @@
   <input type="text" size="2" data-stripe="exp-month"/>
   <span> / </span>
   <input type="text" size="4" data-stripe="exp-year"/><br/>
+
+  {{ this.partial("packages") }}
 
   <button type="submit" id="button">Signup</button>
 </form>

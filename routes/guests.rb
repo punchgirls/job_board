@@ -1,7 +1,16 @@
 class Guests < Cuba
   define do
     on "signup" do
+      on post, param("company") do |params|
+        session[:package] = params["credits"]
+        res.redirect "/customer"
+      end
+    end
+
+    on "customer" do
       on post, param("stripeToken"), param("company") do |token, params|
+        session.delete(:package)
+
         if !params["url"].start_with?("http")
           params["url"] = "http://" + params["url"]
         end
@@ -10,23 +19,44 @@ class Guests < Cuba
 
         on signup.valid? do
           params.delete("password_confirmation")
-          company = Company.create(params)
+          credits = params["credits"]
+          params.delete("credits")
+
+          company = Company.new(params)
 
           # Create a Customer
-          customer = Stripe::Customer.create(
-            :card => token,
-            :description => company.email
-          )
+          begin
+            customer = Stripe::Customer.create(
+              :card => token,
+              :description => company.email
+            )
+          rescue Stripe::CardError => e
+            session[:package] = credits
+            session[:error] = e.message
+
+            render("company/signup", title: "Sign up",
+            company: params, signup: signup)
+          end
 
           # Charge the Customer instead of the card
-          Stripe::Charge.create(
+          begin
+            Stripe::Charge.create(
               :amount => 1000, # in cents
               :currency => "usd",
               :customer => customer.id
-          )
+            )
+          rescue Stripe::CardError => e
+            session[:package] = credits
+            session[:error] = e.message
+
+            render("company/signup", title: "Sign up",
+            company: params, signup: signup)
+          end
 
           # Save the customer ID in your database so you can use it later
+          company.save
           company.update(:customer_id => customer.id)
+          company.update(:credits => credits)
 
           authenticate(company)
 
