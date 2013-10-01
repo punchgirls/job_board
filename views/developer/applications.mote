@@ -33,6 +33,9 @@
               <td colspan="4">{{ job.title }}</td>
             </tr>
             <tr>
+              <td colspan="4">{{ job.tags }}</td>
+            </tr>
+            <tr>
               <td colspan="2">{{ job.description }}</td>
               % if developer && developer.applied?(job.id)
                 <td>APPLIED</td>

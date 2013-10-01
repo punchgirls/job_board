@@ -53,7 +53,7 @@ class Developers < Cuba
       end
 
       on default do
-        res.redirect "/dashboard"
+        res.redirect "/search"
       end
     end
 
