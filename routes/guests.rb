@@ -24,8 +24,6 @@ class Guests < Cuba
           session.delete(:package)
 
           params.delete("password_confirmation")
-          credits = params["credits"]
-          params.delete("credits")
 
           company = Company.new(params)
 
@@ -37,7 +35,7 @@ class Guests < Cuba
               :description => company.name
             )
           rescue Stripe::CardError => e
-            session[:package] = credits
+            session[:package] = params["credits"]
             session[:error] = e.message
 
             render("company/signup", title: "Sign up",
@@ -45,9 +43,19 @@ class Guests < Cuba
           end
 
           # Charge the Customer instead of the card
+          sum = 0
+
+          if params["credits"] == 1
+            sum = 10000
+          elsif params["credits"] == 5
+            sum = 42500
+          else
+            sum = 70000
+          end
+
           begin
             Stripe::Charge.create(
-              :amount => 1000, # in cents
+              :amount => sum, # in cents
               :currency => "usd",
               :customer => customer.id
             )
@@ -62,7 +70,6 @@ class Guests < Cuba
           # Save the customer ID in your database so you can use it later
           company.save
           company.update(:customer_id => customer.id)
-          company.update(:credits => credits)
 
           authenticate(company)
 

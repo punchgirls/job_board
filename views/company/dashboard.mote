@@ -2,6 +2,8 @@
 
 <h2>Active job posts</h2>
 
+<p>Remaining posts: {{ this.current_user.credits }}</p>
+
 <p><a href="/post/new">Post job offer</a></p>
 
 % if posts.empty?

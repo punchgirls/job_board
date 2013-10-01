@@ -1,0 +1,20 @@
+% customer = Stripe::Customer.retrieve(this.current_user.customer_id)
+% card = customer.cards["data"][0]
+
+<form action="/payment" method="POST">
+  <span id="payment-errors"></span><br/>
+
+  <label>Type: {{ card['type'] }}</label><br/>
+
+  {{ this.partial("packages") }}
+
+  <label>Card Number</label>
+  <input disable="disable" type="text" size="20" value="**** **** **** {{ card['last4'] }}"/><br/>
+
+  <label>Expiration (MM/YYYY)</label>
+  <input disable="disable" type="text" size="2" value="{{ card['exp_month'] }}"/>
+  <span> / </span>
+  <input disable="disable" type="text" size="4" value="{{ card['exp_year'] }}"/><br/>
+
+  <button type="submit" id="button">Buy</button>
+</form>

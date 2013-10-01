@@ -11,6 +11,50 @@ class Companies < Cuba
       end
     end
 
+    on "payment" do
+      company = current_company
+
+      on post, param("company") do |params|
+        session.delete(:package)
+
+        credits = params["credits"]
+
+        # Charge the Customer instead of the card
+        sum = 0
+
+        if credits == 1
+          sum = 10000
+        elsif credits == 5
+          sum = 42500
+        else
+          sum = 70000
+        end
+
+        begin
+          Stripe::Charge.create(
+            :amount   => sum, # in cents
+            :currency => "usd",
+            :customer => company.customer_id
+          )
+        rescue Stripe::CardError => e
+          session[:package] = credits
+          session[:error] = e.message
+
+          render("company/payment", title: "Get more posts")
+        end
+
+        # Update the credits of the company
+        company.update(:credits => credits)
+
+        session[:success] = "Your payment was successful. Happy posting!"
+        res.redirect "/post/new"
+      end
+
+      on default do
+        render("company/payment", title: "Get more posts")
+      end
+    end
+
     on "search" do
       run Searches
     end
@@ -65,13 +109,15 @@ class Companies < Cuba
     end
 
     on "post/new" do
+      company = current_company
+
       on post, param("post") do |params|
         post = PostJobOffer.new(params)
 
         on post.valid? do
           time = Time.new.to_i
 
-          params[:company_id] = current_company.id
+          params[:company_id] = company.id
           params[:date] = time
           params[:expiration_date] = time + (30 * 24 * 60 * 60)
 
@@ -91,9 +137,13 @@ class Companies < Cuba
       end
 
       on default do
-        post = PostJobOffer.new({})
+        if company.credits.to_i > 0
+          post = PostJobOffer.new({})
 
-        render("company/post/new", title: "Post job offer", post: post)
+          render("company/post/new", title: "Post job offer", post: post)
+        else
+          render("company/payment", title: "Get more posts")
+        end
       end
     end
 

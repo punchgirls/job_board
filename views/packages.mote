@@ -3,7 +3,7 @@
 <div class="package">
   <p>SINGLE</p>
   <p>1 POST</p>
-  <p>USD 150.-</p>
+  <p>USD 100.-</p>
   % if package == "1"
     <input type="radio" name="company[credits]" value="1" checked="checked">
   % else
@@ -13,7 +13,7 @@
 <div class="package">
   <p>MEDIUM</p>
   <p>5 POSTS</p>
-  <p>USD 650.-</p>
+  <p>USD 425.-</p>
   % if package == "5"
     <input type="radio" name="company[credits]" value="5" checked="checked">
   % else
@@ -23,7 +23,7 @@
 <div class="package">
   <p>LARGE</p>
   <p>10 POSTS</p>
-  <p>USD 1000.-</p>
+  <p>USD 700.-</p>
   % if package == "10"
     <input type="radio" name="company[credits]" value="10" checked="checked">
   % else

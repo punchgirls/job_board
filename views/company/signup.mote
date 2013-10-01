@@ -38,7 +38,16 @@
   <input type="password" name="company[password]" id="password"><br/>
 
   <label for="password-confirmation">Password confirmation:</label>
-  <input type="password" name="company[password_confirmation]" id="password-confirmation"><br/>
+  <input type="password" name="company[password_confirmation]" id="password-confirmation"><br/><br/>
+
+  <label>We accept the following credit cards:</label><br/>
+
+  <p>Visa</p>
+  <p>MasterCard</p>
+  <p>American Express</p>
+  <p>Discover</p>
+  <p>Diner's Club</p>
+  <p>JCB</p>
 
   <label>Card Number</label>
   <input type="text" size="20" data-stripe="number"/>
