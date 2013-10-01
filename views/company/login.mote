@@ -17,7 +17,7 @@
 <h3>Need an account?</h3>
 
 <div>
-  <form action="/signup" method="POST">
+  <form action="/package" method="POST">
 
     {{ this.partial("packages") }}
 

@@ -19,7 +19,7 @@
 
 <h2>Sign up now to start posting jobs!</h2>
 
-<form action="/customer" method="POST" id="payment-form">
+<form action="/signup" method="POST" id="payment-form">
   <span id="payment-errors"></span><br/>
 
   <label for="company-name">Company name:</label>

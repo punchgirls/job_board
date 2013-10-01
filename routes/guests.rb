@@ -1,16 +1,19 @@
 class Guests < Cuba
   define do
-    on "signup" do
+    on "package" do
       on post, param("company") do |params|
         session[:package] = params["credits"]
-        res.redirect "/customer"
+        res.redirect "/signup"
+      end
+
+      on default do
+        session[:error] = "You need to choose a package first"
+        res.redirect "/login"
       end
     end
 
-    on "customer" do
+    on "signup" do
       on post, param("stripeToken"), param("company") do |token, params|
-        session.delete(:package)
-
         if !params["url"].start_with?("http")
           params["url"] = "http://" + params["url"]
         end
@@ -18,6 +21,8 @@ class Guests < Cuba
         signup = CompanySignup.new(params)
 
         on signup.valid? do
+          session.delete(:package)
+
           params.delete("password_confirmation")
           credits = params["credits"]
           params.delete("credits")
@@ -28,7 +33,8 @@ class Guests < Cuba
           begin
             customer = Stripe::Customer.create(
               :card => token,
-              :description => company.email
+              :email => company.email,
+              :description => company.name
             )
           rescue Stripe::CardError => e
             session[:package] = credits
