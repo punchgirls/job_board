@@ -13,7 +13,7 @@
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-    <input id="searchTextField" type="text" size="50" placeholder="Add your location" name="post[location]"><br/>
+    <input id="searchTextField" type="text" size="50" placeholder="Add your location" name="post[location]" autocomplete="off"><br/>
 
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
