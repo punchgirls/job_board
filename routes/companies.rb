@@ -126,6 +126,7 @@ class Companies < Cuba
           end
 
           job = Post.create(params)
+          company.update(credits: company.credits.to_i - 1)
 
           session[:success] = "You have successfully posted a job offer!"
           res.redirect "/dashboard"
