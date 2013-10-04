@@ -18,5 +18,5 @@
 
   <button type="submit" id="button">Buy</button>
 
-  <a href="/customer/update/{{ this.current_user.id }}">Change payment method or card details</a>
+  <a href="/customer/update?origin=payment">Change payment method or card details</a>
 </form>

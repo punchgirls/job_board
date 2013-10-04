@@ -79,6 +79,7 @@
       Stripe.setPublishableKey('pk_test_7ZIOO5UTOXONbhOENmZeoVE9');
       // ...
     </script>
-    <script type="text/javascript" src="/js/stripe.js"></script>
+    <script src="/js/stripe.js"></script>
+    <script src="/js/customer_update.js"></script>
   </body>
 </html>

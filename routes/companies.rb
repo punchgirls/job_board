@@ -108,12 +108,26 @@ class Companies < Cuba
       end
     end
 
-    on "customer/update/:id" do |id|
+    on "customer/update" do
+      on param("origin") do |origin|
+        session[:origin] = origin
+
+        res.redirect "/customer/update"
+      end
+
       on post, param("stripeToken") do |token|
-        res.write token
-        # customer = Stripe::Customer.retrieve(current_user.company_id)
-        # customer.card = token # obtained with Stripe.js
-        # customer.save
+        customer = Stripe::Customer.retrieve(current_user.customer_id)
+        customer.card = token # obtained with Stripe.js
+        customer.save
+
+        on !session[:origin].nil? do
+          session.delete(:origin)
+          res.redirect "/payment"
+        end
+
+        on default do
+          res.redirect "/profile"
+        end
       end
 
       on default do
