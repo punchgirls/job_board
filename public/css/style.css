@@ -85,3 +85,11 @@ i {
 .clear {
   clear: both;
 }
+
+#searchTextField {
+  width: 400px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  border: solid 1px grey;
+}
