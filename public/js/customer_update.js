@@ -1,17 +1,17 @@
 var updateFrm = document.getElementById('update-form');
 var updateErrors = document.getElementById('update-errors');
 var updateBtn = document.getElementById('updateBtn');
-// var card_details = document.getElementById('card-details');
-// var cardInputs = card_details.getElementsByTagName('input');
+var card_details = document.getElementById('card-details');
+var cardInputs = card_details.getElementsByTagName('input');
 
-// card_details.onkeydown = function (e) {
-//   var keyCode = e.which ? e.which : e.keyCode
-//   var result = (keyCode >= 8 && keyCode <= 57);
+card_details.onkeydown = function (e) {
+  var keyCode = e.which ? e.which : e.keyCode
+  var result = (keyCode >= 8 && keyCode <= 57);
 
-//   if (!result) {
-//     return false;
-//   }
-// };
+  if (!result) {
+    return false;
+  }
+};
 
 var updateResponseHandler = function(status, response) {
   if (response.error) {

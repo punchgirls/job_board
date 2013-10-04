@@ -117,6 +117,7 @@ class Guests < Cuba
       end
 
       on default do
+        session[:package] = "1"
         render("company/login", title: "Login", user: "")
       end
     end
