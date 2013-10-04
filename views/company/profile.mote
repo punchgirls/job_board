@@ -12,10 +12,17 @@
 
 <p><a href="/edit"><i class="icon-pencil"></i></a></p>
 
+<h3>Post info</h3>
+
+<p>Remaining posts: {{ company.credits }}</p>
+<p>
+  Wanna get more posts?<br/>
+  <a href="/payment">get more posts</a>
+</p>
+
 <h3>Payment info</h3>
 
 <p>Remaining posts: {{ company.credits }}</p>
-
 <p>Default payment method:</p>
 <label>Type: {{ card['type'] }}</label><br/>
 

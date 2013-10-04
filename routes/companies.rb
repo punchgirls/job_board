@@ -44,7 +44,7 @@ class Companies < Cuba
         end
 
         # Update the credits of the company
-        company.update(:credits => credits)
+        company.update(:credits => company.credits.to_i + credits.to_i)
 
         session[:success] = "Your payment was successful. Happy posting!"
         res.redirect "/post/new"
