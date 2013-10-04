@@ -235,6 +235,8 @@ class Guests < Cuba
       developer = Developer.fetch(github_user["id"])
 
       on developer.nil? do
+        session[:github_id] = github_user["id"]
+
         render("confirm", title: "Confirm your user details",
           github_user: github_user)
       end
@@ -251,7 +253,8 @@ class Guests < Cuba
         login = DeveloperLogin.new(params)
 
         on login.valid? do
-          developer = Developer.create(github_id: params["id"],
+          developer = Developer.create(
+            github_id: session[:github_id],
             username: params["login"],
             name: params["name"],
             email: params["email"],
