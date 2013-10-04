@@ -1,6 +1,17 @@
 var paymentFrm = document.getElementById('payment-form');
 var paymentErrors = document.getElementById('payment-errors');
 var button = document.getElementById('button');
+var digits = document.getElementById('digits');
+var digitsInputs = digits.getElementsByTagName('input');
+
+digits.onkeydown = function (e) {
+  var keyCode = e.which ? e.which : e.keyCode
+  var result = (keyCode >= 8 && keyCode <= 57);
+
+  if (!result) {
+    return false;
+  }
+};
 
 var stripeResponseHandler = function(status, response) {
   if (response.error) {
