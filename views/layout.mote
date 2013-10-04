@@ -81,5 +81,6 @@
     </script>
     <script src="/js/stripe.js"></script>
     <script src="/js/customer_update.js"></script>
+    <script src="/js/package.js"></script>
   </body>
 </html>

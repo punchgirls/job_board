@@ -109,8 +109,9 @@ class Companies < Cuba
     end
 
     on "customer/update" do
-      on param("origin") do |origin|
+      on param("origin"), param("credits") do |origin, credits|
         session[:origin] = origin
+        session[:package] = credits
 
         res.redirect "/customer/update"
       end

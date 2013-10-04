@@ -48,13 +48,10 @@ class Guests < Cuba
 
           if params["credits"] == "1"
             sum = 10000
-            res.write sum
           elsif params["credits"] == "5"
             sum = 42500
-            res.write sum
           else
             sum = 70000
-            res.write sum
           end
 
           begin
