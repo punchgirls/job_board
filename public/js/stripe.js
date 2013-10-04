@@ -5,7 +5,7 @@ var digits = document.getElementById('digits');
 var digitsInputs = digits.getElementsByTagName('input');
 
 digits.onkeydown = function (e) {
-  var keyCode = e.which ? e.which : e.keyCode
+  var keyCode = e.which ? e.which : e.keyCode;
   var result = (keyCode >= 8 && keyCode <= 57);
 
   if (!result) {

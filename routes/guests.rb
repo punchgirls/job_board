@@ -236,6 +236,8 @@ class Guests < Cuba
 
       on developer.nil? do
         session[:github_id] = github_user["id"]
+        session[:username] = github_user["login"]
+        session[:avatar] = github_user["gravatar_id"]
 
         render("confirm", title: "Confirm your user details",
           github_user: github_user)
@@ -255,11 +257,11 @@ class Guests < Cuba
         on login.valid? do
           developer = Developer.create(
             github_id: session[:github_id],
-            username: params["login"],
+            username: session[:username],
             name: params["name"],
             email: params["email"],
             url: params["url"],
-            avatar: params["avatar"])
+            avatar: session[:avatar])
 
           authenticate(developer)
 
