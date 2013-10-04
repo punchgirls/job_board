@@ -1,0 +1,28 @@
+% company = this.current_user
+
+<form action="/customer/update/{{ company.id }}" method="POST" id="update-form">
+  <span id="update-errors"></span><br/>
+
+  <label>We accept the following credit cards:</label><br/>
+
+  <p>Visa</p>
+  <p>MasterCard</p>
+  <p>American Express</p>
+  <p>Discover</p>
+  <p>Diner's Club</p>
+  <p>JCB</p>
+
+  <label>Card Number</label>
+  <input type="text" size="20" data-stripe="number"/>
+
+  <label>CVC</label>
+  <input type="text" size="4" data-stripe="cvc"/><br/>
+
+  <label>Expiration (MM/YYYY)</label>
+  <input type="text" size="2" data-stripe="exp-month"/>
+  <span> / </span>
+  <input type="text" size="4" data-stripe="exp-year"/><br/>
+
+
+  <button type="submit" id="updateBtn">Save</button>
+</form>

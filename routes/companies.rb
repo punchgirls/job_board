@@ -22,9 +22,9 @@ class Companies < Cuba
         # Charge the Customer instead of the card
         sum = 0
 
-        if credits == 1
+        if credits == "1"
           sum = 10000
-        elsif credits == 5
+        elsif credits == "5"
           sum = 42500
         else
           sum = 70000
@@ -105,6 +105,19 @@ class Companies < Cuba
         edit = EditCompanyAccount.new({})
 
         render("company/edit", title: "Edit profile", edit: edit)
+      end
+    end
+
+    on "customer/update/:id" do |id|
+      on post, param("stripeToken") do |token|
+        res.write token
+        # customer = Stripe::Customer.retrieve(current_user.company_id)
+        # customer.card = token # obtained with Stripe.js
+        # customer.save
+      end
+
+      on default do
+        render("customer/update", title: "Update payment details")
       end
     end
 

@@ -1,11 +1,34 @@
 <h2>Account info</h2>
 
 % company = this.current_company
+% customer = Stripe::Customer.retrieve(company.customer_id)
+% card = customer.cards["data"][0]
+
+<h3>Account info</h3>
 
 <p>{{ company.name }}</p>
 <p>{{ company.email }}</p>
 <p>{{ company.url }}</p>
 
 <p><a href="/edit"><i class="icon-pencil"></i></a></p>
+
+<h3>Payment info</h3>
+
+<p>Remaining posts: {{ company.credits }}</p>
+
+<p>Default payment method:</p>
+<label>Type: {{ card['type'] }}</label><br/>
+
+<label>Card Number</label>
+<input disabled="disabled" type="text" size="20" value="**** **** **** {{ card['last4'] }}"/><br/>
+
+<label>Expiration (MM/YYYY)</label>
+<input disabled="disabled" type="text" size="2" value="{{ card['exp_month'] }}"/>
+<span> / </span>
+<input disabled="disabled" type="text" size="4" value="{{ card['exp_year'] }}"/>
+
+<p><a href="/customer/update/{{ this.current_user.id }}"><i class="icon-pencil"></i></a></p>
+
+
 
 <p><a href="/delete/{{ company.id }}">Delete account</a></p>
