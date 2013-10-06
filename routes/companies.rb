@@ -48,6 +48,10 @@ class Companies < Cuba
 
         session[:success] = "Your payment was successful. Happy posting!"
         res.redirect "/post/new"
+
+        on credits != (/\A(1|5|10)\Z/) do
+          res.redirect "/payment"
+        end
       end
 
       on default do

@@ -14,6 +14,8 @@ class Guests < Cuba
 
     on "signup" do
       on post, param("stripeToken"), param("company") do |token, params|
+        credits = params["credits"]
+
         if !params["url"].start_with?("http")
           params["url"] = "http://" + params["url"]
         end
@@ -35,7 +37,7 @@ class Guests < Cuba
               :description => company.name
             )
           rescue Stripe::CardError => e
-            session[:package] = params["credits"]
+            session[:package] = credits
             session[:error] = e.message
 
             render("company/signup", title: "Sign up",
@@ -46,9 +48,9 @@ class Guests < Cuba
           #Charge the Customer instead of the card
           sum = 0
 
-          if params["credits"] == "1"
+          if credits == "1"
             sum = 10000
-          elsif params["credits"] == "5"
+          elsif credits == "5"
             sum = 42500
           else
             sum = 70000
@@ -114,7 +116,6 @@ class Guests < Cuba
       end
 
       on default do
-        session[:package] = "1"
         render("company/login", title: "Login", user: "")
       end
     end

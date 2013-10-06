@@ -4,7 +4,7 @@
   <p>SINGLE</p>
   <p>1 POST</p>
   <p>USD 100.-</p>
-  % if package == "1"
+  % if package == "1" || package.nil?
     <input type="radio" name="company[credits]" onclick="setURL(1)" value="1" checked="checked">
   % else
     <input type="radio" name="company[credits]" onclick="setURL(1)" value="1">
