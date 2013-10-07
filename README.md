@@ -7,7 +7,7 @@ Description of project
 ----------------------
 The Open Source Job Board is a job board for developers built with the Cuba microframework. The application uses the developer's GitHub information as a substitution for filling out a CV and will simplify the process of applying for job offers.
 
-Usage
+Installation
 ------------
 Clone this repository, then create a `env.sh` file in the project folder.
 
@@ -24,7 +24,18 @@ GITHUB_OAUTH_ACCESS_TOKEN=https://github.com/login/oauth/access_token
 GITHUB_FETCH_USER=https://api.github.com/user
 MALONE_URL=smtp://username:password@smtp.gmail.com:587
 RESET_URL=http://localhost:9393
+STRIPE_SECRET_KEY='your Stripe secret key here'
 ```
+In terminal run:
+
+    $ make gems
+    $ make install
+
+Finally to run the server
+
+    $ make server
+
+Head to localhost:9393 and enjoy! :)
 
 Tools
 -----
