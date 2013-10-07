@@ -19,9 +19,7 @@
 
 <h2>Sign up now to start posting jobs!</h2>
 
-<form action="/signup" method="POST" id="payment-form">
-  <span id="payment-errors"></span><br/>
-
+<form action="/signup" method="POST" class="payment-details">
   <label for="company-name">Company name:</label>
   <input type="text" name="company[name]" id="company-name"
   value="{{ company['name'] }}"><br/>
@@ -40,29 +38,12 @@
   <label for="password-confirmation">Password confirmation:</label>
   <input type="password" name="company[password_confirmation]" id="password-confirmation"><br/><br/>
 
-  <label>We accept the following credit cards:</label><br/>
+  {{ this.partial("accepted_cards") }}
 
-  <p>Visa</p>
-  <p>MasterCard</p>
-  <p>American Express</p>
-  <p>Discover</p>
-  <p>Diner's Club</p>
-  <p>JCB</p>
-
-  <div id="digits">
-    <label>Card Number</label>
-    <input type="text" size="20" maxlength="16" placeholder="**** **** **** ****" data-stripe="number"/>
-
-    <label>CVC</label>
-    <input type="text" size="4" maxlength="4" data-stripe="cvc"/><br/>
-
-    <label>Expiration (MM/YY)</label>
-    <input type="text" size="2" maxlength="2" data-stripe="exp-month"/>
-    <span> / </span>
-    <input type="text" size="2" maxlength="2" data-stripe="exp-year"/>
-  </div><br/>
+  {{ this.partial("new_card") }}
 
   {{ this.partial("packages") }}
 
-  <button type="submit" id="button">Signup</button>
+  {{ this.partial("button") }}
+
 </form>

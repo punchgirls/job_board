@@ -1,29 +1,10 @@
-<form action="/customer/update" method="POST" id="update-form">
-  <span id="update-errors"></span><br/>
+<form action="/customer/update" method="POST" class="payment-details">
 
-  <label>We accept the following credit cards:</label><br/>
+  {{ this.partial("accepted_cards") }}
 
-  <p>Visa</p>
-  <p>MasterCard</p>
-  <p>American Express</p>
-  <p>Discover</p>
-  <p>Diner's Club</p>
-  <p>JCB</p>
+  {{ this.partial("new_card") }}
 
-  <div id="card-details">
-    <label>Card Number</label>
-    <input type="text" size="20" maxlength="16" placeholder="**** **** **** ****" data-stripe="number"/>
+  {{ this.partial("button") }}
 
-    <label>CVC</label>
-    <input type="text" size="4" maxlength="4" data-stripe="cvc"/><br/>
-
-    <label>Expiration (MM/YY)</label>
-    <input type="text" size="2" maxlength="2" data-stripe="exp-month"/>
-    <span> / </span>
-    <input type="text" size="2" maxlength="2" data-stripe="exp-year"/>
-  </div><br/>
-
-
-  <button type="submit" id="updateBtn">Save</button>
   <a href="/profile">Cancel</a>
 </form>

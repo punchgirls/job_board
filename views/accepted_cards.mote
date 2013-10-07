@@ -1,0 +1,13 @@
+<span id="errors"></span><br/>
+
+<label>We accept the following credit cards:</label><br/>
+
+<ul>
+  <li>Visa</li>
+  <li>MasterCard</li>
+  <li>American Express</li>
+  <li>Discover</li>
+  <li>Diner's Club</li>
+  <li>JCB</li>
+</ul>
+

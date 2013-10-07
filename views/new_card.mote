@@ -1,0 +1,15 @@
+<div id="digits">
+  <label>Card Number</label>
+  <input type="text" size="20" maxlength="16" placeholder="**** **** **** ****" data-stripe="number"/>
+
+  <label>CVC</label>
+  <input type="text" size="4" maxlength="4" data-stripe="cvc"/><br/>
+
+  <label>Expiration (MM/YY)</label>
+  <input type="text" size="2" maxlength="2" data-stripe="exp-month"/>
+  <span> / </span>
+  <input type="text" size="2" maxlength="2" data-stripe="exp-year"/>
+</div><br/>
+
+
+

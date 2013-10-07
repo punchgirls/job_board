@@ -1,5 +1,6 @@
-var paymentFrm = document.getElementById('payment-form');
-var paymentErrors = document.getElementById('payment-errors');
+var form = document.getElementsByClassName('payment-details')[0];
+var paymentFrm = document.getElementById('paymentFrm');
+var errors = document.getElementById('errors');
 var button = document.getElementById('button');
 var digits = document.getElementById('digits');
 var digitsInputs = digits.getElementsByTagName('input');
@@ -16,7 +17,7 @@ digits.onkeydown = function (e) {
 var stripeResponseHandler = function(status, response) {
   if (response.error) {
     // Show the errors on the form
-    paymentErrors.innerHTML = response.error.message;
+    errors.innerHTML = response.error.message;
     button.removeAttribute("disabled");
   } else {
     // token contains id, last4, and card type
@@ -28,18 +29,18 @@ var stripeResponseHandler = function(status, response) {
     input.name = "stripeToken";
     input.value = token;
 
-    paymentFrm.appendChild(input);
+    form.appendChild(input);
 
     // and submit
-    paymentFrm.submit();
+    form.submit();
   }
 };
 
-paymentFrm.onsubmit = function () {
+form.onsubmit = function () {
   // Disable the submit button to prevent repeated clicks
   button.setAttribute("disabled", "disabled");
 
-  Stripe.card.createToken(paymentFrm, stripeResponseHandler);
+  Stripe.card.createToken(form, stripeResponseHandler);
 
   // Prevent the form from submitting with the default action
   return false;
