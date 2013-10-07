@@ -24,15 +24,8 @@
 
 <p>Remaining posts: {{ company.credits }}</p>
 <p>Default payment method:</p>
-<label>Type: {{ card['type'] }}</label><br/>
 
-<label>Card Number</label>
-<input disabled="disabled" type="text" size="20" value="**** **** **** {{ card['last4'] }}"/><br/>
-
-<label>Expiration (MM/YYYY)</label>
-<input disabled="disabled" type="text" size="2" value="{{ card['exp_month'] }}"/>
-<span> / </span>
-<input disabled="disabled" type="text" size="4" value="{{ card['exp_year'] }}"/>
+{{ this.partial("payment_details") }}
 
 <p><a href="/customer/update/{{ this.current_user.id }}"><i class="icon-pencil"></i></a></p>
 

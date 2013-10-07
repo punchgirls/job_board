@@ -50,7 +50,7 @@ class Companies < Cuba
           company.update(:credits => company.credits.to_i + credits.to_i)
 
           session[:success] = "Your payment was successful. Happy posting!"
-          res.redirect "/post/new"
+          res.redirect "/profile"
         end
 
         on default do

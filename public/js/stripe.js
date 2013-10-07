@@ -3,16 +3,19 @@ var paymentFrm = document.getElementById('paymentFrm');
 var errors = document.getElementById('errors');
 var button = document.getElementById('button');
 var digits = document.getElementById('digits');
-var digitsInputs = digits.getElementsByTagName('input');
 
-digits.onkeydown = function (e) {
-  var keyCode = e.which ? e.which : e.keyCode;
-  var result = (keyCode >= 8 && keyCode <= 57);
+if (digits) {
+  var digitsInputs = digits.getElementsByTagName('input');
 
-  if (!result) {
-    return false;
-  }
-};
+  digits.onkeydown = function (e) {
+    var keyCode = e.which ? e.which : e.keyCode;
+    var result = (keyCode >= 8 && keyCode <= 57);
+
+    if (!result) {
+      return false;
+    }
+  };
+}
 
 var stripeResponseHandler = function(status, response) {
   if (response.error) {
@@ -36,12 +39,21 @@ var stripeResponseHandler = function(status, response) {
   }
 };
 
-form.onsubmit = function () {
-  // Disable the submit button to prevent repeated clicks
-  button.setAttribute("disabled", "disabled");
+if (form) {
+  form.onsubmit = function () {
+    // Disable the submit button to prevent repeated clicks
+    button.setAttribute("disabled", "disabled");
 
-  Stripe.card.createToken(form, stripeResponseHandler);
+    Stripe.card.createToken(form, stripeResponseHandler);
 
-  // Prevent the form from submitting with the default action
-  return false;
-};
+    // Prevent the form from submitting with the default action
+    return false;
+  };
+}
+
+if (paymentFrm) {
+  paymentFrm.onsubmit = function () {
+    // Disable the submit button to prevent repeated clicks
+    button.setAttribute("disabled", "disabled");
+  };
+}
