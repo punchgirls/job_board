@@ -15,41 +15,45 @@ class Companies < Cuba
       company = current_company
 
       on post, param("company") do |params|
-        session.delete(:package)
+        payment = Payment.new(params)
 
-        credits = params["credits"]
+        on payment.valid? do
+          session.delete(:package)
 
-        # Charge the Customer instead of the card
-        sum = 0
+          credits = params["credits"]
 
-        if credits == "1"
-          sum = 10000
-        elsif credits == "5"
-          sum = 42500
-        else
-          sum = 70000
+          # Charge the Customer instead of the card
+          sum = 0
+
+          if credits == "1"
+            sum = 10000
+          elsif credits == "5"
+            sum = 42500
+          else
+            sum = 70000
+          end
+
+          begin
+            Stripe::Charge.create(
+              :amount   => sum, # in cents
+              :currency => "usd",
+              :customer => company.customer_id
+            )
+          rescue Stripe::CardError => e
+            session[:package] = credits
+            session[:error] = e.message
+
+            render("company/payment", title: "Get more posts")
+          end
+
+          # Update the credits of the company
+          company.update(:credits => company.credits.to_i + credits.to_i)
+
+          session[:success] = "Your payment was successful. Happy posting!"
+          res.redirect "/post/new"
         end
 
-        begin
-          Stripe::Charge.create(
-            :amount   => sum, # in cents
-            :currency => "usd",
-            :customer => company.customer_id
-          )
-        rescue Stripe::CardError => e
-          session[:package] = credits
-          session[:error] = e.message
-
-          render("company/payment", title: "Get more posts")
-        end
-
-        # Update the credits of the company
-        company.update(:credits => company.credits.to_i + credits.to_i)
-
-        session[:success] = "Your payment was successful. Happy posting!"
-        res.redirect "/post/new"
-
-        on credits != (/\A(1|5|10)\Z/) do
+        on default do
           res.redirect "/payment"
         end
       end
