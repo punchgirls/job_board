@@ -57,6 +57,23 @@ class Developers < Cuba
       end
     end
 
+    on "message/:post_id/:developer_id" do |post_id, developer_id|
+      applications = Post[post_id].applications
+
+      application = Application[applications.find(:developer_id => developer_id).ids[0]]
+
+      on post, param("message") do |message|
+        application.update(:message => message)
+
+        session[:success] = "You have succesfully sent a message to the company"
+        res.redirect "/search"
+      end
+
+      on default do
+        res.redirect "/search"
+      end
+    end
+
     on "favorite/:id" do |id|
       post = Post[id]
       favorites = current_user.favorites

@@ -44,6 +44,9 @@
               % end
               <td><i onclick="removeApplication({{ application.id }})" class="icon-remove red"></i></td>
             </tr>
+            <tr>
+              <td colspan="4">Message sent: {{ application.message }}</td>
+            </tr>
           </table>
         </li>
       % end

@@ -11,6 +11,7 @@ function ajax () {
 function apply (id) {
   var post = document.getElementById("apply_" + id);
   var url = "/apply/" + id;
+  var addMsg = document.getElementById("addMsg_" + id);
 
   var request = ajax();
   request.open("POST", url);
@@ -19,10 +20,36 @@ function apply (id) {
     if ((request.readyState===4) && (request.status===200)) {
       post.innerHTML = "APPLIED";
       post.removeAttribute("class");
+      addMsg.innerHTML = "Add a message";
     }
   };
 
   request.send();
+}
+
+function addMsg (id) {
+  var messageFrm = document.getElementById("messageFrm_" + id);
+  var addMsg = document.getElementById("addMsg_" + id);
+  addMsg.style.display = "none";
+  messageFrm.style.display = "block";
+}
+
+function sendMsg (post_id, developer_id) {
+  // var url = "/message/" + post_id + "/" + developer_id;
+  // var messageFrm = document.getElementById("messageFrm_" + id);
+
+  // var request = ajax();
+  // request.open("POST", url);
+
+  // request.onreadystatechange = function () {
+  //   if ((request.readyState===4) && (request.status===200)) {
+  //     messageFrm.style.display = "none";
+  //   }
+  // };
+
+  // request.send();
+
+  // return false;
 }
 
 function favorite (icon) {

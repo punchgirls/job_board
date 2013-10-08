@@ -93,3 +93,7 @@ i {
   margin: 0;
   border: solid 1px grey;
 }
+
+.hidden {
+  display: none;
+}

@@ -52,6 +52,14 @@
                 APPLIED
             % else
               <span onclick="apply({{ post.id }})" id="apply_{{ post.id }}" class="cursor">APPLY</span>
+              <span onclick="addMsg({{ post.id }})" id="addMsg_{{ post.id }}"></span>
+              <span id="messageFrm_{{ post.id }}" class="hidden">
+                <form method="POST" action="/message/{{ post.id }}/{{ developer.id }}">
+                  <textarea name="message" placeholder="Write your message here..."></textarea>
+
+                  <button>Send</button>
+                </form>
+              </span>
             % end
           </td>
           <td>

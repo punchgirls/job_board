@@ -21,6 +21,9 @@
             <td colspan="4">Username: {{ developer.username }}</td>
           </tr>
           <tr>
+            <td colspan="4">Message: {{ application.message }}</td>
+          </tr>
+          <tr>
             <td colspan="4"><a href="http://www.github.com/{{ developer.username }}" target="_blank">GitHub account</a></td>
           </tr>
           <tr>
