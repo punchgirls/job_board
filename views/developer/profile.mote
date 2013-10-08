@@ -29,5 +29,5 @@
 </form>
 
 % if this.current_user.instance_of?(Developer)
-  <p><a href="/delete/{{ developer.id }}">Delete account</a></p>
+  {{ this.partial("cancel_account") }}
 % end

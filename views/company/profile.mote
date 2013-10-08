@@ -29,5 +29,6 @@
 
 <p><a href="/customer/update/{{ this.current_user.id }}"><i class="icon-pencil"></i></a></p>
 
-<a id="cancel" href="">Delete account</a>
+{{ this.partial("cancel_account") }}
+
 

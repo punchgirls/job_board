@@ -119,8 +119,8 @@ class Developers < Cuba
       res.redirect "/"
     end
 
-    on "delete/:id" do |id|
-      Developer[id].delete
+    on "delete" do
+      current_user.delete
 
       session[:success] = "You have deleted your account."
       res.redirect "/"
