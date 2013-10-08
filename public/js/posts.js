@@ -17,11 +17,8 @@ function apply (id) {
 
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      if (post.innerHTML === "APPLIED") {
-        post.innerHTML = "APPLY";
-      } else {
-        post.innerHTML = "APPLIED";
-      }
+      post.innerHTML = "APPLIED";
+      post.removeAttribute("class");
     }
   };
 
