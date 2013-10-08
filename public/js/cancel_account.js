@@ -1,5 +1,5 @@
 var msg = "Are you sure you want to cancel your account?";
-var link = document.getElementById('cancel');
+var link = document.getElementsByClassName('cancel')[0];
 
 link.onclick = function () {
   var cancel = confirm(msg);
