@@ -347,6 +347,9 @@ class Companies < Cuba
               developer: developer))
       end
 
+      customer = Stripe::Customer.retrieve(company.customer_id)
+      customer.delete
+
       company.delete
       session[:success] = "You have deleted your account."
       res.redirect "/"
