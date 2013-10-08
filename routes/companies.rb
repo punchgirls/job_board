@@ -327,8 +327,8 @@ class Companies < Cuba
       res.redirect "/"
     end
 
-    on "delete/:id" do |id|
-      company = Company[id]
+    on "delete" do
+      company = current_user
       posts = company.posts
       developers = []
 

@@ -29,6 +29,5 @@
 
 <p><a href="/customer/update/{{ this.current_user.id }}"><i class="icon-pencil"></i></a></p>
 
+<a id="cancel" href="">Delete account</a>
 
-
-<p><a href="/delete/{{ company.id }}">Delete account</a></p>
