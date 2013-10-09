@@ -44,6 +44,13 @@ class Companies < Cuba
             session[:error] = e.message
 
             render("company/payment", title: "Get more posts")
+          rescue Stripe::APIConnectionError => e
+            session[:package] = credits
+            session[:error] = "Unexpected error when trying to
+              connect to Stripe, verify that you have an
+              Internet connection and try again!"
+
+            render("company/payment", title: "Get more posts")
           end
 
           # Update the credits of the company
@@ -209,8 +216,9 @@ class Companies < Cuba
 
           render("company/payment", title: "Get more posts")
         rescue Stripe::APIConnectionError => e
-          session[:error] = "Unexpected error when trying to connect to Stripe,
-          verify that you have a connection to the Internet and try again!"
+          session[:error] = "Unexpected error when trying to
+              connect to Stripe, verify that you have an
+              Internet connection and try again!"
 
           res.redirect("/post/extend/#{id}")
         end

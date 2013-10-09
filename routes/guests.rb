@@ -42,8 +42,15 @@ class Guests < Cuba
 
             render("company/signup", title: "Sign up",
             company: params, signup: signup)
-          end
+          rescue Stripe::APIConnectionError => e
+            session[:package] = credits
+            session[:error] = "Unexpected error when trying to
+              connect to Stripe, verify that you have an
+              Internet connection and try again!"
 
+            render("company/signup", title: "Sign up",
+            company: params, signup: signup)
+          end
 
           #Charge the Customer instead of the card
           sum = 0
@@ -65,6 +72,14 @@ class Guests < Cuba
           rescue Stripe::CardError => e
             session[:package] = credits
             session[:error] = e.message
+
+            render("company/signup", title: "Sign up",
+            company: params, signup: signup)
+          rescue Stripe::APIConnectionError => e
+            session[:package] = credits
+            session[:error] = "Unexpected error when trying to
+              connect to Stripe, verify that you have an
+              Internet connection and try again!"
 
             render("company/signup", title: "Sign up",
             company: params, signup: signup)
