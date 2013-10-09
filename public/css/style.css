@@ -107,7 +107,7 @@ i {
   display: inline;
 }
 
-#accepted_cards img {
+#accepted_cards img, #credit_card {
   width: 50px;
 }
 

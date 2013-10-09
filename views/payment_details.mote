@@ -1,8 +1,5 @@
-% customer = Stripe::Customer.retrieve(this.current_user.customer_id)
-% card = customer.cards["data"][0]
-
 <div>
-  <label>Type: {{ card['type'] }}</label><br/>
+  <img id="credit_card" src="/img/cards/{{ card['type'] }}.png">
 
   <label>Card Number</label>
   <input disabled="disabled" type="text" size="20" value="**** **** **** {{ card['last4'] }}"/><br/>
@@ -11,6 +8,5 @@
   <input disabled="disabled" type="text" size="2" value="{{ card['exp_month'] }}"/>
   <span> / </span>
   <input disabled="disabled" type="text" size="4" value="{{ card['exp_year'] }}"/><br>
-  <a href="/customer/update?origin=payment&credits=1" id="credits">Change payment method or card details</a>
 </div>
 

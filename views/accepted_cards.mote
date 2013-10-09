@@ -5,9 +5,9 @@
 <ul id="accepted_cards" style="padding-left: 0px;">
   <li><img src="/img/cards/visa.png"></li>
   <li><img src="/img/cards/mastercard.png"></li>
-  <li><img src="/img/cards/amex.png"></li>
+  <li><img src="/img/cards/american express.png"></li>
   <li><img src="/img/cards/discover.png"></li>
-  <li><img src="/img/cards/diners.png"></li>
+  <li><img src="/img/cards/diners club.png"></li>
   <li><img src="/img/cards/jcb.png"></li>
 </ul>
 

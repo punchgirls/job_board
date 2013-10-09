@@ -12,6 +12,7 @@
   </head>
   <body>
     <header>
+    {{ this.session.inspect }}
       <h1>Job Board</h1>
       <nav>
           <ul>
@@ -79,7 +80,6 @@
       // ...
     </script>
     <script src="/js/stripe.js"></script>
-    <script src="/js/package.js"></script>
     <script src="/js/cancel_account.js"></script>
   </body>
 </html>

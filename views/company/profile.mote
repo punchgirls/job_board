@@ -1,8 +1,6 @@
-<h2>Account info</h2>
+% company = this.current_user
 
-% company = this.current_company
-% customer = Stripe::Customer.retrieve(company.customer_id)
-% card = customer.cards["data"][0]
+<h2>Account info</h2>
 
 <h3>Account info</h3>
 
@@ -25,9 +23,10 @@
 <p>Remaining posts: {{ company.credits }}</p>
 <p>Default payment method:</p>
 
-{{ this.partial("payment_details") }}
+{{ this.partial("payment_details", customer: customer, card: card) }}
+<a href="/customer/update" id="credits">Change payment method or card details</a>
 
-<p><a href="/customer/update/{{ this.current_user.id }}"><i class="icon-pencil"></i></a></p>
+<p><a href="/customer/update/{{ company.id }}"><i class="icon-pencil"></i></a></p>
 
 <a class="cancel" href="">Delete account</a>
 

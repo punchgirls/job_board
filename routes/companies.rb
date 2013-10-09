@@ -43,14 +43,14 @@ class Companies < Cuba
             session[:package] = credits
             session[:error] = e.message
 
-            render("company/payment", title: "Get more posts")
+            res.redirect "/payment"
           rescue Stripe::APIConnectionError => e
             session[:package] = credits
-            session[:error] = "Unexpected error when trying to
-              connect to Stripe, verify that you have an
-              Internet connection and try again!"
+            session[:error] = "Oooops...looks like we are having
+              some problems with your request. Please try again
+              in a few minutes!"
 
-            render("company/payment", title: "Get more posts")
+            res.redirect "/payment"
           end
 
           # Update the credits of the company
@@ -66,7 +66,19 @@ class Companies < Cuba
       end
 
       on default do
-        render("company/payment", title: "Get more posts")
+        begin
+          customer = Stripe::Customer.retrieve(current_user.customer_id)
+          card = customer.cards["data"][0]
+        rescue Stripe::APIConnectionError => e
+          session[:error] = "Oooops...looks like we are having
+            some problems with your request. Please try again
+            in a few minutes!"
+
+          res.redirect "/dashboard"
+        end
+
+        render("company/payment", title: "Get more posts",
+          customer: customer, card: card)
       end
     end
 
@@ -75,7 +87,19 @@ class Companies < Cuba
     end
 
     on "profile" do
-      render("company/profile", title: "Profile")
+      begin
+        customer = Stripe::Customer.retrieve(current_user.customer_id)
+        card = customer.cards["data"][0]
+      rescue Stripe::APIConnectionError => e
+        session[:error] = "Oooops...looks like we are having
+          some problems with your request. Please try again
+          in a few minutes!"
+
+        res.redirect "/dashboard"
+      end
+
+      render("company/profile", title: "Profile",
+        customer: customer, card: card)
     end
 
     on "edit" do
@@ -124,17 +148,29 @@ class Companies < Cuba
     end
 
     on "customer/update" do
-      on param("origin"), param("credits") do |origin, credits|
+      on param("origin") do |origin|
         session[:origin] = origin
-        session[:package] = credits
-
         res.redirect "/customer/update"
       end
 
       on post, param("stripeToken") do |token|
-        customer = Stripe::Customer.retrieve(current_user.customer_id)
-        customer.card = token # obtained with Stripe.js
-        customer.save
+        begin
+          customer = Stripe::Customer.retrieve(current_user.customer_id)
+          customer.card = token # obtained with Stripe.js
+          customer.save
+        rescue Stripe::CardError => e
+          session[:package] = credits
+          session[:error] = e.message
+
+          res.redirect "/customer/update"
+        rescue Stripe::APIConnectionError => e
+          session[:package] = credits
+          session[:error] = "Oooops...looks like we are having
+            some problems with your request. Please try again
+            in a few minutes!"
+
+          res.redirect "/customer/update"
+        end
 
         on !session[:origin].nil? do
           session.delete(:origin)
@@ -186,7 +222,7 @@ class Companies < Cuba
 
           render("company/post/new", title: "Post job offer", post: post)
         else
-          render("company/payment", title: "Get more posts")
+          res.redirect "/payment"
         end
       end
     end
@@ -214,11 +250,11 @@ class Companies < Cuba
           session[:package] = credits
           session[:error] = e.message
 
-          render("company/payment", title: "Get more posts")
+          res.redirect "/payment"
         rescue Stripe::APIConnectionError => e
-          session[:error] = "Unexpected error when trying to
-              connect to Stripe, verify that you have an
-              Internet connection and try again!"
+          session[:error] = "Oooops...looks like we are having
+            some problems with your request. Please try again
+            in a few minutes!"
 
           res.redirect("/post/extend/#{id}")
         end
@@ -375,8 +411,16 @@ class Companies < Cuba
               developer: developer))
       end
 
-      customer = Stripe::Customer.retrieve(company.customer_id)
-      customer.delete
+      begin
+        customer = Stripe::Customer.retrieve(company.customer_id)
+        customer.delete
+      rescue Stripe::APIConnectionError => e
+        session[:error] = "Oooops...looks like we are having
+          some problems with your request. Please try again
+          in a few minutes!"
+
+        res.redirect "/profile"
+      end
 
       company.delete
       session[:success] = "You have deleted your account."
