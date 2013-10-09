@@ -78,9 +78,6 @@
               <i onclick="favoritePost({{ post.id }})" id="{{ post.id }}" class="icon-heart"></i>
             % end
           </td>
-          % if this.current_user.instance_of?(Company)
-            <td><a href="/favorite/{{ post.id }}?company=true">FAVORITE</a></td>
-          % end
         </tr>
       % end
     % end

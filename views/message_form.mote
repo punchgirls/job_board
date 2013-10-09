@@ -1,0 +1,9 @@
+<form method="POST" onsubmit="sendMsg({{ post.id }}, {{ developer.id }}); return false;">
+  <textarea id="messageTxt_{{ post.id }}" name="message" placeholder="Write your message here..." onkeyup="updateCountdownMsg({{ post.id }})" maxlength="200"></textarea>
+
+  <span id="countdownMsg_{{ post.id }}">200 characters remaining.</span><br/>
+
+  <button>Send</button>
+</form>
+
+<script src="/js/limit_description.js"></script>
