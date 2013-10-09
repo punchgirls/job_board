@@ -28,28 +28,27 @@ function apply (id) {
 }
 
 function addMsg (id) {
-  var messageFrm = document.getElementById("messageFrm_" + id);
+  var message = document.getElementById("message_" + id);
   var addMsg = document.getElementById("addMsg_" + id);
   addMsg.style.display = "none";
-  messageFrm.style.display = "block";
+  message.style.display = "block";
 }
 
 function sendMsg (post_id, developer_id) {
-  // var url = "/message/" + post_id + "/" + developer_id;
-  // var messageFrm = document.getElementById("messageFrm_" + id);
+  var message = document.getElementById("message_" + post_id);
+  var messageTxt = document.getElementById("messageTxt_" + post_id).value;
+  var url = "/message/" + post_id + "/" + developer_id + "/?message=" + messageTxt;
 
-  // var request = ajax();
-  // request.open("POST", url);
+  var request = ajax();
+  request.open("POST", url);
 
-  // request.onreadystatechange = function () {
-  //   if ((request.readyState===4) && (request.status===200)) {
-  //     messageFrm.style.display = "none";
-  //   }
-  // };
+  request.onreadystatechange = function () {
+    if ((request.readyState===4) && (request.status===200)) {
+      message.style.display = "none";
+    }
+  };
 
-  // request.send();
-
-  // return false;
+  request.send();
 }
 
 function favorite (icon) {

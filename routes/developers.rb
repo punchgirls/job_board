@@ -50,6 +50,7 @@ class Developers < Cuba
         application = Application.create(params)
 
         session[:success] = "You have successfully applied for a job!"
+        res.redirect "/search"
       end
 
       on default do
@@ -66,7 +67,6 @@ class Developers < Cuba
         application.update(:message => message)
 
         session[:success] = "You have succesfully sent a message to the company"
-        res.redirect "/search"
       end
 
       on default do
