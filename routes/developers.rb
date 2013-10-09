@@ -64,9 +64,16 @@ class Developers < Cuba
       application = Application[applications.find(:developer_id => developer_id).ids[0]]
 
       on post, param("message") do |message|
-        application.update(:message => message)
+        msg = SendMessage.new(message)
 
-        session[:success] = "You have succesfully sent a message to the company"
+        on msg.valid? do
+          application.update(:message => message)
+          session[:success] = "You have succesfully sent a message to the company"
+        end
+
+        on defaul do
+          session[:error] = "Your message exceeds the character limit."
+        end
       end
 
       on default do
