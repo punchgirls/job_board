@@ -54,8 +54,8 @@
               <span onclick="apply({{ post.id }})" id="apply_{{ post.id }}" class="cursor">APPLY</span>
               <span onclick="addMsg({{ post.id }})" id="addMsg_{{ post.id }}"></span>
               <span id="message_{{ post.id }}" class="hidden">
-                <form method="POST" action="" onsubmit="sendMsg({{ post.id }}, {{ developer.id }}); return false;">
-                  <textarea id="messageTxt_{{ post.id }}" placeholder="Write your message here..." onkeyup="updateCountdownMsg({{ post.id }})" maxlength="200"></textarea>
+                <form method="POST" onsubmit="sendMsg({{ post.id }}, {{ developer.id }}); return false;">
+                  <textarea id="messageTxt_{{ post.id }}" name="message" placeholder="Write your message here..." onkeyup="updateCountdownMsg({{ post.id }})" maxlength="200"></textarea>
 
                   <span id="countdownMsg_{{ post.id }}">200 characters remaining.</span><br/>
 

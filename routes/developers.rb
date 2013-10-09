@@ -63,8 +63,8 @@ class Developers < Cuba
 
       application = Application[applications.find(:developer_id => developer_id).ids[0]]
 
-      on post, param("message") do |message|
-        msg = SendMessage.new(message)
+      on param("message") do |message|
+        msg = SendMessage.new(:message => message)
 
         on msg.valid? do
           application.update(:message => message)
