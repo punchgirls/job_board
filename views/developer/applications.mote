@@ -44,9 +44,29 @@
               % end
               <td><i onclick="removeApplication({{ application.id }})" class="icon-remove red"></i></td>
             </tr>
+            % if developer && !application.message.nil?
+              <tr>
+                <td colspan="4">Message sent: {{ application.message }}</td>
+              </tr>
+            % end
+            % if developer && !application.note.nil?
             <tr>
-              <td colspan="4">Message sent: {{ application.message }}</td>
+              <td colspan="4">Note: {{ application.note }}</td>
             </tr>
+            % else
+            <tr>
+              <td>
+                <span onclick="note({{ application.id }})" id="note_{{ application.id }}" class="cursor">Add note</span>
+
+                <span id="addNote_{{ application.id }}" class="hidden">
+
+                  {{ this.partial("developer/note", application: application) }}
+
+                </span>
+                <span id="displayNote_{{ application.id }}" class="hidden">Note: {{ application.note }}</td>
+              </td>
+            </tr>
+            % end
           </table>
         </li>
       % end

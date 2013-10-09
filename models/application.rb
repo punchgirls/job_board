@@ -3,6 +3,7 @@ class Application < Ohm::Model
 
   attribute :date
   attribute :message
+  attribute :note
 
   def applied
     return Time.at(date.to_i).strftime("%d %B %Y")

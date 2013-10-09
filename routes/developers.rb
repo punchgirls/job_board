@@ -81,6 +81,27 @@ class Developers < Cuba
       end
     end
 
+    on "note/:id" do |id|
+      application = Application[id]
+
+      on param("note") do |note|
+        text = AddNote.new(:note => note)
+
+        on text.valid? do
+          application.update(:note => note)
+          session[:success] = "You have succesfully added a note"
+        end
+
+        on defaul do
+          session[:error] = "Your message exceeds the character limit."
+        end
+      end
+
+      on default do
+        res.redirect "/search"
+      end
+    end
+
     on "favorite/:id" do |id|
       post = Post[id]
       favorites = current_user.favorites

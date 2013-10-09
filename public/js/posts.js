@@ -51,6 +51,33 @@ function sendMsg (post_id, developer_id) {
   request.send();
 }
 
+function note (id) {
+  var note = document.getElementById("note_" + id);
+  var addNote = document.getElementById("addNote_" + id);
+  note.style.display = "none";
+  addNote.style.display = "block";
+}
+
+function addNote (id) {
+  var addNote = document.getElementById("addNote_" + id);
+  var noteTxt = document.getElementById("noteTxt_" + id).value;
+  var url = "/note/" + id + "/?note=" + noteTxt;
+  var displayNote = document.getElementById("displayNote_" + id);
+
+  var request = ajax();
+  request.open("POST", url);
+
+  request.onreadystatechange = function () {
+    if ((request.readyState===4) && (request.status===200)) {
+      addNote.style.display = "none";
+      displayNote.style.display = "block";
+      displayNote.innerHTML = noteTxt;
+    }
+  };
+
+  request.send();
+}
+
 function favorite (icon) {
   if (icon.className === "icon-heart red") {
     icon.className = "icon-heart";
