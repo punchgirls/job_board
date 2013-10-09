@@ -275,6 +275,7 @@ class Guests < Cuba
             name: params["name"],
             email: params["email"],
             url: params["url"],
+            bio: params["bio"],
             avatar: session[:avatar])
 
           authenticate(developer)

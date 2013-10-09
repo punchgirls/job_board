@@ -21,6 +21,9 @@
             <td colspan="4">Username: {{ developer.username }}</td>
           </tr>
           <tr>
+            <td colspan="4">Bio: {{ developer.bio }}</td>
+          </tr>
+          <tr>
             <td colspan="4">Message: {{ application.message }}</td>
           </tr>
           <tr>

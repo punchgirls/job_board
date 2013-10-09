@@ -12,5 +12,10 @@
   <label for="developer-url">Website (optional):</label>
   <input type="text" name="developer[url]" id="developer-url" value="{{ github_user['blog'] }}"><br/>
 
+  <label for="developer-bio">Bio (optional):</label><br>
+  <textarea name="developer[bio]" id="developer-bo" placeholder="A short bio that will be added to your applications"></textarea><br>
+
   <button type="submit">Confirm</button><br/>
 </form>
+
+<script src="/js/limit_description.js"></script>

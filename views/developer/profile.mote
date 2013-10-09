@@ -14,7 +14,8 @@
   value="{{ developer.name }}"><br/>
 
   <label for="developer-username">Username:</label>
-  <input disabled type="text" name="developer[username]" id="developer-username" value="{{ developer.username }}"><br/>
+  <input disabled type="text" name="developer[username]"
+  id="developer-username" value="{{ developer.username }}"><br/>
 
   <label for="developer-email">E-mail:</label>
   <input type="text" name="developer[email]" id="developer-email"
@@ -23,6 +24,11 @@
   <label for="developer-url">Website:</label>
   <input type="text" name="developer[url]" id="developer-url"
   value="{{ developer.url }}"><br/>
+
+  <label for="developer-bio">Bio:</label><br>
+  <textarea name="developer[bio]" id="developer-bo"
+  placeholder="A short bio that will be added to your applications"
+  >{{ developer.bio }}</textarea><br>
 
   <button type="submit">Save</button>
   <a href="/dashboard">Cancel</a>

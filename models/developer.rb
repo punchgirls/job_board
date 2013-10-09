@@ -8,6 +8,7 @@ class Developer < Ohm::Model
   attribute :email
   attribute :url
   attribute :avatar
+  attribute :bio
 
   unique :github_id
 
