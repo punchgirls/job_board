@@ -187,20 +187,40 @@ class Companies < Cuba
     on "post/extend/:id" do |id|
       on post, param("days") do |days|
         post = Post[id]
+        company = post.company
 
-        # Later...
-        #   Stripe::Charge.create(
-        #     :amount   => 1500, # $15.00 this time
-        #     :currency => "usd",
-        #     :customer => company.customer_id
-        #   )
+        sum = 0
+
+        if days == "14"
+          sum = 4000
+        elsif days == "30"
+          sum = 8000
+        end
+
+        begin
+          Stripe::Charge.create(
+            :amount   => sum, # in cents
+            :currency => "usd",
+            :customer => company.customer_id
+          )
+        rescue Stripe::CardError => e
+          session[:package] = credits
+          session[:error] = e.message
+
+          render("company/payment", title: "Get more posts")
+        rescue Stripe::APIConnectionError => e
+          session[:error] = "Unexpected error when trying to connect to Stripe,
+          verify that you have a connection to the Internet and try again!"
+
+          res.redirect("/post/extend/#{id}")
+        end
 
         new_date = post.expiration_date.to_i + (days.to_i * 24 * 60 * 60)
-
         post.update(expiration_date: new_date)
 
         session[:success] = "You have successfully extended your post
         by #{days} days!"
+
         res.redirect "/dashboard"
       end
 
