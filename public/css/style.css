@@ -97,3 +97,17 @@ i {
 .hidden {
   display: none;
 }
+
+#accepted_cards {
+  list-style: none;
+  padding-left: 0;
+}
+
+#accepted_cards li {
+  display: inline;
+}
+
+#accepted_cards img {
+  width: 50px;
+}
+
