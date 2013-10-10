@@ -110,8 +110,16 @@ class Guests < Cuba
     end
 
     on "login" do
-      on post, param("email"), param("password") do |user, pass|
+      on post, param("company") do |params|
+        user = params["email"]
+        pass = params["password"]
+        remember = params["remember"]
+
         if login(Company, user, pass)
+          if remember
+            remember(3600)
+          end
+
           session[:success] = "You have successfully logged in!"
           res.redirect "/dashboard"
         else

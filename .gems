@@ -3,10 +3,10 @@ mote -v 1.1.2
 cuba-contrib -v 3.1.0
 rack-protection -v 1.5.0
 ohm -v 1.3.2
-shield -v 2.0.0
 rack-test -v 0.6.2
 requests -v 0.0.6
 malone -v 1.0.4
 ohm-contrib -v 1.2
 nobi -v 0.0.1
 stripe -v 1.8.7
+shield -v 2.1.0

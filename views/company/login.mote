@@ -2,12 +2,15 @@
 
 <form action="/login" method="POST">
   <label for="company-email">Email</label>
-  <input type="text" name="email" id="company-email" value="{{ user }}"><br/>
+  <input type="text" name="company[email]" id="company-email" value="{{ user }}"><br/>
 
   <label for="password">Password</label>
-  <input type="password" name="password" id="password"><br/>
+  <input type="password" name="company[password]" id="password"><br/>
 
   <a href="/forgot-password">I forgot my password</a><br/>
+
+  <label for="remember">Remember me</label>
+  <input type="checkbox" name="company[remember]" value="1" id="remember">
 
   <button type="submit">Login</button>
 </form>
