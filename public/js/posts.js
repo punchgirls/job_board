@@ -71,7 +71,7 @@ function addNote (id) {
     if ((request.readyState===4) && (request.status===200)) {
       addNote.style.display = "none";
       displayNote.style.display = "block";
-      displayNote.innerHTML = noteTxt;
+      displayNote.innerHTML = "Note: " + noteTxt;
     }
   };
 

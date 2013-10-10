@@ -1,5 +1,5 @@
 <form method="POST" onsubmit="addNote({{ application.id }}); return false;">
-  <textarea id="noteTxt_{{ application.id }}" name="note" placeholder="Write your note here..." onkeyup="noteCountdownMsg({{ application.id }})" maxlength="200"></textarea>
+  <textarea id="noteTxt_{{ application.id }}" name="note" placeholder="Write your note here..." onkeyup="updateCountdownNote({{ application.id }})" maxlength="200"></textarea>
 
   <span id="countdownNote_{{ application.id }}">200 characters remaining.</span><br/>
 
