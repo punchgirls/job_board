@@ -1,4 +1,0 @@
-begin
-rescue Stripe::CardError => e
-rescue Stripe::APIConnectionError => e
-end

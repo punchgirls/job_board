@@ -26,13 +26,17 @@
   value="{{ developer.url }}"><br/>
 
   <label for="developer-bio">Bio:</label><br>
-  <textarea name="developer[bio]" id="developer-bo"
-  placeholder="A short bio that will be added to your applications"
+  <textarea name="developer[bio]" id="developer-bio"
+  placeholder="A short bio that will be added to your applications" onkeyup="updateCountdownBio()" maxlength="200"
   >{{ developer.bio }}</textarea><br>
+
+  <span id="countdownBio">200 characters remaining.</span><br/>
 
   <button type="submit">Save</button>
   <a href="/dashboard">Cancel</a>
 </form>
+
+<script src="/js/limit_description.js"></script>
 
 % if this.current_user.instance_of?(Developer)
   <a class="cancel" href="">Delete account</a>

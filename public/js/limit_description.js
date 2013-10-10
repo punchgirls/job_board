@@ -23,6 +23,14 @@ function updateCountdownNote(id) {
   countdownNote.innerHTML = remaining + " characters remaining.";
 }
 
+function updateCountdownBio(id) {
+  var bioTxt = document.getElementById("developer-bio");
+  var countdownBio = document.getElementById("countdownBio");
+
+  var remaining = 200 - bioTxt.value.length;
+  countdownBio.innerHTML = remaining + " characters remaining.";
+}
+
 description.onkeyup = function() {
   updateCountdown();
 };
