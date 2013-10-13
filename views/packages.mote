@@ -5,9 +5,9 @@
   <p>1 POST</p>
   <p>USD 100.-</p>
   % if package == "1" || package.nil?
-    <input type="radio" name="company[credits]" onclick="setURL(1)" value="1" checked="checked">
+    <input type="radio" name="company[credits]" value="1" checked="checked">
   % else
-    <input type="radio" name="company[credits]" onclick="setURL(1)" value="1">
+    <input type="radio" name="company[credits]" value="1">
   % end
 </div>
 <div class="package">
@@ -15,9 +15,9 @@
   <p>5 POSTS</p>
   <p>USD 425.-</p>
   % if package == "5"
-    <input type="radio" name="company[credits]" onclick="setURL(5)" value="5" checked="checked">
+    <input type="radio" name="company[credits]" value="5" checked="checked">
   % else
-    <input type="radio" name="company[credits]" onclick="setURL(5)" value="5">
+    <input type="radio" name="company[credits]" value="5">
   % end
 </div>
 <div class="package">
@@ -25,9 +25,9 @@
   <p>10 POSTS</p>
   <p>USD 700.-</p>
   % if package == "10"
-    <input type="radio" name="company[credits]" onclick="setURL(10)" value="10" checked="checked">
+    <input type="radio" name="company[credits]" value="10" checked="checked">
   % else
-    <input type="radio" name="company[credits]" onclick="setURL(10)" value="10">
+    <input type="radio" name="company[credits]" value="10">
   % end
 </div>
 
