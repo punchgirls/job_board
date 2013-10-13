@@ -3,12 +3,12 @@
 <label>We accept the following credit cards:</label><br/>
 
 <ul id="accepted_cards" style="padding-left: 0px;">
-  <li><img src="/img/cards/visa.png"></li>
-  <li><img src="/img/cards/mastercard.png"></li>
-  <li><img src="/img/cards/american express.png"></li>
-  <li><img src="/img/cards/discover.png"></li>
-  <li><img src="/img/cards/diners club.png"></li>
-  <li><img src="/img/cards/jcb.png"></li>
+  <li><img src="/img/cards/Visa.png"></li>
+  <li><img src="/img/cards/MasterCard.png"></li>
+  <li><img src="/img/cards/American Express.png"></li>
+  <li><img src="/img/cards/Discover.png"></li>
+  <li><img src="/img/cards/Diners Club.png"></li>
+  <li><img src="/img/cards/JCB.png"></li>
 </ul>
 
 
