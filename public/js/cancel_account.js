@@ -21,5 +21,3 @@ link.onclick = function () {
 
   return false;
 };
-
-

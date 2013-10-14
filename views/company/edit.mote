@@ -41,5 +41,5 @@
   <input type="password" name="company[password_confirmation]" id="password-confirmation"><br/>
 
   <button type="submit">Save</button>
-  <a href="/dashboard">Cancel</a>
+  <a href="/profile">Cancel</a>
 </form>

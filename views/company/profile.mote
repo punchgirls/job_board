@@ -24,9 +24,9 @@
 <p>Default payment method:</p>
 
 {{ this.partial("payment_details", customer: customer, card: card) }}
+
 <a href="/customer/update" id="credits">Change payment method or card details</a>
 
 <p><a href="/customer/update/{{ company.id }}"><i class="icon-pencil"></i></a></p>
 
 <a class="cancel" href="">Delete account</a>
-

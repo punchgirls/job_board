@@ -14,8 +14,6 @@ class Guests < Cuba
 
     on "signup" do
       on post, param("stripeToken"), param("company") do |token, params|
-        credits = params["credits"]
-
         if !params["url"].start_with?("http")
           params["url"] = "http://" + params["url"]
         end
@@ -26,70 +24,50 @@ class Guests < Cuba
           session.delete(:package)
 
           params.delete("password_confirmation")
+          credits = params["credits"]
+          params["credits"] = "0"
 
           company = Company.new(params)
 
           # Create a Customer
-          begin
-            customer = Stripe::Customer.create(
-              :card => token,
-              :email => company.email,
-              :description => company.name
-            )
-          rescue Stripe::CardError => e
-            session[:package] = credits
-            session[:error] = e.message
+          customer = Stripe.create_customer(company, token)
 
-            render("company/signup", title: "Sign up",
-            company: params, signup: signup)
-          rescue Stripe::APIConnectionError => e
-            session[:package] = credits
-            session[:error] = "Unexpected error when trying to
-              connect to Stripe, verify that you have an
-              Internet connection and try again!"
+          on !customer.instance_of?(Stripe::Customer) do
+            if customer.instance_of?(Stripe::CardError)
+              session[:error] = customer.message
+            else
+              session[:error] = "It looks like we are having some problems
+              with your request. Please try again in a few minutes!"
+            end
 
+            session[:package] = credits
             render("company/signup", title: "Sign up",
-            company: params, signup: signup)
+              company: params, signup: signup)
           end
 
-          #Charge the Customer instead of the card
-          sum = 0
-
-          if credits == "1"
-            sum = 10000
-          elsif credits == "5"
-            sum = 42500
-          else
-            sum = 70000
-          end
-
-          begin
-            Stripe::Charge.create(
-              :amount => sum, # in cents
-              :currency => "usd",
-              :customer => customer.id
-            )
-          rescue Stripe::CardError => e
-            session[:package] = credits
-            session[:error] = e.message
-
-            render("company/signup", title: "Sign up",
-            company: params, signup: signup)
-          rescue Stripe::APIConnectionError => e
-            session[:package] = credits
-            session[:error] = "Unexpected error when trying to
-              connect to Stripe, verify that you have an
-              Internet connection and try again!"
-
-            render("company/signup", title: "Sign up",
-            company: params, signup: signup)
-          end
-
-          # Save the customer ID in your database so you can use it later
-          company.save
           company.update(:customer_id => customer.id)
+          company.save
 
           authenticate(company)
+
+          # Charge the customer
+          charge = Stripe.charge_customer(credits, customer.id)
+
+          on !charge.instance_of?(Stripe::Charge) do
+            if charge.instance_of?(Stripe::CardError)
+              session[:error] = "You have successfully created your account
+              but unfortunately your credit card was declined, please try again with another credit card."
+            else
+              session[:error] = "You have successfully created your account
+              but it looks like we are having some problems
+              with your payment request. Please try again in a few minutes!"
+            end
+
+            session[:package] = credits
+            res.redirect "/payment"
+          end
+
+          company.update(:credits => credits)
 
           session[:success] = "You have successfully signed up!"
           res.redirect "/dashboard"

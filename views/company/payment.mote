@@ -2,9 +2,11 @@
   <span id="payment-errors"></span><br/>
 
   {{ this.partial("payment_details", customer: customer, card: card) }}
+
   <a href="/customer/update?origin=payment" id="credits">Change payment method or card details</a><br/>
 
   {{ this.partial("packages") }}
 
   {{ this.partial("button") }}
+
 </form>

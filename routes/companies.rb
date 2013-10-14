@@ -23,33 +23,17 @@ class Companies < Cuba
           credits = params["credits"]
 
           # Charge the Customer instead of the card
-          sum = 0
+          charge = Stripe.charge_customer(credits, company.customer_id)
 
-          if credits == "1"
-            sum = 10000
-          elsif credits == "5"
-            sum = 42500
-          else
-            sum = 70000
-          end
+          on !charge.instance_of?(Stripe::Charge) do
+            if charge.instance_of?(Stripe::CardError)
+              session[:error] = charge.message
+            else
+              session[:error] = "It looks like we are having some problems
+              with your payment request. Please try again in a few minutes!"
+            end
 
-          begin
-            Stripe::Charge.create(
-              :amount   => sum, # in cents
-              :currency => "usd",
-              :customer => company.customer_id
-            )
-          rescue Stripe::CardError => e
             session[:package] = credits
-            session[:error] = e.message
-
-            res.redirect "/payment"
-          rescue Stripe::APIConnectionError => e
-            session[:package] = credits
-            session[:error] = "Oooops...looks like we are having
-              some problems with your request. Please try again
-              in a few minutes!"
-
             res.redirect "/payment"
           end
 
@@ -67,12 +51,11 @@ class Companies < Cuba
 
       on default do
         begin
-          customer = Stripe::Customer.retrieve(current_user.customer_id)
+          customer = Stripe::Customer.retrieve(company.customer_id)
           card = customer.cards["data"][0]
         rescue Stripe::APIConnectionError => e
-          session[:error] = "Oooops...looks like we are having
-            some problems with your request. Please try again
-            in a few minutes!"
+          session[:error] = "It looks like we are having some problems
+              with your request. Please try again in a few minutes!"
 
           res.redirect "/dashboard"
         end
@@ -90,16 +73,15 @@ class Companies < Cuba
       begin
         customer = Stripe::Customer.retrieve(current_user.customer_id)
         card = customer.cards["data"][0]
-      rescue Stripe::APIConnectionError => e
-        session[:error] = "Oooops...looks like we are having
-          some problems with your request. Please try again
-          in a few minutes!"
+
+        render("company/profile", title: "Profile",
+        customer: customer, card: card)
+      rescue => e
+        session[:error] = "It looks like we are having some problems
+              with your request. Please try again in a few minutes!"
 
         res.redirect "/dashboard"
       end
-
-      render("company/profile", title: "Profile",
-        customer: customer, card: card)
     end
 
     on "edit" do
@@ -148,26 +130,23 @@ class Companies < Cuba
     end
 
     on "customer/update" do
+      company = current_user
+
       on param("origin") do |origin|
         session[:origin] = origin
         res.redirect "/customer/update"
       end
 
       on post, param("stripeToken") do |token|
-        begin
-          customer = Stripe::Customer.retrieve(current_user.customer_id)
-          customer.card = token # obtained with Stripe.js
-          customer.save
-        rescue Stripe::CardError => e
-          session[:package] = credits
-          session[:error] = e.message
+        update = Stripe.update_customer(company, token)
 
-          res.redirect "/customer/update"
-        rescue Stripe::APIConnectionError => e
-          session[:package] = credits
-          session[:error] = "Oooops...looks like we are having
-            some problems with your request. Please try again
-            in a few minutes!"
+        on !update.instance_of?(Stripe::Customer) do
+          if update.instance_of?(Stripe::CardError)
+            session[:error] = update.message
+          else
+            session[:error] = "It looks like we are having some problems
+              with your request. Please try again in a few minutes!"
+          end
 
           res.redirect "/customer/update"
         end
@@ -178,6 +157,8 @@ class Companies < Cuba
         end
 
         on default do
+          session[:success] = "You have successfully updated
+            your payment details"
           res.redirect "/profile"
         end
       end
@@ -228,48 +209,44 @@ class Companies < Cuba
     end
 
     on "post/extend/:id" do |id|
-      on post, param("days") do |days|
-        post = Post[id]
-        company = post.company
+      post = Post[id]
+      company = post.company
 
-        sum = 0
+      on post, param("post") do |params|
+        extend_post = Extension.new(params)
 
-        if days == "14"
-          sum = 4000
-        elsif days == "30"
-          sum = 8000
+        days = params["days"]
+
+        on extend_post.valid? do
+          extension = Stripe.charge_extension(days, company.customer_id)
+
+          on !extension.instance_of?(Stripe::Charge) do
+            if extension.instance_of?(Stripe::CardError)
+              session[:error] = extension.message
+            else
+              session[:error] = "It looks like we are having some problems
+              with your payment request. Please try again in a few minutes!"
+            end
+
+            res.redirect "/post/extend/#{id}"
+          end
+
+          new_date = post.expiration_date.to_i + (days.to_i * 24 * 60 * 60)
+          post.update(expiration_date: new_date)
+
+          session[:success] = "You have successfully extended your post
+          by #{days} days!"
+
+          res.redirect "/dashboard"
         end
 
-        begin
-          Stripe::Charge.create(
-            :amount   => sum, # in cents
-            :currency => "usd",
-            :customer => company.customer_id
-          )
-        rescue Stripe::CardError => e
-          session[:package] = credits
-          session[:error] = e.message
-
-          res.redirect "/payment"
-        rescue Stripe::APIConnectionError => e
-          session[:error] = "Oooops...looks like we are having
-            some problems with your request. Please try again
-            in a few minutes!"
-
-          res.redirect("/post/extend/#{id}")
+        on default do
+          render("company/post/extend", title: "Extend date", id: id)
         end
-
-        new_date = post.expiration_date.to_i + (days.to_i * 24 * 60 * 60)
-        post.update(expiration_date: new_date)
-
-        session[:success] = "You have successfully extended your post
-        by #{days} days!"
-
-        res.redirect "/dashboard"
       end
 
       on default do
-        render("/company/post/extend", title: "Extend date", id: id)
+        render("company/post/extend", title: "Extend date", id: id)
       end
     end
 
@@ -404,6 +381,15 @@ class Companies < Cuba
         end
       end
 
+      delete = Stripe.delete_customer(company)
+
+      on !delete.instance_of?(Stripe::Customer) do
+        session[:error] = "It looks like we are having some problems
+          with your request. Please try again in a few minutes!"
+
+        res.redirect "/profile"
+      end
+
       developers.each do |developer|
         Malone.deliver(to: developer.email,
           subject: "Auto-notice: '" + company.name + "' removed their profile",
@@ -411,18 +397,8 @@ class Companies < Cuba
               developer: developer))
       end
 
-      begin
-        customer = Stripe::Customer.retrieve(company.customer_id)
-        customer.delete
-      rescue Stripe::APIConnectionError => e
-        session[:error] = "Oooops...looks like we are having
-          some problems with your request. Please try again
-          in a few minutes!"
-
-        res.redirect "/profile"
-      end
-
       company.delete
+
       session[:success] = "You have deleted your account."
       res.redirect "/"
     end
