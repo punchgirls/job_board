@@ -1,23 +1,5 @@
 {{ this.partial("search_box") }}
 
-<h2>How does it work?</h2>
-
-<div>
-  <p>Developers login with their GitHub accounts</p>
-  <p><img src="http://placehold.it/400x200"></p>
-</div>
-<div>
-  <p>Companies post job offers</p>
-  <p><img src="http://placehold.it/400x200"></p>
-</div>
-<div>
-  <p>Developers search for jobs and apply with a single click!</p>
-  <p><img src="http://placehold.it/400x200"></p>
-</div>
-<div>
-  <p>Companies find the right developer for the job!</p>
-  <p><img src="http://placehold.it/400x200"></p>
-</div>
 <div>
   % if !this.current_user
     <a href="/signup">Sign up!</a>
