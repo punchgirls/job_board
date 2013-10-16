@@ -13,7 +13,7 @@
       % job = application.post
       % if job && !job.expired?
         <li id="{{ application.id}}" class="application-list-item">
-          <table>
+          <table id="appTable_{{ job.id }}">
             <tr>
               <td>Posted on {{ job.posted }}</td>
               <td>Applied on {{ application.applied }}</td>
@@ -37,11 +37,21 @@
             </tr>
             <tr>
               <td colspan="2">{{ job.description }}</td>
-              % if developer && developer.applied?(job.id)
-                <td>APPLIED</td>
-              % else
-                <td><a href="/apply/{{ job.id }}?origin=applications">APPLY</a></td>
-              % end
+              <td>
+                APPLIED
+                % message_sent = application.message.nil?
+                % if message_sent
+                  <span onclick="addMsg({{ job.id }})"
+                    id="addMsg_{{ job.id }}">
+                    Add a message
+                  </span>
+                  <span id="message_{{ job.id }}"
+                    class="hidden">
+                    {{ this.partial("message_form", post: job,
+                    developer: developer) }}
+                  </span>
+                % end
+              </td>
               <td><i onclick="removeApplication({{ application.id }})" class="icon-remove red"></i></td>
             </tr>
             % if developer && !application.message.nil?

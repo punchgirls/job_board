@@ -45,10 +45,26 @@ function sendMsg (post_id, developer_id) {
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
       message.style.display = "none";
+
+      var table = document.getElementById("appTable_" + post_id);
+
+      if (table) {
+        updateTable(table, post_id)
+      }
+
     }
   };
 
   request.send();
+}
+
+function updateTable(table, post_id) {
+
+  var row = table.insertRow(5);
+  var cell = row.insertCell(0);
+  var messageTxt = document.getElementById("messageTxt_" + post_id).value;
+
+  cell.innerHTML = "Message sent: " + messageTxt;
 }
 
 function note (id) {
