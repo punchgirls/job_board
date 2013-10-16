@@ -21,13 +21,13 @@
           % end
         </tr>
         <tr>
-          <td colspan="3">{{ Company[post.company_id].name }}</td>
+          <td colspan="3">{{ Company[post.company_id].name.encode(xml: :text) }}</td>
         </tr>
         <tr>
-          <td colspan="3">{{ post.title }}</td>
+          <td colspan="3">{{ post.title.encode(xml: :text) }}</td>
         </tr>
         <tr>
-          <td>{{ post.description }}</td>
+          <td>{{ post.description.encode(xml: :text) }}</td>
           <td>
             % if developer.nil?
               <a href="/apply/{{ post.id }}" class="cursor">

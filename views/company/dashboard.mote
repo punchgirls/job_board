@@ -31,7 +31,7 @@
           </td>
         </tr>
         <tr>
-          <td colspan="4" id="post-title">{{ post.title }}</td>
+          <td colspan="4" id="post-title">{{ post.title.encode(xml: :text) }}</td>
         </tr>
         <tr>
           <td colspan="4" id="post-skills">{{ post.tags }}</td>
@@ -43,7 +43,7 @@
         % end
         </tr>
         <tr>
-          <td>{{ post.description }}</td>
+          <td>{{ post.description.encode(xml: :text) }}</td>
           <td style="width:150px;"><a href="/post/applications/{{ post.id }}">APPLICANTS ({{ post.applications.size }})</a></td>
           <td style="width:150px;"><a href="/post/edit/{{ post.id }}"><i class="icon-pencil"></i></a></td>
           <td><i onclick="removePost({{ post.id }})" class="icon-remove red"></i></td>

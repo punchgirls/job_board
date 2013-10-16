@@ -27,16 +27,16 @@
               % end
             </tr>
             <tr>
-              <td colspan="4">{{ Company[job.company_id].name }}</td>
+              <td colspan="4">{{ Company[job.company_id].name.encode(xml: :text) }}</td>
             </tr>
             <tr>
-              <td colspan="4">{{ job.title }}</td>
+              <td colspan="4">{{ job.title.encode(xml: :text) }}</td>
             </tr>
             <tr>
               <td colspan="4">{{ job.tags }}</td>
             </tr>
             <tr>
-              <td colspan="2">{{ job.description }}</td>
+              <td colspan="2">{{ job.description.encode(xml: :text) }}</td>
               <td>
                 APPLIED
                 % message_sent = application.message.nil?
@@ -61,7 +61,7 @@
             % end
             % if developer && !application.note.nil?
             <tr>
-              <td colspan="4">Note: {{ application.note }}</td>
+              <td colspan="4">Note: {{ application.note.encode(xml: :text) }}</td>
             </tr>
             % else
             <tr>
@@ -73,7 +73,7 @@
                   {{ this.partial("developer/note", application: application) }}
 
                 </span>
-                <span id="displayNote_{{ application.id }}" class="hidden">Note: {{ application.note }}</td>
+                <span id="displayNote_{{ application.id }}" class="hidden">Note: {{ application.note.encode(xml: :text) }}</td>
               </td>
             </tr>
             % end

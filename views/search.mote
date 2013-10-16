@@ -22,13 +22,13 @@
           % end
         </tr>
         <tr>
-          <td colspan="3">{{ post.company.name }}</td>
+          <td colspan="3">{{ post.company.name.encode(xml: :text) }}</td>
         </tr>
         <tr>
-          <td colspan="3"><a href="{{ post.company.url }}">Website</a></td>
+          <td colspan="3"><a href="{{ post.company.url}}">{{ post.company.url.encode(xml: :text) }}</a></td>
         </tr>
         <tr>
-          <td colspan="3">{{ post.title }}</td>
+          <td colspan="3">{{ post.title.encode(xml: :text) }}</td>
         </tr>
         <tr>
           <td colspan="4" id="post-tags">{{ post.tags }}</td>
@@ -42,7 +42,7 @@
           </tr>
         % end
         <tr>
-          <td>{{ post.description }}</td>
+          <td>{{ post.description.encode(xml: :text) }}</td>
           <td>
             % if developer.nil?
               <a href="/apply/{{ post.id }}" class="cursor">
