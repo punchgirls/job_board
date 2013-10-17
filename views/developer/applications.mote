@@ -10,76 +10,76 @@
 % else
   <ul id="applications-list">
     % applications.each do |application|
-      % job = application.post
-      % if job && !job.expired?
-        <li id="{{ application.id}}" class="application-list-item">
-          <table id="appTable_{{ job.id }}">
-            <tr>
-              <td>Posted on {{ job.posted }}</td>
-              <td>Applied on {{ application.applied }}</td>
-              % time_left = job.expires
-              % if time_left > 24
-                <td colspan="2">Expires in {{ (job.expires / 24).ceil }} days</td>
-              % elsif time_left <= 24 && time_left > 1
-                <td colspan="2">Expires in {{ job.expires.ceil }} hours</td>
-              % elsif time_left <= 1
-                <td colspan="2">Expires in less than 1 hour!</td>
-              % end
-            </tr>
-            <tr>
-              <td colspan="4">{{ Company[job.company_id].name.encode(xml: :text) }}</td>
-            </tr>
-            <tr>
-              <td colspan="4">{{ job.title.encode(xml: :text) }}</td>
-            </tr>
-            <tr>
-              <td colspan="4">{{ job.tags }}</td>
-            </tr>
-            <tr>
-              <td colspan="2">{{ job.description.encode(xml: :text) }}</td>
-              <td>
-                APPLIED
-                % message_sent = application.message.nil?
-                % if message_sent
-                  <span onclick="addMsg({{ job.id }})"
-                    id="addMsg_{{ job.id }}">
-                    Add a message
-                  </span>
-                  <span id="message_{{ job.id }}"
-                    class="hidden">
-                    {{ this.partial("message_form", post: job,
-                    developer: developer) }}
-                  </span>
-                % end
-              </td>
-              <td><i onclick="removeApplication({{ application.id }})" class="icon-remove red"></i></td>
-            </tr>
-            % if developer && !application.message.nil?
-              <tr>
-                <td colspan="4">Message sent: {{ application.message.encode(xml: :text) }}</td>
-              </tr>
-            % end
-            % if developer && !application.note.nil?
-            <tr>
-              <td colspan="4">Note: {{ application.note.encode(xml: :text) }}</td>
-            </tr>
+      % post = application.post
+      <li id="{{ application.id}}" class="application-list-item">
+        <table id="appTable_{{ post.id }}">
+          <tr>
+            <td>Posted on {{ post.posted }}</td>
+            <td>Applied on {{ application.applied }}</td>
+            % time_left = post.expires
+            % if time_left > 24
+              <td colspan="2">Expires in {{ (post.expires / 24).ceil }} days</td>
+            % elsif time_left <= 24 && time_left > 1
+              <td colspan="2">Expires in {{ post.expires.ceil }} hours</td>
+            % elsif time_left <= 1 && time_left > 0
+              <td colspan="2">Expires in less than 1 hour!</td>
             % else
-            <tr>
-              <td>
-                <span onclick="note({{ application.id }})" id="note_{{ application.id }}" class="cursor">Add note</span>
-
-                <span id="addNote_{{ application.id }}" class="hidden">
-
-                  {{ this.partial("developer/note", application: application) }}
-
-                </span>
-                <span id="displayNote_{{ application.id }}" class="hidden"></span></td>
-              </td>
-            </tr>
+              <td colspan="2">Expired</td>
             % end
-          </table>
-        </li>
-      % end
+          </tr>
+          <tr>
+            <td colspan="4">{{ Company[post.company_id].name.encode(xml: :text) }}</td>
+          </tr>
+          <tr>
+            <td colspan="4">{{ post.title.encode(xml: :text) }}</td>
+          </tr>
+          <tr>
+            <td colspan="4">{{ post.tags }}</td>
+          </tr>
+          <tr>
+            <td colspan="2">{{ post.description.encode(xml: :text) }}</td>
+            <td>
+              APPLIED
+              % message_sent = application.message.nil?
+              % if message_sent
+                <span onclick="addMsg({{ post.id }})"
+                  id="addMsg_{{ post.id }}">
+                  Add a message
+                </span>
+                <span id="message_{{ post.id }}"
+                  class="hidden">
+                  {{ this.partial("message_form", post: post,
+                  developer: developer) }}
+                </span>
+              % end
+            </td>
+            <td><i onclick="removeApplication({{ application.id }})" class="icon-remove red"></i></td>
+          </tr>
+          % if developer && !application.message.nil?
+            <tr>
+              <td colspan="4">Message sent: {{ application.message.encode(xml: :text) }}</td>
+            </tr>
+          % end
+          % if developer && !application.note.nil?
+          <tr>
+            <td colspan="4">Note: {{ application.note.encode(xml: :text) }}</td>
+          </tr>
+          % else
+          <tr>
+            <td>
+              <span onclick="note({{ application.id }})" id="note_{{ application.id }}" class="cursor">Add note</span>
+
+              <span id="addNote_{{ application.id }}" class="hidden">
+
+                {{ this.partial("developer/note", application: application) }}
+
+              </span>
+              <span id="displayNote_{{ application.id }}" class="hidden"></span></td>
+            </td>
+          </tr>
+          % end
+        </table>
+      </li>
     % end
   </ul>
 % end
