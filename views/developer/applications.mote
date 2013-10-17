@@ -56,7 +56,7 @@
             </tr>
             % if developer && !application.message.nil?
               <tr>
-                <td colspan="4">Message sent: {{ application.message }}</td>
+                <td colspan="4">Message sent: {{ application.message.encode(xml: :text) }}</td>
               </tr>
             % end
             % if developer && !application.note.nil?
@@ -73,7 +73,7 @@
                   {{ this.partial("developer/note", application: application) }}
 
                 </span>
-                <span id="displayNote_{{ application.id }}" class="hidden">Note: {{ application.note.encode(xml: :text) }}</td>
+                <span id="displayNote_{{ application.id }}" class="hidden"></span></td>
               </td>
             </tr>
             % end
