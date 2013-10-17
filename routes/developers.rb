@@ -15,7 +15,7 @@ class Developers < Cuba
       end
 
       on default do
-        render("developer/dashboard", title: "Dashboard")
+        render("developer/applications", title: "My applications")
       end
     end
 
