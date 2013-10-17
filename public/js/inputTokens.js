@@ -53,20 +53,20 @@ function addToAutocomplete(value) {
 
 function addToken(value) {
   var token = document.createElement("li");
-  var x = document.createElement("li");
+  var x = document.createElement("span");
 
   x.onclick = function() {
-    deleteToken(token, x);
+    deleteToken(token);
   };
 
   token.appendChild(document.createTextNode(value));
   x.appendChild(document.createTextNode(" X "));
+  token.appendChild(x);
 
   var listItems = tokens.getElementsByTagName("li");
   var lastChild = listItems[listItems.length - 1];
 
   tokens.insertBefore(token, lastChild);
-  tokens.insertBefore(x, lastChild);
 
   searchInput.focus();
 
@@ -74,9 +74,8 @@ function addToken(value) {
   autocomplete.style.display = "none";
 }
 
-function deleteToken(token, x) {
+function deleteToken(token) {
   tokens.removeChild(token);
-  tokens.removeChild(x);
 }
 
 tokens.onclick = function() {
@@ -99,6 +98,8 @@ searchInput.onkeydown = function(e) {
   e = e || window.event;
 
   autocomplete.style.display = "block";
+  searchInput.removeAttribute("placeholder");
+  searchInput.style.width = "130px";
 
   if (e.keyCode == '13') {
     addToken(list[selectedToken].innerHTML);
@@ -112,10 +113,9 @@ searchInput.onkeydown = function(e) {
 
   if (e.keyCode == '8') {
     var skills = tokens.getElementsByTagName("li");
-    var lastX = skills[skills.length - 2];
-    var lastSkill = skills[skills.length - 3];
+    var token = skills[skills.length - 2];
 
-    deleteToken(lastSkill, lastX);
+    deleteToken(token);
   }
 };
 

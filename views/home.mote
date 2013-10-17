@@ -1,3 +1,5 @@
+<h2>Let your code speak for you</h2>
+
 {{ this.partial("search_box") }}
 
 <div>

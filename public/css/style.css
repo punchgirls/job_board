@@ -1,113 +1,116 @@
 body {
   margin: 0;
+  padding: 2%;
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  color: #4d4d4d;
+  letter-spacing: 1px;
 }
 
-section, header {
-  margin: 50px;
+nav a, nav a:visited {
+  color: #ffaa4e;
 }
 
-table {
-  width: 1000px;
+a, a:visited {
+  color: #4d4d4d;
+  text-decoration: none;
 }
 
-table tr td {
-  padding: 10px 10px 0 0;
+a:hover, a:active {
+  color: #4d4d4d;
+  text-decoration: underline;
 }
 
-nav ul {
+ul {
   list-style: none;
   padding: 0;
 }
 
-nav li {
-    display: inline;
-    padding: 0 20px 0 0;
+::-webkit-input-placeholder { font-style: italic; }
+::-moz-placeholder { font-style: italic; } /* firefox 19+ */
+:-ms-input-placeholder { font-style: italic; } /* ie */
+input:-moz-placeholder { font-style: italic; }
+
+header h1 {
+  font-size: 1.4em;
+  font-weight: normal;
+  letter-spacing: 2px;
 }
 
-nav a {
+header h1 a, header h1 a:hover {
+  color: #2c3e50;
   text-decoration: none;
+}
+
+header h1 a span {
+  color: #95a5a6;
 }
 
 #avatar {
-  width: 36px;
-}
-
-td a {
-  text-decoration: none;
-  color: black;
-}
-
-#posts-list {
-  padding: 0;
-}
-
-.post-list-item {
-  list-style: none;
- }
-
- #applications-list {
-  padding: 0;
-}
-
-.application-list-item {
-  list-style: none;
- }
-
-/* Icons */
-i {
-  font-size: 36px;
-  cursor: pointer;
-  cursor: hand;
-}
-
-.icon-heart {
-  color: #BDC3C7;
-}
-
-.icon-pencil {
-  color: blue;
-}
-
-.red {
-  color: #E74C3C;
-}
-
-.cursor {
-  cursor: pointer;
-  cursor: hand;
-}
-
-.package {
-  float: left;
-  margin: 20px;
-}
-
-.clear {
-  clear: both;
-}
-
-#searchTextField {
-  width: 400px;
-  height: 32px;
-  padding: 0;
-  margin: 0;
-  border: solid 1px grey;
-}
-
-.hidden {
   display: none;
 }
 
-#accepted_cards {
+section h2 {
+  font-size: 1.1em;
+}
+
+/* INPUT TOKENS */
+
+#autocomplete {
+  position: relative;
+  display: none;
+  padding: 0;
+  border: solid 1px #cccccc;
+  margin: 0;
+}
+
+#autocomplete li {
   list-style: none;
-  padding-left: 0;
+  padding: 5px;
 }
 
-#accepted_cards li {
-  display: inline;
+#autocomplete li:hover,
+#autocomplete li:focus {
+  background: #ECF0F1;
+  cursor: pointer;
+  cursor: hand;
 }
 
-#accepted_cards img, #credit_card {
-  width: 50px;
+#highlight {
+  background: #ECF0F1;
 }
 
+#tokens {
+  padding-left: 3px;
+  margin: 0;
+  overflow: hidden;
+  border: solid 1px #cccccc;
+  cursor: text;
+}
+
+#tokens input {
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 5px;
+}
+
+#tokens li {
+  display: inline-block;
+  background: #ffaa4e;
+  margin: 2px;
+  padding: 5px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.9em;
+  border-radius: 3px;
+}
+
+#tokens li span {
+  cursor: pointer;
+  cursor: hand;
+}
+
+#tokens #token-input {
+  background-color: white;
+}
