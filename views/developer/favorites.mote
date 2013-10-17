@@ -29,14 +29,26 @@
         <tr>
           <td>{{ post.description.encode(xml: :text) }}</td>
           <td>
-            % if developer.nil?
-              <a href="/apply/{{ post.id }}" class="cursor">
-                APPLY
-              </a>
-            % elsif developer && developer.applied?(post.id)
-                APPLIED
+            % if developer && developer.applied?(post.id)
+              APPLIED
+
+              % application = Application.find(:post_id => post.id, :developer_id => developer.id).first
+
+              % message_sent = application.message.nil?
+              % if message_sent
+                <span onclick="addMsg({{ post.id }})" id="addMsg_{{ post.id }}">Add a message</span>
+                <span id="message_{{ post.id }}" class="hidden">
+                  {{ this.partial("message_form", post: post,
+                  developer: developer) }}
+                </span>
+               % end
             % else
               <span onclick="apply({{ post.id }})" id="apply_{{ post.id }}" class="cursor">APPLY</span>
+              <span onclick="addMsg({{ post.id }})" id="addMsg_{{ post.id }}"></span>
+              <span id="message_{{ post.id }}" class="hidden">
+                {{ this.partial("message_form", post: post,
+                developer: developer) }}
+              </span>
             % end
           </td>
           <td>
