@@ -1,1 +1,1 @@
-{{ this.partial("search", posts: nil) }}
+{{ this.partial("developer/applications") }}
