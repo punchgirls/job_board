@@ -1,11 +1,9 @@
 <h2>Already registered? Log in here!</h2>
 
 <form action="/login" method="POST">
-  <label for="company-email">Email</label>
-  <input type="text" name="company[email]" id="company-email" value="{{ user }}"><br/>
+  <input type="text" name="company[email]" placeholder="E-mail" value="{{ user }}"><br/>
 
-  <label for="password">Password</label>
-  <input type="password" name="company[password]" id="password"><br/>
+  <input type="password" name="company[password]" placeholder="Password"><br/>
 
   <a href="/forgot-password">I forgot my password</a><br/>
 

@@ -20,23 +20,19 @@
 <h2>Sign up now to start posting jobs!</h2>
 
 <form action="/signup" method="POST" class="payment-details">
-  <label for="company-name">Company name:</label>
-  <input type="text" name="company[name]" id="company-name"
+
+  <input type="text" name="company[name]" placeholder="Company name"
   value="{{ company['name'] }}"><br/>
 
-  <label for="company-email">Company e-mail:</label>
-  <input type="text" name="company[email]" id="company-email"
+  <input type="text" name="company[email]" placeholder="E-email"
   value="{{ company['email'] }}"><br/>
 
-  <label for="company-url">Company URL:</label>
-  <input type="text" name="company[url]" id="company-url"
+  <input type="text" name="company[url]" placeholder="URL"
   value="{{ company['url'] }}"><br/>
 
-  <label for="password">Password:</label>
-  <input type="password" name="company[password]" id="password"><br/>
+  <input type="password" name="company[password]" placeholder="Password"><br/>
 
-  <label for="password-confirmation">Password confirmation:</label>
-  <input type="password" name="company[password_confirmation]" id="password-confirmation"><br/><br/>
+  <input type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
 
   {{ this.partial("accepted_cards") }}
 
