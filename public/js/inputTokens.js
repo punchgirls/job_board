@@ -131,6 +131,14 @@ searchInput.onkeyup = function(e) {
 
   autocomplete.innerHTML = "";
 
+  if (searchInput.value == "") {
+    autocomplete.style.height = "200px";
+    autocomplete.style.overflowY = "scroll";
+  } else {
+    autocomplete.style.height = "auto";
+    autocomplete.style.overflowY = "hidden";
+  }
+
   for (var key in skills) {
     if (skills[key].name.search(regExp) != -1 ) {
       addToAutocomplete(skills[key].name);
