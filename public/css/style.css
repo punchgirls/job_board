@@ -104,27 +104,6 @@ section h2 {
   padding: 4px;
 }
 
-
-
-
-
-/*#tokens input {
-  width: 350px;
-  outline: none;
-  border: none;
-}
-
-#tokens li {
-  display: inline-block;
-  background: #ffaa4e;
-  margin-left: 4px;
-  padding: 5px 0;
-  color: #ffffff;
-  font-weight: bold;
-  font-size: 0.9em;
-  border-radius: 3px;
-}*/
-
 #tokens li span {
   cursor: pointer;
   cursor: hand;
