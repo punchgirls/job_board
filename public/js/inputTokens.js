@@ -53,13 +53,15 @@ function addToAutocomplete(value) {
 
 function addToken(value) {
   var token = document.createElement("li");
+  var token_span = document.createElement("span");
   var x = document.createElement("span");
 
   x.onclick = function() {
     deleteToken(token);
   };
 
-  token.appendChild(document.createTextNode(value));
+  token_span.appendChild(document.createTextNode(value))
+  token.appendChild(token_span);
   x.appendChild(document.createTextNode(" X "));
   token.appendChild(x);
 
@@ -112,10 +114,12 @@ searchInput.onkeydown = function(e) {
   }
 
   if (e.keyCode == '8') {
-    var skills = tokens.getElementsByTagName("li");
-    var token = skills[skills.length - 2];
+    if (searchInput.value == "") {
+      var skills = tokens.getElementsByTagName("li");
+      var token = skills[skills.length - 2];
 
-    deleteToken(token);
+      deleteToken(token);
+    }
   }
 };
 
@@ -149,10 +153,10 @@ postFrm.onsubmit = function() {
   var skills = tokens.getElementsByTagName("li");
   var query = "";
 
-  for (var i = 0; i < (skills.length - 1) ; i+=2) {
-    query += skills[i].innerHTML;
+  for (var i = 0; i < skills.length - 1 ; i++) {
+    query += skills[i].childNodes[0].innerHTML;
 
-    if(i < skills.length - 3) {
+    if(i < skills.length - 2) {
       query += ", ";
     }
   };

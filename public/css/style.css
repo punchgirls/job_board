@@ -89,7 +89,7 @@ section h2 {
 }
 
 #tokens input {
-  width: 100%;
+  width: 350px;
   outline: none;
   border: none;
   padding: 5px;
@@ -98,7 +98,7 @@ section h2 {
 #tokens li {
   display: inline-block;
   background: #ffaa4e;
-  margin: 2px;
+  margin-left: 4px;
   padding: 5px;
   color: #ffffff;
   font-weight: bold;

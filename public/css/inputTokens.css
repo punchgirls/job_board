@@ -1,0 +1,65 @@
+#autocomplete {
+  position: relative;
+  display: none;
+  width: 400px;
+  padding: 0;
+  border: solid 1px grey;
+  margin: 0;
+}
+
+#autocomplete li {
+  list-style: none;
+  padding: 5px;
+}
+
+#autocomplete li:hover,
+#autocomplete li:focus {
+  background: #ECF0F1;
+  cursor: pointer;
+  cursor: hand;
+}
+
+#highlight {
+  background: #ECF0F1;
+}
+
+#tokens {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  width: 400px;
+  border: solid 1px grey;
+  cursor: text;
+}
+
+#tokens input {
+  width: 400px;
+  /*outline: none;
+  border: none;*/
+  padding: 5px;
+}
+
+#tokens li {
+  display: inline;
+  background: #ECF0F1;
+  margin: 0;
+}
+
+#tokens li:nth-child(odd) {
+  border-top-left-radius: 2em 0.5em;
+  border-bottom-left-radius: 1em 3em;
+}
+
+#tokens li:nth-child(even) {
+  color: #3498DB;
+  margin-right: 5px;
+  border-top-right-radius: 1em 3em;
+  border-bottom-right-radius: 4em 0.5em;
+  cursor: pointer;
+  cursor: hand;
+}
+
+#tokens #token-input {
+  background-color: white;
+}
+
