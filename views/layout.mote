@@ -25,10 +25,10 @@
                 <li><a href="/profile">
               % end
               % if user.instance_of?(Developer)
-                <img id="avatar" src="http://www.gravatar.com/avatar/{{ user.avatar }}" />
+                <img id="avatar" src="http://www.gravatar.com/avatar/{{ user.avatar }}" />{{ user.username.upcase }}</a></li>
               % end
-              % if !user.instance_of?(Admin)
-                {{ user.username.upcase }}</a></li>
+              % if user.instance_of?(Company)
+                {{ user.name.upcase }}</a></li>
               % end
               <li><a href="/logout">LOGOUT</a></li>
             % elsif !user.instance_of?(Admin)
