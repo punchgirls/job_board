@@ -1,7 +1,7 @@
 <form name="postFrm" action="/search" method="GET">
   <ul id="tokens">
     <li id="token-input">
-      <input type="text" id="search-field" autocomplete="off" placeholder="Programmin language or skill...">
+      <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
     </li>
   </ul>
   <ul id="autocomplete"></ul>

@@ -81,30 +81,49 @@ section h2 {
 }
 
 #tokens {
-  padding-left: 3px;
   margin: 0;
   overflow: hidden;
   border: solid 1px #cccccc;
   cursor: text;
 }
 
-#tokens input {
+#search-field {
+  width: 300px;
+  outline: none;
+  border: none;
+  margin: 4px 0 4px 0;
+}
+
+#tokens li {
+  display: inline-block;
+  background: #ffaa4e;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.9em;
+  border-radius: 3px;
+  padding: 4px;
+}
+
+
+
+
+
+/*#tokens input {
   width: 350px;
   outline: none;
   border: none;
-  padding: 5px;
 }
 
 #tokens li {
   display: inline-block;
   background: #ffaa4e;
   margin-left: 4px;
-  padding: 5px;
+  padding: 5px 0;
   color: #ffffff;
   font-weight: bold;
   font-size: 0.9em;
   border-radius: 3px;
-}
+}*/
 
 #tokens li span {
   cursor: pointer;

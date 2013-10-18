@@ -65,6 +65,8 @@ function addToken(value) {
   x.appendChild(document.createTextNode(" X "));
   token.appendChild(x);
 
+  token.style.margin = "4px 0 4px 4px";
+
   var listItems = tokens.getElementsByTagName("li");
   var lastChild = listItems[listItems.length - 1];
 
