@@ -7,11 +7,9 @@
   <ul id="autocomplete"></ul>
   <input type="hidden" id="query" name="post[tags]" value=""><br/>
 
-  <label for="searchTextField">Location:</label><br/>
-
   <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-  <input id="searchTextField" type="text" size="50" placeholder="Add your location" name="post[location]" autocomplete="off"><br/>
+  <input id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
 
   <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 

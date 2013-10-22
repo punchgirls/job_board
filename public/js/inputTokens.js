@@ -131,7 +131,7 @@ searchInput.onkeyup = function(e) {
 
   autocomplete.innerHTML = "";
 
-  if (searchInput.value == "") {
+  if (searchInput.value.length < 2) {
     autocomplete.style.height = "200px";
     autocomplete.style.overflowY = "scroll";
   } else {
