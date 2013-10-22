@@ -65,7 +65,8 @@ function addToken(value) {
   x.appendChild(document.createTextNode(" X "));
   token.appendChild(x);
 
-  token.style.margin = "4px 0 4px 4px";
+  token.style.padding = "2%";
+  token.style.margin = "0 4px 4px 0";
 
   var listItems = tokens.getElementsByTagName("li");
   var lastChild = listItems[listItems.length - 1];

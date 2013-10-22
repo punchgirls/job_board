@@ -1,14 +1,42 @@
-body {
+body, h1, h2, h3, h4, h5, h6, p, address, blockquote, input, ul, li {
   margin: 0;
-  padding: 2%;
+  padding: 0;
+}
+
+body {
+  padding: 0 2%;
   font-family: Arial, sans-serif;
   font-size: 1em;
   color: #4d4d4d;
   letter-spacing: 1px;
 }
 
+header h1 {
+  font-size: 1.4em;
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin: 10% 0;
+}
+
+header h1 a, header h1 a:hover {
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+header h1 a span {
+  color: #95a5a6;
+}
+
+nav ul li {
+  font-size: 0.9em;
+  margin: 5% 0;
+}
 nav a, nav a:visited {
   color: #ffaa4e;
+}
+
+p {
+  margin: 5% 0;
 }
 
 a, a:visited {
@@ -23,7 +51,6 @@ a:hover, a:active {
 
 ul {
   list-style: none;
-  padding: 0;
 }
 
 ::-webkit-input-placeholder { font-style: italic; }
@@ -31,27 +58,47 @@ ul {
 :-ms-input-placeholder { font-style: italic; } /* ie */
 input:-moz-placeholder { font-style: italic; }
 
-header h1 {
-  font-size: 1.4em;
-  font-weight: normal;
-  letter-spacing: 2px;
+section h2 {
+  font-size: 0.9em;
+  margin: 8% 0;
 }
 
-header h1 a, header h1 a:hover {
-  color: #2c3e50;
-  text-decoration: none;
+button {
+  width: 100%;
+  height: 35px;
+  margin: 5% 0;
+  background-color: #66ccff;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  border: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  cursor: pointer;
+  cursor: hand;
 }
 
-header h1 a span {
-  color: #95a5a6;
+input#checkbox {
+  margin: 2% 2% 2% 0;
 }
 
 #avatar {
   display: none;
 }
 
-section h2 {
-  font-size: 1.1em;
+#buttons {
+  margin: 5% 0;
+}
+
+#buttons a, #buttons a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+
+#buttons a:hover, #buttons a:active {
+  color: #fff;
 }
 
 /* INPUT TOKENS */
@@ -59,31 +106,33 @@ section h2 {
 #autocomplete {
   position: relative;
   display: none;
-  padding: 0;
   border: solid 1px #cccccc;
-  margin: 0;
   overflow-y: scroll;
   height: 200px;
 }
 
 #autocomplete li {
   list-style: none;
-  padding: 5px;
+  margin: 2% 0;
+  padding: 2%;
 }
 
 #autocomplete li:hover,
 #autocomplete li:focus {
-  background: #ECF0F1;
+  background: #ffaa4e;
+  color: #fff;
   cursor: pointer;
   cursor: hand;
 }
 
 #highlight {
-  background: #ECF0F1;
+  background: #ffaa4e;
+  color: #fff;
 }
 
 #tokens {
-  margin: 0;
+  width: 95%;
+  padding: 2%;
   overflow: hidden;
   border: solid 1px #cccccc;
   cursor: text;
@@ -93,7 +142,7 @@ section h2 {
   width: 300px;
   outline: none;
   border: none;
-  margin: 4px 0 4px 0;
+  margin: 0;
 }
 
 #tokens li {
@@ -103,7 +152,6 @@ section h2 {
   font-weight: bold;
   font-size: 0.9em;
   border-radius: 3px;
-  padding: 4px;
 }
 
 #tokens li span {
@@ -113,4 +161,29 @@ section h2 {
 
 #tokens #token-input {
   background-color: white;
+}
+
+/* GOOGLE PLACES AUTOCOMPLETE */
+
+#searchTextField {
+  width: 95%;
+  min-height: 19px;
+  margin: 0 0 5% 0;
+  padding: 2%;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+@media only screen and (min-width: 300px) {
+  section h2 {
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and (min-width: 481px) {
+  // tablet styles go here
+}
+
+@media only screen and (min-width: 769px) {
+  // desktop styles go here
 }
