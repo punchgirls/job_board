@@ -67,6 +67,7 @@ function addToken(value) {
 
   token.style.padding = "2%";
   token.style.margin = "0 4px 4px 0";
+  tokens.style.padding = "1% 3% 0 1%";
 
   var listItems = tokens.getElementsByTagName("li");
   var lastChild = listItems[listItems.length - 1];
@@ -76,11 +77,19 @@ function addToken(value) {
   searchInput.focus();
 
   searchInput.value = "";
+  searchInput.removeAttribute("placeholder");
   autocomplete.style.display = "none";
 }
 
 function deleteToken(token) {
   tokens.removeChild(token);
+  console.log(tokens.childNodes);
+
+  if(tokens.childNodes.length == 3) {
+    tokens.style.padding = "2%";
+    searchInput.setAttribute("placeholder", "Programming language or skill...");
+    searchInput.style.width = "300px"
+  }
 }
 
 tokens.onclick = function() {

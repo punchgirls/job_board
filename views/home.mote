@@ -2,9 +2,8 @@
 
 {{ this.partial("search_box") }}
 
-<div id="buttons">
-  % if !this.current_user
-    <button><a href="/signup">Sign up!</a></button>
-    <button><a href="/github_oauth">GitHub login</a></button>
-  % end
-</div>
+% if !this.current_user
+  <a class="button" href="/signup">Sign up!</a>
+  <a class="button" href="/github_oauth">GitHub login</a>
+% end
+
