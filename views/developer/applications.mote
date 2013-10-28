@@ -12,73 +12,79 @@
     % applications.each do |application|
       % post = application.post
       <li id="{{ application.id}}" class="application-list-item">
-        <table id="appTable_{{ post.id }}">
-          <tr>
-            <td>Posted on {{ post.posted }}</td>
-            <td>Applied on {{ application.applied }}</td>
-            % time_left = post.expires
-            % if time_left > 24
-              <td colspan="2">Expires in {{ (post.expires / 24).ceil }} days</td>
-            % elsif time_left <= 24 && time_left > 1
-              <td colspan="2">Expires in {{ post.expires.ceil }} hours</td>
-            % elsif time_left <= 1 && time_left > 0
-              <td colspan="2">Expires in less than 1 hour!</td>
-            % else
-              <td colspan="2">Expired</td>
-            % end
-          </tr>
-          <tr>
-            <td colspan="4">{{ Company[post.company_id].name.encode(xml: :text) }}</td>
-          </tr>
-          <tr>
-            <td colspan="4">{{ post.title.encode(xml: :text) }}</td>
-          </tr>
-          <tr>
-            <td colspan="4">{{ post.tags }}</td>
-          </tr>
-          <tr>
-            <td colspan="2">{{ post.description.encode(xml: :text) }}</td>
-            <td>
-              APPLIED
-              % message_sent = application.message.nil?
-              % if message_sent
-                <span onclick="addMsg({{ post.id }})"
-                  id="addMsg_{{ post.id }}">
-                  Add a message
-                </span>
-                <span id="message_{{ post.id }}"
-                  class="hidden">
-                  {{ this.partial("message_form", post: post,
-                  developer: developer) }}
-                </span>
+        <article id="appTable_{{ post.id }}">
+          <header>
+            <h1>{{ post.company.name.encode(xml: :text) }}</h1>
+            <a href="{{ post.company.url}}">{{ post.company.url.encode(xml: :text) }}</a>
+            <h2>{{ post.title.encode(xml: :text) }}</h2>
+            <ul>
+              % post.tags.split(", ").each do |tag|
+                <li>{{ tag }}</li>
               % end
-            </td>
-            <td><i onclick="removeApplication({{ application.id }})" class="icon-remove red"></i></td>
-          </tr>
+            </ul>
+          </header>
+          <p>{{ post.description.encode(xml: :text) }}</p>
+
           % if developer && !application.message.nil?
-            <tr>
-              <td colspan="4">Message sent: {{ application.message.encode(xml: :text) }}</td>
-            </tr>
+            <p>Message sent: {{ application.message.encode(xml: :text) }}</p>
           % end
+
           % if developer && !application.note.nil?
-          <tr>
-            <td colspan="4">Note: {{ application.note.encode(xml: :text) }}</td>
-          </tr>
+          <p>Note: {{ application.note.encode(xml: :text) }}</p>
           % else
-          <tr>
-            <td>
-              <span onclick="note({{ application.id }})" id="note_{{ application.id }}" class="cursor">Add note</span>
+            <span onclick="note({{ application.id }})" id="note_{{ application.id }}" class="cursor">Add note</span>
 
-              <span id="addNote_{{ application.id }}" class="hidden">
+            <span id="addNote_{{ application.id }}" class="hidden">
 
-                {{ this.partial("developer/note", application: application) }}
+              {{ this.partial("developer/note", application: application) }}
 
-              </span>
-              <span id="displayNote_{{ application.id }}" class="hidden"></span></td>
-            </td>
-          </tr>
+            </span>
+            <span id="displayNote_{{ application.id }}" class="hidden"></span>
           % end
-        </table>
+
+          <section>
+            <ul>
+              <li>{{ post.location }}</li>
+              <li>
+                % if post.remote == "true"
+                  <i class="fa fa-globe"></i> Remote work OK
+                % else
+                  <i class="fa fa-map-marker"></i> On-site only
+                % end
+              </li>
+            </ul>
+          </section>
+
+          {{ this.partial("apply", post: post, developer: developer) }}
+
+          <i onclick="removeApplication({{ application.id }})" class="icon-remove red"></i>
+
+          <footer>
+            <ul>
+              <li>
+                <time datetime="" pubdate>Posted on {{ post.posted }}
+                </time>
+              </li>
+              <li>
+                <time datetime="" pubdate>Applied on {{ application.applied }}
+                </time>
+              </li>
+              <li>
+                <time datetime="">
+                  % if post.expires > 24
+                    Expires in {{ (post.expires / 24).ceil }} days
+                  % elsif post.expires <= 24 && post.expires > 1
+                    Expires in {{ post.expires.ceil }} hours
+                  % elsif post.expires <= 1
+                    Expires in less than 1 hour!
+                  % else
+                    Expired
+                  % end
+                </time>
+              </li>
+            </ul>
+          </footer>
+        </article>
       </li>
     % end
   </ul>
