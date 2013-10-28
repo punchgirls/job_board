@@ -15,40 +15,58 @@
   <ul id="posts-list">
   % posts.each do |post|
     <li id="{{ post.id}}" class="post-list-item">
-      <table>
-        <tr>
-          <td colspan="1">Posted on {{ post.posted }}</td>
-          <td colspan="3">Expires in
-            % time_left = post.expires
-            % if time_left > 24
-              {{ (post.expires / 24).ceil }} days
-            % elsif time_left <= 24 && time_left > 1
-              {{ post.expires.ceil }} hours
-            % elsif time_left <= 1
-              less than 1 hour!
+      <article>
+        <header>
+          <h1>{{ post.company.name.encode(xml: :text) }}</h1>
+          <a href="{{ post.company.url}}">{{ post.company.url.encode(xml: :text) }}</a>
+          <h2>{{ post.title.encode(xml: :text) }}</h2>
+          <ul>
+            % post.tags.split(", ").each do |tag|
+              <li>{{ tag }}</li>
             % end
-            <a href="/post/extend/{{ post.id }}">Extend expiration date</a>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="4" id="post-title">{{ post.title.encode(xml: :text) }}</td>
-        </tr>
-        <tr>
-          <td colspan="4" id="post-skills">{{ post.tags }}</td>
-        </tr>
-        <tr>
-          <td colspan="1" id="post-location">{{ post.location }}</td>
-          % if post.remote == "true"
-          <td id="post-remote">Remote work is OK</td>
-        % end
-        </tr>
-        <tr>
-          <td>{{ post.description.encode(xml: :text) }}</td>
-          <td style="width:150px;"><a href="/post/applications/{{ post.id }}">APPLICANTS ({{ post.applications.size }})</a></td>
-          <td style="width:150px;"><a href="/post/edit/{{ post.id }}"><i class="icon-pencil"></i></a></td>
-          <td><i onclick="removePost({{ post.id }})" class="icon-remove red"></i></td>
-        </tr>
-      </table>
+          </ul>
+        </header>
+        <p>{{ post.description.encode(xml: :text) }}</p>
+        <section>
+          <ul>
+            <li>{{ post.location }}</li>
+            <li>
+              % if post.remote == "true"
+                <i class="fa fa-globe"></i> Remote work OK
+              % else
+                <i class="fa fa-map-marker"></i> On-site only
+              % end
+            </li>
+          </ul>
+        </section>
+        <section>
+          <a href="/post/applications/{{ post.id }}">applicants ({{ post.applications.size }})</a>
+          <i class="fa fa-pencil"></i>
+          <i onclick="removePost({{ post.id }})" class="fa fa-trash-o red"></i>
+        </section>
+        <footer>
+          <ul>
+            <li>
+              <time datetime="" pubdate>Posted on {{ post.posted }}
+              </time>
+            </li>
+            <li>
+              <time datetime=""> Expires in
+                % if post.expires > 24
+                  {{ (post.expires / 24).ceil }} days
+                % elsif post.expires <= 24 && post.expires > 1
+                  {{ post.expires.ceil }} hours
+                % elsif post.expires <= 1
+                  less than 1 hour!
+                % end
+              </time>
+            </li>
+            <li>
+              <a href="/post/extend/{{ post.id }}">Extend expiration date</a>
+            </li>
+          </ul>
+        </footer>
+      </article>
     </li>
   % end
   </ul>
