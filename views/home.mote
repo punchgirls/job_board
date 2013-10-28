@@ -2,9 +2,7 @@
   <h1>Let your code speak for you</h1>
 </section>
 
-<section>
-  {{ this.partial("search_box") }}
-</section>
+{{ this.partial("search_box") }}
 
 <hr/>
 

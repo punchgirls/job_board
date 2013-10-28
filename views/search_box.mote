@@ -1,20 +1,22 @@
-<form name="postFrm" action="/search" method="GET">
-  <ul id="tokens">
-    <li id="token-input">
-      <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
-    </li>
-  </ul>
-  <ul id="autocomplete"></ul>
-  <input type="hidden" id="query" name="post[tags]" value=""><br/>
+<section>
+  <form name="postFrm" action="/search" method="GET">
+    <ul id="tokens">
+      <li id="token-input">
+        <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
+      </li>
+    </ul>
+    <ul id="autocomplete"></ul>
+    <input type="hidden" id="query" name="post[tags]" value=""><br/>
 
-  <!-- START GOOGLE PLACE AUTOCOMPLETE -->
+    <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-  <input id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
+    <input id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
 
-  <!-- END GOOGLE PLACE AUTOCOMPLETE -->
+    <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
-  <input id ="checkbox" type="checkbox" name="post[remote]" value="true">Remote<br/>
+    <input id ="checkbox" type="checkbox" name="post[remote]" value="true">Remote<br/>
 
-  <button type="submit">search</button>
-</form>
-<p><a href="/search?all=true">Show all</a></p>
+    <button type="submit">search</button>
+  </form>
+  <p><a href="/search?all=true">Show all</a></p>
+</section>
