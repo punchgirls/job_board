@@ -1,6 +1,6 @@
 var form = document.getElementsByClassName('payment-details')[0];
 var paymentFrm = document.getElementById('paymentFrm');
-var errors = document.getElementById('errors');
+var errors = document.getElementById('notices');
 var button = document.getElementById('button');
 var digits = document.getElementById('digits');
 

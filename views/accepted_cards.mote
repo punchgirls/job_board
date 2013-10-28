@@ -1,6 +1,4 @@
-<span id="errors"></span><br/>
-
-<label>We accept the following credit cards:</label><br/>
+<p>We accept the following credit cards:</p>
 
 <ul id="accepted_cards" style="padding-left: 0px;">
   <li><img src="/img/cards/Visa.png"></li>

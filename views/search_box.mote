@@ -15,6 +15,6 @@
 
   <input id ="checkbox" type="checkbox" name="post[remote]" value="true">Remote<br/>
 
-  <button type="submit">Search</button>
+  <button type="submit">search</button>
 </form>
 <p><a href="/search?all=true">Show all</a></p>

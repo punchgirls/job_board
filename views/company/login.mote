@@ -1,27 +1,29 @@
-<h2>Already registered? Log in here!</h2>
+<section>
+  <h1>Already registered? Log in here!</h1>
 
-<form action="/login" method="POST">
-  <input type="text" name="company[email]" placeholder="E-mail" value="{{ user }}"><br/>
+  <form action="/login" method="POST">
+    <input type="email" name="company[email]"
+    placeholder="E-mail" value="{{ user }}"><br/>
 
-  <input type="password" name="company[password]" placeholder="Password"><br/>
+    <input type="password" name="company[password]"
+    placeholder="Password"><br/>
 
-  <a href="/forgot-password">I forgot my password</a><br/>
+    <a href="/forgot-password">I forgot my password</a>
+    <br/>
 
-  <label for="remember">Remember me</label>
-  <input type="checkbox" name="company[remember]" value="1" id="remember">
+    <label for="remember">Remember me</label>
+    <input type="checkbox" name="company[remember]"
+    value="1" id="remember">
 
-  <button type="submit">Login</button>
-</form>
-
-<hr/>
-
-<h3>Need an account?</h3>
-
-<div>
-  <form action="/package" method="POST">
-
-    {{ this.partial("packages") }}
-
-    <button type="submit">SIGN UP!</button>
+    <button type="submit">LOGIN</button>
   </form>
-</div>
+</section>
+
+<section>
+  <h1>Need an account?</h1>
+
+  <form action="/package" method="POST">
+    {{ this.partial("packages") }}
+    <button type="submit">GET STARTED!</button>
+  </form>
+</section>

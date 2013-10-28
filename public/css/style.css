@@ -1,4 +1,4 @@
-body, h1, h2, h3, h4, h5, h6, p, input, ul, li, a {
+/*body, h1, h2, h3, h4, h5, h6, p, input, ul, li, a {
   margin: 0;
   padding: 0;
 }
@@ -42,7 +42,7 @@ p {
 
 a, a:visited {
   color: #4d4d4d;
-  /*text-decoration: none;*/
+  text-decoration: none;
 }
 
 a:hover, a:active {
@@ -52,14 +52,14 @@ a:hover, a:active {
 
 ul {
   list-style: none;
-}
+}*/
 
-::-webkit-input-placeholder { font-style: italic; }
-::-moz-placeholder { font-style: italic; } /* firefox 19+ */
-:-ms-input-placeholder { font-style: italic; } /* ie */
-input:-moz-placeholder { font-style: italic; }
+/*::-webkit-input-placeholder { font-style: italic; }*/
+/*::-moz-placeholder { font-style: italic; } /* firefox 19+ */*/
+/*:-ms-input-placeholder { font-style: italic; } /* ie */*/
+/*input:-moz-placeholder { font-style: italic; }*/
 
-h2 {
+/*h2 {
   font-size: 0.9em;
   margin: 8% 0;
 }
@@ -108,11 +108,11 @@ input#checkbox {
 
 #avatar {
   display: none;
-}
+}*/
 
 /* INPUT TOKENS */
 
-#autocomplete {
+/*#autocomplete {
   position: relative;
   display: none;
   width: 99%;
@@ -172,10 +172,10 @@ input#checkbox {
 #tokens #token-input {
   background-color: white;
 }
-
+*/
 /* GOOGLE PLACES AUTOCOMPLETE */
 
-#searchTextField {
+/*#searchTextField {
   width: 95%;
   min-height: 19px;
   margin: 0 0 5% 0;
@@ -196,4 +196,4 @@ input#checkbox {
 
 @media only screen and (min-width: 769px) {
   // desktop styles go here
-}
+}*/

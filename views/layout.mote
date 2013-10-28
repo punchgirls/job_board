@@ -11,45 +11,53 @@
   </head>
   <body>
     <header>
-     <h1><a href="/">JOB BOARD<span></span></a></h1>
+     <h1><a href="/">job board<span></span></a></h1>
       <nav>
           <ul>
             % if user
               % if !user.instance_of?(Developer)
-                <li><a href="/dashboard">DASHBOARD</a></li>
+                <li><a href="/dashboard">dashboard</a></li>
               % end
               % if !user.instance_of?(Company)
-                <li><a href="/search">SEARCH</a></li>
+                <li><a href="/search">search</a></li>
               % end
               % if !user.instance_of?(Admin)
                 <li><a href="/profile">
               % end
               % if user.instance_of?(Developer)
-                <img id="avatar" src="http://www.gravatar.com/avatar/{{ user.avatar }}" />{{ user.username.upcase }}</a></li>
+                <img id="avatar" src="http://www.gravatar.com/avatar/{{ user.avatar }}" />{{ user.username}}</a></li>
               % end
               % if user.instance_of?(Company)
-                {{ user.name.upcase }}</a></li>
+                {{ user.name}}</a></li>
               % end
-              <li><a href="/logout">LOGOUT</a></li>
+              <li><a href="/logout">logout</a></li>
             % elsif !user.instance_of?(Admin)
-              <li><a href="/github_oauth">GITHUB LOGIN</a></li>
-              <li><a href="/login">COMPANY LOGIN/SIGNUP</a></li>
+              <li><a href="/github_oauth">github login</a></li>
+              <li><a href="/login">company login/signup</a></li>
             % end
           </ul>
         </nav>
     </header>
-    <section>
-      % if user.instance_of?(Developer)
+
+    % if user.instance_of?(Developer)
+      <section>
         <nav>
           <ul>
-            <li><a href="/applications">My applications</a></li>
-            <li><a href="/favorites">My favorites</a></li>
+            <li><a href="/applications">my applications</a></li>
+            <li><a href="/favorites">my favorites</a></li>
           </ul>
         </nav>
-      % end
+      </section>
+    % end
+
+    <span id="notices">
       {{ this.partial("notices", session: this.session) }}
-      {{ content }}
-    </section>
+    </span><br/>
+    {{ content }}
+
+    <footer>
+      JobBoard!
+    </footer>
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 

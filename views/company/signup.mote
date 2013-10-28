@@ -17,29 +17,30 @@
   <p>Passwords don't match</p>
 % end
 
-<h2>Sign up now to start posting jobs!</h2>
+<section>
+  <h2>Almost there, sign up and start posting jobs!</h2>
 
-<form action="/signup" method="POST" class="payment-details">
+  <form action="/signup" method="POST" class="payment-details">
 
-  <input type="text" name="company[name]" placeholder="Company name"
-  value="{{ company['name'] }}"><br/>
+    <input type="text" name="company[name]" placeholder="Company name"
+    value="{{ company['name'] }}"><br/>
 
-  <input type="text" name="company[email]" placeholder="E-email"
-  value="{{ company['email'] }}"><br/>
+    <input type="email" name="company[email]" placeholder="E-email"
+    value="{{ company['email'] }}"><br/>
 
-  <input type="text" name="company[url]" placeholder="URL"
-  value="{{ company['url'] }}"><br/>
+    <input type="url" name="company[url]" placeholder="URL"
+    value="{{ company['url'] }}"><br/>
 
-  <input type="password" name="company[password]" placeholder="Password"><br/>
+    <input type="password" name="company[password]" placeholder="Password"><br/>
 
-  <input type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
+    <input type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
 
-  {{ this.partial("accepted_cards") }}
+    {{ this.partial("accepted_cards") }}
 
-  {{ this.partial("new_card") }}
+    {{ this.partial("new_card") }}
 
-  {{ this.partial("packages") }}
+    {{ this.partial("packages") }}
 
-  {{ this.partial("button") }}
-
-</form>
+    {{ this.partial("button") }}
+  </form>
+</section>
