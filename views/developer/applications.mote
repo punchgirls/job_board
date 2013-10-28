@@ -57,7 +57,7 @@
 
           {{ this.partial("apply", post: post, developer: developer) }}
 
-          <i onclick="removeApplication({{ application.id }})" class="fa fa-trash-o red"></i>
+          <i onclick="removeApplication({{ application.id }})" class="fa fa-trash-o"></i>
 
           <footer>
             <ul>
