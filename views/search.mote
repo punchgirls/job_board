@@ -35,7 +35,10 @@
                   </li>
                 </ul>
               </section>
-              {{ this.partial("apply", post: post, developer: developer) }}
+              <section>
+                {{ this.partial("apply", post: post, developer: developer) }}
+                {{ this.partial("favorite", post: post, developer: developer) }}
+              </section>
               <footer>
                 <ul>
                   <li>
