@@ -1,0 +1,37 @@
+<section>
+  % if developer.nil?
+    <a href="/apply/{{ post.id }}" class="cursor">
+      apply
+    </a>
+  % elsif developer && developer.applied?(post.id)
+      applied
+
+      % application = Application.find(:post_id => post.id, :developer_id => developer.id).first
+
+      % no_message = application.message.nil?
+      % if no_message
+        <span onclick="addMsg({{ post.id }})" id="addMsg_{{ post.id }}">Add a message</span>
+        <span id="message_{{ post.id }}" class="hidden">
+          {{ this.partial("message_form", post: post,
+          developer: developer) }}
+        </span>
+      % end
+  % else
+    <span onclick="apply({{ post.id }})" id="apply_{{ post.id }}" class="cursor">apply</span>
+    <span onclick="addMsg({{ post.id }})" id="addMsg_{{ post.id }}"></span>
+    <span id="message_{{ post.id }}" class="hidden">
+      {{ this.partial("message_form", post: post,
+      developer: developer) }}
+    </span>
+  % end
+
+  % if developer.nil?
+    <a href="/favorite/{{ post.id }}">
+      <i class="fa fa-star"></i>
+    </a>
+  % elsif developer && developer.favorites.member?(post)
+    <i onclick="favoritePost({{ post.id }})" id="{{ post.id }}" class="fa fa-star red"></i>
+  % else
+    <i onclick="favoritePost({{ post.id }})" id="{{ post.id }}" class="fa fa-star"></i>
+  % end
+</section>
