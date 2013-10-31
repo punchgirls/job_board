@@ -33,7 +33,7 @@ ul {
 input:-moz-placeholder { font-style: italic; }
 
 h1 {
-  font-size: 0.8em;
+  font-size: 1.2em;
 }
 
 #tagline {
@@ -164,6 +164,45 @@ nav a, nav a:visited {
   background: #ffaa4e;
 }
 
+/* FOOTER */
+
+footer {
+  background-color: #313131;
+  margin: 0 -0.5em -0.7em;
+  padding: 1.2em 0.8em;
+  color: #fff;
+}
+
+footer h1 {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  margin-bottom: 0.4em;
+}
+
+footer ul li {
+  font-size: 0.8em;
+}
+
+footer a, footer a:visited {
+  color: #fff;
+}
+
+#social_icons {
+  clear: both;
+  margin-bottom: 0.3em;
+  font-size: 2em;
+}
+
+#social_icons li {
+  margin-right: 0.4em;
+  display: inline;
+}
+
+footer p {
+  font-size: 0.7em;
+}
+
+
 /* INPUT TOKENS */
 
 #autocomplete {
@@ -238,13 +277,7 @@ nav a, nav a:visited {
 
 /* MEDIA QUERIES */
 
-@media only screen and (min-width: 300px) {
-  h2 {
-    font-size: 1.2em;
-  }
-}
-
-@media only screen and (min-width: 481px) {
+@media only screen and (min-width: 480px) {
   // tablet styles go here
 }
 
