@@ -84,7 +84,7 @@ a.button:hover, a.buttons:active {
   display: none;
 }
 
-#search_form span, #search_form a {
+#remote, #search_form a {
   font-size: 0.8em;
   color: #7a7a7a;
 }
@@ -98,12 +98,12 @@ a.button:hover, a.buttons:active {
   text-decoration: none;
 }
 
-#checkbox, #search_form span {
+#checkbox, #remote {
   vertical-align: middle;
   float: left;
 }
 
-#search_form span {
+#remote {
   margin-left: 0.3em;
 }
 
@@ -194,6 +194,7 @@ nav a, nav a:visited {
 }
 
 #tokens {
+  color: #ffffff;
   padding: 0.3em;
   overflow: hidden;
   border: solid 1px #cccccc;
@@ -210,7 +211,6 @@ nav a, nav a:visited {
 #tokens li {
   display: inline-block;
   background: #ffaa4e;
-  color: #ffffff;
   font-weight: bold;
   font-size: 0.9em;
   border-radius: 3px;
