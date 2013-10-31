@@ -65,9 +65,9 @@ function addToken(value) {
   x.appendChild(document.createTextNode(" X "));
   token.appendChild(x);
 
-  token.style.padding = "2%";
-  token.style.margin = "0 4px 4px 0";
-  tokens.style.padding = "1% 3% 0 1%";
+  token.style.padding = "0.2em";
+  token.style.margin = "0 0.3em 0.1em 0";
+  tokens.style.padding = "0.2em";
 
   var listItems = tokens.getElementsByTagName("li");
   var lastChild = listItems[listItems.length - 1];
@@ -86,7 +86,7 @@ function deleteToken(token) {
   console.log(tokens.childNodes);
 
   if(tokens.childNodes.length == 3) {
-    tokens.style.padding = "2%";
+    tokens.style.padding = "0.3em";
     searchInput.setAttribute("placeholder", "Programming language or skill...");
     searchInput.style.width = "300px"
   }

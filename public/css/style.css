@@ -41,7 +41,27 @@ h1 {
 }
 
 hr {
-  margin: 1em 0;
+  margin: 1.6em 0;
+  width: 100%;
+  height: 1px;
+  border: none;
+  background: #ddd;
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      right bottom,
+      color-stop(0, rgb(255,255,255)),
+      color-stop(0.1, rgb(221,221,221)),
+      color-stop(0.9, rgb(221,221,221)),
+      color-stop(1, rgb(255,255,255))
+  );
+  background-image: -moz-linear-gradient(
+      left center,
+      rgb(255,255,255) 0%,
+      rgb(221,221,221) 10%,
+      rgb(221,221,221) 90%,
+      rgb(255,255,255) 100%
+  );
 }
 
 button {
@@ -153,11 +173,11 @@ nav a, nav a:visited {
 
 #engage p {
   font-size: 0.9em;
-  margin-bottom: 0.4em;
+  margin-bottom: 0.8em;
 }
 
 #engage section {
-  margin-bottom: 1.2em;
+  margin-bottom: 1.6em;
 }
 
 #engage .button {
@@ -181,6 +201,7 @@ footer h1 {
 
 footer ul li {
   font-size: 0.8em;
+  margin-bottom: 0.3em;
 }
 
 footer a, footer a:visited {
@@ -267,10 +288,11 @@ footer p {
 /* GOOGLE PLACES AUTOCOMPLETE */
 
 #searchTextField {
-  width: 95%;
-  min-height: 19px;
+  width: 100%;
+  line-height: 21px;
+  box-sizing: border-box;
+  padding: 0.3em;
   margin: 0.6em 0 0.8em 0;
-  padding: 2%;
   border: 1px solid #ccc;
   outline: none;
 }
