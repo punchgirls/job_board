@@ -53,6 +53,7 @@
     <span id="notices">
       {{ this.partial("notices", session: this.session) }}
     </span><br/>
+
     {{ content }}
 
     <footer>

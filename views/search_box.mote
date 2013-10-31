@@ -1,4 +1,4 @@
-<section>
+<section id="search_form">
   <form name="postFrm" action="/search" method="GET">
     <ul id="tokens">
       <li id="token-input">
@@ -6,7 +6,7 @@
       </li>
     </ul>
     <ul id="autocomplete"></ul>
-    <input type="hidden" id="query" name="post[tags]" value=""><br/>
+    <input type="hidden" id="query" name="post[tags]" value="">
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
@@ -14,9 +14,9 @@
 
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
-    <input id ="checkbox" type="checkbox" name="post[remote]" value="true">Remote<br/>
+    <input id="checkbox" type="checkbox" name="post[remote]" value="true"> <span>Remote</span>
+    <a href="/search?all=true">Show all</a>
 
     <button type="submit">search</button>
   </form>
-  <p><a href="/search?all=true">Show all</a></p>
 </section>

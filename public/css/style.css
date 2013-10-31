@@ -1,43 +1,16 @@
-/*body, h1, h2, h3, h4, h5, h6, p, input, ul, li, a {
+body, h1, h2, h3, h4, h5, h6, p, input, ul, li, a {
   margin: 0;
   padding: 0;
 }
 
+/* GENERAL */
+
 body {
-  padding: 0 2%;
+  padding: 0.7em 0.5em;
   font-family: Arial, sans-serif;
   font-size: 1em;
   color: #4d4d4d;
   letter-spacing: 1px;
-}
-
-header h1 {
-  font-size: 1.4em;
-  font-weight: normal;
-  letter-spacing: 2px;
-  margin: 10% 0;
-}
-
-header h1 a, header h1 a:hover {
-  color: #2c3e50;
-  text-decoration: none;
-}
-
-header h1 a span {
-  color: #95a5a6;
-}
-
-nav ul li {
-  font-size: 0.9em;
-  margin: 5% 0;
-}
-nav a, nav a:visited {
-  color: #ffaa4e;
-  text-decoration: none;
-}
-
-p {
-  margin: 5% 0;
 }
 
 a, a:visited {
@@ -52,21 +25,25 @@ a:hover, a:active {
 
 ul {
   list-style: none;
-}*/
+}
 
-/*::-webkit-input-placeholder { font-style: italic; }*/
-/*::-moz-placeholder { font-style: italic; } /* firefox 19+ */*/
-/*:-ms-input-placeholder { font-style: italic; } /* ie */*/
-/*input:-moz-placeholder { font-style: italic; }*/
+::-webkit-input-placeholder { font-style: italic; }
+::-moz-placeholder { font-style: italic; } /* firefox 19+ */
+:-ms-input-placeholder { font-style: italic; } /* ie */
+input:-moz-placeholder { font-style: italic; }
 
-/*h2 {
-  font-size: 0.9em;
-  margin: 8% 0;
+h1 {
+  font-size: 0.8em;
+  margin-bottom: 1em;
+}
+
+button {
+  height: 35px;
+  padding: 0 1em;
 }
 
 button, a.button {
-  display: block;
-  margin: 5% auto;
+  margin: 0 auto;
   background-color: #66ccff;
   color: #fff;
   font-weight: bold;
@@ -80,17 +57,8 @@ button, a.button {
   cursor: hand;
 }
 
-button {
-  height: 35px;
-  padding: 0 3%;
-}
-
 a.button {
-  width: 60%;
-  padding: 1% 3%;
   text-align: center;
-  height: 27px;
-  line-height: 27px;
 }
 
 a.button, a.button:visited {
@@ -102,20 +70,63 @@ a.button:hover, a.buttons:active {
   color: #fff;
 }
 
-input#checkbox {
-  margin: 2% 2% 2% 0;
-}
-
 #avatar {
   display: none;
-}*/
+}
+
+#search_form span, #search_form a {
+  font-size: 0.8em;
+  color: #7a7a7a;
+}
+
+#search_form a, #search_form a:visited {
+  float: right;
+  text-decoration: underline;
+}
+
+#search_form a:hover, #search_form a:active {
+  text-decoration: none;
+}
+
+#checkbox {
+  vertical-align: middle;
+}
+
+/* HEADER */
+
+header h1 {
+  margin-bottom: 0.5em;
+  font-size: 1.6em;
+  font-weight: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+header h1 a, header h1 a:hover {
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+header h1 a span {
+  color: #95a5a6;
+}
+
+nav ul li {
+  font-size: 0.85em;
+  text-transform: uppercase;
+  margin-bottom: 0.4em;
+}
+
+nav a, nav a:visited {
+  color: #ffaa4e;
+  text-decoration: none;
+}
 
 /* INPUT TOKENS */
 
-/*#autocomplete {
+#autocomplete {
   position: relative;
   display: none;
-  width: 99%;
   border: solid 1px #cccccc;
   overflow-y: scroll;
   height: 200px;
@@ -123,8 +134,8 @@ input#checkbox {
 
 #autocomplete li {
   list-style: none;
-  margin: 2% 0;
-  padding: 2%;
+  padding: 0.3em;
+  font-size: 0.9em;
 }
 
 #autocomplete li:hover,
@@ -141,8 +152,7 @@ input#checkbox {
 }
 
 #tokens {
-  width: 95%;
-  padding: 2%;
+  padding: 0.3em;
   overflow: hidden;
   border: solid 1px #cccccc;
   cursor: text;
@@ -172,17 +182,19 @@ input#checkbox {
 #tokens #token-input {
   background-color: white;
 }
-*/
+
 /* GOOGLE PLACES AUTOCOMPLETE */
 
-/*#searchTextField {
+#searchTextField {
   width: 95%;
   min-height: 19px;
-  margin: 0 0 5% 0;
+  margin: 0.6em 0;
   padding: 2%;
   border: 1px solid #ccc;
   outline: none;
 }
+
+/* MEDIA QUERIES */
 
 @media only screen and (min-width: 300px) {
   h2 {
@@ -196,4 +208,4 @@ input#checkbox {
 
 @media only screen and (min-width: 769px) {
   // desktop styles go here
-}*/
+}
