@@ -1,29 +1,31 @@
 <section>
-  <h1>Already registered? Log in here!</h1>
+  <h1>Already registered?</h1>
 
   <form action="/login" method="POST">
-    <input type="email" name="company[email]"
+    <input class="input_field" type="email" name="company[email]"
     placeholder="E-mail" value="{{ user }}"><br/>
 
-    <input type="password" name="company[password]"
+    <input class="input_field" type="password" name="company[password]"
     placeholder="Password"><br/>
 
-    <a href="/forgot-password">I forgot my password</a>
+    <label>
+      <input type="checkbox" name="company[remember]" value="1" id="remember"> <span class="checkbox_label">Remember me</span>
+    </label>
+
+    <a href="/forgot-password">Forgot password?</a>
     <br/>
 
-    <label for="remember">Remember me</label>
-    <input type="checkbox" name="company[remember]"
-    value="1" id="remember">
-
-    <button type="submit">LOGIN</button>
+    <button type="submit">login</button>
   </form>
 </section>
 
-<section>
+<hr/>
+
+<section id="packages">
   <h1>Need an account?</h1>
 
   <form action="/package" method="POST">
     {{ this.partial("packages") }}
-    <button type="submit">GET STARTED!</button>
+    <button type="submit">get started!</button>
   </form>
 </section>

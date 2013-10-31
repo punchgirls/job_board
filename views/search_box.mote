@@ -10,12 +10,13 @@
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-    <input id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
+    <input class="input_field" id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
 
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
     <label>
-      <input id="checkbox" type="checkbox" name="post[remote]" value="true"> <span id="remote">Remote</span>
+      <input type="checkbox" name="post[remote]" value="true">
+      <span class="checkbox_label">Remote</span>
     </label>
 
     <a href="/search?all=true">Show all</a>
