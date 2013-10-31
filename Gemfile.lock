@@ -63,7 +63,7 @@ GEM
     rvm (1.11.3.8)
     sc (0.0.1)
     scrivener (0.0.3)
-    shield (2.1.0, 2.0.0)
+    shield (2.1.0)
       armor
       armor
     shotgun (0.9)
