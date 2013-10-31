@@ -1,4 +1,4 @@
-body, h1, h2, h3, h4, h5, h6, p, input, ul, li, a {
+body, h1, h2, h3, h4, h5, h6, p, input, ul, li, a, hr {
   margin: 0;
   padding: 0;
 }
@@ -34,7 +34,14 @@ input:-moz-placeholder { font-style: italic; }
 
 h1 {
   font-size: 0.8em;
+}
+
+#tagline {
   margin-bottom: 1em;
+}
+
+hr {
+  margin: 1em 0;
 }
 
 button {
@@ -43,8 +50,9 @@ button {
 }
 
 button, a.button {
+  display: block;
   margin: 0 auto;
-  background-color: #66ccff;
+  background-color: #0a6eca;
   color: #fff;
   font-weight: bold;
   font-size: 1.2em;
@@ -58,7 +66,9 @@ button, a.button {
 }
 
 a.button {
+  width: 80%;
   text-align: center;
+  padding: 0.35em 0;
 }
 
 a.button, a.button:visited {
@@ -88,8 +98,18 @@ a.button:hover, a.buttons:active {
   text-decoration: none;
 }
 
-#checkbox {
+#checkbox, #search_form span {
   vertical-align: middle;
+  float: left;
+}
+
+#search_form span {
+  margin-left: 0.3em;
+}
+
+#search_form button {
+  clear: both;
+  margin-top: 1.6em;
 }
 
 /* HEADER */
@@ -120,6 +140,28 @@ nav ul li {
 nav a, nav a:visited {
   color: #ffaa4e;
   text-decoration: none;
+}
+
+#engage {
+  text-align: center;
+}
+
+#engage h1 {
+  text-transform: uppercase;
+  margin-bottom: 0.3em;
+}
+
+#engage p {
+  font-size: 0.9em;
+  margin-bottom: 0.4em;
+}
+
+#engage section {
+  margin-bottom: 1.2em;
+}
+
+#engage .button {
+  background: #ffaa4e;
 }
 
 /* INPUT TOKENS */
@@ -188,7 +230,7 @@ nav a, nav a:visited {
 #searchTextField {
   width: 95%;
   min-height: 19px;
-  margin: 0.6em 0;
+  margin: 0.6em 0 0.8em 0;
   padding: 2%;
   border: 1px solid #ccc;
   outline: none;

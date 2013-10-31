@@ -14,7 +14,10 @@
 
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
-    <input id="checkbox" type="checkbox" name="post[remote]" value="true"> <span>Remote</span>
+    <label>
+      <input id="checkbox" type="checkbox" name="post[remote]" value="true"> <span>Remote</span>
+    </label>
+
     <a href="/search?all=true">Show all</a>
 
     <button type="submit">search</button>

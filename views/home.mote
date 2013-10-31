@@ -1,5 +1,5 @@
 <section>
-  <h1>Let your code speak for you</h1>
+  <h1 id="tagline">Let your code speak for you</h1>
 </section>
 
 {{ this.partial("search_box") }}
@@ -7,16 +7,16 @@
 <hr/>
 
 % if !this.current_user
-  <section>
-    <div>
-      <p>Companies</p>
+  <section id="engage">
+    <section>
+      <h1>Companies</h1>
       <p>Sign up and start posting job offers!</p>
       <a class="button" href="/signup">get started!</a>
-    </div>
-    <div>
-      <p>Developers</p>
+    </section>
+    <section>
+      <h1>Developers</h1>
       <p>Log in and find your next job!</p>
       <a class="button" href="/github_oauth">login</a>
-    </div>
+    </section>
   </section>
 % end
