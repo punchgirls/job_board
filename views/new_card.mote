@@ -1,14 +1,14 @@
 <div id="digits">
-  <label>Card Number</label>
-  <input type="text" size="20" maxlength="16" placeholder="**** **** **** ****" data-stripe="number"/><br/>
+  <input class="input_field" type="text" size="20" maxlength="16" placeholder="Credit card number" data-stripe="number"/><br/>
 
-  <label>CVC</label>
-  <input type="text" size="4" maxlength="4" data-stripe="cvc"/>
+  <input class="input_field input_field_short" type="text" size="4" maxlength="4" placeholder="CVC" data-stripe="cvc"/>
 
-  <label>Expiration (MM/YY)</label>
-  <input type="text" size="2" maxlength="2" data-stripe="exp-month"/>
-  <span> / </span>
-  <input type="text" size="2" maxlength="2" data-stripe="exp-year"/>
+  <div class="float_right">
+    <label>Expires on</label>
+    <input class="input_field input_field_short" type="text" size="2" maxlength="2" placeholder="MM" data-stripe="exp-month"/>
+    <span> / </span>
+    <input class="input_field input_field_short" type="text" size="2" maxlength="2" placeholder="YY" data-stripe="exp-year"/>
+  </div>
 </div><br/>
 
 

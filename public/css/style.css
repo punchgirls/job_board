@@ -1,4 +1,4 @@
-body, h1, h2, h3, h4, h5, h6, p, input, ul, li, a, hr {
+body, h1, h2, h3, h4, h5, h6, div, p, input, ul, li, a, hr {
   margin: 0;
   padding: 0;
 }
@@ -129,7 +129,7 @@ form button {
   margin-top: 1.6em;
 }
 
-#packages label {
+.packages label {
   text-align: right;
   display: block;
   border: 1px solid #ffaa4e;
@@ -141,17 +141,13 @@ form button {
   line-height: 20px;
 }
 
-#packages input[type="radio"] {
+.packages input[type="radio"] {
   vertical-align: middle;
 }
 
 .package_name {
   float: left;
   text-transform: uppercase;
-}
-
-.price {
-
 }
 
 /* HEADER */
@@ -210,7 +206,7 @@ nav a, nav a:visited {
 
 footer {
   background-color: #313131;
-  margin: 0 -0.5em -0.7em;
+  margin: 1.6em -0.5em -0.7em;
   padding: 1.2em 0.8em;
   color: #fff;
 }
@@ -321,6 +317,27 @@ footer p {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+}
+
+.input_field_short {
+  width: 18%;
+}
+
+#accepted_cards {
+  margin: 1em 0;
+}
+
+#accepted_cards li {
+  display: inline;
+}
+
+#accepted_cards img {
+  width: 45px;
+}
+
+.float_right {
+  text-align: right;
+  float: right;
 }
 
 /* MEDIA QUERIES */

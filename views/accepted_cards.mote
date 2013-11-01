@@ -1,6 +1,6 @@
 <p>We accept the following credit cards:</p>
 
-<ul id="accepted_cards" style="padding-left: 0px;">
+<ul id="accepted_cards">
   <li><img src="/img/cards/Visa.png"></li>
   <li><img src="/img/cards/MasterCard.png"></li>
   <li><img src="/img/cards/American Express.png"></li>

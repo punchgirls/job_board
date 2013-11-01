@@ -21,7 +21,7 @@
 
 <hr/>
 
-<section id="packages">
+<section class="packages">
   <h1>Need an account?</h1>
 
   <form action="/package" method="POST">
