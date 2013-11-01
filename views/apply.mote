@@ -1,5 +1,5 @@
 % if developer.nil?
-  <a href="/apply/{{ post.id }}" class="cursor">
+  <a class="button_apply" href="/apply/{{ post.id }}" class="cursor">
     apply
   </a>
 % elsif developer && developer.applied?(post.id)
@@ -16,7 +16,7 @@
       </span>
     % end
 % else
-  <span onclick="apply({{ post.id }})" id="apply_{{ post.id }}" class="cursor">apply</span>
+  <span class="button_apply" onclick="apply({{ post.id }})" id="apply_{{ post.id }}" class="cursor">apply</span>
   <span onclick="addMsg({{ post.id }})" id="addMsg_{{ post.id }}"></span>
   <span id="message_{{ post.id }}" class="hidden">
     {{ this.partial("message_form", post: post,

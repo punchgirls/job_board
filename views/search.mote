@@ -3,13 +3,16 @@
 {{ this.partial("search_box") }}
 
 % if posts.nil?
+  <hr/>
   <p>Start searching by adding keywords.</p>
 % elsif posts.empty?
+  <hr/>
   <p>No posts matched your search. Try again!</p>
 % else
     <ul>
       % posts.each do |post|
         % if !post.expired?
+          <hr/>
           <li>
             <article>
               <header>
@@ -18,14 +21,13 @@
                 <h2>{{ post.title.encode(xml: :text) }}</h2>
                 <ul>
                   % post.tags.split(", ").each do |tag|
-                    <li>{{ tag }}</li>
+                    <li class="tag">{{ tag }}</li>
                   % end
                 </ul>
               </header>
-              <p>{{ post.description.encode(xml: :text) }}</p>
-              <section>
+              <section class="location">
                 <ul>
-                  <li>{{ post.location }}</li>
+                  <li class="float_left">{{ post.location }}</li>
                   <li>
                     % if post.remote == "true"
                       <i class="fa fa-globe"></i> Remote work OK
@@ -35,6 +37,7 @@
                   </li>
                 </ul>
               </section>
+              <p>{{ post.description.encode(xml: :text) }}</p>
               <section>
                 {{ this.partial("apply", post: post, developer: developer) }}
                 {{ this.partial("favorite", post: post, developer: developer) }}
@@ -42,7 +45,7 @@
               <footer>
                 <ul>
                   <li>
-                    <time datetime="" pubdate>Posted on {{ post.posted }}
+                    <time class="float_left" datetime="" pubdate>Posted on {{ post.posted }}
                     </time>
                   </li>
                   <li>
@@ -60,7 +63,6 @@
               </footer>
             </article>
           </li>
-          <hr/>
         % end
       % end
     </ul>

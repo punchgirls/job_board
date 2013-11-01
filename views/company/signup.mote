@@ -18,7 +18,7 @@
 % end
 
 <section>
-  <h1>Almost there, sign up and start posting jobs!</h1>
+  <h1>Sign up and start posting!</h1>
 
   <form action="/signup" method="POST" class="payment-details">
 

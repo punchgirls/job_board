@@ -95,10 +95,10 @@ function addNote (id) {
 }
 
 function favorite (icon) {
-  if (icon.className === "icon-heart red") {
-    icon.className = "icon-heart";
+  if (icon.className === "fa fa-star favorite cursor") {
+    icon.className = "fa fa-star-o favorite cursor";
   } else {
-    icon.className = "icon-heart red";
+    icon.className = "fa fa-star favorite cursor";
   }
 }
 
