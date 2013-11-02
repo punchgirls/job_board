@@ -1,0 +1,13 @@
+% if developer && developer.applied?(post.id)
+
+    % application = Application.find(:post_id => post.id, :developer_id => developer.id).first
+
+    % if application && application.message.nil?
+      <span class="add_message cursor" onclick="addMsg({{ post.id }})" id="addMsg_{{ post.id }}">Add a message?</span>
+
+      {{ this.partial("message_form", post: post, developer: developer) }}
+    % end
+% else
+  <span onclick="addMsg({{ post.id }})" id="addMsg_{{ post.id }}"></span>
+  {{ this.partial("message_form", post: post, developer: developer) }}
+% end

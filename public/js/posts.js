@@ -19,8 +19,9 @@ function apply (id) {
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
       post.innerHTML = "APPLIED";
-      post.removeAttribute("class");
-      addMsg.innerHTML = "Add a message";
+      post.setAttribute("class", "button_applied");
+      addMsg.innerHTML = "Add a message?";
+      addMsg.setAttribute("class", "cursor");
     }
   };
 
@@ -95,10 +96,10 @@ function addNote (id) {
 }
 
 function favorite (icon) {
-  if (icon.className === "fa fa-star favorite cursor") {
-    icon.className = "fa fa-star-o favorite cursor";
-  } else {
+  if (icon.className === "fa fa-star favorited cursor") {
     icon.className = "fa fa-star favorite cursor";
+  } else {
+    icon.className = "fa fa-star favorited cursor";
   }
 }
 

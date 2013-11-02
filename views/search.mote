@@ -40,7 +40,10 @@
               <p>{{ post.description.encode(xml: :text) }}</p>
               <section>
                 {{ this.partial("apply", post: post, developer: developer) }}
-                {{ this.partial("favorite", post: post, developer: developer) }}
+                {{ this.partial("favorite", post: post, developer: developer) }}<br>
+                % if this.current_developer
+                  {{ this.partial("add_message", post: post, developer: developer) }}
+                % end
               </section>
               <footer>
                 <ul>

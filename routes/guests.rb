@@ -230,6 +230,10 @@ class Guests < Cuba
     end
 
     on "github_login/:access_token" do |access_token|
+      apply_id = session[:apply_id]
+      query = session[:query]
+      favorite = session[:favorite_id]
+
       github_user = GitHub.fetch_user(access_token)
 
       developer = Developer.fetch(github_user["id"])
@@ -246,6 +250,9 @@ class Guests < Cuba
       authenticate(developer)
 
       session[:success] = "You have successfully logged in."
+      session[:apply_id] = apply_id
+      session[:favorite_id] = favorite
+      session[:query] = query
 
       res.redirect "/dashboard"
     end

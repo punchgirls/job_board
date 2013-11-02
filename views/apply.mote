@@ -3,23 +3,7 @@
     apply
   </a>
 % elsif developer && developer.applied?(post.id)
-    applied
-
-    % application = Application.find(:post_id => post.id, :developer_id => developer.id).first
-
-    % no_message = application.message.nil?
-    % if no_message
-      <span onclick="addMsg({{ post.id }})" id="addMsg_{{ post.id }}">Add a message</span>
-      <span id="message_{{ post.id }}" class="hidden">
-        {{ this.partial("message_form", post: post,
-        developer: developer) }}
-      </span>
-    % end
+    <span class="button_applied">applied</span>
 % else
   <span class="button_apply" onclick="apply({{ post.id }})" id="apply_{{ post.id }}" class="cursor">apply</span>
-  <span onclick="addMsg({{ post.id }})" id="addMsg_{{ post.id }}"></span>
-  <span id="message_{{ post.id }}" class="hidden">
-    {{ this.partial("message_form", post: post,
-    developer: developer) }}
-  </span>
 % end

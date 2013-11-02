@@ -71,7 +71,7 @@ button {
   padding: 0 1em;
 }
 
-button, a.button, .button_apply {
+button, a.button, .button_apply, .button_applied {
   display: block;
   margin: 0 auto;
   background-color: #0a6eca;
@@ -87,7 +87,7 @@ button, a.button, .button_apply {
   cursor: hand;
 }
 
-a.button, .button_apply {
+a.button, .button_apply, .button_applied {
   width: 80%;
   text-align: center;
   padding: 0.35em 0;
@@ -102,10 +102,16 @@ a.button:hover, a.buttons:active, a.button_apply:hover, a.button_apply:active {
   color: #fff;
 }
 
-.button_apply {
+.button_apply, .button_applied {
   width: 35%;
   margin: 1em 0;
   display: inline-block;
+}
+
+.button_applied {
+  width: 40%;
+  background: #ccc;
+  margin-bottom: 0.3em;
 }
 
 #avatar {
@@ -303,20 +309,49 @@ article p {
   vertical-align: middle;
 }
 
-.favorite {
+.fa-star {
   margin-left: 0.7em;
-  color: #ffea00;
   font-size: 2.4em;
   vertical-align: middle;
 }
 
+.favorite {
+  color: #ccc;
+}
+
+.favorited {
+  color: #ffea00;
+}
+
 article footer {
   font-size: 0.6em;
+  margin-top: 1.6em;
   text-align: right;
 }
 
 article footer li {
   display: inline;
+}
+
+.add_message {
+  font-size: 0.9em;
+  text-decoration: underline;
+}
+
+.add_message:hover {
+  text-decoration: none;
+}
+
+.message_form {
+  display: none;
+}
+
+.countdown {
+  font-size: 0.7em;
+}
+
+.message_form button {
+  margin: 0.7em 0;
 }
 
 /* INPUT TOKENS */
@@ -383,7 +418,7 @@ article footer li {
   background-color: white;
 }
 
-.input_field {
+.input_field, .message_form textarea {
   width: 100%;
   line-height: 20px;
   box-sizing: border-box;
@@ -394,6 +429,12 @@ article footer li {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+}
+
+.message_form textarea {
+  width: 40%;
+  margin-bottom: 0;
+  height: 10em;
 }
 
 .input_field_short {
