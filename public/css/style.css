@@ -114,6 +114,32 @@ a.button:hover, a.buttons:active, a.button_apply:hover, a.button_apply:active {
   margin-bottom: 0.3em;
 }
 
+.alert {
+  display: block;
+  padding: 0.5em 0;
+  margin: 1em 0 0 0;
+  background-color: #fcf8e3;
+  border: 1px solid #FAEEAF;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  color: #000;
+  font-size: 0.8em;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+.alert-success {
+  background-color: #59AB60;
+  border-color: #B4E3A1;
+}
+
+.alert-error {
+  background-color: #E65A5A;
+  border-color: #DEA2A2;
+}
+
 #avatar {
   display: none;
 }

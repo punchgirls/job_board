@@ -101,7 +101,7 @@ class Guests < Cuba
           session[:success] = "You have successfully logged in!"
           res.redirect "/dashboard"
         else
-          session[:error] = "Invalid email and/or password combination"
+          session[:error] = "Invalid email/password combination"
           render("company/login", title: "Login", user: user)
         end
       end
@@ -307,7 +307,7 @@ class Guests < Cuba
           session[:success] = "You have successfully logged in!"
           res.redirect "/dashboard"
         else
-          session[:error] = "Invalid email and/or password combination"
+          session[:error] = "Invalid email/password combination"
           render("admin/login", title: "Admin Login", admin: admin)
         end
       end
