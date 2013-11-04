@@ -116,7 +116,7 @@ a.button:hover, a.buttons:active, a.button_apply:hover, a.button_apply:active {
 
 .alert {
   display: block;
-  padding: 0.5em 0;
+  padding: 0.5em;
   margin: 1em 0 0 0;
   background-color: #fcf8e3;
   border: 1px solid #FAEEAF;
