@@ -1,21 +1,23 @@
-<h2>Almost there! Confirm your details to start applying for jobs!</h2>
+<section>
+  <h1>Please confirm your details!</h1>
 
-<img src="http://www.gravatar.com/avatar/{{ github_user['gravatar_id'] }}" />
+  <img id="avatar" src="http://www.gravatar.com/avatar/{{ github_user['gravatar_id'] }}" />
 
-<form action="/confirm" method="POST">
-  <label for="developer-name">Name:</label>
-  <input type="text" name="developer[name]" id="developer-name" value="{{ github_user['name'] }}"><br/>
+  <form action="/confirm" method="POST">
+    <input class="input_field" type="text" name="developer[name]" id="developer-name" value="{{ github_user['name'] }}"><br/>
 
-  <label for="developer-email">E-mail:</label>
-  <input type="text" name="developer[email]" id="developer-email" value="{{ github_user['email'] }}"><br/>
+    <input class="input_field" type="email" name="developer[email]" id="developer-email" value="{{ github_user['email'] }}"><br/>
 
-  <label for="developer-url">Website (optional):</label>
-  <input type="text" name="developer[url]" id="developer-url" value="{{ github_user['blog'] }}"><br/>
+    <input class="input_field" type="url" name="developer[url]" id="developer-url" value="{{ github_user['blog'] }}" placeholder="Website (optional)"><br/>
 
-  <label for="developer-bio">Bio (optional):</label><br>
-  <textarea name="developer[bio]" id="developer-bo" placeholder="A short bio that will be added to your applications"></textarea><br>
+    <textarea id="developer-bio" name="developer[bio]" id="developer-bo" placeholder="A short bio that will be added to your applications (optional)"
+    onkeyup="updateCountdownBio()" maxlength="200"></textarea><br>
 
-  <button type="submit">Confirm</button><br/>
-</form>
+    <span class="countdown" id="countdownBio">200 characters remaining.</span><br/>
 
-<script src="/js/limit_description.js"></script>
+    <button type="submit">Confirm</button><br/>
+  </form>
+
+  <script src="/js/limit_description.js"></script>
+
+</section>
