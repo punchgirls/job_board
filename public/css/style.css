@@ -141,7 +141,7 @@ a.button:hover, a.buttons:active, a.button_apply:hover, a.button_apply:active {
 }
 
 #avatar {
-  display: none;
+  margin: 0 auto;
 }
 
 .checkbox_label, form a, form a:visited {
@@ -449,7 +449,7 @@ article footer li {
   background-color: white;
 }
 
-.input_field, .message_form textarea {
+.input_field, textarea {
   width: 100%;
   line-height: 20px;
   box-sizing: border-box;
@@ -462,10 +462,10 @@ article footer li {
   border-radius: 3px;
 }
 
-.message_form textarea {
-  width: 40%;
+textarea {
+  width: 100%;
   margin-bottom: 0;
-  height: 10em;
+  height: 6em;
 }
 
 .input_field_short {
