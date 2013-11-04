@@ -233,6 +233,7 @@ class Guests < Cuba
       apply_id = session[:apply_id]
       query = session[:query]
       favorite = session[:favorite_id]
+      origin = session[:origin]
 
       github_user = GitHub.fetch_user(access_token)
 
@@ -253,11 +254,17 @@ class Guests < Cuba
       session[:apply_id] = apply_id
       session[:favorite_id] = favorite
       session[:query] = query
+      session[:origin] = origin
 
       res.redirect "/dashboard"
     end
 
     on "confirm" do
+      apply_id = session[:apply_id]
+      query = session[:query]
+      favorite = session[:favorite_id]
+      origin = session[:origin]
+
       on post, param("developer") do |params|
         login = DeveloperLogin.new(params)
 
@@ -272,6 +279,11 @@ class Guests < Cuba
             avatar: session[:avatar])
 
           authenticate(developer)
+
+          session[:apply_id] = apply_id
+          session[:favorite_id] = favorite
+          session[:query] = query
+          session[:origin] = origin
 
           session[:success] = "You have successfully logged in!"
           res.redirect "/dashboard"
