@@ -38,6 +38,7 @@
                 </ul>
               </section>
               <p>{{ post.description.encode(xml: :text) }}</p>
+              % if !this.current_company
               <section>
                 {{ this.partial("apply", post: post, developer: developer) }}
                 {{ this.partial("favorite", post: post, developer: developer) }}<br>
@@ -45,6 +46,7 @@
                   {{ this.partial("add_message", post: post, developer: developer) }}
                 % end
               </section>
+              % end
               <footer>
                 <ul>
                   <li>
