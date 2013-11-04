@@ -1,5 +1,5 @@
 % if developer.nil?
-  <a href="/favorite/{{ post.id }}">
+  <a class="favorite" href="/favorite/{{ post.id }}">
     <i class="fa fa-star favorite cursor"></i>
   </a>
 % elsif developer && developer.favorites.member?(post)

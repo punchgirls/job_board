@@ -315,8 +315,13 @@ article p {
   vertical-align: middle;
 }
 
+a.favorite, a.favorite:hover {
+  text-decoration: none;
+}
+
 .favorite {
   color: #ccc;
+  text-decoration: none;
 }
 
 .favorited {
