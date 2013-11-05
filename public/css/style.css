@@ -177,6 +177,28 @@ form button {
   margin-top: 1.6em;
 }
 
+a#cancel {
+  margin: 0.5em 0.5em 1em 0;
+  display: inline-block;
+  float: none;
+  background: #ccc;
+  width: 5.5em;
+}
+
+#save {
+  display: inline-block;
+  margin: 0;
+  float: none;
+}
+
+a#delete {
+  float: none;
+  margin: 0;
+  font-size: 0.8em;
+  color: #7a7a7a;
+  text-decoration: underline;
+}
+
 .packages label {
   text-align: right;
   display: block;
