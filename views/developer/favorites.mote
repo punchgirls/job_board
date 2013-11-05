@@ -4,7 +4,7 @@
 {{ this.partial("search_box") }}
 
 <span>
-  <h1>Favorites</h1>
+  <h1>My favorites</h1>
 
   % if favorites.empty?
     <p>You have no favorite posts yet.</p>
@@ -20,14 +20,14 @@
                 <h2>{{ post.title.encode(xml: :text) }}</h2>
                 <ul>
                   % post.tags.split(", ").each do |tag|
-                    <li>{{ tag }}</li>
+                    <li class="tag">{{ tag }}</li>
                   % end
                 </ul>
               </header>
-              <p>{{ post.description.encode(xml: :text) }}</p>
-              <section>
+
+              <section class="location">
                 <ul>
-                  <li>{{ post.location }}</li>
+                  <li class="float_left">{{ post.location }}</li>
                   <li>
                     % if post.remote == "true"
                       <i class="fa fa-globe"></i> Remote work OK
@@ -37,11 +37,19 @@
                   </li>
                 </ul>
               </section>
+
+              <p>{{ post.description.encode(xml: :text) }}</p>
+
               {{ this.partial("apply", post: post, developer: developer) }}
+
+              {{ this.partial("favorite", post: post, developer: developer) }}<br>
+
+              {{ this.partial("developer/add_message", post: post, developer: developer) }}
+
               <footer>
                 <ul>
                   <li>
-                    <time datetime="" pubdate>Posted on {{ post.posted }}
+                    <time class="float_left" datetime="" pubdate>Posted on {{ post.posted }}
                     </time>
                   </li>
                   <li>

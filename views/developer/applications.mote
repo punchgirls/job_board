@@ -51,7 +51,7 @@
 
             <section>
               {{ this.partial("apply", post: post, developer: developer) }}
-              <i onclick="removeApplication({{ application.id }})" class="fa fa-trash-o"></i><br>
+              <i onclick="removeApplication({{ application.id }})" class="fa fa-trash-o cursor"></i><br>
               {{ this.partial("developer/add_message", post: post, developer: developer) }}
             </section>
 

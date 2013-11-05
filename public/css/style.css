@@ -83,8 +83,8 @@ button, a.button, .button_apply, .button_applied {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  cursor: pointer;
   cursor: hand;
+  cursor: pointer;
 }
 
 a.button, .button_apply, .button_applied {
@@ -112,6 +112,7 @@ a.button:hover, a.buttons:active, a.button_apply:hover, a.button_apply:active {
   width: 40%;
   background: #ccc;
   margin-bottom: 0.3em;
+  cursor:  default;
 }
 
 .alert {
