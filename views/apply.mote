@@ -5,5 +5,5 @@
 % elsif developer && developer.applied?(post.id)
     <span class="button_applied">applied</span>
 % else
-  <span class="button_apply" onclick="apply({{ post.id }})" id="apply_{{ post.id }}" class="cursor">apply</span>
+  <span class="button_apply cursor" onclick="apply({{ post.id }})" id="post_{{ post.id }}">apply</span>
 % end

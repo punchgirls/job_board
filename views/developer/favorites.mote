@@ -1,64 +1,67 @@
 % developer = this.current_developer
 % favorites = developer.favorites
 
-<h2>Favorites</h2>
 {{ this.partial("search_box") }}
 
-% if favorites.empty?
-  <p>You have no favorite posts yet.</p>
-% else
-  <ul>
-    % favorites.each do |post|
-      % if !post.expired?
-        <li>
-          <article>
-            <header>
-              <h1>{{ post.company.name.encode(xml: :text) }}</h1>
-              <a href="{{ post.company.url}}">{{ post.company.url.encode(xml: :text) }}</a>
-              <h2>{{ post.title.encode(xml: :text) }}</h2>
-              <ul>
-                % post.tags.split(", ").each do |tag|
-                  <li>{{ tag }}</li>
-                % end
-              </ul>
-            </header>
-            <p>{{ post.description.encode(xml: :text) }}</p>
-            <section>
-              <ul>
-                <li>{{ post.location }}</li>
-                <li>
-                  % if post.remote == "true"
-                    <i class="fa fa-globe"></i> Remote work OK
-                  % else
-                    <i class="fa fa-map-marker"></i> On-site only
+<span>
+  <h1>Favorites</h1>
+
+  % if favorites.empty?
+    <p>You have no favorite posts yet.</p>
+  % else
+    <ul>
+      % favorites.each do |post|
+        % if !post.expired?
+          <li>
+            <article>
+              <header>
+                <h1>{{ post.company.name.encode(xml: :text) }}</h1>
+                <a href="{{ post.company.url}}">{{ post.company.url.encode(xml: :text) }}</a>
+                <h2>{{ post.title.encode(xml: :text) }}</h2>
+                <ul>
+                  % post.tags.split(", ").each do |tag|
+                    <li>{{ tag }}</li>
                   % end
-                </li>
-              </ul>
-            </section>
-            {{ this.partial("apply", post: post, developer: developer) }}
-            <footer>
-              <ul>
-                <li>
-                  <time datetime="" pubdate>Posted on {{ post.posted }}
-                  </time>
-                </li>
-                <li>
-                  <time datetime="">
-                    % if post.expires > 24
-                      {{ (post.expires / 24).ceil }} days left to apply
-                    % elsif post.expires <= 24 && post.expires > 1
-                      {{ post.expires.ceil }} hours left to apply
-                    % elsif post.expires <= 1
-                      Less than 1 hour left to apply!
+                </ul>
+              </header>
+              <p>{{ post.description.encode(xml: :text) }}</p>
+              <section>
+                <ul>
+                  <li>{{ post.location }}</li>
+                  <li>
+                    % if post.remote == "true"
+                      <i class="fa fa-globe"></i> Remote work OK
+                    % else
+                      <i class="fa fa-map-marker"></i> On-site only
                     % end
-                  </time>
-                </li>
-              </ul>
-            </footer>
-          </article>
-        </li>
-        <hr/>
+                  </li>
+                </ul>
+              </section>
+              {{ this.partial("apply", post: post, developer: developer) }}
+              <footer>
+                <ul>
+                  <li>
+                    <time datetime="" pubdate>Posted on {{ post.posted }}
+                    </time>
+                  </li>
+                  <li>
+                    <time datetime="">
+                      % if post.expires > 24
+                        {{ (post.expires / 24).ceil }} days left to apply
+                      % elsif post.expires <= 24 && post.expires > 1
+                        {{ post.expires.ceil }} hours left to apply
+                      % elsif post.expires <= 1
+                        Less than 1 hour left to apply!
+                      % end
+                    </time>
+                  </li>
+                </ul>
+              </footer>
+            </article>
+          </li>
+          <hr/>
+        % end
       % end
-    % end
-  </ul>
-% end
+    </ul>
+  % end
+</span>

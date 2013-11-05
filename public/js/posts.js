@@ -9,9 +9,9 @@ function ajax () {
 }
 
 function apply (id) {
-  var post = document.getElementById("apply_" + id);
+  var post = document.getElementById("post_" + id);
   var url = "/apply/" + id;
-  var addMsg = document.getElementById("addMsg_" + id);
+  var addMsgLink = document.getElementById("add_msg_link_" + id);
 
   var request = ajax();
   request.open("POST", url);
@@ -20,75 +20,64 @@ function apply (id) {
     if ((request.readyState===4) && (request.status===200)) {
       post.innerHTML = "APPLIED";
       post.setAttribute("class", "button_applied");
-      addMsg.innerHTML = "Add a message?";
-      addMsg.setAttribute("class", "cursor");
+      addMsgLink.innerHTML = "Add a message?";
+      addMsgLink.setAttribute("class", "cursor");
     }
   };
 
   request.send();
-}
-
-function updateTable(table, post_id) {
-
-  var row = table.insertRow(5);
-  var cell = row.insertCell(0);
-  var messageTxt = document.getElementById("messageTxt_" + post_id).value;
-
-  cell.innerHTML = "Message sent: " + messageTxt;
 }
 
 function addMsg (id) {
-  var message = document.getElementById("message_" + id);
-  var addMsg = document.getElementById("addMsg_" + id);
-  addMsg.style.display = "none";
-  message.style.display = "block";
+  var messageFrm = document.getElementById("message_form_" + id);
+  var addMsgLink = document.getElementById("add_msg_link_" + id);
+  addMsgLink.style.display = "none";
+  messageFrm.style.display = "block";
 }
 
-function sendMsg (post_id, developer_id) {
-  var message = document.getElementById("message_" + post_id);
-  var messageTxt = document.getElementById("messageTxt_" + post_id).value;
-  var url = "/message/" + post_id + "/" + developer_id + "/?message=" + messageTxt;
+function sendMsg (postId, developerId) {
+  var messageFrm = document.getElementById("message_form_" + postId);
+  var messageTxt = document.getElementById("messageTxt_" + postId).value;
+  var url = "/message/" + postId + "/" + developerId + "/?message=" + messageTxt;
+  var message = document.getElementById("message_" + postId);
 
   var request = ajax();
   request.open("POST", url);
 
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      message.style.display = "none";
+      messageFrm.style.display = "none"
 
-      var table = document.getElementById("appTable_" + post_id);
-
-      if (table) {
-        updateTable(table, post_id);
+      if (message) {
+        message.innerHTML = "Sent message:<br/>" + messageTxt;
       }
-
     }
   };
 
   request.send();
 }
 
-function note (id) {
-  var note = document.getElementById("note_" + id);
-  var addNote = document.getElementById("addNote_" + id);
-  note.style.display = "none";
-  addNote.style.display = "block";
+function addNote (id) {
+  var note_link = document.getElementById("note_link_" + id);
+  var form = document.getElementById("note_form_" + id);
+
+  note_link.style.display = "none";
+  form.style.display = "block";
 }
 
-function addNote (id) {
-  var addNote = document.getElementById("addNote_" + id);
+function displayNote (id) {
+  var form = document.getElementById("note_form_" + id);
   var noteTxt = document.getElementById("noteTxt_" + id).value;
   var url = "/note/" + id + "/?note=" + noteTxt;
-  var displayNote = document.getElementById("displayNote_" + id);
+  var note = document.getElementById("note_" + id);
 
   var request = ajax();
   request.open("POST", url);
 
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      addNote.style.display = "none";
-      displayNote.style.display = "block";
-      displayNote.innerHTML = "Note: " + noteTxt;
+      form.style.display = "none";
+      note.innerHTML = "Personal note:<br/>" + noteTxt;
     }
   };
 

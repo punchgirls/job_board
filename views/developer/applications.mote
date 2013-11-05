@@ -1,91 +1,101 @@
 % developer = this.current_developer
 % applications = developer.applications
 
-<h2>My applications</h2>
-
 {{ this.partial("search_box") }}
 
-% if applications.empty?
-  <p>You haven't applied for any jobs yet. Start your search now!</p>
-% else
-  <ul id="applications-list">
-    % applications.each do |application|
-      % post = application.post
-      <li id="{{ application.id}}" class="application-list-item">
-        <article id="appTable_{{ post.id }}">
-          <header>
-            <h1>{{ post.company.name.encode(xml: :text) }}</h1>
-            <a href="{{ post.company.url}}">{{ post.company.url.encode(xml: :text) }}</a>
-            <h2>{{ post.title.encode(xml: :text) }}</h2>
-            <ul>
-              % post.tags.split(", ").each do |tag|
-                <li>{{ tag }}</li>
-              % end
-            </ul>
-          </header>
-          <p>{{ post.description.encode(xml: :text) }}</p>
+<section>
+  <h1>My applications</h1>
 
-          % if developer && !application.message.nil?
-            <p>Message sent: {{ application.message.encode(xml: :text) }}</p>
-          % end
-
-          % if developer && !application.note.nil?
-          <p>Note: {{ application.note.encode(xml: :text) }}</p>
-          % else
-            <span onclick="note({{ application.id }})" id="note_{{ application.id }}" class="cursor">Add note</span>
-
-            <span id="addNote_{{ application.id }}" class="hidden">
-
-              {{ this.partial("developer/note", application: application) }}
-
-            </span>
-            <span id="displayNote_{{ application.id }}" class="hidden"></span>
-          % end
-
-          <section>
-            <ul>
-              <li>{{ post.location }}</li>
-              <li>
-                % if post.remote == "true"
-                  <i class="fa fa-globe"></i> Remote work OK
-                % else
-                  <i class="fa fa-map-marker"></i> On-site only
+  % if applications.empty?
+    <p>You haven't applied for any jobs yet. Start your search now!</p>
+  % else
+    <ul id="applications-list">
+      % applications.each do |application|
+        % post = application.post
+        <li id="{{ application.id}}" class="application-list-item">
+          <article id="appTable_{{ post.id }}">
+            <header>
+              <h1>{{ post.company.name.encode(xml: :text) }}</h1>
+              <a href="{{ post.company.url}}">{{ post.company.url.encode(xml: :text) }}</a>
+              <h2>{{ post.title.encode(xml: :text) }}</h2>
+              <ul>
+                % post.tags.split(", ").each do |tag|
+                  <li class="tag">{{ tag }}</li>
                 % end
-              </li>
-            </ul>
-          </section>
+              </ul>
+            </header>
 
-          {{ this.partial("apply", post: post, developer: developer) }}
-
-          <i onclick="removeApplication({{ application.id }})" class="fa fa-trash-o"></i>
-
-          <footer>
-            <ul>
-              <li>
-                <time datetime="" pubdate>Posted on {{ post.posted }}
-                </time>
-              </li>
-              <li>
-                <time datetime="" pubdate>Applied on {{ application.applied }}
-                </time>
-              </li>
-              <li>
-                <time datetime="">
-                  % if post.expires > 24
-                    Expires in {{ (post.expires / 24).ceil }} days
-                  % elsif post.expires <= 24 && post.expires > 1
-                    Expires in {{ post.expires.ceil }} hours
-                  % elsif post.expires <= 1
-                    Expires in less than 1 hour!
+            <section class="location">
+              <ul>
+                <li class="float_left">{{ post.location }}</li>
+                <li>
+                  % if post.remote == "true"
+                    <i class="fa fa-globe"></i> Remote work OK
                   % else
-                    Expired
+                    <i class="fa fa-map-marker"></i> On-site only
                   % end
-                </time>
-              </li>
-            </ul>
-          </footer>
-        </article>
-      </li>
-    % end
-  </ul>
-% end
+                </li>
+              </ul>
+            </section>
+
+            <p>{{ post.description.encode(xml: :text) }}</p>
+
+            % if developer && !application.message.nil?
+              <p class="message">
+                Sent message:<br>
+                {{ application.message.encode(xml: :text) }}
+              </p>
+            % else
+              <p class="message" id="message_{{ post.id }}"></p>
+            % end
+
+            <section>
+              {{ this.partial("apply", post: post, developer: developer) }}
+              <i onclick="removeApplication({{ application.id }})" class="fa fa-trash-o"></i><br>
+              {{ this.partial("developer/add_message", post: post, developer: developer) }}
+            </section>
+
+            <time class="apply_date" datetime="" pubdate>Applied on {{ application.applied }}
+            </time><br>
+
+            % if developer && !application.note.nil?
+              <p class="message">
+                Personal note:<br/>
+                {{ application.note.encode(xml: :text) }}
+              </p>
+            % else
+              <span id="note_link_{{ application.id }}" class="add_message cursor" onclick="addNote({{ application.id }})">Add a personal note?</span>
+
+              {{ this.partial("developer/note_form", application: application) }}
+
+              <p class="message" id="note_{{ application.id }}"></p>
+            % end
+
+            <footer>
+              <ul>
+                <li>
+                  <time class="float_left" datetime="" pubdate>Posted on {{ post.posted }}
+                  </time>
+                </li>
+                <li>
+                  <time datetime="">
+                    % if post.expires > 24
+                      Expires in {{ (post.expires / 24).ceil }} days
+                    % elsif post.expires <= 24 && post.expires > 1
+                      Expires in {{ post.expires.ceil }} hours
+                    % elsif post.expires <= 1
+                      Expires in less than 1 hour!
+                    % else
+                      Expired
+                    % end
+                  </time>
+                </li>
+              </ul>
+            </footer>
+          </article>
+          <hr/>
+        </li>
+      % end
+    </ul>
+  % end
+</section>

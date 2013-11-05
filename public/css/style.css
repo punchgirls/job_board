@@ -118,6 +118,10 @@ a.button:hover, a.buttons:active, a.button_apply:hover, a.button_apply:active {
   margin: 0 auto;
 }
 
+#avatar_small {
+  display: none;
+}
+
 .checkbox_label, form a, form a:visited {
   font-size: 0.8em;
   color: #7a7a7a;
@@ -271,7 +275,7 @@ article a, article a:visited {
 
 article h2 {
   margin: 0.4em 0 0.5em;
-  text-transform: lowercase;
+  text-transform: lowercas;
   font-size: 1em;
   font-weight: normal;
 }
@@ -309,7 +313,7 @@ article p {
   vertical-align: middle;
 }
 
-.fa-star {
+.fa-star, .fa-trash-o {
   margin-left: 0.7em;
   font-size: 2.4em;
   vertical-align: middle;
@@ -338,6 +342,12 @@ article footer li {
   display: inline;
 }
 
+time.apply_date {
+  display: block;
+  margin-top: 1em;
+  font-size: 0.8em;
+}
+
 .add_message {
   font-size: 0.9em;
   text-decoration: underline;
@@ -357,6 +367,10 @@ article footer li {
 
 .message_form button {
   margin: 0.7em 0;
+}
+
+.message {
+  color: #000;
 }
 
 /* INPUT TOKENS */
@@ -466,6 +480,10 @@ textarea {
 
 .float_left {
   float: left;
+}
+
+article footer.center {
+  text-align: right;
 }
 
 /* MEDIA QUERIES */

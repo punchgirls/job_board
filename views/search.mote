@@ -3,16 +3,13 @@
 {{ this.partial("search_box") }}
 
 % if posts.nil?
-  <hr/>
   <p>Start searching by adding keywords.</p>
 % elsif posts.empty?
-  <hr/>
   <p>No posts matched your search. Try again!</p>
 % else
     <ul>
       % posts.each do |post|
         % if !post.expired?
-          <hr/>
           <li>
             <article>
               <header>
@@ -25,6 +22,7 @@
                   % end
                 </ul>
               </header>
+
               <section class="location">
                 <ul>
                   <li class="float_left">{{ post.location }}</li>
@@ -37,16 +35,19 @@
                   </li>
                 </ul>
               </section>
+
               <p>{{ post.description.encode(xml: :text) }}</p>
+
               % if !this.current_company
               <section>
                 {{ this.partial("apply", post: post, developer: developer) }}
                 {{ this.partial("favorite", post: post, developer: developer) }}<br>
                 % if this.current_developer
-                  {{ this.partial("add_message", post: post, developer: developer) }}
+                  {{ this.partial("developer/add_message", post: post, developer: developer) }}
                 % end
               </section>
               % end
+
               <footer>
                 <ul>
                   <li>
@@ -68,6 +69,7 @@
               </footer>
             </article>
           </li>
+          <hr/>
         % end
       % end
     </ul>

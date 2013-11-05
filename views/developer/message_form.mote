@@ -1,4 +1,5 @@
-<form class="message_form" id="message_{{ post.id }}" method="POST" onsubmit="sendMsg({{ post.id }}, {{ developer.id }}); return false;">
+<form class="message_form" id="message_form_{{ post.id }}" method="POST" onsubmit="sendMsg({{ post.id }}, {{ developer.id }}); return false;">
+
   <textarea id="messageTxt_{{ post.id }}" name="message" placeholder="This message will be attached to your application." onkeyup="updateCountdownMsg({{ post.id }})" maxlength="200"></textarea><br/>
 
   <span class="countdown" id="countdownMsg_{{ post.id }}">200 characters remaining.</span><br/>

@@ -4,8 +4,6 @@
 
 {{ this.partial("search_box") }}
 
-<hr/>
-
 % if !this.current_user
   <section id="engage">
     <section>
