@@ -25,7 +25,6 @@ function updateCountdownNote(id) {
 
 function updateCountdownBio() {
   var bioTxt = document.getElementById("developer-bio");
-  console.log(bioTxt);
   var countdownBio = document.getElementById("countdownBio");
 
   var remaining = 200 - bioTxt.value.length;
