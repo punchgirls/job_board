@@ -137,6 +137,11 @@ class Developers < Cuba
       on post, param("developer") do |params|
         developer = current_developer
 
+        if !params["url"].empty? &&
+          !params["url"].start_with?("http")
+          params["url"] = "http://" + params["url"]
+        end
+
         login = DeveloperLogin.new(params)
 
         on login.valid? do

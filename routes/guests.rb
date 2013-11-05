@@ -266,6 +266,11 @@ class Guests < Cuba
       origin = session[:origin]
 
       on post, param("developer") do |params|
+        if !params["url"].empty? &&
+          !params["url"].start_with?("http")
+          params["url"] = "http://" + params["url"]
+        end
+
         login = DeveloperLogin.new(params)
 
         on login.valid? do
