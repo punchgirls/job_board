@@ -85,6 +85,10 @@ class Developers < Cuba
       application = Application[id]
 
       on param("note") do |note|
+        if note == "empty"
+          note = ""
+        end
+
         text = AddNote.new(:note => note)
 
         on text.valid? do

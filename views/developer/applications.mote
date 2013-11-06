@@ -63,9 +63,6 @@
                 % if !application.note.nil?
                   Personal note:<br/>
                   {{ application.note.encode(xml: :text) }}
-
-                  <br/>
-                  <i id="edit_note_link_{{ application.id }}" class="fa fa-pencil-square-o cursor" onclick="addNote({{ application.id }})"></i>
                 % end
               </p>
 
@@ -75,9 +72,13 @@
                 % end
               </span>
 
-              {{ this.partial("developer/note_form", application: application) }}
+              % if !application.note.nil?
+                <i id="edit_note_link_{{ application.id }}" class="fa fa-pencil-square-o cursor" onclick="addNote({{ application.id }})"></i>
+              % else
+                <i id="edit_note_link_{{ application.id }}" onclick="addNote({{ application.id }})"></i>
+              % end
 
-              <i id="edit_note_link_{{ application.id }}" onclick="addNote({{ application.id }})"></i>
+              {{ this.partial("developer/note_form", application: application) }}
             </section>
 
             <footer>

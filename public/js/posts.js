@@ -74,28 +74,33 @@ function displayNote (id) {
   var note = document.getElementById("note_" + id);
   var noteLink = document.getElementById("note_link_" + id);
   var editNoteLink = document.getElementById("edit_note_link_" + id);
+  var form = document.getElementById("note_form_" + id);
+  var url;
 
-    var form = document.getElementById("note_form_" + id);
-    var url = "/note/" + id + "/?note=" + noteTxt;
+  if (noteTxt != "") {
+    url = "/note/" + id + "/?note=" + noteTxt;
+  } else {
+    url = "/note/" + id + "/?note=empty";
+  }
 
-    var request = ajax();
-    request.open("POST", url);
+  var request = ajax();
+  request.open("POST", url);
 
-    request.onreadystatechange = function () {
-      if ((request.readyState===4) && (request.status===200)) {
-        if (noteTxt != "") {
-          form.style.display = "none";
-          note.innerHTML = "Personal note:<br/>" + noteTxt;
-          note.style.display = "block";
-          editNoteLink.setAttribute("class", "fa fa-pencil-square-o cursor");
-          editNoteLink.style.display = "block";
-        } else {
-          form.style.display = "none";
-          noteLink.innerHTML = "Add a personal note?";
-          noteLink.style.display = "block";
-        }
+  request.onreadystatechange = function () {
+    if ((request.readyState===4) && (request.status===200)) {
+      if (noteTxt != "") {
+        form.style.display = "none";
+        note.innerHTML = "Personal note:<br/>" + noteTxt;
+        note.style.display = "block";
+        editNoteLink.setAttribute("class", "fa fa-pencil-square-o cursor");
+        editNoteLink.style.display = "block";
+      } else {
+        form.style.display = "none";
+        noteLink.innerHTML = "Add a personal note?";
+        noteLink.style.display = "block";
       }
-    };
+    }
+  };
 
   request.send();
 }
