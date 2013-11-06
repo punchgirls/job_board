@@ -390,6 +390,10 @@ article p {
   vertical-align: middle;
 }
 
+.icon_small {
+  font-size: 1.4em;
+}
+
 h2 a {
   float:right;
 }

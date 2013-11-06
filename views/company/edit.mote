@@ -20,26 +20,25 @@
   % company = Company[id]
 % end
 
-<h2>Edit your profile</h2>
+<section>
+  <h1>Edit your profile</h1>
 
-<form action="/edit/{{ company.id }}" method="POST">
-  <label for="company-name">Company name:</label>
-  <input type="text" name="company[name]" id="company-name" value="{{ company.name }}"><br/>
+  <form action="/edit/{{ company.id }}" method="POST">
 
-  <label for="company-email">Company e-mail:</label>
-  <input type="text" name="company[email]" id="company-email" value="{{ company.email }}"><br/>
+    <input class="input_field" type="text" name="company[name]" value="{{ company.name }}"><br/>
 
-  <label for="company-url">Company URL:</label>
-  <input type="text" name="company[url]" id="company-url" value="{{ company.url }}"><br/>
+    <input class="input_field" type="email" name="company[email]" value="{{ company.email }}"><br/>
 
-  <label>Change password:</label><br/>
+    <input class="input_field" type="url" name="company[url]" value="{{ company.url }}"><br/>
 
-  <label for="password">Password:</label>
-  <input type="password" name="company[password]" id="password"><br/>
+    <label>Change password:</label><br/>
 
-  <label for="password-confirmation">Password confirmation:</label>
-  <input type="password" name="company[password_confirmation]" id="password-confirmation"><br/>
+    <input class="input_field" type="password" name="company[password]" placeholder="Password"><br/>
 
-  <button type="submit">Save</button>
-  <a href="/profile">Cancel</a>
-</form>
+    <input class="input_field" type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
+
+    <a id="cancel" class="button" href="/profile">Cancel</a>
+
+    <button id="save" type="submit">Save</button>
+  </form>
+</section>
