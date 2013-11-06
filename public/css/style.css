@@ -1,4 +1,4 @@
-body, h1, h2, h3, h4, h5, h6, div, p, input, ul, li, a, hr, article {
+body, h1, h2, h3, h4, h5, h6, div, p, input, ul, li, a, hr, article, i {
   margin: 0;
   padding: 0;
 }
@@ -365,6 +365,10 @@ article p {
 .fa-star, .fa-trash-o {
   margin-left: 0.7em;
   font-size: 2.4em;
+  vertical-align: middle;
+}
+.fa-pencil-square-o {
+  font-size: 1.2em;
   vertical-align: middle;
 }
 

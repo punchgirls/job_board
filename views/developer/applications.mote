@@ -13,7 +13,7 @@
       % applications.each do |application|
         % post = application.post
         <li id="{{ application.id}}" class="application-list-item">
-          <article id="appTable_{{ post.id }}">
+          <article id="article_{{ post.id }}">
             <header>
               <h1>{{ post.company.name.encode(xml: :text) }}</h1>
               <a href="{{ post.company.url}}">{{ post.company.url.encode(xml: :text) }}</a>
@@ -40,7 +40,7 @@
 
             <p>{{ post.description.encode(xml: :text) }}</p>
 
-            % if developer && !application.message.nil?
+            % if !application.message.nil?
               <p class="message">
                 Sent message:<br>
                 {{ application.message.encode(xml: :text) }}
@@ -58,18 +58,27 @@
             <time class="apply_date" datetime="" pubdate>Applied on {{ application.applied }}
             </time><br>
 
-            % if developer && !application.note.nil?
-              <p class="message">
-                Personal note:<br/>
-                {{ application.note.encode(xml: :text) }}
+            <section>
+              <p class="message" id="note_{{ application.id }}">
+                % if !application.note.nil?
+                  Personal note:<br/>
+                  {{ application.note.encode(xml: :text) }}
+
+                  <br/>
+                  <i id="edit_note_link_{{ application.id }}" class="fa fa-pencil-square-o cursor" onclick="addNote({{ application.id }})"></i>
+                % end
               </p>
-            % else
-              <span id="note_link_{{ application.id }}" class="add_message cursor" onclick="addNote({{ application.id }})">Add a personal note?</span>
+
+              <span id="note_link_{{ application.id }}" class="add_message cursor" onclick="addNote({{ application.id }})">
+                % if application.note.nil? || application.note.empty?
+                    Add a personal note?
+                % end
+              </span>
 
               {{ this.partial("developer/note_form", application: application) }}
 
-              <p class="message" id="note_{{ application.id }}"></p>
-            % end
+              <i id="edit_note_link_{{ application.id }}" onclick="addNote({{ application.id }})"></i>
+            </section>
 
             <footer>
               <ul>
