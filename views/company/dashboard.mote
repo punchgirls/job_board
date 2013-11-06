@@ -22,7 +22,8 @@
           <header>
             <h1>{{ post.company.name.encode(xml: :text) }}</h1>
             <a href="{{ post.company.url}}">{{ post.company.url.encode(xml: :text) }}</a>
-            <h2>{{ post.title.encode(xml: :text) }}</h2>
+            <h2>{{ post.title.encode(xml: :text) }} <a href="/post/applications/{{ post.id }}">Applicants ({{ post.applications.size }})</a></h2>
+
             <ul>
               % post.tags.split(", ").each do |tag|
                 <li class="tag">{{ tag }}</li>
@@ -45,10 +46,9 @@
 
           <p>{{ post.description.encode(xml: :text) }}</p>
 
-          <section>
-            <a href="/post/applications/{{ post.id }}">applicants ({{ post.applications.size }})</a>
-            <i class="fa fa-pencil-square-o"></i>
-            <i onclick="removePost({{ post.id }})" class="fa fa-trash-o red"></i>
+          <section class="icon_group">
+            <i class="fa fa-pencil-square-o cursor"></i>
+            <i onclick="removePost({{ post.id }})" class="fa fa-trash-o cursor"></i>
           </section>
 
           <footer>
@@ -58,7 +58,7 @@
                 </time>
               </li>
               <li>
-                <time datetime=""> Expires in
+                <time class="expiry_date" datetime=""> Expires in
                   % if post.expires > 24
                     {{ (post.expires / 24).ceil }} days
                   % elsif post.expires <= 24 && post.expires > 1
@@ -69,7 +69,7 @@
                 </time>
               </li>
               <li>
-                <a class="button" href="/post/extend/{{ post.id }}">Extend expiration date</a>
+                <a class="button extend_btn" href="/post/extend/{{ post.id }}">Extend expiration date</a>
               </li>
             </ul>
           </footer>
