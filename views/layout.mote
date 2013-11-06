@@ -43,8 +43,8 @@
       <section>
         <nav>
           <ul>
-            <li><a href="/applications">my applications</a></li>
-            <li><a href="/favorites">my favorites</a></li>
+            <li><a href="/applications">my applications ({{ user.applications.size }})</a></li>
+            <li><a href="/favorites">my favorites ({{ user.favorites.size }})</a></li>
           </ul>
         </nav>
       </section>

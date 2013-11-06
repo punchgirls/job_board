@@ -4,7 +4,7 @@
 {{ this.partial("search_box") }}
 
 <section>
-  <h1>My applications</h1>
+  <h1>My applications ({{ applications.size }})</h1>
 
   % if applications.empty?
     <p>You haven't applied for any jobs yet. Start your search now!</p>

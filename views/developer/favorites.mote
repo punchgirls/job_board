@@ -4,7 +4,7 @@
 {{ this.partial("search_box") }}
 
 <span>
-  <h1>My favorites</h1>
+  <h1>My favorites ({{ favorites.size }})</h1>
 
   % if favorites.empty?
     <p>You have no favorite posts yet.</p>
