@@ -1,12 +1,14 @@
-<div>
+<div id="digits">
   <img id="credit_card" src="/img/cards/{{ card['type'] }}.png">
 
-  <label>Card Number</label>
-  <input disabled="disabled" type="text" size="20" value="**** **** **** {{ card['last4'] }}"/><br/>
+  <input disabled="disabled" class="input_field" type="text" size="20" maxlength="16" value="**** **** **** {{ card['last4'] }}"/><br/>
 
-  <label>Expiration (MM/YYYY)</label>
-  <input disabled="disabled" type="text" size="2" value="{{ card['exp_month'] }}"/>
-  <span> / </span>
-  <input disabled="disabled" type="text" size="4" value="{{ card['exp_year'] }}"/><br>
-</div>
+  <input disabled="disabled" class="input_field input_field_short" type="text" size="4" maxlength="4" value="***"/>
 
+  <div class="float_right">
+    <label>Expires on</label>
+    <input disabled="disabled" class="input_field input_field_short" type="text" size="2" maxlength="2" value="{{ card['exp_month'] }}"/>
+    <span> / </span>
+    <input disabled="disabled" class="input_field input_field_short" type="text" size="2" maxlength="2" value="{{ card['exp_year'] }}"/>
+  </div>
+</div><br/>

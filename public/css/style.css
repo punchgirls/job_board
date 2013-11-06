@@ -13,6 +13,11 @@ body {
   letter-spacing: 1px;
 }
 
+p {
+  margin: 0.5em 0;
+  font-size: 0.9em;
+}
+
 a, a:visited {
   color: #4d4d4d;
   text-decoration: none;
@@ -147,6 +152,10 @@ a.button:hover, a.buttons:active, a.button_apply:hover, a.button_apply:active {
 
 #avatar_small {
   display: none;
+}
+
+#credit_card {
+  width: 45px;
 }
 
 .checkbox_label, form a, form a:visited {
