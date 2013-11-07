@@ -11,6 +11,9 @@
   % else
     <ul>
       % favorites.each do |post|
+        % if post != favorites.first
+          <hr/>
+        % end
         % if !post.expired?
           <li>
             <article>
@@ -67,7 +70,6 @@
               </footer>
             </article>
           </li>
-          <hr/>
         % end
       % end
     </ul>
