@@ -342,7 +342,7 @@ article a, article a:visited {
 
 article h2 {
   margin: 0.4em 0 0.5em;
-  text-transform: lowercas;
+  text-transform: lowercase;
   font-size: 1em;
   font-weight: normal;
 }

@@ -1,11 +1,13 @@
+<h1>Payment details &nbsp;<a href="/customer/update?origin=payment" id="credits"><i class="fa fa-pencil-square-o icon_small cursor"></i></a></h1>
+
 <form action="/payment?origin=payment" method="POST" id="paymentFrm">
   <span id="payment-errors"></span><br/>
 
   {{ this.partial("payment_details", customer: customer, card: card) }}
 
-  <a href="/customer/update?origin=payment" id="credits">Change payment method or card details</a><br/>
-
-  {{ this.partial("packages") }}
+  <span class="packages">
+    {{ this.partial("packages") }}
+  </span>
 
   {{ this.partial("button") }}
 
