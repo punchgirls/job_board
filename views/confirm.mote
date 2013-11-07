@@ -8,7 +8,7 @@
 
     <input class="input_field" type="email" name="developer[email]" id="developer-email" value="{{ github_user['email'] }}"><br/>
 
-    <input class="input_field" type="url" name="developer[url]" id="developer-url" value="{{ github_user['blog'] }}" placeholder="Website (optional)"><br/>
+    <input class="input_field" type="text" name="developer[url]" id="developer-url" value="{{ github_user['blog'] }}" placeholder="Website (optional)"><br/>
 
     <textarea id="developer-bio" name="developer[bio]" id="developer-bo" placeholder="A short bio that will be added to your applications (optional)"
     onkeyup="updateCountdownBio()" maxlength="200"></textarea><br>

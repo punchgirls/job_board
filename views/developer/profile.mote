@@ -19,7 +19,7 @@
     <input class="input_field" type="email" name="developer[email]" id="developer-email"
     value="{{ developer.email }}"><br/>
 
-    <input class="input_field" type="url" name="developer[url]" id="developer-url" value="{{ developer.url }}" placeholder="URL (optional)"><br/>
+    <input class="input_field" type="text" name="developer[url]" id="developer-url" value="{{ developer.url }}" placeholder="URL (optional)"><br/>
 
     <textarea name="developer[bio]" id="developer-bio"
     placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"

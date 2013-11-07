@@ -29,7 +29,7 @@
 
     <input class="input_field" type="email" name="company[email]" value="{{ company.email }}"><br/>
 
-    <input class="input_field" type="url" name="company[url]" value="{{ company.url }}"><br/><br/>
+    <input class="input_field" type="text" name="company[url]" value="{{ company.url }}"><br/><br/>
 
     <label>Change password:</label><br/>
 
