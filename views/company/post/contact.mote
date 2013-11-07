@@ -1,14 +1,14 @@
-<h2>Contact developer</h2>
+<section>
+  <h1>Contact developer</h1>
 
-<p>The following message will be sent as an e-mail to {{ Developer[id].name }}, with a copy to your registered company e-mail address:</p>
+  <p>The following message will be sent as an e-mail to {{ Developer[id].name }}, with a copy to your registered company e-mail address:</p>
 
-<form action="/application/contact/{{ id }}" method="POST">
+  <form action="/application/contact/{{ id }}" method="POST">
+    <input class="input_field" type="text" name="message[subject]" id="subject" value="{{ message['subject'] }}" placeholder="Subject"><br/>
 
-  <label for="subject">Subject:</label>
-  <input type="text" name="message[subject]" id="subject" value="{{ message['subject'] }}"><br/>
+    <textarea class="input_field" name="message[body]" id="message"
+    placeholder="This mail will be sent to the developer">{{ message['body'] }}</textarea>
 
-  <label for="message">Message:</label>
-  <textarea name="message[body]" id="message">{{ message['body'] }}</textarea><br/>
-
-  <button type="submit">Send</button>
-</form>
+    <button type="submit">Send</button>
+  </form>
+</section>
