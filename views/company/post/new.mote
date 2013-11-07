@@ -1,45 +1,45 @@
 % if post.errors[:tags] == [:not_present]
- <p>At least one skill is required</p>
+ <p class="alert alert-error">At least one skill is required</p>
 % end
 % if post.errors[:title].include?(:not_present)
- <p>Title is required</p>
+ <p class="alert alert-error">Title is required</p>
 % end
 % if post.errors[:title] == [:not_in_range]
- <p>Title should not exceed 80 characters</p>
+ <p class="alert alert-error">Title should not exceed 80 characters</p>
 % end
 % if post.errors[:description].include?(:not_present)
- <p>Description is required</p>
+ <p class="alert alert-error">Description is required</p>
 % end
 % if post.errors[:description] == [:not_in_range]
- <p>Description should not exceed 600 characters</p>
+ <p class="alert alert-error">Description should not exceed 600 characters</p>
 % end
 
-<h2>Create a new job offer</h2>
+<h1>Create a new job offer</h1>
+
 <form id="new-post" name="postFrm" action="/post/new" method="POST">
-  <label for="search-field">Search skills:</label>
   <ul id="tokens">
     <li id="token-input">
-      <input type="text" id="search-field" autocomplete="off">
+      <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
     </li>
   </ul>
   <ul id="autocomplete"></ul>
-  <input type="hidden" id="query" name="post[tags]" value=""><br/>
 
-  <label for="searchTextField">Location:</label><br/>
+  <input type="hidden" id="query" name="post[tags]" value="">
 
   <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-  <input id="searchTextField" type="text" size="50" placeholder="Add your location" name="post[location]"><br/><br/>
+  <input class="input_field" id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
 
   <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
-  <input type="checkbox" name="post[remote]" value="true">Remote work is OK<br/>
+  <label>
+    <input type="checkbox" name="post[remote]" value="true">
+    <span class="checkbox_label">Remote</span>
+  </label><br/>
 
-  <label for="title">Title:</label>
-  <input type="text" name="post[title]" id="title" value="{{ post.title }}"><br/>
+  <input class="input_field" type="text" name="post[title]" maxlength="80" value="{{ post.title }}" id="title" placeholder="Post title"><br/>
 
-  <label for="description">Description</label><br/>
-  <textarea id="description" name="post[description]">{{ post.description }}</textarea><br/>
+  <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ post.description }}</textarea><br/>
 
   <span id="countdown">600 characters remaining.</span><br/>
 

@@ -452,8 +452,9 @@ time.apply_date {
   color: #000;
 }
 
-.icon_group {
+.icon_group, .icon_group a i {
   margin: 1em 0;
+  color: #4d4d4d;
 }
 
 .expiry_date {
