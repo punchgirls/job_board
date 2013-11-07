@@ -47,7 +47,7 @@
           <p>{{ post.description.encode(xml: :text) }}</p>
 
           <section class="icon_group">
-            <i class="fa fa-pencil-square-o cursor"></i>
+            <a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o cursor"></i></a>
             <i onclick="removePost({{ post.id }})" class="fa fa-trash-o cursor"></i>
           </section>
 

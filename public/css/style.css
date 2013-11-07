@@ -13,6 +13,11 @@ body {
   letter-spacing: 1px;
 }
 
+p {
+  margin: 0.5em 0;
+  font-size: 0.9em;
+}
+
 a, a:visited {
   color: #4d4d4d;
   text-decoration: none;
@@ -127,7 +132,7 @@ a.extend_btn {
 .alert {
   display: block;
   padding: 0.5em;
-  margin: 1em 0 0 0;
+  margin: 1em auto;
   background-color: #fcf8e3;
   border: 1px solid #FAEEAF;
   -webkit-border-radius: 4px;
@@ -156,6 +161,10 @@ a.extend_btn {
 
 #avatar_small {
   display: none;
+}
+
+#credit_card {
+  width: 45px;
 }
 
 .checkbox_label, form a, form a:visited {
@@ -194,7 +203,7 @@ a#cancel {
   width: 5.5em;
 }
 
-#save {
+#save, .save {
   display: inline-block;
   margin: 0;
   float: none;
@@ -333,7 +342,7 @@ article a, article a:visited, .applicant a, .applicant a:visited {
 
 article h2 {
   margin: 0.4em 0 0.5em;
-  text-transform: lowercas;
+  text-transform: lowercase;
   font-size: 1em;
   font-weight: normal;
 }
@@ -379,6 +388,10 @@ article p, .applicant p {
 .fa-pencil-square-o, .fa-envelope-o {
   font-size: 2.4em;
   vertical-align: middle;
+}
+
+.icon_small {
+  font-size: 1.4em;
 }
 
 h2 a {
@@ -439,8 +452,9 @@ time.apply_date {
   color: #000;
 }
 
-.icon_group {
+.icon_group, .icon_group a i {
   margin: 1em 0;
+  color: #4d4d4d;
 }
 
 .expiry_date {
@@ -534,6 +548,10 @@ textarea {
   width: 100%;
   margin-bottom: 0;
   height: 6em;
+  font-family: Arial, sans-serif;
+  font-size: 0.9em;
+  letter-spacing: 0.1em;
+  color: #4d4d4d;
 }
 
 .input_field_short {

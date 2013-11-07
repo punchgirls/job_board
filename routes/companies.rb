@@ -269,7 +269,6 @@ class Companies < Cuba
     on "post/edit/:id" do |id|
       on post, param("post") do |params|
         post = Post[id]
-        res.write params
 
         edit = PostJobOffer.new(params)
 
