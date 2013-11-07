@@ -125,9 +125,12 @@ a.post_job_btn {
 }
 
 a.extend_btn {
+  margin: 0.5em auto;
   max-width: 18em;
-  margin: 2em auto;
-  font-size: 1.5em;
+}
+
+.expiration_date {
+  text-align: center;
 }
 
 .alert {
@@ -597,6 +600,10 @@ textarea {
 
 article footer.center {
   text-align: right;
+}
+
+.align_left {
+  text-align: left;
 }
 
 /* MEDIA QUERIES */

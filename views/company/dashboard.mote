@@ -3,13 +3,13 @@
   <h1>Remaining posts: {{ this.current_user.credits }}</h1>
 
   <a class="button post_job_btn" href="/post/new">Post job offer</a>
-
-  <hr/>
 </section>
+<hr/>
 <section>
   <h1>Active job posts</h1>
 
   % if posts.empty?
+
     <p>
       You haven't posted anything yet.
       Click on "post job offer" to get started!
@@ -17,6 +17,9 @@
   % else
     <ul id="posts-list">
     % posts.each do |post|
+      % if post != posts.first
+        <hr/>
+      % end
       <li id="{{ post.id}}" class="post-list-item">
         <article>
           <header>
@@ -50,30 +53,27 @@
 
           <p>{{ post.description.encode(xml: :text) }}</p>
 
-          <footer>
-            <ul>
-              <li>
-                <time class="float_left" datetime="" pubdate>Posted on {{ post.posted }}
-                </time>
-              </li>
-              <li>
-                <time class="expiry_date" datetime=""> Expires in
-                  % if post.expires > 24
-                    {{ (post.expires / 24).ceil }} days
-                  % elsif post.expires <= 24 && post.expires > 1
-                    {{ post.expires.ceil }} hours
-                  % elsif post.expires <= 1
-                    less than 1 hour!
-                  % end
-                </time>
-              </li>
-              <li>
-                <a class="button extend_btn" href="/post/extend/{{ post.id }}">Extend expiration date</a>
-              </li>
-            </ul>
+          <p class="message expiration_date ">
+            <time class="msg_title" datetime="">
+              % if post.expires > 24
+                Expires in {{ (post.expires / 24).ceil }} days
+              % elsif post.expires <= 24 && post.expires > 1
+                Expires in {{ post.expires.ceil }} hours
+              % elsif post.expires <= 1 && !post.expired?
+                Expires in less than 1 hour!
+              % else
+                The posts has expired
+              % end
+            </time>
+            <a class="button extend_btn" href="/post/extend/{{ post.id }}">Extend expiration date</a>
+          </p>
+
+          <footer class="align_left">
+            <time datetime="" pubdate>
+              Posted on {{ post.posted }}
+            </time>
           </footer>
         </article>
-        <hr/>
       </li>
     % end
     </ul>
