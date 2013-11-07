@@ -4,7 +4,7 @@
 
   {{ this.partial("new_card") }}
 
-  {{ this.partial("button") }}
+  <a id="cancel" class="button" href="/profile">Cancel</a>
 
-  <a href="/profile">Cancel</a>
+  <button type="submit" id="button" class="save">Save</button>
 </form>

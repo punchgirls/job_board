@@ -203,7 +203,7 @@ a#cancel {
   width: 5.5em;
 }
 
-#save {
+#save, .save {
   display: inline-block;
   margin: 0;
   float: none;
