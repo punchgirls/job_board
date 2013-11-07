@@ -1,8 +1,18 @@
-<h2>Extend the expiration date of your post</h2>
+<h1>Extend expiration date</h1>
 
 <form action="/post/extend/{{ id }}" method="POST">
-  <input type="radio" name="post[days]" value="14" checked="checked">14 more days (USD 40.-)<br/>
-  <input type="radio" name="post[days]" value="30">30 more days (USD 80.-)<br/>
+  <span class="packages">
+    <label>
+      <span class="package_name">14 more days</span>
+      <span class="price">$ 40</span>
+      <input type="radio" name="post[days]" value="14" checked="checked">
+    </label>
+    <label>
+      <span class="package_name">30 more days</span>
+      <span class="price">$ 80</span>
+      <input type="radio" name="post[days]" value="30">
+    </label>
+  </span>
 
   <button type="submit">Extend</button>
   <a href="/dashboard">Cancel</a>

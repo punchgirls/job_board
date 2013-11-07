@@ -1,7 +1,7 @@
 % package = this.session["package"]
 
 <label><span class="package_name">single (1 post)</span>
-  <span class="price">$100</span>
+  <span class="price">$ 100</span>
   % if package == "1" || package.nil?
     <input type="radio" name="company[credits]" value="1" checked="checked">
   % else
@@ -11,7 +11,7 @@
 
 <label>
   <span class="package_name">medium (5 post)</span>
-  <span class="price">$425</span>
+  <span class="price">$ 425</span>
   % if package == "5"
     <input type="radio" name="company[credits]" value="5" checked="checked">
   % else
@@ -21,7 +21,7 @@
 
 <label>
   <span class="package_name">large (10 post)</span>
-  <span class="price">$700</span>
+  <span class="price">$ 700</span>
   % if package == "10"
     <input type="radio" name="company[credits]" value="10" checked="checked">
   % else
