@@ -93,7 +93,7 @@ button, a.button, .button_apply, .button_applied {
 }
 
 a.button, .button_apply, .button_applied {
-  width: 80%;
+  max-width: 14em;
   text-align: center;
   padding: 0.35em 0;
 }
@@ -132,7 +132,7 @@ a.extend_btn {
 .alert {
   display: block;
   padding: 0.5em;
-  margin: 1em auto;
+  margin: 1em 0;
   background-color: #fcf8e3;
   border: 1px solid #FAEEAF;
   -webkit-border-radius: 4px;
@@ -448,8 +448,21 @@ time.apply_date {
   margin: 0.7em 0;
 }
 
+.msg_title {
+  font-weight: bold;
+}
+
 .message {
-  color: #000;
+  padding: 0.6em;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #F7F7F7;
+}
+
+.message i {
+  margin-left: 0.5em;
+  font-size: 1.8em;
 }
 
 .icon_group, .icon_group a i {
@@ -511,6 +524,7 @@ time.apply_date {
   outline: none;
   border: none;
   margin: 0;
+  font-size: 1em;
 }
 
 #tokens li, .tag {
@@ -542,6 +556,7 @@ time.apply_date {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
+  font-size: 0.9em;
 }
 
 textarea {
@@ -549,6 +564,7 @@ textarea {
   margin-bottom: 0;
   height: 6em;
   font-family: Arial, sans-serif;
+  font-size: 0.9em;
   color: #4d4d4d;
 }
 
@@ -585,7 +601,28 @@ article footer.center {
 /* MEDIA QUERIES */
 
 @media only screen and (min-width: 480px) {
-  // tablet styles go here
+  #main_header {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  #wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  h1 {
+  font-size: 1.6em;
+  margin: 0 auto 1em;
+  }
+
+  #engage h1 {
+    font-size: 1.2em;
+  }
+
+  #main_footer {
+    padding: 1.2em 11%;
+  }
 }
 
 @media only screen and (min-width: 769px) {

@@ -10,7 +10,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
-    <header>
+    <header id="main_header">
     <h1><a href="/">job board<span></span></a></h1>
       <nav>
           <ul>
@@ -39,22 +39,24 @@
         </nav>
     </header>
 
-    % if user.instance_of?(Developer)
-      <section>
-        <nav>
-          <ul>
-            <li><a href="/applications">my applications ({{ user.applications.size }})</a></li>
-            <li><a href="/favorites">my favorites ({{ user.favorites.size }})</a></li>
-          </ul>
-        </nav>
-      </section>
-    % end
+    <section id="wrapper">
+      % if user.instance_of?(Developer)
+        <section>
+          <nav>
+            <ul>
+              <li><a href="/applications">my applications ({{ user.applications.size }})</a></li>
+              <li><a href="/favorites">my favorites ({{ user.favorites.size }})</a></li>
+            </ul>
+          </nav>
+        </section>
+      % end
 
-    <span id="notices">
-      {{ this.partial("notices", session: this.session) }}
-    </span><br/>
+      <span id="notices">
+        {{ this.partial("notices", session: this.session) }}
+      </span><br/>
 
-    {{ content }}
+      {{ content }}
+    </section>
 
     <footer id="main_footer">
       <h1>job board</h1>

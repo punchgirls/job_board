@@ -5,6 +5,7 @@
 {{ this.partial("search_box") }}
 
 % if !this.current_user
+  <hr/>
   <section id="engage">
     <section>
       <h1>Companies</h1>

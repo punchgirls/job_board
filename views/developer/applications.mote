@@ -2,7 +2,7 @@
 % applications = developer.applications
 
 {{ this.partial("search_box") }}
-
+<hr/>
 <section>
   <h1>My applications ({{ applications.size }})</h1>
 
@@ -42,11 +42,11 @@
 
             % if !application.message.nil?
               <p class="message">
-                Sent message:<br>
+                <span class="msg_title">Sent message</span><br>
                 {{ application.message.encode(xml: :text) }}
               </p>
             % else
-              <p class="message" id="message_{{ post.id }}"></p>
+              <p id="message_{{ post.id }}"></p>
             % end
 
             <section>
@@ -59,24 +59,21 @@
             </time><br>
 
             <section>
+              % if !application.note.nil?
               <p class="message" id="note_{{ application.id }}">
-                % if !application.note.nil?
-                  Personal note:<br/>
-                  {{ application.note.encode(xml: :text) }}
-                % end
+                <span class="msg_title">Personal note</span>
+                <i id="edit_note_link_{{ application.id }}" class="fa fa-pencil-square-o cursor" onclick="addNote({{ application.id }})"></i><br>
+                {{ application.note.encode(xml: :text) }}
               </p>
+              % else
+                <p id="note_{{ application.id }}"></p>
+              % end
 
               <span id="note_link_{{ application.id }}" class="add_message cursor" onclick="addNote({{ application.id }})">
                 % if application.note.nil? || application.note.empty?
                     Add a personal note?
                 % end
               </span>
-
-              % if !application.note.nil?
-                <i id="edit_note_link_{{ application.id }}" class="fa fa-pencil-square-o cursor" onclick="addNote({{ application.id }})"></i>
-              % else
-                <i id="edit_note_link_{{ application.id }}" onclick="addNote({{ application.id }})"></i>
-              % end
 
               {{ this.partial("developer/note_form", application: application) }}
             </section>

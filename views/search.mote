@@ -3,13 +3,16 @@
 {{ this.partial("search_box") }}
 
 % if posts.nil?
+  <hr/>
   <p>Start searching by adding keywords.</p>
 % elsif posts.empty?
+  <hr/>
   <p>No posts matched your search. Try again!</p>
 % else
     <ul>
       % posts.each do |post|
         % if !post.expired?
+        <hr/>
           <li>
             <article>
               <header>
@@ -69,7 +72,6 @@
               </footer>
             </article>
           </li>
-          <hr/>
         % end
       % end
     </ul>

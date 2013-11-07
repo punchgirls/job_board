@@ -28,7 +28,7 @@
     <input class="input_field" type="email" name="company[email]" placeholder="E-email"
     value="{{ company['email'] }}"><br/>
 
-    <input class="input_field" type="url" name="company[url]" placeholder="URL"
+    <input class="input_field" type="text" name="company[url]" placeholder="URL"
     value="{{ company['url'] }}"><br/>
 
     <input class="input_field" type="password" name="company[password]" placeholder="Password"><br/>
