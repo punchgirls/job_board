@@ -125,6 +125,7 @@ a.post_job_btn {
 }
 
 a.extend_btn {
+  max-width: 18em;
   margin: 2em auto;
   font-size: 1.5em;
 }
@@ -333,11 +334,16 @@ nav a, nav a:visited {
 
 article h1, .applicant h1 {
   font-size: 1em;
-  margin-bottom: 0.2em;
+  margin: 0 0.5em 0.2em 0;
+  display: inline-block;
 }
 
 article a, article a:visited, .applicant a, .applicant a:visited {
   color: #ffaa4e;
+}
+
+article a i, article i {
+  color: #575757;
 }
 
 article h2 {
@@ -381,12 +387,12 @@ article p, .applicant p {
 }
 
 .fa-star, .fa-trash-o  {
-  margin-left: 0.7em;
-  font-size: 2.4em;
+  margin-left: 0.3em;
+  font-size: 1.8em;
   vertical-align: middle;
 }
 .fa-pencil-square-o, .fa-envelope-o {
-  font-size: 2.4em;
+  font-size: 1.8em;
   vertical-align: middle;
 }
 
@@ -463,11 +469,6 @@ time.apply_date {
 .message i {
   margin-left: 0.5em;
   font-size: 1.8em;
-}
-
-.icon_group, .icon_group a i {
-  margin: 1em 0;
-  color: #4d4d4d;
 }
 
 .expiry_date {
@@ -611,13 +612,12 @@ article footer.center {
     margin: 0 auto;
   }
 
-  h1 {
-  font-size: 1.6em;
-  margin: 0 auto 1em;
+  #tagline {
+    font-size: 1.6em;
   }
 
-  #engage h1 {
-    font-size: 1.2em;
+  h1 {
+  margin: 0 auto 1em;
   }
 
   #main_footer {
@@ -625,6 +625,6 @@ article footer.center {
   }
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 768px) {
   // desktop styles go here
 }

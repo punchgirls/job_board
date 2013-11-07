@@ -14,6 +14,7 @@
     </label>
   </span>
 
-  <button type="submit">Extend</button>
-  <a href="/dashboard">Cancel</a>
+  <a id="cancel" class="button" href="/dashboard">Cancel</a>
+
+  <button id="save" type="submit">Save</button>
 </form>

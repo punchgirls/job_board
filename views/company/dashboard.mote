@@ -21,6 +21,10 @@
         <article>
           <header>
             <h1>{{ post.company.name.encode(xml: :text) }}</h1>
+
+            <a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o cursor"></i></a>
+            <i onclick="removePost({{ post.id }})" class="fa fa-trash-o cursor"></i><br/><br/>
+
             <a href="{{ post.company.url}}">{{ post.company.url.encode(xml: :text) }}</a>
             <h2>{{ post.title.encode(xml: :text) }} <a href="/post/applications/{{ post.id }}">Applicants ({{ post.applications.size }})</a></h2>
 
@@ -45,11 +49,6 @@
           </section>
 
           <p>{{ post.description.encode(xml: :text) }}</p>
-
-          <section class="icon_group">
-            <a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o cursor"></i></a>
-            <i onclick="removePost({{ post.id }})" class="fa fa-trash-o cursor"></i>
-          </section>
 
           <footer>
             <ul>
