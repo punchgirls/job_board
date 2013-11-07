@@ -231,7 +231,16 @@ class Companies < Cuba
             res.redirect "/post/extend/#{id}"
           end
 
-          new_date = post.expiration_date.to_i + (days.to_i * 24 * 60 * 60)
+          if post.expired?
+            time = Time.new.to_i
+
+            new_date = time + (days.to_i * 24 * 60 * 60)
+            new_posted_date = time
+            post.update(date: new_posted_date)
+          else
+            new_date = post.expiration_date.to_i + (days.to_i * 24 * 60 * 60)
+          end
+
           post.update(expiration_date: new_date)
 
           session[:success] = "You have successfully extended your post
