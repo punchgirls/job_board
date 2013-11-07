@@ -1,46 +1,50 @@
 % applications = Post[id].applications
 
-<h2>Applicants (<span id="numer-of-applicants">{{ applications.size }}</span>)</h2>
+<section>
+  <h1>Applicants (<span id="numer-of-applicants">{{ applications.size }}</span>)</h1>
+  % if applications.empty?
+    <p>No one applied to this post yet or the persons who applied removed their applications.</p>
+  % else
+    <ul id="application-list">
+      % applications.each do |application|
+        % developer = application.developer
+        <li id="app_{{ application.id }}">
+          {{ application.id }}
+          <img class="avatar" src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
+          <section class="applicant">
+            <h1>{{ developer.name }}</h1>
+            <p><a href="http://www.github.com/{{ developer.username }}" target="_blank">github.com/{{ developer.username }}</a></p>
 
-<a href="/dashboard">Back to posts</a>
+            % if !developer.url.nil?
+              <p><a href="{{ developer.url }}">{{ developer.url }}</a></p>
+            % end
 
-% if applications.empty?
-  <p>No one applied to this post yet or the persons who applied removed their applications.</p>
-% else
-  <ul id="application-list">
-    % applications.each do |application|
-      % developer = application.developer
-      <li id="app_{{ application.id }}">
-        <img src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
-        <section>
-          <h1>{{ developer.name }}</h1>
-          <p><a href="http://www.github.com/{{ developer.username }}" target="_blank">github.com/{{ developer.username }}</a></p>
+            % if !developer.bio.nil?
+              <p>{{ developer.bio }}</p>
+            % end
 
-          % if !developer.url.nil?
-            <p><a href="{{ developer.url }}">{{ developer.url }}</a></p>
-          % end
+            % if !application.message.nil?
+              <p>{{ application.message }}</p>
+            % end
+          </section>
+          <section class="icon_group">
+            <a href="/application/contact/{{ developer.id }}"><i class="fa fa-envelope-o"></i></a>
 
-          % if !developer.bio.nil?
-            <p>{{ developer.bio }}</p>
-          % end
+            % if Post[id].favorites.member?(application)
+              <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star favorited cursor"></i>
+            % else
+              <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star favorite cursor"></i>
+            % end
 
-          % if !application.message.nil?
-            <p>Message: {{ application.message }}</p>
-          % end
-        </section>
-        <section>
-          <a href="/application/contact/{{ developer.id }}"><i class="fa fa-envelope-o"></i></a>
-          % if Post[id].favorites.member?(application)
-            <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star red"></i>
-          % else
-            <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star"></i>
-          % end
-          <i onclick="removeApplicant({{ application.id }})" class="fa fa-trash-o"></i>
-        </section>
-        <footer>
-          Applied on {{ application.applied }}
-        </footer>
-      </li>
-    % end
-  </ul>
-% end
+            <i onclick="removeApplicant({{ application.id }})" class="fa fa-trash-o"></i>
+          </section>
+          <footer>
+            <time class="apply_date" datetime="" pubdate>
+              Applied on {{ application.applied }}
+            </time>
+          </footer>
+        </li>
+      % end
+    </ul>
+  % end
+</section>

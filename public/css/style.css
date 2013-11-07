@@ -150,8 +150,8 @@ a.extend_btn {
   border-color: #DEA2A2;
 }
 
-#avatar {
-  margin: 0 auto;
+.avatar {
+  margin-bottom: 1em;
 }
 
 #avatar_small {
@@ -322,12 +322,12 @@ nav a, nav a:visited {
 
 /* POST */
 
-article h1 {
+article h1, .applicant h1 {
   font-size: 1em;
   margin-bottom: 0.2em;
 }
 
-article a, article a:visited {
+article a, article a:visited, .applicant a, .applicant a:visited {
   color: #ffaa4e;
 }
 
@@ -347,7 +347,7 @@ article h2:first-letter {
   margin-bottom: 0.7em;
 }
 
-article p {
+article p, .applicant p {
   margin-top: 0.8em;
   font-size: 0.8em;
   line-height: 1.6em;
@@ -371,12 +371,12 @@ article p {
   vertical-align: middle;
 }
 
-.fa-star, .fa-trash-o {
+.fa-star, .fa-trash-o  {
   margin-left: 0.7em;
   font-size: 2.4em;
   vertical-align: middle;
 }
-.fa-pencil-square-o {
+.fa-pencil-square-o, .fa-envelope-o {
   font-size: 2.4em;
   vertical-align: middle;
 }
@@ -398,7 +398,7 @@ a.favorite, a.favorite:hover {
   color: #ffea00;
 }
 
-article footer {
+article footer, .applicant footer {
   font-size: 0.6em;
   margin-top: 1.6em;
   text-align: right;
