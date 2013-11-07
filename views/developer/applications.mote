@@ -12,6 +12,9 @@
     <ul id="applications-list">
       % applications.each do |application|
         % post = application.post
+          % if application != applications.first
+            <hr/>
+          % end
         <li id="{{ application.id}}" class="application-list-item">
           <article id="article_{{ post.id }}">
             <header>
@@ -100,7 +103,6 @@
               </ul>
             </footer>
           </article>
-          <hr/>
         </li>
       % end
     </ul>
