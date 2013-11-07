@@ -132,7 +132,7 @@ a.extend_btn {
 .alert {
   display: block;
   padding: 0.5em;
-  margin: 1em 0 0 0;
+  margin: 1em auto;
   background-color: #fcf8e3;
   border: 1px solid #FAEEAF;
   -webkit-border-radius: 4px;
