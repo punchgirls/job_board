@@ -36,7 +36,7 @@
               <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star favorite cursor"></i>
             % end
 
-            <i onclick="removeApplicant({{ application.id }})" class="fa fa-trash-o"></i>
+            <i onclick="removeApplicant({{ application.id }})" class="fa fa-trash-o cursor"></i>
           </section>
           <footer>
             <time class="apply_date" datetime="" pubdate>
