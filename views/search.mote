@@ -16,7 +16,7 @@
           <li>
             <article>
               <header>
-                <h1>{{ post.company.name.encode(xml: :text) }}</h1>
+                <h1>{{ post.company.name.encode(xml: :text) }}</h1><br/>
                 <a href="{{ post.company.url}}">{{ post.company.url.encode(xml: :text) }}</a>
                 <h2>{{ post.title.encode(xml: :text) }}</h2>
                 <ul>
