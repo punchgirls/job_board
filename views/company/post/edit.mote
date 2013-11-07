@@ -50,7 +50,7 @@
 
   <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ post.description }}</textarea><br/>
 
-  <span id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/><br/>
+  <span class="countdown" id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/><br/>
 
   <a id="cancel" class="button" href="/dashboard">Cancel</a>
 
