@@ -13,6 +13,7 @@ class Post < Ohm::Model
   index :tag
   index :location
   index :remote
+  index :expired?
 
   def posted
     return Time.at(date.to_i).strftime("%d %B %Y")

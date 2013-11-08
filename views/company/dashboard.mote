@@ -1,4 +1,6 @@
 % posts = this.current_user.posts
+% active_posts = posts.find(:expired? => false)
+
 <section>
   <h1>Remaining posts: {{ this.current_user.credits }}</h1>
 
@@ -6,7 +8,7 @@
 </section>
 <hr/>
 <section>
-  <h1>Active job posts</h1>
+  <h1>Active job posts ({{ active_posts.size }})</h1>
 
   % if posts.empty?
 
@@ -16,20 +18,16 @@
     </p>
   % else
     <ul id="posts-list">
-    % posts.each do |post|
-      % if post != posts.first
-        <hr/>
-      % end
-      <li id="{{ post.id}}" class="post-list-item">
+    % posts.each_with_index do |post, index|
+      <li id="{{ post.id}}">
         <article>
           <header>
-            <h1>{{ this.h(post.company.name) }}</h1>
+            <h1>{{ this.h(post.title) }}</h1>
 
             <a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o cursor"></i></a>
-            <i onclick="removePost({{ post.id }})" class="fa fa-trash-o cursor"></i><br/><br/>
+            <i onclick="removePost({{ post.id }})" class="fa fa-trash-o cursor"></i><br/>
 
-            <a href="{{ post.company.url}}">{{ this.h(post.company.url) }}</a>
-            <h2>{{ this.h(post.title) }} <a href="/post/applications/{{ post.id }}">Applicants ({{ post.applications.size }})</a></h2>
+            <a class="button applicants" href="/post/applications/{{ post.id }}">See applicants ({{ post.applications.size }})</a>
 
             <ul>
               % post.tags.split(", ").each do |tag|
@@ -62,10 +60,14 @@
               % elsif post.expires <= 1 && !post.expired?
                 Expires in less than 1 hour!
               % else
-                The posts has expired
+                The post has expired
               % end
             </time>
-            <a class="button extend_btn" href="/post/extend/{{ post.id }}">Extend expiration date</a>
+            % if post.expired?
+              <a class="button extend_btn expired" href="/post/extend/{{ post.id }}">Extend expiration date</a>
+            % else
+              <a class="button extend_btn" href="/post/extend/{{ post.id }}">Extend expiration date</a>
+            % end
           </p>
 
           <footer class="align_left">
@@ -74,6 +76,10 @@
             </time>
           </footer>
         </article>
+
+        % if index != posts.size - 1
+          <hr/>
+        % end
       </li>
     % end
     </ul>

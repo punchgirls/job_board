@@ -2,16 +2,15 @@
 
 <section>
   <h1>Applicants (<span id="numer-of-applicants">{{ applications.size }}</span>)</h1>
+
+  <h2 id="post_title">{{ this.h(Post[id].title) }}</h2>
   % if applications.empty?
     <p>No one applied to this post yet or the persons who applied removed their applications.</p>
   % else
     <ul id="application-list">
-      % applications.each do |application|
+      % applications.each_with_index do |application, index|
         % developer = application.developer
         <li id="app_{{ application.id }}">
-          % if application != applications.first
-            <hr/>
-          % end
           <img class="avatar" src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
           <section class="applicant">
             <h1>{{ this.h(developer.name) }}</h1>
@@ -45,6 +44,9 @@
               Applied on {{ application.applied }}
             </time>
           </footer>
+          % if index != applications.size - 1
+            <hr/>
+          % end
         </li>
       % end
     </ul>

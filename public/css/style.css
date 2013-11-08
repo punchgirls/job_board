@@ -129,6 +129,24 @@ a.extend_btn {
   max-width: 18em;
 }
 
+a.expired {
+  background-color: #E65A5A;
+  color: #fff;
+}
+
+a.applicants {
+  margin: 0 0 0.8em;
+  max-width: 18em;
+  padding: 0.3em 1em;
+  display: inline-block;
+  font-size: 1em;
+}
+
+.avatar {
+  margin: 1em;
+  margin-left: 0;
+}
+
 .expiration_date {
   text-align: center;
 }
@@ -157,11 +175,6 @@ a.extend_btn {
 .alert-error {
   background-color: #E65A5A;
   border-color: #DEA2A2;
-}
-
-.avatar {
-  float:left;
-  margin: 0 1em 1em 0;
 }
 
 .clear {
@@ -249,12 +262,17 @@ a#delete {
 
 /* HEADER */
 
-header h1 {
+header h1, #post_title {
   margin-bottom: 0.5em;
   font-size: 1.6em;
   font-weight: normal;
   letter-spacing: 2px;
   text-transform: uppercase;
+}
+
+#post_title {
+  font-size: 1.2em;
+  margin: 0.8em 0;
 }
 
 header h1 a, header h1 a:hover {
@@ -352,11 +370,14 @@ article h1, .applicant h1 {
 
 article a, article a:visited, .applicant a, .applicant a:visited {
   color: #ffaa4e;
+  display: inline-block;
+  margin-bottom: 0.5em;
 }
 
 .applicant a, .applicant a:visited {
   display: block;
-  margin: 0.5em;
+  margin: 0.2em;
+  margin-left: 0;
 }
 
 article a i, article i {
@@ -426,7 +447,7 @@ i {
 }
 
 section .fa-pencil-square-o, section .fa-envelope-o {
-  font-size: 2.4em;
+  font-size: 1.8em;
 }
 
 .icon_small {
@@ -664,6 +685,11 @@ article footer.center {
 
   #main_footer {
     padding: 1.2em 11%;
+  }
+
+  .avatar {
+    float: left;
+    margin: 0 1em 1em 0;
   }
 }
 
