@@ -385,6 +385,10 @@ article p, .applicant p {
   line-height: 1.6em;
 }
 
+.applicant p {
+  clear: both;
+}
+
 .location {
   margin: 0.5em 0;
   font-size: 0.8em;
