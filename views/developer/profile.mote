@@ -11,19 +11,19 @@
 
   <form action="/profile/{{ developer.id }}" method="POST">
     <input class="input_field" type="text" name="developer[name]" id="developer-name"
-    value="{{ developer.name }}"><br/>
+    value="{{ this.h(developer.name) }}"><br/>
 
     <input class="input_field" disabled type="text" name="developer[username]"
-    id="developer-username" value="{{ developer.username }}"><br/>
+    id="developer-username" value="{{ this.h(developer.username) }}"><br/>
 
     <input class="input_field" type="email" name="developer[email]" id="developer-email"
-    value="{{ developer.email }}"><br/>
+    value="{{ this.h(developer.email) }}"><br/>
 
-    <input class="input_field" type="text" name="developer[url]" id="developer-url" value="{{ developer.url }}" placeholder="URL (optional)"><br/>
+    <input class="input_field" type="text" name="developer[url]" id="developer-url" value="{{ this.h(developer.url) }}" placeholder="URL (optional)"><br/>
 
     <textarea name="developer[bio]" id="developer-bio"
     placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"
-    >{{ developer.bio }}</textarea><br>
+    >{{ this.h(developer.bio) }}</textarea><br>
 
     <span class="countdown" id="countdownBio">200 characters remaining.</span><br/>
 

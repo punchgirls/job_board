@@ -28,8 +28,13 @@
             <a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o cursor"></i></a>
             <i onclick="removePost({{ post.id }})" class="fa fa-trash-o cursor"></i><br/><br/>
 
+<<<<<<< HEAD
             <a href="{{ this.h(post.description) }}">{{ this.h(post.company.url) }}</a>
             <h2>{{ this.h(post.title) }} <a href="/post/applications/{{ this.h(post.id) }}">Applicants ({{ post.applications.size }})</a></h2>
+=======
+            <a href="{{ post.company.url}}">{{ this.h(post.company.url) }}</a>
+            <h2>{{ this.h(post.title) }} <a href="/post/applications/{{ post.id }}">Applicants ({{ post.applications.size }})</a></h2>
+>>>>>>> 72f1cf68f2386bd5f2603387815d5c7de84c5187
 
             <ul>
               % post.tags.split(", ").each do |tag|

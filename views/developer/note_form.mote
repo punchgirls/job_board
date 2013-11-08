@@ -1,6 +1,6 @@
 <form class="message_form" id="note_form_{{ application.id }}" method="POST" onsubmit="displayNote({{ application.id }}); return false;">
 
-  <textarea id="noteTxt_{{ application.id }}" name="note" placeholder="Write your note here..." onkeyup="updateCountdownNote({{ application.id }})" maxlength="200">{{ application.note }}</textarea>
+  <textarea id="noteTxt_{{ application.id }}" name="note" placeholder="Write your note here..." onkeyup="updateCountdownNote({{ application.id }})" maxlength="200">{{ this.h(application.note) }}</textarea>
 
   <span class="countdown" id="countdownNote_{{ application.id }}">200 characters remaining.</span><br/>
 
