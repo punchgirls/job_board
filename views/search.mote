@@ -48,6 +48,7 @@
                 % if this.current_developer
                   {{ this.partial("developer/add_message", post: post, developer: developer) }}
                 % end
+                <span id="sent_ok_{{ post.id }}" class="sent_ok"></span>
               </section>
               % end
 

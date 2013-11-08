@@ -21,7 +21,7 @@ function apply (id) {
       post.innerHTML = "APPLIED";
       post.setAttribute("class", "button_applied");
       addMsgLink.innerHTML = "Add a message?";
-      addMsgLink.setAttribute("class", "cursor");
+      addMsgLink.setAttribute("class", "add_message cursor");
     }
   };
 
@@ -40,6 +40,7 @@ function sendMsg (postId, developerId) {
   var messageTxt = document.getElementById("messageTxt_" + postId).value;
   var url = "/message/" + postId + "/" + developerId + "/?message=" + messageTxt;
   var message = document.getElementById("message_" + postId);
+  var sentOK = document.getElementById("sent_ok_" + postId);
 
   var request = ajax();
   request.open("POST", url);
@@ -51,6 +52,10 @@ function sendMsg (postId, developerId) {
       if (message) {
         message.innerHTML = '<span class="msg_title">Sent message</span><br>' + messageTxt;
         message.setAttribute("class", "message");
+      }
+
+      if (sentOK) {
+        sentOK.innerHTML = '<i class="fa fa-check"></i> Message sent';
       }
     }
   };

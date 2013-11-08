@@ -12,10 +12,11 @@
     <ul id="applications-list">
       % applications.each do |application|
         % post = application.post
+        <li id="{{ application.id}}" class="application-list-item">
           % if application != applications.first
             <hr/>
           % end
-        <li id="{{ application.id}}" class="application-list-item">
+
           <article id="article_{{ post.id }}">
             <header>
               <h1>{{ this.h(post.company.name) }}</h1><br/>
