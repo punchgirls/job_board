@@ -1,8 +1,5 @@
 % developer = this.current_developer
 % applications = developer.applications
-
-{{ this.partial("search_box") }}
-<hr/>
 <section>
   <h1>My applications ({{ applications.size }})</h1>
 

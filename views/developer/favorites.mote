@@ -1,8 +1,5 @@
 % developer = this.current_developer
 % favorites = developer.favorites
-
-{{ this.partial("search_box") }}
-<hr/>
 <span>
   <h1>My favorites ({{ favorites.size }})</h1>
 

@@ -40,6 +40,12 @@
     </header>
 
     <section id="wrapper">
+
+      % if !defined?(hide_search) && user.instance_of?(Developer)
+        {{ this.partial("search_box") }}
+        <hr/>
+      % end
+
       % if user.instance_of?(Developer)
         <section>
           <nav>
