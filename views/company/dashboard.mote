@@ -23,13 +23,13 @@
       <li id="{{ post.id}}" class="post-list-item">
         <article>
           <header>
-            <h1>{{ h(post.company.name) }}</h1>
+            <h1>{{ this.h(post.company.name) }}</h1>
 
             <a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o cursor"></i></a>
             <i onclick="removePost({{ post.id }})" class="fa fa-trash-o cursor"></i><br/><br/>
 
-            <a href="{{ post.company.url}}">{{ h(post.company.url) }}</a>
-            <h2>{{ h(post.title) }} <a href="/post/applications/{{ post.id }}">Applicants ({{ post.applications.size }})</a></h2>
+            <a href="{{ post.company.url}}">{{ this.h(post.company.url) }}</a>
+            <h2>{{ this.h(post.title) }} <a href="/post/applications/{{ post.id }}">Applicants ({{ post.applications.size }})</a></h2>
 
             <ul>
               % post.tags.split(", ").each do |tag|
@@ -51,7 +51,7 @@
             </ul>
           </section>
 
-          <p>{{ h(post.description) }}</p>
+          <p>{{ this.h(post.description) }}</p>
 
           <p class="message expiration_date ">
             <time class="msg_title" datetime="">

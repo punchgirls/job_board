@@ -18,9 +18,9 @@
           <li>
             <article>
               <header>
-                <h1>{{ h(post.company.name) }}</h1><br/>
-                <a href="{{ h(post.company.url) }}">{{ h(post.company.url) }}</a>
-                <h2>{{ h(post.title) }}</h2>
+                <h1>{{ this.h(post.company.name) }}</h1><br/>
+                <a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>
+                <h2>{{ this.h(post.title) }}</h2>
                 <ul>
                   % post.tags.split(", ").each do |tag|
                     <li class="tag">{{ tag }}</li>
@@ -30,7 +30,7 @@
 
               <section class="location">
                 <ul>
-                  <li class="float_left">{{ h(post.location) }}</li>
+                  <li class="float_left">{{ this.h(post.location) }}</li>
                   <li>
                     % if post.remote == "true"
                       <i class="fa fa-globe"></i> Remote work OK
@@ -41,7 +41,7 @@
                 </ul>
               </section>
 
-              <p>{{ h(post.description) }}</p>
+              <p>{{ this.h(post.description) }}</p>
 
               {{ this.partial("apply", post: post, developer: developer) }}
 
