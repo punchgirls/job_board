@@ -160,7 +160,12 @@ a.extend_btn {
 }
 
 .avatar {
-  margin-bottom: 1em;
+  float:left;
+  margin: 0 1em 1em 0;
+}
+
+.clear {
+  clear: both;
 }
 
 #avatar_small {
@@ -329,6 +334,10 @@ nav a, nav a:visited {
   display: inline;
 }
 
+.icon_group {
+  margin-top: 0.5em;
+}
+
 #main_footer p {
   font-size: 0.7em;
 }
@@ -343,6 +352,11 @@ article h1, .applicant h1 {
 
 article a, article a:visited, .applicant a, .applicant a:visited {
   color: #ffaa4e;
+}
+
+.applicant a, .applicant a:visited {
+  display: block;
+  margin: 0.5em;
 }
 
 article a i, article i {
@@ -383,20 +397,23 @@ article p, .applicant p {
   display: inline;
 }
 
+i {
+  vertical-align: middle;
+  font-size: 1.8em;
+}
+
 .location i {
   color: #ffaa4e;
   font-size: 1.4em;
-  vertical-align: middle;
+
 }
 
 .fa-star, .fa-trash-o  {
   margin-left: 0.3em;
-  font-size: 1.8em;
-  vertical-align: middle;
 }
-.fa-pencil-square-o, .fa-envelope-o {
-  font-size: 1.8em;
-  vertical-align: middle;
+
+section .fa-pencil-square-o, section .fa-envelope-o {
+  font-size: 2.4em;
 }
 
 .icon_small {
@@ -420,10 +437,14 @@ a.favorite, a.favorite:hover {
   color: #ffea00;
 }
 
-article footer, .applicant footer {
+article footer, .applicant footer, #application-list footer {
   font-size: 0.6em;
   margin-top: 1.6em;
   text-align: right;
+}
+
+#application-list footer {
+  text-align: left;
 }
 
 article footer li {
@@ -605,6 +626,7 @@ article footer.center {
 .align_left {
   text-align: left;
 }
+
 
 /* MEDIA QUERIES */
 

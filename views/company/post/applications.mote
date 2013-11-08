@@ -9,21 +9,24 @@
       % applications.each do |application|
         % developer = application.developer
         <li id="app_{{ application.id }}">
+          % if application != applications.first
+            <hr/>
+          % end
           <img class="avatar" src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
           <section class="applicant">
             <h1>{{ developer.name }}</h1>
-            <p><a href="http://www.github.com/{{ developer.username }}" target="_blank">github.com/{{ developer.username }}</a></p>
+            <a href="http://www.github.com/{{ developer.username }}" target="_blank">github.com/{{ developer.username }}</a>
 
             % if !developer.url.nil?
-              <p><a href="{{ developer.url }}">{{ developer.url }}</a></p>
+              <a href="{{ developer.url }}">{{ developer.url }}</a>
             % end
 
             % if !developer.bio.nil?
-              <p>{{ developer.bio }}</p>
+              <p class="clear">{{ developer.bio }}</p>
             % end
 
             % if !application.message.nil?
-              <p>{{ application.message }}</p>
+              <p class="message"><span class="msg_title">Message from developer:</span><br/>{{ application.message }}</p>
             % end
           </section>
           <section class="icon_group">
