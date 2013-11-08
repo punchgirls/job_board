@@ -2,9 +2,9 @@
 
 <h3>Account info &nbsp;<a href="/edit"><i class="fa fa-pencil-square-o icon_small cursor"></i></a></h3>
 
-<p>{{ company.name }}</p>
-<p>{{ company.email }}</p>
-<p>{{ company.url }}</p>
+<p>{{ this.h(company.name) }}</p>
+<p>{{ this.h(company.email) }}</p>
+<p>{{ this.h(company.url) }}</p>
 
 <hr/>
 

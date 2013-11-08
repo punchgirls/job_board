@@ -23,13 +23,13 @@
   <form action="/signup" method="POST" class="payment-details">
 
     <input class="input_field" type="text" name="company[name]" placeholder="Company name"
-    value="{{ company['name'] }}"><br/>
+    value="{{ this.h(company['name']) }}"><br/>
 
     <input class="input_field" type="email" name="company[email]" placeholder="E-email"
-    value="{{ company['email'] }}"><br/>
+    value="{{ this.h(company['email']) }}"><br/>
 
     <input class="input_field" type="text" name="company[url]" placeholder="URL"
-    value="{{ company['url'] }}"><br/>
+    value="{{ this.h(company['url']) }}"><br/>
 
     <input class="input_field" type="password" name="company[password]" placeholder="Password"><br/>
 

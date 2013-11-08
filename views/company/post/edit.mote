@@ -32,7 +32,8 @@
 
   <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-  <input class="input_field" id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off" value="{{ post.location }}"><br/>
+  <input class="input_field" id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"
+  value="{{ this.h(post.location) }}"><br/>
 
   <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
@@ -46,9 +47,9 @@
   </label><br/>
 
 
-  <input class="input_field" type="text" name="post[title]" maxlength="80" value="{{ post.title }}" id="title" placeholder="Post title"><br/>
+  <input class="input_field" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" id="title" placeholder="Post title"><br/>
 
-  <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ post.description }}</textarea><br/>
+  <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
 
   <span class="countdown" id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/><br/>
 

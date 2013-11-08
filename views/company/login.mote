@@ -3,7 +3,7 @@
 
   <form action="/login" method="POST">
     <input class="input_field" type="email" name="company[email]"
-    placeholder="E-mail" value="{{ user }}"><br/>
+    placeholder="E-mail" value="{{ this.h(user) }}"><br/>
 
     <input class="input_field" type="password" name="company[password]"
     placeholder="Password"><br/>

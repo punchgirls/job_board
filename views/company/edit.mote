@@ -25,11 +25,11 @@
 
   <form action="/edit/{{ company.id }}" method="POST">
 
-    <input class="input_field" type="text" name="company[name]" value="{{ company.name }}"><br/>
+    <input class="input_field" type="text" name="company[name]" value="{{ this.h(company.name) }}"><br/>
 
-    <input class="input_field" type="email" name="company[email]" value="{{ company.email }}"><br/>
+    <input class="input_field" type="email" name="company[email]" value="{{ this.h(company.email) }}"><br/>
 
-    <input class="input_field" type="text" name="company[url]" value="{{ company.url }}"><br/><br/>
+    <input class="input_field" type="text" name="company[url]" value="{{ this.h(company.url) }}"><br/><br/>
 
     <label>Change password:</label><br/>
 
