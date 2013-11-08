@@ -11,11 +11,12 @@
   % else
     <ul>
       % favorites.each do |post|
-        % if post != favorites.first
-          <hr/>
-        % end
         % if !post.expired?
           <li>
+            % if post != favorites.first
+              <hr/>
+            % end
+
             <article>
               <header>
                 <h1>{{ this.h(post.company.name) }}</h1><br/>

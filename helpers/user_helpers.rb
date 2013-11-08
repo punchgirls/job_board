@@ -21,6 +21,6 @@ module UserHelpers
   end
 
   def h(text)
-    text.encode(xml: :text)
+    text.to_s.encode(xml: :text)
   end
 end

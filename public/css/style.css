@@ -267,7 +267,7 @@ header h1 a span {
 }
 
 nav ul li {
-  font-size: 0.85em;
+  font-size: 0.8em;
   text-transform: uppercase;
   margin-bottom: 0.4em;
 }
@@ -416,6 +416,15 @@ i {
   margin-left: 0.3em;
 }
 
+.fa-check {
+  color: #59AB60;
+  font-size: 1em;
+}
+
+.sent_ok {
+  font-size: 0.8em;
+}
+
 section .fa-pencil-square-o, section .fa-envelope-o {
   font-size: 2.4em;
 }
@@ -456,7 +465,7 @@ article footer li {
 }
 
 time.apply_date {
-  display: block;
+  display: inline-block;
   margin-top: 1em;
   font-size: 0.8em;
 }
@@ -646,7 +655,7 @@ article footer.center {
   }
 
   #tagline {
-    font-size: 1.6em;
+    font-size: 1.55em;
   }
 
   h1 {

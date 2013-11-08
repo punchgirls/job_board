@@ -68,7 +68,6 @@ class Developers < Cuba
 
         on msg.valid? do
           application.update(:message => message)
-          session[:success] = "You have succesfully sent a message to the company"
         end
 
         on defaul do
