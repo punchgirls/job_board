@@ -19,7 +19,7 @@
             <article>
               <header>
                 <h1>{{ h(post.company.name) }}</h1><br/>
-                <a href="{{ post.company.url}}">{{ h(post.company.url) }}</a>
+                <a href="{{ h(post.company.url) }}">{{ h(post.company.url) }}</a>
                 <h2>{{ h(post.title) }}</h2>
                 <ul>
                   % post.tags.split(", ").each do |tag|
@@ -30,7 +30,7 @@
 
               <section class="location">
                 <ul>
-                  <li class="float_left">{{ post.location }}</li>
+                  <li class="float_left">{{ h(post.location) }}</li>
                   <li>
                     % if post.remote == "true"
                       <i class="fa fa-globe"></i> Remote work OK
