@@ -11,8 +11,8 @@
   </head>
   <body>
     <header id="main_header">
-    <h1><a href="/">job board<span></span></a></h1>
-      <nav>
+      <h1><a href="/">job board<span></span></a></h1>
+        <nav>
           <ul>
             % if user
               % if !user.instance_of?(Developer)
@@ -56,6 +56,7 @@
       </span><br/>
 
       {{ content }}
+
     </section>
 
     <footer id="main_footer">

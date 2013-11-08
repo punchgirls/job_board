@@ -19,4 +19,8 @@ module UserHelpers
     res.write(msg)
     halt(res.finish)
   end
+
+  def h(text)
+    text.encode(xml: :text)
+  end
 end
