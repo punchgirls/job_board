@@ -19,7 +19,7 @@
       <span class="checkbox_label">Remote</span>
     </label>
 
-    <a href="/search?all=true">Show all</a>
+    <a href="/search?all=true">All posts</a>
 
     <button type="submit">search</button>
   </form>
