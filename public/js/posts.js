@@ -47,7 +47,7 @@ function sendMsg (postId, developerId) {
 
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      messageFrm.style.display = "none"
+      messageFrm.style.display = "none";
 
       if (message) {
         message.innerHTML = '<span class="msg_title">Sent message</span><br>' + messageTxt;
@@ -175,7 +175,7 @@ function removeApplicant (id) {
   var applications = document.getElementById("application-list");
   var application = document.getElementById("app_" + id);
   var numberOfApplicants = document.getElementById("numer-of-applicants");
-  var value = numberOfApplicants.innerHTML
+  var value = numberOfApplicants.innerHTML;
   var url = "/application/remove/" + id;
 
   var request = ajax();
