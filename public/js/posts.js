@@ -20,7 +20,7 @@ function apply (id) {
     if ((request.readyState===4) && (request.status===200)) {
       post.innerHTML = "APPLIED";
       post.setAttribute("class", "button_applied");
-      addMsgLink.innerHTML = "Add a message?";
+      addMsgLink.innerHTML = "Send a message?";
       addMsgLink.setAttribute("class", "add_message cursor");
     }
   };
