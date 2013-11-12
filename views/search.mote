@@ -1,7 +1,5 @@
 % developer = this.current_developer
 
-{{ this.partial("search_box") }}
-
 % if posts.nil?
   <hr/>
   <p>Start searching by adding keywords.</p>
@@ -10,9 +8,8 @@
   <p>No posts matched your search. Try again!</p>
 % else
     <ul>
-      % posts.each do |post|
+      % posts.each_with_index do |post, index|
         % if !post.expired?
-        <hr/>
           <li>
             <article>
               <header>
@@ -72,6 +69,9 @@
                 </ul>
               </footer>
             </article>
+            % if index != posts.size - 1
+              <hr/>
+            % end
           </li>
         % end
       % end

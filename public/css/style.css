@@ -600,6 +600,11 @@ time.apply_date {
   cursor: hand;
 }
 
+.added_token {
+  padding: 0.2em;
+  margin: 0 0.3em 0.1em 0;
+}
+
 #tokens #token-input {
   background-color: white;
 }

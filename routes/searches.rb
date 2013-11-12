@@ -6,34 +6,34 @@ class Searches < Cuba
       posts = Search.posts(params)
 
       session[:query] = params
-      render("search", title: "Tags", posts: posts, hide_search: true)
+      render("search", title: "Tags", posts: posts)
     end
 
     on param "all" do |params|
       session[:query] = { "all"=>"true" }
-      render("search", title: "Search", posts: Post.all, hide_search: true)
+      render("search", title: "Search", posts: Post.all)
     end
 
     on param "company" do
       session[:error] = "You have to login as developer to
         perform this action"
-      render("search", title: "Search", posts: Post.all, hide_search: true)
+      render("search", title: "Search", posts: Post.all)
     end
 
     on query do
       if query.include?("all")
         session.delete(:query)
-        render("search", title: "Search", posts: Post.all, hide_search: true)
+        render("search", title: "Search", posts: Post.all)
       else
         posts = Search.posts(session[:query])
         session.delete(:query)
 
-        render("search", title: "Tags", posts: posts, hide_search: true)
+        render("search", title: "Tags", posts: posts)
       end
     end
 
     on default do
-      render("search", title: "Search", posts: nil, hide_search: true)
+      render("search", title: "Search", posts: nil)
     end
   end
 end
