@@ -14,9 +14,6 @@ class Guests < Cuba
 
     on "signup" do
       on post, param("stripeToken"), param("company") do |token, params|
-        if !params["url"].start_with?("http")
-          params["url"] = "http://" + params["url"]
-        end
 
         signup = CompanySignup.new(params)
 

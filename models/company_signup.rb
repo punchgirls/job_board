@@ -7,6 +7,10 @@ class CompanySignup < Scrivener
       assert(Company.fetch(email).nil?, [:email, :not_unique])
     end
 
+    unless url.start_with?("http")
+      self.url = "http://" + url
+    end
+
     assert_present :name
     assert_url :url
     assert_format :credits, /\A(1|5|10)\Z/
@@ -14,3 +18,4 @@ class CompanySignup < Scrivener
     assert password == password_confirmation, [:password, :not_confirmed]
   end
 end
+
