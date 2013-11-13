@@ -2,17 +2,18 @@ class Guests < Cuba
   define do
     on "package" do
       on post, param("company") do |params|
-        session[:package] = params["credits"]
-        res.redirect "/signup"
-      end
-
-      on default do
-        session[:error] = "You need to choose a package first"
-        res.redirect "/login"
+        res.redirect "/signup?package=#{params["credits"]}"
       end
     end
 
     on "signup" do
+      on param("package") do |package|
+        signup = CompanySignup.new({})
+
+        render("company/signup", title: "Sign up",
+          company: {}, signup: signup, package: package)
+      end
+
       on post, param("stripeToken"), param("company") do |token, params|
 
         signup = CompanySignup.new(params)

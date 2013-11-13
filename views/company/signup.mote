@@ -40,7 +40,7 @@
     {{ this.partial("new_card") }}
 
     <span class="packages">
-      {{ this.partial("packages") }}
+      {{ this.partial("packages", package: package) }}
     </span>
 
     {{ this.partial("button") }}
