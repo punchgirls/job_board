@@ -14,74 +14,41 @@ class Guests < Cuba
           company: {}, signup: signup, package: package)
       end
 
-      on post, param("stripeToken"), param("company") do |token, params|
+      on post, param("stripe_token"), param("company") do |token, params|
+        customer = Stripe.create_customer(token, params["email"], params["name"])
+
+        params["customer"] = customer
 
         signup = CompanySignup.new(params)
 
         on signup.valid? do
-          session.delete(:package)
-
           params.delete("password_confirmation")
-          credits = params["credits"]
-          params["credits"] = "0"
+          params.delete("customer")
 
-          company = Company.new(params)
+          params[:customer_id] = customer.id
 
-          # Create a Customer
-          customer = Stripe.create_customer(company, token)
-
-          on !customer.instance_of?(Stripe::Customer) do
-            if customer.instance_of?(Stripe::CardError)
-              session[:error] = customer.message
-            else
-              session[:error] = "It looks like we are having some problems
-              with your request. Please try again in a few minutes!"
-            end
-
-            session[:package] = credits
-            render("company/signup", title: "Sign up",
-              company: params, signup: signup)
-          end
-
-          company.update(:customer_id => customer.id)
-          company.save
+          company = Company.create(params)
 
           authenticate(company)
 
-          # Charge the customer
-          charge = Stripe.charge_customer(credits, customer.id)
-
-          on !charge.instance_of?(Stripe::Charge) do
-            if charge.instance_of?(Stripe::CardError)
-              session[:error] = "You have successfully created your account
-              but unfortunately your credit card was declined, please try again with another credit card."
-            else
-              session[:error] = "You have successfully created your account
-              but it looks like we are having some problems
-              with your payment request. Please try again in a few minutes!"
-            end
-
-            session[:package] = credits
-            res.redirect "/payment"
-          end
-
-          company.update(:credits => credits)
-
           session[:success] = "You have successfully signed up!"
+
           res.redirect "/dashboard"
         end
 
         on default do
           render("company/signup", title: "Sign up",
-            company: params, signup: signup)
+              company: params, signup: signup, package: params["credits"])
         end
+
+
       end
 
       on default do
         signup = CompanySignup.new({})
 
         render("company/signup", title: "Sign up",
-          company: {}, signup: signup)
+          company: {}, signup: signup, package: "1")
       end
     end
 

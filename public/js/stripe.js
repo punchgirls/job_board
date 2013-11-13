@@ -30,7 +30,7 @@ var stripeResponseHandler = function(status, response) {
     // Insert the token into the form so it gets submitted to the server
     var input = document.createElement("input");
     input.type = "hidden";
-    input.name = "stripeToken";
+    input.name = "stripe_token";
     input.value = token;
 
     form.appendChild(input);

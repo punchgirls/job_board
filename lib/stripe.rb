@@ -1,10 +1,10 @@
 module Stripe
-  def self.create_customer(company, token)
+  def self.create_customer(token, email, name)
     begin
       customer = Stripe::Customer.create(
         :card => token,
-        :email => company.email,
-        :description => company.name
+        :email => email,
+        :description => name
       )
     rescue => e
       return e

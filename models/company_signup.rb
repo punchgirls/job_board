@@ -1,10 +1,16 @@
 class CompanySignup < Scrivener
   attr_accessor :name, :email, :url,
-  :password, :password_confirmation, :customer_id, :credits
+  :password, :password_confirmation, :customer_id, :credits, :customer
 
   def validate
-    if assert_email(:email)
-      assert(Company.fetch(email).nil?, [:email, :not_unique])
+    unless customer.instance_of?(Stripe::Customer)
+      self.errors[:error_message] = [customer.message]
+    else
+      charge = Stripe.charge_customer(credits, customer.id)
+
+      unless charge.instance_of?(Stripe::Charge)
+        self.errors[:error_message] = [charge.message]
+      end
     end
 
     unless url.start_with?("http")

@@ -16,6 +16,9 @@
 % if signup.errors[:password] == [:not_confirmed]
   <p class="alert alert-error">Passwords don't match</p>
 % end
+% if !signup.errors[:error_message].empty?
+  <p class="alert alert-error">{{ signup.errors[:error_message][0] }}</p>
+% end
 
 <section>
   <h1>Sign up and start posting!</h1>
