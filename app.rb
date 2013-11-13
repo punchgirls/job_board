@@ -16,6 +16,7 @@ GITHUB_CLIENT_SECRET = ENV.fetch("GITHUB_CLIENT_SECRET")
 GITHUB_OAUTH_AUTHORIZE = ENV.fetch("GITHUB_OAUTH_AUTHORIZE")
 GITHUB_OAUTH_ACCESS_TOKEN = ENV.fetch("GITHUB_OAUTH_ACCESS_TOKEN")
 GITHUB_FETCH_USER = ENV.fetch("GITHUB_FETCH_USER")
+MALONE_URL = ENV.fetch("MALONE_URL")
 REDIS_URL = ENV.fetch("OPENREDIS_URL")
 RESET_URL = ENV.fetch("RESET_URL")
 
@@ -26,7 +27,7 @@ Cuba.plugin Cuba::TextHelpers
 Cuba.plugin Shield::Helpers
 
 Ohm.connect(url: REDIS_URL)
-Malone.connect
+Malone.connect(url: MALONE_URL)
 
 Dir["./models/**/*.rb"].each  { |rb| require rb }
 Dir["./routes/**/*.rb"].each  { |rb| require rb }
