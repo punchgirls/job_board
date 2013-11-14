@@ -18,9 +18,6 @@
               % if !user.instance_of?(Developer)
                 <li><a href="/dashboard">dashboard</a></li>
               % end
-              % if !user.instance_of?(Company)
-                <li><a href="/search">search</a></li>
-              % end
               % if !user.instance_of?(Admin)
                 <li><a href="/profile">
               % end
@@ -41,7 +38,7 @@
 
     <section id="wrapper">
 
-      % if !defined?(hide_search) && user.instance_of?(Developer)
+      % if !defined?(hide_search) && !user.instance_of?(Company)
         {{ this.partial("search_box") }}
         <hr/>
       % end

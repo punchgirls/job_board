@@ -60,7 +60,7 @@ class Guests < Cuba
 
     on "login" do
       on get, root do
-        render("company/login", title: "Login", user: "")
+        render("company/login", title: "Login", user: "", hide_search: true)
       end
 
       on post, param("company") do |params|
