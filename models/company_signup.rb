@@ -10,6 +10,13 @@ class CompanySignup < Scrivener
 
       unless charge.instance_of?(Stripe::Charge)
         self.errors[:error_message] = [charge.message]
+
+        delete = Stripe.delete_customer(customer.id)
+
+        unless delete.instance_of?(Stripe::Customer)
+          session[:error] = "It looks like we are having some problems
+          with your request. Please try again in a few minutes!"
+        end
       end
     end
 

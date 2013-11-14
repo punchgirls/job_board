@@ -71,9 +71,9 @@ module Stripe
     return customer
   end
 
-  def self.delete_customer(company)
+  def self.delete_customer(customer_id)
     begin
-      customer = Stripe::Customer.retrieve(company.customer_id)
+      customer = Stripe::Customer.retrieve(customer_id)
       customer.delete
     rescue => e
       return e

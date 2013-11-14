@@ -389,7 +389,7 @@ class Companies < Cuba
         end
       end
 
-      delete = Stripe.delete_customer(company)
+      delete = Stripe.delete_customer(company.customer_id)
 
       on !delete.instance_of?(Stripe::Customer) do
         session[:error] = "It looks like we are having some problems
