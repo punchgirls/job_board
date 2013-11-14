@@ -2,56 +2,38 @@ class Searches < Cuba
   define do
     query = session[:query]
 
-    on get, root do
-      render("search", title: "Search", posts: nil)
-    end
-
     on get, param("post") do |params|
-      on get, root do
-        posts = Search.posts(params)
+      posts = Search.posts(params)
 
-        session[:query] = params
-        render("search", title: "Tags", posts: posts)
-      end
-
-      on(default) { not_found! }
+      session[:query] = params
+      render("search", title: "Tags", posts: posts)
     end
 
     on param "all" do |params|
-      on get, root do
-        session[:query] = { "all"=>"true" }
-        render("search", title: "Search", posts: Post.all)
-      end
-
-      on(default) { not_found! }
+      session[:query] = { "all"=>"true" }
+      render("search", title: "Search", posts: Post.all)
     end
 
     on param "company" do
-      on get, root do
-        session[:error] = "You have to login as developer to
-          perform this action"
-        render("search", title: "Search", posts: Post.all)
-      end
-
-      on(default) { not_found! }
+      session[:error] = "You have to login as developer to
+        perform this action"
+      render("search", title: "Search", posts: Post.all)
     end
 
     on query do
-      on get, root do
-        if query.include?("all")
-          session.delete(:query)
-          render("search", title: "Search", posts: Post.all)
-        else
-          posts = Search.posts(session[:query])
-          session.delete(:query)
+      if query.include?("all")
+        session.delete(:query)
+        render("search", title: "Search", posts: Post.all)
+      else
+        posts = Search.posts(session[:query])
+        session.delete(:query)
 
-          render("search", title: "Tags", posts: posts)
-        end
+        render("search", title: "Tags", posts: posts)
       end
-
-      on(default) { not_found! }
     end
 
-    on(default) { not_found! }
+    on default do
+      render("search", title: "Search", posts: nil)
+    end
   end
 end
