@@ -13,18 +13,18 @@ class Guests < Cuba
     end
 
     on "signup" do
-      on get, root do
-        signup = CompanySignup.new({})
-
-        render("company/signup", title: "Sign up",
-          company: {}, signup: signup, package: "1")
-      end
-
       on param("package") do |package|
         signup = CompanySignup.new({})
 
         render("company/signup", title: "Sign up",
           company: {}, signup: signup, package: package)
+      end
+
+      on get, root do
+        signup = CompanySignup.new({})
+
+        render("company/signup", title: "Sign up",
+          company: {}, signup: signup, package: "1")
       end
 
       on post, param("stripe_token"), param("company") do |token, params|
@@ -194,10 +194,6 @@ class Guests < Cuba
     end
 
     on "github_oauth" do
-      on get, root do
-        res.redirect GitHub.oauth_authorize
-      end
-
       on param("code") do |code|
         access_token = GitHub.fetch_access_token(code)
 
@@ -209,6 +205,10 @@ class Guests < Cuba
         on default do
           res.redirect GitHub.login_url(access_token)
         end
+      end
+
+      on get, root do
+        res.redirect GitHub.oauth_authorize
       end
 
       on(default) { not_found! }
