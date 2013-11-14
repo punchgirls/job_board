@@ -1,12 +1,25 @@
 class Guests < Cuba
   define do
+    on root do
+      res.redirect "/"
+    end
+
     on "package" do
       on post, param("company") do |params|
         res.redirect "/signup?package=#{params["credits"]}"
       end
+
+      on(default) { not_found! }
     end
 
     on "signup" do
+      on root do
+        signup = CompanySignup.new({})
+
+        render("company/signup", title: "Sign up",
+          company: {}, signup: signup, package: "1")
+      end
+
       on param("package") do |package|
         signup = CompanySignup.new({})
 
@@ -40,19 +53,16 @@ class Guests < Cuba
           render("company/signup", title: "Sign up",
               company: params, signup: signup, package: params["credits"])
         end
-
-
       end
 
-      on default do
-        signup = CompanySignup.new({})
-
-        render("company/signup", title: "Sign up",
-          company: {}, signup: signup, package: "1")
-      end
+      on(default) { not_found! }
     end
 
     on "login" do
+      on root do
+        render("company/login", title: "Login", user: "")
+      end
+
       on post, param("company") do |params|
         user = params["email"]
         pass = params["password"]
@@ -81,9 +91,7 @@ class Guests < Cuba
         res.redirect "/login"
       end
 
-      on default do
-        render("company/login", title: "Login", user: "")
-      end
+      on(default) { not_found! }
     end
 
     on "forgot-password" do
@@ -114,6 +122,11 @@ class Guests < Cuba
     end
 
     on "otp/:signature" do |signature|
+      on root do
+        session[:error] = "Invalid URL. Please try again!"
+        res.redirect("/forgot-password")
+      end
+
       nobi = Nobi::TimestampSigner.new('my secret here')
 
       company =
@@ -152,10 +165,7 @@ class Guests < Cuba
         end
       end
 
-      on default do
-        session[:error] = "Invalid URL. Please try again!"
-        res.redirect("/forgot-password")
-      end
+      on(default) { not_found! }
     end
 
     on "search" do
@@ -163,19 +173,31 @@ class Guests < Cuba
     end
 
     on "apply/:id" do |id|
-      session[:apply_id] = id
+      on root do
+        session[:apply_id] = id
 
-      res.redirect "/github_oauth"
+        res.redirect "/github_oauth"
+      end
+
+      on(default) { not_found! }
     end
 
     on "favorite/:id" do |id|
-      session[:favorite_id] = id
-      session[:origin] = { "guests" => "true" }
+      on root do
+        session[:favorite_id] = id
+        session[:origin] = { "guests" => "true" }
 
-      res.redirect "/github_oauth"
+        res.redirect "/github_oauth"
+      end
+
+      on(default) { not_found! }
     end
 
     on "github_oauth" do
+      on root do
+        res.redirect GitHub.oauth_authorize
+      end
+
       on param("code") do |code|
         access_token = GitHub.fetch_access_token(code)
 
@@ -189,39 +211,41 @@ class Guests < Cuba
         end
       end
 
-      on default do
-        res.redirect GitHub.oauth_authorize
-      end
+      on(default) { not_found! }
     end
 
     on "github_login/:access_token" do |access_token|
-      apply_id = session[:apply_id]
-      query = session[:query]
-      favorite = session[:favorite_id]
-      origin = session[:origin]
+      on root do
+        apply_id = session[:apply_id]
+        query = session[:query]
+        favorite = session[:favorite_id]
+        origin = session[:origin]
 
-      github_user = GitHub.fetch_user(access_token)
+        github_user = GitHub.fetch_user(access_token)
 
-      developer = Developer.fetch(github_user["id"])
+        developer = Developer.fetch(github_user["id"])
 
-      on developer.nil? do
-        session[:github_id] = github_user["id"]
-        session[:username] = github_user["login"]
-        session[:avatar] = github_user["gravatar_id"]
+        on developer.nil? do
+          session[:github_id] = github_user["id"]
+          session[:username] = github_user["login"]
+          session[:avatar] = github_user["gravatar_id"]
 
-        render("confirm", title: "Confirm your user details",
-          github_user: github_user)
+          render("confirm", title: "Confirm your user details",
+            github_user: github_user)
+        end
+
+        authenticate(developer)
+
+        session[:success] = "You have successfully logged in."
+        session[:apply_id] = apply_id
+        session[:favorite_id] = favorite
+        session[:query] = query
+        session[:origin] = origin
+
+        res.redirect "/dashboard"
       end
 
-      authenticate(developer)
-
-      session[:success] = "You have successfully logged in."
-      session[:apply_id] = apply_id
-      session[:favorite_id] = favorite
-      session[:query] = query
-      session[:origin] = origin
-
-      res.redirect "/dashboard"
+      on(default) { not_found! }
     end
 
     on "confirm" do
@@ -229,6 +253,10 @@ class Guests < Cuba
       query = session[:query]
       favorite = session[:favorite_id]
       origin = session[:origin]
+
+      on root do
+        render("confirm", title: "Confirm your user details")
+      end
 
       on post, param("developer") do |params|
         if !params["url"].empty? &&
@@ -266,12 +294,14 @@ class Guests < Cuba
         end
       end
 
-      on default do
-        render("confirm", title: "Confirm your user details")
-      end
+      on(default) { not_found! }
     end
 
     on "admin" do
+      on root do
+        render("admin/login", title: "Admin Login", admin: "")
+      end
+
       on post, param("email"), param("password") do |admin, pass|
         if login(Admin, admin, pass)
           session[:success] = "You have successfully logged in!"
@@ -287,13 +317,9 @@ class Guests < Cuba
         render("admin/login", title: "Admin Login", admin: admin)
       end
 
-      on default do
-        render("admin/login", title: "Admin Login", admin: "")
-      end
+      on(default) { not_found! }
     end
 
-    on default do
-      res.redirect "/"
-    end
+    on(default) { not_found! }
   end
 end

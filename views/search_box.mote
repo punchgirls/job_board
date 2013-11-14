@@ -1,17 +1,6 @@
-% if this.session["query"]
-  % tags = this.session["query"]["tags"].split(",")
-  % location = this.session["query"]["location"]
-  % remote = this.session["query"]["remote"]
-% end
-
 <section id="search_form">
   <form name="postFrm" action="/search" method="GET">
     <ul id="tokens">
-      % if tags
-        % tags.each do |tag|
-          <li>{{ tag }}<span>X</span></li>
-        % end
-      % end
       <li id="token-input">
         <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
       </li>
