@@ -418,6 +418,10 @@ class Companies < Cuba
       on(default) { not_found! }
     end
 
+    on "contact" do
+      run Contacts
+    end
+
     on "delete" do
       on get, root do
         company = current_user

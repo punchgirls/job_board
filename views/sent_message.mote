@@ -1,0 +1,3 @@
+<p>E-mail: <a href='mailto:{{ params["email"] }}?subject=RE: {{ params["subject"] }}&body={{ params["email"] }} wrote: {{ params["body"] }}'>{{ params["email"] }}</a></p>
+<p>Subject: {{ params["subject"] }}</p>
+<p>Message: {{ params["body"] }}</p>

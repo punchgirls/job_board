@@ -320,6 +320,10 @@ class Guests < Cuba
       on(default) { not_found! }
     end
 
+    on "contact" do
+      run Contacts
+    end
+
     on(default) { not_found! }
   end
 end

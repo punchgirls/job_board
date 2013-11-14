@@ -211,6 +211,10 @@ class Admins < Cuba
       run Searches
     end
 
+    on "contact" do
+      run Contacts
+    end
+
     on "logout" do
       logout(Admin)
       session[:success] = "You have successfully logged out!"
