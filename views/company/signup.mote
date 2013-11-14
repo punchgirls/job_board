@@ -46,6 +46,6 @@
       {{ this.partial("packages", package: package) }}
     </span>
 
-    {{ this.partial("button") }}
+    <button type="submit" id="button">Sign up!</button>
   </form>
 </section>

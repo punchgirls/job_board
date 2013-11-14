@@ -1,6 +1,6 @@
 class Guests < Cuba
   define do
-    on root do
+    on get, root do
       res.redirect "/"
     end
 
@@ -13,7 +13,7 @@ class Guests < Cuba
     end
 
     on "signup" do
-      on root do
+      on get, root do
         signup = CompanySignup.new({})
 
         render("company/signup", title: "Sign up",
@@ -59,7 +59,7 @@ class Guests < Cuba
     end
 
     on "login" do
-      on root do
+      on get, root do
         render("company/login", title: "Login", user: "")
       end
 
@@ -122,7 +122,7 @@ class Guests < Cuba
     end
 
     on "otp/:signature" do |signature|
-      on root do
+      on get, root do
         session[:error] = "Invalid URL. Please try again!"
         res.redirect("/forgot-password")
       end
@@ -173,7 +173,7 @@ class Guests < Cuba
     end
 
     on "apply/:id" do |id|
-      on root do
+      on get, root do
         session[:apply_id] = id
 
         res.redirect "/github_oauth"
@@ -183,7 +183,7 @@ class Guests < Cuba
     end
 
     on "favorite/:id" do |id|
-      on root do
+      on get, root do
         session[:favorite_id] = id
         session[:origin] = { "guests" => "true" }
 
@@ -194,7 +194,7 @@ class Guests < Cuba
     end
 
     on "github_oauth" do
-      on root do
+      on get, root do
         res.redirect GitHub.oauth_authorize
       end
 
@@ -215,7 +215,7 @@ class Guests < Cuba
     end
 
     on "github_login/:access_token" do |access_token|
-      on root do
+      on get, root do
         apply_id = session[:apply_id]
         query = session[:query]
         favorite = session[:favorite_id]
@@ -254,7 +254,7 @@ class Guests < Cuba
       favorite = session[:favorite_id]
       origin = session[:origin]
 
-      on root do
+      on get, root do
         render("confirm", title: "Confirm your user details")
       end
 
@@ -298,7 +298,7 @@ class Guests < Cuba
     end
 
     on "admin" do
-      on root do
+      on get, root do
         render("admin/login", title: "Admin Login", admin: "")
       end
 

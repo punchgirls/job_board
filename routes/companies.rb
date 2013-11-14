@@ -1,11 +1,11 @@
 class Companies < Cuba
   define do
-    on root do
+    on get, root do
       render("company/dashboard", title: "Dashboard")
     end
 
     on "dashboard" do
-      on root do
+      on get, root do
         render("company/dashboard", title: "Dashboard")
       end
 
@@ -20,7 +20,7 @@ class Companies < Cuba
     on "payment" do
       company = current_company
 
-      on root do
+      on get, root do
         begin
           customer = Stripe::Customer.retrieve(company.customer_id)
           card = customer.cards["data"][0]
@@ -78,7 +78,7 @@ class Companies < Cuba
     end
 
     on "profile" do
-      on root do
+      on get, root do
         begin
           customer = Stripe::Customer.retrieve(current_user.customer_id)
           card = customer.cards["data"][0]
@@ -97,7 +97,7 @@ class Companies < Cuba
     end
 
     on "edit" do
-      on root do
+      on get, root do
         edit = EditCompanyAccount.new({})
 
         render("company/edit", title: "Edit profile", edit: edit)
@@ -144,7 +144,7 @@ class Companies < Cuba
     end
 
     on "customer/update" do
-      on root do
+      on get, root do
         render("customer/update", title: "Update payment details")
       end
 
@@ -185,7 +185,7 @@ class Companies < Cuba
     end
 
     on "post/new" do
-      on root do
+      on get, root do
         if company.credits.to_i > 0
           post = PostJobOffer.new({})
 
@@ -227,7 +227,7 @@ class Companies < Cuba
     end
 
     on "post/extend/:id" do |id|
-      on root do
+      on get, root do
         render("company/post/extend", title: "Extend date", id: id)
       end
 
@@ -280,7 +280,7 @@ class Companies < Cuba
     end
 
     on "post/remove/:id" do |id|
-      on root do
+      on get, root do
         post = Post[id]
         developers = post.developers
 
@@ -300,7 +300,7 @@ class Companies < Cuba
     end
 
     on "post/edit/:id" do |id|
-      on root do
+      on get, root do
         edit = PostJobOffer.new({})
 
         render("company/post/edit", title: "Edit post",
@@ -333,7 +333,7 @@ class Companies < Cuba
     end
 
     on "post/applications/:id" do |id|
-      on root do
+      on get, root do
         render("company/post/applications", title: "Applicants", id: id)
       end
 
@@ -341,7 +341,7 @@ class Companies < Cuba
     end
 
     on "application/remove/:id" do |id|
-      on root do
+      on get, root do
         application = Application[id]
         developer = application.developer
         post = application.post
@@ -362,7 +362,7 @@ class Companies < Cuba
     end
 
     on "application/contact/:id" do |id|
-      on root do
+      on get, root do
         render("company/post/contact", title: "Contact developer",
           id: id, message: {})
       end
@@ -395,7 +395,7 @@ class Companies < Cuba
       application = Application[id]
       post = application.post
 
-      on root do
+      on get, root do
         render("company/post/applications", title: "Applicants", id: post.id)
       end
 
@@ -409,7 +409,7 @@ class Companies < Cuba
     end
 
     on "logout" do
-      on root do
+      on get, root do
         logout(Company)
         session[:success] = "You have successfully logged out!"
         res.redirect "/"
@@ -419,7 +419,7 @@ class Companies < Cuba
     end
 
     on "delete" do
-      on root do
+      on get, root do
         company = current_user
         posts = company.posts
         developers = []

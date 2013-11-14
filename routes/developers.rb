@@ -1,11 +1,11 @@
 class Developers < Cuba
   define do
-    on root do
+    on get, root do
       render("developer/dashboard", title: "Dashboard")
     end
 
     on "dashboard" do
-      on root do
+      on get, root do
         render("developer/applications", title: "My applications")
       end
 
@@ -30,7 +30,7 @@ class Developers < Cuba
     end
 
     on "applications" do
-      on root do
+      on get, root do
         render("developer/applications", title: "My applications")
       end
 
@@ -38,7 +38,7 @@ class Developers < Cuba
     end
 
     on "remove/:id" do |id|
-      on root do
+      on get, root do
         Application[id].delete
         session[:success] = "Application successfully removed!"
         res.redirect "/applications"
@@ -48,7 +48,7 @@ class Developers < Cuba
     end
 
     on "favorites" do
-      on root do
+      on get, root do
         render("developer/favorites", title: "Favorites")
       end
 
@@ -56,7 +56,7 @@ class Developers < Cuba
     end
 
     on "apply/:id" do |id|
-      on root do
+      on get, root do
         res.redirect "/search"
       end
 
@@ -79,7 +79,7 @@ class Developers < Cuba
     end
 
     on "message/:post_id/:developer_id" do |post_id, developer_id|
-      on root do
+      on get, root do
         res.redirect "/search"
       end
 
@@ -103,7 +103,7 @@ class Developers < Cuba
     end
 
     on "note/:id" do |id|
-      on root do
+      on get, root do
         res.redirect "/search"
       end
 
@@ -130,7 +130,7 @@ class Developers < Cuba
     end
 
     on "favorite/:id" do |id|
-      on root do
+      on get, root do
         res.redirect "/favorites"
       end
 
@@ -163,7 +163,7 @@ class Developers < Cuba
     end
 
     on "profile" do
-      on root do
+      on get, root do
         render("developer/profile", title: "Edit profile")
       end
 
@@ -194,7 +194,7 @@ class Developers < Cuba
     end
 
     on "logout" do
-      on root do
+      on get, root do
         logout(Developer)
 
         session[:success] = "You have successfully logged out!"
@@ -205,7 +205,7 @@ class Developers < Cuba
     end
 
     on "delete" do
-      on root do
+      on get, root do
         current_user.delete
 
         session[:success] = "You have deleted your account."

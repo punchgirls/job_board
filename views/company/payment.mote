@@ -9,6 +9,5 @@
     {{ this.partial("packages") }}
   </span>
 
-  {{ this.partial("button") }}
-
+  <button type="submit" id="button">Purchase</button>
 </form>

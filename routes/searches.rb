@@ -2,12 +2,12 @@ class Searches < Cuba
   define do
     query = session[:query]
 
-    on root do
+    on get, root do
       render("search", title: "Search", posts: nil)
     end
 
     on get, param("post") do |params|
-      on root do
+      on get, root do
         posts = Search.posts(params)
 
         session[:query] = params
@@ -18,7 +18,7 @@ class Searches < Cuba
     end
 
     on param "all" do |params|
-      on root do
+      on get, root do
         session[:query] = { "all"=>"true" }
         render("search", title: "Search", posts: Post.all)
       end
@@ -27,7 +27,7 @@ class Searches < Cuba
     end
 
     on param "company" do
-      on root do
+      on get, root do
         session[:error] = "You have to login as developer to
           perform this action"
         render("search", title: "Search", posts: Post.all)
@@ -37,7 +37,7 @@ class Searches < Cuba
     end
 
     on query do
-      on root do
+      on get, root do
         if query.include?("all")
           session.delete(:query)
           render("search", title: "Search", posts: Post.all)
