@@ -324,6 +324,14 @@ class Guests < Cuba
       run Contacts
     end
 
+    on "terms" do
+      run Terms
+    end
+
+    on "privacy" do
+      run Policies
+    end
+
     on(default) { not_found! }
   end
 end

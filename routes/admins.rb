@@ -215,6 +215,14 @@ class Admins < Cuba
       run Contacts
     end
 
+    on "terms" do
+      run Terms
+    end
+
+    on "privacy" do
+      run Policies
+    end
+
     on "logout" do
       logout(Admin)
       session[:success] = "You have successfully logged out!"

@@ -422,6 +422,14 @@ class Companies < Cuba
       run Contacts
     end
 
+    on "terms" do
+      run Terms
+    end
+
+    on "privacy" do
+      run Policies
+    end
+
     on "delete" do
       on get, root do
         company = current_user
