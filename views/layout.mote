@@ -47,8 +47,8 @@
         <section>
           <nav>
             <ul>
-              <li><a href="/applications">my applications ({{ user.applications.size }})</a></li>
-              <li><a href="/favorites">my favorites ({{ user.favorites.size }})</a></li>
+              <li><a href="/applications">my applications (<span id="apps_size">{{ user.applications.size }}</span>)</a></li>
+              <li><a href="/favorites">my favorites (<span id="favs_size">{{ user.favorites.size }}</span>)</a></li>
             </ul>
           </nav>
         </section>

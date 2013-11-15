@@ -1,7 +1,7 @@
 % developer = this.current_developer
 % applications = developer.applications
 <section>
-  <h1>My applications ({{ applications.size }})</h1>
+  <h1>My applications (<span id="apps_size_title">{{ applications.size }}</span>)</h1>
 
   % if applications.empty?
     <p>You haven't applied for any jobs yet. Start your search now!</p>
