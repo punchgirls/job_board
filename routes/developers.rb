@@ -38,21 +38,13 @@ class Developers < Cuba
     end
 
     on "remove/:id" do |id|
-      on get, root do
-        Application[id].delete
-        session[:success] = "Application successfully removed!"
-        res.redirect "/applications"
-      end
-
-      on(default) { not_found! }
+      Application[id].delete
+      session[:success] = "Application successfully removed!"
+      res.redirect "/applications"
     end
 
     on "favorites" do
-      on get, root do
-        render("developer/favorites", title: "Favorites")
-      end
-
-      on(default) { not_found! }
+      render("developer/favorites", title: "Favorites")
     end
 
     on "apply/:id" do |id|
