@@ -147,7 +147,7 @@ class Companies < Cuba
         res.redirect "/customer/update"
       end
 
-      on post, param("stripeToken") do |token|
+      on post, param("stripe_token") do |token|
         update = Stripe.update_customer(company, token)
 
         on !update.instance_of?(Stripe::Customer) do
