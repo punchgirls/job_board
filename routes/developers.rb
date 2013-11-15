@@ -30,11 +30,7 @@ class Developers < Cuba
     end
 
     on "applications" do
-      on get, root do
-        render("developer/applications", title: "My applications")
-      end
-
-      on(default) { not_found! }
+      render("developer/applications", title: "My applications")
     end
 
     on "remove/:id" do |id|
@@ -69,10 +65,6 @@ class Developers < Cuba
     end
 
     on "message/:post_id/:developer_id" do |post_id, developer_id|
-      on get, root do
-        res.redirect "/search"
-      end
-
       applications = Post[post_id].applications
 
       application = Application[applications.find(:developer_id => developer_id).ids[0]]
@@ -89,14 +81,14 @@ class Developers < Cuba
         end
       end
 
-      on(default) { not_found! }
-    end
-
-    on "note/:id" do |id|
       on get, root do
         res.redirect "/search"
       end
 
+      on(default) { not_found! }
+    end
+
+    on "note/:id" do |id|
       application = Application[id]
 
       on param("note") do |note|
@@ -116,14 +108,14 @@ class Developers < Cuba
         end
       end
 
+      on get, root do
+        res.redirect "/search"
+      end
+
       on(default) { not_found! }
     end
 
     on "favorite/:id" do |id|
-      on get, root do
-        res.redirect "/favorites"
-      end
-
       post = Post[id]
       favorites = current_user.favorites
       favorited_by = post.favorited_by
@@ -149,14 +141,14 @@ class Developers < Cuba
         end
       end
 
+      on get, root do
+        res.redirect "/favorites"
+      end
+
       on(default) { not_found! }
     end
 
     on "profile" do
-      on get, root do
-        render("developer/profile", title: "Edit profile")
-      end
-
       on post, param("developer") do |params|
         developer = current_developer
 
@@ -180,18 +172,18 @@ class Developers < Cuba
         end
       end
 
+      on get, root do
+        render("developer/profile", title: "Edit profile")
+      end
+
       on(default) { not_found! }
     end
 
     on "logout" do
-      on get, root do
-        logout(Developer)
+      logout(Developer)
 
-        session[:success] = "You have successfully logged out!"
-        res.redirect "/"
-      end
-
-      on(default) { not_found! }
+      session[:success] = "You have successfully logged out!"
+      res.redirect "/"
     end
 
     on "contact" do
@@ -199,14 +191,10 @@ class Developers < Cuba
     end
 
     on "delete" do
-      on get, root do
-        current_user.delete
+      current_user.delete
 
-        session[:success] = "You have deleted your account."
-        res.redirect "/"
-      end
-
-      on(default) { not_found! }
+      session[:success] = "You have deleted your account."
+      res.redirect "/"
     end
 
     on(default) { not_found! }
