@@ -56,10 +56,6 @@ class Developers < Cuba
     end
 
     on "apply/:id" do |id|
-      on get, root do
-        res.redirect "/search"
-      end
-
       time = Time.new.to_i
       developer = current_developer
       post = Post[id]
@@ -75,7 +71,9 @@ class Developers < Cuba
         res.redirect "/search"
       end
 
-      on(default) { not_found! }
+      on default do
+        res.redirect "/search"
+      end
     end
 
     on "message/:post_id/:developer_id" do |post_id, developer_id|
