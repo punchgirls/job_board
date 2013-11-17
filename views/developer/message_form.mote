@@ -4,9 +4,9 @@
 
   <span class="countdown" id="countdownMsg_{{ post.id }}">200 characters remaining.</span><br/>
 
-  <a id="cancel" class="button" onclick="closeMsgFrm({{ post.id }})">Cancel</a>
+  <a id="cancel" class="button" onclick="closeMsgFrm({{ post.id }})">cancel</a>
 
-  <button id="save" type="submit">Send</button>
+  <button id="save" type="submit">send</button>
 </form>
 
 <script src="/js/limit_description.js"></script>

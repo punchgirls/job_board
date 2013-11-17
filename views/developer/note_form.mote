@@ -4,9 +4,9 @@
 
   <span class="countdown" id="countdownNote_{{ application.id }}">200 characters remaining.</span><br/>
 
-  <a id="cancel" class="button" onclick="closeNoteFrm({{ application.id }})">Cancel</a>
+  <a id="cancel" class="button" onclick="closeNoteFrm({{ application.id }})">cancel</a>
 
-  <button id="save" type="submit">Send</button>
+  <button id="save" type="submit">add note</button>
 </form>
 
 <script src="/js/limit_description.js"></script>
