@@ -7,7 +7,7 @@ class EditCompanyAccount < Scrivener
     assert_email :email
     assert_url :url
 
-    assert_length :password, 8..192
+    assert_length :password, 6..64
     assert password == password_confirmation, [:password, :not_confirmed]
   end
 end

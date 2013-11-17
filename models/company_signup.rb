@@ -27,8 +27,7 @@ class CompanySignup < Scrivener
     assert_present :name
     assert_url :url
     assert_format :credits, /\A(1|5|10)\Z/
-    assert_length :password, 8..32
+    assert_length :password, 6..64
     assert password == password_confirmation, [:password, :not_confirmed]
   end
 end
-
