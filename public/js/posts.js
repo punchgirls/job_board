@@ -37,6 +37,13 @@ function addMsg (id) {
   messageFrm.style.display = "block";
 }
 
+function closeMsgFrm (id) {
+  var messageFrm = document.getElementById("message_form_" + id);
+  var addMsgLink = document.getElementById("add_msg_link_" + id);
+  addMsgLink.style.display = "block";
+  messageFrm.style.display = "none";
+}
+
 function sendMsg (postId, developerId) {
   var messageFrm = document.getElementById("message_form_" + postId);
   var messageTxt = document.getElementById("messageTxt_" + postId).value;
@@ -79,6 +86,16 @@ function addNote (id) {
 
   note.style.display = "none";
   form.style.display = "block";
+}
+
+function closeNoteFrm (id) {
+  var noteLink = document.getElementById("note_link_" + id);
+  var form = document.getElementById("note_form_" + id);
+  var note = document.getElementById("note_" + id);
+
+  noteLink.style.display = "block";
+  note.style.display = "block";
+  form.style.display = "none";
 }
 
 function displayNote (id) {
