@@ -25,6 +25,7 @@ class CompanySignup < Scrivener
     end
 
     assert_present :name
+    assert_email :email
     assert_url :url
     assert_format :credits, /\A(1|5|10)\Z/
     assert_length :password, 6..64
