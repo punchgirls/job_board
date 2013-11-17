@@ -100,7 +100,6 @@ class Developers < Cuba
 
         on text.valid? do
           application.update(:note => note)
-          session[:success] = "You have succesfully added a note"
         end
 
         on defaul do
