@@ -13,6 +13,9 @@
 % if post.errors[:description] == [:not_in_range]
  <p class="alert alert-error">Description should not exceed 600 characters</p>
 % end
+% if post.errors[:location] == [:not_present] || post.errors[:remote] == [:not_present]
+ <p class="alert alert-error">Location or Remote must be selected</p>
+% end
 
 <h1>Create a new job offer</h1>
 

@@ -3,7 +3,15 @@ class PostJobOffer < Scrivener
 
   def validate
     assert_present :tags
-    assert_present :location
+
+    unless !location.nil?
+      assert_present :remote
+    end
+
+    unless !remote.nil?
+      assert_present :location
+    end
+
     assert_present :title
     assert_present :description
     assert_length :title, 1..80

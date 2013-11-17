@@ -15,6 +15,9 @@
 % if edit.errors[:description] == [:not_in_range]
  <p class="alert alert-error">Description should not exceed 600 characters</p>
 % end
+% if edit.errors[:location] == [:not_present] || edit.errors[:remote] == [:not_present]
+ <p class="alert alert-error">Location or Remote must be selected</p>
+% end
 
 <h1>Edit post</h1>
 
