@@ -94,10 +94,6 @@ class Companies < Cuba
 
     on "edit" do
       on post, param("company") do |params|
-        if !params["url"].start_with?("http")
-          params["url"] = "http://" + params["url"]
-        end
-
         company = current_company
 
         if params["password"].empty?
