@@ -11,7 +11,9 @@ class EditCompanyAccount < Scrivener
     assert_email :email
     assert_url :url
 
-    assert password.length > 5, [:password, :too_small]
-    assert password == password_confirmation, [:password, :not_confirmed]
+    unless password.nil?
+      assert password.length > 5, [:password, :too_small]
+      assert password == password_confirmation, [:password, :not_confirmed]
+    end
   end
 end

@@ -96,10 +96,7 @@ class Companies < Cuba
       on post, param("company") do |params|
         company = current_company
 
-        if params["password"].empty?
-          params["password"] = company.crypted_password
-          params["password_confirmation"] = company.crypted_password
-        end
+        params.delete("password") if params["password"].empty?
 
         edit = EditCompanyAccount.new(params)
 
