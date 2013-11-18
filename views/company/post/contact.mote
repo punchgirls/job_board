@@ -1,5 +1,5 @@
 <section>
-  <h1>Contact developer</h1>
+  <h1 class="section_heading">Contact developer</h1>
 
   <p>The following message will be sent as an e-mail to {{ Developer[id].name }}, with a copy to your registered company e-mail address:</p>
 

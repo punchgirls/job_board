@@ -1,7 +1,7 @@
 % developer = this.current_developer
 % favorites = developer.favorites
 <span>
-  <h1>My favorites ({{ favorites.size }})</h1>
+  <h1 class="section_heading">My favorites ({{ favorites.size }})</h1>
 
   % if favorites.empty?
     <p>You have no favorite posts yet.</p>
@@ -17,7 +17,7 @@
             <article>
               <header>
                 <h1>{{ this.h(post.company.name) }}</h1><br/>
-                <a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>
+                <a class="url" href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>
                 <h2>{{ this.h(post.title) }}</h2>
                 <ul>
                   % post.tags.split(", ").each do |tag|
@@ -47,10 +47,12 @@
 
               {{ this.partial("developer/add_message", post: post, developer: developer) }}
 
+              <span id="sent_ok_{{ post.id }}" class="sent_ok"></span>
+
               <footer>
                 <ul>
                   <li>
-                    <time class="float_left" datetime="" pubdate>Posted on {{ post.posted }}
+                    <time class="date_posted" class="float_left" datetime="" pubdate>Posted on {{ post.posted }}
                     </time>
                   </li>
                   <li>

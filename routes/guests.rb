@@ -17,14 +17,14 @@ class Guests < Cuba
         signup = CompanySignup.new({})
 
         render("company/signup", title: "Sign up",
-          company: {}, signup: signup, package: package)
+          company: {}, signup: signup, package: package, hide_search: true)
       end
 
       on get, root do
         signup = CompanySignup.new({})
 
         render("company/signup", title: "Sign up",
-          company: {}, signup: signup, package: "1")
+          company: {}, signup: signup, package: "1", hide_search: true)
       end
 
       on post, param("stripe_token"), param("company") do |token, params|
@@ -77,13 +77,13 @@ class Guests < Cuba
           res.redirect "/dashboard"
         else
           session[:error] = "Invalid email/password combination"
-          render("company/login", title: "Login", user: user)
+          render("company/login", title: "Login", user: user, hide_search: true)
         end
       end
 
       on post, param("email") do |user|
         session[:error] = "No password provided"
-        render("company/login", title: "Login", user: user)
+        render("company/login", title: "Login", user: user, hide_search: true)
       end
 
       on param("recovery") do

@@ -1,10 +1,8 @@
 % developer = this.current_developer
 
 % if posts.nil?
-  <hr/>
   <p>Start searching by adding keywords.</p>
 % elsif posts.empty?
-  <hr/>
   <p>No posts matched your search. Try again!</p>
 % else
     <ul>
@@ -14,7 +12,7 @@
             <article>
               <header>
                 <h1>{{ this.h(post.company.name) }}</h1><br/>
-                <a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>
+                <a class="url" href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>
                 <h2>{{ this.h(post.title) }}</h2>
                 <ul>
                   % post.tags.split(", ").each do |tag|
@@ -25,7 +23,7 @@
 
               <section class="location">
                 <ul>
-                  <li class="float_left">{{ this.h(post.location) }}</li>
+                  <li>{{ this.h(post.location) }}</li>
                   <li>
                     % if post.remote == "true"
                       <i class="fa fa-globe"></i> Remote work OK
@@ -52,7 +50,7 @@
               <footer>
                 <ul>
                   <li>
-                    <time class="float_left" datetime="" pubdate>Posted on {{ post.posted }}
+                    <time class="date_posted" datetime="" pubdate>Posted on {{ post.posted }}
                     </time>
                   </li>
                   <li>

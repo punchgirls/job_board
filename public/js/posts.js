@@ -50,8 +50,8 @@ function sendMsg (postId, developerId) {
       messageFrm.style.display = "none";
 
       if (message) {
-        message.innerHTML = '<span class="msg_title">Sent message</span><br>' + messageTxt;
-        message.setAttribute("class", "message");
+        message.innerHTML = '<span class="info_box_title">Sent message</span><br>' + messageTxt;
+        message.setAttribute("class", "info_box");
       }
 
       if (sentOK) {
@@ -100,9 +100,9 @@ function displayNote (id) {
     if ((request.readyState===4) && (request.status===200)) {
       if (noteTxt != "") {
         form.style.display = "none";
-        note.innerHTML = '<span class="msg_title">Personal note</span><i class="fa fa-pencil-square-o cursor" id="edit_note_link_' + id + '" onclick="addNote(' + id + ')"></i><br>' + noteTxt;
+        note.innerHTML = '<span class="info_box_title">Personal note</span><i class="fa fa-pencil-square-o cursor" id="edit_note_link_' + id + '" onclick="addNote(' + id + ')"></i><br>' + noteTxt;
         note.style.display = "block";
-        note.setAttribute("class", "message");
+        note.setAttribute("class", "info_box");
       } else {
         form.style.display = "none";
         noteLink.innerHTML = "Add a personal note?";

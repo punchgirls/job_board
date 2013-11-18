@@ -5,10 +5,10 @@
 
   <input disabled="disabled" class="input_field input_field_short" type="text" size="4" maxlength="4" value="***"/>
 
-  <div class="float_right">
+  <div id="card_expiration_date">
     <label>Expires on</label>
     <input disabled="disabled" class="input_field input_field_short" type="text" size="2" maxlength="2" value="{{ card['exp_month'] }}"/>
     <span> / </span>
     <input disabled="disabled" class="input_field input_field_short" type="text" size="2" maxlength="2" value="{{ card['exp_year'] }}"/>
   </div>
-</div><br/>
+</div>

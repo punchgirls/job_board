@@ -1,13 +1,15 @@
-<h1>Payment details &nbsp;<a href="/customer/update?origin=payment" id="credits"><i class="fa fa-pencil-square-o icon_small cursor"></i></a></h1>
+<section>
+  <h1 class="section_heading">Payment details &nbsp;<a href="/customer/update?origin=payment" id="credits"><i class="fa fa-pencil-square-o icon_small cursor"></i></a></h1>
 
-<form action="/payment?origin=payment" method="POST" id="paymentFrm">
-  <span id="payment-errors"></span><br/>
+  <form action="/payment?origin=payment" method="POST" id="paymentFrm">
+    <span id="payment-errors"></span><br/>
 
-  {{ this.partial("payment_details", customer: customer, card: card) }}
+    {{ this.partial("payment_details", customer: customer, card: card) }}
 
-  <span class="packages">
-    {{ this.partial("packages") }}
-  </span>
+    <span class="packages">
+      {{ this.partial("packages") }}
+    </span>
 
-  <button type="submit" id="button">Purchase</button>
-</form>
+    <button type="submit" id="button">Purchase</button>
+  </form>
+</section>

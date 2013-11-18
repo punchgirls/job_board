@@ -44,7 +44,7 @@
       % end
 
       % if user.instance_of?(Developer)
-        <section>
+        <section id="sub_menu">
           <nav>
             <ul>
               <li><a href="/applications">my applications ({{ user.applications.size }})</a></li>
@@ -56,7 +56,7 @@
 
       <span id="notices">
         {{ this.partial("notices", session: this.session) }}
-      </span><br/>
+      </span>
 
       {{ content }}
 

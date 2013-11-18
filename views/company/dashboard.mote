@@ -2,13 +2,13 @@
 % active_posts = posts.find(:expired? => false)
 
 <section>
-  <h1>Remaining posts: {{ this.current_user.credits }}</h1>
+  <h1 class="section_heading">Remaining posts: {{ this.current_user.credits }}</h1>
 
   <a class="button post_job_btn" href="/post/new">Post job offer</a>
 </section>
 <hr/>
 <section>
-  <h1>Active job posts ({{ active_posts.size }})</h1>
+  <h1 class="section_heading">Active job posts ({{ active_posts.size }})</h1>
 
   % if posts.empty?
 
@@ -51,8 +51,8 @@
 
           <p>{{ this.h(post.description) }}</p>
 
-          <p class="message expiration_date ">
-            <time class="msg_title" datetime="">
+          <p class="info_box expiration_date ">
+            <time class="info_box_title" datetime="">
               % if post.expires > 24
                 Expires in {{ (post.expires / 24).ceil }} days
               % elsif post.expires <= 24 && post.expires > 1
@@ -62,7 +62,7 @@
               % else
                 The post has expired
               % end
-            </time>
+            </time><br/>
             % if post.expired?
               <a class="button extend_btn expired" href="/post/extend/{{ post.id }}">Extend expiration date</a>
             % else
@@ -71,7 +71,7 @@
           </p>
 
           <footer class="align_left">
-            <time datetime="" pubdate>
+            <time class="date_posted" datetime="" pubdate>
               Posted on {{ post.posted }}
             </time>
           </footer>

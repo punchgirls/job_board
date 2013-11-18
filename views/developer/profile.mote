@@ -5,9 +5,9 @@
 % end
 
 <section>
-  <h1>Edit your profile</h1>
+  <h1 class="section_heading">Edit your profile</h1>
 
-  <img src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
+  <img class="avatar" src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
 
   <form action="/profile/{{ developer.id }}" method="POST">
     <input class="input_field" type="text" name="developer[name]"
@@ -21,7 +21,7 @@
 
     <textarea name="developer[bio]"
     placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"
-    >{{ this.h(developer.bio) }}</textarea><br>
+    >{{ this.h(developer.bio) }}</textarea>
 
 
     <span class="countdown" id="countdownBio">200 characters remaining.</span><br/>

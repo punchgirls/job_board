@@ -1,7 +1,7 @@
 <section>
   <h1>Please confirm your details!</h1>
 
-  <img id="avatar" src="http://www.gravatar.com/avatar/{{ github_user['gravatar_id'] }}" />
+  <img class="avatar" src="http://www.gravatar.com/avatar/{{ github_user['gravatar_id'] }}" />
 
   <form action="/confirm" method="POST">
     <input class="input_field" type="text" name="developer[name]"
@@ -14,11 +14,11 @@
     value="{{ github_user['blog'] }}" placeholder="Website (optional)"><br/>
 
     <textarea id="developer-bio" name="developer[bio]"
-    placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"></textarea><br>
+    placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"></textarea>
 
     <span class="countdown" id="countdownBio">200 characters remaining.</span><br/>
 
-    <button type="submit">Confirm</button><br/>
+    <button class="button_center" type="submit">Confirm</button><br/>
   </form>
 
   <script src="/js/limit_description.js"></script>

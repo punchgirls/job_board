@@ -21,7 +21,7 @@
 % end
 
 <section>
-  <h1>Edit your profile</h1>
+  <h1 class="section_heading">Edit your profile</h1>
 
   <form action="/edit/{{ company.id }}" method="POST">
 

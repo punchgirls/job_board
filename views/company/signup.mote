@@ -21,7 +21,7 @@
 % end
 
 <section>
-  <h1>Sign up and start posting!</h1>
+  <h1 class="section_heading">Sign up and start posting!</h1>
 
   <form action="/signup" method="POST" class="payment-details">
 
@@ -46,6 +46,6 @@
       {{ this.partial("packages", package: package) }}
     </span>
 
-    <button type="submit" id="button">Sign up!</button>
+    <button class="button_center" type="submit" id="button">Sign up!</button>
   </form>
 </section>

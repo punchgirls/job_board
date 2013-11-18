@@ -1,4 +1,4 @@
-<h1>Extend expiration date</h1>
+<h1 class="section_heading">Extend expiration date</h1>
 
 <form action="/post/extend/{{ id }}" method="POST">
   <span class="packages">

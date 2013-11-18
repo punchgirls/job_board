@@ -16,11 +16,11 @@
 
     <label>
       <input type="checkbox" name="post[remote]" value="true">
-      <span class="checkbox_label">Remote</span>
+      <span id="checkbox_label">Remote</span>
     </label>
 
-    <a href="/search?all=true">All posts</a>
+    <a id="form_link" href="/search?all=true">All posts</a>
 
-    <button type="submit">search</button>
+    <button class="button_center" type="submit">search</button>
   </form>
 </section>

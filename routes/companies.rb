@@ -185,16 +185,6 @@ class Companies < Cuba
     end
 
     on "post/new" do
-      on get, root do
-        if company.credits.to_i > 0
-          post = PostJobOffer.new({})
-
-          render("company/post/new", title: "Post job offer", post: post)
-        else
-          res.redirect "/payment"
-        end
-      end
-
       company = current_company
 
       on post, param("post") do |params|
@@ -220,6 +210,16 @@ class Companies < Cuba
 
         on default do
           render("company/post/new", title: "Post job offer", post: post)
+        end
+      end
+
+      on get, root do
+        if company.credits.to_i > 0
+          post = PostJobOffer.new({})
+
+          render("company/post/new", title: "Post job offer", post: post)
+        else
+          res.redirect "/payment"
         end
       end
 

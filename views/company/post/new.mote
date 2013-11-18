@@ -14,7 +14,7 @@
  <p class="alert alert-error">Description should not exceed 600 characters</p>
 % end
 
-<h1>Create a new job offer</h1>
+<h1 class="section_heading">Create a new job offer</h1>
 
 <form id="new-post" name="postFrm" action="/post/new" method="POST">
   <ul id="tokens">
@@ -34,7 +34,7 @@
 
   <label>
     <input type="checkbox" name="post[remote]" value="true">
-    <span class="checkbox_label">Remote</span>
+    <span id="checkbox_label">Remote</span>
   </label><br/>
 
   <input class="input_field" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" id="title" placeholder="Post title"><br/>

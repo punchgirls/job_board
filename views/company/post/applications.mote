@@ -1,7 +1,7 @@
 % applications = Post[id].applications
 
 <section>
-  <h1>Applicants (<span id="numer-of-applicants">{{ applications.size }}</span>)</h1>
+  <h1 class="section_heading">Applicants (<span id="numer-of-applicants">{{ applications.size }}</span>)</h1>
 
   <h2 id="post_title">{{ this.h(Post[id].title) }}</h2>
   % if applications.empty?
@@ -13,19 +13,19 @@
         <li id="app_{{ application.id }}">
           <img class="avatar" src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
           <section class="applicant">
-            <h1>{{ this.h(developer.name) }}</h1>
-            <a href="http://www.github.com/{{ developer.username }}" target="_blank">github.com/{{ developer.username }}</a>
+            <h1>{{ this.h(developer.name) }}</h1><br/>
+            <a class="url" href="http://www.github.com/{{ developer.username }}" target="_blank">github.com/{{ developer.username }}</a><br/>
 
             % if !developer.url.nil?
-              <a href="{{ developer.url }}">{{ this.h(developer.url) }}</a>
+              <a class="url" href="{{ developer.url }}">{{ this.h(developer.url) }}</a>
             % end
 
             % if !developer.bio.nil?
-              <p class="clear">{{ this.h(developer.bio) }}</p>
+              <p class="bio">{{ this.h(developer.bio) }}</p>
             % end
 
             % if !application.message.nil?
-              <p class="message"><span class="msg_title">Message from developer:</span><br/>{{ this.h(application.message) }}</p>
+              <p class="info_box"><span class="info_box_title">Message from developer:</span><br/>{{ this.h(application.message) }}</p>
             % end
           </section>
           <section class="icon_group">
