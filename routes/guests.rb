@@ -273,9 +273,9 @@ class Guests < Cuba
         end
 
         on default do
-          session[:error] = "All fields are required and must be valid"
+          session[:error] = "Name and E-mail are required and must be valid"
           render("confirm", title: "Confirm your user details",
-            github_user: params)
+            github_user: params, hide_search: true)
         end
       end
 

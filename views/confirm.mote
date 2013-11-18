@@ -5,7 +5,7 @@
 
   <form action="/confirm" method="POST">
     <input class="input_field" type="text" name="developer[name]"
-    value="{{ github_user['name'] }}" paceholder="Name"><br/>
+    value="{{ github_user['name'] }}" placeholder="Name"><br/>
 
     <input class="input_field" type="email" name="developer[email]"
     value="{{ github_user['email'] }}" placeholder="Email"><br/>
