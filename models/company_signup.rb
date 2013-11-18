@@ -20,12 +20,15 @@ class CompanySignup < Scrivener
       end
     end
 
+    if assert_email(:email)
+      assert(Company.fetch(email).nil?, [:email, :not_unique])
+    end
+
     unless url.start_with?("http")
       self.url = "http://" + url
     end
 
     assert_present :name
-    assert_email :email
     assert_url :url
     assert_format :credits, /\A(1|5|10)\Z/
     assert password.length > 5, [:password, :too_small]
