@@ -10,7 +10,8 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
-    <header id="main_header">
+    <div id="container">
+      <header id="main_header">
       <h1><a href="/">job board<span></span></a></h1>
         <nav>
           <ul>
@@ -84,6 +85,7 @@
       </section>
       <p>Copyright 2013. All rights are reserved.</p>
     </footer>
+    </div>
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 

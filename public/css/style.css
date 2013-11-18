@@ -9,16 +9,24 @@ hr, article, i {
 
 /* General styles */
 
-html {
+html, body {
   height: 100%;
 }
 
 body {
-  padding: 0.7em 0.5em;
   font-family: Arial, sans-serif;
   font-size: 1em;
   color: #4d4d4d;
   letter-spacing: 1px;
+}
+
+#container {
+  min-height:100%;
+  position:relative;
+}
+
+#wrapper {
+  padding: 0 0.5em 220px 0.5em;
 }
 
 h1 {
@@ -395,6 +403,10 @@ a.expired {
 
 /* Main header */
 
+#main_header {
+  padding: 0.7em 0.5em 0 0.7em;
+}
+
 #main_header nav {
   margin-bottom: 1.2em;
 }
@@ -552,10 +564,10 @@ i {
 
 #main_footer {
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  margin: 1.6em -0.5em -0.7em;
-  padding: 1.2em 0.8em;
+  bottom:0;
+  left:0;
+  right: 0;
+  height: 150px;
   background-color: #313131;
 }
 
