@@ -269,7 +269,8 @@ button, a.button, .button_apply, .button_applied {
 a.button, .button_apply, .button_applied {
   margin-bottom: 0.3em;
   display: inline-block;
-  width: 14em;
+  width: 80%;
+  max-width: 14em;
   text-align: center;
   padding: 0.35em 0;
 }
