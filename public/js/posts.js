@@ -12,6 +12,7 @@ function apply (id) {
   var post = document.getElementById("post_" + id);
   var url = "/apply/" + id;
   var addMsgLink = document.getElementById("add_msg_link_" + id);
+  var appsSize = document.getElementById("apps_size");
 
   var request = ajax();
   request.open("POST", url);
@@ -22,6 +23,7 @@ function apply (id) {
       post.setAttribute("class", "button_applied");
       addMsgLink.innerHTML = "Send a message?";
       addMsgLink.setAttribute("class", "add_message cursor");
+      appsSize.innerHTML = parseInt(appsSize.innerHTML) + 1;
     }
   };
 
@@ -33,6 +35,13 @@ function addMsg (id) {
   var addMsgLink = document.getElementById("add_msg_link_" + id);
   addMsgLink.style.display = "none";
   messageFrm.style.display = "block";
+}
+
+function closeMsgFrm (id) {
+  var messageFrm = document.getElementById("message_form_" + id);
+  var addMsgLink = document.getElementById("add_msg_link_" + id);
+  addMsgLink.style.display = "block";
+  messageFrm.style.display = "none";
 }
 
 function sendMsg (postId, developerId) {
@@ -79,6 +88,16 @@ function addNote (id) {
   form.style.display = "block";
 }
 
+function closeNoteFrm (id) {
+  var noteLink = document.getElementById("note_link_" + id);
+  var form = document.getElementById("note_form_" + id);
+  var note = document.getElementById("note_" + id);
+
+  noteLink.style.display = "block";
+  note.style.display = "block";
+  form.style.display = "none";
+}
+
 function displayNote (id) {
   var noteTxt = document.getElementById("noteTxt_" + id).value;
   var note = document.getElementById("note_" + id);
@@ -115,10 +134,17 @@ function displayNote (id) {
 }
 
 function favorite (icon) {
+  var favsSize = document.getElementById("favs_size");
+  var favsSizeTitle = document.getElementById("favs_size_title");
+
   if (icon.className === "fa fa-star favorited cursor") {
     icon.className = "fa fa-star favorite cursor";
+    favsSize.innerHTML = parseInt(favsSize.innerHTML) - 1;
+    favsSizeTitle.innerHTML = parseInt(favsSizeTitle.innerHTML) - 1;
   } else {
     icon.className = "fa fa-star favorited cursor";
+    favsSize.innerHTML = parseInt(favsSize.innerHTML) + 1;
+    favsSizeTitle.innerHTML = parseInt(favsSizeTitle.innerHTML) + 1;
   }
 }
 
@@ -195,6 +221,8 @@ function removeApplication (id) {
   var application = document.getElementById(id);
   var applications = document.getElementById("applications-list");
   var url = "/remove/" + id;
+  var appsSize = document.getElementById("apps_size");
+  var appsSizeTitle = document.getElementById("apps_size_title");
 
   var request = ajax();
   request.open("POST", url);
@@ -202,6 +230,8 @@ function removeApplication (id) {
   request.onreadystatechange = function() {
     if ((request.readyState===4) && (request.status===200)) {
       applications.removeChild(application);
+      appsSize.innerHTML = parseInt(appsSize.innerHTML) - 1;
+      appsSizeTitle.innerHTML = parseInt(appsSizeTitle.innerHTML) - 1;
     }
   };
 

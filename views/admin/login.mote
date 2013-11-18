@@ -1,13 +1,11 @@
-<h2>Admin login</h2>
+<section>
+  <h1>Admin login</h1>
 
-<form action="/admin" method="POST">
-  <label for="admin-email">Email</label>
-  <input type="text" name="email" id="admin-email" value="{{ admin }}"><br/>
+  <form action="/admin" method="POST">
+    <input class="input_field" type="email" placeholder="E-mail" name="email" value="{{ admin }}"><br/>
 
-  <label for="password">Password</label>
-  <input type="password" name="password" id="password"><br/>
+    <input class="input_field" type="password" name="password" placeholder="Password"><br/>
 
-  <a href="/forgot-password">I forgot my password</a><br/>
-
-  <button type="submit">Login</button>
-</form>
+    <button type="submit">login</button>
+  </form>
+</section>

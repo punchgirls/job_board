@@ -5,12 +5,12 @@ class Companies < Cuba
     end
 
     on "dashboard" do
-      on get, root do
+      on param "company" do
+        session[:error] = "You need to logout to sign in as a developer"
         render("company/dashboard", title: "Dashboard")
       end
 
-      on param "company" do
-        session[:error] = "You need to logout to sign in as a developer"
+      on get, root do
         render("company/dashboard", title: "Dashboard")
       end
 
@@ -19,21 +19,6 @@ class Companies < Cuba
 
     on "payment" do
       company = current_company
-
-      on get, root do
-        begin
-          customer = Stripe::Customer.retrieve(company.customer_id)
-          card = customer.cards["data"][0]
-        rescue Stripe::APIConnectionError => e
-          session[:error] = "It looks like we are having some problems
-              with your request. Please try again in a few minutes!"
-
-          res.redirect "/dashboard"
-        end
-
-        render("company/payment", title: "Get more posts",
-          customer: customer, card: card)
-      end
 
       on post, param("company") do |params|
         payment = Payment.new(params)
@@ -70,6 +55,21 @@ class Companies < Cuba
         end
       end
 
+      on get, root do
+        begin
+          customer = Stripe::Customer.retrieve(company.customer_id)
+          card = customer.cards["data"][0]
+        rescue Stripe::APIConnectionError => e
+          session[:error] = "It looks like we are having some problems
+              with your request. Please try again in a few minutes!"
+
+          res.redirect "/dashboard"
+        end
+
+        render("company/payment", title: "Get more posts",
+          customer: customer, card: card)
+      end
+
       on(default) { not_found! }
     end
 
@@ -78,42 +78,25 @@ class Companies < Cuba
     end
 
     on "profile" do
-      on get, root do
-        begin
-          customer = Stripe::Customer.retrieve(current_user.customer_id)
-          card = customer.cards["data"][0]
+      begin
+        customer = Stripe::Customer.retrieve(current_user.customer_id)
+        card = customer.cards["data"][0]
 
-          render("company/profile", title: "Profile",
-          customer: customer, card: card)
-        rescue => e
-          session[:error] = "It looks like we are having some problems
-                with your request. Please try again in a few minutes!"
+        render("company/profile", title: "Profile",
+        customer: customer, card: card)
+      rescue => e
+        session[:error] = "It looks like we are having some problems
+              with your request. Please try again in a few minutes!"
 
-          res.redirect "/dashboard"
-        end
+        res.redirect "/dashboard"
       end
-
-      on(default) { not_found! }
     end
 
     on "edit" do
-      on get, root do
-        edit = EditCompanyAccount.new({})
-
-        render("company/edit", title: "Edit profile", edit: edit)
-      end
-
       on post, param("company") do |params|
-        if !params["url"].start_with?("http")
-          params["url"] = "http://" + params["url"]
-        end
-
         company = current_company
 
-        if params["password"].empty?
-          params["password"] = company.crypted_password
-          params["password_confirmation"] = company.crypted_password
-        end
+        params.delete("password") if params["password"].empty?
 
         edit = EditCompanyAccount.new(params)
 
@@ -140,14 +123,16 @@ class Companies < Cuba
         end
       end
 
+      on get, root do
+        edit = EditCompanyAccount.new({})
+
+        render("company/edit", title: "Edit profile", edit: edit)
+      end
+
       on(default) { not_found! }
     end
 
     on "customer/update" do
-      on get, root do
-        render("customer/update", title: "Update payment details")
-      end
-
       company = current_user
 
       on param("origin") do |origin|
@@ -155,7 +140,7 @@ class Companies < Cuba
         res.redirect "/customer/update"
       end
 
-      on post, param("stripeToken") do |token|
+      on post, param("stripe_token") do |token|
         update = Stripe.update_customer(company, token)
 
         on !update.instance_of?(Stripe::Customer) do
@@ -179,6 +164,10 @@ class Companies < Cuba
             your payment details"
           res.redirect "/profile"
         end
+      end
+
+      on get, root do
+        render("customer/update", title: "Update payment details")
       end
 
       on(default) { not_found! }
@@ -227,10 +216,6 @@ class Companies < Cuba
     end
 
     on "post/extend/:id" do |id|
-      on get, root do
-        render("company/post/extend", title: "Extend date", id: id)
-      end
-
       post = Post[id]
       company = post.company
 
@@ -276,37 +261,30 @@ class Companies < Cuba
         end
       end
 
+      on get, root do
+        render("company/post/extend", title: "Extend date", id: id)
+      end
+
       on(default) { not_found! }
     end
 
     on "post/remove/:id" do |id|
-      on get, root do
-        post = Post[id]
-        developers = post.developers
+      post = Post[id]
+      developers = post.developers
 
-        developers.each do |developer|
-          Malone.deliver(to: developer.email,
-            subject: "Auto-notice: '" + post.title + "' post has been removed",
-            html: mote("views/company/message/remove_post.mote",
-              post: post, developer: developer))
-        end
-
-        post.delete
-        session[:success] = "Post successfully removed!"
-        res.redirect "/dashboard"
+      developers.each do |developer|
+        Malone.deliver(to: developer.email,
+          subject: "Auto-notice: '" + post.title + "' post has been removed",
+          html: mote("views/company/message/remove_post.mote",
+            post: post, developer: developer))
       end
 
-      on(default) { not_found! }
+      post.delete
+      session[:success] = "Post successfully removed!"
+      res.redirect "/dashboard"
     end
 
     on "post/edit/:id" do |id|
-      on get, root do
-        edit = PostJobOffer.new({})
-
-        render("company/post/edit", title: "Edit post",
-          id: id, edit: edit)
-      end
-
       on post, param("post") do |params|
         post = Post[id]
 
@@ -329,44 +307,38 @@ class Companies < Cuba
         end
       end
 
+      on get, root do
+        edit = PostJobOffer.new({})
+
+        render("company/post/edit", title: "Edit post",
+          id: id, edit: edit)
+      end
+
       on(default) { not_found! }
     end
 
     on "post/applications/:id" do |id|
-      on get, root do
-        render("company/post/applications", title: "Applicants", id: id)
-      end
-
-      on(default) { not_found! }
+      render("company/post/applications", title: "Applicants", id: id)
     end
 
     on "application/remove/:id" do |id|
-      on get, root do
-        application = Application[id]
-        developer = application.developer
-        post = application.post
-        company = post.company
+      application = Application[id]
+      developer = application.developer
+      post = application.post
+      company = post.company
 
-        Malone.deliver(to: developer.email,
-              subject: "Auto-notice: Regarding '" + post.title + "' post",
-              html: mote("views/company/message/remove_application.mote",
-                post: post, developer: developer))
+      Malone.deliver(to: developer.email,
+            subject: "Auto-notice: Regarding '" + post.title + "' post",
+            html: mote("views/company/message/remove_application.mote",
+              post: post, developer: developer))
 
-        Application[id].delete
+      Application[id].delete
 
-        session[:success] = "Applicant successfully removed!"
-        res.redirect "/dashboard"
-      end
-
-      on(default) { not_found! }
+      session[:success] = "Applicant successfully removed!"
+      res.redirect "/dashboard"
     end
 
     on "application/contact/:id" do |id|
-      on get, root do
-        render("company/post/contact", title: "Contact developer",
-          id: id, message: {})
-      end
-
       on post, param("message") do |params|
         mail = Contact.new(params)
 
@@ -388,6 +360,11 @@ class Companies < Cuba
         end
       end
 
+      on get, root do
+        render("company/post/contact", title: "Contact developer",
+          id: id, message: {})
+      end
+
       on(default) { not_found! }
     end
 
@@ -395,27 +372,23 @@ class Companies < Cuba
       application = Application[id]
       post = application.post
 
-      on get, root do
-        render("company/post/applications", title: "Applicants", id: post.id)
-      end
-
       if post.favorites.member?(application)
         post.favorites.delete(application)
       else
         post.favorites.add(application)
       end
 
+      on get, root do
+        render("company/post/applications", title: "Applicants", id: post.id)
+      end
+
       on(default) { not_found! }
     end
 
     on "logout" do
-      on get, root do
-        logout(Company)
-        session[:success] = "You have successfully logged out!"
-        res.redirect "/"
-      end
-
-      on(default) { not_found! }
+      logout(Company)
+      session[:success] = "You have successfully logged out!"
+      res.redirect "/"
     end
 
     on "contact" do
@@ -431,42 +404,38 @@ class Companies < Cuba
     end
 
     on "delete" do
-      on get, root do
-        company = current_user
-        posts = company.posts
-        developers = []
+      company = current_user
+      posts = company.posts
+      developers = []
 
-        posts.each do |post|
-          post.developers.each do |developer|
-           if !developers.include?(developer)
-            developers << developer
-           end
-          end
+      posts.each do |post|
+        post.developers.each do |developer|
+         if !developers.include?(developer)
+          developers << developer
+         end
         end
-
-        delete = Stripe.delete_customer(company.customer_id)
-
-        on !delete.instance_of?(Stripe::Customer) do
-          session[:error] = "It looks like we are having some problems
-            with your request. Please try again in a few minutes!"
-
-          res.redirect "/profile"
-        end
-
-        developers.each do |developer|
-          Malone.deliver(to: developer.email,
-            subject: "Auto-notice: '" + company.name + "' removed their profile",
-            html: mote("views/company/message/delete_account.mote",
-                developer: developer))
-        end
-
-        company.delete
-
-        session[:success] = "You have deleted your account."
-        res.redirect "/"
       end
 
-      on(default) { not_found! }
+      delete = Stripe.delete_customer(company.customer_id)
+
+      on !delete.instance_of?(Stripe::Customer) do
+        session[:error] = "It looks like we are having some problems
+          with your request. Please try again in a few minutes!"
+
+        res.redirect "/profile"
+      end
+
+      developers.each do |developer|
+        Malone.deliver(to: developer.email,
+          subject: "Auto-notice: '" + company.name + "' removed their profile",
+          html: mote("views/company/message/delete_account.mote",
+              developer: developer))
+      end
+
+      company.delete
+
+      session[:success] = "You have deleted your account."
+      res.redirect "/"
     end
 
     on(default) { not_found! }

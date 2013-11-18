@@ -5,12 +5,12 @@ class Admins < Cuba
     end
 
     on "edit/:id" do |id|
+      company = Company[id]
+
       on post, param("company") do |params|
         if !params["url"].start_with?("http")
           params["url"] = "http://" + params["url"]
         end
-
-        company = Company[id]
 
         if params["password"].empty?
           params["password"] = company.crypted_password
