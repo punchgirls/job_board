@@ -15,16 +15,16 @@ Clone this repository, then create a `env.sh` file in the project folder.
 
 ``` ruby
 # cat env.sh
-APP_SECRET='your app secret'
+APP_SECRET='your_app_secret'
 OPENREDIS_URL=redis://127.0.0.1:6379/
-GITHUB_CLIENT_ID='your GitHub client id'
-GITHUB_CLIENT_SECRET='your GitHub client secret'
+GITHUB_CLIENT_ID='your_GitHub_client_id'
+GITHUB_CLIENT_SECRET='your_GitHub_client_secret'
 GITHUB_OAUTH_AUTHORIZE=https://github.com/login/oauth/authorize
 GITHUB_OAUTH_ACCESS_TOKEN=https://github.com/login/oauth/access_token
 GITHUB_FETCH_USER=https://api.github.com/user
 MALONE_URL=smtp://username:password@smtp.gmail.com:587
 RESET_URL=http://localhost:9393
-STRIPE_SECRET_KEY='your Stripe secret key here'
+STRIPE_SECRET_KEY='your_Stripe_secret_key_here'
 ```
 In terminal run:
 
