@@ -2,7 +2,33 @@
   <h1 class="section_heading">Let your code speak for you</h1>
 </section>
 
-{{ this.partial("search_box") }}
+<section id="search_form_home">
+  <form name="postFrm" action="/search" method="GET">
+    <ul id="tokens">
+      <li id="token-input">
+        <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
+      </li>
+    </ul>
+    <ul id="autocomplete"></ul>
+    <input type="hidden" id="query" name="post[tags]" value="">
+
+    <!-- START GOOGLE PLACE AUTOCOMPLETE -->
+
+    <input class="input_field" id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
+
+    <!-- END GOOGLE PLACE AUTOCOMPLETE -->
+
+    <label>
+      <input type="checkbox" name="post[remote]" value="true">
+      <span id="checkbox_label">Remote</span>
+    </label>
+
+    <a id="form_link" href="/search?all=true">All posts</a>
+
+    <button class="button_center" type="submit">search</button>
+  </form>
+</section>
+
 
 % if !this.current_user
   <hr/>

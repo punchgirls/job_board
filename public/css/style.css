@@ -195,7 +195,7 @@ nav li {
 .input_field, textarea {
   display: block;
   width: 100%;
-  max-width: 44em;
+  max-width: 30em;
   line-height: 20px;
   box-sizing: border-box;
   padding: 0.3em;
@@ -406,7 +406,7 @@ a.expired {
 /* Main header */
 
 #main_header {
-  padding: 0.7em 0.5em 0 0.7em;
+  padding: 1em 0.5em 0 0.7em;
 }
 
 #main_header nav {
@@ -569,6 +569,7 @@ i {
   bottom:0;
   left:0;
   right: 0;
+  padding: 0.7em 0.5em;
   height: 150px;
   background-color: #313131;
 }
@@ -618,7 +619,7 @@ i {
 #tokens {
   margin: 0.6em 0 0;
   padding: 0.3em;
-  max-width: 38.875em;
+  max-width: 26.250em;
   overflow: hidden;
   border: solid 1px #cccccc;
   cursor: text;
@@ -658,6 +659,7 @@ i {
 }
 
 @media only screen and (min-width: 480px) {
+
   #main_header {
     max-width: 80%;
     margin: 0 auto;
@@ -672,12 +674,9 @@ i {
     font-size: 1.55em;
   }
 
-  h1 {
-  margin: 0 auto 1em;
-  }
-
   #main_footer {
-    padding: 1.2em 11%;
+    padding-left: 11%;
+    padding-right: 11%;
   }
 
   .avatar {
@@ -691,6 +690,67 @@ i {
 }
 
 @media only screen and (min-width: 768px) {
-  // desktop styles go here
+
+  #main_header {
+    margin-bottom: 2em;
+    overflow: hidden;
+  }
+
+  #main_header h1 {
+    float: left;
+  }
+
+  #main_header nav {
+    float: right;
+  }
+
+  #main_header li {
+    line-height: 2.5em;
+    display: inline;
+    margin-right: 1em;
+  }
+
+  #tagline {
+    text-align: center;
+    font-size: 2em;
+
+  }
+
+  #search_form_home {
+    max-width: 24.750em;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+
+  #engage {
+    overflow: hidden;
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  #engage section {
+    float: right;
+  }
+
+  #engage section:first-child {
+    float: left;
+  }
+
+  #search_form_responsive input,
+  #search_form_responsive #tokens,
+  #search_form_responsive #checkbox_label,
+  #search_form_responsive #form_link,
+  #search_form_responsive button {
+    float: none;
+    display: inline;
+    margin-right: 1em;
+  }
+
+  #search_form_responsive button {
+    clear: none;
+  }
+
 }
 

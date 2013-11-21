@@ -1,4 +1,4 @@
-<section id="search_form">
+<section id="search_form_responsive">
   <form name="postFrm" action="/search" method="GET">
     <ul id="tokens">
       <li id="token-input">
@@ -10,7 +10,7 @@
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-    <input class="input_field" id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
+    <input class="input_field" id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off">
 
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
@@ -21,6 +21,6 @@
 
     <a id="form_link" href="/search?all=true">All posts</a>
 
-    <button class="button_center" type="submit">search</button>
+    <button class="button_center" type="submit">search</button><br/>
   </form>
 </section>
