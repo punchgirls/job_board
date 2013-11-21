@@ -20,7 +20,7 @@
   <p class="alert alert-error">{{ signup.errors[:error_message][0] }}</p>
 % end
 
-<section>
+<section id="signup">
   <h1 class="section_heading">Sign up and start posting!</h1>
 
   <form action="/signup" method="POST" class="payment-details">

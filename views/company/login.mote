@@ -1,4 +1,4 @@
-<section>
+<section id="login">
   <h1 class="section_heading">Already registered?</h1>
 
   <form action="/login" method="POST">

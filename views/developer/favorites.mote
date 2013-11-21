@@ -16,8 +16,8 @@
 
             <article>
               <header>
-                <h1>{{ this.h(post.company.name) }}</h1><br/>
-                <a class="url" href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>
+                <h1>{{ this.h(post.company.name) }}</h1>
+                (<a class="url" href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)
                 <h2>{{ this.h(post.title) }}</h2>
                 <ul>
                   % post.tags.split(", ").each do |tag|
@@ -26,28 +26,32 @@
                 </ul>
               </header>
 
-              <section class="location">
-                <ul>
-                  <li class="float_left">{{ this.h(post.location) }}</li>
-                  <li>
-                    % if post.remote == "true"
-                      <i class="fa fa-globe"></i> Remote work OK
-                    % else
-                      <i class="fa fa-map-marker"></i> On-site only
-                    % end
-                  </li>
-                </ul>
+              <section class="post_body">
+                <section class="location">
+                  <ul>
+                    <li class="float_left">{{ this.h(post.location) }}</li>
+                    <li>
+                      % if post.remote == "true"
+                        <i class="fa fa-globe"></i> Remote work OK
+                      % else
+                        <i class="fa fa-map-marker"></i> On-site only
+                      % end
+                    </li>
+                  </ul>
+                </section>
+
+                <p>{{ this.h(post.description) }}</p>
+
+                <section class="button_group">
+                  {{ this.partial("apply", post: post, developer: developer) }}
+
+                  {{ this.partial("favorite", post: post, developer: developer) }}<br>
+
+                  {{ this.partial("developer/add_message", post: post, developer: developer) }}
+
+                  <span id="sent_ok_{{ post.id }}" class="sent_ok"></span>
+                </section>
               </section>
-
-              <p>{{ this.h(post.description) }}</p>
-
-              {{ this.partial("apply", post: post, developer: developer) }}
-
-              {{ this.partial("favorite", post: post, developer: developer) }}<br>
-
-              {{ this.partial("developer/add_message", post: post, developer: developer) }}
-
-              <span id="sent_ok_{{ post.id }}" class="sent_ok"></span>
 
               <footer>
                 <ul>

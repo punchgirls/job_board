@@ -679,7 +679,7 @@ i {
     padding-right: 11%;
   }
 
-  .avatar {
+  #application-list .avatar {
     float: left;
     margin: 0 1em 1em 0;
   }
@@ -704,7 +704,7 @@ i {
     float: right;
   }
 
-  #main_header li {
+  #main_header li, #sub_menu li {
     line-height: 2.5em;
     display: inline;
     margin-right: 1em;
@@ -713,12 +713,19 @@ i {
   #tagline {
     text-align: center;
     font-size: 2em;
-
   }
 
-  #search_form_home {
+  #search_form_home, #login,
+  .packages, #signup,
+  #confirm {
     max-width: 24.750em;
     margin: 0 auto;
+  }
+
+  #avatar_small {
+    display: inline;
+    margin-right: 0.5em;
+    width: 1.5em;
   }
 }
 
@@ -752,5 +759,23 @@ i {
     clear: none;
   }
 
-}
+  .post_body {
+    overflow: hidden;
+  }
 
+  article p {
+    width: 65%;
+  }
+
+  .location, .button_group {
+    float: right;
+    width: 20%;
+  }
+
+  .location li:first-child, .location li {
+   float: none;
+   display: block;
+   margin-bottom: 2em;
+   text-align: left;
+  }
+}
