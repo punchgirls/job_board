@@ -5,9 +5,11 @@ prepare do
   Ohm.flush
 
   Company.create({ name: "Punchgirls",
-          email: "punchgirls@mail.com",
-          url: "http://www.punchgirls.com",
-          password: "12345678" })
+    email: "punchgirls@mail.com",
+    url: "http://www.punchgirls.com",
+    password: "123456",
+    credits: "8",
+    customer_id: "cus_2wnQ01IoAywTZz" })
 end
 
 scope do
@@ -18,15 +20,15 @@ scope do
   end
 
   test "should inform User in case of invalid login information" do
-    post "/login", { email: "punchies@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "12345678" }}
 
-    assert last_response.body["Invalid email and/or password combination"]
+    assert last_response.body["Invalid email/password combination"]
   end
 
   test "should inform User of successful login" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     follow_redirect!
 

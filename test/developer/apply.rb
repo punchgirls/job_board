@@ -74,24 +74,10 @@ scope do
 
     post "/remove/1"
 
-    follow_redirect!
+    get "/applications"
 
     assert last_response.body["Application successfully removed!"]
 
     assert !last_response.body["Java developer"]
-  end
-
-  test "should redirect back to origin favorites" do
-    post "/github_login/117263273765215762"
-
-    post "/favorite/1?origin=favorites"
-
-    post "/apply/1?origin=favorites"
-
-    follow_redirect!
-
-    assert last_response.body["You have successfully applied for a job!"]
-
-    assert last_response.body["Favorites"]
   end
 end

@@ -5,9 +5,11 @@ prepare do
   Ohm.flush
 
   Company.create({ name: "Punchgirls",
-          email: "punchgirls@mail.com",
-          url: "http://www.punchgirls.com",
-          password: "12345678" })
+    email: "punchgirls@mail.com",
+    url: "http://www.punchgirls.com",
+    password: "123456",
+    credits: "8",
+    customer_id: "cus_2wnQ01IoAywTZz" })
 
   time = Time.new.to_i
 
@@ -25,20 +27,20 @@ end
 
 scope do
   test "should inform of missing tags" do
-      post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/post/edit/1", { post: { tags: "",
-          location: "New York, NY",
-          title: "Ruby master",
-          description: "Ruby oracle needed!" }}
+      location: "New York, NY",
+      title: "Ruby master",
+      description: "Ruby oracle needed!" }}
 
     assert last_response.body["At least one skill is required"]
   end
 
   test "should inform of missing title" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/post/edit/1", { post: { tags: "Ruby, Cuba",
           location: "New York, NY",
@@ -49,8 +51,8 @@ scope do
   end
 
   test "should inform of title out of range" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/post/edit/1", { post: { tags: "Ruby, Cuba",
           location: "New York, NY",
@@ -64,8 +66,8 @@ scope do
   end
 
   test "should inform of missing description" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/post/edit/1", { post: { tags: "Ruby, Cuba",
           location: "New York, NY",
@@ -76,8 +78,8 @@ scope do
   end
 
   test "should inform of description out of range" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/post/edit/1", { post: { tags: "Ruby, Cuba",
           location: "New York, NY",
@@ -112,8 +114,8 @@ scope do
   end
 
   test "should inform of successful update" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/post/edit/1", { post: { tags: "Ruby, Cuba",
           location: "New York, NY",

@@ -19,7 +19,7 @@ scope do
     post "/admin", { email: "punchies@mail.com",
           password: "12345678" }
 
-    assert last_response.body["Invalid email and/or password combination"]
+    assert last_response.body["Invalid email/password combination"]
   end
 
   test "should inform User of successful login" do

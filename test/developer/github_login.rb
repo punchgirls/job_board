@@ -9,8 +9,8 @@ end
 
 module GitHub
   def self.fetch_user(access_token)
-    return { :github_id=>"123456", :username=>"punchgirls",
-      :name=>"Punchies", :email=>"punchgirls@gmail.com" }
+    return { "id"=>"123456", :username=>"johndoe",
+     :name=>"John Doe", :email=>"johndoe@mail.com" }
   end
 end
 
@@ -25,7 +25,9 @@ scope do
     post "/github_login/117263273765215762"
 
     post "/confirm", { developer: { name: "John Doe",
-          email: "johndoe@mail.com" }}
+      email: "johndoe@mail.com" }}
+
+    puts last_response.body
 
     follow_redirect!
 

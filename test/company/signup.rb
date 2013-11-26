@@ -17,7 +17,8 @@ scope do
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
           password: "12345678",
-          password_confirmation: "12345678" }}
+          password_confirmation: "12345678",
+          credits: "1" }, stripe_token: "stripe_6sJwbhd" }
 
     assert last_response.body["Company name is required"]
   end
@@ -27,7 +28,8 @@ scope do
           email: "punchgirlsmail.com",
           url: "http://www.punchgirls.com",
           password: "12345678",
-          password_confirmation: "12345678" }}
+          password_confirmation: "12345678",
+          credits: "1" }, stripe_token: "stripe_6sJwbhd" }
 
     assert last_response.body["E-mail not valid"]
   end
@@ -37,7 +39,8 @@ scope do
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
           password: "12345678",
-          password_confirmation: "12345678" }}
+          password_confirmation: "12345678",
+          credits: "1" }, stripe_token: "stripe_6sJwbhd" }
 
     get "/logout"
 
@@ -45,7 +48,8 @@ scope do
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
           password: "12345678",
-          password_confirmation: "12345678" }}
+          password_confirmation: "12345678",
+          credits: "1" }, stripe_token: "stripe_6sJhsddkhs" }
 
     assert last_response.body["This e-mail is already registered"]
   end
@@ -53,9 +57,10 @@ scope do
   test "should inform User in case of URL not valid" do
     post "/signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
-          url: "http://www.punchgirls",
+          url: "http://ww.punchgirls.com",
           password: "12345678",
-          password_confirmation: "12345678" }}
+          password_confirmation: "12345678",
+          credits: "1" }, stripe_token: "stripe_6sJwbhd" }
 
     assert last_response.body["URL not valid"]
   end
@@ -64,18 +69,20 @@ scope do
     post "/signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
-          password: "",
-          password_confirmation: "" }}
+          password: "1234",
+          password_confirmation: "1234",
+          credits: "1" }, stripe_token: "stripe_6sJwbhd" }
 
-    assert last_response.body["The password length must be between 8 to 32 characters"]
+    assert last_response.body["The password length must be at least 6 characters"]
   end
 
   test "should inform User in case of password not matching" do
     post "/signup", { company: { name: "Punchgirls",
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
-          password: "12345678",
-          password_confirmation: "1234" }}
+          password: "1234567",
+          password_confirmation: "12345678",
+          credits: "1" }, stripe_token: "stripe_6sJwbhd" }
 
     assert last_response.body["Passwords don't match"]
   end
@@ -85,7 +92,8 @@ scope do
           email: "punchgirls@mail.com",
           url: "http://www.punchgirls.com",
           password: "12345678",
-          password_confirmation: "12345678" }}
+          password_confirmation: "12345678",
+          credits: "1" }, stripe_token: "stripe_6sJwbhd" }
 
     follow_redirect!
 

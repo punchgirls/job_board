@@ -126,7 +126,7 @@ scope do
           password: "1234",
           password_confirmation: "1234" }}
 
-    assert last_response.body["The password length must be between 8 to 32 characters"]
+    assert last_response.body["The password length must be at least 6 characters"]
   end
 
   test "should inform in case of passwords not matching" do

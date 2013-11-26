@@ -5,9 +5,11 @@ prepare do
   Ohm.flush
 
   Company.create({ name: "Punchgirls",
-          email: "punchgirls@mail.com",
-          url: "http://www.punchgirls.com",
-          password: "12345678" })
+    email: "punchgirls@mail.com",
+    url: "http://www.punchgirls.com",
+    password: "123456",
+    credits: "8",
+    customer_id: "cus_2wnQ01IoAywTZz" })
 
   Post.create({ date: "1377621143",
           expiration_date: "1380213143",
@@ -20,21 +22,21 @@ end
 
 scope do
   test "should inform User of successful 14 days extension" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
-    post "/post/extend/1", { days: 14 }
+    post "/post/extend/1", { post: { days: 15 }}
 
     follow_redirect!
 
-    assert last_response.body["by 14 days!"]
+    assert last_response.body["by 15 days!"]
   end
 
   test "should inform User of successful 30 days extension" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
-    post "/post/extend/1", { days: 30 }
+    post "/post/extend/1", { post: { days: 30 }}
 
     follow_redirect!
 

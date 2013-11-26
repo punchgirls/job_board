@@ -80,8 +80,7 @@ scope do
   end
 
   test "should inform user of invalid signature" do
-    post "/otp/1.BP5Oig.MUzCH8oBfJANZ-oZh3PRKQ32Pzc", { company: { password: "123456789",
-          password_confirmation: "123456789" }}
+    get "/otp/1.BP5Oig.MUzCH8oBfJANZ-oZh3PRKQ32Pzc"
 
     follow_redirect!
 

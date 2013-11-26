@@ -5,20 +5,24 @@ prepare do
   Ohm.flush
 
   Company.create({ name: "Punchgirls",
-          email: "punchgirls@mail.com",
-          url: "http://www.punchgirls.com",
-          password: "12345678" })
+    email: "punchgirls@mail.com",
+    url: "http://www.punchgirls.com",
+    password: "123456",
+    credits: "8",
+    customer_id: "cus_2wnQ01IoAywTZz" })
 
   Company.create({ name: "Punchies",
-          email: "punchies@mail.com",
-          url: "http://www.punchies.com",
-          password: "12345678" })
+    email: "team@punchies.com",
+    url: "http://www.punchies.com",
+    password: "12345678",
+    credits: "8",
+    customer_id: "cus_2wnQ01IoAywTZz" })
 end
 
 scope do
   test "should inform User of successful profile update" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/edit/1", { company: {
           name: "My Company",
@@ -35,8 +39,8 @@ scope do
   end
 
   test "should inform User in case of no name" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/edit/1", { company: {
           name: "",
@@ -49,8 +53,8 @@ scope do
   end
 
   test "should inform User in case of invalid or missing email" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/edit/1", { company: {
           name: "Punchgirls",
@@ -63,12 +67,12 @@ scope do
   end
 
   test "should inform User in case of e-mail already registered" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "team@punchgirls.com",
+      password: "123456" }}
 
     post "/edit/1", { company: {
           name: "Punchgirls",
-          email: "punchies@mail.com",
+          email: "team@punchies.com",
           url: "http://www.punchgirls.com",
           password: "12345678",
           password_confirmation: "12345678" }}
@@ -77,8 +81,8 @@ scope do
   end
 
   test "should inform User in case of invalid or missing URL" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "team@punchgirls.com",
+      password: "123456" }}
 
     post "/edit/1", { company: {
           name: "Punchgirls",
@@ -91,25 +95,25 @@ scope do
   end
 
   test "should inform User in case of password not in range" do
-    post "/login", { email: "punchgirls@mail.com",
+    post "/login", { email: "team@punchgirls.com",
           password: "123456" }
 
     post "/edit/1", { company: { name: "Punchgirls",
-          email: "punchgirls@mail.com",
+          email: "team@punchgirls.com",
           url: "http://www.punchgirls.com",
           password: "1234",
           password_confirmation: "1234" }}
 
-    assert last_response.body["The password length must be between 8 to 32 characters"]
+    assert last_response.body["The password length must be at least 6 characters"]
   end
 
   test "should inform User in case of passwords not matching" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "team@punchgirls.com",
+      password: "123456" }}
 
     post "/edit/1", { company: {
           name: "Punchgirls",
-          email: "punchgirls@mail.com",
+          email: "team@punchgirls.com",
           url: "http://www.punchgirls.com",
           password: "12345678",
           password_confirmation: "12" }}

@@ -5,15 +5,17 @@ prepare do
   Ohm.flush
 
   Company.create({ name: "Punchgirls",
-          email: "punchgirls@mail.com",
-          url: "http://www.punchgirls.com",
-          password: "12345678" })
+    email: "punchgirls@mail.com",
+    url: "http://www.punchgirls.com",
+    password: "123456",
+    credits: "8",
+    customer_id: "cus_2wnQ01IoAywTZz" })
 end
 
 scope do
   test "should inform User of no tags" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/post/new", { post: { tags: "",
           location: "New York, NY",
@@ -24,8 +26,8 @@ scope do
   end
 
   test "should inform User of missing title" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/post/new", { post: { tags: "Ruby, Cuba",
           location: "New York, NY",
@@ -36,8 +38,8 @@ scope do
   end
 
   test "should inform User of missing description" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/post/new", { post: { tags: "Ruby, Cuba",
           location: "New York, NY",
@@ -48,8 +50,8 @@ scope do
   end
 
   test "should successfully post a new job offer" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/post/new", { post: {  tags: "Ruby, Cuba",
           location: "New York, NY",
@@ -62,8 +64,8 @@ scope do
   end
 
   test "should display a list of posts" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/post/new", { post: {  tags: "Ruby, Cuba",
           location: "New York, NY",
@@ -72,12 +74,12 @@ scope do
 
     follow_redirect!
 
-    assert last_response.body['<td colspan="4" id="post-title">']
+    assert last_response.body['<ul id="posts-list">']
   end
 
   test "should inform User of job deleted" do
-    post "/login", { email: "punchgirls@mail.com",
-          password: "12345678" }
+    post "/login", { company: { email: "punchgirls@mail.com",
+      password: "123456" }}
 
     post "/post/new", { post: {  tags: "Ruby, Cuba",
           location: "New York, NY",

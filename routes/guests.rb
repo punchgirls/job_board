@@ -78,13 +78,6 @@ class Guests < Cuba
         end
       end
 
-      on post, param("email") do |user|
-        session[:error] = "No password provided"
-
-        render("company/login", title: "Login", user: user,
-          hide_search: true)
-      end
-
       on param("recovery") do
         session[:success] = "Check your e-mail and follow the instructions."
         res.redirect "/login"
