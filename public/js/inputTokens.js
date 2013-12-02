@@ -2,6 +2,8 @@ var request;
 var skills;
 var li;
 
+var errors = document.getElementById('notices');
+
 var selectedToken = -1;
 
 var searchInput = document.getElementById("search-field");
@@ -70,9 +72,14 @@ function addToken(value) {
   tokens.style.padding = "0.2em";
 
   var listItems = tokens.getElementsByTagName("li");
-  var lastChild = listItems[listItems.length - 1];
 
-  tokens.insertBefore(token, lastChild);
+  if (listItems.length < 6) {
+    var lastChild = listItems[listItems.length - 1];
+    tokens.insertBefore(token, lastChild);
+  } else {
+    errors.setAttribute("class", "alert alert-error");
+    errors.innerHTML = "You can only add up to 5 skills";
+  }
 
   searchInput.focus();
 
@@ -83,12 +90,11 @@ function addToken(value) {
 
 function deleteToken(token) {
   tokens.removeChild(token);
-  console.log(tokens.childNodes);
 
   if(tokens.childNodes.length == 3) {
     tokens.style.padding = "0.3em";
     searchInput.setAttribute("placeholder", "Programming language or skill...");
-    searchInput.style.width = "300px"
+    searchInput.style.width = "300px";
   }
 }
 
