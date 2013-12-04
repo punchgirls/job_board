@@ -274,10 +274,10 @@ class Companies < Cuba
       developers = post.developers
 
       developers.each do |developer|
-        Malone.deliver(to: developer.email,
-          subject: "Auto-notice: '" + post.title + "' post has been removed",
-          html: mote("views/company/message/remove_post.mote",
-            post: post, developer: developer))
+        text = Mailer.render("post_remove", { post: post, developer: developer })
+
+        Mailer.deliver(developer.email,
+          "Auto-notice: '" + post.title + "' post has been removed", text)
       end
 
       post.delete
