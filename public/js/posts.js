@@ -184,17 +184,21 @@ function removePost (id) {
   var post = document.getElementById(id);
   var posts = document.getElementById("posts-list");
   var url = "post/remove/" + id;
+  var msg = "Are you sure you want to delete the post?";
+  var cancel = confirm(msg);
 
-  var request = ajax();
-  request.open("POST", url);
+  if (cancel) {
+    var request = ajax();
+    request.open("POST", url);
 
-  request.onreadystatechange = function () {
-    if ((request.readyState===4) && (request.status===200)) {
-      posts.removeChild(post);
-    }
-  };
+    request.onreadystatechange = function () {
+      if ((request.readyState===4) && (request.status===200)) {
+        posts.removeChild(post);
+      }
+    };
 
-  request.send();
+    request.send();
+  }
 }
 
 function removeApplicant (id) {
