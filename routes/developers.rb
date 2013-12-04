@@ -187,6 +187,10 @@ class Developers < Cuba
       render("about", title: "About us")
     end
 
+    on "faq" do
+      render("faq", title: "FAQ")
+    end
+
     on "contact" do
       run Contacts
     end
