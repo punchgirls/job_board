@@ -1,8 +1,0 @@
-<p>Dear {{ developer.name }}</p>
-<p>
-  We are sorry to inform you that the post '{{ post.title }}' has been removed.
-</p>
-<p>
-  Remember that there are a lot more jobs waiting at
-  <a href='http://os-job-board.herokuapp.com'>Job Board</a>!
-</p>

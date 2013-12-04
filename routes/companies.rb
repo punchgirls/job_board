@@ -274,10 +274,10 @@ class Companies < Cuba
       developers = post.developers
 
       developers.each do |developer|
-        Malone.deliver(to: developer.email,
-          subject: "Auto-notice: '" + post.title + "' post has been removed",
-          html: mote("views/company/message/remove_post.mote",
-            post: post, developer: developer))
+        text = Mailer.render("post_remove", { post: post, developer: developer })
+
+        Mailer.deliver(developer.email,
+          "Auto-notice: '" + post.title + "' post has been removed", text)
       end
 
       post.delete
@@ -328,10 +328,10 @@ class Companies < Cuba
       post = application.post
       company = post.company
 
-      Malone.deliver(to: developer.email,
-            subject: "Auto-notice: Regarding '" + post.title + "' post",
-            html: mote("views/company/message/remove_application.mote",
-              post: post, developer: developer))
+      text = Mailer.render("application_remove", { post: post, developer: developer })
+
+      Mailer.deliver(developer.email,
+        "Auto-notice: Regarding '" + post.title + "' post", text)
 
       Application[id].delete
 

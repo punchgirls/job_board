@@ -5,10 +5,6 @@ class Developers < Cuba
     end
 
     on "dashboard" do
-      on get, root do
-        render("developer/applications", title: "My applications")
-      end
-
       apply_id = session[:apply_id]
       favorite_id = session[:favorite_id]
 
@@ -22,7 +18,9 @@ class Developers < Cuba
         res.redirect "/favorite/#{favorite_id}"
       end
 
-      on(default) { not_found! }
+      on default do
+        render("developer/applications", title: "My applications")
+      end
     end
 
     on "search" do
