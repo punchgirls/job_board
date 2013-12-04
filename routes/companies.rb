@@ -185,6 +185,7 @@ class Companies < Cuba
           params[:company_id] = company.id
           params[:date] = time
           params[:expiration_date] = time + (30 * 24 * 60 * 60)
+          params[:tags] = params["tags"].split(", ").uniq!.join(", ")
 
           if params["remote"].nil?
             params["remote"] = false
