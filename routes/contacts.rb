@@ -4,10 +4,11 @@ class Contacts < Cuba
       mail = ContactUs.new(params)
 
       if mail.valid?
-        Malone.deliver(to: "team@punchgirls.com",
-          subject: params["subject"],
-          html: mote("views/sent_message.mote",
-            title: "Message from JOB BOARD", params: params))
+        text = Mailer.render("contact", params: params)
+
+        Mailer.deliver("team@punchgirls.com",
+          "Contact Form: " + params["subject"],
+          text, replyto: params["email"])
 
         session[:success] = "Thanks for contacting us!"
         res.redirect "/"
