@@ -16,7 +16,7 @@
  <p class="alert alert-error">Description should not exceed 600 characters</p>
 % end
 % if edit.errors[:location] == [:not_present] || edit.errors[:remote] == [:not_present]
- <p class="alert alert-error">Location or Remote must be selected</p>
+ <p class="alert alert-error">You have to provide a location or select the "work from anywhere" option</p>
 % end
 
 <h3>Edit post</h3>
@@ -46,7 +46,7 @@
     % else
       <input type="checkbox" name="post[remote]" value="true">
     % end
-    <span id="checkbox_label">Remote</span>
+    <span id="checkbox_label">Work from anywhere</span>
   </label><br/>
 
 

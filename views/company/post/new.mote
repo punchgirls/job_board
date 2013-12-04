@@ -14,7 +14,7 @@
  <p class="alert alert-error">Description should not exceed 600 characters</p>
 % end
 % if post.errors[:location] == [:not_present] || post.errors[:remote] == [:not_present]
- <p class="alert alert-error">Location or Remote must be selected</p>
+ <p class="alert alert-error">You have to provide a location or select the "work from anywhere" option</p>
 % end
 
 <h1 class="section_heading">Create a new job offer</h1>
@@ -37,7 +37,7 @@
 
   <label>
     <input type="checkbox" name="post[remote]" value="true">
-    <span id="checkbox_label">Remote</span>
+    <span id="checkbox_label">Work from anywhere</span>
   </label><br/>
 
   <input class="input_field" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" id="title" placeholder="Post title"><br/>

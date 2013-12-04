@@ -32,7 +32,7 @@
                     <li class="float_left">{{ this.h(post.location) }}</li>
                     <li>
                       % if post.remote == "true"
-                        <i class="fa fa-globe"></i> Remote work OK
+                        <i class="fa fa-globe"></i> Work from anywhere
                       % else
                         <i class="fa fa-map-marker"></i> On-site only
                       % end
