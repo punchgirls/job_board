@@ -78,7 +78,7 @@ function addToken(value) {
     tokens.insertBefore(token, lastChild);
   } else {
     errors.setAttribute("class", "alert alert-error");
-    errors.innerHTML = "You can only add up to 5 skills";
+    errors.innerHTML = "You can add up to 5 skills";
   }
 
   searchInput.focus();
@@ -122,8 +122,13 @@ searchInput.onkeydown = function(e) {
   searchInput.style.width = "130px";
 
   if (e.keyCode == '13') {
-    addToken(list[selectedToken].innerHTML);
-    selectedToken = -1;
+    if (selectedToken == -1) {
+      addToken(list[selectedToken + 1].innerHTML);
+    } else {
+      addToken(list[selectedToken].innerHTML);
+      selectedToken = -1;
+    }
+
     return false;
   }
 
