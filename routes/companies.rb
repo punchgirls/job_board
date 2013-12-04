@@ -328,7 +328,8 @@ class Companies < Cuba
       post = application.post
       company = post.company
 
-      text = Mailer.render("application_remove", { post: post, developer: developer })
+      text = Mailer.render("application_remove",
+        { post: post, developer: developer })
 
       Mailer.deliver(developer.email,
         "Auto-notice: Regarding '" + post.title + "' post", text)
@@ -346,11 +347,11 @@ class Companies < Cuba
         if mail.valid?
           company = current_company
 
-          Malone.deliver(to: Developer[id].email,
-            cc: company.email,
-            subject: params["subject"],
-            html: mote("views/company/message/contact.mote",
-              title: "Contact", params: params))
+          text = Mailer.render("application_contact",
+            { company: company, params: params })
+
+          Mailer.deliver(Developer[id].email,
+            params["subject"], text, company.email)
 
           session[:success] = "You just sent an e-mail to the applicant!"
           res.redirect "/dashboard"

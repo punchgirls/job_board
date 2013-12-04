@@ -1,6 +1,0 @@
-% company = current_user
-
-<p>{{ params["body"] }}</p>
-<p>
-  <a href='mailto:{{ company.email }}?subject=RE: {{ params["subject"] }}&body={{ company.name }} wrote: {{ params["body"] }}'>Reply to company</a>
-</p>

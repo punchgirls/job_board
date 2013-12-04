@@ -5,7 +5,8 @@ module Mailer
     mote("mails/%s.md" % template, params)
   end
 
-  def self.deliver(email, subject, text)
-    Malone.deliver(to: email, subject: subject, text: text)
+  def self.deliver(email, subject, text, replyto = "")
+    Malone.deliver(to: email, subject: subject, text: text,
+      replyto: replyto)
   end
 end
