@@ -430,10 +430,11 @@ class Companies < Cuba
       end
 
       developers.each do |developer|
-        Malone.deliver(to: developer.email,
-          subject: "Auto-notice: '" + company.name + "' removed their profile",
-          html: mote("views/company/message/delete_account.mote",
-              developer: developer))
+        text = Mailer.render("delete_account", { company: company,
+          developer: developer })
+
+        Mailer.deliver(developer.email,
+          "Auto-notice: '" + company.name + "' removed their profile", text)
       end
 
       company.delete
