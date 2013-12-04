@@ -328,10 +328,10 @@ class Companies < Cuba
       post = application.post
       company = post.company
 
-      Malone.deliver(to: developer.email,
-            subject: "Auto-notice: Regarding '" + post.title + "' post",
-            html: mote("views/company/message/remove_application.mote",
-              post: post, developer: developer))
+      text = Mailer.render("application_remove", { post: post, developer: developer })
+
+      Mailer.deliver(developer.email,
+        "Auto-notice: Regarding '" + post.title + "' post", text)
 
       Application[id].delete
 
