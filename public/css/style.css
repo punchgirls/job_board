@@ -245,6 +245,7 @@ input[type="checkbox"], #checkbox_label {
 }
 
 a#form_link, a#form_link:visited {
+  margin-top: -1.1em;
   float: right;
   text-decoration: underline;
 }
@@ -671,7 +672,7 @@ i {
   }
 
   #tagline {
-    font-size: 1.55em;
+    font-size: 1.3em;
   }
 
   #main_footer {
@@ -712,7 +713,7 @@ i {
 
   #tagline {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.8em;
   }
 
   #search_form_home, #login,
@@ -745,11 +746,33 @@ i {
     float: left;
   }
 
-  #search_form_responsive input,
-  #search_form_responsive #tokens,
-  #search_form_responsive #checkbox_label,
-  #search_form_responsive #form_link,
-  #search_form_responsive button {
+  #search_form_responsive {
+  }
+
+  #search_form_responsive input {
+    margin: 0;
+    padding: 0;
+    float: none;
+    display: inline;
+    margin-right: 1em;
+  }
+
+  #search_form_responsive input#searchTextField {
+    width: 25em;
+    margin: -5px   1em 0 0;
+    padding: 0;
+    height: 30px;
+    float: none;
+    display: inline;
+  }
+
+  #search_form_responsive #tokens {
+    margin: 0 1em 0 0;
+    float: none;
+    display: inline;
+  }
+
+  #search_form_responsive #checkbox_label {
     float: none;
     display: inline;
     margin-right: 1em;
@@ -757,6 +780,14 @@ i {
 
   #search_form_responsive button {
     clear: none;
+    display: inline;
+    margin-right: 1em;
+  }
+
+  #search_form_responsive #form_link {
+    float: right;
+    display: inline;
+    margin-right: 1em;
   }
 
   .post_body {
