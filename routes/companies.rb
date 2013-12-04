@@ -391,16 +391,20 @@ class Companies < Cuba
       res.redirect "/"
     end
 
+    on "about" do
+      render("about", title: "About us")
+    end
+
     on "contact" do
       run Contacts
     end
 
     on "terms" do
-      run Terms
+      render("terms", title: "Terms and Conditions")
     end
 
     on "privacy" do
-      run Policies
+      render("privacy", title: "Privacy Policy")
     end
 
     on "delete" do

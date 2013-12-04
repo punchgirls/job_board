@@ -207,18 +207,22 @@ function removeApplicant (id) {
   var numberOfApplicants = document.getElementById("numer-of-applicants");
   var value = numberOfApplicants.innerHTML;
   var url = "/application/remove/" + id;
+  var msg = "Are you sure you want to delete the post?";
+  var cancel = confirm(msg);
 
-  var request = ajax();
-  request.open("POST", url);
+  if (cancel) {
+    var request = ajax();
+    request.open("POST", url);
 
-  request.onreadystatechange = function () {
-    if ((request.readyState===4) && (request.status===200)) {
-      applications.removeChild(application);
-      numberOfApplicants.innerHTML = parseInt(value) - 1;
-    }
-  };
+    request.onreadystatechange = function () {
+      if ((request.readyState===4) && (request.status===200)) {
+        applications.removeChild(application);
+        numberOfApplicants.innerHTML = parseInt(value) - 1;
+      }
+    };
 
-  request.send();
+    request.send();
+  }
 }
 
 function removeApplication (id) {
