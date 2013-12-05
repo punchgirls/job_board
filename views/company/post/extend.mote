@@ -16,5 +16,5 @@
 
   <a id="cancel" class="button" href="/dashboard">Cancel</a>
 
-  <button id="save" type="submit">Save</button>
+  <button id="save" type="submit">Purchase</button>
 </form>
