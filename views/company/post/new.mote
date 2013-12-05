@@ -46,6 +46,8 @@
 
   <span class="countdown" id="countdown">600 characters remaining.</span><br/>
 
+  <a id="cancel" class="button" href="/dashboard">Cancel</a>
+
   <button type="submit">Post</button>
 </form>
 
