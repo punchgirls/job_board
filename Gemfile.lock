@@ -33,7 +33,7 @@ GEM
       mime-types
     malone (1.0.4)
       mailfactory
-    mime-types (1.23)
+    mime-types (2.0)
     minitest (4.3.2)
     mote (1.1.2)
     multi_json (1.8.0)
