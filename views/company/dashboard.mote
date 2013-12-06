@@ -1,14 +1,21 @@
 % posts = this.current_user.posts
 % active_posts = posts.find(:expired? => false)
+% expired_posts = posts.find(:expired? => true)
 
-<section>
-  <h1 class="section_heading">Remaining posts: {{ this.current_user.credits }}</h1>
+<section id="posts_status">
+  <h1 class="section_heading">
+    <span>Remaining posts: {{ this.current_user.credits }}</span>
+    <span id="slash">/</span>
+    <span>Published posts: {{ active_posts.size }}</span>
+    <span id="slash">/</span>
+    <span>Expired posts: {{ expired_posts.size }}</span>
+  </h1>
 
   <a class="button post_job_btn" href="/post/new">Post job offer</a>
 </section>
 <hr/>
 <section>
-  <h1 class="section_heading">Active job posts ({{ active_posts.size }})</h1>
+  <h1 class="section_heading"></h1>
 
   % if posts.empty?
 

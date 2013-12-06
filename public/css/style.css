@@ -34,7 +34,17 @@ h1 {
 }
 
 .section_heading {
+  color: #4d4d4d;
+  font-weight: normal;
   margin-bottom: 0.8em;
+}
+
+.section_heading span{
+  display: block;
+}
+
+#slash {
+  display: none;
 }
 
 p {
@@ -785,6 +795,30 @@ i {
 
   .button_center {
     margin: 1.5em auto;
+  }
+
+  #posts_status {
+    overflow: hidden;
+  }
+
+  #posts_status h1 {
+    float: left;
+    margin-right: 1em;
+    line-height: 36px;
+  }
+
+  .section_heading span{
+    display: inline;
+  }
+
+  #slash {
+    display: inline;
+    margin: 0 0.5em;
+    color: #ccc;
+  }
+
+  .post_job_btn {
+    margin-bottom: 1em;
   }
 }
 
