@@ -19,46 +19,50 @@
  <p class="alert alert-error">You have to provide a location or select the "work from anywhere" option</p>
 % end
 
-<h3>Edit post</h3>
+<section id="section_wrapper">
+  <h1 class="section_heading">Create a new job offer</h1>
 
-<form id="new-post" name="postFrm" action="/post/edit/{{ id }}" method="POST">
-  <input id="tags" type="hidden" value="{{ post.tags }}"><br/>
+  <form id="new-post" name="postFrm" action="/post/edit/{{ id }}" method="POST">
+    <input id="tags" type="hidden" value="{{ post.tags }}">
 
-  <ul id="tokens">
-    <li id="token-input">
-      <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
-    </li>
-  </ul>
-  <ul id="autocomplete"></ul>
+    <ul id="tokens">
+      <li id="token-input">
+        <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
+      </li>
+    </ul>
+    <ul id="autocomplete"></ul>
 
-  <input type="hidden" id="query" name="post[tags]" value="">
+    <input type="hidden" id="query" name="post[tags]" value="">
 
-  <!-- START GOOGLE PLACE AUTOCOMPLETE -->
+    <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-  <input class="input_field" id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"
-  value="{{ this.h(post.location) }}"><br/>
+    <input class="input_field" id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"
+    value="{{ this.h(post.location) }}"><br/>
 
-  <!-- END GOOGLE PLACE AUTOCOMPLETE -->
+    <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
-  <label>
-    % if post.remote == "true"
-      <input type="checkbox" name="post[remote]" checked="" value="true">
-    % else
-      <input type="checkbox" name="post[remote]" value="true">
-    % end
-    <span id="checkbox_label">Work from anywhere</span>
-  </label><br/>
+    <label>
+      % if post.remote == "true"
+        <input type="checkbox" name="post[remote]" checked="" value="true">
+      % else
+        <input type="checkbox" name="post[remote]" value="true">
+      % end
+      <span id="checkbox_label">Work from anywhere</span>
+    </label><br/>
 
 
-  <input class="input_field" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" id="title" placeholder="Post title"><br/>
+    <input class="input_field" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" id="title" placeholder="Post title"><br/>
 
-  <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea>
+    <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea>
 
-  <span class="countdown" id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/><br/>
+    <span class="countdown" id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/><br/>
 
-  <a id="cancel" class="button" href="/dashboard">Cancel</a>
+    <section>
+      <a id="cancel" class="button" href="/dashboard">Cancel</a>
 
-  <button id="save" type="submit">Save</button>
-</form>
+      <button id="submit_btn" type="submit">Save</button>
+    </section>
+  </form>
+</section>
 
 <script src="/js/limit_description.js"></script>

@@ -20,38 +20,38 @@
 <section id="section_wrapper">
   <h1 class="section_heading">Create a new job offer</h1>
 
-<form id="new-post" name="postFrm" action="/post/new" method="POST">
-  <ul id="tokens">
-    <li id="token-input">
-      <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
-    </li>
-  </ul>
-  <ul id="autocomplete"></ul>
+  <form id="new-post" name="postFrm" action="/post/new" method="POST">
+    <ul id="tokens">
+      <li id="token-input">
+        <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
+      </li>
+    </ul>
+    <ul id="autocomplete"></ul>
 
-  <input type="hidden" id="query" name="post[tags]" value="">
+    <input type="hidden" id="query" name="post[tags]" value="">
 
-  <!-- START GOOGLE PLACE AUTOCOMPLETE -->
+    <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-  <input class="input_field" id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
+    <input class="input_field" id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
 
-  <!-- END GOOGLE PLACE AUTOCOMPLETE -->
+    <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
-  <label>
-    <input type="checkbox" name="post[remote]" value="true">
-    <span id="checkbox_label">Work from anywhere</span>
-  </label><br/>
+    <label>
+      <input type="checkbox" name="post[remote]" value="true">
+      <span id="checkbox_label">Work from anywhere</span>
+    </label><br/>
 
-  <input class="input_field" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" id="title" placeholder="Post title"><br/>
+    <input class="input_field" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" id="title" placeholder="Post title"><br/>
 
-  <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
+    <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
 
-  <span class="countdown" id="countdown">600 characters remaining.</span><br/>
+    <span class="countdown" id="countdown">600 characters remaining.</span><br/>
 
-  <section>
-    <a id="cancel" class="button" href="/dashboard">Cancel</a>
-    <button id="submit_btn" type="submit">Post</button>
-  </section>
-</form>
+    <section>
+      <a id="cancel" class="button" href="/dashboard">Cancel</a>
+      <button id="submit_btn" type="submit">Post</button>
+    </section>
+  </form>
 </section>
 
 <script src="/js/limit_description.js"></script>
