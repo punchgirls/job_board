@@ -26,7 +26,7 @@ body {
 }
 
 #wrapper {
-  padding: 0 0.5em 300px 0.5em;
+  padding: 0 0.5em 340px 0.5em;
 }
 
 h1 {
@@ -742,6 +742,14 @@ i {
     display: inline;
     margin-right: 0.5em;
     width: 1.5em;
+  }
+
+  #wrapper {
+    padding-bottom: 250px;
+  }
+
+  #main_footer {
+    height: 140px;
   }
 
   #main_footer .col {
