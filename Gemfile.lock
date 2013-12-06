@@ -1,7 +1,7 @@
 GIT
-  remote: git://github.com/cyx/malone.git
-  revision: f17762a387c23c7e564e30a0f61e53de61a5e074
-  ref: f17762a387c23c7e564e30a0f61e53de61a5e074
+  remote: git://github.com/punchgirls/malone.git
+  revision: 8da08950dbe7e595ce65a088a71c4a45fc7cdeaa
+  ref: 8da08950dbe7e595ce65a088a71c4a45fc7cdeaa
   specs:
     malone (1.0.4)
       mailfactory (~> 1.4)
