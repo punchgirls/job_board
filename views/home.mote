@@ -4,12 +4,14 @@
 
 <section id="search_form_home">
   <form name="postFrm" action="/search" method="GET">
-    <ul id="tokens">
-      <li id="token-input">
-        <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
-      </li>
-    </ul>
-    <ul id="autocomplete"></ul>
+    <span id="search_inputs">
+      <ul id="tokens">
+        <li id="token-input">
+          <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
+        </li>
+      </ul>
+      <ul id="autocomplete"></ul>
+    </span>
     <input type="hidden" id="query" name="post[tags]" value="">
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->

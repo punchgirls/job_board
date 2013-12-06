@@ -643,11 +643,13 @@ i {
 /* Input tokens and tags */
 
 #autocomplete {
-  position: relative;
+  width: 24.59em;
+  position: absolute;
   display: none;
   border: solid 1px #cccccc;
   overflow-y: scroll;
   height: 200px;
+  background-color: #fff;
 }
 
 #autocomplete li {
@@ -773,6 +775,10 @@ i {
   #section_wrapper {
     max-width: 24.750em;
     margin: 0 auto;
+  }
+
+  #search_inputs {
+    position: relative;
   }
 
   #section_wrapper section {
