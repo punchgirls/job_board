@@ -397,7 +397,7 @@ a#delete {
 
 a.extend_btn {
   margin: 0.8em auto;
-  width: 18em;
+  min-width: 18em;
 }
 
 a.expired {
