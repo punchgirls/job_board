@@ -7,7 +7,7 @@ gem 'rack-protection', '1.5.0'
 gem 'ohm', '1.3.2'
 gem 'rack-test', '0.6.2'
 gem 'requests', '0.0.6'
-gem 'malone', :github => "cyx/malone", :ref => "f17762a387c23c7e564e30a0f61e53de61a5e074"
+gem 'malone', :git => "git://github.com/cyx/malone.git", :ref => "f17762a387c23c7e564e30a0f61e53de61a5e074"
 gem 'ohm-contrib', '1.2'
 gem 'nobi', '0.0.1'
 gem 'stripe', '1.8.7'
