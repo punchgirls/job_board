@@ -756,6 +756,10 @@ i {
     padding-bottom: 250px;
   }
 
+  article p {
+    /*min-height: 6em;*/
+  }
+
   #main_footer {
     height: 170px;
   }
@@ -841,12 +845,14 @@ i {
   }
 
   article p {
+    min-height: 6em;
     width: 65%;
   }
 
   .location, .button_group {
     float: right;
     width: 20%;
+    min-width: 14em;
   }
 
   .location li:first-child, .location li {
