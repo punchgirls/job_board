@@ -18,7 +18,7 @@
     <section>
       <a id="cancel" class="button" href="/dashboard">Cancel</a>
 
-      <button id="save" type="submit">Purchase</button>
+      <button id="submit_btn" type="submit">Purchase</button>
     </section>
   </form>
 </section>

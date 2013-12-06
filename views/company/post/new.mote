@@ -17,7 +17,8 @@
  <p class="alert alert-error">You have to provide a location or select the "work from anywhere" option</p>
 % end
 
-<h1 class="section_heading">Create a new job offer</h1>
+<section id="section_wrapper">
+  <h1 class="section_heading">Create a new job offer</h1>
 
 <form id="new-post" name="postFrm" action="/post/new" method="POST">
   <ul id="tokens">
@@ -46,9 +47,11 @@
 
   <span class="countdown" id="countdown">600 characters remaining.</span><br/>
 
-  <a id="cancel" class="button" href="/dashboard">Cancel</a>
-
-  <button type="submit">Post</button>
+  <section>
+    <a id="cancel" class="button" href="/dashboard">Cancel</a>
+    <button id="submit_btn" type="submit">Post</button>
+  </section>
 </form>
+</section>
 
 <script src="/js/limit_description.js"></script>

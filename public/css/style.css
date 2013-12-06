@@ -378,7 +378,7 @@ a#cancel {
   width: 5.5em;
 }
 
-#save, .save {
+#submit_btn, .save {
   display: inline-block;
 }
 
