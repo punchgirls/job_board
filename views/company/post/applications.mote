@@ -4,7 +4,7 @@
   <h1 class="section_heading">
     <span>{{ this.h(Post[id].title) }}</span>
     <span class="slash">/</span>
-    <span>Applicants: <span id="numer-of-applicants">{{ applications.size }}</span>
+    <span>Applicants: <span id="number-of-applicants">{{ applications.size }}</span></span>
   </h1>
 </section>
 

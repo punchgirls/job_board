@@ -204,7 +204,7 @@ function removePost (id) {
 function removeApplicant (id) {
   var applications = document.getElementById("application-list");
   var application = document.getElementById("app_" + id);
-  var numberOfApplicants = document.getElementById("numer-of-applicants");
+  var numberOfApplicants = document.getElementById("number-of-applicants");
   var value = numberOfApplicants.innerHTML;
   var url = "/application/remove/" + id;
   var msg = "Are you sure you want to delete the post?";

@@ -43,7 +43,11 @@ h1 {
   display: block;
 }
 
-.slash {
+#number-of-applicants {
+  display: inline;
+}
+
+#posts_status .slash {
   display: none;
 }
 
@@ -815,7 +819,7 @@ i {
     display: inline;
   }
 
-  .slash {
+  #posts_status .slash {
     display: inline;
     margin: 0 0.5em;
     color: #ccc;
