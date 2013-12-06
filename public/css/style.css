@@ -759,9 +759,13 @@ i {
 
   #search_form_home, #login,
   .packages, #signup,
-  #confirm {
+  #section_wrapper {
     max-width: 24.750em;
     margin: 0 auto;
+  }
+
+  #section_wrapper section {
+    text-align: right;
   }
 
   #avatar_small {
