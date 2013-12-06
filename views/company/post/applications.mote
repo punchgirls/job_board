@@ -1,9 +1,16 @@
 % applications = Post[id].applications
 
-<section>
-  <h1 class="section_heading">Applicants (<span id="numer-of-applicants">{{ applications.size }}</span>)</h1>
+<section id="posts_status">
+  <h1 class="section_heading">
+    <span>{{ this.h(Post[id].title) }}</span>
+    <span class="slash">/</span>
+    <span>Applicants: <span id="numer-of-applicants">{{ applications.size }}</span>
+  </h1>
+</section>
 
-  <h2 id="post_title">{{ this.h(Post[id].title) }}</h2>
+<hr/>
+
+<section>
   % if applications.empty?
     <p>No one applied to this post yet or the persons who applied removed their applications.</p>
   % else

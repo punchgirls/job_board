@@ -5,9 +5,9 @@
 <section id="posts_status">
   <h1 class="section_heading">
     <span>Remaining posts: {{ this.current_user.credits }}</span>
-    <span id="slash">/</span>
+    <span class="slash">/</span>
     <span>Published posts: {{ active_posts.size }}</span>
-    <span id="slash">/</span>
+    <span class="slash">/</span>
     <span>Expired posts: {{ expired_posts.size }}</span>
   </h1>
 

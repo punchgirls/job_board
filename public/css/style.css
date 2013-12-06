@@ -43,7 +43,7 @@ h1 {
   display: block;
 }
 
-#slash {
+.slash {
   display: none;
 }
 
@@ -815,7 +815,7 @@ i {
     display: inline;
   }
 
-  #slash {
+  .slash {
     display: inline;
     margin: 0 0.5em;
     color: #ccc;
