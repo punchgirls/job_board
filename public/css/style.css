@@ -130,6 +130,10 @@ nav li, button, a.button,
   text-transform: uppercase;
 }
 
+#engage p {
+  margin-bottom: 1em;
+}
+
 nav a, nav a:visited {
   color: #ffaa4e;
   font-size: 0.8em;
@@ -187,6 +191,10 @@ nav li {
 }
 
 .url {
+  color: #ffaa4e;
+}
+
+.url:visited {
   color: #ffaa4e;
 }
 
@@ -749,13 +757,13 @@ i {
   }
 
   #main_footer {
-    height: 140px;
+    height: 170px;
   }
 
   #main_footer .col {
     float: left;
     margin-bottom: 2em;
-    width: 45%;
+    width: 43%;
   }
 
   #social_icons {
