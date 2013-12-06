@@ -197,6 +197,7 @@ nav li {
 }
 
 .info_box {
+  clear: both;
   padding: 0.6em;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -532,6 +533,12 @@ time.apply_date {
   font-size: 0.8em;
 }
 
+section footer time.apply_date {
+  display: inline-block;
+  margin: 1em 0;
+  font-size: 1.2em;
+}
+
 #post_title {
   font-size: 1.2em;
   margin-bottom: 0.8em;
@@ -557,7 +564,7 @@ i {
 }
 
 .fa-star, .fa-trash-o, .fa-pencil-square-o  {
-  margin-left: 0.3em;
+  margin-left: 0.4em;
 }
 
 .favorite {
@@ -911,4 +918,15 @@ i {
    margin-bottom: 2em;
    text-align: left;
   }
+
+  #application-list li {
+    position: relative;
+  }
+
+  .icon_group {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
 }
