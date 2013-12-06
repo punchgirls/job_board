@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/punchgirls/malone.git
-  revision: 8da08950dbe7e595ce65a088a71c4a45fc7cdeaa
-  ref: 8da08950dbe7e595ce65a088a71c4a45fc7cdeaa
-  specs:
-    malone (1.0.4)
-      mailfactory (~> 1.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
