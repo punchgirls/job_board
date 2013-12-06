@@ -65,27 +65,21 @@
 
     <footer id="main_footer">
       <h1>job board</h1>
-      <section>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About us</a></li>
-          <li><a href="/faq">FAQ</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </section>
-      <section>
-        <ul>
-          <li><a href="/privacy">Privacy Policy</a></li>
-          <li><a href="/terms">Terms and Conditions</a></li>
-        </ul>
-      </section>
-      <section>
-        <ul id="social_icons">
-          <li><a href=""><icon class="fa fa-twitter"></icon></a></li>
-          <li><a href=""><icon class="fa fa-facebook"></icon></a></li>
-        </ul>
-      </section>
-      <p>Copyright 2013. All rights are reserved.</p>
+      <ul class="col">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About us</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+      <ul class="col">
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms and Conditions</a></li>
+      </ul>
+      <ul id="social_icons">
+        <li><a href=""><icon class="fa fa-twitter"></icon></a></li>
+        <li><a href=""><icon class="fa fa-facebook"></icon></a></li>
+      </ul>
+      <p id="copyright">Copyright 2013. All rights are reserved.</p>
     </footer>
     </div>
 

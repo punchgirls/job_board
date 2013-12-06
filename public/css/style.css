@@ -26,7 +26,7 @@ body {
 }
 
 #wrapper {
-  padding: 0 0.5em 220px 0.5em;
+  padding: 0 0.5em 300px 0.5em;
 }
 
 h1 {
@@ -574,14 +574,21 @@ i {
   bottom:0;
   left:0;
   right: 0;
-  padding: 0.7em 0.5em;
-  height: 150px;
+  padding: 2em 2em;
+  height: 232px;
   background-color: #313131;
+}
+
+#main_footer h1 {
+  margin-bottom: 1em;
 }
 
 #main_footer h1, #main_footer li {
   font-size:  0.8em;
-  margin-bottom: 0.3em;
+}
+
+#main_footer li {
+  line-height: 1.5em;
 }
 
 #main_footer, #main_footer a, #main_footer a:visited {
@@ -590,6 +597,10 @@ i {
 
 #main_footer p {
   font-size: 0.7em;
+}
+
+#social_icons {
+  margin: 0.5em 0;
 }
 
 /* Input tokens and tags */
@@ -731,6 +742,21 @@ i {
     display: inline;
     margin-right: 0.5em;
     width: 1.5em;
+  }
+
+  #main_footer .col {
+    float: left;
+    margin-bottom: 2em;
+    width: 45%;
+  }
+
+  #social_icons {
+    float: right;
+    margin: 0;
+  }
+
+  #copyright {
+    clear: both;
   }
 }
 
