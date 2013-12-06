@@ -25,7 +25,7 @@
 
     <button class="button_center" type="submit">search</button>
 
-    <a id="form_link" href="/search?all=true">All posts</a>
+    <a id="all_posts_link" href="/search?all=true">All posts</a>
   </form>
 </section>
 
