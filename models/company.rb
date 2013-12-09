@@ -8,11 +8,16 @@ class Company < Ohm::Model
   attribute :crypted_password
   attribute :customer_id
   attribute :credits
+  attribute :status
 
   unique :email
 
   def self.fetch(identifier)
     with(:email, identifier)
+  end
+
+  def active?
+    status == "active"
   end
 
   def before_delete
