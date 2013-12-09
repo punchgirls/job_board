@@ -29,7 +29,8 @@ class Guests < Cuba
           params.delete("password_confirmation")
           params.delete("customer")
 
-          params[:customer_id] = customer.id
+          params["customer_id"] = customer.id
+          params["status"] = "active"
 
           company = Company.create(params)
 
@@ -59,19 +60,27 @@ class Guests < Cuba
 
     on "login" do
       on post, param("company") do |params|
+
         user = params["email"]
         pass = params["password"]
         remember = params["remember"]
 
-        if login(Company, user, pass)
-          if remember
-            remember(3600)
-          end
+        if Company.fetch(user).active?
+          if login(Company, user, pass)
+            if remember
+              remember(3600)
+            end
 
-          session[:success] = "You have successfully logged in!"
-          res.redirect "/dashboard"
+            session[:success] = "You have successfully logged in!"
+            res.redirect "/dashboard"
+          else
+            session[:error] = "Invalid email/password combination"
+
+            render("company/login", title: "Login", user: user,
+              hide_search: true)
+          end
         else
-          session[:error] = "Invalid email/password combination"
+          session[:error] = "Your have deleted your account"
 
           render("company/login", title: "Login", user: user,
             hide_search: true)
