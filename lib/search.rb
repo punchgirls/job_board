@@ -4,7 +4,7 @@ module Search
     remote = params["remote"]
     tags = params["tags"].dup.split(",")
 
-    result = Post.find(tag: tags.pop)
+    result = Post.active.find(tag: tags.pop)
 
     tags.each do |tag|
       result = result.union(tag: tag)

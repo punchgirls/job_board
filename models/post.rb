@@ -15,6 +15,10 @@ class Post < Ohm::Model
   index :remote
   index :expired?
 
+  def self.active
+    find(expired?: false)
+  end
+
   def posted
     return Time.at(date.to_i).strftime("%d %B %Y")
   end
