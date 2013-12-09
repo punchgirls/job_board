@@ -244,7 +244,7 @@ textarea {
 }
 
 #searchTextField {
-  margin-top: 1em;
+  margin: 1em 0 1em;
 }
 
 ::-webkit-input-placeholder { font-style: italic; }
@@ -859,47 +859,45 @@ i {
     float: left;
   }
 
-  #search_form_responsive {
+  #search_form_responsive #tokens {
+    width: 20.59em;
+    position: relative;
+    margin: 0 1em 0 0;
+    display: inline;
+  }
+
+  #search_form_responsive ul#autocomplete {
+    width: 21.1em;
+    position: absolute;
+    float: right;
+    background-color: #fff;
   }
 
   #search_form_responsive input {
+    float: none;
     margin: 0;
     padding: 0;
-    float: none;
-    display: inline;
     margin-right: 1em;
   }
 
   #search_form_responsive input#searchTextField {
     width: 25em;
-    margin: -5px   1em 0 0;
-    padding: 0;
-    height: 30px;
-    float: none;
-    display: inline;
-  }
-
-  #search_form_responsive #tokens {
     margin: 0 1em 0 0;
-    float: none;
+    padding: 0 0.4em;
+    height: 30px;
     display: inline;
   }
 
   #search_form_responsive #checkbox_label {
     float: none;
-    display: inline;
     margin-right: 1em;
   }
 
   #search_form_responsive button {
-    clear: none;
-    display: inline;
     margin-right: 1em;
   }
 
   #search_form_responsive #form_link {
-    float: right;
-    display: inline;
     margin-right: 1em;
   }
 
