@@ -414,7 +414,7 @@ class Companies < Cuba
     on "delete" do
       company = current_user
 
-      # company.update(status: "suspended")
+      company.update(status: "suspended")
 
       logout(Company)
       session[:success] = "You have successfully deleted your account!"
