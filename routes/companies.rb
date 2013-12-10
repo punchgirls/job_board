@@ -413,37 +413,14 @@ class Companies < Cuba
 
     on "delete" do
       company = current_user
-      posts = company.posts
-      developers = []
 
-      posts.each do |post|
-        post.developers.each do |developer|
-         if !developers.include?(developer)
-          developers << developer
-         end
-        end
-      end
+      # company.update(status: "suspended")
 
-      delete = Stripe.delete_customer(company.customer_id)
+      logout(Company)
+      session[:success] = "You have successfully deleted your account!"
 
-      on !delete.instance_of?(Stripe::Customer) do
-        session[:error] = "It looks like we are having some problems
-          with your request. Please try again in a few minutes!"
+      Ost[:companies_to_delete].push(company.id)
 
-        res.redirect "/profile"
-      end
-
-      developers.each do |developer|
-        text = Mailer.render("delete_account", { company: company,
-          developer: developer })
-
-        Mailer.deliver(developer.email,
-          "Auto-notice: '" + company.name + "' removed their profile", text)
-      end
-
-      company.delete
-
-      session[:success] = "You have deleted your account."
       res.redirect "/"
     end
 
