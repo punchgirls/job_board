@@ -10,7 +10,7 @@ module CompanyRemover
       end
     end
 
-    stripe_customer = Stripe.delete_customer("dhg_6283553")
+    stripe_customer = Stripe.delete_customer(company.customer_id)
 
     if !stripe_customer.instance_of?(Stripe::Customer)
       text = Mailer.render("../mails/stripe_error", { company: company,

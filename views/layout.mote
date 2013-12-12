@@ -19,9 +19,9 @@
               % if !user.instance_of?(Developer)
                 <li><a href="/dashboard">dashboard</a></li>
               % end
-              % if !user.instance_of?(Admin)
+
                 <li><a href="/profile">
-              % end
+
               % if user.instance_of?(Developer)
                 <img id="avatar_small" src="http://www.gravatar.com/avatar/{{ user.avatar }}" />{{ this.h(user.username) }}</a></li>
               % end
@@ -29,7 +29,7 @@
                 {{ this.h(user.name) }}</a></li>
               % end
               <li><a href="/logout">logout</a></li>
-            % elsif !user.instance_of?(Admin)
+            % else
               <li><a href="/github_oauth">github login</a></li>
               <li><a href="/login">company login/signup</a></li>
             % end

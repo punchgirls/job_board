@@ -291,32 +291,6 @@ class Guests < Cuba
       on(default) { not_found! }
     end
 
-    on "admin" do
-      on post, param("email"), param("password") do |admin, pass|
-        if login(Admin, admin, pass)
-          session[:success] = "You have successfully logged in!"
-          res.redirect "/dashboard"
-        else
-          session[:error] = "Invalid email/password combination"
-          render("admin/login", title: "Admin Login",
-            admin: admin, hide_search: true)
-        end
-      end
-
-      on post, param("email") do |admin|
-        session[:error] = "No password provided"
-        render("admin/login", title: "Admin Login",
-          admin: admin, hide_search: true)
-      end
-
-      on get, root do
-        render("admin/login", title: "Admin Login",
-          admin: "", hide_search: true)
-      end
-
-      on(default) { not_found! }
-    end
-
     on "about" do
       render("about", title: "About us")
     end
