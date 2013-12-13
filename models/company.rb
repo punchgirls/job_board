@@ -7,8 +7,9 @@ class Company < Ohm::Model
   attribute :url
   attribute :crypted_password
   attribute :customer_id
-  attribute :credits
   attribute :status
+
+  reference :plan, :Plan
 
   unique :email
 
@@ -18,6 +19,10 @@ class Company < Ohm::Model
 
   def active?
     status == "active"
+  end
+
+  def published_posts
+    self.posts.find(published?: true)
   end
 
   def before_delete

@@ -3,32 +3,24 @@ class Post < Ohm::Model
   include Ohm::Callbacks
 
   attribute :date
-  attribute :expiration_date
   attribute :tags
   attribute :location
   attribute :remote
   attribute :title
   attribute :description
+  attribute :status
 
   index :tag
   index :location
   index :remote
-  index :expired?
-
-  def self.active
-    find(expired?: false)
-  end
+  index :published?
 
   def posted
     return Time.at(date.to_i).strftime("%d %B %Y")
   end
 
-  def expires
-    return (expiration_date.to_f - Time.new.to_i) / (60 * 60)
-  end
-
-  def expired?
-    return (expiration_date.to_i - Time.now.to_i) <= 0
+  def published?
+    return status == "published"
   end
 
   def developers

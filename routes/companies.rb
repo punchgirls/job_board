@@ -1,73 +1,21 @@
 class Companies < Cuba
   define do
+    company = current_user
+    customer_id = company.customer_id
+    plan = company.plan
+
     on get, root do
-      render("company/dashboard", title: "Dashboard")
+      render("company/dashboard", title: "Dashboard", plan: plan)
     end
 
     on "dashboard" do
       on param "company" do
         session[:error] = "You need to logout to sign in as a developer"
-        render("company/dashboard", title: "Dashboard")
+        render("company/dashboard", title: "Dashboard", plan: plan)
       end
 
       on get, root do
-        render("company/dashboard", title: "Dashboard")
-      end
-
-      on(default) { not_found! }
-    end
-
-    on "payment" do
-      company = current_company
-
-      on post, param("company") do |params|
-        payment = Payment.new(params)
-
-        on payment.valid? do
-          session.delete(:package)
-
-          credits = params["credits"]
-
-          # Charge the Customer instead of the card
-          charge = Stripe.charge_customer(credits, company.customer_id)
-
-          on !charge.instance_of?(Stripe::Charge) do
-            if charge.instance_of?(Stripe::CardError)
-              session[:error] = charge.message
-            else
-              session[:error] = "It looks like we are having some problems
-              with your payment request. Please try again in a few minutes!"
-            end
-
-            session[:package] = credits
-            res.redirect "/payment"
-          end
-
-          # Update the credits of the company
-          company.update(:credits => company.credits.to_i + credits.to_i)
-
-          session[:success] = "Your payment was successful. Happy posting!"
-          res.redirect "/profile"
-        end
-
-        on default do
-          res.redirect "/payment"
-        end
-      end
-
-      on get, root do
-        begin
-          customer = Stripe::Customer.retrieve(company.customer_id)
-          card = customer.cards["data"][0]
-        rescue Stripe::APIConnectionError => e
-          session[:error] = "It looks like we are having some problems
-              with your request. Please try again in a few minutes!"
-
-          res.redirect "/dashboard"
-        end
-
-        render("company/payment", title: "Get more posts",
-          customer: customer, card: card)
+        render("company/dashboard", title: "Dashboard", plan: plan)
       end
 
       on(default) { not_found! }
@@ -78,18 +26,22 @@ class Companies < Cuba
     end
 
     on "profile" do
-      begin
-        customer = Stripe::Customer.retrieve(current_user.customer_id)
-        card = customer.cards["data"][0]
+      card = Stripe.retrieve_card(customer_id)
 
-        render("company/profile", title: "Profile",
-        customer: customer, card: card)
-      rescue => e
-        session[:error] = "It looks like we are having some problems
-              with your request. Please try again in a few minutes!"
+      on !card.instance_of?(Stripe::Card) do
+        if card.instance_of?(Stripe::CardError)
+          session[:error] = card.message
 
-        res.redirect "/dashboard"
+          res.redirect "/dashboard"
+        else
+          session[:error] = "It looks like we are having some problems
+            with your request. Please try again in a few minutes!"
+
+          res.redirect "/dashboard"
+        end
       end
+
+      render("company/profile", title: "Profile", card: card, plan: plan)
     end
 
     on "edit" do
@@ -141,7 +93,7 @@ class Companies < Cuba
       end
 
       on post, param("stripe_token") do |token|
-        update = Stripe.update_customer(company, token)
+        update = Stripe.update_customer(customer_id, token)
 
         on !update.instance_of?(Stripe::Customer) do
           if update.instance_of?(Stripe::CardError)
@@ -173,6 +125,53 @@ class Companies < Cuba
       on(default) { not_found! }
     end
 
+    on "customer/subscription" do
+      on post, param("company") do |params|
+        update = Stripe.update_subscription(customer_id, params["plan_id"])
+
+        params["status"] = "active"
+
+        company.update(params)
+
+        on !update.instance_of?(Stripe::Customer) do
+          if update.instance_of?(Stripe::CardError)
+            session[:error] = update.message
+          else
+            session[:error] = "It looks like we are having some problems
+              with your request. Please try again in a few minutes!"
+          end
+
+          res.redirect "/customer/subscription"
+        end
+
+        res.redirect "/profile"
+      end
+
+      on default do
+        render("customer/subscription", title: "Update subscription",
+          plan_id: plan.name)
+      end
+    end
+
+    on "cancel_subscription" do
+      cancel = Stripe.cancel_subscription(customer_id)
+
+        on !cancel.instance_of?(Stripe::Customer) do
+          if cancel.instance_of?(Stripe::CardError)
+            session[:error] = cancel.message
+          else
+            session[:error] = "It looks like we are having some problems
+              with your request. Please try again in a few minutes!"
+          end
+
+          res.redirect "/profile"
+        end
+
+        company.update(status: "suspended")
+
+        res.redirect "/profile"
+    end
+
     on "post/new" do
       company = current_company
 
@@ -182,17 +181,16 @@ class Companies < Cuba
         on post.valid? do
           time = Time.new.to_i
 
-          params[:company_id] = company.id
-          params[:date] = time
-          params[:expiration_date] = time + (30 * 24 * 60 * 60)
-          params[:tags] = params["tags"].split(", ").uniq.join
+          params["company_id"] = company.id
+          params["date"] = time
+          params["tags"] = params["tags"].split(", ").uniq.join
+          params["status"] = "published"
 
           if params["remote"].nil?
             params["remote"] = false
           end
 
           job = Post.create(params)
-          company.update(credits: company.credits.to_i - 1)
 
           session[:success] = "You have successfully posted a job offer!"
           res.redirect "/dashboard"
@@ -204,69 +202,29 @@ class Companies < Cuba
       end
 
       on get, root do
-        if company.credits.to_i > 0
+        if company.published_posts.size <  plan.posts
           post = PostJobOffer.new({})
 
           render("company/post/new", title: "Post job offer", post: post)
         else
-          res.redirect "/payment"
+          session[:error] = "You can only have 1 published post."
+          res.redirect "/dashboard"
         end
       end
 
       on(default) { not_found! }
     end
 
-    on "post/extend/:id" do |id|
+    on "post/status/:id" do |id|
       post = Post[id]
-      company = post.company
 
-      on post, param("post") do |params|
-        extend_post = Extension.new(params)
-
-        days = params["days"]
-
-        on extend_post.valid? do
-          extension = Stripe.charge_extension(days, company.customer_id)
-
-          on !extension.instance_of?(Stripe::Charge) do
-            if extension.instance_of?(Stripe::CardError)
-              session[:error] = extension.message
-            else
-              session[:error] = "It looks like we are having some problems
-              with your payment request. Please try again in a few minutes!"
-            end
-
-            res.redirect "/post/extend/#{id}"
-          end
-
-          if post.expired?
-            time = Time.new.to_i
-
-            new_date = time + (days.to_i * 24 * 60 * 60)
-            new_posted_date = time
-            post.update(date: new_posted_date)
-          else
-            new_date = post.expiration_date.to_i + (days.to_i * 24 * 60 * 60)
-          end
-
-          post.update(expiration_date: new_date)
-
-          session[:success] = "You have successfully extended your post
-          by #{days} days!"
-
-          res.redirect "/dashboard"
-        end
-
-        on default do
-          render("company/post/extend", title: "Extend date", id: id)
-        end
+      if post.status == "published"
+        post.update({ status: "unpublished"})
+      else
+        post.update({ status: "published"})
       end
 
-      on get, root do
-        render("company/post/extend", title: "Extend date", id: id)
-      end
-
-      on(default) { not_found! }
+      res.redirect "/dashboard"
     end
 
     on "post/remove/:id" do |id|

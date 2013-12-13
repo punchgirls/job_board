@@ -1,14 +1,12 @@
-% posts = this.current_user.posts
-% active_posts = posts.find(:expired? => false)
-% expired_posts = posts.find(:expired? => true)
+% company = this.current_user
+% posts = company.posts
 
 <section id="posts_status">
   <h1 class="section_heading">
-    <span>Remaining posts: {{ this.current_user.credits }}</span>
+    <span>Plan: {{ plan.name }} ({{ plan.posts }} posts per month)</span>
     <span class="slash">/</span>
-    <span>Published posts: {{ active_posts.size }}</span>
+    <span>Published posts: {{ company.published_posts.size }}</span>
     <span class="slash">/</span>
-    <span>Expired posts: {{ expired_posts.size }}</span>
   </h1>
 
   <a class="button post_job_btn" href="/post/new">Post job offer</a>
@@ -26,14 +24,19 @@
   % else
     <ul id="posts-list">
     % posts.each_with_index do |post, index|
-      <li id="{{ post.id}}">
+      <li id="{{ post.id }}">
         <article>
           <header>
-            <h1>{{ this.h(post.title) }}</h1>
+            <h1>{{ this.h(post.title) }} ({{ post.status }})</h1>
 
             <a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o cursor"></i></a>
             <i onclick="removePost({{ post.id }})" class="fa fa-trash-o cursor"></i><br/>
 
+            % if post.status == "published"
+              <a href="/post/status/{{ post.id }}">Unpublish</a><br>
+            % else
+              <a href="/post/status/{{ post.id }}">Publish</a><br>
+            % end
             <a class="button applicants" href="/post/applications/{{ post.id }}">See applicants ({{ post.applications.size }})</a>
 
             <ul>
@@ -57,25 +60,6 @@
           </section>
 
           <p>{{ this.h(post.description) }}</p>
-
-          <p class="info_box expiration_date ">
-            <time class="info_box_title" datetime="">
-              % if post.expires > 24
-                Expires in {{ (post.expires / 24).ceil }} days
-              % elsif post.expires <= 24 && post.expires > 1
-                Expires in {{ post.expires.ceil }} hours
-              % elsif post.expires <= 1 && !post.expired?
-                Expires in less than 1 hour!
-              % else
-                The post has expired
-              % end
-            </time><br/>
-            % if post.expired?
-              <a class="button extend_btn expired" href="/post/extend/{{ post.id }}">Extend expiration date</a>
-            % else
-              <a class="button extend_btn" href="/post/extend/{{ post.id }}">Extend expiration date</a>
-            % end
-          </p>
 
           <footer class="align_left">
             <time class="date_posted" datetime="" pubdate>

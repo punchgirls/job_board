@@ -1,23 +1,25 @@
-% if signup.errors[:name] == [:not_present]
-  <p class="alert alert-error">Company name is required</p>
-% end
-% if signup.errors[:email] == [:not_email]
-  <p class="alert alert-error">E-mail not valid</p>
-% end
-% if signup.errors[:email] == [:not_unique]
-  <p class="alert alert-error">This e-mail is already registered</p>
-% end
-% if signup.errors[:url] == [:not_url]
-  <p class="alert alert-error">URL not valid</p>
-% end
-% if signup.errors[:password].include?(:not_in_range)
-  <p class="alert alert-error">The password length must be at least 6 characters</p>
-% end
-% if signup.errors[:password] == [:not_confirmed]
-  <p class="alert alert-error">Passwords don't match</p>
-% end
-% if !signup.errors[:error_message].empty?
-  <p class="alert alert-error">{{ signup.errors[:error_message][0] }}</p>
+% if defined?(signup)
+  % if signup.errors[:name] == [:not_present]
+    <p class="alert alert-error">Company name is required</p>
+  % end
+  % if signup.errors[:email] == [:not_email]
+    <p class="alert alert-error">E-mail not valid</p>
+  % end
+  % if signup.errors[:email] == [:not_unique]
+    <p class="alert alert-error">This e-mail is already registered</p>
+  % end
+  % if signup.errors[:url] == [:not_url]
+    <p class="alert alert-error">URL not valid</p>
+  % end
+  % if signup.errors[:password].include?(:not_in_range)
+    <p class="alert alert-error">The password length must be at least 6 characters</p>
+  % end
+  % if signup.errors[:password] == [:not_confirmed]
+    <p class="alert alert-error">Passwords don't match</p>
+  % end
+  % if !signup.errors[:error_message].empty?
+    <p class="alert alert-error">{{ signup.errors[:error_message][0] }}</p>
+  % end
 % end
 
 <section id="signup">
@@ -40,7 +42,7 @@
     {{ this.partial("new_card") }}
 
     <span class="packages">
-      {{ this.partial("packages", package: package) }}
+      {{ this.partial("plans", plan_id: plan_id) }}
     </span>
 
     <button class="button_center" type="submit" id="button">Sign up!</button>

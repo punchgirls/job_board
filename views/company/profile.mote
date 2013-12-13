@@ -8,15 +8,32 @@
 
 <hr/>
 
-<h3>Post info</h3>
+<h3>Subscription info<a href="/customer/subscription"><i class="fa fa-pencil-square-o icon_small cursor"></i></a></h3>
 
-<p>Remaining posts: {{ company.credits }}</p><br/>
-<a class="button post_job_btn" href="/payment">get more posts</a>
+<p>Subscription status:
+  % if company.active?
+    Active
+  % else
+    Suspended
+  % end
+</p>
+<p>Plan: {{ plan.name }}</p>
+<p>Posts per month: {{ plan.posts }}</p>
+<p>Drafts: {{ plan.drafts }}</p>
+<p>Price: {{ plan.price }} per month</p>
+
+% if company.active?
+  <a class="button post_job_btn" href="/cancel_subscription">
+    Cancel subscription</a>
+% else
+  <a class="button post_job_btn" href="customer/subscription">
+    Activate subscription</a>
+% end
 
 <hr/>
 
 <h3>Payment info &nbsp;<a href="/customer/update" id="credits"><i class="fa fa-pencil-square-o icon_small cursor"></i></a></h3><br/>
 
-{{ this.partial("payment_details", customer: customer, card: card) }}
+{{ this.partial("payment_details", card: card) }}
 
 <a id="delete" href="">Delete account</a>

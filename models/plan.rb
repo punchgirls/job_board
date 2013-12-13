@@ -1,0 +1,45 @@
+class Plan
+  POSTS = {
+    "small"  => 1,
+    "medium" => 5,
+    "large"  => 10,
+  }
+
+  DRAFTS = {
+    "small"  => 2,
+    "medium" => 10,
+    "large"  => 20,
+  }
+
+  PRICING = {
+    "small"  => 50,
+    "medium" => 100,
+    "large"  => 150,
+  }
+
+  attr :id
+
+  def self.[](id)
+    new(id)
+  end
+
+  def initialize(id)
+    @id = id
+  end
+
+  def posts
+    POSTS[@id]
+  end
+
+  def drafts
+    DRAFTS[@id]
+  end
+
+  def price
+    PRICING[@id]
+  end
+
+  def name
+    @id
+  end
+end

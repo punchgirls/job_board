@@ -4,22 +4,21 @@ class Guests < Cuba
       res.redirect "/"
     end
 
-    on "package" do
+    on "plan" do
       on post, param("company") do |params|
-        res.redirect "/signup?package=#{params["credits"]}"
+        res.redirect "/signup?plan=#{params["plan_id"]}"
       end
     end
 
     on "signup" do
-      on param("package") do |package|
-        signup = CompanySignup.new({})
-
+      on param("plan") do |plan_id|
         render("company/signup", title: "Sign up",
-          company: {}, signup: signup, package: package, hide_search: true)
+          company: {}, plan_id: plan_id, hide_search: true)
       end
 
       on post, param("stripe_token"), param("company") do |token, params|
-        customer = Stripe.create_customer(token, params["email"], params["name"])
+        customer = Stripe.create_customer(token, params["plan_id"],
+          params["email"], params["name"])
 
         params["customer"] = customer
 
@@ -44,15 +43,13 @@ class Guests < Cuba
         on default do
           render("company/signup", title: "Sign up",
               company: params, signup: signup,
-              package: params["credits"], hide_search: true)
+              plan_id: params["plan_id"], hide_search: true)
         end
       end
 
       on get, root do
-        signup = CompanySignup.new({})
-
         render("company/signup", title: "Sign up",
-          company: {}, signup: signup, package: "1", hide_search: true)
+          company: {}, hide_search: true)
       end
 
       on(default) { not_found! }
@@ -94,7 +91,7 @@ class Guests < Cuba
 
       on get, root do
         render("company/login", title: "Login", user: "",
-          hide_search: true)
+          hide_search: true, plan_id: "small")
       end
 
       on(default) { not_found! }
