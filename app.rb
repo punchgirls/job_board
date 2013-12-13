@@ -35,7 +35,6 @@ Dir["./routes/**/*.rb"].each  { |rb| require rb }
 Dir["./helpers/**/*.rb"].each { |rb| require rb }
 Dir["./lib/**/*.rb"].each     { |rb| require rb }
 
-Cuba.plugin AdminHelpers
 Cuba.plugin CompanyHelpers
 Cuba.plugin DeveloperHelpers
 Cuba.plugin UserHelpers
@@ -57,10 +56,6 @@ Cuba.define do
 
   on root do
     render("home", title: "Home", hide_search: true)
-  end
-
-  on authenticated(Admin) do
-    run Admins
   end
 
   on authenticated(Company) do
