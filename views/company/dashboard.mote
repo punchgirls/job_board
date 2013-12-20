@@ -39,11 +39,7 @@
             % end
             <a class="button applicants" href="/post/applications/{{ post.id }}">See applicants ({{ post.applications.size }})</a>
 
-            <ul>
-              % post.tags.split(", ").each do |tag|
-                <li class="tag">{{ tag }}</li>
-              % end
-            </ul>
+            <p>{{ post.tags }}</p>
           </header>
 
           <section class="location">

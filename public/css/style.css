@@ -678,9 +678,6 @@ i {
   overflow: hidden;
   border: solid 1px #cccccc;
   cursor: text;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
 }
 
 #search-field {
@@ -691,22 +688,8 @@ i {
   font-size: 1em;
 }
 
-#tokens li, .tag {
+#tokens li{
   display: inline-block;
-  background: #ffaa4e;
-  font-weight: bold;
-  font-size: 0.9em;
-  border-radius: 3px;
-  color: #fff;
-}
-
-.tag {
-  padding: 0.2em 0.5em;
-}
-
-#tokens li span {
-  cursor: pointer;
-  cursor: hand;
 }
 
 #tokens #token-input {

@@ -1,6 +1,6 @@
 class CompanySignup < Scrivener
   attr_accessor :name, :email, :url,
-  :password, :password_confirmation, :customer_id, :customer, :plan_id
+  :password, :password_confirmation, :customer, :plan_id
 
   def validate
     unless customer.instance_of?(Stripe::Customer)

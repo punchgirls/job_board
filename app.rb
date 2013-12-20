@@ -33,6 +33,7 @@ Malone.connect(url: MALONE_URL)
 Dir["./models/**/*.rb"].each  { |rb| require rb }
 Dir["./routes/**/*.rb"].each  { |rb| require rb }
 Dir["./helpers/**/*.rb"].each { |rb| require rb }
+Dir["./filters/**/*.rb"].each { |rb| require rb }
 Dir["./lib/**/*.rb"].each     { |rb| require rb }
 
 Cuba.plugin CompanyHelpers

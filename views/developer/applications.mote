@@ -19,11 +19,7 @@
               <h1>{{ this.h(post.company.name) }}</h1>
               (<a class="url" href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)
               <h2>{{ this.h(post.title) }}</h2>
-              <ul>
-                % post.tags.split(", ").each do |tag|
-                  <li class="tag">{{ tag }}</li>
-                % end
-              </ul>
+              <p>{{ post.tags }}</p>
             </header>
 
             <section class="post_body">
@@ -85,19 +81,6 @@
               <ul>
                 <li>
                   <time class="date_posted" class="float_left" datetime="" pubdate>Posted on {{ post.posted }}
-                  </time>
-                </li>
-                <li>
-                  <time datetime="">
-                    % if post.expires > 24
-                      Expires in {{ (post.expires / 24).ceil }} days
-                    % elsif post.expires <= 24 && post.expires > 1
-                      Expires in {{ post.expires.ceil }} hours
-                    % elsif post.expires <= 1
-                      Expires in less than 1 hour!
-                    % else
-                      Expired
-                    % end
                   </time>
                 </li>
               </ul>

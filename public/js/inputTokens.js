@@ -55,27 +55,15 @@ function addToAutocomplete(value) {
 
 function addToken(value) {
   var token = document.createElement("li");
-  var token_span = document.createElement("span");
-  var x = document.createElement("span");
 
-  x.onclick = function() {
-    deleteToken(token);
-  };
-
-  token_span.appendChild(document.createTextNode(value))
-  token.appendChild(token_span);
-  x.appendChild(document.createTextNode(" X "));
-  token.appendChild(x);
-
-  token.style.padding = "0.2em";
-  token.style.margin = "0 0.3em 0.1em 0";
-  tokens.style.padding = "0.2em";
+  token.appendChild(document.createTextNode(value + ", "));
 
   var listItems = tokens.getElementsByTagName("li");
 
   if (listItems.length < 6) {
     var lastChild = listItems[listItems.length - 1];
     tokens.insertBefore(token, lastChild);
+    lastChild.style.marginLeft = "5px"
   } else {
     errors.setAttribute("class", "alert alert-error");
     errors.innerHTML = "You can add up to 5 skills";
@@ -92,7 +80,6 @@ function deleteToken(token) {
   tokens.removeChild(token);
 
   if(tokens.childNodes.length == 3) {
-    tokens.style.padding = "0.3em";
     searchInput.setAttribute("placeholder", "Programming language or skill...");
     searchInput.style.width = "300px";
   }
@@ -184,12 +171,8 @@ postFrm.onsubmit = function() {
   var skills = tokens.getElementsByTagName("li");
   var query = "";
 
-  for (var i = 0; i < skills.length - 1 ; i++) {
-    query += skills[i].childNodes[0].innerHTML;
-
-    if(i < skills.length - 2) {
-      query += ", ";
-    }
+  for (var i = 0; i < skills.length -1; i++) {
+    query += skills[i].innerHTML;
   };
 
   queryInput.value = query;

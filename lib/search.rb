@@ -10,12 +10,6 @@ module Search
       result = result.union(tag: tag)
     end
 
-    if !location.empty?
-      result = result.find(location: location).union(remote: remote)
-    elsif remote
-      result = result.find(remote: remote)
-    end
-
     return result
   end
 end

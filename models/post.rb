@@ -15,6 +15,10 @@ class Post < Ohm::Model
   index :remote
   index :published?
 
+  def self.active
+    find(published?: true)
+  end
+
   def posted
     return Time.at(date.to_i).strftime("%d %B %Y")
   end

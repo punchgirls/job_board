@@ -8,73 +8,56 @@
   % else
     <ul>
       % favorites.each do |post|
-        % if !post.expired?
-          <li>
-            % if post != favorites.first
-              <hr/>
-            % end
+        <li>
+          % if post != favorites.first
+            <hr/>
+          % end
 
-            <article>
-              <header>
-                <h1>{{ this.h(post.company.name) }}</h1>
-                (<a class="url" href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)
-                <h2>{{ this.h(post.title) }}</h2>
+          <article>
+            <header>
+              <h1>{{ this.h(post.company.name) }}</h1>
+              (<a class="url" href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)
+              <h2>{{ this.h(post.title) }}</h2>
+              <p>{{ post.tags }}</p>
+            </header>
+
+            <section class="post_body">
+              <section class="location">
                 <ul>
-                  % post.tags.split(", ").each do |tag|
-                    <li class="tag">{{ tag }}</li>
-                  % end
+                  <li class="float_left">{{ this.h(post.location) }}</li>
+                  <li>
+                    % if post.remote == "true"
+                      <i class="fa fa-globe"></i> Work from anywhere
+                    % else
+                      <i class="fa fa-map-marker"></i> On-site only
+                    % end
+                  </li>
                 </ul>
-              </header>
-
-              <section class="post_body">
-                <section class="location">
-                  <ul>
-                    <li class="float_left">{{ this.h(post.location) }}</li>
-                    <li>
-                      % if post.remote == "true"
-                        <i class="fa fa-globe"></i> Work from anywhere
-                      % else
-                        <i class="fa fa-map-marker"></i> On-site only
-                      % end
-                    </li>
-                  </ul>
-                </section>
-
-                <p>{{ this.h(post.description) }}</p>
-
-                <section class="button_group">
-                  {{ this.partial("apply", post: post, developer: developer) }}
-
-                  {{ this.partial("favorite", post: post, developer: developer) }}<br>
-
-                  {{ this.partial("developer/add_message", post: post, developer: developer) }}
-
-                  <span id="sent_ok_{{ post.id }}" class="sent_ok"></span>
-                </section>
               </section>
 
-              <footer>
-                <ul>
-                  <li>
-                    <time class="date_posted" class="float_left" datetime="" pubdate>Posted on {{ post.posted }}
-                    </time>
-                  </li>
-                  <li>
-                    <time datetime="">
-                      % if post.expires > 24
-                        {{ (post.expires / 24).ceil }} days left to apply
-                      % elsif post.expires <= 24 && post.expires > 1
-                        {{ post.expires.ceil }} hours left to apply
-                      % elsif post.expires <= 1
-                        Less than 1 hour left to apply!
-                      % end
-                    </time>
-                  </li>
-                </ul>
-              </footer>
-            </article>
-          </li>
-        % end
+              <p>{{ this.h(post.description) }}</p>
+
+              <section class="button_group">
+                {{ this.partial("apply", post: post, developer: developer) }}
+
+                {{ this.partial("favorite", post: post, developer: developer) }}<br>
+
+                {{ this.partial("developer/add_message", post: post, developer: developer) }}
+
+                <span id="sent_ok_{{ post.id }}" class="sent_ok"></span>
+              </section>
+            </section>
+
+            <footer>
+              <ul>
+                <li>
+                  <time class="date_posted" class="float_left" datetime="" pubdate>Posted on {{ post.posted }}
+                  </time>
+                </li>
+              </ul>
+            </footer>
+          </article>
+        </li>
       % end
     </ul>
   % end
