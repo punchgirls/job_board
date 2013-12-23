@@ -6,7 +6,7 @@
       </li>
     </ul>
     <ul id="autocomplete"></ul>
-    <input type="hidden" id="query" name="post[tags]" value="">
+    <input type="hidden" id="query" name="tags" value="">
 
     <button class="button_center" type="submit">search</button><br/>
 

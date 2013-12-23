@@ -2,10 +2,10 @@ class Searches < Cuba
   define do
     query = session[:query]
 
-    on get, param("post") do |params|
-      posts = Search.posts(params)
+    on get, param("tags") do |tags|
+      posts = Search.posts(tags)
 
-      session[:query] = params
+      session[:query] = tags
       render("search", title: "Tags", posts: posts)
     end
 
