@@ -1,17 +1,17 @@
 % if edit.errors[:name] == [:not_present]
- <p class="alert alert-error">Company name is required</p>
+ <p>Company name is required</p>
 % end
 % if edit.errors[:email] == [:not_email]
-  <p class="alert alert-error">E-mail not valid</p>
+  <p>E-mail not valid</p>
 % end
 % if edit.errors[:url] == [:not_url]
-  <p class="alert alert-error">URL not valid</p>
+  <p>URL not valid</p>
 % end
 % if edit.errors[:password].include?(:too_small)
-  <p class="alert alert-error">The password length must be at least 6 characters</p>
+  <p>The password length must be at least 6 characters</p>
 % end
 % if edit.errors[:password] == [:not_confirmed]
-  <p class="alert alert-error">Passwords don't match</p>
+  <p>Passwords don't match</p>
 % end
 
 % if this.current_user.instance_of?(Company)
@@ -21,23 +21,23 @@
 % end
 
 <section>
-  <h1 class="section_heading">Edit your profile</h1>
+  <h1>Edit your profile</h1>
 
   <form action="/edit/{{ company.id }}" method="POST">
 
-    <input class="input_field" type="text" name="company[name]" placeholder="Company name" value="{{ this.h(company.name) }}"><br/>
+    <input type="text" name="company[name]" placeholder="Company name" value="{{ this.h(company.name) }}"><br/>
 
-    <input class="input_field" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company.email) }}"><br/>
+    <input type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company.email) }}"><br/>
 
-    <input class="input_field" type="text" name="company[url]" placeholder="URL" value="{{ this.h(company.url) }}"><br/><br/>
+    <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company.url) }}"><br/><br/>
 
     <label>Change password:</label><br/>
 
-    <input class="input_field" type="password" name="company[password]" placeholder="Password"><br/>
+    <input type="password" name="company[password]" placeholder="Password"><br/>
 
-    <input class="input_field" type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
+    <input type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
 
-    <a id="cancel" class="button" href="/profile">Cancel</a>
+    <a id="cancel" href="/profile">Cancel</a>
 
     <button id="save" type="submit">Save</button>
   </form>

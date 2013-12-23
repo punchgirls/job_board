@@ -1,16 +1,16 @@
 % if reset.errors[:password].include?(:not_in_range)
- <p class="alert alert-error">The password length must be between 8 to 32 characters</p>
+ <p>The password length must be between 8 to 32 characters</p>
 % end
 % if reset.errors[:password] == [:not_confirmed]
- <p class="alert alert-error">Passwords don't match</p>
+ <p>Passwords don't match</p>
 % end
 
 <h1>Create your new password</h1>
 
 <form action="/otp/{{ signature }}" method="POST">
-  <input class="input_field" type="password" name="company[password]" placeholder="New password"><br/>
+  <input type="password" name="company[password]" placeholder="New password"><br/>
 
-  <input class="input_field" type="password" name="company[password_confirmation]" placeholder="New password confirmation"><br/>
+  <input type="password" name="company[password_confirmation]" placeholder="New password confirmation"><br/>
 
   <button type="submit">Create new password</button>
 </form>

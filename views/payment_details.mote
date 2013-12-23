@@ -1,14 +1,14 @@
 <div id="digits">
   <img id="credit_card" src="/img/cards/{{ card['type'] }}.png">
 
-  <input disabled="disabled" class="input_field" type="text" size="20" maxlength="16" value="**** **** **** {{ card['last4'] }}"/><br/>
+  <input disabled="disabled" type="text" size="20" maxlength="16" value="**** **** **** {{ card['last4'] }}"/><br/>
 
-  <input disabled="disabled" class="input_field input_field_short" type="text" size="4" maxlength="4" value="***"/>
+  <input disabled="disabled" type="text" size="4" maxlength="4" value="***"/>
 
   <div id="card_expiration_date">
     <label>Expires on</label>
-    <input disabled="disabled" class="input_field input_field_short" type="text" size="2" maxlength="2" value="{{ card['exp_month'] }}"/>
+    <input disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_month'] }}"/>
     <span> / </span>
-    <input disabled="disabled" class="input_field input_field_short" type="text" size="2" maxlength="2" value="{{ card['exp_year'] }}"/>
+    <input disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_year'] }}"/>
   </div>
 </div>

@@ -1,5 +1,5 @@
 <section id="tagline">
-  <h1 class="section_heading">Get a better job today!</h1>
+  <h1>Get a better job today!</h1>
 </section>
 
 <section id="search_form_home">
@@ -14,7 +14,7 @@
     </span>
     <input type="hidden" id="query" name="post[tags]" value="">
 
-      <button class="button_center" type="submit">search</button>
+      <button type="submit">search</button>
 
     <a id="all_posts_link" href="/search?all=true">All posts</a>
   </form>
@@ -27,12 +27,12 @@
     <section>
       <h1>Companies</h1>
       <p>Sign up and start posting job offers!</p>
-      <a class="button" href="/signup">get started!</a>
+      <a href="/signup">get started!</a>
     </section>
     <section>
       <h1>Developers</h1>
       <p>Log in and find your next job!</p>
-      <a class="button" href="/github_oauth">login</a>
+      <a href="/github_oauth">login</a>
     </section>
   </section>
 % end

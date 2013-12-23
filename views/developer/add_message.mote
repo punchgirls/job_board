@@ -1,7 +1,7 @@
 % application = Application.find(:post_id => post.id, :developer_id => developer.id).first
 
 % if application && application.message.nil?
-  <span class="add_message cursor" onclick="addMsg({{ post.id }})" id="add_msg_link_{{ post.id }}">Send a message?</span>
+  <span onclick="addMsg({{ post.id }})" id="add_msg_link_{{ post.id }}">Send a message?</span>
 
   {{ this.partial("developer/message_form", post: post, developer: developer) }}
 % end

@@ -1,26 +1,26 @@
 % post = Post[id]
 
 % if edit.errors[:tags] == [:not_present]
- <p class="alert alert-error">At least one skill is required</p>
+ <p>At least one skill is required</p>
 % end
 % if edit.errors[:title].include?(:not_present)
- <p class="alert alert-error">Title is required</p>
+ <p>Title is required</p>
 % end
 % if edit.errors[:title] == [:not_in_range]
- <p class="alert alert-error">Title should not exceed 80 characters</p>
+ <p>Title should not exceed 80 characters</p>
 % end
 % if edit.errors[:description].include?(:not_present)
- <p class="alert alert-error">Description is required</p>
+ <p>Description is required</p>
 % end
 % if edit.errors[:description] == [:not_in_range]
- <p class="alert alert-error">Description should not exceed 600 characters</p>
+ <p>Description should not exceed 600 characters</p>
 % end
 % if edit.errors[:location] == [:not_present] || edit.errors[:remote] == [:not_present]
- <p class="alert alert-error">You have to provide a location or select the "work from anywhere" option</p>
+ <p>You have to provide a location or select the "work from anywhere" option</p>
 % end
 
 <section id="section_wrapper">
-  <h1 class="section_heading">Create a new job offer</h1>
+  <h1>Create a new job offer</h1>
 
   <form id="new-post" name="postFrm" action="/post/edit/{{ id }}" method="POST">
     <input id="tags" type="hidden" value="{{ post.tags }}">
@@ -36,7 +36,7 @@
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-    <input class="input_field" id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"
+    <input id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"
     value="{{ this.h(post.location) }}"><br/>
 
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
@@ -51,14 +51,14 @@
     </label><br/>
 
 
-    <input class="input_field" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" id="title" placeholder="Post title"><br/>
+    <input type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" id="title" placeholder="Post title"><br/>
 
     <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea>
 
-    <span class="countdown" id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/><br/>
+    <span id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/><br/>
 
     <section>
-      <a id="cancel" class="button" href="/dashboard">Cancel</a>
+      <a id="cancel" href="/dashboard">Cancel</a>
 
       <button id="submit_btn" type="submit">Save</button>
     </section>

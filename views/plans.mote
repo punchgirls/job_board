@@ -1,5 +1,5 @@
-<label><span class="package_name">small (1 post)</span>
-  <span class="price">$ 50 per month</span>
+<label><span>small (1 post)</span>
+  <span>$ 50 per month</span>
   % if plan_id == "small"
     <input type="radio" name="company[plan_id]" value="small" checked="checked">
   % else
@@ -8,8 +8,8 @@
 </label>
 
 <label>
-  <span class="package_name">medium (5 posts)</span>
-  <span class="price">$ 100 per month</span>
+  <span>medium (5 posts)</span>
+  <span>$ 100 per month</span>
   % if plan_id == "medium"
     <input type="radio" name="company[plan_id]" value="medium" checked="checked">
   % else
@@ -18,8 +18,8 @@
 </label>
 
 <label>
-  <span class="package_name">large (10 posts)</span>
-  <span class="price">$ 150 per month</span>
+  <span>large (10 posts)</span>
+  <span>$ 150 per month</span>
   % if plan_id == "large"
     <input type="radio" name="company[plan_id]" value="large" checked="checked">
   % else

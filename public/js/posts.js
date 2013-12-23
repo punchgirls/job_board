@@ -20,9 +20,7 @@ function apply (id) {
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
       post.innerHTML = "APPLIED";
-      post.setAttribute("class", "button_applied");
       addMsgLink.innerHTML = "Send a message?";
-      addMsgLink.setAttribute("class", "add_message cursor");
       appsSize.innerHTML = parseInt(appsSize.innerHTML) + 1;
     }
   };
@@ -59,8 +57,7 @@ function sendMsg (postId, developerId) {
       messageFrm.style.display = "none";
 
       if (message) {
-        message.innerHTML = '<span class="info_box_title">Sent message</span><br>' + messageTxt;
-        message.setAttribute("class", "info_box");
+        message.innerHTML = '<span>Sent message</span><br>' + messageTxt;
       }
 
       if (sentOK) {
@@ -119,9 +116,8 @@ function displayNote (id) {
     if ((request.readyState===4) && (request.status===200)) {
       if (noteTxt != "") {
         form.style.display = "none";
-        note.innerHTML = '<span class="info_box_title">Personal note</span><i class="fa fa-pencil-square-o cursor" id="edit_note_link_' + id + '" onclick="addNote(' + id + ')"></i><br>' + noteTxt;
+        note.innerHTML = '<span>Personal note</span><i class="fa fa-pencil-square-o cursor" id="edit_note_link_' + id + '" onclick="addNote(' + id + ')"></i><br>' + noteTxt;
         note.style.display = "block";
-        note.setAttribute("class", "info_box");
       } else {
         form.style.display = "none";
         noteLink.innerHTML = "Add a personal note?";

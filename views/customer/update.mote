@@ -1,10 +1,10 @@
-<form action="/customer/update" method="POST" class="payment-details">
+<form action="/customer/update" method="POST">
 
   {{ this.partial("accepted_cards") }}
 
   {{ this.partial("new_card") }}
 
-  <a id="cancel" class="button" href="/profile">Cancel</a>
+  <a id="cancel" href="/profile">Cancel</a>
 
-  <button type="submit" id="button" class="save">Save</button>
+  <button type="submit" id="button">Save</button>
 </form>

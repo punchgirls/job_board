@@ -1,11 +1,11 @@
 <section id="login">
-  <h1 class="section_heading">Already registered?</h1>
+  <h1>Already registered?</h1>
 
   <form action="/login" method="POST">
-    <input class="input_field" type="email" name="company[email]"
+    <input type="email" name="company[email]"
     placeholder="E-mail" value="{{ this.h(user) }}"><br/>
 
-    <input class="input_field" type="password" name="company[password]"
+    <input type="password" name="company[password]"
     placeholder="Password"><br/>
 
     <label>
@@ -15,11 +15,8 @@
     <a id="form_link" href="/forgot-password">Forgot password?</a>
     <br/>
 
-    <button class="button_center" type="submit">login</button>
+    <button type="submit">login</button>
   </form>
 
   <a href="/signup">Need an account? Sign up here!</a>
 </section>
-
-
-

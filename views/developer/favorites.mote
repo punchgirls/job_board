@@ -1,7 +1,7 @@
 % developer = this.current_developer
 % favorites = developer.favorites
 <span>
-  <h1 class="section_heading">My favorites (<span id="favs_size_title">{{ favorites.size }}</span>)</h1>
+  <h1>My favorites (<span id="favs_size_title">{{ favorites.size }}</span>)</h1>
 
   % if favorites.empty?
     <p>You have no favorite posts yet.</p>
@@ -16,15 +16,15 @@
           <article>
             <header>
               <h1>{{ this.h(post.company.name) }}</h1>
-              (<a class="url" href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)
+              (<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)
               <h2>{{ this.h(post.title) }}</h2>
               <p>{{ post.tags }}</p>
             </header>
 
-            <section class="post_body">
-              <section class="location">
+            <section>
+              <section>
                 <ul>
-                  <li class="float_left">{{ this.h(post.location) }}</li>
+                  <li>{{ this.h(post.location) }}</li>
                   <li>
                     % if post.remote == "true"
                       <i class="fa fa-globe"></i> Work from anywhere
@@ -37,21 +37,21 @@
 
               <p>{{ this.h(post.description) }}</p>
 
-              <section class="button_group">
+              <section>
                 {{ this.partial("apply", post: post, developer: developer) }}
 
                 {{ this.partial("favorite", post: post, developer: developer) }}<br>
 
                 {{ this.partial("developer/add_message", post: post, developer: developer) }}
 
-                <span id="sent_ok_{{ post.id }}" class="sent_ok"></span>
+                <span id="sent_ok_{{ post.id }}"></span>
               </section>
             </section>
 
             <footer>
               <ul>
                 <li>
-                  <time class="date_posted" class="float_left" datetime="" pubdate>Posted on {{ post.posted }}
+                  <time datetime="" pubdate>Posted on {{ post.posted }}
                   </time>
                 </li>
               </ul>

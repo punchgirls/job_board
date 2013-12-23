@@ -1,11 +1,11 @@
 % if session[:success]
-  <p class="alert alert-success">
+  <p>
     {{ session.delete(:success) }}
   </p>
 % end
 
 % if session[:error]
-  <p class="alert alert-error">
+  <p>
     {{ session.delete(:error) }}
   </p>
 % end

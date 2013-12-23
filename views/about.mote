@@ -1,12 +1,12 @@
 <section>
   <h1>About us</h1>
   <p>
-    Punchgirls is formed by Cecilia Rivero and Mayn Ektvedt Kjær and was one of the teams participating in the <a class="link" href="http://railsgirlssummerofcode.org/" taget="_blank">Rails Girls Summer of Code 2013</a>.
+    Punchgirls is formed by Cecilia Rivero and Mayn Ektvedt Kjær and was one of the teams participating in the <a href="http://railsgirlssummerofcode.org/" taget="_blank">Rails Girls Summer of Code 2013</a>.
   </p>
   <p>
-    This application is made in Ruby and <a class="link" href="http://cuba.is/" taget="_blank">Cuba</a> and is the result of 4 intensive months of learning how to make an open source web application from scratch.
+    This application is made in Ruby and <a href="http://cuba.is/" taget="_blank">Cuba</a> and is the result of 4 intensive months of learning how to make an open source web application from scratch.
   </p>
   <p>
-    You can find more details about us and the project on our <a class="link" href="http://punchgirls.wordpress.com/" taget="_blank">blog</a> and <a class="link" href="https://github.com/punchgirls" taget="_blank">GitHub account</a>.
+    You can find more details about us and the project on our <a href="http://punchgirls.wordpress.com/" taget="_blank">blog</a> and <a href="https://github.com/punchgirls" taget="_blank">GitHub account</a>.
   </p>
 </section>

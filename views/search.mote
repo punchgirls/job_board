@@ -11,13 +11,13 @@
           <article>
             <header>
               <h1>{{ this.h(post.company.name) }}</h1>
-              (<a class="url" href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)
+              (<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)
               <h2>{{ this.h(post.title) }}</h2>
               <p>{{ post.tags }}</p>
               </header>
 
-            <section class="post_body">
-              <section class="location">
+            <section>
+              <section>
               <ul>
                 <li>{{ this.h(post.location) }}</li>
                 <li>
@@ -33,13 +33,13 @@
             <p>{{ this.h(post.description) }}</p>
 
             % if !this.current_company
-            <section class="button_group">
+            <section>
               {{ this.partial("apply", post: post, developer: developer) }}
               {{ this.partial("favorite", post: post, developer: developer) }}<br>
               % if this.current_developer
                 {{ this.partial("developer/add_message", post: post, developer: developer) }}
               % end
-              <span id="sent_ok_{{ post.id }}" class="sent_ok"></span>
+              <span id="sent_ok_{{ post.id }}"></span>
             </section>
             % end
             </section>
@@ -47,7 +47,7 @@
             <footer>
               <ul>
                 <li>
-                  <time class="date_posted" datetime="" pubdate>Posted on {{ post.posted }}
+                  <time datetime="" pubdate>Posted on {{ post.posted }}
                   </time>
                 </li>
               </ul>

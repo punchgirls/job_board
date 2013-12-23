@@ -2,18 +2,18 @@
 % posts = company.posts
 
 <section id="posts_status">
-  <h1 class="section_heading">
+  <h1>
     <span>Plan: {{ plan.name }} ({{ plan.posts }} posts per month)</span>
-    <span class="slash">/</span>
+    <span>/</span>
     <span>Published posts: {{ company.published_posts.size }}</span>
-    <span class="slash">/</span>
+    <span>/</span>
   </h1>
 
-  <a class="button post_job_btn" href="/post/new">Post job offer</a>
+  <a href="/post/new">Post job offer</a>
 </section>
 <hr/>
 <section>
-  <h1 class="section_heading"></h1>
+  <h1></h1>
 
   % if posts.empty?
 
@@ -37,14 +37,14 @@
             % else
               <a href="/post/status/{{ post.id }}">Publish</a><br>
             % end
-            <a class="button applicants" href="/post/applications/{{ post.id }}">See applicants ({{ post.applications.size }})</a>
+            <a href="/post/applications/{{ post.id }}">See applicants ({{ post.applications.size }})</a>
 
             <p>{{ post.tags }}</p>
           </header>
 
-          <section class="location">
+          <section>
             <ul>
-              <li class="float_left">{{ this.h(post.location) }}</li>
+              <li>{{ this.h(post.location) }}</li>
               <li>
                 % if post.remote == "true"
                   <i class="fa fa-globe"></i> Work from anywhere
@@ -57,8 +57,8 @@
 
           <p>{{ this.h(post.description) }}</p>
 
-          <footer class="align_left">
-            <time class="date_posted" datetime="" pubdate>
+          <footer>
+            <time datetime="" pubdate>
               Posted on {{ post.posted }}
             </time>
           </footer>

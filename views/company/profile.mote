@@ -23,10 +23,10 @@
 <p>Price: {{ plan.price }} per month</p>
 
 % if company.active?
-  <a class="button post_job_btn" href="/cancel_subscription">
+  <a href="/cancel_subscription">
     Cancel subscription</a>
 % else
-  <a class="button post_job_btn" href="customer/subscription">
+  <a href="customer/subscription">
     Activate subscription</a>
 % end
 

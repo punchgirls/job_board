@@ -1,8 +1,8 @@
-<section class="packages">
-  <h1 class="section_heading">Change subscription</h1>
+<section>
+  <h1>Change subscription</h1>
 
   <form action="/customer/subscription" method="POST">
     {{ this.partial("plans", plan_id: plan_id) }}
-    <button class="button_center" type="submit">Update</button>
+    <button type="submit">Update</button>
   </form>
 </section>

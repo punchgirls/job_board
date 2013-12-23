@@ -5,18 +5,18 @@
 % end
 
 <section>
-  <h1 class="section_heading">Edit your profile</h1>
+  <h1>Edit your profile</h1>
 
-  <img class="avatar" src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
+  <img src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
 
   <form action="/profile/{{ developer.id }}" method="POST">
-    <input class="input_field" type="text" name="developer[name]"
+    <input type="text" name="developer[name]"
     value="{{ this.h(developer.name) }}" placeholder="Name"><br/>
 
-    <input class="input_field" type="email" name="developer[email]"
+    <input type="email" name="developer[email]"
     value="{{ this.h(developer.email) }}" placeholder="Email"><br/>
 
-    <input class="input_field" type="text" name="developer[url]"
+    <input type="text" name="developer[url]"
     value="{{ this.h(developer.url) }}" placeholder="URL (optional)"><br/>
 
     <textarea name="developer[bio]"
@@ -24,10 +24,10 @@
     >{{ this.h(developer.bio) }}</textarea>
 
 
-    <span class="countdown" id="countdownBio">200 characters remaining.</span><br/>
+    <span id="countdownBio">200 characters remaining.</span><br/>
 
     % if this.current_user.instance_of?(Developer)
-      <a id="cancel" class="button" href="/dashboard">Cancel</a>
+      <a id="cancel" href="/dashboard">Cancel</a>
     % end
 
     <button id="save" type="submit">Save</button>
