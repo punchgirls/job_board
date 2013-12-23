@@ -15,23 +15,11 @@
       <h1><a href="/">job board<span></span></a></h1>
         <nav>
           <ul>
-            % if user
-              % if !user.instance_of?(Developer)
-                <li><a href="/dashboard">dashboard</a></li>
-              % end
+            <li><a href="#">How it works</a></li>
+            <li><a href="#">Pricing</a></li>
 
-                <li><a href="/profile">
-
-              % if user.instance_of?(Developer)
-                <img id="avatar_small" src="http://www.gravatar.com/avatar/{{ user.avatar }}" />{{ this.h(user.username) }}</a></li>
-              % end
-              % if user.instance_of?(Company)
-                {{ this.h(user.name) }}</a></li>
-              % end
-              <li><a href="/logout">logout</a></li>
-            % else
-              <li><a href="/github_oauth">github login</a></li>
-              <li><a href="/login">company login/signup</a></li>
+            % if !current_user
+              <li><a href="/login">Login</a></li>
             % end
           </ul>
         </nav>
