@@ -91,7 +91,7 @@ class Guests < Cuba
 
       on get, root do
         render("company/login", title: "Login", user: "",
-          hide_search: true, plan_id: "small")
+          hide_search: true)
       end
 
       on(default) { not_found! }

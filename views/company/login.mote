@@ -17,15 +17,9 @@
 
     <button class="button_center" type="submit">login</button>
   </form>
+
+  <a href="/signup">Need an account? Sign up here!</a>
 </section>
 
-<hr/>
 
-<section class="packages">
-  <h1 class="section_heading">Need an account?</h1>
 
-  <form action="/plan" method="POST">
-    {{ this.partial("plans", plan_id: plan_id) }}
-    <button class="button_center" type="submit">get started!</button>
-  </form>
-</section>
