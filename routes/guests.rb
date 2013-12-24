@@ -4,6 +4,10 @@ class Guests < Cuba
       res.redirect "/"
     end
 
+    on "pricing" do
+      render("pricing", title: "Pricing", plan_id: "small")
+    end
+
     on "plan" do
       on post, param("company") do |params|
         res.redirect "/signup?plan=#{params["plan_id"]}"

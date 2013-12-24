@@ -1,0 +1,2 @@
+ <h1>Pricing</h1>
+ {{ this.partial("plans", plan_id: plan_id) }}
