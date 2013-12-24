@@ -11,7 +11,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
-      <header>
+    <header>
       <h1><a href="/">job board<span></span></a></h1>
         <nav>
           <ul>

@@ -1,2 +1,5 @@
  <h1>Pricing</h1>
- {{ this.partial("plans", plan_id: plan_id) }}
+ <form action="/plan" method="POST">
+    {{ this.partial("plans", plan_id: plan_id) }}
+    <button>Sign up</button>
+ </form>
