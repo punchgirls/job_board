@@ -13,6 +13,9 @@
   <body>
     <header>
       <h1><a href="/">job board<span></span></a></h1>
+      % if !defined?(hide_search) && !user.instance_of?(Company)
+        <p>{{ this.partial("search_box") }}</p>
+      % end
         <nav>
           <ul>
             <li><a href="/howitworks">How it works</a></li>
@@ -27,12 +30,7 @@
 
     <section>
 
-      % if !defined?(hide_search) && !user.instance_of?(Company)
-        {{ this.partial("search_box") }}
-        <hr/>
-      % end
-
-      % if user.instance_of?(Developer)
+    % if user.instance_of?(Developer)
         <section>
           <nav>
             <ul>
