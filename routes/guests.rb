@@ -8,6 +8,10 @@ class Guests < Cuba
       render("pricing", title: "Pricing", plan_id: "small")
     end
 
+    on "howitworks" do
+      render("howitworks", title: "How it works")
+    end
+
     on "plan" do
       on post, param("company") do |params|
         res.redirect "/signup?plan=#{params["plan_id"]}"

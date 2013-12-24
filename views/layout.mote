@@ -15,7 +15,7 @@
       <h1><a href="/">job board<span></span></a></h1>
         <nav>
           <ul>
-            <li><a href="#">How it works</a></li>
+            <li><a href="/howitworks">How it works</a></li>
             <li><a href="/pricing">Pricing</a></li>
 
             % if !current_user
