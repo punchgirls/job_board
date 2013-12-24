@@ -1,5 +1,7 @@
+<a href="/github_oauth">Developer Login</a>
+
 <section>
-  <h1>Already registered?</h1>
+  <h1>Company Login</h1>
 
   <form action="/login" method="POST">
     <input type="email" name="company[email]"

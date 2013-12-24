@@ -11,7 +11,6 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
-    <div>
       <header>
       <h1><a href="/">job board<span></span></a></h1>
         <nav>
@@ -56,15 +55,14 @@
       <nav>
         <ul>
           <li>&copy; 2013 Punchgirls</li>
-          <li><a href="#">About us</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms and Conditions</a></li>
+          <li><a href="/about">About us</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/faq">FAQ</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms and Conditions</a></li>
         </ul>
       </nav>
     </footer>
-    </div>
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 

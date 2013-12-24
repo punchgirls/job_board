@@ -73,13 +73,13 @@ class Guests < Cuba
           else
             session[:error] = "Invalid email/password combination"
 
-            render("company/login", title: "Login", user: user,
+            render("login", title: "Login", user: user,
               hide_search: true)
           end
         else
           session[:error] = "Your have deleted your account"
 
-          render("company/login", title: "Login", user: user,
+          render("login", title: "Login", user: user,
             hide_search: true)
         end
       end
@@ -90,7 +90,7 @@ class Guests < Cuba
       end
 
       on get, root do
-        render("company/login", title: "Login", user: "",
+        render("login", title: "Login", user: "",
           hide_search: true)
       end
 
