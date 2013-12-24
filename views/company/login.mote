@@ -1,4 +1,4 @@
-<section id="login">
+<section>
   <h1>Already registered?</h1>
 
   <form action="/login" method="POST">
@@ -9,10 +9,10 @@
     placeholder="Password"><br/>
 
     <label>
-      <input type="checkbox" name="company[remember]" value="1" id="remember"> <span id="checkbox_label">Remember me</span>
+      <input type="checkbox" name="company[remember]" value="1"> <span>Remember me</span>
     </label>
 
-    <a id="form_link" href="/forgot-password">Forgot password?</a>
+    <a href="/forgot-password">Forgot password?</a>
     <br/>
 
     <button type="submit">login</button>

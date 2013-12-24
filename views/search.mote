@@ -39,7 +39,7 @@
               % if this.current_developer
                 {{ this.partial("developer/add_message", post: post, developer: developer) }}
               % end
-              <span id="sent_ok_{{ post.id }}"></span>
+              <span id="sent-ok-{{ post.id }}"></span>
             </section>
             % end
             </section>

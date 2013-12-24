@@ -24,13 +24,13 @@
     >{{ this.h(developer.bio) }}</textarea>
 
 
-    <span id="countdownBio">200 characters remaining.</span><br/>
+    <span id="countdown-bio">200 characters remaining.</span><br/>
 
     % if this.current_user.instance_of?(Developer)
-      <a id="cancel" href="/dashboard">Cancel</a>
+      <a href="/dashboard">Cancel</a>
     % end
 
-    <button id="save" type="submit">Save</button>
+    <button type="submit">Save</button>
   </form>
 
   <script src="/js/limit_description.js"></script>

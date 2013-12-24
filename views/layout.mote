@@ -11,8 +11,8 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
-    <div id="container">
-      <header id="main_header">
+    <div>
+      <header>
       <h1><a href="/">job board<span></span></a></h1>
         <nav>
           <ul>
@@ -26,7 +26,7 @@
         </nav>
     </header>
 
-    <section id="wrapper">
+    <section>
 
       % if !defined?(hide_search) && !user.instance_of?(Company)
         {{ this.partial("search_box") }}
@@ -34,11 +34,11 @@
       % end
 
       % if user.instance_of?(Developer)
-        <section id="sub_menu">
+        <section>
           <nav>
             <ul>
-              <li><a href="/applications">my applications (<span id="apps_size">{{ user.applications.size }}</span>)</a></li>
-              <li><a href="/favorites">my favorites (<span id="favs_size">{{ user.favorites.size }}</span>)</a></li>
+              <li><a href="/applications">my applications (<span id="apps-size">{{ user.applications.size }}</span>)</a></li>
+              <li><a href="/favorites">my favorites (<span id="favs-size">{{ user.favorites.size }}</span>)</a></li>
             </ul>
           </nav>
         </section>
@@ -52,7 +52,7 @@
 
     </section>
 
-    <footer id="main_footer">
+    <footer>
       <nav>
         <ul>
           <li>&copy; 2013 Punchgirls</li>

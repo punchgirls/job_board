@@ -1,7 +1,7 @@
 // AVOID SUBMIT ON ENTER WHEN SEARCHING LOCATION
 
 function noSubmit() {
-  var inputLocation = document.getElementById("searchTextField");
+  var inputLocation = document.getElementById("search-text-field");
 
   inputLocation.onkeypress = function(e){
     if (!e) e = window.event;

@@ -1,4 +1,4 @@
-<section id="search_form_responsive">
+<section>
   <form name="postFrm" action="/search" method="GET">
     <ul id="tokens">
       <li id="token-input">
@@ -10,6 +10,6 @@
 
     <button type="submit">search</button><br/>
 
-    <a id="all_posts_link" href="/search?all=true">All posts</a>
+    <a href="/search?all=true">All posts</a>
   </form>
 </section>

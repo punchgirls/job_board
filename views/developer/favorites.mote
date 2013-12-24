@@ -1,7 +1,7 @@
 % developer = this.current_developer
 % favorites = developer.favorites
 <span>
-  <h1>My favorites (<span id="favs_size_title">{{ favorites.size }}</span>)</h1>
+  <h1>My favorites (<span id="favs-size-title">{{ favorites.size }}</span>)</h1>
 
   % if favorites.empty?
     <p>You have no favorite posts yet.</p>
@@ -44,7 +44,7 @@
 
                 {{ this.partial("developer/add_message", post: post, developer: developer) }}
 
-                <span id="sent_ok_{{ post.id }}"></span>
+                <span id="sent-ok-{{ post.id }}"></span>
               </section>
             </section>
 

@@ -1,9 +1,9 @@
 <div id="digits">
   <input type="text" size="20" maxlength="16" placeholder="Credit card number" data-stripe="number"/><br/>
 
-  <input id="card_cvc" type="text" size="4" maxlength="4" placeholder="CVC" data-stripe="cvc"/>
+  <input type="text" size="4" maxlength="4" placeholder="CVC" data-stripe="cvc"/>
 
-  <div id="card_expiration_date">
+  <div>
     <label>Expires on</label>
     <input type="text" size="2" maxlength="2" placeholder="MM" data-stripe="exp-month"/>
     <span> / </span>

@@ -1,6 +1,6 @@
 % applications = Post[id].applications
 
-<section id="posts_status">
+<section>
   <h1>
     <span>{{ this.h(Post[id].title) }}</span>
     <span>/</span>
@@ -17,7 +17,7 @@
     <ul id="application-list">
       % applications.each_with_index do |application, index|
         % developer = application.developer
-        <li id="app_{{ application.id }}">
+        <li id="app-{{ application.id }}">
           <img src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
           <section>
             <h1>{{ this.h(developer.name) }}</h1><br/>

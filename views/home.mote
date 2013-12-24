@@ -1,10 +1,10 @@
-<section id="tagline">
+<section>
   <h1>Get a better job today!</h1>
 </section>
 
-<section id="search_form_home">
+<section>
   <form name="postFrm" action="/search" method="GET">
-    <span id="search_inputs">
+    <span>
       <ul id="tokens">
         <li id="token-input">
           <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
@@ -16,14 +16,14 @@
 
       <button type="submit">search</button>
 
-    <a id="all_posts_link" href="/search?all=true">All posts</a>
+    <a href="/search?all=true">All posts</a>
   </form>
 </section>
 
 
 % if !this.current_user
   <hr/>
-  <section id="engage">
+  <section>
     <section>
       <h1>Companies</h1>
       <p>Sign up and start posting job offers!</p>

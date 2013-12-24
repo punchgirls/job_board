@@ -1,12 +1,12 @@
-<form id="note_form_{{ application.id }}" method="POST" onsubmit="displayNote({{ application.id }}); return false;">
+<form id="note-form_{{ application.id }}" method="POST" onsubmit="displayNote({{ application.id }}); return false;">
 
-  <textarea id="noteTxt_{{ application.id }}" name="note" placeholder="Write your note here..." onkeyup="updateCountdownNote({{ application.id }})" maxlength="200">{{ this.h(application.note) }}</textarea>
+  <textarea id="note-txt-{{ application.id }}" name="note" placeholder="Write your note here..." onkeyup="updateCountdownNote({{ application.id }})" maxlength="200">{{ this.h(application.note) }}</textarea>
 
-  <span id="countdownNote_{{ application.id }}">200 characters remaining.</span><br/>
+  <span id="countdown-note-{{ application.id }}">200 characters remaining.</span><br/>
 
-  <a id="cancel" onclick="closeNoteFrm({{ application.id }})">cancel</a>
+  <a onclick="closeNoteFrm({{ application.id }})">cancel</a>
 
-  <button id="save" type="submit">add note</button>
+  <button type="submit">add note</button>
 </form>
 
 <script src="/js/limit_description.js"></script>

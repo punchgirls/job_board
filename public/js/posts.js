@@ -11,8 +11,8 @@ function ajax () {
 function apply (id) {
   var post = document.getElementById("post_" + id);
   var url = "/apply/" + id;
-  var addMsgLink = document.getElementById("add_msg_link_" + id);
-  var appsSize = document.getElementById("apps_size");
+  var addMsgLink = document.getElementById("add-msg-link-" + id);
+  var appsSize = document.getElementById("apps-size");
 
   var request = ajax();
   request.open("POST", url);
@@ -29,25 +29,25 @@ function apply (id) {
 }
 
 function addMsg (id) {
-  var messageFrm = document.getElementById("message_form_" + id);
-  var addMsgLink = document.getElementById("add_msg_link_" + id);
+  var messageFrm = document.getElementById("message-form-" + id);
+  var addMsgLink = document.getElementById("add-msg-link-" + id);
   addMsgLink.style.display = "none";
   messageFrm.style.display = "block";
 }
 
 function closeMsgFrm (id) {
-  var messageFrm = document.getElementById("message_form_" + id);
-  var addMsgLink = document.getElementById("add_msg_link_" + id);
+  var messageFrm = document.getElementById("message-form-" + id);
+  var addMsgLink = document.getElementById("add-msg-link-" + id);
   addMsgLink.style.display = "block";
   messageFrm.style.display = "none";
 }
 
 function sendMsg (postId, developerId) {
-  var messageFrm = document.getElementById("message_form_" + postId);
-  var messageTxt = document.getElementById("messageTxt_" + postId).value;
+  var messageFrm = document.getElementById("message-form-" + postId);
+  var messageTxt = document.getElementById("message-txt-" + postId).value;
   var url = "/message/" + postId + "/" + developerId + "/?message=" + messageTxt;
-  var message = document.getElementById("message_" + postId);
-  var sentOK = document.getElementById("sent_ok_" + postId);
+  var message = document.getElementById("message-" + postId);
+  var sentOK = document.getElementById("sent-ok-" + postId);
 
   var request = ajax();
   request.open("POST", url);
@@ -70,10 +70,10 @@ function sendMsg (postId, developerId) {
 }
 
 function addNote (id) {
-  var noteLink = document.getElementById("note_link_" + id);
-  var editNoteLink = document.getElementById("edit_note_link_" + id);
-  var form = document.getElementById("note_form_" + id);
-  var note = document.getElementById("note_" + id);
+  var noteLink = document.getElementById("note-link-" + id);
+  var editNoteLink = document.getElementById("edit-note-link-" + id);
+  var form = document.getElementById("note-form-" + id);
+  var note = document.getElementById("note-" + id);
 
   noteLink.style.display = "none";
 
@@ -86,9 +86,9 @@ function addNote (id) {
 }
 
 function closeNoteFrm (id) {
-  var noteLink = document.getElementById("note_link_" + id);
-  var form = document.getElementById("note_form_" + id);
-  var note = document.getElementById("note_" + id);
+  var noteLink = document.getElementById("note-link-" + id);
+  var form = document.getElementById("note-form-" + id);
+  var note = document.getElementById("note-" + id);
 
   noteLink.style.display = "block";
   note.style.display = "block";
@@ -96,11 +96,11 @@ function closeNoteFrm (id) {
 }
 
 function displayNote (id) {
-  var noteTxt = document.getElementById("noteTxt_" + id).value;
-  var note = document.getElementById("note_" + id);
-  var noteLink = document.getElementById("note_link_" + id);
-  var editNoteLink = document.getElementById("edit_note_link_" + id);
-  var form = document.getElementById("note_form_" + id);
+  var noteTxt = document.getElementById("note-txt-" + id).value;
+  var note = document.getElementById("note-" + id);
+  var noteLink = document.getElementById("note-link-" + id);
+  var editNoteLink = document.getElementById("edit-note-link-" + id);
+  var form = document.getElementById("note-form-" + id);
   var url;
 
   if (noteTxt != "") {
@@ -116,7 +116,7 @@ function displayNote (id) {
     if ((request.readyState===4) && (request.status===200)) {
       if (noteTxt != "") {
         form.style.display = "none";
-        note.innerHTML = '<span>Personal note</span><i class="fa fa-pencil-square-o cursor" id="edit_note_link_' + id + '" onclick="addNote(' + id + ')"></i><br>' + noteTxt;
+        note.innerHTML = '<span>Personal note</span><i class="fa fa-pencil-square-o cursor" id="edit-note-link-' + id + '" onclick="addNote(' + id + ')"></i><br>' + noteTxt;
         note.style.display = "block";
       } else {
         form.style.display = "none";
@@ -130,8 +130,8 @@ function displayNote (id) {
 }
 
 function favorite (icon) {
-  var favsSize = document.getElementById("favs_size");
-  var favsSizeTitle = document.getElementById("favs_size_title");
+  var favsSize = document.getElementById("favs-size");
+  var favsSizeTitle = document.getElementById("favs-size-title");
 
   if (icon.className === "fa fa-star favorited cursor") {
     icon.className = "fa fa-star favorite cursor";
@@ -199,7 +199,7 @@ function removePost (id) {
 
 function removeApplicant (id) {
   var applications = document.getElementById("application-list");
-  var application = document.getElementById("app_" + id);
+  var application = document.getElementById("app-" + id);
   var numberOfApplicants = document.getElementById("number-of-applicants");
   var value = numberOfApplicants.innerHTML;
   var url = "/application/remove/" + id;
@@ -225,8 +225,8 @@ function removeApplication (id) {
   var application = document.getElementById(id);
   var applications = document.getElementById("applications-list");
   var url = "/remove/" + id;
-  var appsSize = document.getElementById("apps_size");
-  var appsSizeTitle = document.getElementById("apps_size_title");
+  var appsSize = document.getElementById("apps-size");
+  var appsSizeTitle = document.getElementById("apps-size-title");
 
   var request = ajax();
   request.open("POST", url);

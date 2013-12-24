@@ -17,7 +17,7 @@
  <p>You have to provide a location or select the "work from anywhere" option</p>
 % end
 
-<section id="section_wrapper">
+<section>
   <h1>Create a new job offer</h1>
 
   <form id="new-post" name="postFrm" action="/post/new" method="POST">
@@ -32,24 +32,24 @@
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-    <input id="searchTextField" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
+    <input id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
 
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
     <label>
       <input type="checkbox" name="post[remote]" value="true">
-      <span id="checkbox_label">Work from anywhere</span>
+      <span>Work from anywhere</span>
     </label><br/>
 
-    <input type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" id="title" placeholder="Post title"><br/>
+    <input type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
 
     <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
 
     <span id="countdown">600 characters remaining.</span><br/>
 
     <section>
-      <a id="cancel" href="/dashboard">Cancel</a>
-      <button id="submit_btn" type="submit">Post</button>
+      <a href="/dashboard">Cancel</a>
+      <button type="submit">Post</button>
     </section>
   </form>
 </section>

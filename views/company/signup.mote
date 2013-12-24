@@ -22,7 +22,7 @@
   % end
 % end
 
-<section id="signup">
+<section>
   <h1>Sign up and start posting!</h1>
 
   <form action="/signup" method="POST">

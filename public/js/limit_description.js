@@ -8,16 +8,16 @@ function updateCountdown() {
 }
 
 function updateCountdownMsg(id) {
-  var messageTxt = document.getElementById("messageTxt_" + id);
-  var countdownMsg = document.getElementById("countdownMsg_" + id);
+  var messageTxt = document.getElementById("message-txt-" + id);
+  var countdownMsg = document.getElementById("countdown-msg-" + id);
 
   var remaining = 200 - messageTxt.value.length;
   countdownMsg.innerHTML = remaining + " characters remaining.";
 }
 
 function updateCountdownNote(id) {
-  var noteTxt = document.getElementById("noteTxt_" + id);
-  var countdownNote = document.getElementById("countdownNote_" + id);
+  var noteTxt = document.getElementById("note-txt-" + id);
+  var countdownNote = document.getElementById("countdown-note-" + id);
 
   var remaining = 200 - noteTxt.value.length;
   countdownNote.innerHTML = remaining + " characters remaining.";
@@ -25,7 +25,7 @@ function updateCountdownNote(id) {
 
 function updateCountdownBio() {
   var bioTxt = document.getElementById("developer-bio");
-  var countdownBio = document.getElementById("countdownBio");
+  var countdownBio = document.getElementById("countdown-bio");
 
   var remaining = 200 - bioTxt.value.length;
   countdownBio.innerHTML = remaining + " characters remaining.";

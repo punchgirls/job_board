@@ -1,7 +1,7 @@
 % developer = this.current_developer
 % applications = developer.applications
 <section>
-  <h1>My applications (<span id="apps_size_title">{{ applications.size }}</span>)</h1>
+  <h1>My applications (<span id="apps-size-title">{{ applications.size }}</span>)</h1>
 
   % if applications.empty?
     <p>You haven't applied for any jobs yet. Start your search now!</p>
@@ -44,7 +44,7 @@
                   {{ this.h(application.message) }}
                 </p>
               % else
-                <p id="message_{{ post.id }}"></p>
+                <p id="message-{{ post.id }}"></p>
               % end
 
               <section>
@@ -58,16 +58,16 @@
 
               <section>
                 % if !application.note.nil?
-                <p id="note_{{ application.id }}">
+                <p id="note-{{ application.id }}">
                   <span>Personal note</span>
-                  <i id="edit_note_link_{{ application.id }}" class="fa fa-pencil-square-o cursor" onclick="addNote({{ application.id }})"></i><br>
+                  <i id="edit-note-link-{{ application.id }}" class="fa fa-pencil-square-o cursor" onclick="addNote({{ application.id }})"></i><br>
                   {{ this.h(application.note) }}
                 </p>
                 % else
-                  <p id="note_{{ application.id }}"></p>
+                  <p id="note-{{ application.id }}"></p>
                 % end
 
-                <span id="note_link_{{ application.id }}" onclick="addNote({{ application.id }})">
+                <span id="note-link-{{ application.id }}" onclick="addNote({{ application.id }})">
                   % if application.note.nil? || application.note.empty?
                       Add a personal note?
                   % end

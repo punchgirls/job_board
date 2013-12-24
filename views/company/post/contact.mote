@@ -4,10 +4,9 @@
   <p>The following message will be sent as an e-mail to {{ Developer[id].name }}, with a copy to your registered company e-mail address:</p>
 
   <form action="/application/contact/{{ id }}" method="POST">
-    <input type="text" name="message[subject]" id="subject" value="{{ message['subject'] }}" placeholder="Subject"><br/>
+    <input type="text" name="message[subject]" value="{{ message['subject'] }}" placeholder="Subject"><br/>
 
-    <textarea name="message[body]" id="message"
-    placeholder="This mail will be sent to the developer">{{ message['body'] }}</textarea>
+    <textarea name="message[body]" placeholder="This mail will be sent to the developer">{{ message['body'] }}</textarea>
 
     <button type="submit">Send</button>
   </form>

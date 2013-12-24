@@ -1,7 +1,7 @@
 % company = this.current_user
 % posts = company.posts
 
-<section id="posts_status">
+<section>
   <h1>
     <span>Plan: {{ plan.name }} ({{ plan.posts }} posts per month)</span>
     <span>/</span>

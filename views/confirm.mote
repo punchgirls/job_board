@@ -1,4 +1,4 @@
-<section id="section_wrapper">
+<section>
   <h1>Please confirm your details!</h1>
 
   <img src="http://www.gravatar.com/avatar/{{ github_user['gravatar_id'] }}" />
@@ -16,7 +16,7 @@
     <textarea id="developer-bio" name="developer[bio]"
     placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"></textarea>
 
-    <span id="countdownBio">200 characters remaining.</span><br/>
+    <span id="countdown-bio">200 characters remaining.</span><br/>
 
     <button type="submit">Confirm</button><br/>
   </form>

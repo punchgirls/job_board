@@ -37,8 +37,8 @@
 
     <input type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
 
-    <a id="cancel" href="/profile">Cancel</a>
+    <a href="/profile">Cancel</a>
 
-    <button id="save" type="submit">Save</button>
+    <button type="submit">Save</button>
   </form>
 </section>
