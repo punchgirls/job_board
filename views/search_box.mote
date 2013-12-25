@@ -8,7 +8,7 @@
     <ul id="autocomplete"></ul>
     <input type="hidden" id="query" name="tags" value="">
 
-    <button type="submit">search</button><br/>
+    <button type="submit">search</button>
 
     <a href="/search?all=true">All posts</a>
   </form>

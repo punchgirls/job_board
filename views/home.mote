@@ -15,9 +15,17 @@
     <input type="hidden" id="query" name="post[tags]" value="">
 
       <button type="submit">search</button>
-
-    <a href="/search?all=true">All posts</a>
   </form>
+</section>
+
+<hr/>
+<section>
+  <h1>Latests posts</h1>
+
+  <ul>
+  </ul>
+
+  <a href="/search?all=true">All posts</a>
 </section>
 
 

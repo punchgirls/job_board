@@ -1,12 +1,3 @@
-/* CSS reset */
-
-body, h1, h2, h3, h4, h5, h6,
-div, p, input, ul, li, a,
-hr, article, i {
-  margin: 0;
-  padding: 0;
-}
-
 /* General styles */
 
 html, body {
@@ -16,6 +7,15 @@ html, body {
 body {
   font-family: "Droid Sans Mono", sans-serif;
   color: #111;
+}
+
+nav ul {
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  padding: 0;
 }
 
 /* Icons */
