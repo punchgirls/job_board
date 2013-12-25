@@ -18,6 +18,10 @@ class Searches < Cuba
       render("search", title: "Search", posts: Post.find(company_id: id))
     end
 
+    on param "post_id" do |id|
+      render("search", title: "Search", posts: Post.find(id: id))
+    end
+
     on param "company" do
       session[:error] = "You have to login as developer to
         perform this action"
