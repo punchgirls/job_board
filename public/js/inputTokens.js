@@ -173,7 +173,7 @@ postFrm.onsubmit = function() {
 
   for (var i = 0; i < skills.length -1; i++) {
     query += skills[i].innerHTML;
-  };
+  }
 
   queryInput.value = query;
 };
