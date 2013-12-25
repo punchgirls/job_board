@@ -56,7 +56,9 @@ Cuba.define do
   persist_session!
 
   on root do
-    render("home", title: "Home", hide_search: true)
+    latest_posts = Post.all.sort_by(:date, order: "ALPHA DESC", limit: [0, 5])
+
+    render("home", title: "Home", hide_search: true, latest_posts: latest_posts)
   end
 
   on authenticated(Company) do
