@@ -21,7 +21,11 @@
 <hr/>
 <section>
   <h1>Latests posts</h1>
+  % latest_posts = Post.all.sort_by(:date, :order => "ALPHA DESC", :limit => [0, 5])
 
+  % latest_posts.each do |post|
+    <li><a href="#">{{ post.title }}</a> @ <a href="#">{{ post.company.name }}</a></li>
+  % end
   <ul>
   </ul>
 
