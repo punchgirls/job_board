@@ -24,7 +24,7 @@
   % latest_posts = Post.all.sort_by(:date, :order => "ALPHA DESC", :limit => [0, 5])
 
   % latest_posts.each do |post|
-    <li><a href="#">{{ post.title }}</a> @ <a href="#">{{ post.company.name }}</a></li>
+    <li><a href="#">{{ post.title }}</a> @ <a href="search?company_id={{ post.company.id }}">{{ post.company.name }}</a></li>
   % end
   <ul>
   </ul>
