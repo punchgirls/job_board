@@ -63,7 +63,7 @@ function addToken(value) {
   if (listItems.length < 6) {
     var lastChild = listItems[listItems.length - 1];
     tokens.insertBefore(token, lastChild);
-    lastChild.style.marginLeft = "5px"
+    lastChild.style.marginLeft = "5px";
   } else {
     errors.setAttribute("class", "alert alert-error");
     errors.innerHTML = "You can add up to 5 skills";
