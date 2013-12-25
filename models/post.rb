@@ -10,7 +10,6 @@ class Post < Ohm::Model
   attribute :description
   attribute :status
 
-  index :id
   index :tag
   index :location
   index :remote

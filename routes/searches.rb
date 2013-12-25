@@ -19,7 +19,7 @@ class Searches < Cuba
     end
 
     on param "post_id" do |id|
-      render("search", title: "Search", posts: Post.find(id: id))
+      render("search", title: "Search", posts: [Post[id]])
     end
 
     on param "company" do
