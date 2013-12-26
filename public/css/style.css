@@ -118,14 +118,22 @@ footer {
 
 /* Input tokens and tags */
 
+#tags_wrapper {
+  width: auto;
+  display: inline-block;
+}
+
 #autocomplete {
-  width: 24.59em;
+  width: 28.72em;
+  margin: -1px 0 0 0;
+  padding: 0.3em 0.3em;
   position: absolute;
   display: none;
   border: solid 1px #cccccc;
   overflow-y: scroll;
   height: 200px;
   background-color: #fff;
+  text-align: left;
 }
 
 #autocomplete li {
@@ -136,25 +144,31 @@ footer {
 
 #autocomplete li:hover,
 #autocomplete li:focus {
-  background: #ffaa4e;
-  color: #fff;
+  background: #eee;
+  color: #111;
   cursor: pointer;
   cursor: hand;
 }
 
 #highlight {
-  background: #ffaa4e;
-  color: #fff;
+  background: #eee;
+  color: #111;
 }
 
 #tokens {
   margin: 0.6em 0 0;
-  padding: 0.3em 0;
+  padding: 0.3em 0.5em;
   width: 28.25em;
   height: 28px;
+  line-height: 28px;
+  text-align: left;
   font-size: 1em;
   font-family: "Droid Sans Mono", sans-serif;
-  border: solid 1px #cccccc;
+  border-top: solid 2px #aaa;
+  border-left: solid 2px #aaa;
+  border-right: solid 2px #eee;
+  border-bottom: solid 2px #eee;
+  background-color: #fff;
   cursor: text;
 }
 
