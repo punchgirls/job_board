@@ -12,52 +12,50 @@
   </head>
   <body>
     <header>
-      <h1><a href="/">job board<span></span></a></h1>
-      % if !defined?(hide_search) && !user.instance_of?(Company)
-        <p>{{ this.partial("search_box") }}</p>
-      % end
+      <div>
+        <h1><a href="/">job board<span></span></a></h1>
+        % if !defined?(hide_search) && !user.instance_of?(Company)
+          <p>{{ this.partial("search_box") }}</p>
+        % end
         <nav>
           <ul>
             <li><a href="/howitworks">How it works</a></li>
             <li><a href="/pricing">Pricing</a></li>
-
-            % if !current_user
+             % if !current_user
               <li><a href="/login">Login</a></li>
             % end
           </ul>
         </nav>
+      </div>
     </header>
 
     <section>
-
     % if user.instance_of?(Developer)
-        <section>
-          <nav>
-            <ul>
-              <li><a href="/applications">my applications (<span id="apps-size">{{ user.applications.size }}</span>)</a></li>
-              <li><a href="/favorites">my favorites (<span id="favs-size">{{ user.favorites.size }}</span>)</a></li>
-            </ul>
-          </nav>
-        </section>
-      % end
+      <nav>
+        <ul>
+          <li><a href="/applications">my applications (<span id="apps-size">{{ user.applications.size }}</span>)</a></li>
+          <li><a href="/favorites">my favorites (<span id="favs-size">{{ user.favorites.size }}</span>)</a></li>
+        </ul>
+      </nav>
+    % end
+    </section>
 
-      <span id="notices">
-        {{ this.partial("notices", session: this.session) }}
-      </span>
+    <span id="notices">
+      {{ this.partial("notices", session: this.session) }}
+    </span>
 
+    <section id="content">
       {{ content }}
-
     </section>
 
     <footer>
       <nav>
         <ul>
-          <li>&copy; 2013 Punchgirls</li>
-          <li><a href="/about">About us</a></li>
+          <li>&copy; 2013 <a href="http://www.punchgirls.com">Punchgirls</a></li>
           <li><a href="/contact">Contact</a></li>
           <li><a href="/faq">FAQ</a></li>
+          <li><a href="/terms">Terms</a></li>
           <li><a href="/privacy">Privacy Policy</a></li>
-          <li><a href="/terms">Terms and Conditions</a></li>
         </ul>
       </nav>
     </footer>
