@@ -31,19 +31,3 @@
   <a href="/search?all=true">All posts</a>
 </section>
 
-
-% if !this.current_user
-  <hr/>
-  <section>
-    <section>
-      <h1>Companies</h1>
-      <p>Sign up and start posting job offers!</p>
-      <a href="/signup">get started!</a>
-    </section>
-    <section>
-      <h1>Developers</h1>
-      <p>Log in and find your next job!</p>
-      <a href="/github_oauth">login</a>
-    </section>
-  </section>
-% end
