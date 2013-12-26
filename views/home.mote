@@ -7,8 +7,8 @@
 <ul>
 % latest_posts.each do |post|
   <li>
-    <a href="search?post_id={{ post.id }}">{{ post.title }}</a> @
-    <a href="search?company_id={{ post.company.id }}">{{ post.company.name }}</a>
+    <a href="search?post_id={{ post.id }}">{{ this.h(post.title) }}</a> @
+    <a href="search?company_id={{ post.company.id }}">{{ this.h(post.company.name) }}</a>
   </li>
 % end
 </ul>
