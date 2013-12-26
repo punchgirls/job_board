@@ -2,14 +2,12 @@
   <form name="postFrm" action="/search" method="GET">
     <ul id="tokens">
       <li id="token-input">
-        <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
+        <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
       </li>
     </ul>
     <ul id="autocomplete"></ul>
     <input type="hidden" id="query" name="tags" value="">
 
-    <button type="submit">search</button>
-
-    <a href="/search?all=true">All posts</a>
+    <button type="submit"><i class="fa fa-search"></i></button>
   </form>
 </section>

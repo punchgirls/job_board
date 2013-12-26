@@ -1,33 +1,18 @@
-<section>
-  <h1>Get a better job today!</h1>
-</section>
+<h1 id="tagline">Get a better job today!</h1>
 
-<section>
-  <form name="postFrm" action="/search" method="GET">
-    <span>
-      <ul id="tokens">
-        <li id="token-input">
-          <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
-        </li>
-      </ul>
-      <ul id="autocomplete"></ul>
-    </span>
-    <input type="hidden" id="query" name="post[tags]" value="">
+{{ this.partial("search_box") }}
 
-      <button type="submit">search</button>
-  </form>
-</section>
+<h2>Latest posts</h1>
 
-<hr/>
-<section>
-  <h1>Latests posts</h1>
+<ul>
+% latest_posts.each do |post|
+  <li>
+    <a href="search?post_id={{ post.id }}">{{ post.title }}</a> @
+    <a href="search?company_id={{ post.company.id }}">{{ post.company.name }}</a>
+  </li>
+% end
+</ul>
 
-  % latest_posts.each do |post|
-    <li><a href="search?post_id={{ post.id }}">{{ post.title }}</a> @ <a href="search?company_id={{ post.company.id }}">{{ post.company.name }}</a></li>
-  % end
-  <ul>
-  </ul>
+<a href="/search?all=true">All posts</a>
 
-  <a href="/search?all=true">All posts</a>
-</section>
 
