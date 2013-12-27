@@ -81,7 +81,7 @@ function deleteToken(token) {
 
   if(tokens.childNodes.length == 3) {
     searchInput.setAttribute("placeholder", "e.g. Ruby, Cuba, Redis");
-    searchInput.style.width = "300px";
+    searchInput.style.width = "198px";
   }
 }
 
