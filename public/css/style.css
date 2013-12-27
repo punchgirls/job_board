@@ -33,6 +33,7 @@ a:hover, a:active {
 }
 
 header {
+  height: 57px;
   margin: 0;
   line-height: 2em;
   background-color: #fafafa;
@@ -48,22 +49,65 @@ header div {
 }
 
 header h1 {
-  font-size: 1.2em;
   margin: 0;
   padding: 0;
+  font-size: 1.2em;
+  line-height: 57px;
+  float: left;
 }
 
 header ul {
   font-size: 0.8em;
 }
 
+header ul, footer ul {
+  padding: 0;
+  list-style: none;
+}
+
 nav {
   display: inline-block;
 }
 
-header ul, footer ul {
+#nav_header {
+  display: none;
+}
+
+#nav_header_responsive {
+  display: none;
+  width: 100%;
+}
+
+#nav_header_responsive ul {
+  margin: 0 auto;
   padding: 0;
   list-style: none;
+  font-size: 0.8em;
+}
+
+#nav_header_responsive li {
+  margin: 0;
+  padding: 10px 20px;
+  background-color: #fafafa;
+  border-top: 1px dotted #ccc;
+}
+
+#nav_header_responsive li a, #nav_header_responsive li:visited {
+  text-decoration: none;
+  display: block;
+}
+
+#nav_header_responsive li:hover, #nav_header_responsive li:active {
+  background-color: #eee;
+  text-decoration: none;
+}
+
+i.fa-caret-down, i.fa-caret-up {
+  margin: 15px 0;
+  font-size: 1.5em;
+  float: right;
+  cursor: hand;
+  cursor: pointer;
 }
 
 #tagline {
@@ -218,6 +262,7 @@ input:-moz-placeholder {
 @media only screen and (min-width: 480px) {
   header h1 {
     display: inline-block;
+    float: none;
   }
 
   header ul, footer ul {
@@ -228,6 +273,18 @@ input:-moz-placeholder {
   header li {
     display: inline;
     margin-left: 1.5em;
+  }
+
+  #nav_header {
+    display: inline-block;
+  }
+
+  #nav_header_responsive {
+    display: none;
+  }
+
+  i.fa-caret-down, i.fa-caret-up {
+    display: none;
   }
 
   #tagline {

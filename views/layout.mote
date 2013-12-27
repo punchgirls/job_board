@@ -8,17 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/style.css" rel="stylesheet" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
     <div id="wrapper">
       <header>
         <div>
           <h1><a href="/">job board<span></span></a></h1>
+          <i onclick="openMenu()" id ="menu_arrow" class="fa fa-caret-down"></i>
           % if !defined?(hide_search) && !user.instance_of?(Company)
             <p>{{ this.partial("search_box") }}</p>
           % end
-          <nav>
+          <nav id="nav_header">
             <ul>
               <li><a href="/how">How it works</a></li>
               <li><a href="/pricing">Pricing</a></li>
@@ -29,6 +30,16 @@
           </nav>
         </div>
       </header>
+
+      <nav id="nav_header_responsive">
+        <ul>
+          <li><a href="/how">How it works</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+           % if !current_user
+            <li><a href="/login">Login</a></li>
+          % end
+        </ul>
+      </nav>
 
       <section>
       % if user.instance_of?(Developer)
@@ -93,5 +104,6 @@
     </script>
     <script src="/js/stripe.js"></script>
     <script src="/js/cancel_account.js"></script>
+    <script src="/js/open_menu.js"></script>
   </body>
 </html>
