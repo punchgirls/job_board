@@ -80,7 +80,7 @@ function deleteToken(token) {
   tokens.removeChild(token);
 
   if(tokens.childNodes.length == 3) {
-    searchInput.setAttribute("placeholder", "Programming language or skill...");
+    searchInput.setAttribute("placeholder", "e.g. Ruby, Cuba, Redis");
     searchInput.style.width = "300px";
   }
 }

@@ -27,7 +27,7 @@
 
     <ul id="tokens">
       <li id="token-input">
-        <input type="text" id="search-field" autocomplete="off" placeholder="Programming language or skill...">
+        <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
       </li>
     </ul>
     <ul id="autocomplete"></ul>
