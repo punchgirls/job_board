@@ -7,8 +7,8 @@ function openMenu () {
   if (navHeaderResponsive.style.display === "inline-block") {
     navHeaderResponsive.style.display = "none";
     arrow.className = "fa fa-caret-down";
-    content.style.paddingBottom = "10px";
-    footer.height = "10px";
+    content.style.paddingBottom = "30px";
+    footer.height = "30px";
   } else {
     navHeaderResponsive.style.display = "inline-block";
     arrow.className = "fa fa-caret-up";
