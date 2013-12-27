@@ -25,7 +25,7 @@
 <section>
   <h1>Sign up and start posting!</h1>
 
-  <form action="/signup" method="POST">
+  <form action="/signup" method="POST" class="payment-details">
 
     <input type="text" name="company[name]" placeholder="Company name" value="{{ this.h(company['name']) }}"><br/>
 

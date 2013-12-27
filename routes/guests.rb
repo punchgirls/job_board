@@ -12,18 +12,7 @@ class Guests < Cuba
       render("how", title: "How it works")
     end
 
-    on "plan" do
-      on post, param("company") do |params|
-        res.redirect "/signup?plan=#{params["plan_id"]}"
-      end
-    end
-
     on "signup" do
-      on param("plan") do |plan_id|
-        render("company/signup", title: "Sign up",
-          company: {}, plan_id: plan_id, hide_search: true)
-      end
-
       on post, param("stripe_token"), param("company") do |token, params|
         customer = Stripe.create_customer(token, params["plan_id"],
           params["email"], params["name"])
@@ -55,12 +44,10 @@ class Guests < Cuba
         end
       end
 
-      on get, root do
+      on default do
         render("company/signup", title: "Sign up",
           company: {}, hide_search: true, plan_id: "small")
       end
-
-      on(default) { not_found! }
     end
 
     on "login" do
