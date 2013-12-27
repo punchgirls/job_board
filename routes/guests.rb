@@ -4,14 +4,6 @@ class Guests < Cuba
       res.redirect "/"
     end
 
-    on "pricing" do
-      render("pricing", title: "Pricing", plan_id: "small")
-    end
-
-    on "how" do
-      render("how", title: "How it works")
-    end
-
     on "signup" do
       on post, param("stripe_token"), param("company") do |token, params|
         customer = Stripe.create_customer(token, params["plan_id"],
@@ -283,8 +275,12 @@ class Guests < Cuba
       on(default) { not_found! }
     end
 
-    on "about" do
-      render("about", title: "About us")
+    on "pricing" do
+      render("pricing", title: "Pricing", plan_id: "small")
+    end
+
+    on "how" do
+      render("how", title: "How it works")
     end
 
     on "faq" do

@@ -183,8 +183,12 @@ class Developers < Cuba
       res.redirect "/"
     end
 
-    on "about" do
-      render("about", title: "About us")
+    on "pricing" do
+      render("pricing", title: "Pricing", plan_id: "small")
+    end
+
+    on "how" do
+      render("how", title: "How it works")
     end
 
     on "faq" do
