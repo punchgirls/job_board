@@ -15,7 +15,7 @@ body {
 }
 
 #content {
-  padding: 0 0 10px 0.5em;
+  padding: 0 0 20px 0.5em;
 }
 
 a:link {
@@ -160,7 +160,7 @@ footer {
   left:0;
   right: 0;
   padding: 2em 2em;
-  height: 10px;
+  height: 20px;
   font-size: 0.8em;
 }
 
