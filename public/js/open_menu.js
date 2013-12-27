@@ -7,12 +7,12 @@ function openMenu () {
   if (navHeaderResponsive.style.display === "inline-block") {
     navHeaderResponsive.style.display = "none";
     arrow.className = "fa fa-caret-down";
-    content.style.paddingBottom = "30px";
+    content.style.paddingBottom = "60px";
     footer.height = "30px";
   } else {
     navHeaderResponsive.style.display = "inline-block";
     arrow.className = "fa fa-caret-up";
-    content.style.paddingBottom = "50px";
+    content.style.paddingBottom = "60px";
     footer.height = "50px";
   }
 }
