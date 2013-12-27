@@ -20,7 +20,7 @@
           % end
           <nav>
             <ul>
-              <li><a href="/howitworks">How it works</a></li>
+              <li><a href="/how">How it works</a></li>
               <li><a href="/pricing">Pricing</a></li>
                % if !current_user
                 <li><a href="/login">Login</a></li>

@@ -8,8 +8,8 @@ class Guests < Cuba
       render("pricing", title: "Pricing", plan_id: "small")
     end
 
-    on "howitworks" do
-      render("howitworks", title: "How it works")
+    on "how" do
+      render("how", title: "How it works")
     end
 
     on "plan" do
