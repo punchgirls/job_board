@@ -49,7 +49,7 @@ header div {
 }
 
 header h1 {
-  margin: 0;
+  margin: 0 0 0 20px;
   padding: 0;
   font-size: 1.2em;
   line-height: 57px;
@@ -87,7 +87,7 @@ nav {
 
 #nav_header_responsive li {
   margin: 0;
-  padding: 10px 20px;
+  padding: 10px 35px;
   background-color: #fafafa;
   border-top: 1px dotted #ccc;
 }
@@ -103,11 +103,22 @@ nav {
 }
 
 i.fa-caret-down, i.fa-caret-up {
-  margin: 17px 0;
+  margin: 17px 15px 0 0;
   font-size: 1.5em;
   float: right;
   cursor: hand;
   cursor: pointer;
+}
+
+li#avatar_list_item {
+  padding:0 0 0 20px;
+  margin: 0;
+  line-height: 36px;
+}
+
+li#avatar_list_item a img {
+  height: 36px;
+  vertical-align: top;
 }
 
 #tagline {
@@ -267,6 +278,17 @@ input:-moz-placeholder {
 }
 
 @media only screen and (min-width: 480px) and (min-height: 550px) {
+  #tokens {
+    width: 22.35em;
+    display: inline-block;
+  }
+
+  #autocomplete {
+    width: 22.83em;
+  }
+}
+
+@media only screen and (min-width: 768px) and (min-height: 550px) {
   header h1 {
     display: inline-block;
     float: none;
@@ -298,18 +320,24 @@ input:-moz-placeholder {
     display: none;
   }
 
+  li#avatar_list_item a img {
+    margin-top: -3px;
+    height: 36px;
+    vertical-align: top;
+  }
+
   #tagline {
     margin-top: 100px;
     font-size: 1.5em;
   }
 
   #tokens {
-    width: 18.35em;
+    width: 28.35em;
     display: inline-block;
   }
 
   #autocomplete {
-    width: 18.83em;
+    width: 28.83em;
   }
 
   section ul {
@@ -323,16 +351,5 @@ input:-moz-placeholder {
   footer li {
     display: inline;
     margin-left: 0.4em;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  #tokens {
-    width: 28.35em;
-    display: inline-block;
-  }
-
-  #autocomplete {
-    width: 28.83em;
   }
 }
