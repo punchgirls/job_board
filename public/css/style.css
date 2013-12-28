@@ -208,7 +208,7 @@ li#avatar_list_item a img {
 
 #autocomplete {
   width: 16.12em;
-  margin: -1px 0 0 0;
+  margin: 0 0 0 0;
   padding: 0.3em 0.3em;
   position: absolute;
   display: none;
@@ -222,6 +222,7 @@ li#avatar_list_item a img {
 #autocomplete li {
   list-style: none;
   padding: 0.3em;
+  margin: 0;
   font-size: 0.9em;
   display: block;
 }
@@ -232,6 +233,10 @@ li#avatar_list_item a img {
   color: #111;
   cursor: pointer;
   cursor: hand;
+}
+
+#search_box_responsive #autocomplete {
+  margin-top: -8px;
 }
 
 #highlight {
@@ -289,10 +294,12 @@ input:-moz-placeholder {
 
 #tokens li{
   display: inline-block;
+  margin: 0;
 }
 
 #tokens #token-input {
   background-color: white;
+  margin: 0;
 }
 
 @media only screen and (min-width: 480px) and (min-height: 550px) {
