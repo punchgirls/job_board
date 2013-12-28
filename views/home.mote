@@ -1,6 +1,8 @@
 <h1 id="tagline">Get a better job today!</h1>
 
-{{ this.partial("search_box") }}
+<section id="search_box_home">
+  {{ this.partial("search_box") }}
+</section>
 
 <h2>Latest posts</h1>
 

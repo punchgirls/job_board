@@ -1,17 +1,15 @@
-<section>
-  <form name="postFrm" action="/search" method="GET">
-    <div id="tags_wrapper">
-      <ul id="tokens">
-        <li id="token-input">
-          <input type="text" id="search-field" autocomplete="off"
-          placeholder="e.g. Ruby, Cuba, Redis">
-        </li>
-      </ul>
+<form name="postFrm" action="/search" method="GET">
+  <div id="tags_wrapper">
+    <ul id="tokens">
+      <li id="token-input">
+        <input type="text" id="search-field" autocomplete="off"
+        placeholder="e.g. Ruby, Cuba, Redis">
+      </li>
+    </ul>
 
-      <ul id="autocomplete"></ul>
-      <input type="hidden" id="query" name="tags" value="">
-    </div>
+    <ul id="autocomplete"></ul>
+    <input type="hidden" id="query" name="tags" value="">
+  </div>
 
-    <button type="submit"><i class="fa fa-search"></i></button>
-  </form>
-</section>
+  <button type="submit"><i class="fa fa-search"></i></button>
+</form>
