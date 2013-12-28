@@ -44,7 +44,6 @@ header {
 #header_menu_wrapper {
   margin: 0 auto;
   padding: 0;
-  display: inline-block;
 }
 
 header a {
@@ -297,26 +296,6 @@ input:-moz-placeholder {
   background-color: white;
 }
 
-@media only screen and (min-width: 320px) and (min-height: 550px) {
-  i.fa-caret-down, i.fa-caret-up {
-    margin-left: 6em;
-  }
-
-  #nav_header_responsive li {
-    padding-left: 2.1em;
-  }
-}
-
-@media only screen and (min-width: 400px) and (min-height: 550px) {
-  i.fa-caret-down, i.fa-caret-up {
-    margin-left: 8em;
-  }
-
-  #nav_header_responsive li {
-    padding-left: 3em;
-  }
-}
-
 @media only screen and (min-width: 480px) and (min-height: 550px) {
   #tokens {
     width: 22.35em;
@@ -326,26 +305,7 @@ input:-moz-placeholder {
   #autocomplete {
     width: 28.62em;
   }
-
-  i.fa-caret-down, i.fa-caret-up {
-    margin-left: 11em;
-  }
-
-  #nav_header_responsive li {
-    padding-left: 3.3em;
-  }
 }
-
-@media only screen and (min-width: 600px) and (min-height: 550px) {
-  i.fa-caret-down, i.fa-caret-up {
-    margin-left: 15em;
-  }
-
-  #nav_header_responsive li {
-    padding-left: 5em;
-  }
-}
-
 
 @media only screen and (min-width: 768px) and (min-height: 550px) {
   header ul, footer ul {
@@ -413,5 +373,9 @@ input:-moz-placeholder {
     padding: 0;
     float: left;
     height: 57px;
+  }
+
+  #header_menu_wrapper {
+    display: inline-block;
   }
 }
