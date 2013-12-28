@@ -6,7 +6,7 @@ class Searches < Cuba
       posts = Search.posts(tags)
 
       session[:query] = tags
-      render("search", title: "Tags", posts: posts)
+      render("search", title: "Search", posts: posts)
     end
 
     on param "all" do |params|
@@ -36,7 +36,7 @@ class Searches < Cuba
         posts = Search.posts(session[:query])
         session.delete(:query)
 
-        render("search", title: "Tags", posts: posts)
+        render("search", title: "Search", posts: posts)
       end
     end
 

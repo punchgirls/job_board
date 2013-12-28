@@ -16,14 +16,14 @@
         <div id="header_menu_wrapper">
           <h1><a href="/">job board<span></span></a></h1>
           <i onclick="openMenu()" id ="menu_arrow" class="fa fa-caret-down"></i>
-          % if !defined?(hide_search) && !user.instance_of?(Company)
-            <section id="search_box_responsive">
+          % if !defined?(hide_search)
+            <section id="search_box">
               {{ this.partial("search_box") }}
             </section>
           % else
-          <nav id="nav_header">
-            {{ this.partial("header_menu", user: this.current_user) }}
-          </nav>
+            <nav id="nav_header">
+              {{ this.partial("header_menu", user: this.current_user) }}
+            </nav>
           % end
         </div>
       </header>
@@ -35,6 +35,12 @@
       <span id="notices">
         {{ this.partial("notices", session: this.session) }}
       </span>
+
+      % if !defined?(hide_search)
+        <section id="search_box_responsive">
+          {{ this.partial("search_box") }}
+        </section>
+      % end
 
       <section id="content">
         {{ content }}

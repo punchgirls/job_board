@@ -181,11 +181,12 @@ i.fa-caret-down, i.fa-caret-up {
 
 }
 
+#search_box {
+  display: none;
+}
+
 #search_box_responsive {
-  display: inline;
-  height: 57px;
-  margin: 0 0 0 30px;
-  padding: 0;
+  margin: 20px auto;
 }
 
 li#avatar_list_item {
@@ -235,7 +236,7 @@ li#avatar_list_item a img {
   cursor: hand;
 }
 
-#search_box_responsive #autocomplete {
+#search_box #autocomplete {
   margin-top: -8px;
 }
 
@@ -374,11 +375,16 @@ input:-moz-placeholder {
     width: 28.83em;
   }
 
-  #search_box_responsive {
+  #search_box {
+    height: 57px;
     margin: 0 0 0 30px;
     padding: 0;
+    display: inline;
     float: left;
-    height: 57px;
+  }
+
+  #search_box_responsive {
+    display: none;
   }
 
   #header_menu_wrapper {
