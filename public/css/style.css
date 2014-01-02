@@ -280,7 +280,7 @@ input:-moz-placeholder {
   background-color: white;
 }
 
-@media only screen and (min-width: 480px) and (min-height: 550px) {
+@media only screen and (min-width: 480px)  {
   #tokens {
     width: 22.35em;
     display: inline-block;
@@ -291,7 +291,7 @@ input:-moz-placeholder {
   }
 }
 
-@media only screen and (min-width: 768px)  {
+@media only screen and (min-width: 900px)  {
 
  header {
     text-align: center;
