@@ -276,15 +276,15 @@ class Guests < Cuba
     end
 
     on "pricing" do
-      render("pricing", title: "Pricing", plan_id: "small")
+      render("pricing", title: "Pricing", plan_id: "small", hide_search: true)
     end
 
     on "how" do
-      render("how", title: "How it works")
+      render("how", title: "How it works", hide_search: true)
     end
 
     on "faq" do
-      render("faq", title: "FAQ")
+      render("faq", title: "FAQ", hide_search: true)
     end
 
     on "contact" do
@@ -292,11 +292,11 @@ class Guests < Cuba
     end
 
     on "terms" do
-      render("terms", title: "Terms and Conditions")
+      render("terms", title: "Terms and Conditions", hide_search: true)
     end
 
     on "privacy" do
-      render("privacy", title: "Privacy Policy")
+      render("privacy", title: "Privacy Policy", hide_search: true)
     end
 
     on(default) { not_found! }

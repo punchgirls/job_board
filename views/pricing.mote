@@ -1,4 +1,4 @@
- <h1>Pricing</h1>
+ <h2>Pricing</h2>
  <form action="/plan" method="POST">
     {{ this.partial("plans", plan_id: plan_id) }}
     <button>Sign up</button>

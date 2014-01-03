@@ -19,7 +19,7 @@ class Contacts < Cuba
     end
 
     on get, root do
-      render("contact", title: "Contact", contact: {})
+      render("contact", title: "Contact", contact: {}, hide_search: true)
     end
 
     on(default) { not_found! }

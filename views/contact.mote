@@ -1,13 +1,11 @@
-<section>
-  <h1>Contact us</h1>
+<h2>Contact us</h2>
 
-  <form action="/contact" method="POST">
-    <input type="email" name="contact[email]" value="{{ contact['email'] }}" placeholder="E-mail"><br/>
+<form action="/contact" method="POST">
+  <input type="email" name="contact[email]" value="{{ contact['email'] }}" placeholder="E-mail"><br/>
 
-    <input type="text" name="contact[subject]" value="{{ contact['subject'] }}" placeholder="Subject"><br/>
+  <input type="text" name="contact[subject]" value="{{ contact['subject'] }}" placeholder="Subject"><br/>
 
-    <textarea name="contact[body]" placeholder="Type your message here">{{ contact['body'] }}</textarea>
+  <textarea name="contact[body]" placeholder="Type your message here">{{ contact['body'] }}</textarea>
 
-    <button type="submit">Send</button>
-  </form>
-</section>
+  <button type="submit">Send</button>
+</form>
