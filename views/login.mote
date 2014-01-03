@@ -1,7 +1,7 @@
-<a href="/github_oauth">Developer Login</a>
+<section id="login">
+  <a href="/github_oauth"><i class="fa fa-github"></i></a> <a href="/github_oauth">Developer Login</a>
 
-<section>
-  <h1>Company Login</h1>
+  <h3>Company Login</h3>
 
   <form action="/login" method="POST">
     <input type="email" name="company[email]"
@@ -18,7 +18,7 @@
     <br/>
 
     <button type="submit">login</button>
-  </form>
+  </form><br/>
 
   <a href="/signup">Need an account? Sign up here!</a>
 </section>

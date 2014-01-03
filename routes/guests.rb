@@ -86,7 +86,8 @@ class Guests < Cuba
 
     on "forgot-password" do
       on get do
-        render("forgot-password", title: "Password recovery")
+        render("forgot-password", title: "Password recovery",
+          hide_search: true)
       end
 
       on post do
@@ -138,7 +139,8 @@ class Guests < Cuba
 
           on default do
             render("otp", title: "Password recovery",
-              company: company, signature: signature, reset: reset)
+              company: company, signature: signature, reset: reset,
+              hide_search: true)
           end
         end
 
@@ -146,7 +148,8 @@ class Guests < Cuba
           reset = PasswordRecovery.new({})
 
           render("otp", title: "Password recovery",
-            company: company, signature: signature, reset: reset)
+            company: company, signature: signature, reset: reset,
+            hide_search: true)
         end
       end
 
@@ -276,7 +279,8 @@ class Guests < Cuba
     end
 
     on "pricing" do
-      render("pricing", title: "Pricing", plan_id: "small", hide_search: true)
+      render("pricing", title: "Pricing", plan_id: "small",
+        hide_search: true)
     end
 
     on "how" do

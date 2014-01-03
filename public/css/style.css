@@ -95,6 +95,11 @@ section h2 {
   margin-top: 30px;
 }
 
+section h3 {
+  font-size: 1em;
+  margin-top: 30px;
+}
+
 section ul {
   padding: 0;
   list-style: none;
@@ -118,6 +123,49 @@ li#avatar_list_item {
 li#avatar_list_item a img {
   height: 36px;
   vertical-align: top;
+}
+
+#login {
+  margin-top: 40px;
+}
+
+#login i {
+  vertical-align: middle;
+}
+
+#login form {
+  width: 22.50em;
+  margin-bottom: 40px;
+  display: inline-block;
+  font-size: 0.7em;
+}
+
+#login input {
+  width: 15em;
+  padding: 0.3em;
+  margin-bottom: 6px;
+  font-size: 1.4em;
+  font-family: "Droid Sans Mono", sans-serif;
+  color: #111;
+}
+
+#login label {
+  margin: 0 25px 15px 0;
+  display: inline-block;
+}
+
+#login label input {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom;
+}
+
+#login button {
+  font-size: 1.3em;
+  font-family: "Droid Sans Mono", sans-serif;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 footer {
@@ -297,6 +345,26 @@ input:-moz-placeholder {
   #autocomplete {
     width: 22.82em;
   }
+
+  #login h3 {
+    margin-top: 50px;
+  }
+
+  #login form {
+    width: 25.40em;
+  }
+
+  #login input {
+    width: 17em;
+  }
+
+  #login label {
+    margin-right: 58px;
+  }
+
+  #login button {
+    float: right;
+  }
 }
 
 @media only screen and (min-width: 768px)  {
@@ -352,6 +420,22 @@ input:-moz-placeholder {
 
   #autocomplete {
     width: 28.80em;
+  }
+
+  #login h3 {
+    margin-top: 70px;
+  }
+
+  #login form {
+    width: 33.80em;
+  }
+
+  #login input {
+    width: 23em;
+  }
+
+  #login label {
+    margin-right: 158px;
   }
 
   footer {
