@@ -50,6 +50,7 @@ header form {
 }
 
 #content {
+  min-height: 370px;
   padding: 0 0 45px 0.5em;
 }
 
@@ -242,7 +243,7 @@ input:checked ~ nav {
 }
 
 #autocomplete {
-  width: 14.52em;
+  width: 14.40em;
   margin: -1px 0 0 0;
   padding: 0.3em 0.3em;
   position: absolute;
@@ -278,7 +279,7 @@ input:checked ~ nav {
 #tokens {
   margin: 0;
   padding: 0.3em 0.5em;
-  width: 14em;
+  width: 13.90em;
   line-height: 28px;
   text-align: left;
   font-size: 1em;
