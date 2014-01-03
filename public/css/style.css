@@ -194,7 +194,7 @@ input:checked ~ nav {
 }
 
 #autocomplete {
-  width: 16.12em;
+  width: 14.52em;
   margin: -1px 0 0 0;
   padding: 0.3em 0.3em;
   position: absolute;
@@ -204,6 +204,7 @@ input:checked ~ nav {
   height: 200px;
   background-color: #fff;
   text-align: left;
+  font-size: 1em;
 }
 
 #autocomplete li {
@@ -229,7 +230,7 @@ input:checked ~ nav {
 #tokens {
   margin: 0;
   padding: 0.3em 0.5em;
-  width: 12.25em;
+  width: 14em;
   line-height: 28px;
   text-align: left;
   font-size: 1em;
@@ -243,12 +244,12 @@ input:checked ~ nav {
 }
 
 #token-input {
-  margin-left: 5px;
+  margin: 0;
   padding: 0;
 }
 
 #search-field {
-  width: 175px;
+  width: 200px;
   outline: none;
   border: none;
   margin: 0;
@@ -294,7 +295,7 @@ input:-moz-placeholder {
   }
 
   #autocomplete {
-    width: 28.62em;
+    width: 22.82em;
   }
 }
 
@@ -350,7 +351,7 @@ input:-moz-placeholder {
   }
 
   #autocomplete {
-    width: 28.83em;
+    width: 28.80em;
   }
 
   footer {

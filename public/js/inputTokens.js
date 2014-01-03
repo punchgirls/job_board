@@ -7,7 +7,6 @@ var errors = document.getElementById('notices');
 var selectedToken = -1;
 
 var searchInput = document.getElementById("search-field");
-var tokenInput = document.getElementById("token-input");
 var queryInput = document.getElementById("query");
 
 var autocomplete = document.getElementById("autocomplete");
@@ -55,17 +54,15 @@ function addToAutocomplete(value) {
 
 function addToken(value) {
   var token = document.createElement("li");
-
-  token.appendChild(document.createTextNode(value + ", "));
+  token.appendChild(document.createTextNode(value + ","));
+  token.style.marginRight = "4px";
 
   var listItems = tokens.getElementsByTagName("li");
 
   if (listItems.length < 6) {
     var lastChild = listItems[listItems.length - 1];
     tokens.insertBefore(token, lastChild);
-    lastChild.style.marginLeft = "5px";
   } else {
-    errors.setAttribute("class", "alert alert-error");
     errors.innerHTML = "You can add up to 5 skills";
   }
 
@@ -81,7 +78,7 @@ function deleteToken(token) {
 
   if(tokens.childNodes.length == 3) {
     searchInput.setAttribute("placeholder", "e.g. Ruby, Cuba, Redis");
-    searchInput.style.width = "198px";
+    searchInput.style.width = "200px";
   }
 }
 
@@ -106,7 +103,7 @@ searchInput.onkeydown = function(e) {
 
   autocomplete.style.display = "block";
   searchInput.removeAttribute("placeholder");
-  searchInput.style.width = "130px";
+  searchInput.style.width = "150px";
 
   if (e.keyCode == '13') {
     if (selectedToken == -1) {
