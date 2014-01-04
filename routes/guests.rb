@@ -4,7 +4,18 @@ class Guests < Cuba
       res.redirect "/"
     end
 
+    on "plan" do
+      on post, param("company") do |params|
+        res.redirect "/signup?plan=#{params["plan_id"]}"
+      end
+    end
+
     on "signup" do
+      on param("plan") do |plan_id|
+        render("company/signup", title: "Sign up",
+          company: {}, plan_id: plan_id, hide_search: true)
+      end
+
       on post, param("stripe_token"), param("company") do |token, params|
         customer = Stripe.create_customer(token, params["plan_id"],
           params["email"], params["name"])

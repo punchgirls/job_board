@@ -1,5 +1,15 @@
- <h2>Pricing</h2>
- <form action="/plan" method="POST">
-    {{ this.partial("plans", plan_id: plan_id) }}
+<h3>Plans &amp; Pricing</h3>
+
+<section id="pricing">
+
+  <p>In Job Board you can publish from 1 to 10 posts concurrently per month.</p>
+  <p>You'll be able to publish, unpublish and edit your posts as many times as you want.</p>
+  <p>If you need to have more than 10 posts published simultaneously per month, contact us so we can create a plan that suits you!
+  </p>
+  <p><strong>Choose your plan and Sign Up!</strong></p>
+
+  <form action="/plan" method="POST">
+    {{ this.partial("plans", plan_id: plan_id) }}<br/>
     <button>Sign up</button>
- </form>
+  </form>
+</section>

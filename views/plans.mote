@@ -1,28 +1,32 @@
-<label><span>small (1 post)</span>
-  <span>$ 50 per month</span>
-  % if plan_id == "small"
-    <input type="radio" name="company[plan_id]" value="small" checked="checked">
-  % else
-    <input type="radio" name="company[plan_id]" value="small">
-  % end
+% if plan_id == "small"
+  <input id="radio_small" type="radio" name="company[plan_id]" value="small" checked="checked">
+% else
+  <input id="radio_small" type="radio" name="company[plan_id]" value="small">
+% end
+<label for="radio_small">
+  <span class="plan_title">small</span>
+  <span>1 post</span>
+  <span>$ 50<small>/month</small></span>
 </label>
 
-<label>
-  <span>medium (5 posts)</span>
-  <span>$ 100 per month</span>
-  % if plan_id == "medium"
-    <input type="radio" name="company[plan_id]" value="medium" checked="checked">
-  % else
-    <input type="radio" name="company[plan_id]" value="medium">
-  % end
+% if plan_id == "medium"
+  <input id="radio_medium" type="radio" name="company[plan_id]" value="medium" checked="checked">
+% else
+  <input id="radio_medium" type="radio" name="company[plan_id]" value="medium">
+% end
+<label for="radio_medium">
+  <span class="plan_title">medium</span>
+  <span>5 posts</span>
+  <span>$ 100<small>/month</small></span>
 </label>
 
-<label>
-  <span>large (10 posts)</span>
-  <span>$ 150 per month</span>
-  % if plan_id == "large"
-    <input type="radio" name="company[plan_id]" value="large" checked="checked">
-  % else
-    <input type="radio" name="company[plan_id]" value="large">
-  % end
+% if plan_id == "large"
+  <input id="radio_large" type="radio" name="company[plan_id]" value="large" checked="checked">
+% else
+  <input id="radio_large" type="radio" name="company[plan_id]" value="large">
+% end
+<label for="radio_large">
+  <span class="plan_title">large</span>
+  <span>10 posts</span>
+  <span>$ 150<small>/month</small></span>
 </label>

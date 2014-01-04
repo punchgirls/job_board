@@ -41,9 +41,9 @@
 
     {{ this.partial("new_card") }}
 
-    <span>
+    <section id="pricing">
       {{ this.partial("plans", plan_id: plan_id) }}
-    </span>
+    </section>
 
     <button type="submit" id="button">Sign up!</button>
   </form>

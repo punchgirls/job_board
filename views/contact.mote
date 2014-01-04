@@ -1,4 +1,4 @@
-<h2>Contact us</h2>
+<h3>Contact us</h3>
 
 <form action="/contact" method="POST">
   <input type="email" name="contact[email]" value="{{ contact['email'] }}" placeholder="E-mail"><br/>

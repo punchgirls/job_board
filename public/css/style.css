@@ -50,7 +50,6 @@ header form {
 }
 
 #content {
-  min-height: 370px;
   padding: 0 0 45px 0.5em;
 }
 
@@ -126,6 +125,13 @@ li#avatar_list_item a img {
   vertical-align: top;
 }
 
+#all_posts {
+  margin-bottom: 50px;
+  display: block;
+}
+
+/* Login page */
+
 #login {
   margin-top: 40px;
 }
@@ -168,6 +174,77 @@ li#avatar_list_item a img {
   font-weight: bold;
   text-transform: capitalize;
 }
+
+/* Pricing page*/
+
+#pricing p {
+  max-width: 550px;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+  font-size: 0.8em;
+  text-align: left;
+}
+
+#pricing form {
+  width: 16em;
+  display: inline-block;
+  margin-bottom: 50px;
+}
+
+#pricing label {
+  width: 16em;
+  margin: 0 0 10px 0;
+  padding: 0;
+  display: block;
+}
+
+#pricing span {
+  display: block;
+  margin: 10px 0;
+  padding: 0;
+  text-transform: capitalize;
+  font-size: 1em;
+  font-size: 1.2em;
+}
+
+#pricing span.plan_title {
+  display: block;
+  margin: 10px 0;
+  padding: 0;
+  text-transform: uppercase;
+  font-size: 1em;
+  font-size: 1.3em;
+}
+
+#pricing input[type=radio] {
+  display:none;
+}
+
+#pricing input[type=radio] + label {
+  background-color: #F1F1F1;
+  display: inline-block;
+  cursor: pointer;
+  color: #111;
+}
+
+#pricing input[type=radio]:checked + label, #pricing input[type=radio]:hover + label:hover {
+  background-color: #C3F1FF;
+}
+
+#pricing small {
+  font-size: 0.6em;
+  text-transform: lowercase;
+}
+
+#pricing button {
+  font-size: 1em;
+  margin: 10px 0 0 0;
+  font-family: "Droid Sans Mono", sans-serif;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+/* Footer*/
 
 footer {
   position: absolute;
@@ -365,6 +442,17 @@ input:-moz-placeholder {
 
   #login button {
     float: right;
+  }
+
+  #pricing form {
+    width: auto;
+    margin-top: 20px;
+  }
+
+  #pricing label {
+    width: 8.50em;
+    padding: 30px 0;
+    display: inline-block;
   }
 }
 
