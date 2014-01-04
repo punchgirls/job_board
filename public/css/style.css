@@ -110,6 +110,14 @@ section li {
   line-height: 1.6em;
 }
 
+section p {
+  max-width: 550px;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+  font-size: 0.8em;
+  text-align: left;
+}
+
 #tagline {
   margin: 50px 0 20px 0;
   font-size: 1.2em;
@@ -130,9 +138,9 @@ li#avatar_list_item a img {
   display: block;
 }
 
-/* Login page */
+/* Login and Contact pages */
 
-#login {
+#login, #contact {
   margin-top: 40px;
 }
 
@@ -140,20 +148,29 @@ li#avatar_list_item a img {
   vertical-align: middle;
 }
 
-#login form {
+#login form, #contact form {
   width: 22.50em;
   margin-bottom: 40px;
   display: inline-block;
   font-size: 0.7em;
 }
 
-#login input {
+#login input, #contact input, #contact textarea {
   width: 15em;
+  max-width: 15em;
   padding: 0.3em;
   margin-bottom: 6px;
   font-size: 1.4em;
   font-family: "Droid Sans Mono", sans-serif;
   color: #111;
+}
+
+#contact textarea {
+  min-height: 180px;
+  border-top: solid 2px #9e9e9e;
+  border-left: solid 2px #9e9e9e;
+  border-right: solid 2px #eee;
+  border-bottom: solid 2px #eee;
 }
 
 #login label {
@@ -168,7 +185,8 @@ li#avatar_list_item a img {
   vertical-align: bottom;
 }
 
-#login button {
+#login button, #contact button {
+  margin-top: 10px;
   font-size: 1.3em;
   font-family: "Droid Sans Mono", sans-serif;
   font-weight: bold;
@@ -176,14 +194,6 @@ li#avatar_list_item a img {
 }
 
 /* Pricing page*/
-
-#pricing p {
-  max-width: 550px;
-  margin: 0 auto 20px;
-  padding: 0 20px;
-  font-size: 0.8em;
-  text-align: left;
-}
 
 #pricing form {
   width: 16em;
@@ -428,19 +438,20 @@ input:-moz-placeholder {
     margin-top: 50px;
   }
 
-  #login form {
+  #login form, #contact form {
     width: 25.40em;
   }
 
-  #login input {
+  #login input, #contact input, #contact textarea {
     width: 17em;
+    max-width: 17em;
   }
 
   #login label {
     margin-right: 58px;
   }
 
-  #login button {
+  #login button, #contact button {
     float: right;
   }
 
@@ -515,12 +526,13 @@ input:-moz-placeholder {
     margin-top: 70px;
   }
 
-  #login form {
+  #login form, #contact form {
     width: 33.80em;
   }
 
-  #login input {
+  #login input, #contact input, #contact textarea {
     width: 23em;
+    max-width: 23em;
   }
 
   #login label {
