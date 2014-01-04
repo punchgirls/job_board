@@ -20,5 +20,5 @@
     <button type="submit">login</button>
   </form><br/>
 
-  <a href="/signup">Need an account? Sign up here!</a>
+  <a id="before_footer" href="/signup">Need an account? Sign up here!</a>
 </section>
