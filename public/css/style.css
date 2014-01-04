@@ -138,9 +138,9 @@ li#avatar_list_item a img {
   display: block;
 }
 
-/* Login and Contact pages */
+/* Login, Contact and Confirm pages */
 
-#login, #contact {
+#login, #contact, #confirm {
   margin-top: 40px;
 }
 
@@ -148,14 +148,13 @@ li#avatar_list_item a img {
   vertical-align: middle;
 }
 
-#login form, #contact form {
-  width: 22.50em;
+#login form, #contact form, #confirm form {
   margin-bottom: 40px;
   display: inline-block;
   font-size: 0.7em;
 }
 
-#login input, #contact input, #contact textarea {
+#login input, #contact input, #contact textarea, #confirm input, #confirm textarea {
   width: 15em;
   max-width: 15em;
   padding: 0.3em;
@@ -165,7 +164,7 @@ li#avatar_list_item a img {
   color: #111;
 }
 
-#contact textarea {
+#contact textarea, #confirm textarea {
   min-height: 180px;
   border-top: solid 2px #9e9e9e;
   border-left: solid 2px #9e9e9e;
@@ -176,6 +175,11 @@ li#avatar_list_item a img {
 #login label {
   margin: 0 25px 15px 0;
   display: inline-block;
+  float: left;
+}
+
+#login a#forgot_password {
+  float: right;
 }
 
 #login label input {
@@ -185,12 +189,17 @@ li#avatar_list_item a img {
   vertical-align: bottom;
 }
 
-#login button, #contact button {
-  margin-top: 10px;
+#login button, #contact button, #confirm button {
+  margin-top: 15px;
   font-size: 1.3em;
   font-family: "Droid Sans Mono", sans-serif;
   font-weight: bold;
   text-transform: capitalize;
+}
+
+#confirm img {
+  vertical-align: top;
+  margin: 0 0 6px 0;
 }
 
 /* Pricing page*/
@@ -438,21 +447,18 @@ input:-moz-placeholder {
     margin-top: 50px;
   }
 
-  #login form, #contact form {
-    width: 25.40em;
-  }
-
-  #login input, #contact input, #contact textarea {
+  #login input, #contact input, #contact textarea, #confirm input, #confirm textarea {
     width: 17em;
     max-width: 17em;
   }
 
-  #login label {
-    margin-right: 58px;
+  #login button, #contact button, #confirm button {
+    float: right;
   }
 
-  #login button, #contact button {
-    float: right;
+  #confirm img {
+    margin: 0;
+    vertical-align: top;
   }
 
   #pricing form {

@@ -6,7 +6,7 @@
 
     <input type="text" name="contact[subject]" value="{{ contact['subject'] }}" placeholder="Subject"><br/>
 
-    <textarea name="contact[body]" placeholder="Type your message here">{{ contact['body'] }}</textarea>
+    <textarea name="contact[body]" placeholder="Type your message here">{{ contact['body'] }}</textarea><br/>
 
     <button type="submit">Send</button>
   </form>

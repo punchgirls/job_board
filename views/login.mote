@@ -14,7 +14,7 @@
       <input type="checkbox" name="company[remember]" value="1"> <span>Remember me</span>
     </label>
 
-    <a href="/forgot-password">Forgot password?</a>
+    <a id="forgot_password" href="/forgot-password">Forgot password?</a>
     <br/>
 
     <button type="submit">login</button>
