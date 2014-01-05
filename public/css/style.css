@@ -140,7 +140,7 @@ li#avatar_list_item a img {
 
 /* Login, Contact and Confirm pages */
 
-#login, #contact, #confirm {
+#login, #contact, #confirm, #signup {
   margin-top: 40px;
 }
 
@@ -148,13 +148,15 @@ li#avatar_list_item a img {
   vertical-align: middle;
 }
 
-#login form, #contact form, #confirm form {
-  margin-bottom: 40px;
+#login form, #contact form, #confirm form, #signup form {
+  max-width: 22.40em;
+  margin: 0 0 40px 0;
   display: inline-block;
   font-size: 0.7em;
 }
 
-#login input, #contact input, #contact textarea, #confirm input, #confirm textarea {
+#login input, #contact input, #contact textarea,
+#confirm input, #confirm textarea, #signup input {
   width: 15em;
   max-width: 15em;
   padding: 0.3em;
@@ -189,7 +191,7 @@ li#avatar_list_item a img {
   vertical-align: bottom;
 }
 
-#login button, #contact button, #confirm button {
+#login button, #contact button, #confirm button, #signup button {
   margin-top: 15px;
   font-size: 1.3em;
   font-family: "Droid Sans Mono", sans-serif;
@@ -202,37 +204,94 @@ li#avatar_list_item a img {
   margin: 0 0 6px 0;
 }
 
+#signup li {
+  display: inline;
+}
+
+#signup p {
+  font-size: 1.3em;
+  text-align: left;
+  padding: 0;
+}
+
+#signup img {
+  width: 37px;
+}
+
+#signup input#cvc {
+  width: 40px;
+  float: left;
+}
+
+#signup input.short_input {
+  width: 30px;
+  float: left;
+}
+
+#signup .expires_on {
+  display: inline;
+  margin: 0 8px;
+  float: left;
+  font-size: 1em;
+  line-height: 40px;
+}
+
+#signup #pricing {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+#signup #pricing label {
+  margin: 0 0 3px 0;
+  padding: 7px 0;
+}
+
+#signup #pricing span {
+  margin: 0;
+  padding: 10px 10px 10px 0 ;
+}
+
+#signup #pricing span.plan_title {
+  padding-left: 10px;
+}
+
+#signup #pricing input[type=radio] + label {
+  font-size: 1.4em;
+}
+
 /* Pricing page*/
 
 #pricing form {
-  width: 16em;
+  width: 17.30em;
   display: inline-block;
   margin-bottom: 50px;
 }
 
 #pricing label {
   width: 16em;
-  margin: 0 0 10px 0;
-  padding: 0;
+  margin: 0 0 4px 0;
+  padding: 0 10px;
   display: block;
 }
 
 #pricing span {
-  display: block;
-  margin: 10px 0;
-  padding: 0;
+  display: inline-block;
+  margin: 10px 0 0 20px;
+  padding: 10px 0;
   text-transform: capitalize;
   font-size: 1em;
-  font-size: 1.2em;
+  float: left;
 }
 
 #pricing span.plan_title {
-  display: block;
+  display: inline-block;
   margin: 10px 0;
-  padding: 0;
   text-transform: uppercase;
   font-size: 1em;
-  font-size: 1.3em;
+}
+
+#pricing span.price {
+  float: right;
 }
 
 #pricing input[type=radio] {
@@ -447,9 +506,55 @@ input:-moz-placeholder {
     margin-top: 50px;
   }
 
+  #login form, #contact form, #confirm form {
+    max-width: 35em;
+  }
+
+  #signup form {
+    max-width: 29.40em;
+  }
+
   #login input, #contact input, #contact textarea, #confirm input, #confirm textarea {
     width: 17em;
     max-width: 17em;
+  }
+
+  #signup input {
+    width: 20em;
+    max-width: 23em;
+  }
+
+  #signup img {
+    width: 50px;
+  }
+
+  #signup #pricing label {
+    width: 18em;
+    margin: 0 0 6px 0;
+    padding: 20px 5px;
+  }
+
+  #signup #pricing input[type=radio] + label {
+    font-size: 2em;
+  }
+
+  #signup #pricing span {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+  }
+
+  #signup #pricing input[type=radio] + label {
+    font-size: 1.6em;
+  }
+
+  #signup #pricing span.plan_title {
+    float: left;
+  }
+
+  #signup #pricing span.price {
+    float: right;
+    margin-right: 10px;
   }
 
   #login button, #contact button, #confirm button {
@@ -468,8 +573,18 @@ input:-moz-placeholder {
 
   #pricing label {
     width: 8.50em;
-    padding: 30px 0;
+    padding: 20px 0;
     display: inline-block;
+  }
+
+  #pricing span, #pricing span.price {
+    display: block;
+    float: none;
+    padding: 5px 0;
+  }
+
+  #pricing span.price, #pricing span.posts {
+    margin: 0 0 10px 0;
   }
 }
 
@@ -543,6 +658,10 @@ input:-moz-placeholder {
 
   #login label {
     margin-right: 158px;
+  }
+
+  #signup img {
+    width: 48px;
   }
 
   footer {

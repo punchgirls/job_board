@@ -22,8 +22,8 @@
   % end
 % end
 
-<section>
-  <h1>Sign up and start posting!</h1>
+<section id="signup">
+  <h3>Sign up and start posting!</h3>
 
   <form action="/signup" method="POST" class="payment-details">
 
