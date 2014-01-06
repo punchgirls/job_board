@@ -8,7 +8,7 @@
   </p>
   <p><strong>Choose your plan and Sign Up!</strong></p>
 
-  <form action="/plan" method="POST">
+  <form action="/signup" method="GET">
     {{ this.partial("plans", plan_id: plan_id) }}<br/>
     <button>Sign up</button>
   </form>
