@@ -195,6 +195,12 @@ class Companies < Cuba
           res.redirect "/profile"
         end
 
+        published_posts = current_company.published_posts
+
+        published_posts.each do |post|
+          post.update(status: "unpublished")
+        end
+
         company.update(status: "suspended")
 
         res.redirect "/profile"
