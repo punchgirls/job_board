@@ -10,11 +10,12 @@ class Guests < Cuba
           company: {})
       end
 
-      on post, param("stripe_token"), param("company") do |token, params|
-        customer = Stripe.create_customer(token, params["plan_id"],
+      on post, param("stripe_token"), param("company"), param("plan_id") do |token, params, plan_id|
+        customer = Stripe.create_customer(token, plan_id,
           params["email"], params["name"])
 
         params["customer"] = customer
+        params["plan_id"] = plan_id
 
         signup = CompanySignup.new(params)
 
