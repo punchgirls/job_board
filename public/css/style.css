@@ -46,7 +46,6 @@ header ul, footer ul {
 header form {
   background-color: white;
   display: block;
-  /*height: 66px;*/
   margin: 0;
   padding: 10px 0 0 0;
 }
@@ -138,6 +137,11 @@ li#avatar_list_item a img {
 #before_footer {
   margin-bottom: 50px;
   display: block;
+}
+
+.cursor {
+  cursor: pointer;
+  cursor: hand;
 }
 
 /* Login, Contact, Confirm and Signup pages */
@@ -324,6 +328,104 @@ li#avatar_list_item a img {
   text-transform: capitalize;
 }
 
+/* Search results page */
+
+#search_results ul {
+  margin: 30px auto 50px;
+  width: 22em;
+}
+
+#search_results header, #search_results section ul {
+  background-color: #fff;
+  text-align: left;
+  line-height: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+#search_results h1, #search_results h2, #search_results p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+#search_results h1 {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+
+#search_results h2 {
+  font-size: 1em;
+  line-height: 1.9em;
+}
+
+#search_results h2 a, #search_results h2 a:visited {
+  text-decoration: underline;
+}
+
+#search_results h2 a:hover, #search_results h2 a:active {
+  text-decoration: none;
+}
+
+#search_results i {
+  float: left;
+  margin-right: 10px;
+}
+
+#search_results p {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.9em;
+  clear: both;
+  line-height: 1.7em;
+}
+
+section.post_control {
+  margin: 20px 0 10px;
+  text-align: left;
+  float: right;
+}
+
+section.post_control a {
+  margin: 20px 0 10px;
+  text-align: left;
+  float: right;
+}
+
+#search_results section.post_control i {
+  float: none;
+  margin-left: 20px;
+}
+
+.favorite {
+  color: #ccc;
+}
+
+.favorited {
+  color: #ffea00;
+}
+
+.apply {
+  color: #ccc;
+}
+
+.applied {
+  color: green;
+}
+
+#search_results footer {
+  height: 35px;
+  position: relative;
+  text-align: left;
+  clear: both;
+}
+
+#search_results hr {
+  margin-bottom: 20px;
+}
+
 /* Footer*/
 
 footer {
@@ -400,8 +502,8 @@ input:checked ~ nav {
 }
 
 #autocomplete {
-  width: 14.40em;
-  margin: -1px 0 0 0;
+  width: 12.90em;
+  margin: -2px 0 0 0;
   padding: 0.3em 0.3em;
   position: absolute;
   display: none;
@@ -411,10 +513,6 @@ input:checked ~ nav {
   background-color: #fff;
   text-align: left;
   font-size: 1em;
-}
-
-header #autocomplete {
-  margin: -10px 0 0 0;
 }
 
 #autocomplete li {
@@ -445,7 +543,7 @@ header #autocomplete li {
 #tokens {
   margin: 10px 0 0 0;
   padding: 0.3em 0.5em;
-  width: 13.90em;
+  width: 12.40em;
   line-height: 28px;
   text-align: left;
   font-size: 1em;
@@ -618,6 +716,11 @@ header #tokens li {
 
   #pricing span.price, #pricing span.posts {
     margin: 0 0 10px 0;
+  }
+
+  #search_results ul {
+    margin: 20px auto 50px;
+    width: 34em;
   }
 }
 

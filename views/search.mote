@@ -1,62 +1,58 @@
 % developer = this.current_developer
-
-% if posts.nil?
-  <p>Start searching by adding keywords.</p>
-% elsif posts.empty?
-  <p>No posts matched your search. Try again!</p>
-% else
-    <ul>
-      % posts.each_with_index do |post, index|
-        <li>
-          <article>
-            <header>
-              <h1>{{ this.h(post.company.name) }}</h1>
-              (<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)
-              <h2>{{ this.h(post.title) }}</h2>
-              <p>{{ post.tags }}</p>
+<section id="search_results">
+  % if posts.nil?
+    <p>Start searching by adding keywords.</p>
+  % elsif posts.empty?
+    <p>No posts matched your search. Try again!</p>
+  % else
+      <ul>
+        % posts.each_with_index do |post, index|
+          <li>
+            <article>
+              <header>
+                <h1><strong>{{ this.h(post.title) }}</strong></h1>
+                <h2>{{ this.h(post.company.name) }}</h2>
+                <h2>(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h2>
+                <h2>Tags: {{ post.tags }}</h2>
+                <h2>{{ this.h(post.location) }}</h2>
+                % if post.remote == "true"
+                  <i class="fa fa-globe"></i><h2>Work from anywhere</h2>
+                % else
+                  <i class="fa fa-map-marker"></i><h2>On-site only</h2>
+                % end
               </header>
 
-            <section>
-              <section>
-              <ul>
-                <li>{{ this.h(post.location) }}</li>
-                <li>
-                  % if post.remote == "true"
-                    <i class="fa fa-globe"></i> Work from anywhere
-                  % else
-                    <i class="fa fa-map-marker"></i> On-site only
+              <p>{{ this.h(post.description) }}</p>
+
+              % if !this.current_company
+                <section class="post_control">
+                  <span class="favorite">
+                    {{ this.partial("favorite", post: post, developer: developer) }}
+                  </span>
+
+                  <span class="apply">
+                    {{ this.partial("apply", post: post, developer: developer) }}
+                  </span>
+
+                  % if this.current_developer
+                    {{ this.partial("developer/add_message", post: post, developer: developer) }}
                   % end
-                </li>
-              </ul>
-            </section>
 
-            <p>{{ this.h(post.description) }}</p>
-
-            % if !this.current_company
-            <section>
-              {{ this.partial("apply", post: post, developer: developer) }}
-              {{ this.partial("favorite", post: post, developer: developer) }}<br>
-              % if this.current_developer
-                {{ this.partial("developer/add_message", post: post, developer: developer) }}
+                  <span id="sent-ok-{{ post.id }}"></span>
+                </section>
               % end
-              <span id="sent-ok-{{ post.id }}"></span>
-            </section>
-            % end
-            </section>
 
-            <footer>
-              <ul>
-                <li>
-                  <time datetime="" pubdate>Posted on {{ post.posted }}
-                  </time>
-                </li>
-              </ul>
-            </footer>
-          </article>
-          % if index != posts.size - 1
-            <hr/>
-          % end
-        </li>
-      % end
-    </ul>
-% end
+              <footer>
+                <p>
+                  <time datetime="" pubdate>Posted on {{ post.posted }}</time>
+                </p>
+              </footer>
+            </article>
+            % if index != posts.size - 1
+              <hr/>
+            % end
+          </li>
+        % end
+      </ul>
+  % end
+</section>
