@@ -43,10 +43,11 @@ header ul, footer ul {
 }
 
 header form {
-  display: inline;
-  height: 57px;
-  margin: 0 0 0 30px;
-  padding: 0;
+  background-color: white;
+  display: block;
+  /*height: 66px;*/
+  margin: 0;
+  padding: 10px 0 0 0;
 }
 
 #content {
@@ -75,8 +76,7 @@ section, footer {
 
 button {
   margin-left: 0.5em;
-  vertical-align: middle;
-  height: 41px;
+  height: 42px;
   padding: 0 1em;
   outline: none;
   border: 1px solid #FFCC00;
@@ -139,7 +139,7 @@ li#avatar_list_item a img {
   display: block;
 }
 
-/* Login, Contact and Confirm pages */
+/* Login, Contact, Confirm and Signup pages */
 
 #login, #contact, #confirm, #signup {
   margin-top: 40px;
@@ -296,7 +296,7 @@ li#avatar_list_item a img {
 }
 
 #pricing input[type=radio] {
-  display:none;
+  display: none;
 }
 
 #pricing input[type=radio] + label {
@@ -412,12 +412,20 @@ input:checked ~ nav {
   font-size: 1em;
 }
 
+header #autocomplete {
+  margin: -10px 0 0 0;
+}
+
 #autocomplete li {
   list-style: none;
   padding: 0.3em;
   font-size: 0.9em;
   display: block;
   border: none;
+}
+
+header #autocomplete li {
+  padding: 0 0 0 5px;
 }
 
 #autocomplete li:hover,
@@ -449,6 +457,10 @@ input:checked ~ nav {
   cursor: text;
 }
 
+header #tokens {
+  padding: 0.1em 0.5em;
+}
+
 #token-input {
   margin: 0;
   padding: 0;
@@ -460,6 +472,7 @@ input:checked ~ nav {
   outline: none;
   border: none;
   margin: 0;
+  padding: 0;
   font-size: 1em;
 }
 
@@ -487,12 +500,23 @@ input:-moz-placeholder {
   font-family: "Droid Sans Mono", sans-serif;
 }
 
-#tokens li{
-  display: inline-block;
+#tokens li {
+  display: inline;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+header #tokens li {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
 }
 
 #tokens #token-input {
   background-color: white;
+  padding: 0;
+  margin: 0;
 }
 
 @media only screen and (min-width: 480px)  {
@@ -503,6 +527,11 @@ input:-moz-placeholder {
 
   #autocomplete {
     width: 22.82em;
+  }
+
+  header #autocomplete li {
+    padding: 0 0 0 5px;
+    margin: 0;
   }
 
   #login h3 {
@@ -603,6 +632,18 @@ input:-moz-placeholder {
 
   header h1, header nav, header ul, header li {
     display:  inline;
+  }
+
+  header form {
+    display: inline;
+    height: 57px;
+    margin: 0 0 0 30px;
+    padding: 0;
+    background-color: #fafafa;
+  }
+
+  #search {
+    display: none;
   }
 
   header li {

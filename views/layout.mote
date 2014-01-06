@@ -14,14 +14,17 @@
     <div id="wrapper">
       <header>
         <h1><a href="/">job board<span></span></a></h1>
-        % if !defined?(hide_search) && !user.instance_of?(Company)
-          {{ this.partial("search_box") }}
-        % else
         <input type="checkbox" id="toggle">
         <label for="toggle"></label>
-        <nav>
-          {{ this.partial("header_menu", user: this.current_user) }}
-        </nav>
+        % if defined?(search) && !user.instance_of?(Company)
+          <nav>
+            {{ this.partial("header_menu", user: this.current_user, search: true) }}
+          </nav>
+          {{ this.partial("search_box") }}
+        % else
+          <nav>
+            {{ this.partial("header_menu", user: this.current_user) }}
+          </nav>
         % end
       </header>
 

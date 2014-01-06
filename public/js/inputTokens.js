@@ -55,7 +55,7 @@ function addToAutocomplete(value) {
 function addToken(value) {
   var token = document.createElement("li");
   token.appendChild(document.createTextNode(value + ","));
-  token.style.marginRight = "4px";
+  token.style.marginRight = "6px";
 
   var listItems = tokens.getElementsByTagName("li");
 
