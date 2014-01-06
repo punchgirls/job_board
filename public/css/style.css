@@ -17,6 +17,7 @@ body {
 
 header {
   text-align: center;
+  min-height: 57px;
   line-height: 57px;
   background-color: #fafafa;
 }
@@ -442,7 +443,7 @@ header #autocomplete li {
 }
 
 #tokens {
-  margin: 0;
+  margin: 10px 0 0 0;
   padding: 0.3em 0.5em;
   width: 13.90em;
   line-height: 28px;
@@ -501,7 +502,7 @@ input:-moz-placeholder {
 }
 
 #tokens li {
-  display: inline;
+  display: inline-block;
   border: none;
   padding: 0;
   margin: 0;

@@ -1,10 +1,7 @@
 <form name="postFrm" action="/search" method="GET">
   <div id="tags_wrapper">
     <ul id="tokens">
-      <li id="token-input">
-        <input type="text" id="search-field" autocomplete="off"
-        placeholder="e.g. Ruby, Cuba, Redis">
-      </li>
+      <li id="token-input"><input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis"></li>
     </ul>
 
     <ul id="autocomplete"></ul>
