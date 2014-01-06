@@ -26,7 +26,7 @@
     % stop = Time.at(line.period.end)
 
     <tr>
-      % if defined?(line.plan.id)
+      % if !line.plan.nil?
         <td>Subscription to {{ line.plan.id }} ({{ plan.posts }} posts/months)</td>
         <td>{{ start.day }}-{{ start.month }}-{{ start.year }} to {{ stop.day }}-{{ stop.month }}-{{ stop.year }}</td>
       % else
