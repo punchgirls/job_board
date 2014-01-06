@@ -7,7 +7,7 @@ class Guests < Cuba
     on "signup" do
       on get, param("plan_id") do |plan_id|
         render("company/signup", title: "Sign up", plan_id: plan_id,
-          company: {})
+          company: {}, hide_search: true)
       end
 
       on post, param("stripe_token"), param("company") do |token, params|

@@ -121,6 +121,7 @@ section p {
 #tagline {
   margin: 50px 0 20px 0;
   font-size: 1.2em;
+  text-align: center;
 }
 
 li#avatar_list_item {
@@ -416,6 +417,7 @@ input:checked ~ nav {
   padding: 0.3em;
   font-size: 0.9em;
   display: block;
+  border: none;
 }
 
 #autocomplete li:hover,
@@ -450,6 +452,7 @@ input:checked ~ nav {
 #token-input {
   margin: 0;
   padding: 0;
+  border: none;
 }
 
 #search-field {
