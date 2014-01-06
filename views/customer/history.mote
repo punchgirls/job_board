@@ -1,0 +1,17 @@
+<h1>Payment history</h1>
+
+<table border="1">
+  <th>Invoice ID</th>
+  <th>Date</th>
+  <th>Amount</th>
+
+  % history.data.each do |invoice|
+    % date = Time.at(invoice.date)
+
+    <tr>
+      <td><a href="/customer/invoice/{{ invoice.id }}">{{ invoice.id }}</a></td>
+      <td>{{ date.day }}-{{ date.month }}-{{ date.year }}</td>
+      <td>{{ invoice.total / 100}}  USD </td>
+    </tr>
+  % end
+</table>

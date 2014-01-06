@@ -1,0 +1,39 @@
+% date = Time.at(invoice.date)
+% lines = invoice.lines.data
+
+<h1>Invoice details</h1>
+
+<table border="1">
+  <tr>
+    <td>ID</td>
+    <td>{{ invoice.id }}</td>
+  </tr>
+  <tr>
+    <td>Date</td>
+    <td>{{ date.day }}-{{ date.month }}-{{ date.year }}</td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td>{{ invoice.total / 100 }} USD</td>
+  </tr>
+ </table>
+
+ <h2>Specification</h2>
+
+<table border="1">
+  % lines.each do |line|
+    % start = Time.at(line.period.start)
+    % stop = Time.at(line.period.end)
+
+    <tr>
+      % if defined?(line.plan.id)
+        <td>Subscription to {{ line.plan.id }} ({{ plan.posts }} posts/months)</td>
+        <td>{{ start.day }}-{{ start.month }}-{{ start.year }} to {{ stop.day }}-{{ stop.month }}-{{ stop.year }}</td>
+      % else
+        <td>{{ line.description }}</td>
+        <td>{{ date.day }}-{{ date.month }}-{{ date.year }}</td>
+      % end
+      <td>{{ line.amount / 100 }} USD</td>
+     </tr>
+  % end
+</table>
