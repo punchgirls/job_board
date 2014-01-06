@@ -125,6 +125,36 @@ class Companies < Cuba
       on(default) { not_found! }
     end
 
+    on "customer/history" do
+      on get, root do
+        history = Stripe.payment_history(customer_id)
+
+        on !history.instance_of?(Stripe::ListObject) do
+           session[:error] = "It looks like we are having some problems
+              with your request. Please try again in a few minutes!"
+
+            res.redirect "company/profile"
+        end
+
+        render("customer/history", title: "Payment details", history: history)
+      end
+    end
+
+    on "customer/invoice/:id" do |id|
+      on get, root do
+        invoice = Stripe.retrieve_invoice(id)
+
+        on !invoice.instance_of?(Stripe::Invoice) do
+          session[:error] = "It looks like we are having some problems
+              with your request. Please try again in a few minutes!"
+
+          res.redirect "company/profile"
+        end
+
+        render("customer/invoice", title: "Invoice details", invoice: invoice, plan: plan)
+      end
+    end
+
     on "customer/subscription" do
       on post, param("company") do |params|
         update = Stripe.update_subscription(customer_id, params["plan_id"])

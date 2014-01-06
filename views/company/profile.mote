@@ -21,6 +21,7 @@
 <p>Posts per month: {{ plan.posts }}</p>
 <p>Drafts: {{ plan.drafts }}</p>
 <p>Price: {{ plan.price }} per month</p>
+<a href="/customer/history">Payment history</a><br/>
 
 % if company.active?
   <a href="/cancel_subscription">

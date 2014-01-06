@@ -37,9 +37,32 @@ module Stripe
     return card
   end
 
+  def self.payment_history(customer_id)
+    begin
+      history = Stripe::Invoice.all(
+      :customer => customer_id
+     )
+    rescue => e
+      return e
+    end
+
+    return history
+  end
+
+  def self.retrieve_invoice(invoice_id)
+    begin
+      invoice = Stripe::Invoice.retrieve(invoice_id)
+    rescue => e
+      return e
+    end
+
+    return invoice
+  end
+
   def self.update_subscription(customer_id, plan)
     begin
       customer = Stripe::Customer.retrieve(customer_id)
+
       customer.update_subscription(
         :plan => plan,
         :prorate => true
