@@ -102,9 +102,11 @@ searchInput.onkeydown = function(e) {
   searchInput.style.width = "150px";
 
   if (e.keyCode == '13') {
-    if (selectedToken == -1) {
+    if (searchInput.value == "") {
+      return true;
+    } else if (selectedToken == -1 && searchInput.value != "") {
       addToken(list[selectedToken + 1].innerHTML);
-    } else {
+    } else  {
       addToken(list[selectedToken].innerHTML);
       selectedToken = -1;
     }
