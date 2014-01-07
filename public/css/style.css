@@ -28,7 +28,6 @@ header a {
 
 header h1 {
   display: inline;
-  margin-left: 20px;
   padding: 0;
   font-size: 1.2em;
 }
@@ -403,6 +402,7 @@ li#avatar_list_item a img {
 }
 
 #search_results section.post_control i {
+  vertical-align: middle;
   float: none;
   margin-left: 10px;
 }
@@ -792,7 +792,7 @@ header #tokens li {
   li#avatar_list_item a img {
     margin-top: -3px;
     height: 36px;
-    vertical-align: top;
+    vertical-align: middle;
   }
 
   #content {
@@ -899,7 +899,7 @@ header #tokens li {
   #search_results {
     margin: 20px auto 50px;
     font-size: 0.8em;
-    max-width: 750px;
+    max-width: 800px;
   }
 
   #search_results ul {

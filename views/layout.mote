@@ -45,7 +45,7 @@
           <ul>
             <li>&copy; 2013 <a href="http://www.punchgirls.com">Punchgirls</a></li>
             <li><a href="/contact">Contact</a></li>
-            % if user
+            % if user && !user.instance_of?(Developer)
               <li><a href="/how">How it works</a></li>
               <li><a href="/pricing">Pricing</a></li>
             % end

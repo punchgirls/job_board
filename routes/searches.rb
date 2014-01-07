@@ -8,7 +8,7 @@ class Searches < Cuba
     on get, param("tags") do |tags|
       posts = Search.posts(tags)
 
-      render("search", title: "Test", tags: tags, posts: posts,
+      render("search", title: "Search", tags: tags, posts: posts,
         search: true)
     end
 
