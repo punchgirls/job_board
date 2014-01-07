@@ -56,7 +56,7 @@
 
     <script>
       function initialize() {
-        var input = /** @type {HTMLInputElement} */(document.getElementById('searchTextField'));
+        var input = /** @type {HTMLInputElement} */(document.getElementById('search-text-field'));
 
         var options = {
           types: ["(cities)"]
