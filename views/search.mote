@@ -1,4 +1,6 @@
 % developer = this.current_developer
+% user = this.current_user
+
 <section id="search_results">
   % if posts.nil?
     <p>Start searching by adding keywords.</p>
@@ -54,5 +56,9 @@
           </li>
         % end
       </ul>
+      % if !user
+        {{ this.partial("login", user: this.current_user, search: true) }}
+      % end
   % end
 </section>
+<div class="clear"></div>

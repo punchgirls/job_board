@@ -45,6 +45,12 @@
               <li><a href="/how">How it works</a></li>
               <li><a href="/pricing">Pricing</a></li>
             % end
+            % if defined?(search)
+              <section id="footer_extra_menu">
+                <li><a href="/how">How it works</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+              </section>
+            % end
             <li><a href="/faq">FAQ</a></li>
             <li><a href="/terms">Terms</a></li>
             <li><a href="/privacy">Privacy Policy</a></li>

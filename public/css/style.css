@@ -144,10 +144,18 @@ li#avatar_list_item a img {
   cursor: hand;
 }
 
+.clear {
+  clear: both;
+}
+
 /* Login, Contact, Confirm and Signup pages */
 
 #login, #contact, #confirm, #signup {
   margin-top: 40px;
+}
+
+#login_search {
+  display: none;
 }
 
 #login i {
@@ -330,6 +338,10 @@ li#avatar_list_item a img {
 
 /* Search results page */
 
+#search_results {
+  margin-bottom: 80px;
+}
+
 #search_results ul {
   margin: 30px auto 50px;
   width: 22em;
@@ -382,21 +394,18 @@ li#avatar_list_item a img {
   line-height: 1.7em;
 }
 
-section.post_control {
-  margin: 20px 0 10px;
-  text-align: left;
-  float: right;
+#search_results section.post_control {
+  margin: 20px 0;
+  text-align: right;
 }
 
-section.post_control a {
-  margin: 20px 0 10px;
+#search_results section.post_control a {
   text-align: left;
-  float: right;
 }
 
 #search_results section.post_control i {
   float: none;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .favorite {
@@ -416,14 +425,19 @@ section.post_control a {
 }
 
 #search_results footer {
-  height: 35px;
+  height: 15px;
+  margin-bottom: 15px;
   position: relative;
   text-align: left;
-  clear: both;
+  line-height: 15px;
+}
+
+#search_results footer p {
+  display: block;
 }
 
 #search_results hr {
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 /* Footer*/
@@ -445,6 +459,10 @@ footer li {
 
 footer li a {
   display: inline-block;
+}
+
+footer #footer_extra_menu {
+  display: none;
 }
 
 /* Toogle menu */
@@ -502,7 +520,7 @@ input:checked ~ nav {
 }
 
 #autocomplete {
-  width: 12.90em;
+  width: 12.88em;
   margin: -2px 0 0 0;
   padding: 0.3em 0.3em;
   position: absolute;
@@ -628,6 +646,10 @@ header #tokens li {
     width: 22.82em;
   }
 
+  header #autocomplete {
+    margin: -10px 0 0 0;
+  }
+
   header #autocomplete li {
     padding: 0 0 0 5px;
     margin: 0;
@@ -720,7 +742,11 @@ header #tokens li {
 
   #search_results ul {
     margin: 20px auto 50px;
-    width: 34em;
+    width: 31em;
+  }
+
+  #search_results hr {
+    margin: 30px 0;
   }
 }
 
@@ -812,6 +838,84 @@ header #tokens li {
     width: 48px;
   }
 
+  #login_search {
+    display: inline-block;
+    float: right;
+    text-align: left;
+    font-size: 1.2em;
+  }
+
+  #login_search a {
+    line-height: 30px;
+  }
+
+  #login_search form {
+    max-width: 22.40em;
+    margin: 0 0 40px 0;
+    display: inline-block;
+    font-size: 0.7em;
+  }
+
+  #login_search input {
+    width: 15em;
+    max-width: 15em;
+    padding: 0.3em;
+    margin-bottom: 6px;
+    font-size: 1.4em;
+    font-family: "Droid Sans Mono", sans-serif;
+    color: #111;
+  }
+
+  #login_search label {
+    margin: 0 25px 15px 0;
+    display: inline-block;
+    float: left;
+  }
+
+  #login_search a#forgot_password {
+    float: right;
+  }
+
+  #login_search form a {
+    line-height: 1.3em;
+  }
+
+  #login_search label input {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    vertical-align: bottom;
+  }
+
+  #login_search button {
+    margin-top: 15px;
+    font-size: 1.3em;
+    font-family: "Droid Sans Mono", sans-serif;
+    font-weight: bold;
+    text-transform: capitalize;
+    float: right;
+  }
+
+  #search_results {
+    margin: 20px auto 50px;
+    font-size: 0.8em;
+    max-width: 750px;
+  }
+
+  #search_results ul {
+    margin: 0 0 50px 0;
+    width: 31em;
+    float: left;
+  }
+
+  #search_results section.post_control {
+    margin: 10px 0;
+  }
+
+  #search_results footer {
+    padding: 0;
+  }
+
   footer {
     height: 30px;
     padding: 2em 2em;
@@ -823,5 +927,9 @@ header #tokens li {
 
   footer a {
     display: inline;
+  }
+
+  footer #footer_extra_menu {
+    display: inline-block;
   }
 }
