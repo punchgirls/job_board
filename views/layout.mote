@@ -1,5 +1,9 @@
 % user = this.current_user
 
+% if !defined?(tags)
+  % tags = ""
+% end
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,7 +19,7 @@
       <header>
         <h1><a href="/">job board<span></span></a></h1>
         % if !defined?(hide_search) && !user.instance_of?(Company)
-          {{ this.partial("search_box") }}
+          {{ this.partial("search_box", tags: tags) }}
         % else
         <input type="checkbox" id="toggle">
         <label for="toggle"></label>

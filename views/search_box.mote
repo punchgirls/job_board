@@ -1,10 +1,19 @@
 <form name="postFrm" action="/search" method="GET">
   <div id="tags_wrapper">
     <ul id="tokens">
-      <li id="token-input">
-        <input type="text" id="search-field" autocomplete="off"
-        placeholder="e.g. Ruby, Cuba, Redis">
-      </li>
+      % if tags.empty?
+        <li id="token-input">
+          <input type="text" id="search-field" autocomplete="off"
+          placeholder="e.g. Ruby, Cuba, Redis">
+        </li>
+      % else
+        % tags.split(", ").each do |tag|
+          <li>{{ tag }}</li>
+        % end
+        <li id="token-input">
+          <input type="text" id="search-field" autocomplete="off">
+        </li>
+      % end
     </ul>
 
     <ul id="autocomplete"></ul>

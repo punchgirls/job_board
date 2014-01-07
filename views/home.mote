@@ -1,7 +1,11 @@
+% if !defined?(tags)
+  % tags = ""
+% end
+
 <h1 id="tagline">Get a better job today!</h1>
 
 <section id="search_box_home">
-  {{ this.partial("search_box") }}
+  {{ this.partial("search_box", tags: tags) }}
 </section>
 
 <h2>Latest posts</h1>
