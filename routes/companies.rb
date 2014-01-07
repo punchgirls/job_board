@@ -236,12 +236,15 @@ class Companies < Cuba
       end
 
       on get, root do
-        if company.published_posts.size <  plan.posts.to_i
+        if !company.active?
+          session[:error] = "You have canceled your subscription. Activate it to keep posting job offers."
+          res.redirect "/customer/subscription"
+        elsif company.published_posts.size <  plan.posts.to_i
           post = PostJobOffer.new({})
 
           render("company/post/new", title: "Post job offer", post: post)
         else
-          session[:error] = "You can only have 1 published post."
+          session[:error] = "You can only have #{plan.posts} published post."
           res.redirect "/dashboard"
         end
       end
@@ -252,13 +255,33 @@ class Companies < Cuba
     on "post/status/:id" do |id|
       post = Post[id]
 
-      if post.status == "published"
-        post.update({ status: "unpublished"})
-      else
-        post.update({ status: "published"})
+      on !company.active? do
+        session[:error] = "You have canceled your subscription.
+        Activate it to make changes."
+        res.redirect "/customer/subscription"
       end
 
-      res.redirect "/dashboard"
+      on company.active? do
+        on post.published? do
+          post.update({ status: "unpublished"})
+
+          res.redirect "/dashboard"
+        end
+
+        on !post.published? do
+          on company.published_posts.size <  plan.posts.to_i do
+            post.update({ status: "published"})
+
+            res.redirect "/dashboard"
+          end
+
+          on default do
+            session[:error] = "You can only have #{plan.posts} published post."
+
+            res.redirect "/dashboard"
+          end
+        end
+      end
     end
 
     on "post/remove/:id" do |id|
