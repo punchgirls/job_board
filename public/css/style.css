@@ -17,6 +17,7 @@ body {
 
 header {
   text-align: center;
+  min-height: 57px;
   line-height: 57px;
   background-color: #fafafa;
 }
@@ -43,10 +44,10 @@ header ul, footer ul {
 }
 
 header form {
-  display: inline;
-  height: 57px;
-  margin: 0 0 0 30px;
-  padding: 0;
+  background-color: white;
+  display: block;
+  margin: 0;
+  padding: 10px 0 0 0;
 }
 
 #content {
@@ -75,8 +76,7 @@ section, footer {
 
 button {
   margin-left: 0.5em;
-  vertical-align: middle;
-  height: 41px;
+  height: 42px;
   padding: 0 1em;
   outline: none;
   border: 1px solid #FFCC00;
@@ -139,10 +139,23 @@ li#avatar_list_item a img {
   display: block;
 }
 
-/* Login, Contact and Confirm pages */
+.cursor {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.clear {
+  clear: both;
+}
+
+/* Login, Contact, Confirm and Signup pages */
 
 #login, #contact, #confirm, #signup {
   margin-top: 40px;
+}
+
+#login_search {
+  display: none;
 }
 
 #login i {
@@ -296,7 +309,7 @@ li#avatar_list_item a img {
 }
 
 #pricing input[type=radio] {
-  display:none;
+  display: none;
 }
 
 #pricing input[type=radio] + label {
@@ -323,6 +336,109 @@ li#avatar_list_item a img {
   text-transform: capitalize;
 }
 
+/* Search results page */
+
+#search_results {
+  margin-bottom: 80px;
+}
+
+#search_results ul {
+  margin: 30px auto 50px;
+  width: 22em;
+}
+
+#search_results header, #search_results section ul {
+  background-color: #fff;
+  text-align: left;
+  line-height: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+#search_results h1, #search_results h2, #search_results p {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+#search_results h1 {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+
+#search_results h2 {
+  font-size: 1em;
+  line-height: 1.9em;
+}
+
+#search_results h2 a, #search_results h2 a:visited {
+  text-decoration: underline;
+}
+
+#search_results h2 a:hover, #search_results h2 a:active {
+  text-decoration: none;
+}
+
+#search_results i {
+  float: left;
+  margin-right: 10px;
+}
+
+#search_results p {
+  margin-top: 10px;
+  font-size: 0.9em;
+  clear: both;
+  line-height: 1.7em;
+}
+
+#search_results section.post_control {
+  margin: 20px 0;
+  text-align: right;
+}
+
+#search_results section.post_control a {
+  text-align: left;
+}
+
+#search_results section.post_control i {
+  float: none;
+  margin-left: 10px;
+}
+
+.favorite {
+  color: #ccc;
+}
+
+.favorited {
+  color: #ffea00;
+}
+
+.apply {
+  color: #ccc;
+}
+
+.applied {
+  color: green;
+}
+
+#search_results footer {
+  height: 15px;
+  margin-bottom: 15px;
+  position: relative;
+  text-align: left;
+  line-height: 15px;
+}
+
+#search_results footer p {
+  display: block;
+}
+
+#search_results hr {
+  margin: 20px 0;
+}
+
 /* Footer*/
 
 footer {
@@ -342,6 +458,10 @@ footer li {
 
 footer li a {
   display: inline-block;
+}
+
+footer #footer_extra_menu {
+  display: none;
 }
 
 /* Toogle menu */
@@ -399,8 +519,8 @@ input:checked ~ nav {
 }
 
 #autocomplete {
-  width: 14.40em;
-  margin: -1px 0 0 0;
+  width: 12.88em;
+  margin: -2px 0 0 0;
   padding: 0.3em 0.3em;
   position: absolute;
   display: none;
@@ -420,6 +540,10 @@ input:checked ~ nav {
   border: none;
 }
 
+header #autocomplete li {
+  padding: 0 0 0 5px;
+}
+
 #autocomplete li:hover,
 #autocomplete li:focus {
   background: #eee;
@@ -434,9 +558,9 @@ input:checked ~ nav {
 }
 
 #tokens {
-  margin: 0;
+  margin: 10px 0 0 0;
   padding: 0.3em 0.5em;
-  width: 13.90em;
+  width: 12.40em;
   line-height: 28px;
   text-align: left;
   font-size: 1em;
@@ -447,6 +571,10 @@ input:checked ~ nav {
   border-bottom: solid 2px #eee;
   background-color: #fff;
   cursor: text;
+}
+
+header #tokens {
+  padding: 0.1em 0.5em;
 }
 
 #token-input {
@@ -460,6 +588,7 @@ input:checked ~ nav {
   outline: none;
   border: none;
   margin: 0;
+  padding: 0;
   font-size: 1em;
 }
 
@@ -487,13 +616,24 @@ input:-moz-placeholder {
   font-family: "Droid Sans Mono", sans-serif;
 }
 
-#tokens li{
+#tokens li {
   display: inline-block;
-  margin-left: 5px;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+header #tokens li {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+>>>>>>> 7a886fe55abf85a1951c25074ce43c1c40f91f69
 }
 
 #tokens #token-input {
   background-color: white;
+  padding: 0;
+  margin: 0;
 }
 
 @media only screen and (min-width: 480px)  {
@@ -504,6 +644,15 @@ input:-moz-placeholder {
 
   #autocomplete {
     width: 22.82em;
+  }
+
+  header #autocomplete {
+    margin: -10px 0 0 0;
+  }
+
+  header #autocomplete li {
+    padding: 0 0 0 5px;
+    margin: 0;
   }
 
   #login h3 {
@@ -590,6 +739,15 @@ input:-moz-placeholder {
   #pricing span.price, #pricing span.posts {
     margin: 0 0 10px 0;
   }
+
+  #search_results ul {
+    margin: 20px auto 50px;
+    width: 31em;
+  }
+
+  #search_results hr {
+    margin: 30px 0;
+  }
 }
 
 @media only screen and (min-width: 768px)  {
@@ -604,6 +762,18 @@ input:-moz-placeholder {
 
   header h1, header nav, header ul, header li {
     display:  inline;
+  }
+
+  header form {
+    display: inline;
+    height: 57px;
+    margin: 0 0 0 30px;
+    padding: 0;
+    background-color: #fafafa;
+  }
+
+  #search {
+    display: none;
   }
 
   header li {
@@ -668,6 +838,84 @@ input:-moz-placeholder {
     width: 48px;
   }
 
+  #login_search {
+    display: inline-block;
+    float: right;
+    text-align: left;
+    font-size: 1.2em;
+  }
+
+  #login_search a {
+    line-height: 30px;
+  }
+
+  #login_search form {
+    max-width: 22.40em;
+    margin: 0 0 40px 0;
+    display: inline-block;
+    font-size: 0.7em;
+  }
+
+  #login_search input {
+    width: 15em;
+    max-width: 15em;
+    padding: 0.3em;
+    margin-bottom: 6px;
+    font-size: 1.4em;
+    font-family: "Droid Sans Mono", sans-serif;
+    color: #111;
+  }
+
+  #login_search label {
+    margin: 0 25px 15px 0;
+    display: inline-block;
+    float: left;
+  }
+
+  #login_search a#forgot_password {
+    float: right;
+  }
+
+  #login_search form a {
+    line-height: 1.3em;
+  }
+
+  #login_search label input {
+    width: auto;
+    margin: 0;
+    padding: 0;
+    vertical-align: bottom;
+  }
+
+  #login_search button {
+    margin-top: 15px;
+    font-size: 1.3em;
+    font-family: "Droid Sans Mono", sans-serif;
+    font-weight: bold;
+    text-transform: capitalize;
+    float: right;
+  }
+
+  #search_results {
+    margin: 20px auto 50px;
+    font-size: 0.8em;
+    max-width: 750px;
+  }
+
+  #search_results ul {
+    margin: 0 0 50px 0;
+    width: 31em;
+    float: left;
+  }
+
+  #search_results section.post_control {
+    margin: 10px 0;
+  }
+
+  #search_results footer {
+    padding: 0;
+  }
+
   footer {
     height: 30px;
     padding: 2em 2em;
@@ -679,5 +927,9 @@ input:-moz-placeholder {
 
   footer a {
     display: inline;
+  }
+
+  footer #footer_extra_menu {
+    display: inline-block;
   }
 }

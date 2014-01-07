@@ -1,24 +1,28 @@
-<section id="login">
-  <a href="/github_oauth"><i class="fa fa-github"></i></a> <a href="/github_oauth">Developer Login</a>
+% if defined?(search)
+  <section id="login_search">
+% else
+  <section id="login">
+% end
+    <a href="/github_oauth"><i class="fa fa-github"></i></a> <a href="/github_oauth">Developer Login</a>
 
-  <h3>Company Login</h3>
+    <h3>Company Login</h3>
 
-  <form action="/login" method="POST">
-    <input type="email" name="company[email]"
-    placeholder="E-mail" value="{{ this.h(user) }}"><br/>
+    <form action="/login" method="POST">
+      <input type="email" name="company[email]"
+      placeholder="E-mail" value="{{ this.h(user) }}"><br/>
 
-    <input type="password" name="company[password]"
-    placeholder="Password"><br/>
+      <input type="password" name="company[password]"
+      placeholder="Password"><br/>
 
-    <label>
-      <input type="checkbox" name="company[remember]" value="1"> <span>Remember me</span>
-    </label>
+      <label>
+        <input type="checkbox" name="company[remember]" value="1"> <span>Remember me</span>
+      </label>
 
-    <a id="forgot_password" href="/forgot-password">Forgot password?</a>
-    <br/>
+      <a id="forgot_password" href="/forgot-password">Forgot password?</a>
+      <br/>
 
-    <button type="submit">login</button>
-  </form><br/>
+      <button type="submit">login</button>
+    </form><br/>
 
-  <a id="before_footer" href="/signup">Need an account? Sign up here!</a>
-</section>
+    <a id="before_footer" href="/signup">Need an account? Sign up here!</a>
+  </section>
