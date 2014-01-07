@@ -41,6 +41,7 @@
 
     {{ this.partial("new_card") }}
 
+    <p>Chosen plan: <span id="chosen_plan">{{ plan_id }}</span></p>
     <section id="pricing">
       {{ this.partial("plans", plan_id: plan_id) }}
     </section>

@@ -94,5 +94,6 @@
     </script>
     <script src="/js/stripe.js"></script>
     <script src="/js/cancel_account.js"></script>
+    <script src="/js/chosen_plan.js"></script>
   </body>
 </html>

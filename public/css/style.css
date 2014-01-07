@@ -225,10 +225,24 @@ li#avatar_list_item a img {
   font-size: 1.3em;
   text-align: left;
   padding: 0;
+  margin: 0;
+}
+
+#signup p span {
+  text-transform: capitalize;
+}
+
+#signup #digits {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+#signup ul {
+  margin: 15px 0;
 }
 
 #signup img {
-  width: 37px;
+  width: 36px;
 }
 
 #signup input#cvc {
@@ -260,12 +274,22 @@ li#avatar_list_item a img {
 }
 
 #signup #pricing span {
+  font-size: 1em;
   margin: 0;
-  padding: 10px 10px 10px 0 ;
+  padding: 10px 0 10px 0 ;
 }
 
 #signup #pricing span.plan_title {
   padding-left: 10px;
+}
+
+#signup #pricing span.posts {
+  margin-left: 10px;
+}
+
+#signup #pricing span.price {
+  margin: 0;
+  padding-right: 10px;
 }
 
 #signup #pricing input[type=radio] + label {
@@ -678,7 +702,7 @@ header #tokens li {
   }
 
   #signup img {
-    width: 50px;
+    width: 49px;
   }
 
   #signup #pricing label {
@@ -832,10 +856,6 @@ header #tokens li {
 
   #login label {
     margin-right: 158px;
-  }
-
-  #signup img {
-    width: 48px;
   }
 
   #login_search {
