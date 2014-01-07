@@ -51,13 +51,9 @@ function addToAutocomplete(value) {
 function addToken(value) {
   var listItems = tokens.getElementsByTagName("li");
   var token = document.createElement("li");
-<<<<<<< HEAD
-=======
-  token.appendChild(document.createTextNode(value + ","));
-  token.style.marginRight = "6px";
->>>>>>> 7a886fe55abf85a1951c25074ce43c1c40f91f69
 
   token.appendChild(document.createTextNode(value + ","));
+  token.style.marginRight = "6px";
 
   if (listItems.length < 6) {
     var lastChild = listItems[listItems.length - 1];
