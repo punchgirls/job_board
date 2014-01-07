@@ -489,6 +489,7 @@ input:-moz-placeholder {
 
 #tokens li{
   display: inline-block;
+  margin-left: 5px;
 }
 
 #tokens #token-input {

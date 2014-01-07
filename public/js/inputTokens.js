@@ -2,25 +2,21 @@ var request;
 var skills;
 var li;
 
+var tokens = document.getElementById("tokens");
+var searchInput = document.getElementById("search-field");
+var queryInput = document.getElementById("query");
+var autocomplete = document.getElementById("autocomplete");
+var tags = document.getElementById("tags");
 var errors = document.getElementById('notices');
 
 var selectedToken = -1;
-
-var searchInput = document.getElementById("search-field");
-var queryInput = document.getElementById("query");
-
-var autocomplete = document.getElementById("autocomplete");
-var tokens = document.getElementById("tokens");
-
 var list = autocomplete.childNodes;
 var searchFrm = document.form;
-
-var tags = document.getElementById("tags");
 
 if (tags != null) {
   tags = tags.value.split(",");
 
-  for(var i in tags) {
+  for(var i = 0; i < tags.length - 1; i++) {
     addToken(tags[i]);
   }
 }
@@ -53,11 +49,10 @@ function addToAutocomplete(value) {
 }
 
 function addToken(value) {
-  var token = document.createElement("li");
-  token.appendChild(document.createTextNode(value + ","));
-  token.style.marginRight = "4px";
-
   var listItems = tokens.getElementsByTagName("li");
+  var token = document.createElement("li");
+
+  token.appendChild(document.createTextNode(value + ","));
 
   if (listItems.length < 6) {
     var lastChild = listItems[listItems.length - 1];
