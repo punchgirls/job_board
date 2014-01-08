@@ -205,7 +205,8 @@ li#avatar_list_item a img {
 }
 
 #login button, #contact button, #confirm button, #signup button {
-  margin-top: 15px;
+  display: block;
+  margin: 15px auto;
   font-size: 1.3em;
   font-family: "Droid Sans Mono", sans-serif;
   font-weight: bold;
@@ -362,7 +363,8 @@ li#avatar_list_item a img {
 /* Search results page */
 
 #search_results {
-  margin-bottom: 80px;
+  display: inline-block;
+  margin-bottom: 40px;
 }
 
 #search_results ul {
@@ -422,29 +424,56 @@ li#avatar_list_item a img {
 }
 
 #search_results section.post_control a {
-  text-align: left;
+  text-decoration: none;
+  color: #111;
+  margin: 0;
 }
 
 #search_results section.post_control i {
-  vertical-align: middle;
   float: none;
-  margin-left: 10px;
-}
-
-.favorite {
+  margin: 0 7px 0 20px;
+  vertical-align: middle;
   color: #ccc;
 }
 
-.favorited {
-  color: #ffea00;
+#search_results span.underline {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-.apply {
-  color: #ccc;
+#search_results span.underline:hover {
+  text-decoration: none;
+  color: #4d4d4d;
 }
 
-.applied {
+#search_results span.applied {
+  cursor: inherit;
+}
+
+#search_results span.applied i {
   color: green;
+}
+
+#search_results span.applied span {
+  color: #4d4d4d;
+  font-style: italic;
+}
+
+#search_results span.favorited {
+  cursor: inherit;
+}
+
+#search_results span.favorited i {
+  color: #FFCC00;
+}
+
+#search_results span.favorited span {
+  color: #4d4d4d;
+  font-style: italic;
+}
+
+#search_results section.post_control form {
+  display: none;
 }
 
 #search_results footer {
@@ -461,6 +490,10 @@ li#avatar_list_item a img {
 
 #search_results hr {
   margin: 20px 0;
+}
+
+aside {
+  display: none;
 }
 
 /* Footer*/
@@ -917,14 +950,15 @@ header #tokens li {
   }
 
   #search_results {
-    margin: 20px auto 50px;
+    display: inline-block;
+    margin: 40px auto 50px;
     font-size: 0.8em;
-    max-width: 800px;
+    width: 700px;
   }
 
   #search_results ul {
     margin: 0 0 50px 0;
-    width: 31em;
+    width: 25em;
     float: left;
   }
 
@@ -934,6 +968,10 @@ header #tokens li {
 
   #search_results footer {
     padding: 0;
+  }
+
+  aside {
+    display: block;
   }
 
   footer {

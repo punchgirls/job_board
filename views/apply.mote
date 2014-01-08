@@ -1,7 +1,16 @@
 % if developer.nil?
-  <a href="/apply/{{ post.id }}"><i class="fa fa-check apply cursor"></i>Apply</a>
+  <span class="apply cursor">
+    <a href="/apply/{{ post.id }}">
+      <i class="fa fa-check"></i><span class="underline">Apply</span>
+    </a>
+  </span>
 % elsif developer && developer.applied?(post.id)
-    <i class="fa fa-check applied cursor"></i><span>Applied</span>
+  <span class="applied cursor">
+    <i class="fa fa-check"></i><span>Applied</span>
+  </span>
 % else
-  <span onclick="apply({{ post.id }})" id="post_{{ post.id }}"><i class="fa fa-check apply cursor"></i>Apply</span>
+  <span onclick="apply({{ post.id }})" id="post_{{ post.id }}"
+  class="apply cursor">
+    <i class="fa fa-check"></i><span class="underline">Apply</span>
+  </span>
 % end

@@ -28,13 +28,12 @@
 
               % if !this.current_company
                 <section class="post_control">
-                  <span class="favorite">
-                    {{ this.partial("favorite", post: post, developer: developer) }}
-                  </span>
 
-                  <span class="apply">
-                    {{ this.partial("apply", post: post, developer: developer) }}
-                  </span>
+                  {{ this.partial("favorite", post: post, developer: developer) }}
+
+                  {{ this.partial("apply", post: post, developer: developer) }}
+
+                  <br/>
 
                   % if this.current_developer
                     {{ this.partial("developer/add_message", post: post, developer: developer) }}
@@ -58,6 +57,11 @@
       </ul>
       % if !user
         {{ this.partial("login", user: this.current_user, search: true) }}
+      % end
+      % if user.instance_of?(Developer)
+        <aside>
+          <img src="http://www.gravatar.com/avatar/{{ user.avatar }}" />
+        </aside>
       % end
   % end
 </section>

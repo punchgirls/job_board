@@ -19,7 +19,9 @@ function apply (id) {
 
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      post.innerHTML = "APPLIED";
+      post.innerHTML = '<i class="fa fa-check"></i><span>Applied</span>';
+      post.removeAttribute("onclick");
+      post.className = ("applied cursor");
       addMsgLink.innerHTML = "Send a message?";
       appsSize.innerHTML = parseInt(appsSize.innerHTML) + 1;
     }
@@ -129,16 +131,18 @@ function displayNote (id) {
   request.send();
 }
 
-function favorite (icon) {
+function favorite (post) {
   var favsSize = document.getElementById("favs-size");
   var favsSizeTitle = document.getElementById("favs-size-title");
 
-  if (icon.className === "fa fa-star favorited cursor") {
-    icon.className = "fa fa-star favorite cursor";
+  if (post.className === "favorited cursor") {
+    post.className = "favorite cursor";
+    post.innerHTML = '<i class="fa fa-star"></i><span class="underline">Favorite</span>';
     favsSize.innerHTML = parseInt(favsSize.innerHTML) - 1;
     favsSizeTitle.innerHTML = parseInt(favsSizeTitle.innerHTML) - 1;
   } else {
-    icon.className = "fa fa-star favorited cursor";
+    post.className = "favorited cursor";
+    post.innerHTML = '<i class="fa fa-star"></i><span class="underline">Favorited</span>';
     favsSize.innerHTML = parseInt(favsSize.innerHTML) + 1;
     favsSizeTitle.innerHTML = parseInt(favsSizeTitle.innerHTML) + 1;
   }
