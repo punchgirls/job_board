@@ -5,13 +5,14 @@
 % end
     % if user.instance_of?(Developer)
       % if defined?(search)
-        <li><a href="/applications">My applications (<span id="apps-size">{{ user.applications.size }}</span>)</a></li>
-        <li><a href="/favorites">My favorites (<span id="favs-size">{{ user.favorites.size }}</span>)</a></li>
+        <li><a href="/applications">My applications (<span id="apps-size-aside">{{ user.applications.size }}</span>)</a></li>
+        <li><a href="/favorites">My favorites (<span id="favs-size-aside">{{ user.favorites.size }}</span>)</a></li>
       % else
         <li><a href="/how">How it works</a></li>
         <li><a href="/pricing">Pricing</a></li>
       % end
       <li id="avatar_list_item"><a href="/profile"><img src="http://www.gravatar.com/avatar/{{ user.avatar }}" /> {{ user.username }}</a></li>
+      <li><a href="/logout">Logout</a></li>
     % end
     % if user.instance_of?(Company)
       <li><a href="/dashboard">Dashboard</a></li>

@@ -13,17 +13,21 @@ function apply (id) {
   var url = "/apply/" + id;
   var addMsgLink = document.getElementById("add-msg-link-" + id);
   var appsSize = document.getElementById("apps-size");
+  var appsSizeAside = document.getElementById("apps-size-aside");
 
   var request = ajax();
   request.open("POST", url);
 
+  post.innerHTML = '<i class="fa fa-check"></i><span>Applied</span>';
+  post.removeAttribute("onclick");
+  post.className = ("applied cursor");
+  addMsgLink.innerHTML = "Send message to company";
+  addMsgLink.className = "send_message";
+
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      post.innerHTML = '<i class="fa fa-check"></i><span>Applied</span>';
-      post.removeAttribute("onclick");
-      post.className = ("applied cursor");
-      addMsgLink.innerHTML = "Send a message?";
       appsSize.innerHTML = parseInt(appsSize.innerHTML) + 1;
+      appsSizeAside.innerHTML = parseInt(appsSizeAside.innerHTML) + 1;
     }
   };
 
@@ -63,7 +67,7 @@ function sendMsg (postId, developerId) {
       }
 
       if (sentOK) {
-        sentOK.innerHTML = '<i class="fa fa-check"></i> Message sent';
+        sentOK.innerHTML = '<i class="fa fa-check"></i>Message sent';
       }
     }
   };
@@ -132,32 +136,39 @@ function displayNote (id) {
 }
 
 function favorite (post) {
-  var favsSize = document.getElementById("favs-size");
-  var favsSizeTitle = document.getElementById("favs-size-title");
-
   if (post.className === "favorited cursor") {
     post.className = "favorite cursor";
     post.innerHTML = '<i class="fa fa-star"></i><span class="underline">Favorite</span>';
-    favsSize.innerHTML = parseInt(favsSize.innerHTML) - 1;
-    favsSizeTitle.innerHTML = parseInt(favsSizeTitle.innerHTML) - 1;
   } else {
     post.className = "favorited cursor";
     post.innerHTML = '<i class="fa fa-star"></i><span class="underline">Favorited</span>';
-    favsSize.innerHTML = parseInt(favsSize.innerHTML) + 1;
-    favsSizeTitle.innerHTML = parseInt(favsSizeTitle.innerHTML) + 1;
   }
 }
 
 function favoritePost (id) {
   var post = document.getElementById(id);
   var url = "/favorite/" + id;
+  var favsSize = document.getElementById("favs-size");
+  var favsSizeAside = document.getElementById("favs-size-aside");
 
   var request = ajax();
   request.open("POST", url);
 
+  favorite(post);
+
+  if (post.className === "favorited cursor") {
+    favsSize.innerHTML = parseInt(favsSize.innerHTML) + 1;
+    favsSizeAside.innerHTML = parseInt(favsSizeAside.innerHTML) + 1;
+  } else {
+    favsSize.innerHTML = parseInt(favsSize.innerHTML) - 1;
+    favsSizeAside.innerHTML = parseInt(favsSizeAside.innerHTML) - 1;
+  }
+
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      favorite(post);
+      var favsSizeTitle = document.getElementById("favs-size-title");
+
+      favsSizeTitle.innerHTML = favsSize.innerHTML;
     }
   };
 

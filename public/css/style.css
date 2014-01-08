@@ -50,7 +50,7 @@ header form {
 }
 
 #content {
-  padding: 0 0 45px 0.5em;
+  padding: 0 0 100px 0.5em;
 }
 
 a:link {
@@ -214,8 +214,9 @@ li#avatar_list_item a img {
 }
 
 #confirm img {
+  display: block;
   vertical-align: top;
-  margin: 0 0 6px 0;
+  margin: 0 auto 10px;
 }
 
 #signup li {
@@ -363,8 +364,8 @@ li#avatar_list_item a img {
 /* Search results page */
 
 #search_results {
+  width: 100%;
   display: inline-block;
-  margin-bottom: 40px;
 }
 
 #search_results ul {
@@ -416,6 +417,11 @@ li#avatar_list_item a img {
   font-size: 0.9em;
   clear: both;
   line-height: 1.7em;
+}
+
+#search_results #posts_found {
+  margin: 15px 0;
+  font-size: 1.1em;
 }
 
 #search_results section.post_control {
@@ -472,11 +478,84 @@ li#avatar_list_item a img {
   font-style: italic;
 }
 
+#search_results span.send_message {
+  display: block;
+  margin: 10px 0 0 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#search_results span.send_message:hover {
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+#search_results form.send_message_form {
+  width: 22em;
+  margin: 10px auto 0;
+  font-size: 0.7em;
+  font-size: 1em;
+}
+
+#search_results form.send_message_form textarea {
+  width: 20.40em;
+  display: block;
+  margin: 0 auto;
+  padding: 0.5em;
+  font-family: "Droid Sans Mono", sans-serif;
+  font-size: 1em;
+  line-height: 1.4em;
+  min-height: 140px;
+  border-top: solid 2px #9e9e9e;
+  border-left: solid 2px #9e9e9e;
+  border-right: solid 2px #eee;
+  border-bottom: solid 2px #eee;
+}
+
+#search_results span.countdown {
+  display: block;
+  margin: 5px auto 0;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+#search_results span.buttons {
+  width: 12em;
+  display: block;
+  margin: 15px auto 0;
+}
+
+#search_results section.post_control a.cancel {
+  margin-right: 15px;
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+
+#search_results form.send_message_form button {
+  font-size: 1em;
+  font-family: "Droid Sans Mono", sans-serif;
+  font-weight: bold;
+  text-transform: capitalize;
+  float: none;
+}
+
+#search_results section.post_control span.message_sent {
+  display: block;
+  margin: 10px 0;
+  line-height: 1.3em;
+}
+
+#search_results section.post_control span.message_sent i {
+  font-size: 1.3em;
+  vertical-align: top;
+}
+
 #search_results section.post_control form {
   display: none;
 }
 
 #search_results footer {
+  clear: both;
   height: 15px;
   margin-bottom: 15px;
   position: relative;
@@ -503,13 +582,13 @@ footer {
   bottom:0;
   left:0;
   right: 0;
-  height: 70px;
+  height: 100px;
   font-size: 0.8em;
 }
 
 footer li {
   display: inline-block;
-  line-height: 20px;
+  line-height: 25px;
   margin: 0 15px;
 }
 
@@ -518,7 +597,7 @@ footer li a {
 }
 
 footer #footer_extra_menu {
-  display: none;
+  display: inline-block;
 }
 
 /* Toogle menu */
@@ -772,6 +851,7 @@ header #tokens li {
   }
 
   #confirm img {
+    display: inline;
     margin: 0;
     vertical-align: top;
   }
@@ -799,7 +879,19 @@ header #tokens li {
 
   #search_results ul {
     margin: 20px auto 50px;
-    width: 31em;
+    width: 34em;
+  }
+
+  #search_results form.send_message_form {
+    width: 30em;
+  }
+
+  #search_results form.send_message_form textarea {
+    width: 28.4em;
+  }
+
+  #search_results span.buttons {
+    display: inline-block;
   }
 
   #search_results hr {
@@ -853,7 +945,7 @@ header #tokens li {
   }
 
   #content {
-    padding: 0 0 30px 0.5em;
+    padding: 0 0 50px 0.5em;
   }
 
   #tagline {
@@ -951,7 +1043,7 @@ header #tokens li {
 
   #search_results {
     display: inline-block;
-    margin: 40px auto 50px;
+    margin: 40px auto 0;
     font-size: 0.8em;
     width: 700px;
   }
@@ -966,16 +1058,49 @@ header #tokens li {
     margin: 10px 0;
   }
 
+  #search_results form.send_message_form {
+    width: 25em;
+  }
+
+  #search_results form.send_message_form textarea {
+    width: 23.4em;
+  }
+
   #search_results footer {
     padding: 0;
   }
 
   aside {
+    width: 18em;
+    float: right;
+    display: inline-block;
+    font-size: 1.2em;
+  }
+
+  aside a {
+    margin: 10px 0;
+    clear: both;
     display: block;
+    text-align: left;
+  }
+
+  aside #aside_profile {
+    height: 80px;
+    display: block;
+    text-align: left;
+  }
+
+  aside #aside_profile a {
+    margin: 0 0 30px 10px;
+    display: inline;
+  }
+
+  aside span img {
+    float: left;
   }
 
   footer {
-    height: 30px;
+    height: 50px;
     padding: 2em 2em;
   }
 
