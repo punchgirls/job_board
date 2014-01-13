@@ -174,6 +174,7 @@ class Guests < Cuba
     on "favorite", param("post_id"), param("query") do |id, query|
       session[:favorite_id] = id
       session[:query] = query
+      session[:origin] = "guests"
 
       res.redirect "/github_oauth"
     end
@@ -224,6 +225,7 @@ class Guests < Cuba
       session[:apply_id] = apply_id
       session[:favorite_id] = favorite
       session[:query] = query
+      session[:origin] = origin
 
       res.redirect "/dashboard"
     end
