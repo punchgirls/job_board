@@ -10,8 +10,12 @@ body {
   color: #111;
 }
 
-a:link {
+a:link, .underline {
   color: #4d4d4d;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 a:visited {
@@ -19,7 +23,7 @@ a:visited {
   text-decoration: none;
 }
 
-a:hover, a:active {
+a:hover, a:active, .underline:hover {
   color: #4d4d4d;
   text-decoration: none;
 }
@@ -169,16 +173,6 @@ textarea {
 .cursor {
   cursor: pointer;
   cursor: hand;
-}
-
-.underline {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.underline:hover {
-  text-decoration: none;
-  color: #4d4d4d;
 }
 
 .before-footer {
@@ -818,9 +812,9 @@ input:-moz-placeholder {
     max-width: 29.40em;
   }
 
-  .contact-form input, .contact-textarea {
-    width: 17em;
-    max-width: 17em;
+  .contact-input, .contact-textarea {
+    width: 20em;
+    max-width: 20em;
   }
 
   .confirm-input, .confirm-textarea {
@@ -997,12 +991,7 @@ input:-moz-placeholder {
     width: 33.80em;
   }
 
-  .login-input, .input, .contact-textarea {
-    width: 23em;
-    max-width: 23em;
-  }
-
-  .login-input {
+  .login-input, .contact-input, .contact-textarea {
     width: 23.3em;
     max-width: 23.3em;
   }
@@ -1080,6 +1069,11 @@ input:-moz-placeholder {
 
   .cvc {
     margin-right: 89px;
+    width: 39px;
+  }
+
+  .short-input {
+    width: 30px;
   }
 
   .two-cols {
