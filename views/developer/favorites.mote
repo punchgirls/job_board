@@ -25,7 +25,7 @@
 
             <p class="item-text">{{ this.h(post.description) }}</p>
 
-            {{ this.partial("post_control", post: post, developer: developer) }}
+            {{ this.partial("post_control", post: post, developer: developer, query: "") }}
 
             <footer class="item-footer">
               <p class="item-text">

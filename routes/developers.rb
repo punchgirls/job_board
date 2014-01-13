@@ -54,11 +54,11 @@ class Developers < Cuba
         application = Application.create(params)
 
         session[:success] = "You have successfully applied for a job!"
-        res.redirect "/search"
+        res.redirect "/search?query=#{session[:query]}"
       end
 
       on default do
-        res.redirect "/search"
+        res.redirect "/search?query=#{session[:query]}"
       end
     end
 
@@ -121,20 +121,20 @@ class Developers < Cuba
         favorites.add(post)
         favorited_by.add(current_user)
 
-        res.redirect "/search"
+        res.redirect "/search?query=#{session[:query]}"
       end
 
       on favorites.member?(post) do
         on session[:origin] do
           session.delete(:origin)
-          res.redirect "/search"
+          res.redirect "/search?query=#{session[:query]}"
         end
 
         on default do
           favorites.delete(post)
           favorited_by.delete(current_user)
 
-          res.redirect "/search"
+          res.redirect "/search?query=#{session[:query]}"
         end
       end
 

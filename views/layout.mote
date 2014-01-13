@@ -1,9 +1,5 @@
 % user = this.current_user
 
-% if !defined?(tags)
-  % tags = ""
-% end
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,7 +20,7 @@
           <nav class="header-nav">
             {{ this.partial("header_menu", user: this.current_user, search: true) }}
           </nav>
-          {{ this.partial("search_box", tags: tags, search: true) }}
+          {{ this.partial("search_box", query: query, search: true) }}
         % else
           <nav class="header-nav">
             {{ this.partial("header_menu", user: this.current_user) }}

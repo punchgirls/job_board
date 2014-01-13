@@ -33,7 +33,7 @@
             <p class="item-text">{{ this.h(post.description) }}</p>
 
             % if !this.current_company
-              {{ this.partial("post_control", post: post, developer: developer) }}
+              {{ this.partial("post_control", post: post, developer: developer, query: query) }}
             % end
 
             <footer class="item-footer">

@@ -1,11 +1,7 @@
-% if !defined?(tags)
-  % tags = ""
-% end
-
 <h1 class="tagline">Get a better job today!</h1>
 
 <section id="search_box_home">
-  {{ this.partial("search_box", tags: tags) }}
+  {{ this.partial("search_box", query: "") }}
 </section>
 
 <h2 class="content-subtitle">Latest posts</h2>
@@ -19,4 +15,4 @@
 % end
 </ul>
 
-<a href="/search?all=true">All posts</a>
+<a href="/search?query=all">All posts</a>

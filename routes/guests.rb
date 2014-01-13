@@ -164,15 +164,16 @@ class Guests < Cuba
       run Searches
     end
 
-    on "apply/:id" do |id|
+    on "apply", param("post_id"), param("query") do |id, query|
       session[:apply_id] = id
+      session[:query] = query
 
       res.redirect "/github_oauth"
     end
 
-    on "favorite/:id" do |id|
+    on "favorite", param("post_id"), param("query") do |id, query|
       session[:favorite_id] = id
-      session[:origin] = { "guests" => "true" }
+      session[:query] = query
 
       res.redirect "/github_oauth"
     end
@@ -223,7 +224,6 @@ class Guests < Cuba
       session[:apply_id] = apply_id
       session[:favorite_id] = favorite
       session[:query] = query
-      session[:origin] = origin
 
       res.redirect "/dashboard"
     end

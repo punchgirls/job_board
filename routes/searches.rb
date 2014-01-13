@@ -1,25 +1,27 @@
 class Searches < Cuba
   define do
-    on param "all" do |params|
-      render("search", title: "Search", posts: Post.active,
-        search: true)
-    end
+    on get, param("query") do |query|
+      on query == "all" do
+        render("search", title: "Search", posts: Post.active,
+          search: true, query: "all")
+      end
 
-    on get, param("tags") do |tags|
-      posts = Search.posts(tags)
+      on default do
+        posts = Search.posts(query)
 
-      render("search", title: "Search", tags: tags, posts: posts,
-        search: true)
+        render("search", title: "Search", query: query, posts: posts,
+          search: true)
+      end
     end
 
     on param "company_id" do |id|
       render("search", title: "Search",
-        posts: Post.active.find(company_id: id), search: true)
+        posts: Post.active.find(company_id: id), search: true, query: "")
     end
 
     on param "post_id" do |id|
       render("search", title: "Search", posts: [Post[id]],
-        search: true, search: true)
+        search: true, search: true, query: "")
     end
 
     on default do

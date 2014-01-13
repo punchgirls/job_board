@@ -1,6 +1,6 @@
 % if developer.nil?
   <span class="apply cursor">
-    <a class="post-control-link" href="/apply/{{ post.id }}">
+    <a class="post-control-link" href="/apply?post_id={{ post.id }}&query={{ query }}">
       <i class="fa fa-check post-control-icon"></i><span class="underline">Apply</span>
     </a>
   </span>
