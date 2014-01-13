@@ -40,7 +40,7 @@
               <p class="item-text">
                 <small>
                   <time datetime="" pubdate>Posted on {{ post.posted }}</time>
-                  % if developer.applied?(post.id)
+                  % if developer && developer.applied?(post.id)
                     % application = developer.applications.find(:post_id => post.id).first
 
                     <time class="applied-on" datetime="" pubdate>Applied on {{ application.applied }}</time>
