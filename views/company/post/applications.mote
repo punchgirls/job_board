@@ -41,7 +41,7 @@
             % if Post[id].favorites.member?(application)
               <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star favorited cursor"></i>
             % else
-              <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star favorite cursor"></i>
+              <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star cursor"></i>
             % end
 
             <i onclick="removeApplicant({{ application.id }})" class="fa fa-trash-o cursor"></i>

@@ -10,17 +10,12 @@ body {
   color: #111;
 }
 
-a:link, .underline {
+a:link, a:visited, .underline {
   color: #4d4d4d;
 }
 
 .underline {
   text-decoration: underline;
-}
-
-a:visited {
-  color: #111;
-  text-decoration: none;
 }
 
 a:hover, a:active, .underline:hover {
@@ -55,6 +50,14 @@ button {
 
 .error {
   color: red;
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
 }
 
 .button-search, .header-button-search {
@@ -373,7 +376,7 @@ textarea {
   float: right;
 }
 
-/* Search results and My applications pages */
+/* Search Results, My Applications, My Favorites and Company Dashboard pages */
 
 .list {
   margin: 0 auto;
@@ -385,6 +388,19 @@ textarea {
 
 .list-title {
   font-size: 1.3em;
+}
+
+.company-dashboard-title {
+  float: left;
+  text-align: left;
+  margin-top: 0;
+  text-transform: capitalize;
+}
+
+.delete {
+  display: block;
+  margin-top: 40px;
+  font-size: 1.5em;
 }
 
 .item {
@@ -465,11 +481,11 @@ textarea {
   color: #ccc;
 }
 
-.applied {
-  cursor: inherit;
+.applied, .favorited, .published {
+  cursor: pointer;
 }
 
-.applied-icon {
+.applied-icon, .published-icon {
   color: green;
 }
 
@@ -480,10 +496,6 @@ textarea {
 
 .applied-on {
   float: right;
-}
-
-.favorited {
-  cursor: pointer;
 }
 
 .favorited-icon {
@@ -497,6 +509,11 @@ textarea {
 
 .delete-icon {
   color: #111;
+}
+
+.see-applicants-link {
+  text-transform: uppercase;
+  margin: 10px 0;
 }
 
 .send-message-link {
@@ -763,9 +780,6 @@ input:-moz-placeholder {
 }
 
 @media only screen and (min-width: 480px)  {
-  .float-right {
-    float: right;
-  }
 
   .latest-posts {
     font-size: 0.9em;

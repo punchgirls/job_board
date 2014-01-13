@@ -1,74 +1,64 @@
 % company = this.current_user
 % posts = company.posts
 
-<section>
-  <h1>
-    <span>Plan: {{ plan.name }} ({{ plan.posts }} posts per month)</span>
-    <span>/</span>
-    <span>Published posts: {{ company.published_posts.size }}</span>
-    <span>/</span>
-  </h1>
+<section class="two-cols">
+  <ul class="list" id="posts-list">
+    <h2 class="list-title company-dashboard-title">Plan: {{ plan.name }}</h2>
+    <p class="item-text posts-found">({{ plan.posts }} posts per month)</p>
+    <p class="item-text posts-found">Published posts: {{ company.published_posts.size }}</p>
 
-  <a href="/post/new">Post job offer</a>
-</section>
-<hr/>
-<section>
-  <h1></h1>
+    <p class="item-text posts-found"><a href="/post/new">Post job offer</a></p>
+    % if posts.empty?
+      <p class="item-text">You haven't posted anything yet.<br/>Click on "post job offer" to get started!</p>
+    % else
+      % posts.each do |post|
+        <li class="item" id="{{ post.id }}">
+          <article>
+            <header class="item-header">
+              <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong> <a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o cursor"></i></a></h1>
 
-  % if posts.empty?
+              <h3 class="item-subtitle">Tags: {{ post.tags }}</h3>
+              <h3 class="item-subtitle">{{ this.h(post.location) }}</h3>
+              % if post.remote == "true"
+                <i class="item-icon fa fa-globe"></i><h3 class="item-subtitle">Work from anywhere</h3>
+              % else
+                <i class="item-icon fa fa-map-marker"></i><h3 class="item-subtitle">On-site only</h3>
+              % end
+            </header>
 
-    <p>
-      You haven't posted anything yet.
-      Click on "post job offer" to get started!
-    </p>
-  % else
-    <ul id="posts-list">
-    % posts.each_with_index do |post, index|
-      <li id="{{ post.id }}">
-        <article>
-          <header>
-            <h1>{{ this.h(post.title) }} ({{ post.status }})</h1>
+            <p class="item-text">{{ this.h(post.description) }}</p>
 
-            <a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o cursor"></i></a>
-            <i onclick="removePost({{ post.id }})" class="fa fa-trash-o cursor"></i><br/>
+            <h3 class="item-subtitle see-applicants-link"><a href="/post/applications/{{ post.id }}"><strong>See applicants ({{ post.applications.size }})</strong></a></h3>
 
-            % if post.status == "published"
-              <a href="/post/status/{{ post.id }}">Unpublish</a><br>
-            % else
-              <a href="/post/status/{{ post.id }}">Publish</a><br>
-            % end
-            <a href="/post/applications/{{ post.id }}">See applicants ({{ post.applications.size }})</a>
+            <section class="post-control">
+              <span onclick="removePost({{ post.id }})" class="cursor">
+                <i class="fa fa-trash-o cursor post-control-icon delete-icon"></i><span class="underline">Delete post</span>
+              </span>
 
-            <p>{{ post.tags }}</p>
-          </header>
-
-          <section>
-            <ul>
-              <li>{{ this.h(post.location) }}</li>
-              <li>
-                % if post.remote == "true"
-                  <i class="fa fa-globe"></i> Work from anywhere
+              <span class="published">
+                <a class="post-control-link" href="/post/status/{{ post.id }}">
+                % if post.status == "published"
+                  <i class="fa fa-check post-control-icon published-icon"></i><span class="underline">Unpublish</span>
                 % else
-                  <i class="fa fa-map-marker"></i> On-site only
+                  <i class="fa fa-check post-control-icon"></i><span class="underline">Publish</span>
                 % end
-              </li>
-            </ul>
-          </section>
+                </a>
+              </span>
+            </section>
 
-          <p>{{ this.h(post.description) }}</p>
-
-          <footer>
-            <time datetime="" pubdate>
-              Posted on {{ post.posted }}
-            </time>
-          </footer>
-        </article>
-
-        % if index != posts.size - 1
-          <hr/>
-        % end
-      </li>
+            <footer class="item-footer">
+              <p class="item-text">
+                <small>
+                  <time datetime="" pubdate>Posted on {{ post.posted }}</time>
+                </small>
+              </p>
+            </footer>
+          </article>
+        </li>
+      % end
     % end
-    </ul>
-  % end
+  </ul>
+
+  {{ this.partial("aside", user: this.current_user, search: true) }}
+
 </section>
