@@ -247,17 +247,21 @@ function removeApplication (id) {
   var url = "/remove/" + id;
   var appsSize = document.getElementById("apps-size");
   var appsSizeAside = document.getElementById("apps-size-aside");
+  var msg = "Are you sure you want to delete the application?";
+  var cancel = confirm(msg);
 
-  var request = ajax();
-  request.open("POST", url);
+  if (cancel) {
+    var request = ajax();
+    request.open("POST", url);
 
-  request.onreadystatechange = function() {
-    if ((request.readyState===4) && (request.status===200)) {
-      applications.removeChild(application);
-      appsSize.innerHTML = parseInt(appsSize.innerHTML) - 1;
-      appsSizeAside.innerHTML = parseInt(appsSizeAside.innerHTML) - 1;
-    }
-  };
+    request.onreadystatechange = function() {
+      if ((request.readyState===4) && (request.status===200)) {
+        applications.removeChild(application);
+        appsSize.innerHTML = parseInt(appsSize.innerHTML) - 1;
+        appsSizeAside.innerHTML = parseInt(appsSizeAside.innerHTML) - 1;
+      }
+    };
 
-  request.send();
+    request.send();
+  }
 }
