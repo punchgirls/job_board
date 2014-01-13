@@ -558,6 +558,15 @@ textarea {
   margin-bottom: 25px;
 }
 
+.new-post-form .login-label {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+.new-post-form .login-checkbox {
+  vertical-align: middle;
+}
+
 .profile-buttons {
   font-size: 1.6em;
 }
@@ -667,6 +676,29 @@ textarea {
   font-size: 1em;
 }
 
+.new-post-form {
+  width: 27em;
+  max-width: 27em;
+  font-size: 0.6em;
+}
+
+.new-post-form #autocomplete {
+  width: 15.98em;
+  margin-top: -7px;
+  font-size: 1.61em;
+}
+
+.new-post-form .input, .new-post-form .textarea {
+  width: 17.1em;
+  max-width: 17.1em;
+  line-height: 1.5em;
+  font-size: 1.5em;
+}
+
+.location {
+  margin-bottom: 10px;
+}
+
 #autocomplete li {
   list-style: none;
   padding: 0.3em;
@@ -712,6 +744,14 @@ textarea {
   cursor: text;
 }
 
+.new-post-form #tokens {
+  width: 16.7em;
+  max-width: 16.7em;
+  margin-bottom: 5px;
+  font-size: 1.5em;
+  line-height: 23px;
+}
+
 .header #tokens {
   padding: 0.1em 0.5em;
 }
@@ -730,6 +770,10 @@ textarea {
   margin: 0;
   padding: 0;
   font-size: 1em;
+}
+
+.new-post-form #search-field {
+  line-height: 1.6em;
 }
 
 ::-webkit-input-placeholder {
@@ -812,6 +856,27 @@ input:-moz-placeholder {
   .header #autocomplete li {
     padding: 0 0 0 5px;
     margin: 0;
+  }
+
+  .new-post-form {
+    width: 39em;
+    max-width: 39em;
+  }
+
+  .new-post-form #autocomplete {
+    width: 23.4em;
+  }
+
+  .new-post-form #tokens {
+    width: 24.7em;
+    max-width: 24.7em;
+  }
+
+  .new-post-form .input, .new-post-form .textarea {
+    width: 25.1em;
+    max-width: 25.1em;
+    line-height: 1.5em;
+    font-size: 1.5em;
   }
 
   .login-form, .contact-form, .confirm-form {
@@ -1108,6 +1173,15 @@ input:-moz-placeholder {
     text-align: left;
     margin-top: 0;
   }
+
+  .see-applicants-link {
+    margin-bottom: 30px;
+  }
+
+  .company-plan-info {
+    display: none;
+  }
+
   .post-control {
     margin: 10px 0;
   }
@@ -1129,6 +1203,11 @@ input:-moz-placeholder {
     float: right;
     display: inline-block;
     font-size: 1.2em;
+  }
+
+  .aside-title {
+    margin-top: 0;
+    font-size: 1.1em;
   }
 
   .aside-link {

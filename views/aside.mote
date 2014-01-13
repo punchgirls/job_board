@@ -15,7 +15,7 @@
     <a class="aside-link" href="/favorites">My favorites (<span id="favs-size-aside">{{ user.favorites.size }}</span>)</a>
   % else
     <span>
-      <p>{{ user.name }}</p>
+      <h2 class="aside-title">{{ user.name }}</h2>
       <a class="aside-link" href="/dashboard">Dashboard</a>
       <a class="aside-link" href="/profile">Account settings</a>
       <a class="aside-link" href="/logout">Logout</a>

@@ -3,11 +3,11 @@
 
 <section class="two-cols">
   <ul class="list" id="posts-list">
-    <h2 class="list-title company-dashboard-title">Plan: {{ plan.name }}</h2>
-    <p class="item-text posts-found">({{ plan.posts }} posts per month)</p>
-    <p class="item-text posts-found">Published posts: {{ company.published_posts.size }}</p>
+    <h2 class="list-title company-dashboard-title company-plan-info">Plan: {{ plan.name }}</h2>
+    <p class="item-text posts-found company-plan-info">({{ plan.posts }} posts per month)</p>
+    <p class="item-text posts-found company-plan-info">Published posts: {{ company.published_posts.size }}</p>
 
-    <p class="item-text posts-found"><a href="/post/new">Post job offer</a></p>
+    <p class="item-text posts-found company-plan-info"><a href="/post/new">Post job offer</a></p>
     % if posts.empty?
       <p class="item-text">You haven't posted anything yet.<br/>Click on "post job offer" to get started!</p>
     % else

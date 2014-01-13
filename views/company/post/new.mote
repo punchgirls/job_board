@@ -18,39 +18,41 @@
 % end
 
 <section>
-  <h1>Create a new job offer</h1>
+  <h2 class="content-title">Create a new job offer</h2>
 
-  <form id="new-post" name="postFrm" action="/post/new" method="POST">
-    <ul id="tokens">
-      <li id="token-input">
-        <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
-      </li>
-    </ul>
-    <ul id="autocomplete"></ul>
+  <form class="form new-post-form" name="postFrm" action="/post/new" method="POST">
+    <div id="tags_wrapper">
+      <ul class="header-menu" id="tokens">
+        <li id="token-input">
+          <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
+        </li>
+      </ul>
+      <ul class="header-menu" id="autocomplete"></ul>
 
-    <input type="hidden" id="query" name="post[tags]" value="">
+      <input type="hidden" id="query" name="post[tags]" value="">
+    </div>
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-    <input id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"><br/>
+    <input class="input location" id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off">
 
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
-    <label>
-      <input type="checkbox" name="post[remote]" value="true">
+    <label class="login-label"><input class="login-checkbox" type="checkbox" name="post[remote]" value="true">
       <span>Work from anywhere</span>
-    </label><br/>
+    </label>
 
-    <input type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
+    <input class="input" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
 
-    <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
+    <textarea class="textarea" name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
 
-    <span id="countdown">600 characters remaining.</span><br/>
+    <span class="countdown" id="countdown">600 characters remaining.</span><br/>
 
-    <section>
-      <a href="/dashboard">Cancel</a>
-      <button type="submit">Post</button>
-    </section>
+    <span class="send-message-buttons profile-buttons">
+      <a class="post-control-link cancel" href="/dashboard">cancel</a>
+
+      <button class="send-message-button" type="submit">post</button>
+    </span>
   </form>
 </section>
 

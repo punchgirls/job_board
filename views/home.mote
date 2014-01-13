@@ -1,6 +1,6 @@
 <h1 class="tagline">Get a better job today!</h1>
 
-<section id="search_box_home">
+<section>
   {{ this.partial("search_box", query: "") }}
 </section>
 
