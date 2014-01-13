@@ -1,7 +1,7 @@
 % if developer.nil?
-  <span class="favorite cursor">
+<span class="cursor">
     <a class="post-control-link" href="/favorite?post_id={{ post.id }}&query={{ query }}">
-      <i class="fa fa-star post-control-icon"></i><span class="underline">Favorite</span>
+    <i class="fa fa-star post-control-icon"></i><span class="underline">Favorite</span>
     </a>
   </span>
 % elsif developer && developer.favorites.member?(post)
@@ -11,7 +11,7 @@
   </span>
 % else
   <span onclick="favoritePost({{ post.id }})" id="{{ post.id }}"
-  class="favorite cursor">
+  class="cursor">
     <i class="fa fa-star post-control-icon"></i><span class="underline">Favorite</span>
   </span>
 % end
