@@ -22,29 +22,28 @@
   % end
 % end
 
-<section id="signup">
-  <h3>Sign up and start posting!</h3>
+<section>
+  <h2 class="content-title">Sign up and start posting!</h2>
 
-  <form action="/signup" method="POST" class="payment-details">
+  <form class="payment-details form signup-form" action="/signup" method="POST">
 
-    <input type="text" name="company[name]" placeholder="Company name" value="{{ this.h(company['name']) }}"><br/>
+    <input class="input signup-input" type="text" name="company[name]" placeholder="Company name" value="{{ this.h(company['name']) }}"><br/>
 
-    <input type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company['email']) }}"><br/>
+    <input class="input signup-input" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company['email']) }}"><br/>
 
-    <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company['url']) }}"><br/>
+    <input class="input signup-input" type="text" name="company[url]" placeholder="URL" value="{{ this.h(company['url']) }}"><br/>
 
-    <input type="password" name="company[password]" placeholder="Password"><br/>
+    <input class="input signup-input" type="password" name="company[password]" placeholder="Password"><br/>
 
-    <input type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
+    <input class="input signup-input" type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
 
     {{ this.partial("accepted_cards") }}
 
     {{ this.partial("new_card") }}
 
-    <p>Chosen plan: <span id="chosen_plan">{{ plan_id }}</span></p>
-    <section id="pricing">
-      {{ this.partial("plans", plan_id: plan_id) }}
-    </section>
+    <p class="signup-text">Selected plan:</p>
+
+    {{ this.partial("plans", plan_id: plan_id) }}
 
     <button type="submit" id="button">Sign up!</button>
   </form>

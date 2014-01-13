@@ -5,61 +5,51 @@
   % posts_found = posts.size
 % end
 
-<section id="search_results">
-  <ul>
+<section class="two-cols">
+  <ul class="list">
     % if posts.nil?
-      <p id="posts_found">Start searching by adding keywords.</p>
+      <p class="item-text posts-found">Start searching by adding keywords.</p>
     % elsif posts.empty?
-      <p id="posts_found">No posts matched your search. Try again!</p>
+      <p class="item-text posts-found">No posts matched your search. Try again!</p>
     % else
-      <p id="posts_found">Posts found: {{ posts_found }}</p>
-    % end
+      <p class="item-text posts-found">Posts found: {{ posts_found }}</p>
 
-    <p id="posts_found"><a href="/search?all=true">All posts</a></p><br/>
-
-    % if !posts.nil? && !posts.empty?
-      % posts.each_with_index do |post, index|
-        <li>
+      % posts.each do |post|
+        <li class="item">
           <article>
-            <header>
-              <h1><strong>{{ this.h(post.title) }}</strong></h1>
-              <h2>{{ this.h(post.company.name) }}</h2>
-              <h2>(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h2>
-              <h2>Tags: {{ post.tags }}</h2>
-              <h2>{{ this.h(post.location) }}</h2>
+            <header class="item-header">
+              <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong></h1>
+              <h3 class="item-subtitle">{{ this.h(post.company.name) }}</h3>
+              <h3 class="item-subtitle">(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h3>
+              <h3 class="item-subtitle">Tags: {{ post.tags }}</h3>
+              <h3 class="item-subtitle">{{ this.h(post.location) }}</h3>
               % if post.remote == "true"
-                <i class="fa fa-globe"></i><h2>Work from anywhere</h2>
+                <i class="item-icon fa fa-globe"></i><h3 class="item-subtitle">Work from anywhere</h3>
               % else
-                <i class="fa fa-map-marker"></i><h2>On-site only</h2>
+                <i class="item-icon fa fa-map-marker"></i><h3 class="item-subtitle">On-site only</h3>
               % end
             </header>
 
-            <p>{{ this.h(post.description) }}</p>
+            <p class="item-text">{{ this.h(post.description) }}</p>
 
             % if !this.current_company
-              <section class="post_control">
-
-                {{ this.partial("favorite", post: post, developer: developer) }}
-
-                {{ this.partial("apply", post: post, developer: developer) }}
-
-                % if this.current_developer
-                  {{ this.partial("developer/add_message", post: post, developer: developer) }}
-                % end
-
-                <span class="message_sent applied" id="sent-ok-{{ post.id }}"></span>
-              </section>
+              {{ this.partial("post_control", post: post, developer: developer) }}
             % end
 
-            <footer>
-              <p>
-                <time datetime="" pubdate>Posted on {{ post.posted }}</time>
+            <footer class="item-footer">
+              <p class="item-text">
+                <small>
+                  <time datetime="" pubdate>Posted on {{ post.posted }}</time>
+                  % if developer.applied?(post.id)
+                    % application = developer.applications.find(:post_id => post.id).first
+
+                    <time class="applied-on" datetime="" pubdate>Applied on {{ application.applied }}</time>
+
+                  % end
+                </small>
               </p>
             </footer>
           </article>
-          % if index != posts.size - 1
-            <hr/>
-          % end
         </li>
       % end
     % end
@@ -69,19 +59,8 @@
     {{ this.partial("login", user: this.current_user, search: true) }}
   % end
 
-  % if user.instance_of?(Developer)
-    <aside>
-      <span id="aside_profile">
-        <a href="/profile">
-          <img src="http://www.gravatar.com/avatar/{{ user.avatar }}" />
-          <span>{{ user.username }}</span></a>
-        <br/><br/>
-        <a href="/logout">Logout</a>
-      </span>
-      <a href="/applications">My applications (<span id="apps-size">{{ user.applications.size }}</span>)</a>
-      <a href="/favorites">My favorites (<span id="favs-size">{{ user.favorites.size }}</span>)</a>
-    </aside>
+  % if user
+    {{ this.partial("aside", user: this.current_user, search: true) }}
   % end
 
 </section>
-<div class="clear"></div>

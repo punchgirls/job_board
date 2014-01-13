@@ -2,21 +2,21 @@
   % tags = ""
 % end
 
-<h1 id="tagline">Get a better job today!</h1>
+<h1 class="tagline">Get a better job today!</h1>
 
 <section id="search_box_home">
   {{ this.partial("search_box", tags: tags) }}
 </section>
 
-<h2>Latest posts</h1>
+<h2 class="content-subtitle">Latest posts</h2>
 
-<ul>
+<ul class="latest-posts">
 % latest_posts.each do |post|
-  <li>
+  <li class="latest-posts-item">
     <a href="search?post_id={{ post.id }}">{{ this.h(post.title) }}</a> @
     <a href="search?company_id={{ post.company.id }}">{{ this.h(post.company.name) }}</a>
   </li>
 % end
 </ul>
 
-<a id="before_footer" href="/search?all=true">All posts</a>
+<a href="/search?all=true">All posts</a>

@@ -1,18 +1,26 @@
-<form name="postFrm" action="/search" method="GET">
-  <div id="tags_wrapper">
-    % if !tags.empty?
-        <input id="tags" type="hidden" value="{{ tags }}">
+% if defined?(search)
+  <form class="header__search-box" name="postFrm" action="/search" method="GET">
+% else
+  <form class="search-box" name="postFrm" action="/search" method="GET">
+% end
+    <div id="tags_wrapper">
+      % if !tags.empty?
+          <input id="tags" type="hidden" value="{{ tags }}">
+      % end
+
+      <ul class="header-menu" id="tokens">
+        <li id="token-input">
+          <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
+        </li>
+      </ul>
+      <ul class="header-menu" id="autocomplete"></ul>
+
+      <input type="hidden" id="query" name="tags" value="">
+    </div>
+
+    % if defined?(search)
+      <button class="header-button-search" type="submit"><i class="fa fa-search"></i></button>
+    % else
+      <button class="button-search" type="submit"><i class="fa fa-search"></i></button>
     % end
-
-    <ul id="tokens">
-      <li id="token-input">
-        <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
-      </li>
-    </ul>
-    <ul id="autocomplete"></ul>
-
-    <input type="hidden" id="query" name="tags" value="">
-  </div>
-
-  <button type="submit"><i class="fa fa-search"></i></button>
-</form>
+  </form>

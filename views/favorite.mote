@@ -1,17 +1,17 @@
 % if developer.nil?
   <span class="favorite cursor">
-    <a href="/favorite/{{ post.id }}">
-      <i class="fa fa-star"></i><span class="underline">Favorite</span>
+    <a class="post-control-link" href="/favorite/{{ post.id }}">
+      <i class="fa fa-star post-control-icon"></i><span class="underline">Favorite</span>
     </a>
   </span>
 % elsif developer && developer.favorites.member?(post)
   <span onclick="favoritePost({{ post.id }})" id="{{ post.id }}"
   class="favorited cursor">
-    <i class="fa fa-star"></i><span class="underline">Favorited</span>
+    <i class="fa fa-star post-control-icon favorited-icon"></i><span class="favorited-text underline">Favorited</span>
   </span>
 % else
   <span onclick="favoritePost({{ post.id }})" id="{{ post.id }}"
   class="favorite cursor">
-    <i class="fa fa-star"></i><span class="underline">Favorite</span>
+    <i class="fa fa-star post-control-icon"></i><span class="underline">Favorite</span>
   </span>
 % end

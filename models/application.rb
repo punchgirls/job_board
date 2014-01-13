@@ -6,7 +6,7 @@ class Application < Ohm::Model
   attribute :note
 
   def applied
-    return Time.at(date.to_i).strftime("%d %B %Y")
+    return Time.at(date.to_i).strftime("%e/%b/%y")
   end
 
   reference :post, :Post

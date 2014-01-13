@@ -1,12 +1,12 @@
-<p>Accepted credit cards:</p>
+<p class="signup-text">Accepted credit cards:</p>
 
-<ul>
-  <li><img src="/img/cards/Visa.png"></li>
-  <li><img src="/img/cards/MasterCard.png"></li>
-  <li><img src="/img/cards/American Express.png"></li>
-  <li><img src="/img/cards/Discover.png"></li>
-  <li><img src="/img/cards/Diners Club.png"></li>
-  <li><img src="/img/cards/JCB.png"></li>
+<ul class="credit-cards">
+  <li class="card-image"><img class="credit-card-image" src="/img/cards/Visa.png"></li>
+  <li class="card-image"><img class="credit-card-image" src="/img/cards/MasterCard.png"></li>
+  <li class="card-image"><img class="credit-card-image" src="/img/cards/American Express.png"></li>
+  <li class="card-image"><img class="credit-card-image" src="/img/cards/Discover.png"></li>
+  <li class="card-image"><img class="credit-card-image" src="/img/cards/Diners Club.png"></li>
+  <li class="card-image"><img class="credit-card-image" src="/img/cards/JCB.png"></li>
 </ul>
 
 

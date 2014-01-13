@@ -1,6 +1,6 @@
 % company = this.current_user
 
-<h3>Account info &nbsp;<a href="/edit"><i class="fa fa-pencil-square-o icon_small cursor"></i></a></h3>
+<h2 class="content-title">Account info &nbsp;<a href="/edit"><i class="fa fa-pencil-square-o icon_small cursor"></i></a></h2>
 
 <p>{{ this.h(company.name) }}</p>
 <p>{{ this.h(company.email) }}</p>
@@ -8,7 +8,7 @@
 
 <hr/>
 
-<h3>Subscription info<a href="/customer/subscription"><i class="fa fa-pencil-square-o icon_small cursor"></i></a></h3>
+<h2 class="content-title">Subscription info<a href="/customer/subscription"><i class="fa fa-pencil-square-o icon_small cursor"></i></a></h2>
 
 <p>Subscription status:
   % if company.active?
@@ -33,7 +33,7 @@
 
 <hr/>
 
-<h3>Payment info &nbsp;<a href="/customer/update"><i class="fa fa-pencil-square-o icon_small cursor"></i></a></h3><br/>
+<h2 class="content-title">Payment info &nbsp;<a href="/customer/update"><i class="fa fa-pencil-square-o icon_small cursor"></i></a></h2><br/>
 
 {{ this.partial("payment_details", card: card) }}
 

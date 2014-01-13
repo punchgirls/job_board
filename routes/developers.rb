@@ -176,6 +176,11 @@ class Developers < Cuba
       on(default) { not_found! }
     end
 
+    on "signup" do
+      session[:error] = "You need to signup as a Company to be able to pubish posts."
+      res.redirect "/pricing"
+    end
+
     on "logout" do
       logout(Developer)
 

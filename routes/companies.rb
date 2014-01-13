@@ -46,8 +46,6 @@ class Companies < Cuba
 
     on "edit" do
       on post, param("company") do |params|
-        company = current_company
-
         params.delete("password") if params["password"].empty?
 
         edit = EditCompanyAccount.new(params)
@@ -85,8 +83,6 @@ class Companies < Cuba
     end
 
     on "customer/update" do
-      company = current_user
-
       on param("origin") do |origin|
         session[:origin] = origin
         res.redirect "/customer/update"
@@ -156,7 +152,7 @@ class Companies < Cuba
     end
 
     on "customer/subscription" do
-      on post, param("plan_id") do |plan_id|
+      on post, param("company") do |plan_id|
         update = Stripe.update_subscription(customer_id, plan_id)
 
         company.update(status: "active", plan_id: plan_id)
@@ -207,8 +203,6 @@ class Companies < Cuba
     end
 
     on "post/new" do
-      company = current_company
-
       on post, param("post") do |params|
         post = PostJobOffer.new(params)
 
@@ -258,6 +252,7 @@ class Companies < Cuba
       on !company.active? do
         session[:error] = "You have canceled your subscription.
         Activate it to make changes."
+
         res.redirect "/customer/subscription"
       end
 
@@ -360,8 +355,6 @@ class Companies < Cuba
         mail = Contact.new(params)
 
         if mail.valid?
-          company = current_company
-
           text = Mailer.render("application_contact",
             { company: company, params: params })
 
@@ -400,6 +393,11 @@ class Companies < Cuba
       on(default) { not_found! }
     end
 
+    on "signup" do
+      session[:error] = "If you need to change your plan go to your profile page > Subscription info"
+      res.redirect "/pricing"
+    end
+
     on "logout" do
       logout(Company)
       session[:success] = "You have successfully logged out!"
@@ -431,8 +429,6 @@ class Companies < Cuba
     end
 
     on "delete" do
-      company = current_user
-
       company.update(status: "suspended")
 
       logout(Company)

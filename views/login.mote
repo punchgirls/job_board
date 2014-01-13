@@ -1,28 +1,28 @@
 % if defined?(search)
-  <section id="login_search">
+  <section class="login-search">
 % else
-  <section id="login">
+  <section>
 % end
-    <a href="/github_oauth"><i class="fa fa-github"></i></a> <a href="/github_oauth">Developer Login</a>
+    <a class="login-search-link" href="/github_oauth"><i class="fa fa-github"></i></a> <a class="login-search-link" href="/github_oauth">Developer Login</a>
 
-    <h3>Company Login</h3>
+    <h2 class="content-title company-login">Company Login</h2>
 
-    <form action="/login" method="POST">
-      <input type="email" name="company[email]"
+    <form class="form login-form" action="/login" method="POST">
+      <input class="input login-input" type="email" name="company[email]"
       placeholder="E-mail" value="{{ this.h(user) }}"><br/>
 
-      <input type="password" name="company[password]"
+      <input class="input login-input" type="password" name="company[password]"
       placeholder="Password"><br/>
 
-      <label>
-        <input type="checkbox" name="company[remember]" value="1"> <span>Remember me</span>
+      <label class="login-label">
+        <input class="login-checkbox" type="checkbox" name="company[remember]" value="1"> <span>Remember me</span>
       </label>
 
-      <a id="forgot_password" href="/forgot-password">Forgot password?</a>
+      <a class="forgot-password" href="/forgot-password">Forgot password?</a>
       <br/>
 
-      <button type="submit">login</button>
+      <button class="float-right" type="submit">login</button>
     </form><br/>
 
-    <a id="before_footer" href="/signup">Need an account? Sign up here!</a>
+    <a href="/signup">Need an account? Sign up here!</a>
   </section>

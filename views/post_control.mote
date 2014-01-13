@@ -1,0 +1,12 @@
+<section class="post-control">
+
+  {{ this.partial("favorite", post: post, developer: developer) }}
+
+  {{ this.partial("apply", post: post, developer: developer) }}
+
+  % if this.current_developer
+    {{ this.partial("developer/add_message", post: post, developer: developer) }}
+  % end
+
+  <span class="message-sent applied" id="sent-ok-{{ post.id }}"></span>
+</section>

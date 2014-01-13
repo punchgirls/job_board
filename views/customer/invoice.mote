@@ -1,7 +1,7 @@
 % date = Time.at(invoice.date)
 % lines = invoice.lines.data
 
-<h1>Invoice details</h1>
+<h2 class="content-title">Invoice details</h2>
 
 <table border="1">
   <tr>
@@ -18,7 +18,7 @@
   </tr>
  </table>
 
- <h2>Specification</h2>
+ <h2 class="content-title">Specification</h2>
 
 <table border="1">
   % lines.each do |line|

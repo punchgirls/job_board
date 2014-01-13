@@ -15,18 +15,18 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
   <body>
-    <div id="wrapper">
-      <header>
-        <h1><a href="/">job board<span></span></a></h1>
-        <input type="checkbox" id="toggle">
-        <label for="toggle"></label>
-        % if defined?(search) && !user.instance_of?(Company)
-          <nav>
+    <div class="wrapper">
+      <header class="header">
+        <h1 class="header-title"><a class="header-link" href="/">job board<span></span></a></h1>
+        <input class="header-menu-checkbox" type="checkbox" id="toggle">
+        <label class="header-label" for="toggle"></label>
+        % if defined?(search)
+          <nav class="header-nav">
             {{ this.partial("header_menu", user: this.current_user, search: true) }}
           </nav>
-          {{ this.partial("search_box", tags: tags) }}
+          {{ this.partial("search_box", tags: tags, search: true) }}
         % else
-          <nav>
+          <nav class="header-nav">
             {{ this.partial("header_menu", user: this.current_user) }}
           </nav>
         % end
@@ -36,28 +36,33 @@
         {{ this.partial("notices", session: this.session) }}
       </span>
 
-      <section id="content">
-        {{ content }}
-      </section>
+      % if defined?(search)
+        <section class="content-search">
+      % else
+        <section class="content">
+      % end
+          {{ content }}
 
-      <footer>
+          <span class="before-footer"></span>
+        </section>
+
+
+      <footer class="footer">
         <nav>
-          <ul>
-            <li>&copy; 2013 <a href="http://www.punchgirls.com">Punchgirls</a></li>
-            <li><a href="/contact">Contact</a></li>
-            % if user && !user.instance_of?(Developer)
-              <li><a href="/how">How it works</a></li>
-              <li><a href="/pricing">Pricing</a></li>
-            % end
-            % if defined?(search)
-              <section id="footer_extra_menu">
-                <li><a href="/how">How it works</a></li>
-                <li><a href="/pricing">Pricing</a></li>
+          <ul class="footer-menu">
+            <li class="footer-menu-item">&copy; 2013 <a class="footer-menu-link" href="http://www.punchgirls.com">Punchgirls</a></li>
+            <li class="footer-menu-item"><a class="footer-menu-link" href="/contact">Contact</a></li>
+
+            % if user && defined?(search)
+              <section class="footer-extra-menu">
+                <li class="footer-menu-item"><a class="footer-menu-link" href="/how">How it works</a></li>
+                <li class="footer-menu-item"><a class="footer-menu-link" href="/pricing">Pricing</a></li>
               </section>
             % end
-            <li><a href="/faq">FAQ</a></li>
-            <li><a href="/terms">Terms</a></li>
-            <li><a href="/privacy">Privacy Policy</a></li>
+
+            <li class="footer-menu-item"><a class="footer-menu-link" href="/faq">FAQ</a></li>
+            <li class="footer-menu-item"><a class="footer-menu-link" href="/terms">Terms</a></li>
+            <li class="footer-menu-item"><a class="footer-menu-link" href="/privacy">Privacy Policy</a></li>
           </ul>
         </nav>
       </footer>
@@ -94,6 +99,5 @@
     </script>
     <script src="/js/stripe.js"></script>
     <script src="/js/cancel_account.js"></script>
-    <script src="/js/chosen_plan.js"></script>
   </body>
 </html>

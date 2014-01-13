@@ -1,64 +1,51 @@
 % developer = this.current_developer
 % favorites = developer.favorites
-<span>
-  <h1>My favorites (<span id="favs-size-title">{{ favorites.size }}</span>)</h1>
+<section class="two-cols">
+  <ul class="list">
+    <h2 class="list-title">My favorites (<span id="favs-size">{{ favorites.size }}</span>)</h2><br/>
 
-  % if favorites.empty?
-    <p>You have no favorite posts yet.</p>
-  % else
-    <ul>
+    % if favorites.empty?
+      <p class="item-text posts-found">You have no favorite posts yet.</p>
+    % else
       % favorites.each do |post|
-        <li>
-          % if post != favorites.first
-            <hr/>
-          % end
-
+        <li class="item">
           <article>
-            <header>
-              <h1>{{ this.h(post.company.name) }}</h1>
-              (<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)
-              <h2>{{ this.h(post.title) }}</h2>
-              <p>{{ post.tags }}</p>
+            <header class="item-header">
+              <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong></h1>
+              <h3 class="item-subtitle">{{ this.h(post.company.name) }}</h3>
+              <h3 class="item-subtitle">(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h3>
+              <h3 class="item-subtitle">Tags: {{ post.tags }}</h3>
+              <h3 class="item-subtitle">{{ this.h(post.location) }}</h3>
+              % if post.remote == "true"
+                <i class="item-icon fa fa-globe"></i><h3 class="item-subtitle">Work from anywhere</h3>
+              % else
+                <i class="item-icon fa fa-map-marker"></i><h3 class="item-subtitle">On-site only</h3>
+              % end
             </header>
 
-            <section>
-              <section>
-                <ul>
-                  <li>{{ this.h(post.location) }}</li>
-                  <li>
-                    % if post.remote == "true"
-                      <i class="fa fa-globe"></i> Work from anywhere
-                    % else
-                      <i class="fa fa-map-marker"></i> On-site only
-                    % end
-                  </li>
-                </ul>
-              </section>
+            <p class="item-text">{{ this.h(post.description) }}</p>
 
-              <p>{{ this.h(post.description) }}</p>
+            {{ this.partial("post_control", post: post, developer: developer) }}
 
-              <section>
-                {{ this.partial("apply", post: post, developer: developer) }}
+            <footer class="item-footer">
+              <p class="item-text">
+                <small>
+                  <time datetime="" pubdate>Posted on {{ post.posted }}</time>
+                  % if developer.applied?(post.id)
+                    % application = developer.applications.find(:post_id => post.id).first
 
-                {{ this.partial("favorite", post: post, developer: developer) }}<br>
+                    <time class="applied-on" datetime="" pubdate>Applied on {{ application.applied }}</time>
 
-                {{ this.partial("developer/add_message", post: post, developer: developer) }}
-
-                <span id="sent-ok-{{ post.id }}"></span>
-              </section>
-            </section>
-
-            <footer>
-              <ul>
-                <li>
-                  <time datetime="" pubdate>Posted on {{ post.posted }}
-                  </time>
-                </li>
-              </ul>
+                  % end
+                </small>
+              </p>
             </footer>
           </article>
         </li>
       % end
-    </ul>
-  % end
-</span>
+    % end
+  </ul>
+
+  {{ this.partial("aside", user: this.current_user, search: true) }}
+
+</section>

@@ -10,49 +10,6 @@ body {
   color: #111;
 }
 
-#wrapper {
-  min-height: 100%;
-  position: relative;
-}
-
-header {
-  text-align: center;
-  min-height: 57px;
-  line-height: 57px;
-  background-color: #fafafa;
-}
-
-header a {
-  text-decoration: none;
-}
-
-header h1 {
-  display: inline;
-  padding: 0;
-  font-size: 1.2em;
-}
-
-header ul {
-  font-size: 0.8em;
-  margin: 0;
-}
-
-header ul, footer ul {
-  padding: 0;
-  list-style: none;
-}
-
-header form {
-  background-color: white;
-  display: block;
-  margin: 0;
-  padding: 10px 0 0 0;
-}
-
-#content {
-  padding: 0 0 100px 0.5em;
-}
-
 a:link {
   color: #4d4d4d;
 }
@@ -67,75 +24,146 @@ a:hover, a:active {
   text-decoration: none;
 }
 
-section, footer {
+button {
+  display: block;
+  margin: 15px auto;
+  background-color: #FFCC00;
+  cursor: hand;
+  cursor: pointer;
+  vertical-align: top;
+  font-size: 1.4em;
+  font-family: "Droid Sans Mono", sans-serif;
+  font-weight: bold;
+  text-transform: capitalize;
+  border: 1px solid #FFCC00;
+  padding: 0.5em 1em;
+}
+
+.alert {
+  display: block;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+.button-search, .header-button-search {
+  height: 42px;
+  display: inline-block;
+  margin: 0 0 0 0.5em;
+  font-size: 0.6em;
+}
+
+.header-button-search {
+  margin-top: 7px;
+}
+
+i {
+  font-size: 2em;
+  vertical-align: middle;
+}
+
+textarea {
+  border-top: solid 2px #888888;
+  border-left: solid 2px #888888;
+  border-right: solid 2px #eee;
+  border-bottom: solid 2px #eee;
+}
+
+.wrapper {
+  min-height: 100%;
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  min-height: 57px;
+  line-height: 57px;
+  background-color: #fafafa;
+}
+
+.header-title {
+  display: inline;
+  padding: 0;
+  font-size: 1.2em;
+}
+
+.header-link {
+  text-decoration: none;
+}
+
+.header-menu {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.header-menu, .footer-menu {
+  padding: 0;
+  list-style: none;
+}
+
+.header__search-box {
+  background-color: white;
+  display: block;
+  margin: 0;
+  padding: 10px 0 0 0;
+}
+
+.content, .content-search, .footer {
   max-width: 960px;
   margin: 0 auto;
   text-align: center;
 }
 
-button {
-  margin-left: 0.5em;
-  height: 42px;
-  padding: 0 1em;
-  outline: none;
-  border: 1px solid #FFCC00;
-  background-color: #FFCC00;
-  font-size: 0.6em;
-  cursor: hand;
-  cursor: pointer;
+.content, .content-search {
+  margin-top: 40px;
+  padding-bottom: 100px;
 }
 
-i {
-  font-size: 2em;
+.content-search {
+  margin-top: 20px;
 }
 
-section h2 {
-  font-size: 1.2em;
-  margin-top: 30px;
-}
-
-section h3 {
+.content-title {
   font-size: 1em;
   margin-top: 30px;
 }
 
-section ul {
+.content-subtitle {
+  font-size: 1.1em;
+  margin-top: 30px;
+}
+
+.tagline {
+  margin: 50px 0 40px 0;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.latest-posts {
   padding: 0;
   list-style: none;
   font-size: 0.8em;
 }
 
-section li {
-  line-height: 1.6em;
+.latest-posts-item {
+  line-height: 1.8em;
 }
 
-section p {
-  max-width: 550px;
-  margin: 0 auto 20px;
-  padding: 0 20px;
-  font-size: 0.8em;
-  text-align: left;
-}
-
-#tagline {
-  margin: 50px 0 20px 0;
-  font-size: 1.2em;
-  text-align: center;
-}
-
-li#avatar_list_item {
+.avatar-list-item {
   margin: 0;
   line-height: 36px;
 }
 
-li#avatar_list_item a img {
+.avatar-list-image {
   height: 36px;
   vertical-align: top;
-}
-
-#before_footer {
-  margin-bottom: 50px;
-  display: block;
 }
 
 .cursor {
@@ -143,441 +171,25 @@ li#avatar_list_item a img {
   cursor: hand;
 }
 
-.clear {
-  clear: both;
+.underline {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
-/* Login, Contact, Confirm and Signup pages */
-
-#login, #contact, #confirm, #signup {
-  margin-top: 40px;
+.underline:hover {
+  text-decoration: none;
+  color: #4d4d4d;
 }
 
-#login_search {
-  display: none;
-}
-
-#login i {
-  vertical-align: middle;
-}
-
-#login form, #contact form, #confirm form, #signup form {
-  max-width: 22.40em;
-  margin: 0 0 40px 0;
-  display: inline-block;
-  font-size: 0.7em;
-}
-
-#login input, #contact input, #contact textarea,
-#confirm input, #confirm textarea, #signup input {
-  width: 15em;
-  max-width: 15em;
-  padding: 0.3em;
-  margin-bottom: 6px;
-  font-size: 1.4em;
-  font-family: "Droid Sans Mono", sans-serif;
-  color: #111;
-}
-
-#contact textarea, #confirm textarea {
-  min-height: 180px;
-  border-top: solid 2px #9e9e9e;
-  border-left: solid 2px #9e9e9e;
-  border-right: solid 2px #eee;
-  border-bottom: solid 2px #eee;
-}
-
-#login label {
-  margin: 0 25px 15px 0;
-  display: inline-block;
-  float: left;
-}
-
-#login a#forgot_password {
-  float: right;
-}
-
-#login label input {
-  width: auto;
-  margin: 0;
-  padding: 0;
-  vertical-align: bottom;
-}
-
-#login button, #contact button, #confirm button, #signup button {
-  display: block;
-  margin: 15px auto;
-  font-size: 1.3em;
-  font-family: "Droid Sans Mono", sans-serif;
-  font-weight: bold;
-  text-transform: capitalize;
-}
-
-#confirm img {
-  display: block;
-  vertical-align: top;
-  margin: 0 auto 10px;
-}
-
-#signup li {
-  display: inline;
-}
-
-#signup p {
-  font-size: 1.3em;
-  text-align: left;
-  padding: 0;
-  margin: 0;
-}
-
-#signup p span {
-  text-transform: capitalize;
-}
-
-#signup #digits {
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-#signup ul {
-  margin: 15px 0;
-}
-
-#signup img {
-  width: 36px;
-}
-
-#signup input#cvc {
-  width: 40px;
-  float: left;
-}
-
-#signup input.short_input {
-  width: 30px;
-  float: left;
-}
-
-#signup .expires_on {
-  display: inline;
-  margin: 0 8px;
-  float: left;
-  font-size: 1em;
-  line-height: 40px;
-}
-
-#signup #pricing {
-  margin-top: 20px;
-  display: inline-block;
-}
-
-#signup #pricing label {
-  margin: 0 0 3px 0;
-  padding: 7px 0;
-}
-
-#signup #pricing span {
-  font-size: 1em;
-  margin: 0;
-  padding: 10px 0 10px 0 ;
-}
-
-#signup #pricing span.plan_title {
-  padding-left: 10px;
-}
-
-#signup #pricing span.posts {
-  margin-left: 10px;
-}
-
-#signup #pricing span.price {
-  margin: 0;
-  padding-right: 10px;
-}
-
-#signup #pricing input[type=radio] + label {
-  font-size: 1.4em;
-}
-
-/* Pricing page*/
-
-#pricing form {
-  width: 17.30em;
-  display: inline-block;
+.before-footer {
   margin-bottom: 50px;
-}
-
-#pricing label {
-  width: 16em;
-  margin: 0 0 4px 0;
-  padding: 0 10px;
   display: block;
-}
-
-#pricing span {
-  display: inline-block;
-  margin: 10px 0 0 20px;
-  padding: 10px 0;
-  text-transform: capitalize;
-  font-size: 1em;
-  float: left;
-}
-
-#pricing span.plan_title {
-  display: inline-block;
-  margin: 10px 0;
-  text-transform: uppercase;
-  font-size: 1em;
-}
-
-#pricing span.price {
-  float: right;
-}
-
-#pricing input[type=radio] {
-  display: none;
-}
-
-#pricing input[type=radio] + label {
-  background-color: #F1F1F1;
-  display: inline-block;
-  cursor: pointer;
-  color: #111;
-}
-
-#pricing input[type=radio]:checked + label, #pricing input[type=radio]:hover + label:hover {
-  background-color: #C3F1FF;
-}
-
-#pricing small {
-  font-size: 0.6em;
-  text-transform: lowercase;
-}
-
-#pricing button {
-  font-size: 1em;
-  margin: 10px 0 0 0;
-  font-family: "Droid Sans Mono", sans-serif;
-  font-weight: bold;
-  text-transform: capitalize;
-}
-
-/* Search results page */
-
-#search_results {
-  width: 100%;
-  display: inline-block;
-}
-
-#search_results ul {
-  margin: 30px auto 50px;
-  width: 22em;
-}
-
-#search_results header, #search_results section ul {
-  background-color: #fff;
-  text-align: left;
-  line-height: 1em;
-  margin: 0;
-  padding: 0;
-}
-
-#search_results h1, #search_results h2, #search_results p {
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
-}
-
-#search_results h1 {
-  display: inline-block;
-  margin-bottom: 10px;
-  font-size: 1.2em;
-  line-height: 1.2em;
-}
-
-#search_results h2 {
-  font-size: 1em;
-  line-height: 1.9em;
-}
-
-#search_results h2 a, #search_results h2 a:visited {
-  text-decoration: underline;
-}
-
-#search_results h2 a:hover, #search_results h2 a:active {
-  text-decoration: none;
-}
-
-#search_results i {
-  float: left;
-  margin-right: 10px;
-}
-
-#search_results p {
-  margin-top: 10px;
-  font-size: 0.9em;
   clear: both;
-  line-height: 1.7em;
-}
-
-#search_results #posts_found {
-  margin: 15px 0;
-  font-size: 1.1em;
-}
-
-#search_results section.post_control {
-  margin: 20px 0;
-  text-align: right;
-}
-
-#search_results section.post_control a {
-  text-decoration: none;
-  color: #111;
-  margin: 0;
-}
-
-#search_results section.post_control i {
-  float: none;
-  margin: 0 7px 0 20px;
-  vertical-align: middle;
-  color: #ccc;
-}
-
-#search_results span.underline {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-#search_results span.underline:hover {
-  text-decoration: none;
-  color: #4d4d4d;
-}
-
-#search_results span.applied {
-  cursor: inherit;
-}
-
-#search_results span.applied i {
-  color: green;
-}
-
-#search_results span.applied span {
-  color: #4d4d4d;
-  font-style: italic;
-}
-
-#search_results span.favorited {
-  cursor: inherit;
-}
-
-#search_results span.favorited i {
-  color: #FFCC00;
-}
-
-#search_results span.favorited span {
-  color: #4d4d4d;
-  font-style: italic;
-}
-
-#search_results span.send_message {
-  display: block;
-  margin: 10px 0 0 0;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-#search_results span.send_message:hover {
-  text-decoration: none;
-  color: #4d4d4d;
-}
-
-#search_results form.send_message_form {
-  width: 22em;
-  margin: 10px auto 0;
-  font-size: 0.7em;
-  font-size: 1em;
-}
-
-#search_results form.send_message_form textarea {
-  width: 20.40em;
-  display: block;
-  margin: 0 auto;
-  padding: 0.5em;
-  font-family: "Droid Sans Mono", sans-serif;
-  font-size: 1em;
-  line-height: 1.4em;
-  min-height: 140px;
-  border-top: solid 2px #9e9e9e;
-  border-left: solid 2px #9e9e9e;
-  border-right: solid 2px #eee;
-  border-bottom: solid 2px #eee;
-}
-
-#search_results span.countdown {
-  display: block;
-  margin: 5px auto 0;
-  font-size: 0.9em;
-  text-align: center;
-}
-
-#search_results span.buttons {
-  width: 12em;
-  display: block;
-  margin: 15px auto 0;
-}
-
-#search_results section.post_control a.cancel {
-  margin-right: 15px;
-  text-decoration: underline;
-  text-transform: capitalize;
-}
-
-#search_results form.send_message_form button {
-  font-size: 1em;
-  font-family: "Droid Sans Mono", sans-serif;
-  font-weight: bold;
-  text-transform: capitalize;
-  float: none;
-}
-
-#search_results section.post_control span.message_sent {
-  display: block;
-  margin: 10px 0;
-  line-height: 1.3em;
-}
-
-#search_results section.post_control span.message_sent i {
-  font-size: 1.3em;
-  vertical-align: top;
-}
-
-#search_results section.post_control form {
-  display: none;
-}
-
-#search_results footer {
-  clear: both;
-  height: 15px;
-  margin-bottom: 15px;
-  position: relative;
-  text-align: left;
-  line-height: 15px;
-}
-
-#search_results footer p {
-  display: block;
-}
-
-#search_results hr {
-  margin: 20px 0;
-}
-
-aside {
-  display: none;
 }
 
 /* Footer*/
 
-footer {
+.footer {
   position: absolute;
   bottom:0;
   left:0;
@@ -586,18 +198,394 @@ footer {
   font-size: 0.8em;
 }
 
-footer li {
+.footer-menu-item {
   display: inline-block;
   line-height: 25px;
   margin: 0 15px;
 }
 
-footer li a {
+.footer-menu-link {
   display: inline-block;
 }
 
-footer #footer_extra_menu {
+.footer-extra-menu {
   display: inline-block;
+}
+
+/* Login, Contact, Confirm and Signup pages */
+
+.form {
+  max-width: 23.40em;
+  margin: 0;
+  display: inline-block;
+  font-size: 0.7em;
+}
+
+.login-form {
+  width: 25.5em;
+  max-width: 25.5em;
+  margin: 0 0 20px 0;
+}
+
+.confirm-form {
+  width: 27.4em;
+  max-width: 27.4em;
+  font-size: 0.6em;
+}
+
+.input, .textarea {
+  width: 16em;
+  max-width: 16em;
+  padding: 0.3em;
+  margin-bottom: 6px;
+  font-size: 1.4em;
+  font-family: "Droid Sans Mono", sans-serif;
+  color: #111;
+}
+
+.textarea {
+  min-height: 180px;
+}
+
+.login-input {
+  width: 17.5em;
+  max-width: 17.5em;
+}
+
+.confirm-input, .confirm-textarea {
+  width: 18.5em;
+  max-width: 18.5em;
+  padding: 0.5em;
+}
+
+.countdown {
+  font-size: 1.1em;
+}
+
+.login-label {
+  margin: 0 25px 15px 0;
+  display: inline-block;
+  float: left;
+}
+
+.forgot-password {
+  float: right;
+}
+
+.login-checkbox {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom;
+}
+
+.confirm-image {
+  display: block;
+  vertical-align: top;
+  margin: 0 auto 10px;
+}
+
+.confirm-button {
+  font-size: 1.7em;
+}
+
+.card-image {
+  display: inline;
+}
+
+.signup-text {
+  font-size: 1.3em;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+}
+
+.signup-plans {
+  width: 100%;
+  min-height: 30px;
+  margin: 15px 0;
+  padding-left: 5px;
+}
+
+.credit-card {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.credit-cards {
+  padding: 0;
+  margin: 15px 0;
+}
+
+.credit-card-image {
+  width: 37px;
+}
+
+.cvc {
+  margin-right: 16px;
+  width: 39px;
+  float: left;
+}
+
+.short-input {
+  width: 30px;
+  float: left;
+}
+
+.expires_on {
+  display: inline;
+  margin: 0 8px;
+  float: left;
+  font-size: 1em;
+  line-height: 40px;
+}
+
+.login-search, .aside-search {
+  display: none;
+}
+
+/* Pricing page*/
+
+.pricing-text {
+  max-width: 550px;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+  font-size: 0.8em;
+  text-align: left;
+}
+
+.plans {
+  width: 16.5em;
+  margin: 0 auto;
+  display: inline-block;
+}
+
+.plan {
+  margin: 0 0 10px 0;
+  padding: 10px;
+  display: block;
+  text-align: left;
+  background-color: #F1F1F1;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.plan:hover {
+  background-color: #C3F1FF;
+  color: #111;
+}
+
+.plan-price {
+  float: right;
+}
+
+/* Search results and My applications pages */
+
+.list {
+  margin: 0 auto;
+  padding: 0;
+  width: 21em;
+  list-style: none;
+  font-size: 0.8em;
+}
+
+.list-title {
+  font-size: 1.3em;
+}
+
+.item {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+}
+
+.item:last-child {
+  border: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.item-header {
+  background-color: #fff;
+  text-align: left;
+  line-height: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.item-title, .item-subtitle, .item-text {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+.item-title {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+  line-height: 1.2em;
+}
+
+.item-subtitle {
+  font-size: 1em;
+  line-height: 1.9em;
+  text-align: left;
+}
+
+.item-icon {
+  float: left;
+  margin-right: 10px;
+}
+
+.item-text {
+  max-width: 550px;
+  margin: 0 auto 20px;
+  padding: 0;
+  text-align: left;
+  margin-top: 10px;
+  font-size: 0.9em;
+  clear: both;
+  line-height: 1.7em;
+}
+
+.posts-found {
+  margin: 0 0 20px 0;
+  font-size: 1.1em;
+}
+
+.post-control {
+  margin: 20px 0;
+  text-align: right;
+}
+
+.post-control-link {
+  text-decoration: none;
+  color: #111;
+  margin: 0;
+}
+
+.post-control-icon {
+  float: none;
+  margin: 0 7px 0 20px;
+  vertical-align: middle;
+  color: #ccc;
+}
+
+.applied {
+  cursor: inherit;
+}
+
+.applied-icon {
+  color: green;
+}
+
+.applied-text {
+  color: #4d4d4d;
+  font-style: italic;
+}
+
+.applied-on {
+  float: right;
+}
+
+.favorited {
+  cursor: pointer;
+}
+
+.favorited-icon {
+  color: #FFCC00;
+}
+
+.favorited-text {
+  color: #4d4d4d;
+  font-style: italic;
+}
+
+.delete-icon {
+  color: #111;
+}
+
+.send-message-link {
+  display: block;
+  margin: 10px 0 0 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.send-message-link:hover {
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+.send-message-form {
+  width: 21em;
+  margin: 10px auto 0;
+  font-size: 0.7em;
+  font-size: 1em;
+  display: none;
+}
+
+.send-message-textarea {
+  width: 20em;
+  max-width: 20em;
+  font-size: 1em;
+  min-height: 140px;
+}
+
+.send-message-countdown {
+  display: block;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.send-message-buttons {
+  width: 100%;
+  display: block;
+  margin: 15px auto 25px;
+  line-height: 25px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.profile-buttons {
+  font-size: 1.6em;
+}
+
+.cancel {
+  margin-right: 15px;
+  text-decoration: underline;
+  text-transform: capitalize;
+}
+
+.send-message-button, .save-note-button {
+  font-size: 1em;
+  display: inline-block;
+}
+
+.send-message-button {
+  margin: 0;
+}
+
+.save-note-button {
+  display: inline-block;
+  margin: 0;
+}
+
+.message-sent {
+  display: block;
+  margin: 10px 0;
+  line-height: 1.3em;
+  text-align: right;
+}
+
+.message-sent-icon {
+  font-size: 1.3em;
+  vertical-align: top;
+  color: green;
+}
+
+.item-footer {
+  margin-top: 15px;
 }
 
 /* Toogle menu */
@@ -606,11 +594,15 @@ footer #footer_extra_menu {
   display: none;
 }
 
-header nav {
+.header-nav {
   display: none;
 }
 
-header label:before {
+.header-nav-link {
+  display: block;
+}
+
+.header-label:before {
   float: right;
   margin-right: 20px;
   content: "\f0d7";
@@ -619,7 +611,7 @@ header label:before {
   vertical-align: middle;
 }
 
- header li {
+ .header-menu-item {
   padding: 0 20px;
   border-top: 1px dotted #ccc;
   cursor: pointer;
@@ -628,21 +620,17 @@ header label:before {
   line-height: 35px;
 }
 
-nav a {
-  display: block;
-}
-
-header li:hover, header li:active {
+.header-menu-item:hover, .header-menu-item:active {
   background: #eee;
 }
 
-input:checked + label {
+.header-menu-checkbox:checked + label {
   color: #8c9198;
   cursor: pointer;
   cursor: hand;
 }
 
-input:checked ~ nav {
+.header-menu-checkbox:checked ~ .header-nav {
   display: block;
  }
 
@@ -676,8 +664,12 @@ input:checked ~ nav {
   border: none;
 }
 
-header #autocomplete li {
+.header #autocomplete li {
   padding: 0 0 0 5px;
+}
+
+.header__search-box li {
+  line-height: 30px;
 }
 
 #autocomplete li:hover,
@@ -694,7 +686,7 @@ header #autocomplete li {
 }
 
 #tokens {
-  margin: 10px 0 0 0;
+  margin: 0;
   padding: 0.3em 0.5em;
   width: 12.40em;
   line-height: 28px;
@@ -709,7 +701,7 @@ header #autocomplete li {
   cursor: text;
 }
 
-header #tokens {
+.header #tokens {
   padding: 0.1em 0.5em;
 }
 
@@ -745,7 +737,7 @@ header #tokens {
   font-size: 0.9em;
   line-height: 1.5em;
   font-family: "Droid Sans Mono", sans-serif;
-} *//* ie*/
+} /* ie*/
 
 input:-moz-placeholder {
   font-size: 0.9em;
@@ -760,7 +752,7 @@ input:-moz-placeholder {
   margin: 0;
 }
 
-header #tokens li {
+.header #tokens li {
   background-color: #fff;
   padding: 0;
   margin: 0;
@@ -772,7 +764,29 @@ header #tokens li {
   margin: 0;
 }
 
+.header__search-box #token-input {
+  line-height: 35px;
+}
+
 @media only screen and (min-width: 480px)  {
+  .float-right {
+    float: right;
+  }
+
+  .latest-posts {
+    font-size: 0.9em;
+  }
+
+  button {
+    display: inline-block;
+  }
+
+  .delete {
+    display: block;
+    text-align: left;
+    font-size: 1.5em;
+  }
+
   #tokens {
     width: 22.35em;
     display: inline-block;
@@ -780,140 +794,138 @@ header #tokens li {
 
   #autocomplete {
     width: 22.82em;
+    margin-top: -1px;
   }
 
-  header #autocomplete {
+  .header #autocomplete {
     margin: -10px 0 0 0;
   }
 
-  header #autocomplete li {
+  .header #autocomplete li {
     padding: 0 0 0 5px;
     margin: 0;
   }
 
-  #login h3 {
-    margin-top: 50px;
-  }
-
-  #login form, #contact form, #confirm form {
+  .login-form, .contact-form, .confirm-form {
     max-width: 35em;
   }
 
-  #signup form {
+  .company-login {
+    margin-top: 50px;
+  }
+
+  .signup-form {
     max-width: 29.40em;
   }
 
-  #login input, #contact input, #contact textarea, #confirm input, #confirm textarea {
+  .contact-form input, .contact-textarea {
     width: 17em;
     max-width: 17em;
   }
 
-  #signup input {
-    width: 20em;
-    max-width: 23em;
+  .confirm-input, .confirm-textarea {
+    margin: 0 0 8px 0;
+    width: 18.5em;
+    max-width: 18.5em;
   }
 
-  #signup img {
-    width: 49px;
-  }
-
-  #signup #pricing label {
-    width: 18em;
-    margin: 0 0 6px 0;
-    padding: 20px 5px;
-  }
-
-  #signup #pricing input[type=radio] + label {
-    font-size: 2em;
-  }
-
-  #signup #pricing span {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-  }
-
-  #signup #pricing input[type=radio] + label {
+  .confirm-button {
     font-size: 1.6em;
   }
 
-  #signup #pricing span.plan_title {
-    float: left;
+  .signup-input {
+    width: 20em;
+    max-width: 20em;
   }
 
-  #signup #pricing span.price {
-    float: right;
-    margin-right: 10px;
+  .cvc {
+    width: 39px;
+    margin-right: 78px;
   }
 
-  #login button, #contact button, #confirm button {
-    float: right;
+  .credit-card-image {
+    width: 49px;
   }
 
-  #confirm img {
+  .confirm-image {
     display: inline;
     margin: 0;
     vertical-align: top;
   }
 
-  #pricing form {
-    width: auto;
-    margin-top: 20px;
+  .plans {
+    width: 26.5em;
+    text-align: center;
   }
 
-  #pricing label {
-    width: 8.50em;
-    padding: 20px 0;
+  .plan {
+    width: 7.1em;
     display: inline-block;
+    float: left;
+    margin: 0 10px 0 0;
+    text-align: center;
   }
 
-  #pricing span, #pricing span.price {
+  .plan:last-child {
+    margin: 0;
+  }
+
+  .plan-title, .plan-posts, .plan-price {
     display: block;
     float: none;
-    padding: 5px 0;
+    margin: 15px 0;
   }
 
-  #pricing span.price, #pricing span.posts {
-    margin: 0 0 10px 0;
+  .list {
+    margin: 20px auto 0;
+    width: 33em;
   }
 
-  #search_results ul {
-    margin: 20px auto 50px;
-    width: 34em;
+  .send-message-form {
+    width: 33em;
   }
 
-  #search_results form.send_message_form {
-    width: 30em;
+  .send-message-textarea {
+    width: 32.4em;
+    max-width: 32.4em;
+    min-height: 105px;
   }
 
-  #search_results form.send_message_form textarea {
-    width: 28.4em;
-  }
-
-  #search_results span.buttons {
+  .send-message-buttons {
     display: inline-block;
+    text-align: right;
   }
 
-  #search_results hr {
-    margin: 30px 0;
+  .send-message-button {
+    margin: 0;
+    display: inline;
   }
 }
 
 @media only screen and (min-width: 768px)  {
 
- header {
+  .header {
     text-align: center;
   }
 
-  header label {
+  .header-label {
     display: none;
   }
 
-  header h1, header nav, header ul, header li {
+  .header-title, .header-nav, .header-menu, .header-menu-item {
     display:  inline;
   }
 
-  header form {
+  .header-menu {
+    line-height: 57px;
+  }
+
+  .header-menu-item {
+    border: none;
+    margin-left: 1.5em;
+  }
+
+  .header__search-box, .search-box {
     display: inline;
     height: 57px;
     margin: 0 0 0 30px;
@@ -921,39 +933,42 @@ header #tokens li {
     background-color: #fafafa;
   }
 
+  .search-box {
+    background-color: #fff;
+  }
+
   #search {
     display: none;
   }
 
-  header li {
-    border: none;
-    margin-left: 1.5em;
-  }
-
-  header a {
+  .header-link {
     display: inline;
   }
 
-  header li:hover, header li:active {
+  .header-menu-item:hover, .header-menu-item:active {
     background: none;
   }
 
-  li#avatar_list_item a img {
-    margin-top: -3px;
+  .avatar-list-image {
+    margin-top: -5px;
     height: 36px;
     vertical-align: middle;
   }
 
-  #content {
-    padding: 0 0 50px 0.5em;
+  .content {
+    padding: 0 0 50px 0;
   }
 
-  #tagline {
-    margin-top: 100px;
+  .content-search {
+    margin-top: 40px;
+  }
+
+  .tagline {
+    margin-top: 80px;
     font-size: 1.5em;
   }
 
-  section ul {
+  .latest-posts {
     font-size: 1em;
   }
 
@@ -966,44 +981,68 @@ header #tokens li {
     width: 28.80em;
   }
 
-  #login h3 {
+  #autocomplete li {
+    line-height: 25px;
+  }
+
+  .header__search-box #autocomplete li {
+    line-height: 30px;
+  }
+
+  .company-login {
     margin-top: 70px;
   }
 
-  #login form, #contact form {
+  .login-form, .contact-form {
     width: 33.80em;
   }
 
-  #login input, #contact input, #contact textarea {
+  .login-input, .input, .contact-textarea {
     width: 23em;
     max-width: 23em;
   }
 
-  #login label {
-    margin-right: 158px;
+  .login-input {
+    width: 23.3em;
+    max-width: 23.3em;
   }
 
-  #login_search {
+  .login-label {
+    margin-right: 158px;
+    font-size: 1.1em;
+  }
+
+  .forgot_password {
+    font-size: 1.1em;
+    float: right;
+  }
+
+  .login-search, .aside-search {
     display: inline-block;
     float: right;
     text-align: left;
     font-size: 1.2em;
   }
 
-  #login_search a {
+  .aside-search {
+    min-width: 15em;
+    max-width: 15em;
+  }
+
+  .login-search-link {
     line-height: 30px;
   }
 
-  #login_search form {
-    max-width: 22.40em;
+  .login-search .login-form {
+    max-width: 25.4em;
     margin: 0 0 40px 0;
     display: inline-block;
     font-size: 0.7em;
   }
 
-  #login_search input {
-    width: 15em;
-    max-width: 15em;
+  .login-search .login-input {
+    width: 17.2em;
+    max-width: 17.2em;
     padding: 0.3em;
     margin-bottom: 6px;
     font-size: 1.4em;
@@ -1011,108 +1050,122 @@ header #tokens li {
     color: #111;
   }
 
-  #login_search label {
+  .login-search .login-label {
     margin: 0 25px 15px 0;
     display: inline-block;
     float: left;
+    font-size: 1.1em;
   }
 
-  #login_search a#forgot_password {
-    float: right;
-  }
-
-  #login_search form a {
+  .login-search .forgot-password {
     line-height: 1.3em;
   }
 
-  #login_search label input {
+  .login-search .login-checkbox {
     width: auto;
     margin: 0;
     padding: 0;
     vertical-align: bottom;
   }
 
-  #login_search button {
-    margin-top: 15px;
-    font-size: 1.3em;
-    font-family: "Droid Sans Mono", sans-serif;
-    font-weight: bold;
-    text-transform: capitalize;
-    float: right;
+  .confirm-form {
+    width: 33em;
+    max-width: 33em;
   }
 
-  #search_results {
+  .confirm-input, .confirm-textarea {
+    width: 22.5em;
+    max-width: 22.5em;
+  }
+
+  .cvc {
+    margin-right: 89px;
+  }
+
+  .two-cols {
     display: inline-block;
-    margin: 40px auto 0;
+    margin: 0 auto;
     font-size: 0.8em;
     width: 700px;
   }
 
-  #search_results ul {
-    margin: 0 0 50px 0;
+  .list {
+    margin: 0;
     width: 25em;
+    font-size: 1em;
     float: left;
   }
 
-  #search_results section.post_control {
+  .list-title {
+    text-align: left;
+    margin-top: 0;
+  }
+  .post-control {
     margin: 10px 0;
   }
 
-  #search_results form.send_message_form {
+  .send-message-form {
     width: 25em;
   }
 
-  #search_results form.send_message_form textarea {
-    width: 23.4em;
+  .send-message-textarea {
+    width: 24.4em;
   }
 
-  #search_results footer {
+  .item-footer {
     padding: 0;
   }
 
-  aside {
+  .aside {
     width: 18em;
     float: right;
     display: inline-block;
     font-size: 1.2em;
   }
 
-  aside a {
+  .aside-link {
     margin: 10px 0;
     clear: both;
     display: block;
     text-align: left;
+    font-size: 0.9em;
   }
 
-  aside #aside_profile {
+  .aside-profile {
     height: 80px;
     display: block;
     text-align: left;
   }
 
-  aside #aside_profile a {
+  .aside-profile-link {
     margin: 0 0 30px 10px;
     display: inline;
+    font-size: 0.9em;
   }
 
-  aside span img {
+  .aside-profile-image {
     float: left;
   }
 
-  footer {
+  .aside-plan-title {
+    text-transform: capitalize;
+  }
+
+  .footer {
     height: 50px;
     padding: 2em 2em;
   }
 
-  footer li {
+  .footer-menu-item {
     margin-left: 0.4em;
-  }
-
-  footer a {
     display: inline;
   }
 
-  footer #footer_extra_menu {
+  .footer-menu-link {
+    display: inline;
+  }
+
+  .footer-extra-menu {
     display: inline-block;
   }
 }

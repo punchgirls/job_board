@@ -1,32 +1,19 @@
-% if plan_id == "small"
-  <input id="radio_small" type="radio" onclick="chosenPlan('small')" name="plan_id" value="small" checked="checked">
-% else
-  <input id="radio_small" type="radio" onclick="chosenPlan('small')" name="plan_id" value="small">
-% end
-<label for="radio_small">
-  <span class="plan_title"><strong>small</strong></span>
-  <span class="posts">1 post</span>
-  <span class="price">$50<small>/month</small></span>
-</label>
+<select class="signup-plans" name="company[plan_id]">
+  % if plan_id == "small"
+    <option value="small" selected>Small (1 Post) $ 50</option>
+  % else
+    <option value="small">Small (1 Post) $50</option>
+  % end
 
-% if plan_id == "medium"
-  <input id="radio_medium" type="radio" onclick="chosenPlan('medium')" name="plan_id" value="medium" checked="checked">
-% else
-  <input id="radio_medium" type="radio" onclick="chosenPlan('medium')" name="plan_id" value="medium">
-% end
-<label for="radio_medium">
-  <span class="plan_title"><strong>medium</strong></span>
-  <span class="posts">5 posts</span>
-  <span class="price">$100<small>/month</small></span>
-</label>
+  % if plan_id == "medium"
+    <option value="medium" selected>Medium (5 Posts) $ 100</option>
+  % else
+    <option value="medium">Medium (5 Posts) $ 100</option>
+  % end
 
-% if plan_id == "large"
-  <input id="radio_large" type="radio" onclick="chosenPlan('large')" name="plan_id" value="large" checked="checked">
-% else
-  <input id="radio_large" type="radio" onclick="chosenPlan('large')" name="plan_id" value="large">
-% end
-<label for="radio_large">
-  <span class="plan_title"><strong>large</strong></span>
-  <span class="posts">10 posts</span>
-  <span class="price">$150<small>/month</small></span>
-</label>
+  % if plan_id == "large"
+    <option value="large" selected>Large (10 Posts) $ 150</option>
+  % else
+    <option value="large">Large (10 Posts) $ 150</option>
+  % end
+</select>

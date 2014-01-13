@@ -14,15 +14,14 @@ function apply (id) {
   var addMsgLink = document.getElementById("add-msg-link-" + id);
   var appsSize = document.getElementById("apps-size");
   var appsSizeAside = document.getElementById("apps-size-aside");
-
   var request = ajax();
   request.open("POST", url);
 
-  post.innerHTML = '<i class="fa fa-check"></i><span>Applied</span>';
+  post.innerHTML = '<i class="fa fa-check post-control-icon applied-icon"></i><span class="applied-text">Applied</span>';
   post.removeAttribute("onclick");
   post.className = ("applied cursor");
   addMsgLink.innerHTML = "Send message to company";
-  addMsgLink.className = "send_message";
+  addMsgLink.className = "send-message-link";
 
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
@@ -63,11 +62,11 @@ function sendMsg (postId, developerId) {
       messageFrm.style.display = "none";
 
       if (message) {
-        message.innerHTML = '<span>Sent message</span><br>' + messageTxt;
+        message.innerHTML = '<h3 class="item-subtitle">Sent message:</h3><p class="item-text">' + messageTxt + '</p>';
       }
 
       if (sentOK) {
-        sentOK.innerHTML = '<i class="fa fa-check"></i>Message sent';
+        sentOK.innerHTML = '<i class="fa fa-check post-control-icon message-sent-icon"></i>Message sent';
       }
     }
   };
@@ -95,6 +94,11 @@ function closeNoteFrm (id) {
   var noteLink = document.getElementById("note-link-" + id);
   var form = document.getElementById("note-form-" + id);
   var note = document.getElementById("note-" + id);
+  var editNoteLink = document.getElementById("edit-note-link-" + id);
+
+  if (editNoteLink) {
+    editNoteLink.style.display = "inline-block";
+  }
 
   noteLink.style.display = "block";
   note.style.display = "block";
@@ -105,8 +109,8 @@ function displayNote (id) {
   var noteTxt = document.getElementById("note-txt-" + id).value;
   var note = document.getElementById("note-" + id);
   var noteLink = document.getElementById("note-link-" + id);
-  var editNoteLink = document.getElementById("edit-note-link-" + id);
   var form = document.getElementById("note-form-" + id);
+  var editNoteLink = document.getElementById("edit-note-link-" + id);
   var url;
 
   if (noteTxt != "") {
@@ -122,12 +126,13 @@ function displayNote (id) {
     if ((request.readyState===4) && (request.status===200)) {
       if (noteTxt != "") {
         form.style.display = "none";
-        note.innerHTML = '<span>Personal note</span><i class="fa fa-pencil-square-o cursor" id="edit-note-link-' + id + '" onclick="addNote(' + id + ')"></i><br>' + noteTxt;
+        note.innerHTML = '<h3 class="item-subtitle">Personal note <i id="edit-note-link-' + id + '" class="fa fa-pencil-square-o cursor" onclick="addNote(' + id + ')"></i></h3><p class="item-text">' + noteTxt + '</p>';
         note.style.display = "block";
       } else {
         form.style.display = "none";
         noteLink.innerHTML = "Add a personal note?";
         noteLink.style.display = "block";
+        editNoteLink.style.display = "inline-block";
       }
     }
   };
@@ -138,10 +143,10 @@ function displayNote (id) {
 function favorite (post) {
   if (post.className === "favorited cursor") {
     post.className = "favorite cursor";
-    post.innerHTML = '<i class="fa fa-star"></i><span class="underline">Favorite</span>';
+    post.innerHTML = '<i class="fa fa-star post-control-icon"></i><span class="underline">Favorite</span>';
   } else {
     post.className = "favorited cursor";
-    post.innerHTML = '<i class="fa fa-star"></i><span class="underline">Favorited</span>';
+    post.innerHTML = '<i class="fa fa-star post-control-icon favorited-icon"></i><span class="favorited-text underline">Favorited</span>';
   }
 }
 
@@ -241,7 +246,7 @@ function removeApplication (id) {
   var applications = document.getElementById("applications-list");
   var url = "/remove/" + id;
   var appsSize = document.getElementById("apps-size");
-  var appsSizeTitle = document.getElementById("apps-size-title");
+  var appsSizeAside = document.getElementById("apps-size-aside");
 
   var request = ajax();
   request.open("POST", url);
@@ -250,7 +255,7 @@ function removeApplication (id) {
     if ((request.readyState===4) && (request.status===200)) {
       applications.removeChild(application);
       appsSize.innerHTML = parseInt(appsSize.innerHTML) - 1;
-      appsSizeTitle.innerHTML = parseInt(appsSizeTitle.innerHTML) - 1;
+      appsSizeAside.innerHTML = parseInt(appsSizeAside.innerHTML) - 1;
     }
   };
 
