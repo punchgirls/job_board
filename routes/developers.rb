@@ -177,7 +177,7 @@ class Developers < Cuba
     end
 
     on "signup" do
-      session[:error] = "You need to signup as a Company to be able to pubish posts."
+      session[:error] = "You need to signup as a Company to be able to publish posts."
       res.redirect "/pricing"
     end
 
