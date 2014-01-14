@@ -975,7 +975,7 @@ input:-moz-placeholder {
   }
 }
 
-@media only screen and (min-width: 768px)  {
+@media only screen and (min-width: 960px)  {
 
   .header {
     text-align: center;
@@ -1046,12 +1046,12 @@ input:-moz-placeholder {
   }
 
   #tokens {
-    width: 28.35em;
+    width: 23.35em;
     display: inline-block;
   }
 
   #autocomplete {
-    width: 28.80em;
+    width: 23.80em;
   }
 
   #autocomplete li {
@@ -1159,12 +1159,12 @@ input:-moz-placeholder {
     display: inline-block;
     margin: 0 auto;
     font-size: 0.8em;
-    width: 700px;
+    width: 900px;
   }
 
   .list {
     margin: 0;
-    width: 25em;
+    width: 45em;
     font-size: 1em;
     float: left;
   }
@@ -1172,6 +1172,10 @@ input:-moz-placeholder {
   .list-title {
     text-align: left;
     margin-top: 0;
+  }
+
+  .item-text {
+    max-width: none;
   }
 
   .see-applicants-link {
@@ -1187,11 +1191,12 @@ input:-moz-placeholder {
   }
 
   .send-message-form {
-    width: 25em;
+    width: 45em;
   }
 
   .send-message-textarea {
-    width: 24.4em;
+    width: 45em;
+    max-width: 45em;
   }
 
   .item-footer {

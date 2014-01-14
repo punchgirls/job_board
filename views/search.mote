@@ -60,7 +60,7 @@
   % end
 
   % if user
-    {{ this.partial("aside", user: this.current_user, search: true) }}
+    {{ this.partial("aside", user: this.current_user, search: true, profile: true) }}
   % end
 
 </section>

@@ -1,7 +1,8 @@
 class Developers < Cuba
   define do
     on get, root do
-      render("developer/dashboard", title: "Dashboard")
+      render("developer/dashboard", title: "Dashboard",
+        search: true, query: "")
     end
 
     on "dashboard" do
@@ -19,7 +20,8 @@ class Developers < Cuba
       end
 
       on default do
-        render("developer/applications", title: "My applications")
+        render("developer/applications", title: "My applications",
+          search: true, query: "")
       end
     end
 
@@ -28,7 +30,8 @@ class Developers < Cuba
     end
 
     on "applications" do
-      render("developer/applications", title: "My applications")
+      render("developer/applications", title: "My applications",
+        search: true, query: "")
     end
 
     on "remove/:id" do |id|
@@ -38,7 +41,8 @@ class Developers < Cuba
     end
 
     on "favorites" do
-      render("developer/favorites", title: "Favorites")
+      render("developer/favorites", title: "Favorites",
+        search: true, query: "")
     end
 
     on "apply/:id" do |id|

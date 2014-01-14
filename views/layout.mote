@@ -49,7 +49,7 @@
             <li class="footer-menu-item">&copy; 2013 <a class="footer-menu-link" href="http://www.punchgirls.com">Punchgirls</a></li>
             <li class="footer-menu-item"><a class="footer-menu-link" href="/contact">Contact</a></li>
 
-            % if user && defined?(search)
+            % if user || (!user && defined?(search))
               <section class="footer-extra-menu">
                 <li class="footer-menu-item"><a class="footer-menu-link" href="/how">How it works</a></li>
                 <li class="footer-menu-item"><a class="footer-menu-link" href="/pricing">Pricing</a></li>

@@ -16,10 +16,12 @@
   % else
     <span>
       <h2 class="aside-title">{{ user.name }}</h2>
-      <a class="aside-link" href="/dashboard">Dashboard</a>
-      <a class="aside-link" href="/profile">Account settings</a>
-      <a class="aside-link" href="/logout">Logout</a>
-      <br/>
+      % if defined?(profile)
+        <a class="aside-link" href="/dashboard">Dashboard</a>
+        <a class="aside-link" href="/profile">Account settings</a>
+        <a class="aside-link" href="/logout">Logout</a>
+        <br/>
+      % end
       <p>Plan: <span class="aside-plan-title">{{ user.plan.name }}</span></p>
       <p>({{ user.plan.posts }} posts per month)</p>
       <p>Published posts: {{ user.published_posts.size }}</p>
