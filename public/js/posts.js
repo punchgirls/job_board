@@ -180,6 +180,34 @@ function favoritePost (id) {
   request.send();
 }
 
+function publishPost (id) {
+  var publishLink = document.getElementById("publishLink_" + id);
+  var icon = publishLink.childNodes[1];
+  var span = publishLink.childNodes[2];
+  var publishedPosts = document.getElementById("published-posts");
+  var numberOfPosts = parseInt(publishedPosts.innerHTML);
+  var url = "/post/status/" + id;
+
+  var request = ajax();
+  request.open("POST", url);
+
+  request.onreadystatechange = function () {
+    if ((request.readyState===4) && (request.status===200)) {
+      if (icon.className == "fa fa-check post-control-icon published-icon") {
+        icon.className = "fa fa-check post-control-icon";
+        span.innerHTML = "Publish";
+        publishedPosts.innerHTML = numberOfPosts -1;
+      } else {
+        icon.className = "fa fa-check post-control-icon published-icon";
+        span.innerHTML = "Unpublish";
+        publishedPosts.innerHTML = numberOfPosts + 1;
+      }
+    }
+  };
+
+  request.send();
+}
+
 function favoriteApplicant (id) {
   var application = document.getElementById(id);
   var url = "/application/favorite/" + id;
