@@ -5,8 +5,9 @@
   <ul class="list" id="posts-list">
     <h2 class="list-title company-dashboard-title company-plan-info">Plan: {{ plan.name }}</h2>
     <p class="item-text posts-found company-plan-info">({{ plan.posts }} posts per month)</p>
-    <p class="item-text posts-found company-plan-info">Published posts: {{ company.published_posts.size }}</p>
-
+    <p class="item-text posts-found company-plan-info">Published posts:
+      <span id="published-posts">{{ company.published_posts.size }}</span>
+    </p>
     <p class="item-text posts-found company-plan-info"><a href="/post/new">Post job offer</a></p>
     % if posts.empty?
       <p class="item-text">You haven't posted anything yet.<br/>Click on "post job offer" to get started!</p>
@@ -28,7 +29,7 @@
 
             <p class="item-text">{{ this.h(post.description) }}</p>
 
-            <h3 class="item-subtitle see-applicants-link"><a href="/post/applications/{{ post.id }}"><strong>See applicants ({{ post.applications.size }})</strong></a></h3>
+            <h3 class="item-subtitle see-applicants-link"><a href=""><strong>See applicants ({{ post.applications.size }})</strong></a></h3>
 
             <section class="post-control">
               <span onclick="removePost({{ post.id }})" class="cursor">
@@ -36,7 +37,8 @@
               </span>
 
               <span class="published">
-                <a class="post-control-link" href="/post/status/{{ post.id }}">
+                <a onClick="publishPost({{ post.id }});return false;" id="publishLink_{{ post.id }}"
+                  class="post-control-link" href="/post/status/{{ post.id }}">
                 % if post.status == "published"
                   <i class="fa fa-check post-control-icon published-icon"></i><span class="underline">Unpublish</span>
                 % else
