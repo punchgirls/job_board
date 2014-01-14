@@ -1,5 +1,5 @@
 class CompanySignup < Scrivener
-  attr_accessor :name, :email, :url,
+  attr_accessor :gravatar, :name, :email, :url,
   :password, :password_confirmation, :customer, :plan_id
 
   def validate

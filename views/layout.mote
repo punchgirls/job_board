@@ -85,6 +85,7 @@
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
     <script src="/js/search.js"></script>
+    <script src="/js/gravatar.js"></script>
     <script src="/js/inputTokens.js"></script>
     <script src="/js/posts.js"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>

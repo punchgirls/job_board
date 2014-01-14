@@ -2,6 +2,7 @@ class Company < Ohm::Model
   include Shield::Model
   include Ohm::Callbacks
 
+  attribute :gravatar
   attribute :name
   attribute :email
   attribute :url

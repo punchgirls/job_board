@@ -22,14 +22,24 @@
   % end
 % end
 
+% gravatar_url =  "http://pictures.4ever.eu/data/80x80/animals/cats/small-kitten-151092.jpg"
+
+% if !company.empty?
+  % gravatar_url = company['gravatar']
+% end
+
 <section>
   <h2 class="content-title">Sign up and start posting!</h2>
 
+  <img id="company-gravatar" src="{{ gravatar_url }}">
+
   <form class="payment-details form signup-form" action="/signup" method="POST">
+
+    <input id="gravatar-url" type="hidden" name="company[gravatar]" value="{{ gravatar_url }}">
 
     <input class="input signup-input" type="text" name="company[name]" placeholder="Company name" value="{{ this.h(company['name']) }}"><br/>
 
-    <input class="input signup-input" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company['email']) }}"><br/>
+    <input id="company-email" class="input signup-input" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company['email']) }}"><br/>
 
     <input class="input signup-input" type="text" name="company[url]" placeholder="URL" value="{{ this.h(company['url']) }}"><br/>
 
