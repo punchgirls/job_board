@@ -1,0 +1,31 @@
+% if defined?(search)
+  <aside class="sidebar-search">
+% else
+  <aside class="sidebar">
+% end
+% if user.instance_of?(Developer)
+    <span class="sidebar-profile">
+      <a class="sidebar-profile-link" href="/profile">
+        <img class="sidebar-profile-image" src="http://www.gravatar.com/avatar/{{ user.avatar }}" />
+        <span>{{ user.username }}</span></a>
+      <br/><br/>
+      <a class="sidebar-profile-link" href="/logout">Logout</a>
+    </span>
+    <a class="sidebar-link" href="/applications">My applications (<span id="apps-size-sidebar">{{ user.applications.size }}</span>)</a>
+    <a class="sidebar-link" href="/favorites">My favorites (<span id="favs-size-sidebar">{{ user.favorites.size }}</span>)</a>
+  % else
+    <span>
+      <h2 class="sidebar-title">{{ user.name }}</h2>
+      % if defined?(profile)
+        <a class="sidebar-link" href="/dashboard">Dashboard</a>
+        <a class="sidebar-link" href="/profile">Account settings</a>
+        <a class="sidebar-link" href="/logout">Logout</a>
+        <br/>
+      % end
+      <p>Plan: <span class="sidebar-plan-title">{{ user.plan.name }}</span></p>
+      <p>({{ user.plan.posts }} posts per month)</p>
+      <p>Published posts: {{ user.published_posts.size }}</p>
+      <a class="sidebar-link" href="/post/new">Post job offer</a>
+    </span>
+  % end
+</aside>

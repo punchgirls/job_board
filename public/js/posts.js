@@ -13,7 +13,7 @@ function apply (id) {
   var url = "/apply/" + id;
   var addMsgLink = document.getElementById("add-msg-link-" + id);
   var appsSize = document.getElementById("apps-size");
-  var appsSizeAside = document.getElementById("apps-size-aside");
+  var appsSizeSidebar = document.getElementById("apps-size-sidebar");
   var request = ajax();
   request.open("POST", url);
 
@@ -26,7 +26,7 @@ function apply (id) {
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
       appsSize.innerHTML = parseInt(appsSize.innerHTML) + 1;
-      appsSizeAside.innerHTML = parseInt(appsSizeAside.innerHTML) + 1;
+      appsSizeSidebar.innerHTML = parseInt(appsSizeSidebar.innerHTML) + 1;
     }
   };
 
@@ -154,7 +154,7 @@ function favoritePost (id) {
   var post = document.getElementById(id);
   var url = "/favorite/" + id;
   var favsSize = document.getElementById("favs-size");
-  var favsSizeAside = document.getElementById("favs-size-aside");
+  var favsSizeSidebar = document.getElementById("favs-size-sidebar");
 
   var request = ajax();
   request.open("POST", url);
@@ -163,10 +163,10 @@ function favoritePost (id) {
 
   if (post.className === "favorited cursor") {
     favsSize.innerHTML = parseInt(favsSize.innerHTML) + 1;
-    favsSizeAside.innerHTML = parseInt(favsSizeAside.innerHTML) + 1;
+    favsSizeSidebar.innerHTML = parseInt(favsSizeSidebar.innerHTML) + 1;
   } else {
     favsSize.innerHTML = parseInt(favsSize.innerHTML) - 1;
-    favsSizeAside.innerHTML = parseInt(favsSizeAside.innerHTML) - 1;
+    favsSizeSidebar.innerHTML = parseInt(favsSizeSidebar.innerHTML) - 1;
   }
 
   request.onreadystatechange = function () {
@@ -274,7 +274,7 @@ function removeApplication (id) {
   var applications = document.getElementById("applications-list");
   var url = "/remove/" + id;
   var appsSize = document.getElementById("apps-size");
-  var appsSizeAside = document.getElementById("apps-size-aside");
+  var appsSizeSidebar = document.getElementById("apps-size-sidebar");
   var msg = "Are you sure you want to delete the application?";
   var cancel = confirm(msg);
 
@@ -286,7 +286,7 @@ function removeApplication (id) {
       if ((request.readyState===4) && (request.status===200)) {
         applications.removeChild(application);
         appsSize.innerHTML = parseInt(appsSize.innerHTML) - 1;
-        appsSizeAside.innerHTML = parseInt(appsSizeAside.innerHTML) - 1;
+        appsSizeSidebar.innerHTML = parseInt(appsSizeSidebar.innerHTML) - 1;
       }
     };
 

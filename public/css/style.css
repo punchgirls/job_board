@@ -337,7 +337,7 @@ textarea {
   line-height: 40px;
 }
 
-.login-search, .aside-search {
+.login-search, .sidebar-search {
   display: none;
 }
 
@@ -1085,14 +1085,14 @@ input:-moz-placeholder {
     float: right;
   }
 
-  .login-search, .aside-search {
+  .login-search, .sidebar-search {
     display: inline-block;
     float: right;
     text-align: left;
     font-size: 1.2em;
   }
 
-  .aside-search {
+  .sidebar-search {
     min-width: 15em;
     max-width: 15em;
   }
@@ -1203,19 +1203,19 @@ input:-moz-placeholder {
     padding: 0;
   }
 
-  .aside {
+  .sidebar {
     width: 18em;
     float: right;
     display: inline-block;
     font-size: 1.2em;
   }
 
-  .aside-title {
+  .sidebar-title {
     margin-top: 0;
     font-size: 1.1em;
   }
 
-  .aside-link {
+  .sidebar-link {
     margin: 10px 0;
     clear: both;
     display: block;
@@ -1223,23 +1223,23 @@ input:-moz-placeholder {
     font-size: 0.9em;
   }
 
-  .aside-profile {
+  .sidebar-profile {
     height: 80px;
     display: block;
     text-align: left;
   }
 
-  .aside-profile-link {
+  .sidebar-profile-link {
     margin: 0 0 30px 10px;
     display: inline;
     font-size: 0.9em;
   }
 
-  .aside-profile-image {
+  .sidebar-profile-image {
     float: left;
   }
 
-  .aside-plan-title {
+  .sidebar-plan-title {
     text-transform: capitalize;
   }
 

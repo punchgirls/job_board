@@ -29,7 +29,7 @@
 
             <p class="item-text">{{ this.h(post.description) }}</p>
 
-            <h3 class="item-subtitle see-applicants-link"><a href=""><strong>See applicants ({{ post.applications.size }})</strong></a></h3>
+            <h3 class="item-subtitle see-applicants-link"><a href="/post/applications/{{ post.id }}"><strong>See applicants ({{ post.applications.size }})</strong></a></h3>
 
             <section class="post-control">
               <span onclick="removePost({{ post.id }})" class="cursor">
@@ -61,6 +61,6 @@
     % end
   </ul>
 
-  {{ this.partial("aside", user: this.current_user, search: true) }}
+  {{ this.partial("sidebar", user: this.current_user, search: true) }}
 
 </section>
