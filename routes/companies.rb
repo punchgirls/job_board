@@ -318,14 +318,12 @@ class Companies < Cuba
         end
       end
 
-      on get, root do
+      on default do
         edit = PostJobOffer.new({})
 
         render("company/post/edit", title: "Edit post",
           id: id, edit: edit)
       end
-
-      on(default) { not_found! }
     end
 
     on "post/applications/:id" do |id|

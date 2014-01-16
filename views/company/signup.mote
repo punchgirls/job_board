@@ -31,7 +31,7 @@
 <section>
   <h2 class="content-title">Sign up and start posting!</h2>
 
-  <img id="company-gravatar" src="{{ gravatar_url }}">
+  <img class="confirm-image" id="company-gravatar" src="{{ gravatar_url }}">
 
   <form class="payment-details form signup-form" action="/signup" method="POST">
 

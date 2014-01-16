@@ -24,3 +24,6 @@
       <button class="button-search" type="submit"><i class="fa fa-search"></i></button>
     % end
   </form>
+
+<script src="/js/inputTokens.js"></script>
+

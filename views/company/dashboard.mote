@@ -32,7 +32,7 @@
             <h3 class="item-subtitle see-applicants-link"><a href="/post/applications/{{ post.id }}"><strong>See applicants ({{ post.applications.size }})</strong></a></h3>
 
             <section class="post-control">
-              <span onclick="removePost({{ post.id }})" class="cursor">
+              <span class="cursor" onclick="removePost({{ post.id }})">
                 <i class="fa fa-trash-o cursor post-control-icon delete-icon"></i><span class="underline">Delete post</span>
               </span>
 

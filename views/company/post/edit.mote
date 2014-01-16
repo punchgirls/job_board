@@ -1,68 +1,85 @@
 % post = Post[id]
 
-% if edit.errors[:tags] == [:not_present]
- <p>At least one skill is required</p>
+% if defined?(edit)
+  % if edit.errors[:tags] == [:not_present]
+   <p class="alert alert-error">At least one skill is required</p>
+  % end
+  % if edit.errors[:title].include?(:not_present)
+   <p class="alert alert-error">Title is required</p>
+  % end
+  % if edit.errors[:title] == [:not_in_range]
+   <p class="alert alert-error">Title should not exceed 80 characters</p>
+  % end
+  % if edit.errors[:description].include?(:not_present)
+   <p class="alert alert-error">Description is required</p>
+  % end
+  % if edit.errors[:description] == [:not_in_range]
+   <p class="alert alert-error">Description should not exceed 600 characters</p>
+  % end
+  % if edit.errors[:location] == [:not_present] || edit.errors[:remote] == [:not_present]
+   <p class="alert alert-error">Location or Remote must be selected</p>
+  % end
 % end
-% if edit.errors[:title].include?(:not_present)
- <p>Title is required</p>
-% end
-% if edit.errors[:title] == [:not_in_range]
- <p>Title should not exceed 80 characters</p>
-% end
-% if edit.errors[:description].include?(:not_present)
- <p>Description is required</p>
-% end
-% if edit.errors[:description] == [:not_in_range]
- <p>Description should not exceed 600 characters</p>
-% end
-% if edit.errors[:location] == [:not_present] || edit.errors[:remote] == [:not_present]
- <p>You have to provide a location or select the "work from anywhere" option</p>
-% end
 
-<section>
-  <h1>Create a new job offer</h1>
+<section class="two-cols">
+  <ul class="list" id="posts-list">
+    <li class="item">
+      <form class="form edit-post-form" name="postFrm" action="/post/edit/{{ post.id }}" method="POST">
+        <input class="input input-title" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
 
-  <form name="postFrm" action="/post/edit/{{ id }}" method="POST">
-    <input id="tags" type="hidden" value="{{ post.tags }}">
+        <input id="tags" type="hidden" value="{{ post.tags }}">
 
-    <ul id="tokens">
-      <li id="token-input">
-        <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
-      </li>
-    </ul>
-    <ul id="autocomplete"></ul>
+        <div id="tags_wrapper">
+          <ul class="header-menu" id="tokens">
+            <li id="token-input">
+              <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
+            </li>
+          </ul>
+          <ul class="header-menu" id="autocomplete"></ul>
 
-    <input type="hidden" id="query" name="post[tags]" value="">
+          <input type="hidden" id="query" name="post[tags]" value="{{ post.tags }}">
+        </div>
 
-    <!-- START GOOGLE PLACE AUTOCOMPLETE -->
+        <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-    <input id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off"
-    value="{{ this.h(post.location) }}"><br/>
+        <input class="input location" id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off" value="{{ this.h(post.location) }}">
 
-    <!-- END GOOGLE PLACE AUTOCOMPLETE -->
+        <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
-    <label>
-      % if post.remote == "true"
-        <input type="checkbox" name="post[remote]" checked="" value="true">
-      % else
-        <input type="checkbox" name="post[remote]" value="true">
-      % end
-      <span>Work from anywhere</span>
-    </label><br/>
+        <label class="login-label">
+          % if post.remote == "true"
+            <input class="login-checkbox" type="checkbox" name="post[remote]" checked="" value="true">
+          % else
+            <input class="login-checkbox" type="checkbox" name="post[remote]" value="true">
+          % end
+          <span>Work from anywhere</span>
+        </label>
 
+        <textarea class="textarea" name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
 
-    <input type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
+        <span class="countdown" id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/>
 
-    <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea>
+        <span class="send-message-buttons profile-buttons">
+          <a class="post-control-link cancel" href="/dashboard">cancel</a>
 
-    <span id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/><br/>
+          <button class="send-message-button" type="submit">save</button>
+        </span>
+      </form>
+    </li>
+  </ul>
 
-    <section>
-      <a href="/dashboard">Cancel</a>
+  {{ this.partial("sidebar", user: this.current_user, search: true) }}
 
-      <button type="submit">Save</button>
-    </section>
-  </form>
 </section>
 
+<!-- START GOOGLE PLACE AUTOCOMPLETE -->
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&language=en"></script>
+
+<script src="/js/google.js"></script>
+<script src="/js/search.js"></script>
+
+<!-- END GOOGLE PLACE AUTOCOMPLETE -->
+
+<script src="/js/inputTokens.js"></script>
 <script src="/js/limit_description.js"></script>

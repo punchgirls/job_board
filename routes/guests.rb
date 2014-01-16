@@ -15,7 +15,7 @@ class Guests < Cuba
           params["email"], params["name"])
 
         params["customer"] = customer
-        res.write params.inspect
+
         signup = CompanySignup.new(params)
 
         on signup.valid? do

@@ -481,6 +481,10 @@ textarea {
   color: #ccc;
 }
 
+.edit-post {
+  display: none;
+}
+
 .applied, .favorited, .published {
   cursor: pointer;
 }
@@ -565,6 +569,11 @@ textarea {
 
 .new-post-form .login-checkbox {
   vertical-align: middle;
+}
+
+.edit-post-form {
+  width: 30em;
+  max-width: 30em;
 }
 
 .profile-buttons {
@@ -688,6 +697,12 @@ textarea {
   font-size: 1.61em;
 }
 
+.edit-post-form #autocomplete {
+  width: 16.80em;
+  margin-top: -6px;
+  font-size: 1.7em;
+}
+
 .new-post-form .input, .new-post-form .textarea {
   width: 17.1em;
   max-width: 17.1em;
@@ -752,6 +767,31 @@ textarea {
   line-height: 23px;
 }
 
+.edit-post-form #tokens {
+  width: 17.4em;
+  margin-bottom: 4px;
+  line-height: 1.5em;
+  font-size: 1.6em;
+}
+
+.edit-post-form .input, .edit-post-form .textarea {
+  width: 22em;
+  max-width: 22em;
+  font-size: 1.3em;
+  line-height: 2em;
+}
+
+.edit-post-form .input-title {
+  font-size: 1.7em;
+  width: 16.7em;
+  line-height: 1.6em;
+  font-weight: bold;
+}
+
+.edit-post-form .login-label {
+  font-size: 1.5em;
+}
+
 .header #tokens {
   padding: 0.1em 0.5em;
 }
@@ -774,6 +814,10 @@ textarea {
 
 .new-post-form #search-field {
   line-height: 1.6em;
+}
+
+.edit-post-form #search-field {
+  line-height: 1.5em;
 }
 
 ::-webkit-input-placeholder {
@@ -863,6 +907,11 @@ input:-moz-placeholder {
     max-width: 39em;
   }
 
+  .edit-post-form {
+    width: 47em;
+    max-width: 47em;
+  }
+
   .new-post-form #autocomplete {
     width: 23.4em;
   }
@@ -872,11 +921,25 @@ input:-moz-placeholder {
     max-width: 24.7em;
   }
 
+  .edit-post-form #tokens {
+    width: 28em;
+  }
+
   .new-post-form .input, .new-post-form .textarea {
     width: 25.1em;
     max-width: 25.1em;
     line-height: 1.5em;
     font-size: 1.5em;
+  }
+
+  .edit-post-form .input, .edit-post-form .textarea {
+    width: 35em;
+    max-width: 35em;
+  }
+
+  .edit-post-form .input-title {
+    width: 26.7em;
+    max-width: 26.7em;
   }
 
   .login-form, .contact-form, .confirm-form {
@@ -1058,6 +1121,25 @@ input:-moz-placeholder {
     line-height: 25px;
   }
 
+  .edit-post-form {
+    width: 64.2em;
+    max-width: 64.2em;
+  }
+
+  .edit-post-form .input, .edit-post-form .textarea {
+    width: 48em;
+    max-width: 48em;
+  }
+
+  .edit-post-form .input-title {
+    width: 36.6em;
+    max-width: 36.6em;
+  }
+
+  .edit-post-form #tokens {
+    width: 38.5em;
+  }
+
   .header__search-box #autocomplete li {
     line-height: 30px;
   }
@@ -1211,7 +1293,8 @@ input:-moz-placeholder {
   }
 
   .sidebar-title {
-    margin-top: 0;
+    display: inline-block;
+    margin: 0 0 10px 10px;
     font-size: 1.1em;
   }
 

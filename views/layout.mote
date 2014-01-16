@@ -42,7 +42,6 @@
           <span class="before-footer"></span>
         </section>
 
-
       <footer class="footer">
         <nav>
           <ul class="footer-menu">
@@ -64,29 +63,7 @@
       </footer>
     </div>
 
-    <!-- START GOOGLE PLACE AUTOCOMPLETE -->
-
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&language=en"></script>
-
-    <script>
-      function initialize() {
-        var input = /** @type {HTMLInputElement} */(document.getElementById('search-text-field'));
-
-        var options = {
-          types: ["(cities)"]
-        };
-
-        var autocomplete = new google.maps.places.Autocomplete(input, options);
-      }
-
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
-
-    <!-- END GOOGLE PLACE AUTOCOMPLETE -->
-
-    <script src="/js/search.js"></script>
     <script src="/js/gravatar.js"></script>
-    <script src="/js/inputTokens.js"></script>
     <script src="/js/posts.js"></script>
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <script type="text/javascript">
