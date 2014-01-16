@@ -1,9 +1,12 @@
 % developer = this.current_developer
-% applications = developer.applications
 
 <section class="two-cols">
   <ul class="list" id="applications-list">
     <h2 class="list-title">My applications (<span id="apps-size">{{ applications.size }}</span>)</h2><br/>
+    <ul>
+      <li><a href="/applications">Active applications</a></li>
+      <li><a href="/history">Application history</a></li>
+    </ul>
 
     % if applications.empty?
       <p class="item-text posts-found">You haven't applied for any jobs yet. Start your search now!</p>

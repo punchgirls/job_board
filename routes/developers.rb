@@ -1,8 +1,7 @@
 class Developers < Cuba
   define do
     on get, root do
-      render("developer/dashboard", title: "Dashboard",
-        search: true, query: "")
+      res.redirect "/applications"
     end
 
     on "dashboard" do
@@ -20,8 +19,7 @@ class Developers < Cuba
       end
 
       on default do
-        render("developer/applications", title: "My applications",
-          search: true, query: "")
+        res.redirect "/applications"
       end
     end
 
@@ -31,7 +29,12 @@ class Developers < Cuba
 
     on "applications" do
       render("developer/applications", title: "My applications",
-        search: true, query: "")
+        search: true, query: "", applications: current_user.active_applications)
+    end
+
+    on "history" do
+      render("developer/applications", title: "Application history",
+        search: true, query: "", applications: current_user.discarded_applications)
     end
 
     on "remove/:id" do |id|

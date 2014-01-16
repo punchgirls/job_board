@@ -21,6 +21,14 @@ class Developer < Ohm::Model
       :developer_id => self.id).any?
   end
 
+  def active_applications
+    self.applications.find(active?: true)
+  end
+
+  def discarded_applications
+    self.applications.find(active?: false)
+  end
+
   def before_delete
     applications.each(&:delete)
 
