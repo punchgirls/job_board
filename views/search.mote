@@ -18,6 +18,7 @@
         <li class="item">
           <article>
             <header class="item-header">
+              <img class="confirm-image" src="{{ post.company.gravatar }}">
               <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong></h1>
               <h3 class="item-subtitle">{{ this.h(post.company.name) }}</h3>
               <h3 class="item-subtitle">(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h3>
