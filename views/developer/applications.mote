@@ -2,7 +2,14 @@
 
 <section class="two-cols">
   <ul class="list" id="applications-list">
-    <h2 class="list-title">My applications (<span id="apps-size">{{ applications.size }}</span>)</h2><br/>
+    <h2 class="list-title">
+      % if active_applications
+        Active applications
+      % else
+        Application history
+      % end
+      (<span id="apps-size">{{ applications.size }}</span>)
+    </h2><br/>
     <ul>
       <li><a href="/applications">Active applications</a></li>
       <li><a href="/history">Application history</a></li>
@@ -61,7 +68,8 @@
               {{ this.partial("developer/note_form", application: application) }}
               <br/>
               <span onclick="removeApplication({{ application.id }})" class="cursor">
-                <i class="fa fa-trash-o cursor post-control-icon delete-icon"></i><span class="underline">Delete application</span>
+                <i class="fa fa-trash-o cursor post-control-icon delete-icon">
+                </i><span class="underline">Remove application</span>
               </span>
             </section>
 

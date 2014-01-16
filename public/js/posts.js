@@ -293,7 +293,7 @@ function removeApplication (id) {
   var url = "/remove/" + id;
   var appsSize = document.getElementById("apps-size");
   var appsSizeSidebar = document.getElementById("apps-size-sidebar");
-  var msg = "Are you sure you want to delete the application?";
+  var msg = "Are you sure you want to delete the application? By performing this action the company will no longer be able to see your application.";
   var cancel = confirm(msg);
 
   if (cancel) {

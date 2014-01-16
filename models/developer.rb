@@ -25,7 +25,7 @@ class Developer < Ohm::Model
     self.applications.find(active?: true)
   end
 
-  def discarded_applications
+  def inactive_applications
     self.applications.find(active?: false)
   end
 
