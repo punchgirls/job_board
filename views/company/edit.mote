@@ -42,3 +42,5 @@
     <button type="submit">Save</button>
   </form>
 </section>
+
+<script src="/js/gravatar.js"></script>
