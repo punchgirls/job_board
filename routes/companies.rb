@@ -351,6 +351,12 @@ class Companies < Cuba
       session[:success] = "Applicant successfully discarded!"
     end
 
+    on "application/add/:id" do |id|
+      Application[id].update(status: "active")
+
+      session[:success] = "Applicant successfully added to list of active applications!"
+    end
+
     on "application/contact/:id" do |id|
       on post, param("message") do |params|
         mail = Contact.new(params)

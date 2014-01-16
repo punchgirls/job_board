@@ -4,7 +4,7 @@
   <h1>
     <span>{{ this.h(Post[id].title) }}</span>
     <span>/</span>
-    <span>Applicants: <span id="number-of-applicants">{{ applications.size }}</span></span>
+    <span>Discarded applicants: <span id="number-of-applicants">{{ applications.size }}</span></span>
   </h1>
 </section>
 
@@ -44,7 +44,7 @@
               <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star cursor"></i>
             % end
 
-            <i onclick="discardApplicant({{ application.id }})" class="fa fa-trash-o cursor"></i>
+            <i onclick="addApplicant({{ application.id }})" class="fa fa-plus cursor"></i>
           </section>
           <footer>
             <time datetime="" pubdate>
