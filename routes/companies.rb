@@ -326,26 +326,29 @@ class Companies < Cuba
       end
     end
 
+    on "post/applications/discarded/:id" do |id|
+      render("company/post/discarded", title: "Discarded applicants", id: id)
+    end
+
     on "post/applications/:id" do |id|
       render("company/post/applications", title: "Applicants", id: id)
     end
 
-    on "application/remove/:id" do |id|
+    on "application/discard/:id" do |id|
       application = Application[id]
       developer = application.developer
       post = application.post
       company = post.company
 
-      text = Mailer.render("application_remove",
+      text = Mailer.render("application_discard",
         { post: post, developer: developer })
 
       Mailer.deliver(developer.email,
         "Auto-notice: Regarding '" + post.title + "' post", text)
 
-      Application[id].delete
+      application.update(status: "discarded")
 
-      session[:success] = "Applicant successfully removed!"
-      res.redirect "/dashboard"
+      session[:success] = "Applicant successfully discarded!"
     end
 
     on "application/contact/:id" do |id|

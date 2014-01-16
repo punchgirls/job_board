@@ -245,12 +245,12 @@ function removePost (id) {
   }
 }
 
-function removeApplicant (id) {
+function discardApplicant (id) {
   var applications = document.getElementById("application-list");
   var application = document.getElementById("app-" + id);
   var numberOfApplicants = document.getElementById("number-of-applicants");
   var value = numberOfApplicants.innerHTML;
-  var url = "/application/remove/" + id;
+  var url = "/application/discard/" + id;
   var msg = "Are you sure you want to delete the post?";
   var cancel = confirm(msg);
 
@@ -260,6 +260,7 @@ function removeApplicant (id) {
 
     request.onreadystatechange = function () {
       if ((request.readyState===4) && (request.status===200)) {
+        console.log(request);
         applications.removeChild(application);
         numberOfApplicants.innerHTML = parseInt(value) - 1;
       }

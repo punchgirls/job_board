@@ -1,4 +1,4 @@
-% applications = Post[id].active_applications
+% applications = Post[id].discarded_applications
 
 <section>
   <h1>
