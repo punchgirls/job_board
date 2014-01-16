@@ -29,16 +29,18 @@ class Developers < Cuba
 
     on "applications" do
       render("developer/applications", title: "My applications",
-        search: true, query: "", applications: current_user.active_applications)
+        search: true, query: "", applications: current_user.active_applications,
+        active_applications: true)
     end
 
     on "history" do
       render("developer/applications", title: "Application history",
-        search: true, query: "", applications: current_user.discarded_applications)
+        search: true, query: "", applications: current_user.inactive_applications,
+        active_applications: false)
     end
 
     on "remove/:id" do |id|
-      Application[id].delete
+      Application[id].update(status: "canceled")
       session[:success] = "Application successfully removed!"
       res.redirect "/applications"
     end

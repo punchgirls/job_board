@@ -11,8 +11,12 @@
       <br/><br/>
       <a class="sidebar-profile-link" href="/logout">Logout</a>
     </span>
-    <a class="sidebar-link" href="/applications">My applications (<span id="apps-size-sidebar">{{ user.applications.size }}</span>)</a>
-    <a class="sidebar-link" href="/favorites">My favorites (<span id="favs-size-sidebar">{{ user.favorites.size }}</span>)</a>
+    <a class="sidebar-link" href="/applications">
+      My applications (<span id="apps-size-sidebar">{{ user.active_applications.size }}</span>)
+    </a>
+    <a class="sidebar-link" href="/favorites">
+      My favorites (<span id="favs-size-sidebar">{{ user.favorites.size }}</span>)
+    </a>
   % else
     <span>
       <span class="sidebar-profile">
