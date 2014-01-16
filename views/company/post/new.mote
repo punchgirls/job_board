@@ -56,4 +56,14 @@
   </form>
 </section>
 
+<!-- START GOOGLE PLACE AUTOCOMPLETE -->
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&language=en"></script>
+
+<script src="/js/google.js"></script>
+<script src="/js/search.js"></script>
+
+<!-- END GOOGLE PLACE AUTOCOMPLETE -->
+
+<script src="/js/inputTokens.js"></script>
 <script src="/js/limit_description.js"></script>

@@ -62,16 +62,5 @@
         </nav>
       </footer>
     </div>
-
-    <script src="/js/gravatar.js"></script>
-    <script src="/js/posts.js"></script>
-    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-    <script type="text/javascript">
-      // This identifies your website in the createToken call below
-      Stripe.setPublishableKey('pk_test_7ZIOO5UTOXONbhOENmZeoVE9');
-      // ...
-    </script>
-    <script src="/js/stripe.js"></script>
-    <script src="/js/cancel_account.js"></script>
   </body>
 </html>
