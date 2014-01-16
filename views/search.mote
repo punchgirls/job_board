@@ -18,9 +18,10 @@
         <li class="item">
           <article>
             <header class="item-header">
-              <img class="confirm-image" src="{{ post.company.gravatar }}">
               <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong></h1>
-              <h3 class="item-subtitle">{{ this.h(post.company.name) }}</h3>
+              <span class="item-company">
+                <img class="item-company-logo" src="{{ post.company.gravatar }}"><h3 class="item-company-name">{{ this.h(post.company.name) }}</h3>
+              </span>
               <h3 class="item-subtitle">(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h3>
               <h3 class="item-subtitle">Tags: {{ post.tags }}</h3>
               <h3 class="item-subtitle">{{ this.h(post.location) }}</h3>

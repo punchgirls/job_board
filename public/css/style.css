@@ -440,6 +440,24 @@ textarea {
   font-size: 1em;
   line-height: 1.9em;
   text-align: left;
+  clear: both;
+}
+
+.item-company {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.item-company-logo {
+  display: inline-block;
+  width: 50px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.item-company-name {
+  display: inline-block;
+  font-size: 1em;
 }
 
 .item-icon {
@@ -1229,7 +1247,7 @@ input:-moz-placeholder {
   }
 
   .cvc {
-    margin-right: 89px;
+    margin-right: 77px;
     width: 39px;
   }
 
