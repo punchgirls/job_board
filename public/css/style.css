@@ -538,6 +538,31 @@ textarea {
   margin: 10px 0;
 }
 
+.applicant-profile {
+  height: 40px;
+  display: block;
+  text-align: left;
+}
+
+.applicant-image {
+  width: 40px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.applicant-name {
+  display: inline-block;
+  margin: 0;
+  font-size: 1.1em;
+}
+
+.applicant-gh-link {
+  display: block;
+  text-align: left;
+  margin: 15px 0;
+  font-size: 1.1em;
+}
+
 .send-message-link {
   display: block;
   margin: 10px 0 0 0;
@@ -732,6 +757,10 @@ textarea {
   margin-bottom: 10px;
 }
 
+.remote {
+  display: inline-block;
+}
+
 #autocomplete li {
   list-style: none;
   padding: 0.3em;
@@ -808,6 +837,13 @@ textarea {
 
 .edit-post-form .login-label {
   font-size: 1.5em;
+}
+
+.edit-post-form .input-location {
+  width: 17.8em;
+  max-width: 17.8em;
+  font-size: 1.6em;
+  line-height: 1.6em;
 }
 
 .header #tokens {
@@ -958,6 +994,11 @@ input:-moz-placeholder {
   .edit-post-form .input-title {
     width: 26.7em;
     max-width: 26.7em;
+  }
+
+  .edit-post-form .input-location {
+    width: 28.4em;
+    max-width: 28.4em;
   }
 
   .login-form, .contact-form, .confirm-form {
@@ -1156,6 +1197,12 @@ input:-moz-placeholder {
 
   .edit-post-form #tokens {
     width: 38.5em;
+  }
+
+
+  .edit-post-form .input-location {
+    width: 39em;
+    max-width: 39em;
   }
 
   .header__search-box #autocomplete li {

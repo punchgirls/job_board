@@ -18,9 +18,10 @@
       <span class="sidebar-profile">
         <img class="sidebar-profile-image" src="{{ user.gravatar }}" />
         <h2 class="sidebar-title">{{ this.h(user.name) }}</h2>
-      <a class="sidebar-profile-link" href="/logout">Logout</a>
+      % if defined?(profile)
+        <a class="sidebar-profile-link" href="/logout">Logout</a>
+      % end
     </span>
-      <!-- <h2 class="sidebar-title">{{ user.name }}</h2> -->
       % if defined?(profile)
         <a class="sidebar-link" href="/dashboard">Dashboard</a>
         <a class="sidebar-link" href="/profile">Account settings</a>

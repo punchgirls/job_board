@@ -21,9 +21,9 @@
               <h3 class="item-subtitle">Tags: {{ post.tags }}</h3>
               <h3 class="item-subtitle">{{ this.h(post.location) }}</h3>
               % if post.remote == "true"
-                <i class="item-icon fa fa-globe"></i><h3 class="item-subtitle">Work from anywhere</h3>
+                <i class="item-icon fa fa-globe"></i><h3 class="item-subtitle remote">Work from anywhere</h3>
               % else
-                <i class="item-icon fa fa-map-marker"></i><h3 class="item-subtitle">On-site only</h3>
+                <i class="item-icon fa fa-map-marker"></i><h3 class="item-subtitle remote">On-site only</h3>
               % end
             </header>
 

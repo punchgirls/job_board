@@ -1,5 +1,6 @@
 % developer = this.current_developer
 % applications = developer.applications
+
 <section class="two-cols">
   <ul class="list" id="applications-list">
     <h2 class="list-title">My applications (<span id="apps-size">{{ applications.size }}</span>)</h2><br/>

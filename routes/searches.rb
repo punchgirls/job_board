@@ -27,7 +27,7 @@ class Searches < Cuba
 
     on default do
       render("search", title: "Search", posts: nil, search: true,
-        profile: true)
+        query: "", profile: true)
     end
   end
 end

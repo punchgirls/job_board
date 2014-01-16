@@ -42,7 +42,7 @@
 
         <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-        <input class="input location" id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off" value="{{ this.h(post.location) }}">
+        <input class="input input-location" id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off" value="{{ this.h(post.location) }}">
 
         <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
