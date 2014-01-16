@@ -58,3 +58,5 @@
     <button type="submit" id="button">Sign up!</button>
   </form>
 </section>
+
+<script src="/js/gravatar.js"></script>
