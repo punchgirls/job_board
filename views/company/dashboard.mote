@@ -29,20 +29,27 @@
 
             <p class="item-text">{{ this.h(post.description) }}</p>
 
-            <h3 class="item-subtitle see-applicants-link"><a href="/post/applications/{{ post.id }}"><strong>See applicants ({{ post.applications.size }})</strong></a></h3>
+            <h3 class="item-subtitle see-applicants-link">
+              <a href="/post/applications/{{ post.id }}">
+                <strong>See applicants ({{ post.active_applications.size }})</strong>
+              </a>
+            </h3>
 
             <section class="post-control">
               <span class="cursor" onclick="removePost({{ post.id }})">
-                <i class="fa fa-trash-o cursor post-control-icon delete-icon"></i><span class="underline">Delete post</span>
+                <i class="fa fa-trash-o cursor post-control-icon delete-icon"></i>
+                <span class="underline">Delete post</span>
               </span>
 
               <span class="published">
                 <a onClick="publishPost({{ post.id }});return false;" id="publishLink_{{ post.id }}"
                   class="post-control-link" href="/post/status/{{ post.id }}">
                 % if post.status == "published"
-                  <i class="fa fa-check post-control-icon published-icon"></i><span class="underline">Unpublish</span>
+                  <i class="fa fa-check post-control-icon published-icon"></i>
+                  <span class="underline">Unpublish</span>
                 % else
-                  <i class="fa fa-check post-control-icon"></i><span class="underline">Publish</span>
+                  <i class="fa fa-check post-control-icon"></i>
+                  <span class="underline">Publish</span>
                 % end
                 </a>
               </span>

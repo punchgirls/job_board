@@ -27,6 +27,14 @@ class Post < Ohm::Model
     return status == "published"
   end
 
+  def active_applications
+    self.applications.find(active?: true)
+  end
+
+  def discarded_applications
+    self.applications.find(active?: false)
+  end
+
   def developers
     developers = []
 

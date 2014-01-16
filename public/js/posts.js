@@ -245,28 +245,46 @@ function removePost (id) {
   }
 }
 
-function removeApplicant (id) {
+function addApplicant (id) {
   var applications = document.getElementById("application-list");
   var application = document.getElementById("app-" + id);
   var numberOfApplicants = document.getElementById("number-of-applicants");
   var value = numberOfApplicants.innerHTML;
-  var url = "/application/remove/" + id;
-  var msg = "Are you sure you want to delete the post?";
-  var cancel = confirm(msg);
+  var url = "/application/add/" + id;
 
-  if (cancel) {
-    var request = ajax();
-    request.open("POST", url);
+  var request = ajax();
+  request.open("POST", url);
 
-    request.onreadystatechange = function () {
-      if ((request.readyState===4) && (request.status===200)) {
-        applications.removeChild(application);
-        numberOfApplicants.innerHTML = parseInt(value) - 1;
-      }
-    };
+  request.onreadystatechange = function () {
+    if ((request.readyState===4) && (request.status===200)) {
+      console.log(request);
+      applications.removeChild(application);
+      numberOfApplicants.innerHTML = parseInt(value) - 1;
+    }
+  };
 
-    request.send();
-  }
+  request.send();
+}
+
+function discardApplicant (id) {
+  var applications = document.getElementById("application-list");
+  var application = document.getElementById("app-" + id);
+  var numberOfApplicants = document.getElementById("number-of-applicants");
+  var value = numberOfApplicants.innerHTML;
+  var url = "/application/discard/" + id;
+
+  var request = ajax();
+  request.open("POST", url);
+
+  request.onreadystatechange = function () {
+    if ((request.readyState===4) && (request.status===200)) {
+      console.log(request);
+      applications.removeChild(application);
+      numberOfApplicants.innerHTML = parseInt(value) - 1;
+    }
+  };
+
+  request.send();
 }
 
 function removeApplication (id) {

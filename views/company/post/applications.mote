@@ -1,4 +1,4 @@
-% applications = Post[id].applications
+% applications = Post[id].active_applications
 
 <section class="two-cols">
   <ul class="list" id="application-list">
@@ -42,7 +42,7 @@
               <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star cursor"></i>
             % end
 
-            <i onclick="removeApplicant({{ application.id }})" class="fa fa-trash-o cursor"></i>
+            <i onclick="discardApplicant({{ application.id }})" class="fa fa-trash-o cursor"></i>
           </section>
           <footer>
             <time datetime="" pubdate>
@@ -52,6 +52,7 @@
         </li>
       % end
     % end
+    <a href="/post/applications/discarded/{{ id }}">See discarded applicants</a>
   </ul>
 
   {{ this.partial("sidebar", user: this.current_user, search: true) }}
