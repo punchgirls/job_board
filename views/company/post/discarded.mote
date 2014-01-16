@@ -1,62 +1,59 @@
 % applications = Post[id].discarded_applications
 
-<section>
-  <h1>
-    <span>{{ this.h(Post[id].title) }}</span>
-    <span>/</span>
-    <span>Discarded applicants: <span id="number-of-applicants">{{ applications.size }}</span></span>
-  </h1>
-</section>
+<section class="two-cols">
+  <ul class="list" id="application-list">
+    <h2 class="list-title company-dashboard-title">Position: {{ this.h(Post[id].title) }}</a></h2>
+    % if applications.empty?
+      <p class="list-subtitle">No one applied to this post yet or the persons who applied removed their applications.</p>
+    % else
+      <p class="item-text posts-found">Discarded applicants: <span id="number-of-applicants">{{ applications.size }}</span></p><br/>
 
-<hr/>
-
-<section>
-  % if applications.empty?
-    <p>No one applied to this post yet or the persons who applied removed their applications.</p>
-  % else
-    <ul id="application-list">
-      % applications.each_with_index do |application, index|
+      % applications.each do |application|
         % developer = application.developer
-        <li id="app-{{ application.id }}">
-          <img src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
-          <section>
-            <h1>{{ this.h(developer.name) }}</h1><br/>
-            <a href="http://www.github.com/{{ developer.username }}" target="_blank">github.com/{{ developer.username }}</a><br/>
+        <li class="item" id="app-{{ application.id }}">
+          <span class="applicant-profile">
+            <img class="applicant-image" src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
+            <h2 class="applicant-name">{{ this.h(developer.name) }}</h2>
+          </span>
 
-            % if !developer.url.nil?
-              <a href="{{ developer.url }}">{{ this.h(developer.url) }}</a>
-            % end
+          <a class="applicant-gh-link" href="http://www.github.com/{{ developer.username }}" target="_blank">github.com/{{ developer.username }}</a>
 
-            % if !developer.bio.nil?
-              <p>{{ this.h(developer.bio) }}</p>
-            % end
-
-            % if !application.message.nil?
-              <p><span>Message from developer:</span><br/>{{ this.h(application.message) }}</p>
-            % end
-          </section>
-          <section>
-            <a href="/application/contact/{{ developer.id }}"><i class="fa fa-envelope-o"></i></a>
-
-            % if Post[id].favorites.member?(application)
-              <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star favorited cursor"></i>
-            % else
-              <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star cursor"></i>
-            % end
-
-            <i onclick="addApplicant({{ application.id }})" class="fa fa-plus cursor"></i>
-          </section>
-          <footer>
-            <time datetime="" pubdate>
-              Applied on {{ application.applied }}
-            </time>
-          </footer>
-          % if index != applications.size - 1
-            <hr/>
+          % if !developer.url.nil?
+            <h3 class="item-subtitle">URL:</h3>
+            <p class="item-text"><a href="{{ developer.url }}">{{ this.h(developer.url) }}</a></p>
           % end
+
+          % if !developer.bio.nil?
+            <h3 class="item-subtitle">Bio:</h3>
+            <p class="item-text">{{ this.h(developer.bio) }}</p>
+          % end
+
+          % if !application.message.nil?
+            <h3 class="item-subtitle">Message received:</h3>
+            <p class="item-text">{{ this.h(application.message) }}</p>
+          % end
+
+          <section class="post-control">
+            <span onclick="addApplicant({{ application.id }})" class="cursor">
+              <i class="fa fa-plus cursor post-control-icon delete-icon"></i><span class="underline">Move to Applicants list</span>
+            </span>
+          </section>
+
+          <footer class="item-footer">
+            <p class="item-text">
+              <small>
+                <time datetime="" pubdate>Applied on {{ application.applied }}</time>
+              </small>
+            </p>
+          </footer>
         </li>
       % end
-    </ul>
-  % end
-  <a href="/post/applications/discarded/{{ id }}">See discarded applicants</a>
+    % end
+
+    <a href="/post/applications/{{ id }}">Back to Applicants</a>
+
+  </ul>
+
+  {{ this.partial("sidebar", user: this.current_user, search: true) }}
+
 </section>

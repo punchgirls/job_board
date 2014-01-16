@@ -2,18 +2,19 @@
 
 <section class="two-cols">
   <ul class="list" id="application-list">
+    <h2 class="list-title company-dashboard-title">Position: {{ this.h(Post[id].title) }}</h2>
+
     % if applications.empty?
-      <p>No one applied to this post yet or the persons who applied removed their applications.</p>
+      <p class="item-text posts-found">No one applied to this post yet or the persons who applied removed their applications.</p>
     % else
-      <h2 class="list-title company-dashboard-title company-plan-info">{{ this.h(Post[id].title) }}</h2>
-      <p class="item-text posts-found company-plan-info">Applicants: <span id="number-of-applicants">{{ applications.size }}</span></p>
+      <p class="item-text posts-found">Applicants: <span id="number-of-applicants">{{ applications.size }}</span></p><br/>
 
       % applications.each do |application|
         % developer = application.developer
         <li class="item" id="app-{{ application.id }}">
           <span class="applicant-profile">
-              <img class="applicant-image" src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
-              <h2 class="applicant-name">{{ this.h(developer.name) }}</h2>
+            <img class="applicant-image" src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
+            <h2 class="applicant-name">{{ this.h(developer.name) }}</h2>
           </span>
 
           <a class="applicant-gh-link" href="http://www.github.com/{{ developer.username }}" target="_blank">github.com/{{ developer.username }}</a>

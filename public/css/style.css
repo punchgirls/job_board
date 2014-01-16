@@ -484,6 +484,8 @@ textarea {
 .post-control {
   margin: 20px 0;
   text-align: right;
+  line-height: 40px;
+  font-size: 0.97em;
 }
 
 .post-control-link {
@@ -494,7 +496,7 @@ textarea {
 
 .post-control-icon {
   float: none;
-  margin: 0 7px 0 20px;
+  margin: 0 3px 0 5px;
   vertical-align: middle;
   color: #ccc;
 }
@@ -1003,6 +1005,19 @@ input:-moz-placeholder {
     max-width: 28.4em;
   }
 
+  .edit-post-form #autocomplete {
+    width: 26.78em;
+    margin-top: -5px;
+  }
+
+  .post-control {
+    font-size: 1em;
+  }
+
+  .post-control-icon {
+    margin: 0 7px 0 20px;
+  }
+
   .login-form, .contact-form, .confirm-form {
     max-width: 35em;
   }
@@ -1201,10 +1216,13 @@ input:-moz-placeholder {
     width: 38.5em;
   }
 
-
   .edit-post-form .input-location {
     width: 39em;
     max-width: 39em;
+  }
+
+  .edit-post-form #autocomplete {
+    width: 36.7em;
   }
 
   .header__search-box #autocomplete li {
