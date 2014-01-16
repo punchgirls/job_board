@@ -21,6 +21,8 @@
   <h2 class="content-title">Create a new job offer</h2>
 
   <form class="form new-post-form" name="postFrm" action="/post/new" method="POST">
+    <input class="input input-title" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
+
     <div id="tags_wrapper">
       <ul class="header-menu" id="tokens">
         <li id="token-input">
@@ -41,8 +43,6 @@
     <label class="login-label"><input class="login-checkbox" type="checkbox" name="post[remote]" value="true">
       <span>Work from anywhere</span>
     </label>
-
-    <input class="input" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
 
     <textarea class="textarea" name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
 

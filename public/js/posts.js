@@ -142,7 +142,7 @@ function displayNote (id) {
 
 function favorite (post) {
   if (post.className === "favorited cursor") {
-    post.className = "favorite cursor";
+    post.className = "cursor";
     post.innerHTML = '<i class="fa fa-star post-control-icon"></i><span class="underline">Favorite</span>';
   } else {
     post.className = "favorited cursor";
@@ -209,7 +209,7 @@ function publishPost (id) {
 }
 
 function favoriteApplicant (id) {
-  var application = document.getElementById(id);
+  var application = document.getElementById("application-" + id);
   var url = "/application/favorite/" + id;
 
   var request = ajax();

@@ -33,21 +33,32 @@
             <p class="item-text">{{ this.h(application.message) }}</p>
           % end
 
-          <section>
-            <a href="/application/contact/{{ developer.id }}"><i class="fa fa-envelope-o"></i></a>
+          <section class="post-control">
+            <span class="cursor">
+              <a href="/application/contact/{{ developer.id }}"><i class="fa fa-envelope-o cursor post-control-icon"></i><span class="underline">Contact</span></a>
+            </span>
 
             % if Post[id].favorites.member?(application)
-              <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star favorited cursor"></i>
+              <span onclick="favoriteApplicant({{ application.id }})" id="application-{{ application.id }}" class="favorited cursor">
+                <i class="fa fa-star post-control-icon favorited-icon"></i><span class="favorited-text underline">Favorited</span>
+              </span>
             % else
-              <i onclick="favoriteApplicant({{ application.id }})" id="{{ application.id }}" class="fa fa-star cursor"></i>
+              <span onclick="favoriteApplicant({{ application.id }})" id="application-{{ application.id }}" class="cursor">
+                <i class="fa fa-star post-control-icon"></i><span class="underline">Favorite</span>
+              </span>
             % end
 
-            <i onclick="discardApplicant({{ application.id }})" class="fa fa-trash-o cursor"></i>
+            <span onclick="discardApplicant({{ application.id }})" class="cursor">
+              <i class="fa fa-trash-o cursor post-control-icon delete-icon"></i><span class="underline">Discard</span>
+            </span>
           </section>
-          <footer>
-            <time datetime="" pubdate>
-              Applied on {{ application.applied }}
-            </time>
+
+          <footer class="item-footer">
+            <p class="item-text">
+              <small>
+                <time datetime="" pubdate>Applied on {{ application.applied }}</time>
+              </small>
+            </p>
           </footer>
         </li>
       % end

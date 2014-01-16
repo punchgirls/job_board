@@ -393,11 +393,9 @@ class Companies < Cuba
         post.favorites.add(application)
       end
 
-      on get, root do
+      on default do
         render("company/post/applications", title: "Applicants", id: post.id)
       end
-
-      on(default) { not_found! }
     end
 
     on "signup" do
