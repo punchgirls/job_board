@@ -1,17 +1,17 @@
 % if edit.errors[:name] == [:not_present]
- <p>Company name is required</p>
+ Company name is required
 % end
 % if edit.errors[:email] == [:not_email]
-  <p>E-mail not valid</p>
+  E-mail not valid
 % end
 % if edit.errors[:url] == [:not_url]
-  <p>URL not valid</p>
+  URL not valid
 % end
 % if edit.errors[:password].include?(:too_small)
-  <p>The password length must be at least 6 characters</p>
+  The password length must be at least 6 characters
 % end
 % if edit.errors[:password] == [:not_confirmed]
-  <p>Passwords don't match</p>
+  Passwords don't match
 % end
 
 % if this.current_user.instance_of?(Company)

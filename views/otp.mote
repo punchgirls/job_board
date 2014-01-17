@@ -1,9 +1,9 @@
 % if defined?(reset)
   % if reset.errors[:password] == [:too_small]
-    <p>The password length must be at least 6 characters</p>
+    The password length must be at least 6 characters
   % end
   % if reset.errors[:password] == [:not_confirmed]
-    <p>Passwords don't match</p>
+    Passwords don't match
   % end
 % end
 

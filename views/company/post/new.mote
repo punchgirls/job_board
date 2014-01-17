@@ -1,20 +1,20 @@
 % if post.errors[:tags] == [:not_present]
- <p>At least one skill is required</p>
+ At least one skill is required
 % end
 % if post.errors[:title].include?(:not_present)
- <p>Title is required</p>
+ Title is required
 % end
 % if post.errors[:title] == [:not_in_range]
- <p>Title should not exceed 80 characters</p>
+ Title should not exceed 80 characters
 % end
 % if post.errors[:description].include?(:not_present)
- <p>Description is required</p>
+ Description is required
 % end
 % if post.errors[:description] == [:not_in_range]
- <p>Description should not exceed 600 characters</p>
+ Description should not exceed 600 characters
 % end
 % if post.errors[:location] == [:not_present] || post.errors[:remote] == [:not_present]
- <p>You have to provide a location or select the "work from anywhere" option</p>
+ You have to provide a location or select the "work from anywhere" option
 % end
 
 <section>

@@ -1,24 +1,24 @@
 % if defined?(signup)
   % if signup.errors[:name] == [:not_present]
-    <p>Company name is required</p>
+    Company name is required
   % end
   % if signup.errors[:email] == [:not_email]
-    <p>E-mail not valid</p>
+    E-mail not valid
   % end
   % if signup.errors[:email] == [:not_unique]
-    <p>This e-mail is already registered</p>
+    This e-mail is already registered
   % end
   % if signup.errors[:url] == [:not_url]
-    <p>URL not valid</p>
+    URL not valid
   % end
   % if signup.errors[:password] == [:too_small]
-    <p>The password length must be at least 6 characters</p>
+    The password length must be at least 6 characters
   % end
   % if signup.errors[:password] == [:not_confirmed]
-    <p>Passwords don't match</p>
+    Passwords don't match
   % end
   % if !signup.errors[:error_message].empty?
-    <p>{{ signup.errors[:error_message][0] }}</p>
+    {{ signup.errors[:error_message][0] }}
   % end
 % end
 
