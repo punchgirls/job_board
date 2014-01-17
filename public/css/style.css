@@ -481,6 +481,10 @@ textarea {
   font-size: 1.1em;
 }
 
+.applications-menu-pipeline {
+  display: none;
+}
+
 .post-control {
   margin: 20px 0;
   text-align: right;
@@ -1091,6 +1095,14 @@ input:-moz-placeholder {
   .list {
     margin: 20px auto 0;
     width: 33em;
+  }
+
+  .applications-menu-pipeline {
+    display: inline-block;
+  }
+
+  .applications-menu-breakline {
+    display: none;
   }
 
   .send-message-form {

@@ -10,10 +10,7 @@
       % end
       (<span id="apps-size">{{ applications.size }}</span>)
     </h2><br/>
-    <ul>
-      <li><a href="/applications">Active applications</a></li>
-      <li><a href="/history">Application history</a></li>
-    </ul>
+    <p class="item-text posts-found"><a href="/applications">Active applications</a> <span class="applications-menu-pipeline"> | </span><span class="applications-menu-breakline"><br/></span> <a href="/history">Application history</a></p><br/>
 
     % if applications.empty?
       <p class="item-text posts-found">You haven't applied for any jobs yet. Start your search now!</p>
