@@ -19,7 +19,9 @@ class Developers < Cuba
       end
 
       on default do
-        res.redirect "/applications"
+        render("developer/applications", title: "My applications",
+        search: true, query: "", applications: current_user.active_applications,
+        active_applications: true)
       end
     end
 
@@ -64,6 +66,11 @@ class Developers < Cuba
         application = Application.create(params)
 
         session[:success] = "You have successfully applied for a job!"
+        res.redirect "/search?query=#{session[:query]}"
+      end
+
+      on default do
+        res.redirect "/search?query=#{session[:query]}"
       end
     end
 
@@ -125,16 +132,22 @@ class Developers < Cuba
       on !favorites.member?(post) do
         favorites.add(post)
         favorited_by.add(current_user)
+
+        res.redirect "/search?query=#{session[:query]}"
       end
 
       on favorites.member?(post) do
         on session[:origin] do
           session.delete(:origin)
+
+          res.redirect "/search?query=#{session[:query]}"
         end
 
         on default do
           favorites.delete(post)
           favorited_by.delete(current_user)
+
+          res.redirect "/search?query=#{session[:query]}"
         end
       end
 
