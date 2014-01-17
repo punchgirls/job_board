@@ -70,10 +70,12 @@
 
               {{ this.partial("developer/note_form", application: application) }}
               <br/>
+              % if application.status != "canceled"
               <span onclick="removeApplication({{ application.id }})" class="cursor">
                 <i class="fa fa-trash-o cursor post-control-icon delete-icon">
                 </i><span class="underline">Remove application</span>
               </span>
+              % end
             </section>
 
             <footer class="item-footer">

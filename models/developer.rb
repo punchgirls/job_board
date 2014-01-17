@@ -18,7 +18,7 @@ class Developer < Ohm::Model
 
   def applied?(post_id)
     return Application.find(:post_id => post_id,
-      :developer_id => self.id).any?
+      :developer_id => self.id).except(status: "canceled").any?
   end
 
   def active_applications
