@@ -22,15 +22,15 @@
             <header class="item-header">
               <img class="item-company-logo" src="{{ post.company.gravatar }}">
               <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong></h1>
-              <p>Status: {{ application.status }}</p>
+              <p class="list-subtitle">Status: {{ application.status }}</p>
               <h3 class="item-subtitle">{{ this.h(post.company.name) }}</h3>
               <h3 class="item-subtitle">(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h3>
               <h3 class="item-subtitle">Tags: {{ post.tags }}</h3>
               <h3 class="item-subtitle">{{ this.h(post.location) }}</h3>
               % if post.remote == "true"
-                <i class="item-icon fa fa-globe"></i><h3 class="item-subtitle">Work from anywhere</h3>
+                <i class="item-icon fa fa-globe"></i><h3 class="item-subtitle remote">Work from anywhere</h3>
               % else
-                <i class="item-icon fa fa-map-marker"></i><h3 class="item-subtitle">On-site only</h3>
+                <i class="item-icon fa fa-map-marker"></i><h3 class="item-subtitle remote">On-site only</h3>
               % end
             </header>
 
