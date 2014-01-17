@@ -1,46 +1,58 @@
-% if edit.errors[:name] == [:not_present]
- Company name is required
+% if defined?(edit)
+  <p class="alert error">
+    % if edit.errors[:name] == [:not_present]
+     Company name is required
+    % end
+    % if edit.errors[:email] == [:not_email]
+      E-mail not valid
+    % end
+    % if edit.errors[:url] == [:not_url]
+      URL not valid
+    % end
+    % if edit.errors[:password].include?(:too_small)
+      The password length must be at least 6 characters
+    % end
+    % if edit.errors[:password] == [:not_confirmed]
+      Passwords don't match
+    % end
+
+    % if this.current_user.instance_of?(Company)
+      % company = this.current_company
+    % else
+      % company = Company[id]
+    % end
+  </p>
 % end
-% if edit.errors[:email] == [:not_email]
-  E-mail not valid
-% end
-% if edit.errors[:url] == [:not_url]
-  URL not valid
-% end
-% if edit.errors[:password].include?(:too_small)
-  The password length must be at least 6 characters
-% end
-% if edit.errors[:password] == [:not_confirmed]
-  Passwords don't match
-% end
 
-% if this.current_user.instance_of?(Company)
-  % company = this.current_company
-% else
-  % company = Company[id]
-% end
+<section class="two-cols">
+  <ul class="list">
+    <h2 class="list-title">Edit your profile</h2>
+    <li class="item">
+      <form class="form edit-profile-form" action="/edit/{{ company.id }}" method="POST">
 
-<section>
-  <h1>Edit your profile</h1>
+        <input class="input input-name" type="text" name="company[name]" placeholder="Company name" value="{{ this.h(company.name) }}"><br/>
 
-  <form action="/edit/{{ company.id }}" method="POST">
+        <input class="input input-profile" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company.email) }}"><br/>
 
-    <input type="text" name="company[name]" placeholder="Company name" value="{{ this.h(company.name) }}"><br/>
+        <input class="input input-profile" type="text" name="company[url]" placeholder="URL" value="{{ this.h(company.url) }}"><br/><br/>
 
-    <input type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company.email) }}"><br/>
+        <label class="password-label">Change password:</label><br/>
 
-    <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company.url) }}"><br/><br/>
+        <input class="input input-profile" type="password" name="company[password]" placeholder="Password"><br/>
 
-    <label>Change password:</label><br/>
+        <input class="input input-profile" type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
 
-    <input type="password" name="company[password]" placeholder="Password"><br/>
+        <span class="send-message-buttons profile-buttons">
+          <a class="post-control-link cancel" href="/profile">cancel</a>
 
-    <input type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
+          <button class="send-message-button" type="submit">save</button>
+        </span>
+      </form>
+    </li>
+  </ul>
 
-    <a href="/profile">Cancel</a>
+  {{ this.partial("sidebar", user: this.current_user, search: true) }}
 
-    <button type="submit">Save</button>
-  </form>
 </section>
 
 <script src="/js/gravatar.js"></script>

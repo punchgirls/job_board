@@ -1,17 +1,27 @@
-<h1>Payment history</h1>
+<section class="two-cols">
+  <ul class="list payment-history">
+    <li>
+      <table class="table">
+        <h2 class="payment-history-title">Payment history</h2>
+        <tr class="table-row">
+          <th class="table-th">Invoice ID</th>
+          <th class="table-th">Date</th>
+          <th class="table-th">Amount</th>
+        </tr>
 
-<table border="1">
-  <th>Invoice ID</th>
-  <th>Date</th>
-  <th>Amount</th>
+        % history.data.each do |invoice|
+          % date = Time.at(invoice.date)
+          <tr class="table-row">
+            <td class="table-cell"><a href="/customer/invoice/{{ invoice.id }}">{{ invoice.id }}</a></td>
+            <td class="table-cell">{{ date.day }}-{{ date.month }}-{{ date.year }}</td>
+            <td class="table-cell">{{ invoice.total / 100}}  USD</td>
+          </tr>
+        % end
+      </table>
+    </li>
+    <p class="item-subtitle"><a href="/profile">Back to profile</a></p>
+  </ul>
 
-  % history.data.each do |invoice|
-    % date = Time.at(invoice.date)
+  {{ this.partial("sidebar", user: this.current_user, search: true) }}
 
-    <tr>
-      <td><a href="/customer/invoice/{{ invoice.id }}">{{ invoice.id }}</a></td>
-      <td>{{ date.day }}-{{ date.month }}-{{ date.year }}</td>
-      <td>{{ invoice.total / 100}}  USD </td>
-    </tr>
-  % end
-</table>
+</section>

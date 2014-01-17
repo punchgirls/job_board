@@ -22,7 +22,7 @@
 % end
 
 <section class="two-cols">
-  <ul class="list" id="posts-list">
+  <ul class="list">
     <h2 class="list-title">Edit your post</h2>
     <li class="item">
       <form class="form edit-post-form" name="postFrm" action="/post/edit/{{ post.id }}" method="POST">

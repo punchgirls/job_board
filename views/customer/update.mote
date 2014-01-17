@@ -1,10 +1,22 @@
-<form action="/customer/update" method="POST">
+<section class="two-cols">
+  <ul class="list">
+    <h2 class="list-title">Edit your payment details</h2>
+    <li class="item">
+      <form class="form edit-payment-form" action="/customer/update" method="POST">
 
-  {{ this.partial("accepted_cards") }}
+        {{ this.partial("accepted_cards") }}
 
-  {{ this.partial("new_card") }}
+        {{ this.partial("new_card") }}
 
-  <a id="cancel" href="/profile">Cancel</a>
+        <span class="send-message-buttons profile-buttons">
+          <a class="post-control-link cancel" href="/profile">cancel</a>
 
-  <button type="submit" id="button">Save</button>
-</form>
+          <button class="send-message-button" type="submit">save</button>
+        </span>
+      </form>
+    </li>
+  </ul>
+
+  {{ this.partial("sidebar", user: this.current_user, search: true) }}
+
+</section>

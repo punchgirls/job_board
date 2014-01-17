@@ -18,6 +18,10 @@ a:link, a:visited, .underline {
   text-decoration: underline;
 }
 
+.capitalize {
+  text-transform: capitalize;
+}
+
 a:hover, a:active, .underline:hover {
   color: #4d4d4d;
   text-decoration: none;
@@ -42,6 +46,7 @@ button {
   display: block;
   text-align: center;
   font-size: 0.9em;
+  padding: 0 20px;
 }
 
 .success {
@@ -390,6 +395,10 @@ textarea {
   font-size: 1.3em;
 }
 
+.payment-history {
+  width: 23.3em;
+}
+
 .company-dashboard-title {
   float: left;
   text-align: left;
@@ -608,9 +617,42 @@ textarea {
   vertical-align: middle;
 }
 
-.edit-post-form {
-  width: 30em;
-  max-width: 30em;
+.edit-post-form, .edit-profile-form, .edit-payment-form {
+  width: 27em;
+  max-width: 27em;
+  font-size: 0.8em;
+}
+
+.edit-payment-form {
+  margin-top: 20px;
+}
+
+.edit-payment-form .signup-text {
+  font-size: 1.6em;
+}
+
+.edit-payment-form .credit-card-image {
+  width: 41px;
+}
+
+.edit-payment-form .credit-card {
+  width: 27em;
+  max-width: 27em;
+}
+
+.edit-payment-form .signup-input {
+  width: 18.4em;
+  max-width: 18.4em;
+}
+
+.edit-payment-form .cvc {
+  width: 3em;
+  max-width: 3em;
+  margin-right: 1em;
+}
+
+.edit-payment-form .expires_on {
+  font-size: 1.3em;
 }
 
 .profile-buttons {
@@ -648,6 +690,39 @@ textarea {
   font-size: 1.3em;
   vertical-align: top;
   color: green;
+}
+
+.profile-credit-card {
+  width: 26em;
+  max-width: 26em;
+  display: inline-block;
+  font-size: 0.8em;
+}
+
+.profile-card-image {
+  width: 50px;
+  clear: both;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.profile-card-input {
+  width: 17.4em;
+  max-width: 17.4em;
+}
+
+.profile-card-cvc {
+  display: inline-block;
+  width: 2.4em;
+  margin-right: 0.5em;
+}
+
+.profile-card-expires_on {
+  font-size: 1.3em;
+}
+
+.profile-short-input {
+  width: 2.4em;
 }
 
 .item-footer {
@@ -823,18 +898,27 @@ textarea {
   line-height: 2em;
 }
 
-.edit-post-form .input-title {
+.edit-post-form .input-title, .edit-profile-form .input-name {
   font-size: 1.7em;
   width: 16.7em;
   line-height: 1.6em;
   font-weight: bold;
 }
 
-.edit-post-form .login-label {
+.edit-profile-form .input-name {
+  font-size: 1.77em;
+}
+
+.edit-post-form .login-label, .edit-profile-form .password-label {
   font-size: 1.5em;
 }
 
-.edit-post-form .input-location {
+.edit-profile-form .password-label {
+  display: block;
+  text-align: left;
+}
+
+.edit-post-form .input-location, .edit-profile-form .input-profile {
   width: 17.8em;
   max-width: 17.8em;
   font-size: 1.6em;
@@ -914,6 +998,33 @@ input:-moz-placeholder {
 
 .header__search-box #token-input {
   line-height: 35px;
+}
+
+.table {
+  width: 23.3em;
+  max-width: 23.3em;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.payment-history-title {
+  font-size: 1.2em;
+  text-align: left;
+}
+
+.table-row {
+  line-height: 2em;
+  background-color: #FFCC00;
+}
+
+.table-th {
+  padding: 3px;
+}
+
+.table-cell {
+  padding: 3px;
+  line-height: 2em;
+  background-color: #f3f3f3;
 }
 
 @media only screen and (min-width: 480px)  {
@@ -999,6 +1110,21 @@ input:-moz-placeholder {
   .edit-post-form #autocomplete {
     width: 26.78em;
     margin-top: -5px;
+  }
+
+  .edit-profile-form {
+    width: 36em;
+    max-width: 36em;
+  }
+
+  .edit-profile-form .input-name {
+    width: 19.4em;
+    max-width: 19.4em;
+  }
+
+  .edit-profile-form .input-profile {
+    width: 21.5em;
+    max-width: 21.5em;
   }
 
   .post-control {
@@ -1135,6 +1261,30 @@ input:-moz-placeholder {
   .send-message-button {
     margin: 0;
     display: inline;
+  }
+
+  .profile-credit-card {
+    width: 34em;
+    max-width: 34em;
+    display: block;
+  }
+
+  .profile-card-input {
+    width: 23.3em;
+    max-width: 23.3em;
+  }
+
+  .profile-short-input {
+    width: 2.7em;
+  }
+
+  .profile-card-cvc {
+    width: 3em;
+    margin-right: 5.2em;
+  }
+  .table {
+    width: 33.5em;
+    max-width: 33.5em;
   }
 }
 
@@ -1394,6 +1544,27 @@ input:-moz-placeholder {
     padding: 0;
   }
 
+  .edit-profile-form {
+    width: 47em;
+    max-width: 51em;
+  }
+
+  .edit-profile-form .input-name {
+    width: 25.7em;
+    max-width: 25.7em;
+  }
+
+  .edit-profile-form .input-profile {
+    width: 28.5em;
+    max-width: 28.5em;
+  }
+
+  .payment-history-title {
+    display: block;
+    font-size: 1.3em;
+    text-align: left;
+  }
+
   .sidebar {
     width: 18em;
     float: right;
@@ -1433,6 +1604,11 @@ input:-moz-placeholder {
 
   .sidebar-plan-title {
     text-transform: capitalize;
+  }
+
+  .table {
+    width: 45em;
+    max-width: 45em;
   }
 
   .footer {

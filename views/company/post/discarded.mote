@@ -4,7 +4,7 @@
   <ul class="list" id="application-list">
     <h2 class="list-title company-dashboard-title">Position: {{ this.h(Post[id].title) }}</a></h2>
     % if applications.empty?
-      <p class="list-subtitle">No one applied to this post yet or the persons who applied removed their applications.</p>
+      <p class="item-text posts-found">No one applied to this post yet or the persons who applied removed their applications.</p>
     % else
       <p class="item-text posts-found">Discarded applicants: <span id="number-of-applicants">{{ applications.size }}</span></p><br/>
 

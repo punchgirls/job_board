@@ -1,39 +1,34 @@
 % date = Time.at(invoice.date)
 % lines = invoice.lines.data
 
-<h2 class="content-title">Invoice details</h2>
+<section class="two-cols">
+  <ul class="list">
+    <h2 class="payment-history-title">Invoice details</h2>
+      <li class="item">
+        <p class="item-subtitle">ID: {{ invoice.id }}</p>
+        <p class="item-subtitle">Date: {{ date.day }}-{{ date.month }}-{{ date.year }}</p>
+        <p class="item-subtitle">Total: ${{ invoice.total / 100 }}</p>
+      </li>
+    <h2 class="payment-history-title">Specification</h2>
 
-<table border="1">
-  <tr>
-    <td>ID</td>
-    <td>{{ invoice.id }}</td>
-  </tr>
-  <tr>
-    <td>Date</td>
-    <td>{{ date.day }}-{{ date.month }}-{{ date.year }}</td>
-  </tr>
-  <tr>
-    <td>Total</td>
-    <td>{{ invoice.total / 100 }} USD</td>
-  </tr>
- </table>
+    % lines.each do |line|
+      % start = Time.at(line.period.start)
+      % stop = Time.at(line.period.end)
+      <li class="item">
+        % if !line.plan.nil?
+          <p class="item-subtitle">Subscribed to plan: <span class="capitalize">{{ line.plan.id }}</span><br/>
+          Plan description: ({{ plan.posts }} posts/months)</p>
+          <p class="item-subtitle">Charged period: {{ start.day }}-{{ start.month }}-{{ start.year }} to {{ stop.day }}-{{ stop.month }}-{{ stop.year }}</p>
+        % else
+          <p class="item-subtitle">Description: {{ line.description }}</p>
+          <p class="item-subtitle">Date: {{ date.day }}-{{ date.month }}-{{ date.year }}</p>
+        % end
+        <p class="item-subtitle">Amount: ${{ line.amount / 100 }}</p>
+      </li>
+    % end
+    <p class="item-subtitle"><a href="/customer/history">Back to payment history</a></p>
+  </ul>
 
- <h2 class="content-title">Specification</h2>
+  {{ this.partial("sidebar", user: this.current_user, search: true) }}
 
-<table border="1">
-  % lines.each do |line|
-    % start = Time.at(line.period.start)
-    % stop = Time.at(line.period.end)
-
-    <tr>
-      % if !line.plan.nil?
-        <td>Subscription to {{ line.plan.id }} ({{ plan.posts }} posts/months)</td>
-        <td>{{ start.day }}-{{ start.month }}-{{ start.year }} to {{ stop.day }}-{{ stop.month }}-{{ stop.year }}</td>
-      % else
-        <td>{{ line.description }}</td>
-        <td>{{ date.day }}-{{ date.month }}-{{ date.year }}</td>
-      % end
-      <td>{{ line.amount / 100 }} USD</td>
-     </tr>
-  % end
-</table>
+</section>

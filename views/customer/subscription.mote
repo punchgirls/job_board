@@ -1,8 +1,20 @@
-<section>
-  <h1>Change subscription</h1>
+<section class="two-cols">
+  <ul class="list">
+    <h2 class="list-title">Change subscription</h2>
+    <li class="item">
+      <form class="form edit-profile-form" action="/customer/subscription" method="POST">
 
-  <form action="/customer/subscription" method="POST">
-    {{ this.partial("plans", plan_id: plan_id) }}
-    <button type="submit">Update</button>
-  </form>
+        {{ this.partial("plans", plan_id: plan_id) }}
+
+        <span class="send-message-buttons profile-buttons">
+          <a class="post-control-link cancel" href="/profile">cancel</a>
+
+          <button class="send-message-button" type="submit">update</button>
+        </span>
+      </form>
+    </li>
+  </ul>
+
+  {{ this.partial("sidebar", user: this.current_user, search: true) }}
+
 </section>
