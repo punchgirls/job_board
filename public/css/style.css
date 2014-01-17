@@ -447,7 +447,7 @@ textarea {
   display: inline-block;
   width: 50px;
   margin-right: 10px;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .item-text {
@@ -557,6 +557,7 @@ textarea {
 }
 
 .send-message-link {
+  line-height: 1em;
   display: block;
   margin: 10px 0 0 0;
   text-decoration: underline;
@@ -752,6 +753,7 @@ textarea {
 
 .remote {
   display: inline-block;
+  margin-left: 10px;
 }
 
 #autocomplete li {
@@ -1005,6 +1007,31 @@ input:-moz-placeholder {
 
   .post-control-icon {
     margin: 0 7px 0 20px;
+  }
+
+  .status, .post-remote {
+    display: inline;
+    float: right;
+    margin: 0;
+  }
+
+  .post-tags {
+    display: block;
+  }
+
+  .post-info {
+    width: 39.6em;
+    display: inline-block;
+    line-height: 1em;
+    margin-bottom: 10px;
+  }
+
+  .company-info {
+    display: inline-block;
+  }
+
+  .company-name, .company-url, .post-location {
+    display: inline-block;
   }
 
   .login-form, .contact-form, .confirm-form {

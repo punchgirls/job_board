@@ -2,27 +2,28 @@
 
 % if defined?(edit)
   % if edit.errors[:tags] == [:not_present]
-   <p class="alert alert-error">At least one skill is required</p>
+   At least one skill is required
   % end
   % if edit.errors[:title].include?(:not_present)
-   <p class="alert alert-error">Title is required</p>
+   Title is required
   % end
   % if edit.errors[:title] == [:not_in_range]
-   <p class="alert alert-error">Title should not exceed 80 characters</p>
+   Title should not exceed 80 characters
   % end
   % if edit.errors[:description].include?(:not_present)
-   <p class="alert alert-error">Description is required</p>
+   Description is required
   % end
   % if edit.errors[:description] == [:not_in_range]
-   <p class="alert alert-error">Description should not exceed 600 characters</p>
+   Description should not exceed 600 characters
   % end
   % if edit.errors[:location] == [:not_present] || edit.errors[:remote] == [:not_present]
-   <p class="alert alert-error">Location or Remote must be selected</p>
+   Location or Remote must be selected
   % end
 % end
 
 <section class="two-cols">
   <ul class="list" id="posts-list">
+    <h2 class="list-title">Edit your post</h2>
     <li class="item">
       <form class="form edit-post-form" name="postFrm" action="/post/edit/{{ post.id }}" method="POST">
         <input class="input input-title" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
