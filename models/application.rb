@@ -6,6 +6,7 @@ class Application < Ohm::Model
   attribute :note
   attribute :status
 
+  index :status
   index :active?
 
   def active?
