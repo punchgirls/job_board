@@ -278,7 +278,7 @@ textarea {
   width: auto;
   margin: 0;
   padding: 0;
-  vertical-align: bottom;
+  vertical-align: middle;
 }
 
 .confirm-image {
@@ -810,7 +810,8 @@ textarea {
 }
 
 .edit-post-form #autocomplete {
-  width: 16.80em;
+  width: 15.1em;
+  max-width: 15.1em;
   margin-top: -6px;
   font-size: 1.7em;
 }
@@ -885,28 +886,30 @@ textarea {
 }
 
 .edit-post-form #tokens {
-  width: 17.4em;
+  width: 15.6em;
+  max-width: 15.6em;
   margin-bottom: 4px;
   line-height: 1.5em;
   font-size: 1.6em;
 }
 
 .edit-post-form .input, .edit-post-form .textarea {
-  width: 22em;
-  max-width: 22em;
+  width: 20em;
+  max-width: 20em;
   font-size: 1.3em;
   line-height: 2em;
 }
 
 .edit-post-form .input-title, .edit-profile-form .input-name {
+  width: 15em;
+  max-width: 15em;
   font-size: 1.7em;
-  width: 16.7em;
   line-height: 1.6em;
   font-weight: bold;
 }
 
 .edit-profile-form .input-name {
-  font-size: 1.77em;
+  font-size: 1.7em;
 }
 
 .edit-post-form .login-label, .edit-profile-form .password-label {
@@ -919,9 +922,9 @@ textarea {
 }
 
 .edit-post-form .input-location, .edit-profile-form .input-profile {
-  width: 17.8em;
-  max-width: 17.8em;
-  font-size: 1.6em;
+  width: 17.1em;
+  max-width: 18em;
+  font-size: 1.5em;
   line-height: 1.6em;
 }
 
@@ -1068,8 +1071,8 @@ input:-moz-placeholder {
   }
 
   .edit-post-form {
-    width: 47em;
-    max-width: 47em;
+    width: 41.5em;
+    max-width: 41.5em;
   }
 
   .new-post-form #autocomplete {
@@ -1082,7 +1085,8 @@ input:-moz-placeholder {
   }
 
   .edit-post-form #tokens {
-    width: 28em;
+    width: 24.5em;
+    max-width: 24.5em;
   }
 
   .new-post-form .input, .new-post-form .textarea {
@@ -1093,22 +1097,23 @@ input:-moz-placeholder {
   }
 
   .edit-post-form .input, .edit-post-form .textarea {
-    width: 35em;
-    max-width: 35em;
+    width: 31em;
+    max-width: 31em;
   }
 
   .edit-post-form .input-title {
-    width: 26.7em;
-    max-width: 26.7em;
+    width: 23.4em;
+    max-width: 23.4em;
   }
 
   .edit-post-form .input-location {
-    width: 28.4em;
-    max-width: 28.4em;
+    width: 26.6em;
+    max-width: 26.6em;
   }
 
   .edit-post-form #autocomplete {
-    width: 26.78em;
+    width: 23.5em;
+    max-width: 23.5em;
     margin-top: -5px;
   }
 
@@ -1118,13 +1123,13 @@ input:-moz-placeholder {
   }
 
   .edit-profile-form .input-name {
-    width: 19.4em;
-    max-width: 19.4em;
+    width: 20.3em;
+    max-width: 20.3em;
   }
 
   .edit-profile-form .input-profile {
-    width: 21.5em;
-    max-width: 21.5em;
+    width: 23.1em;
+    max-width: 23.1em;
   }
 
   .post-control {
@@ -1372,31 +1377,33 @@ input:-moz-placeholder {
   }
 
   .edit-post-form {
-    width: 64.2em;
-    max-width: 64.2em;
+    width: 56.2em;
+    max-width: 56.2em;
   }
 
   .edit-post-form .input, .edit-post-form .textarea {
-    width: 48em;
-    max-width: 48em;
+    width: 42.2em;
+    max-width: 42.2em;
   }
 
   .edit-post-form .input-title {
-    width: 36.6em;
-    max-width: 36.6em;
+    width: 32.1em;
+    max-width: 32.1em;
   }
 
   .edit-post-form #tokens {
-    width: 38.5em;
+    width: 33.7em;
+    max-width: 33.7em;
   }
 
   .edit-post-form .input-location {
-    width: 39em;
-    max-width: 39em;
+    width: 36.5em;
+    max-width: 36.5em;
   }
 
   .edit-post-form #autocomplete {
-    width: 36.7em;
+    width: 32.2em;
+    max-width: 32.2em;
   }
 
   .header__search-box #autocomplete li {
@@ -1506,6 +1513,7 @@ input:-moz-placeholder {
   .list {
     margin: 0;
     width: 45em;
+    max-width: 45em;
     font-size: 1em;
     float: left;
   }
@@ -1546,17 +1554,17 @@ input:-moz-placeholder {
 
   .edit-profile-form {
     width: 47em;
-    max-width: 51em;
+    max-width: 47em;
   }
 
   .edit-profile-form .input-name {
-    width: 25.7em;
-    max-width: 25.7em;
+    width: 26.7em;
+    max-width: 26.7em;
   }
 
   .edit-profile-form .input-profile {
-    width: 28.5em;
-    max-width: 28.5em;
+    width: 30.4em;
+    max-width: 30.4em;
   }
 
   .payment-history-title {
