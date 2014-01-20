@@ -1,10 +1,12 @@
 % if defined?(reset)
-  % if reset.errors[:password] == [:too_small]
-    The password length must be at least 6 characters
-  % end
-  % if reset.errors[:password] == [:not_confirmed]
-    Passwords don't match
-  % end
+  <p class="alert error">
+    % if reset.errors[:password] == [:too_small]
+      The password length must be at least 6 characters
+    % end
+    % if reset.errors[:password] == [:not_confirmed]
+      Passwords don't match
+    % end
+  </p>
 % end
 
 <h2 class="content-title company-login">Create your new password</h2>

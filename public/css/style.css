@@ -1201,6 +1201,7 @@ input:-moz-placeholder {
   .signup-input {
     width: 20em;
     max-width: 20em;
+    margin: 0 0 8px 0;
   }
 
   .cvc {

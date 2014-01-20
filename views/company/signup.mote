@@ -1,25 +1,27 @@
 % if defined?(signup)
-  % if signup.errors[:name] == [:not_present]
-    Company name is required
-  % end
-  % if signup.errors[:email] == [:not_email]
-    E-mail not valid
-  % end
-  % if signup.errors[:email] == [:not_unique]
-    This e-mail is already registered
-  % end
-  % if signup.errors[:url] == [:not_url]
-    URL not valid
-  % end
-  % if signup.errors[:password] == [:too_small]
-    The password length must be at least 6 characters
-  % end
-  % if signup.errors[:password] == [:not_confirmed]
-    Passwords don't match
-  % end
-  % if !signup.errors[:error_message].empty?
-    {{ signup.errors[:error_message][0] }}
-  % end
+  <p class="alert error">
+    % if signup.errors[:name] == [:not_present]
+      Company name is required
+    % end
+    % if signup.errors[:email] == [:not_email]
+      E-mail not valid
+    % end
+    % if signup.errors[:email] == [:not_unique]
+      This e-mail is already registered
+    % end
+    % if signup.errors[:url] == [:not_url]
+      URL not valid
+    % end
+    % if signup.errors[:password] == [:too_small]
+      The password length must be at least 6 characters
+    % end
+    % if signup.errors[:password] == [:not_confirmed]
+      Passwords don't match
+    % end
+    % if !signup.errors[:error_message].empty?
+      {{ signup.errors[:error_message][0] }}
+    % end
+  </p>
 % end
 
 % gravatar_url =  "http://pictures.4ever.eu/data/80x80/animals/cats/small-kitten-151092.jpg"
