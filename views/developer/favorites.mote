@@ -11,19 +11,27 @@
         <li class="item">
           <article>
             <header class="item-header">
-              <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong></h1>
-              <h3 class="item-subtitle">{{ this.h(post.company.name) }}</h3>
-              <h3 class="item-subtitle">(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h3>
+              <img class="item-company-logo" src="{{ post.company.gravatar }}">
+              <span class="item-subtitle post-info">
+                <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong></h1>
+                <br/>
+                <span class="item-subtitle company-info">
+                  <h3 class="item-subtitle company-name">{{ this.h(post.company.name) }}</h3>
+                  <h3 class="item-subtitle company-url">(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h3><br/>
+                </span>
+              </span>
 
               % tags = post.tags.split(",").join(", ")
 
-              <h3 class="item-subtitle">Tags: {{ tags }}</h3>
-              <h3 class="item-subtitle">{{ this.h(post.location) }}</h3>
-              % if post.remote == "true"
-                <i class="item-icon fa fa-globe"></i><h3 class="item-subtitle">Work from anywhere</h3>
-              % else
-                <i class="item-icon fa fa-map-marker"></i><h3 class="item-subtitle">On-site only</h3>
-              % end
+              <h3 class="item-subtitle post-tags">Tags: {{ tags }}</h3>
+              <h3 class="item-subtitle post-location">{{ this.h(post.location) }}</h3>
+              <h3 class="item-subtitle post-remote">
+                % if post.remote == "true"
+                  <i class="item-icon fa fa-globe"></i><p class="item-subtitle remote">Work from anywhere</p>
+                % else
+                  <i class="item-icon fa fa-map-marker"></i><p class="item-subtitle remote">On-site only</p>
+                % end
+              </h3>
             </header>
 
             <p class="item-text">{{ this.h(post.description) }}</p>
