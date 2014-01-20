@@ -14,17 +14,17 @@ a:link, a:visited, .underline {
   color: #4d4d4d;
 }
 
+a:hover, a:active, .underline:hover {
+  color: #4d4d4d;
+  text-decoration: none;
+}
+
 .underline {
   text-decoration: underline;
 }
 
 .capitalize {
   text-transform: capitalize;
-}
-
-a:hover, a:active, .underline:hover {
-  color: #4d4d4d;
-  text-decoration: none;
 }
 
 button {
@@ -618,9 +618,13 @@ textarea {
 }
 
 .edit-post-form, .edit-profile-form, .edit-payment-form {
-  width: 27em;
-  max-width: 27em;
-  font-size: 0.8em;
+  width: 30em;
+  max-width: 30em;
+  font-size: 0.7em;
+}
+
+.edit-post-form .countdown {
+  font-size: 1.3em;
 }
 
 .edit-payment-form {
@@ -810,8 +814,8 @@ textarea {
 }
 
 .edit-post-form #autocomplete {
-  width: 15.1em;
-  max-width: 15.1em;
+  width: 16.82em;
+  max-width: 16.82em;
   margin-top: -6px;
   font-size: 1.7em;
 }
@@ -886,30 +890,30 @@ textarea {
 }
 
 .edit-post-form #tokens {
-  width: 15.6em;
-  max-width: 15.6em;
+  width: 17.4em;
+  max-width: 17.4em;
   margin-bottom: 4px;
   line-height: 1.5em;
   font-size: 1.6em;
 }
 
 .edit-post-form .input, .edit-post-form .textarea {
-  width: 20em;
-  max-width: 20em;
+  width: 22em;
+  max-width: 22em;
   font-size: 1.3em;
-  line-height: 2em;
+  line-height: 1.7em;
 }
 
 .edit-post-form .input-title, .edit-profile-form .input-name {
-  width: 15em;
-  max-width: 15em;
-  font-size: 1.7em;
+  width: 17.8em;
+  max-width: 17.8em;
+  font-size: 1.6em;
   line-height: 1.6em;
   font-weight: bold;
 }
 
 .edit-profile-form .input-name {
-  font-size: 1.7em;
+  font-size: 1.6em;
 }
 
 .edit-post-form .login-label, .edit-profile-form .password-label {
@@ -922,10 +926,10 @@ textarea {
 }
 
 .edit-post-form .input-location, .edit-profile-form .input-profile {
-  width: 17.1em;
-  max-width: 18em;
+  width: 19em;
+  max-width: 19em;
   font-size: 1.5em;
-  line-height: 1.6em;
+  line-height: 1.5em;
 }
 
 .header #tokens {
@@ -1071,8 +1075,8 @@ input:-moz-placeholder {
   }
 
   .edit-post-form {
-    width: 41.5em;
-    max-width: 41.5em;
+    width: 46.5em;
+    max-width: 46.5em;
   }
 
   .new-post-form #autocomplete {
@@ -1085,8 +1089,8 @@ input:-moz-placeholder {
   }
 
   .edit-post-form #tokens {
-    width: 24.5em;
-    max-width: 24.5em;
+    width: 27.6em;
+    max-width: 27.6em;
   }
 
   .new-post-form .input, .new-post-form .textarea {
@@ -1097,24 +1101,24 @@ input:-moz-placeholder {
   }
 
   .edit-post-form .input, .edit-post-form .textarea {
-    width: 31em;
-    max-width: 31em;
+    width: 34.6em;
+    max-width: 34.6em;
   }
 
   .edit-post-form .input-title {
-    width: 23.4em;
-    max-width: 23.4em;
+    width: 28em;
+    max-width: 28em;
   }
 
   .edit-post-form .input-location {
-    width: 26.6em;
-    max-width: 26.6em;
+    width: 29.9em;
+    max-width: 29.9em;
   }
 
   .edit-post-form #autocomplete {
-    width: 23.5em;
-    max-width: 23.5em;
-    margin-top: -5px;
+    width: 26.45em;
+    max-width: 26.45em;
+    margin-top: -6px;
   }
 
   .edit-profile-form {
@@ -1125,6 +1129,7 @@ input:-moz-placeholder {
   .edit-profile-form .input-name {
     width: 20.3em;
     max-width: 20.3em;
+    font-size: 1.7em;
   }
 
   .edit-profile-form .input-profile {
@@ -1151,7 +1156,8 @@ input:-moz-placeholder {
   }
 
   .post-info {
-    width: 39.6em;
+    width: 27.6em;
+    max-width: 27.6em;
     display: inline-block;
     line-height: 1em;
     margin-bottom: 10px;
@@ -1377,28 +1383,28 @@ input:-moz-placeholder {
   }
 
   .edit-post-form {
-    width: 56.2em;
-    max-width: 56.2em;
+    width: 61em;
+    max-width: 61em;
   }
 
   .edit-post-form .input, .edit-post-form .textarea {
-    width: 42.2em;
-    max-width: 42.2em;
+    width: 45.8em;
+    max-width: 45.8em;
   }
 
   .edit-post-form .input-title {
-    width: 32.1em;
-    max-width: 32.1em;
+    width: 37.1em;
+    max-width: 37.1em;
   }
 
   .edit-post-form #tokens {
-    width: 33.7em;
-    max-width: 33.7em;
+    width: 36.7em;
+    max-width: 36.7em;
   }
 
   .edit-post-form .input-location {
-    width: 36.5em;
-    max-width: 36.5em;
+    width: 39.6em;
+    max-width: 39.6em;
   }
 
   .edit-post-form #autocomplete {
@@ -1512,8 +1518,8 @@ input:-moz-placeholder {
 
   .list {
     margin: 0;
-    width: 45em;
-    max-width: 45em;
+    width: 43em;
+    max-width: 43em;
     font-size: 1em;
     float: left;
   }
@@ -1565,6 +1571,11 @@ input:-moz-placeholder {
   .edit-profile-form .input-profile {
     width: 30.4em;
     max-width: 30.4em;
+  }
+
+  .post-info {
+    width: 37.6em;
+    max-width: 37.6em;
   }
 
   .payment-history-title {

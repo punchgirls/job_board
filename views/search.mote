@@ -27,10 +27,9 @@
                 </span>
               </span>
 
-              <!-- <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong></h1><br/>
-              <h3 class="item-subtitle company-name"><a href="search?company_id={{ post.company.id }}">{{ this.h(post.company.name) }}</a></h3>
-              <h3 class="item-subtitle company-url">(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h3> -->
-              <h3 class="item-subtitle post-tags">Tags: {{ post.tags }}</h3>
+              % tags = post.tags.split(",").join(", ")
+
+              <h3 class="item-subtitle post-tags">Tags: {{ tags }}</h3>
               <h3 class="item-subtitle post-location">{{ this.h(post.location) }}</h3>
               <h3 class="item-subtitle post-remote">
                 % if post.remote == "true"

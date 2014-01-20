@@ -23,13 +23,16 @@
               <img class="item-company-logo" src="{{ post.company.gravatar }}">
               <span class="item-subtitle post-info">
                 <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong></h1>
-                <p class="list-subtitle status">Status: {{ application.status }}</p>
+                <p class="list-subtitle status">Status: <span class="capitalize">{{ application.status }}</span></p>
                 <span class="item-subtitle company-info">
                   <h3 class="item-subtitle company-name">{{ this.h(post.company.name) }}</h3>
                   <h3 class="item-subtitle company-url">(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h3><br/>
                 </span>
               </span>
-              <h3 class="item-subtitle post-tags">Tags: {{ post.tags }}</h3>
+
+              % tags = post.tags.split(",").join(", ")
+
+              <h3 class="item-subtitle post-tags">Tags: {{ tags }}</h3>
               <h3 class="item-subtitle post-location">{{ this.h(post.location) }}</h3>
               <h3 class="item-subtitle post-remote">
                 % if post.remote == "true"

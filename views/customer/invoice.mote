@@ -17,7 +17,7 @@
       <li class="item">
         % if !line.plan.nil?
           <p class="item-subtitle">Subscribed to plan: <span class="capitalize">{{ line.plan.id }}</span><br/>
-          Plan description: ({{ plan.posts }} posts/months)</p>
+          Plan description: ({{ plan.posts }} posts/month)</p>
           <p class="item-subtitle">Charged period: {{ start.day }}-{{ start.month }}-{{ start.year }} to {{ stop.day }}-{{ stop.month }}-{{ stop.year }}</p>
         % else
           <p class="item-subtitle">Description: {{ line.description }}</p>

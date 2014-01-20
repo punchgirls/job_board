@@ -14,7 +14,10 @@
               <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong></h1>
               <h3 class="item-subtitle">{{ this.h(post.company.name) }}</h3>
               <h3 class="item-subtitle">(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h3>
-              <h3 class="item-subtitle">Tags: {{ post.tags }}</h3>
+
+              % tags = post.tags.split(",").join(", ")
+
+              <h3 class="item-subtitle">Tags: {{ tags }}</h3>
               <h3 class="item-subtitle">{{ this.h(post.location) }}</h3>
               % if post.remote == "true"
                 <i class="item-icon fa fa-globe"></i><h3 class="item-subtitle">Work from anywhere</h3>

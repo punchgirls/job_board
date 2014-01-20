@@ -19,7 +19,9 @@
             <header class="item-header">
               <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong> <a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o cursor"></i></a></h1>
 
-              <h3 class="item-subtitle">Tags: {{ post.tags }}</h3>
+              % tags = post.tags.split(",").join(", ")
+
+              <h3 class="item-subtitle">Tags: {{ tags }}</h3>
               <h3 class="item-subtitle">{{ this.h(post.location) }}</h3>
               % if post.remote == "true"
                 <i class="item-icon fa fa-globe"></i><h3 class="item-subtitle remote">Work from anywhere</h3>
