@@ -36,9 +36,10 @@ class Developers < Cuba
     end
 
     on "history" do
-      render("developer/applications", title: "Application history",
-        search: true, query: "", applications: current_user.inactive_applications,
-        active_applications: false)
+      render("developer/applications", title: "Applications history",
+        subtitle: "There aren't any applications in your Applications history",
+        search: true, query: "", active_applications: false,
+        applications: current_user.inactive_applications)
     end
 
     on "remove/:id" do |id|

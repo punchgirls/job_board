@@ -6,14 +6,18 @@
       % if active_applications
         Active applications
       % else
-        Application history
+        Applications history
       % end
       (<span id="apps-size">{{ applications.size }}</span>)
     </h2><br/>
-    <p class="item-text posts-found"><a href="/applications">Active applications</a> <span class="applications-menu-pipeline"> | </span><span class="applications-menu-breakline"><br/></span> <a href="/history">Application history</a></p><br/>
+    <p class="item-text posts-found"><a href="/applications">Active applications</a> <span class="applications-menu-pipeline"> | </span><span class="applications-menu-breakline"><br/></span> <a href="/history">Applications history</a></p><br/>
 
     % if applications.empty?
-      <p class="item-text posts-found">You haven't applied for any jobs yet. Start your search now!</p>
+      % if defined?(subtitle)
+        <p class="item-text posts-found">{{ subtitle }}</p>
+      % else
+        <p class="item-text posts-found">You haven't applied for any jobs yet. Start your search now!</p>
+      % end
     % else
       % applications.each do |application|
         % post = application.post
