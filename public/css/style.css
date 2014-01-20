@@ -235,6 +235,17 @@ textarea {
   font-size: 0.6em;
 }
 
+.contact-developer-form {
+  width: 26em;
+  max-width: 26em;
+  font-size: 0.8em;
+}
+
+.contact-developer-form .input, .contact-developer-form .textarea {
+  width: 17.5em;
+  max-width: 17.5em;
+}
+
 .input, .textarea {
   width: 16em;
   max-width: 16em;
@@ -1048,6 +1059,16 @@ input:-moz-placeholder {
     display: block;
     text-align: left;
     font-size: 1.5em;
+  }
+
+  .contact-developer-form {
+    width: 41em;
+    max-width: 41em;
+  }
+
+  .contact-developer-form .input, .contact-developer-form .textarea {
+    width: 28.2em;
+    max-width: 28.2em;
   }
 
   #tokens {

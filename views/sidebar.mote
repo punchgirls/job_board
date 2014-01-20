@@ -33,7 +33,7 @@
       % end
       <p>Plan: <span class="sidebar-plan-title">{{ user.plan.name }}</span></p>
       <p>({{ user.plan.posts }} posts per month)</p>
-      <p>Published posts: {{ user.published_posts.size }}</p>
+      <p>Published posts: <span id="published-posts-sidebar">{{ user.published_posts.size }}</span></p>
       <a class="sidebar-link" href="/post/new">Post job offer</a>
     </span>
   % end

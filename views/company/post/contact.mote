@@ -1,13 +1,24 @@
-<section>
-  <h1>Contact developer</h1>
+<section class="two-cols">
+  <ul class="list">
+    <h2 class="list-title">Contact developer</h2>
 
-  <p>The following message will be sent as an e-mail to {{ Developer[id].name }}, with a copy to your registered company e-mail address:</p>
+    <p class="item-text posts-found">The following message will be sent as an e-mail to {{ Developer[id].name }}, with a copy to your registered company e-mail address:</p>
 
-  <form action="/application/contact/{{ id }}" method="POST">
-    <input type="text" name="message[subject]" value="{{ message['subject'] }}" placeholder="Subject"><br/>
+    <li class="item">
+      <form class="form contact-developer-form"  action="/application/contact/{{ id }}" method="POST">
+        <input class="input" type="text" name="message[subject]" value="{{ message['subject'] }}" placeholder="Subject"><br/>
 
-    <textarea name="message[body]" placeholder="This mail will be sent to the developer">{{ message['body'] }}</textarea>
+        <textarea class="textarea" name="message[body]" placeholder="This mail will be sent to the developer">{{ message['body'] }}</textarea>
 
-    <button type="submit">Send</button>
-  </form>
+        <span class="send-message-buttons profile-buttons">
+          <a class="post-control-link cancel" href="/dashboard">cancel</a>
+
+          <button class="send-message-button" type="submit">send</button>
+        </span>
+      </form>
+    </li>
+  </ul>
+
+  {{ this.partial("sidebar", user: this.current_user, search: true) }}
+
 </section>

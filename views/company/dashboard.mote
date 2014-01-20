@@ -6,7 +6,7 @@
     <h2 class="list-title company-dashboard-title company-plan-info">Plan: {{ plan.name }}</h2>
     <p class="item-text posts-found company-plan-info">({{ plan.posts }} posts per month)</p>
     <p class="item-text posts-found company-plan-info">Published posts:
-      <span id="published-posts">{{ company.published_posts.size }}</span>
+      <span id="published-posts-title">{{ company.published_posts.size }}</span>
     </p>
     <p class="item-text posts-found company-plan-info"><a href="/post/new">Post job offer</a></p>
     % if posts.empty?
@@ -44,9 +44,7 @@
                 <span class="underline">Delete post</span>
               </span>
 
-              <span class="published">
-                <a onClick="publishPost({{ post.id }});return false;" id="publishLink_{{ post.id }}"
-                  class="post-control-link" href="/post/status/{{ post.id }}">
+              <span class="published" onclick="publishPost({{ post.id }})" id="publish-link-{{ post.id }}">
                 % if post.status == "published"
                   <i class="fa fa-check post-control-icon published-icon"></i>
                   <span class="underline">Unpublish</span>
@@ -54,7 +52,6 @@
                   <i class="fa fa-check post-control-icon"></i>
                   <span class="underline">Publish</span>
                 % end
-                </a>
               </span>
             </section>
 
