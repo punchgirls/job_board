@@ -639,6 +639,8 @@ textarea {
 }
 
 .edit-payment-form {
+  width: 31em;
+  max-width: 31em;
   margin-top: 20px;
 }
 
@@ -651,19 +653,20 @@ textarea {
 }
 
 .edit-payment-form .credit-card {
-  width: 27em;
-  max-width: 27em;
+  width: 25.8em;
+  max-width: 25.8em;
+  font-size: 1.2em;
 }
 
 .edit-payment-form .signup-input {
-  width: 18.4em;
-  max-width: 18.4em;
+  width: 17.4em;
+  max-width: 17.4em;
 }
 
 .edit-payment-form .cvc {
   width: 3em;
   max-width: 3em;
-  margin-right: 1em;
+  margin-right: 0;
 }
 
 .edit-payment-form .expires_on {

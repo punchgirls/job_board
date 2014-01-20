@@ -110,15 +110,14 @@ class Companies < Cuba
         on default do
           session[:success] = "You have successfully updated
             your payment details"
+
           res.redirect "/profile"
         end
       end
 
-      on get, root do
+      on default do
         render("customer/update", title: "Update payment details")
       end
-
-      on(default) { not_found! }
     end
 
     on "customer/history" do

@@ -2,7 +2,7 @@
   <ul class="list">
     <h2 class="list-title">Edit your payment details</h2>
     <li class="item">
-      <form class="form edit-payment-form" action="/customer/update" method="POST">
+      <form class="form edit-payment-form payment-details" action="/customer/update" method="POST">
 
         {{ this.partial("accepted_cards") }}
 
@@ -11,7 +11,7 @@
         <span class="send-message-buttons profile-buttons">
           <a class="post-control-link cancel" href="/profile">cancel</a>
 
-          <button class="send-message-button" type="submit">save</button>
+          <button class="send-message-button" type="submit" id="button">save</button>
         </span>
       </form>
     </li>
