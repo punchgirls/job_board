@@ -1,26 +1,24 @@
 % post = Post[id]
 
 % if defined?(edit)
-  <p class="alert error">
     % if edit.errors[:tags] == [:not_present]
-     At least one skill is required
+     <span class="alert error">At least one skill is required</span>
     % end
     % if edit.errors[:title].include?(:not_present)
-     Title is required
+     <span class="alert error">Title is required</span>
     % end
     % if edit.errors[:title] == [:not_in_range]
-     Title should not exceed 80 characters
+     <span class="alert error">Title should not exceed 80 characters</span>
     % end
     % if edit.errors[:description].include?(:not_present)
-     Description is required
+     <span class="alert error">Description is required</span>
     % end
     % if edit.errors[:description] == [:not_in_range]
-     Description should not exceed 600 characters
+     <span class="alert error">Description should not exceed 600 characters</span>
     % end
     % if edit.errors[:location] == [:not_present] || edit.errors[:remote] == [:not_present]
-     Location or Remote must be selected
+     <span class="alert error">You have to provide a location or select the "work from anywhere" option</span>
     % end
-  </p>
 % end
 
 <section class="two-cols">

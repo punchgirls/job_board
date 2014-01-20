@@ -1,27 +1,25 @@
 % if defined?(signup)
-  <p class="alert error">
     % if signup.errors[:name] == [:not_present]
-      Company name is required
+      <span class="alert error">Company name is required</span>
     % end
     % if signup.errors[:email] == [:not_email]
-      E-mail not valid
+      <span class="alert error">E-mail not valid</span>
     % end
     % if signup.errors[:email] == [:not_unique]
-      This e-mail is already registered
+      <span class="alert error">This e-mail is already registered</span>
     % end
     % if signup.errors[:url] == [:not_url]
-      URL not valid
+      <span class="alert error">URL not valid</span>
     % end
     % if signup.errors[:password] == [:too_small]
-      The password length must be at least 6 characters
+      <span class="alert error">The password length must be at least 6 characters</span>
     % end
     % if signup.errors[:password] == [:not_confirmed]
-      Passwords don't match
+      <span class="alert error">Passwords don't match</span>
     % end
     % if !signup.errors[:error_message].empty?
-      {{ signup.errors[:error_message][0] }}
+      <span class="alert error">{{ signup.errors[:error_message][0] }}</span>
     % end
-  </p>
 % end
 
 % gravatar_url =  "http://pictures.4ever.eu/data/80x80/animals/cats/small-kitten-151092.jpg"

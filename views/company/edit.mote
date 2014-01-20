@@ -1,27 +1,25 @@
 % if defined?(edit)
-  <p class="alert error">
     % if edit.errors[:name] == [:not_present]
-     Company name is required
+     <span class="alert error">Company name is required</span>
     % end
     % if edit.errors[:email] == [:not_email]
-      E-mail not valid
+      <span class="alert error">E-mail not valid</span>
     % end
     % if edit.errors[:url] == [:not_url]
-      URL not valid
+      <span class="alert error">URL not valid</span>
     % end
     % if edit.errors[:password].include?(:too_small)
-      The password length must be at least 6 characters
+      <span class="alert error">The password length must be at least 6 characters</span>
     % end
     % if edit.errors[:password] == [:not_confirmed]
-      Passwords don't match
+      <span class="alert error">Passwords don't match</span>
     % end
+% end
 
-    % if this.current_user.instance_of?(Company)
-      % company = this.current_company
-    % else
-      % company = Company[id]
-    % end
-  </p>
+% if this.current_user.instance_of?(Company)
+  % company = this.current_company
+% else
+  % company = Company[id]
 % end
 
 <section class="two-cols">

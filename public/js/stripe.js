@@ -20,7 +20,7 @@ if (digits) {
 var stripeResponseHandler = function(status, response) {
   if (response.error) {
     // Show the errors on the form
-    errors.setAttribute("class", "alert alert-error");
+    errors.setAttribute("class", "alert error");
     errors.innerHTML = response.error.message;
     button.removeAttribute("disabled");
   } else {

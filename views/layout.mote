@@ -28,9 +28,9 @@
         % end
       </header>
 
-      <span id="notices">
+      <p id="notices">
         {{ this.partial("notices", session: this.session) }}
-      </span>
+      </p>
 
       % if defined?(search)
         <section class="content-search">
