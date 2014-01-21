@@ -290,7 +290,7 @@ input:-moz-placeholder {
 
 .login-label {
   margin: 0 25px 15px 0;
-  display: inline-block;
+  display: block;
   float: left;
 }
 
