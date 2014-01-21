@@ -47,42 +47,47 @@
               </h3>
             </header>
 
-            <p class="item-text">{{ this.h(post.description) }}</p>
+            <p class="cursor underline item-subtitle" id="show-more-link-{{ application.id }}" onclick="showMore({{ application.id }})">Show more</p><br/>
 
-            % if !application.message.nil?
-              <h3 class="item-subtitle">Sent message:</h3>
-              <p class="item-text">{{ this.h(application.message) }}</p>
-            % else
-              <scan id="message-{{ post.id }}"></scan>
-              <span class="message-sent applied" id="sent-ok-{{ post.id }}"></span>
-            % end
+            <section class="more" id="show-more-{{ application.id }}">
+              <h3 class="item-subtitle">Post description:</h3>
+              <p class="item-text">{{ this.h(post.description) }}</p>
 
-            <section class="post-control">
-              {{ this.partial("developer/add_message", post: post, developer: developer) }}
-
-              % if !application.note.nil?
-              <span id="note-{{ application.id }}">
-                <h3 class="item-subtitle">Personal note <i id="edit-note-link-{{ application.id }}" class="fa fa-pencil-square-o cursor" onclick="addNote({{ application.id }})"></i></h3>
-                <p class="item-text">{{ this.h(application.note) }}</p>
-              </span>
+              % if !application.message.nil?
+                <h3 class="item-subtitle">Sent message:</h3>
+                <p class="item-text">{{ this.h(application.message) }}</p>
               % else
-                <p id="note-{{ application.id }}"></p>
+                <scan id="message-{{ post.id }}"></scan>
+                <span class="message-sent applied" id="sent-ok-{{ post.id }}"></span>
               % end
 
-              <span class="send-message-link" id="note-link-{{ application.id }}" onclick="addNote({{ application.id }})">
-                % if application.note.nil? || application.note.empty?
-                    Add a personal note?
+              <section class="post-control">
+                {{ this.partial("developer/add_message", post: post, developer: developer) }}
+
+                % if !application.note.nil?
+                <span id="note-{{ application.id }}">
+                  <h3 class="item-subtitle">Personal note <i id="edit-note-link-{{ application.id }}" class="fa fa-pencil-square-o cursor" onclick="addNote({{ application.id }})"></i></h3>
+                  <p class="item-text">{{ this.h(application.note) }}</p>
+                </span>
+                % else
+                  <p id="note-{{ application.id }}"></p>
                 % end
-              </span>
 
-              {{ this.partial("developer/note_form", application: application) }}
-              <br/>
-              % if application.status != "canceled"
-              <span onclick="removeApplication({{ application.id }})" class="cursor">
-                <i class="fa fa-trash-o cursor post-control-icon delete-icon">
-                </i><span class="underline">Remove application</span>
-              </span>
-              % end
+                <span class="send-message-link" id="note-link-{{ application.id }}" onclick="addNote({{ application.id }})">
+                  % if application.note.nil? || application.note.empty?
+                      Add a personal note?
+                  % end
+                </span>
+
+                {{ this.partial("developer/note_form", application: application) }}
+                <br/>
+                % if application.status != "canceled"
+                <span onclick="removeApplication({{ application.id }})" class="cursor">
+                  <i class="fa fa-trash-o cursor post-control-icon delete-icon">
+                  </i><span class="underline">Remove application</span>
+                </span>
+                % end
+              </section>
             </section>
 
             <footer class="item-footer">

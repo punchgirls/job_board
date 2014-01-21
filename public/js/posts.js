@@ -319,3 +319,16 @@ function removeApplication (id) {
     request.send();
   }
 }
+
+function showMore (id) {
+  var showMoreLink = document.getElementById("show-more-link-" + id);
+  var showMoreSection = document.getElementById("show-more-" + id);
+
+  if (showMoreLink.innerHTML == "Show more") {
+    showMoreLink.innerHTML = "Show less";
+    showMoreSection.className = "less";
+  } else {
+    showMoreLink.innerHTML = "Show more";
+    showMoreSection.className = "more";
+  }
+}

@@ -21,7 +21,7 @@
 
     <span class="countdown" id="countdown-bio">200 characters remaining.</span><br/>
 
-    <span class="send-message-buttons profile-buttons">
+    <span class="send-message-buttons buttons">
       <a class="post-control-link cancel" href="/dashboard">cancel</a>
 
       <button class="send-message-button" type="submit">save</button>

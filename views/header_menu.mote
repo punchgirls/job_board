@@ -11,7 +11,7 @@
 
     % if user.instance_of?(Company)
       <li class="header-menu-item"><a class="header-link header-nav-link" href="/dashboard">Dashboard</a></li>
-      <li class="header-menu-item"><a class="header-link header-nav-link" href="/profile">{{ user.name }}</a></li>
+      <li class="header-menu-item"><a class="header-link header-nav-link" href="/profile"><img class="avatar-list-image" src="{{ user.gravatar }}" /> {{ user.name }}</a></li>
     % end
 
     % if user

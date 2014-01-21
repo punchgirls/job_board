@@ -10,7 +10,7 @@
 
         <textarea class="textarea" name="message[body]" placeholder="This mail will be sent to the developer">{{ message['body'] }}</textarea>
 
-        <span class="send-message-buttons profile-buttons">
+        <span class="send-message-buttons buttons">
           <a class="post-control-link cancel" href="/dashboard">cancel</a>
 
           <button class="send-message-button" type="submit">send</button>

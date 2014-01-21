@@ -19,27 +19,62 @@ a:hover, a:active, .underline:hover {
   text-decoration: none;
 }
 
-.underline {
-  text-decoration: underline;
-}
-
-.capitalize {
-  text-transform: capitalize;
-}
-
 button {
   display: block;
   margin: 15px auto;
   background-color: #FFCC00;
   cursor: hand;
   cursor: pointer;
-  vertical-align: top;
   font-size: 1.4em;
   font-family: "Droid Sans Mono", sans-serif;
   font-weight: bold;
   text-transform: capitalize;
   border: 1px solid #FFCC00;
   padding: 0.5em 1em;
+}
+
+i {
+  font-size: 2em;
+  vertical-align: middle;
+}
+
+textarea {
+  border-top: solid 2px #888888;
+  border-left: solid 2px #888888;
+  border-right: solid 2px #eee;
+  border-bottom: solid 2px #eee;
+}
+
+::-webkit-input-placeholder {
+  font-size: 0.9em;
+  line-height: 1.5em;
+  font-family: "Droid Sans Mono", sans-serif;
+}
+
+::-moz-placeholder {
+  font-size: 0.9em;
+  line-height: 1.5em;
+  font-family: "Droid Sans Mono", sans-serif;
+}  /*firefox 19+*/
+
+:-ms-input-placeholder {
+  font-size: 0.9em;
+  line-height: 1.5em;
+  font-family: "Droid Sans Mono", sans-serif;
+} /* ie*/
+
+input:-moz-placeholder {
+  font-size: 0.9em;
+  line-height: 1.5em;
+  font-family: "Droid Sans Mono", sans-serif;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 .alert {
@@ -61,37 +96,17 @@ button {
   float: right;
 }
 
-.float-left {
-  float: left;
-}
-
-.button-search, .header-button-search {
-  height: 42px;
-  display: inline-block;
-  margin: 0 0 0 0.5em;
-  font-size: 0.6em;
-}
-
-.header-button-search {
-  margin-top: 7px;
-}
-
-i {
-  font-size: 2em;
-  vertical-align: middle;
-}
-
-textarea {
-  border-top: solid 2px #888888;
-  border-left: solid 2px #888888;
-  border-right: solid 2px #eee;
-  border-bottom: solid 2px #eee;
+.cursor {
+  cursor: pointer;
+  cursor: hand;
 }
 
 .wrapper {
   min-height: 100%;
   position: relative;
 }
+
+/* Main Header */
 
 .header {
   text-align: center;
@@ -126,6 +141,30 @@ textarea {
   margin: 0;
   padding: 10px 0 0 0;
 }
+
+.button-search, .header-button-search {
+  height: 42px;
+  display: inline-block;
+  margin: 0 0 0 0.5em;
+  font-size: 0.6em;
+  vertical-align: top;
+}
+
+.header-button-search {
+  margin-top: 7px;
+}
+
+.avatar-list-item {
+  margin: 0;
+  line-height: 36px;
+}
+
+.avatar-list-image {
+  height: 36px;
+  vertical-align: top;
+}
+
+/* Content */
 
 .content, .content-search, .footer {
   max-width: 960px;
@@ -168,25 +207,16 @@ textarea {
   line-height: 1.8em;
 }
 
-.avatar-list-item {
-  margin: 0;
-  line-height: 36px;
-}
-
-.avatar-list-image {
-  height: 36px;
-  vertical-align: top;
-}
-
-.cursor {
-  cursor: pointer;
-  cursor: hand;
-}
-
 .before-footer {
   margin-bottom: 50px;
   display: block;
   clear: both;
+}
+
+.delete {
+  display: block;
+  margin-top: 40px;
+  font-size: 1.5em;
 }
 
 /* Footer*/
@@ -211,39 +241,16 @@ textarea {
 }
 
 .footer-extra-menu {
-  display: inline-block;
+  display: none;
 }
 
-/* Login, Contact, Confirm and Signup pages */
+/* Forms */
 
 .form {
   max-width: 23.40em;
   margin: 0;
   display: inline-block;
   font-size: 0.7em;
-}
-
-.login-form {
-  width: 25.5em;
-  max-width: 25.5em;
-  margin: 0 0 20px 0;
-}
-
-.confirm-form {
-  width: 27.4em;
-  max-width: 27.4em;
-  font-size: 0.6em;
-}
-
-.contact-developer-form {
-  width: 26em;
-  max-width: 26em;
-  font-size: 0.8em;
-}
-
-.contact-developer-form .input, .contact-developer-form .textarea {
-  width: 17.5em;
-  max-width: 17.5em;
 }
 
 .input, .textarea {
@@ -260,19 +267,25 @@ textarea {
   min-height: 180px;
 }
 
+.countdown {
+  font-size: 1.1em;
+}
+
+.buttons {
+  font-size: 1.6em;
+}
+
+/* Login */
+
+.login-form {
+  width: 25.5em;
+  max-width: 25.5em;
+  margin: 0 0 20px 0;
+}
+
 .login-input {
   width: 17.5em;
   max-width: 17.5em;
-}
-
-.confirm-input, .confirm-textarea {
-  width: 18.5em;
-  max-width: 18.5em;
-  padding: 0.5em;
-}
-
-.countdown {
-  font-size: 1.1em;
 }
 
 .login-label {
@@ -292,6 +305,24 @@ textarea {
   vertical-align: middle;
 }
 
+.login-search, .sidebar-search {
+  display: none;
+}
+
+/* Confirm */
+
+.confirm-form {
+  width: 27.4em;
+  max-width: 27.4em;
+  font-size: 0.6em;
+}
+
+.confirm-input, .confirm-textarea {
+  width: 18.5em;
+  max-width: 18.5em;
+  padding: 0.5em;
+}
+
 .confirm-image {
   display: block;
   vertical-align: top;
@@ -302,9 +333,20 @@ textarea {
   font-size: 1.7em;
 }
 
-.card-image {
-  display: inline;
+/* Contact Developer */
+
+.contact-developer-form {
+  width: 26em;
+  max-width: 26em;
+  font-size: 0.8em;
 }
+
+.contact-developer-form .input, .contact-developer-form .textarea {
+  width: 17.5em;
+  max-width: 17.5em;
+}
+
+/* Signup */
 
 .signup-text {
   font-size: 1.3em;
@@ -320,14 +362,18 @@ textarea {
   padding-left: 5px;
 }
 
+.credit-cards {
+  padding: 0;
+  margin: 15px 0;
+}
+
 .credit-card {
   display: inline-block;
   margin-bottom: 10px;
 }
 
-.credit-cards {
-  padding: 0;
-  margin: 15px 0;
+.card-item {
+  display: inline;
 }
 
 .credit-card-image {
@@ -353,11 +399,7 @@ textarea {
   line-height: 40px;
 }
 
-.login-search, .sidebar-search {
-  display: none;
-}
-
-/* Pricing page*/
+/* Pricing */
 
 .pricing-text {
   max-width: 550px;
@@ -392,7 +434,7 @@ textarea {
   float: right;
 }
 
-/* Search Results, My Applications, My Favorites and Company Dashboard pages */
+/* Left column */
 
 .list {
   margin: 0 auto;
@@ -404,23 +446,6 @@ textarea {
 
 .list-title {
   font-size: 1.3em;
-}
-
-.payment-history {
-  width: 23.3em;
-}
-
-.company-dashboard-title {
-  float: left;
-  text-align: left;
-  margin-top: 0;
-  text-transform: capitalize;
-}
-
-.delete {
-  display: block;
-  margin-top: 40px;
-  font-size: 1.5em;
 }
 
 .item {
@@ -481,14 +506,24 @@ textarea {
   line-height: 1.7em;
 }
 
+.item-footer {
+  margin-top: 15px;
+}
+
+/* Search results */
+
 .posts-found {
   margin: 0 0 20px 0;
   font-size: 1.1em;
 }
 
+/* Developer Applications */
+
 .applications-menu-pipeline {
   display: none;
 }
+
+/* Post control */
 
 .post-control {
   margin: 20px 0;
@@ -501,6 +536,13 @@ textarea {
   text-decoration: none;
   color: #111;
   margin: 0;
+}
+
+.cancel {
+  margin-right: 15px;
+  text-decoration: underline;
+  text-transform: capitalize;
+  cursor: pointer;
 }
 
 .post-control-icon {
@@ -546,6 +588,90 @@ textarea {
   color: #111;
 }
 
+.send-message-link {
+  line-height: 1em;
+  display: block;
+  margin: 10px 0 0 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.send-message-link:hover {
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+.send-message-form {
+  width: 21em;
+  margin: 10px auto 0;
+  font-size: 0.7em;
+  font-size: 1em;
+  display: none;
+}
+
+.send-message-textarea {
+  width: 20em;
+  max-width: 20em;
+  margin-bottom: 0;
+  font-size: 1em;
+  min-height: 140px;
+}
+
+.send-message-countdown {
+  display: block;
+  padding: 0 0 15px 0;
+  line-height: 0.9em;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.send-message-buttons {
+  width: 100%;
+  display: block;
+  margin: 15px auto 25px;
+  line-height: 25px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.send-message-button, .save-note-button {
+  font-size: 1em;
+  display: inline-block;
+}
+
+.send-message-button {
+  margin: 0;
+}
+
+.save-note-button {
+  display: inline-block;
+  margin: 0;
+}
+
+.message-sent {
+  display: block;
+  margin: 10px 0;
+  line-height: 1.3em;
+  text-align: right;
+}
+
+.message-sent-icon {
+  font-size: 1.3em;
+  vertical-align: top;
+  color: green;
+}
+
+/* Post display */
+
+.status {
+  border: 1px solid #DADADA;
+  background-color: #FCFCFC;
+  padding: 0 0.6em;
+  display: inline-block;
+}
+
+/* Applicants */
+
 .see-applicants-link {
   text-transform: uppercase;
   margin: 10px 0;
@@ -576,48 +702,7 @@ textarea {
   font-size: 1.1em;
 }
 
-.send-message-link {
-  line-height: 1em;
-  display: block;
-  margin: 10px 0 0 0;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.send-message-link:hover {
-  text-decoration: none;
-  color: #4d4d4d;
-}
-
-.send-message-form {
-  width: 21em;
-  margin: 10px auto 0;
-  font-size: 0.7em;
-  font-size: 1em;
-  display: none;
-}
-
-.send-message-textarea {
-  width: 20em;
-  max-width: 20em;
-  font-size: 1em;
-  min-height: 140px;
-}
-
-.send-message-countdown {
-  display: block;
-  font-size: 0.9em;
-  text-align: center;
-}
-
-.send-message-buttons {
-  width: 100%;
-  display: block;
-  margin: 15px auto 25px;
-  line-height: 25px;
-  text-align: center;
-  margin-bottom: 25px;
-}
+/* New post */
 
 .new-post-form .login-label {
   margin-bottom: 10px;
@@ -628,15 +713,58 @@ textarea {
   vertical-align: middle;
 }
 
+/* Edit */
+
 .edit-post-form, .edit-profile-form, .edit-payment-form {
   width: 30em;
   max-width: 30em;
   font-size: 0.7em;
 }
 
+/* Edit post */
+
 .edit-post-form .countdown {
   font-size: 1.3em;
 }
+
+.edit-post-form .input, .edit-post-form .textarea {
+  width: 22em;
+  max-width: 22em;
+  font-size: 1.3em;
+  line-height: 1.7em;
+}
+
+.edit-post-form .input-title, .edit-profile-form .input-name {
+  width: 17.8em;
+  max-width: 17.8em;
+  font-size: 1.6em;
+  line-height: 1.6em;
+  font-weight: bold;
+}
+
+.edit-post-form .login-label, .edit-profile-form .password-label {
+  font-size: 1.5em;
+}
+
+.edit-post-form .input-location, .edit-profile-form .input-profile {
+  width: 19em;
+  max-width: 19em;
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+/* Edit company profile */
+
+.edit-profile-form .input-name {
+  font-size: 1.6em;
+}
+
+.edit-profile-form .password-label {
+  display: block;
+  text-align: left;
+}
+
+/* Edit payment */
 
 .edit-payment-form {
   width: 31em;
@@ -673,42 +801,49 @@ textarea {
   font-size: 1.3em;
 }
 
-.profile-buttons {
-  font-size: 1.6em;
-}
+/* Company Dashboard */
 
-.cancel {
-  margin-right: 15px;
-  text-decoration: underline;
+.company-dashboard-title {
+  float: left;
+  text-align: left;
+  margin-top: 0;
   text-transform: capitalize;
 }
 
-.send-message-button, .save-note-button {
-  font-size: 1em;
-  display: inline-block;
+/* Company profile Subscription info */
+
+.payment-history {
+  width: 23.3em;
 }
 
-.send-message-button {
-  margin: 0;
+.payment-history-title {
+  font-size: 1.2em;
+  text-align: left;
 }
 
-.save-note-button {
-  display: inline-block;
-  margin: 0;
+.table {
+  width: 23.3em;
+  max-width: 23.3em;
+  text-align: left;
+  margin-bottom: 20px;
 }
 
-.message-sent {
-  display: block;
-  margin: 10px 0;
-  line-height: 1.3em;
-  text-align: right;
+.table-row {
+  line-height: 2em;
+  background-color: #FFCC00;
 }
 
-.message-sent-icon {
-  font-size: 1.3em;
-  vertical-align: top;
-  color: green;
+.table-th {
+  padding: 3px;
 }
+
+.table-cell {
+  padding: 3px;
+  line-height: 2em;
+  background-color: #f3f3f3;
+}
+
+/* Company profile Payment info */
 
 .profile-credit-card {
   width: 26em;
@@ -743,8 +878,14 @@ textarea {
   width: 2.4em;
 }
 
-.item-footer {
-  margin-top: 15px;
+/* Show more */
+
+.more {
+  display: none;
+}
+
+.less {
+  display: block;
 }
 
 /* Toogle menu */
@@ -791,7 +932,7 @@ textarea {
 
 .header-menu-checkbox:checked ~ .header-nav {
   display: block;
- }
+}
 
 /* Input tokens and tags */
 
@@ -828,8 +969,8 @@ textarea {
 }
 
 .edit-post-form #autocomplete {
-  width: 16.82em;
-  max-width: 16.82em;
+  width: 16.8em;
+  max-width: 16.8em;
   margin-top: -6px;
   font-size: 1.7em;
 }
@@ -911,41 +1052,6 @@ textarea {
   font-size: 1.6em;
 }
 
-.edit-post-form .input, .edit-post-form .textarea {
-  width: 22em;
-  max-width: 22em;
-  font-size: 1.3em;
-  line-height: 1.7em;
-}
-
-.edit-post-form .input-title, .edit-profile-form .input-name {
-  width: 17.8em;
-  max-width: 17.8em;
-  font-size: 1.6em;
-  line-height: 1.6em;
-  font-weight: bold;
-}
-
-.edit-profile-form .input-name {
-  font-size: 1.6em;
-}
-
-.edit-post-form .login-label, .edit-profile-form .password-label {
-  font-size: 1.5em;
-}
-
-.edit-profile-form .password-label {
-  display: block;
-  text-align: left;
-}
-
-.edit-post-form .input-location, .edit-profile-form .input-profile {
-  width: 19em;
-  max-width: 19em;
-  font-size: 1.5em;
-  line-height: 1.5em;
-}
-
 .header #tokens {
   padding: 0.1em 0.5em;
 }
@@ -974,30 +1080,6 @@ textarea {
   line-height: 1.5em;
 }
 
-::-webkit-input-placeholder {
-  font-size: 0.9em;
-  line-height: 1.5em;
-  font-family: "Droid Sans Mono", sans-serif;
-}
-
-::-moz-placeholder {
-  font-size: 0.9em;
-  line-height: 1.5em;
-  font-family: "Droid Sans Mono", sans-serif;
-}  /*firefox 19+*/
-
-:-ms-input-placeholder {
-  font-size: 0.9em;
-  line-height: 1.5em;
-  font-family: "Droid Sans Mono", sans-serif;
-} /* ie*/
-
-input:-moz-placeholder {
-  font-size: 0.9em;
-  line-height: 1.5em;
-  font-family: "Droid Sans Mono", sans-serif;
-}
-
 #tokens li {
   display: inline-block;
   border: none;
@@ -1021,41 +1103,18 @@ input:-moz-placeholder {
   line-height: 35px;
 }
 
-.table {
-  width: 23.3em;
-  max-width: 23.3em;
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.payment-history-title {
-  font-size: 1.2em;
-  text-align: left;
-}
-
-.table-row {
-  line-height: 2em;
-  background-color: #FFCC00;
-}
-
-.table-th {
-  padding: 3px;
-}
-
-.table-cell {
-  padding: 3px;
-  line-height: 2em;
-  background-color: #f3f3f3;
-}
-
 @media only screen and (min-width: 480px)  {
 
-  .latest-posts {
-    font-size: 0.9em;
-  }
+  /* General styles */
 
   button {
     display: inline-block;
+  }
+
+  /* Content */
+
+  .latest-posts {
+    font-size: 0.9em;
   }
 
   .delete {
@@ -1063,6 +1122,8 @@ input:-moz-placeholder {
     text-align: left;
     font-size: 1.5em;
   }
+
+  /* Contact Developer */
 
   .contact-developer-form {
     width: 41em;
@@ -1073,6 +1134,8 @@ input:-moz-placeholder {
     width: 28.2em;
     max-width: 28.2em;
   }
+
+  /* Input tokens and tags */
 
   #tokens {
     width: 22.35em;
@@ -1093,14 +1156,11 @@ input:-moz-placeholder {
     margin: 0;
   }
 
+  /* New post */
+
   .new-post-form {
     width: 39em;
     max-width: 39em;
-  }
-
-  .edit-post-form {
-    width: 46.5em;
-    max-width: 46.5em;
   }
 
   .new-post-form #autocomplete {
@@ -1112,16 +1172,23 @@ input:-moz-placeholder {
     max-width: 24.7em;
   }
 
-  .edit-post-form #tokens {
-    width: 27.6em;
-    max-width: 27.6em;
-  }
-
   .new-post-form .input, .new-post-form .textarea {
     width: 25.1em;
     max-width: 25.1em;
     line-height: 1.5em;
     font-size: 1.5em;
+  }
+
+  /* Edit post */
+
+  .edit-post-form {
+    width: 46.5em;
+    max-width: 46.5em;
+  }
+
+  .edit-post-form #tokens {
+    width: 27.6em;
+    max-width: 27.6em;
   }
 
   .edit-post-form .input, .edit-post-form .textarea {
@@ -1145,6 +1212,8 @@ input:-moz-placeholder {
     margin-top: -6px;
   }
 
+  /* Edit company profile */
+
   .edit-profile-form {
     width: 36em;
     max-width: 36em;
@@ -1161,6 +1230,8 @@ input:-moz-placeholder {
     max-width: 23.1em;
   }
 
+  /* Post control */
+
   .post-control {
     font-size: 1em;
   }
@@ -1169,10 +1240,36 @@ input:-moz-placeholder {
     margin: 0 7px 0 20px;
   }
 
+  .send-message-form {
+    width: 33em;
+  }
+
+  .send-message-textarea {
+    width: 32.4em;
+    max-width: 32.4em;
+    min-height: 105px;
+  }
+
+  .send-message-buttons {
+    display: inline-block;
+    text-align: right;
+  }
+
+  .send-message-button {
+    margin: 0;
+    display: inline;
+  }
+
+  /* Post display */
+
   .status, .post-remote {
     display: inline;
     float: right;
     margin: 0;
+  }
+
+  .status {
+    padding: 0.4em 0.7em;
   }
 
   .post-tags {
@@ -1195,31 +1292,22 @@ input:-moz-placeholder {
     display: inline-block;
   }
 
+  /* Forms */
+
   .login-form, .contact-form, .confirm-form {
     max-width: 35em;
   }
+
+  /* Login */
 
   .company-login {
     margin-top: 50px;
   }
 
+  /* Signup */
+
   .signup-form {
     max-width: 29.40em;
-  }
-
-  .contact-input, .contact-textarea {
-    width: 20em;
-    max-width: 20em;
-  }
-
-  .confirm-input, .confirm-textarea {
-    margin: 0 0 8px 0;
-    width: 18.5em;
-    max-width: 18.5em;
-  }
-
-  .confirm-button {
-    font-size: 1.6em;
   }
 
   .signup-input {
@@ -1237,11 +1325,32 @@ input:-moz-placeholder {
     width: 49px;
   }
 
+  /* Contact */
+
+  .contact-input, .contact-textarea {
+    width: 20em;
+    max-width: 20em;
+  }
+
+  /* Confirm */
+
+  .confirm-input, .confirm-textarea {
+    margin: 0 0 8px 0;
+    width: 18.5em;
+    max-width: 18.5em;
+  }
+
+  .confirm-button {
+    font-size: 1.6em;
+  }
+
   .confirm-image {
     display: inline;
     margin: 0;
     vertical-align: top;
   }
+
+  /* Pricing */
 
   .plans {
     width: 26.5em;
@@ -1266,10 +1375,14 @@ input:-moz-placeholder {
     margin: 15px 0;
   }
 
+  /* Left column */
+
   .list {
     margin: 20px auto 0;
     width: 33em;
   }
+
+  /* Developer Applications */
 
   .applications-menu-pipeline {
     display: inline-block;
@@ -1279,25 +1392,7 @@ input:-moz-placeholder {
     display: none;
   }
 
-  .send-message-form {
-    width: 33em;
-  }
-
-  .send-message-textarea {
-    width: 32.4em;
-    max-width: 32.4em;
-    min-height: 105px;
-  }
-
-  .send-message-buttons {
-    display: inline-block;
-    text-align: right;
-  }
-
-  .send-message-button {
-    margin: 0;
-    display: inline;
-  }
+  /* Company profile Payment info */
 
   .profile-credit-card {
     width: 34em;
@@ -1318,6 +1413,9 @@ input:-moz-placeholder {
     width: 3em;
     margin-right: 5.2em;
   }
+
+  /* Company profile Subscription info */
+
   .table {
     width: 33.5em;
     max-width: 33.5em;
@@ -1325,6 +1423,8 @@ input:-moz-placeholder {
 }
 
 @media only screen and (min-width: 960px)  {
+
+  /* Main Header */
 
   .header {
     text-align: center;
@@ -1371,11 +1471,17 @@ input:-moz-placeholder {
     background: none;
   }
 
+  .header__search-box #autocomplete li {
+    line-height: 30px;
+  }
+
   .avatar-list-image {
     margin-top: -5px;
     height: 36px;
     vertical-align: middle;
   }
+
+  /* Content */
 
   .content {
     padding: 0 0 50px 0;
@@ -1394,6 +1500,8 @@ input:-moz-placeholder {
     font-size: 1em;
   }
 
+  /* Input tokens and tags */
+
   #tokens {
     width: 23.35em;
     display: inline-block;
@@ -1406,6 +1514,8 @@ input:-moz-placeholder {
   #autocomplete li {
     line-height: 25px;
   }
+
+  /* Edit post */
 
   .edit-post-form {
     width: 61em;
@@ -1433,17 +1543,11 @@ input:-moz-placeholder {
   }
 
   .edit-post-form #autocomplete {
-    width: 32.2em;
-    max-width: 32.2em;
+    width: 34.9em;
+    max-width: 34.9em;
   }
 
-  .header__search-box #autocomplete li {
-    line-height: 30px;
-  }
-
-  .company-login {
-    margin-top: 70px;
-  }
+  /* Forms */
 
   .login-form, .contact-form {
     width: 33.80em;
@@ -1452,6 +1556,12 @@ input:-moz-placeholder {
   .login-input, .contact-input, .contact-textarea {
     width: 23.3em;
     max-width: 23.3em;
+  }
+
+  /* Login */
+
+  .company-login {
+    margin-top: 70px;
   }
 
   .login-label {
@@ -1469,11 +1579,6 @@ input:-moz-placeholder {
     float: right;
     text-align: left;
     font-size: 1.2em;
-  }
-
-  .sidebar-search {
-    min-width: 15em;
-    max-width: 15em;
   }
 
   .login-search-link {
@@ -1515,6 +1620,15 @@ input:-moz-placeholder {
     vertical-align: bottom;
   }
 
+  /* Sidebar */
+
+  .sidebar-search {
+    min-width: 15em;
+    max-width: 15em;
+  }
+
+  /* Confirm */
+
   .confirm-form {
     width: 33em;
     max-width: 33em;
@@ -1525,6 +1639,8 @@ input:-moz-placeholder {
     max-width: 22.5em;
   }
 
+  /* Signup */
+
   .cvc {
     margin-right: 77px;
     width: 39px;
@@ -1534,12 +1650,16 @@ input:-moz-placeholder {
     width: 30px;
   }
 
+  /* Two columns section */
+
   .two-cols {
     display: inline-block;
     margin: 0 auto;
     font-size: 0.8em;
     width: 900px;
   }
+
+  /* Left column */
 
   .list {
     margin: 0;
@@ -1558,30 +1678,39 @@ input:-moz-placeholder {
     max-width: none;
   }
 
+  .item-footer {
+    padding: 0;
+  }
+
+  /* Applicants */
+
   .see-applicants-link {
     margin-bottom: 30px;
   }
 
+  /* Company Dashboard */
+
   .company-plan-info {
     display: none;
   }
+
+  /* Post control */
 
   .post-control {
     margin: 10px 0;
   }
 
   .send-message-form {
-    width: 45em;
+    width: 43em;
+    max-width: 43em;
   }
 
   .send-message-textarea {
-    width: 45em;
-    max-width: 45em;
+    width: 42em;
+    max-width: 42em;
   }
 
-  .item-footer {
-    padding: 0;
-  }
+  /* Edit company profile */
 
   .edit-profile-form {
     width: 47em;
@@ -1598,16 +1727,22 @@ input:-moz-placeholder {
     max-width: 30.4em;
   }
 
+  /* Post display */
+
   .post-info {
     width: 37.6em;
     max-width: 37.6em;
   }
+
+  /* Company profile Subscription info */
 
   .payment-history-title {
     display: block;
     font-size: 1.3em;
     text-align: left;
   }
+
+  /* Sidebar */
 
   .sidebar {
     width: 18em;
@@ -1650,10 +1785,14 @@ input:-moz-placeholder {
     text-transform: capitalize;
   }
 
+  /* Company profile Subscription info */
+
   .table {
     width: 45em;
     max-width: 45em;
   }
+
+  /* Footer */
 
   .footer {
     height: 50px;

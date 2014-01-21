@@ -6,7 +6,7 @@
 
         {{ this.partial("plans", plan_id: plan_id) }}
 
-        <span class="send-message-buttons profile-buttons">
+        <span class="send-message-buttons buttons">
           <a class="post-control-link cancel" href="/profile">cancel</a>
 
           <button class="send-message-button" type="submit">update</button>
