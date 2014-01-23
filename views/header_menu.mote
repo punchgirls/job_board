@@ -11,14 +11,12 @@
 
     % if user.instance_of?(Company)
       <li class="header-menu-item"><a class="header-link header-nav-link" href="/dashboard">Dashboard</a></li>
-      <li class="header-menu-item"><a class="header-link header-nav-link" href="/profile"><img class="avatar-list-image" src="{{ user.gravatar }}" /> {{ user.name }}</a></li>
+      <li class="header-menu-item"><a class="header-link header-nav-link" href="/profile"><img class="avatar-list-image" src="{{ user.gravatar }}" /> {{ this.h(user.name) }}</a></li>
     % end
 
     % if user
       <li class="header-menu-item"><a class="header-link header-nav-link" href="/logout">Logout</a></li>
-    % end
-
-    % if !user
+    % else
       <li class="header-menu-item"><a class="header-link header-nav-link" href="/how">How it works</a></li>
       <li class="header-menu-item"><a class="header-link header-nav-link" href="/pricing">Pricing</a></li>
       <li class="header-menu-item"><a class="header-link header-nav-link" href="/login">Login</a></li>
