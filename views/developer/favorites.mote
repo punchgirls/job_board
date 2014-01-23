@@ -8,7 +8,8 @@
       <p class="item-text posts-found">You have no favorite posts yet.</p>
     % else
       % favorites.each do |post|
-        <li class="item">
+        % if post.published?
+          <li class="item">
           <article>
             <header class="item-header">
               <img class="item-company-logo" src="{{ post.company.gravatar }}">
@@ -53,6 +54,7 @@
             </footer>
           </article>
         </li>
+        % end
       % end
     % end
   </ul>

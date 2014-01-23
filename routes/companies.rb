@@ -242,32 +242,23 @@ class Companies < Cuba
     on "post/status/:id" do |id|
       post = Post[id]
 
-      on !company.active? do
-        session[:error] = "You have canceled your subscription.
-        Activate it to make changes."
+      on post.published? do
+        post.update({ status: "unpublished"})
 
-        res.redirect "/customer/subscription"
+        res.redirect "/dashboard"
       end
 
-      on company.active? do
-        on post.published? do
-          post.update({ status: "unpublished"})
+      on !post.published? do
+        on company.published_posts.size <  plan.posts.to_i do
+          post.update({ status: "published"})
 
           res.redirect "/dashboard"
         end
 
-        on !post.published? do
-          on company.published_posts.size <  plan.posts.to_i do
-            post.update({ status: "published"})
+        on default do
+          session[:error] = "You can only have #{plan.posts} published post."
 
-            res.redirect "/dashboard"
-          end
-
-          on default do
-            session[:error] = "You can only have #{plan.posts} published post."
-
-            res.redirect "/dashboard"
-          end
+          res.redirect "/dashboard"
         end
       end
     end
