@@ -245,6 +245,10 @@ class Companies < Cuba
       on post.published? do
         post.update({ status: "unpublished"})
 
+        post.favorited_by.each do |developer|
+          developer.favorites.delete(post)
+        end
+
         res.redirect "/dashboard"
       end
 
