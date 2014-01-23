@@ -151,10 +151,10 @@ class Companies < Cuba
     end
 
     on "customer/subscription" do
-      on post, param("company") do |plan_id|
-        update = Stripe.update_subscription(customer_id, plan_id)
+      on post, param("company") do |params|
+      update = Stripe.update_subscription(customer_id, params["plan_id"])
 
-        company.update(status: "active", plan_id: plan_id)
+        company.update(status: "active", plan_id: params["plan_id"])
 
         on !update.instance_of?(Stripe::Customer) do
           if update.instance_of?(Stripe::CardError)
@@ -188,12 +188,6 @@ class Companies < Cuba
           end
 
           res.redirect "/profile"
-        end
-
-        published_posts = current_company.published_posts
-
-        published_posts.each do |post|
-          post.update(status: "unpublished")
         end
 
         company.update(status: "suspended")
