@@ -1,5 +1,6 @@
 class Application < Ohm::Model
   include Shield::Model
+  include Ohm::Callbacks
 
   attribute :date
   attribute :message
@@ -15,6 +16,12 @@ class Application < Ohm::Model
 
   def applied
     return Time.at(date.to_i).strftime("%e/%b/%y")
+  end
+
+  def before_delete
+    post.favorites.delete(self)
+
+    super
   end
 
   reference :post, :Post

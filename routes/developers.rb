@@ -43,7 +43,7 @@ class Developers < Cuba
     end
 
     on "remove/:id" do |id|
-      Application[id].update(status: "canceled")
+      Application[id].delete
       session[:success] = "Application successfully removed!"
       res.redirect "/applications"
     end
