@@ -138,7 +138,8 @@ class Developers < Cuba
       end
 
       on favorites.member?(post) do
-        on session[:origin] do
+
+        on session[:origin] == "guests" do
           session.delete(:origin)
 
           res.redirect "/search?query=#{session[:query]}"
@@ -152,11 +153,9 @@ class Developers < Cuba
         end
       end
 
-      on get, root do
+      on default do
         res.redirect "/favorites"
       end
-
-      on(default) { not_found! }
     end
 
     on "profile" do
