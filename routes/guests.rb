@@ -11,10 +11,15 @@ class Guests < Cuba
       end
 
       on post, param("stripe_token"), param("company") do |token, params|
+        url = params["url"]
         customer = Stripe.create_customer(token, params["plan_id"],
           params["email"], params["name"])
 
         params["customer"] = customer
+
+        unless url.start_with?("http")
+          params["url"] = "http://" + url
+        end
 
         signup = CompanySignup.new(params)
 

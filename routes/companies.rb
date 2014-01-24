@@ -46,7 +46,12 @@ class Companies < Cuba
 
     on "edit" do
       on post, param("company") do |params|
+        url = params["url"]
         params.delete("password") if params["password"].empty?
+
+        unless url.start_with?("http")
+          params["url"] = "http://" + url
+        end
 
         edit = EditCompanyAccount.new(params)
 
