@@ -30,13 +30,13 @@ class Developers < Cuba
     end
 
     on "applications" do
-      render("developer/applications", title: "My applications",
+      render("developer/applications", title: "Active applications",
         search: true, query: "", applications: current_user.active_applications,
         active_applications: true)
     end
 
     on "history" do
-      render("developer/applications", title: "Applications history",
+      render("developer/applications", title: "Discarded applications",
         subtitle: "There aren't any applications in your Applications history",
         search: true, query: "", active_applications: false,
         applications: current_user.inactive_applications)
