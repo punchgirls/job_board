@@ -204,7 +204,8 @@ class Companies < Cuba
 
           params["company_id"] = company.id
           params["date"] = time
-          params["tags"] = params["tags"].split(", ").uniq.join
+          params["tags"] = params["tags"].split(",").uniq.join(",")
+
           params["status"] = "published"
 
           if params["remote"].nil?
@@ -293,6 +294,8 @@ class Companies < Cuba
           if params["remote"].nil?
             params["remote"] = false
           end
+
+          params["tags"] = params["tags"].split(",").uniq.join(",")
 
           post.update(params)
 
