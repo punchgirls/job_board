@@ -32,13 +32,12 @@
         <br/>
       % end
       <p>Plan: <span class="sidebar-plan-title">{{ user.plan.name }}</span></p>
-      <p>({{ user.plan.posts }}
-        % if user.plan.name == "small"
-          post
-        % else
-          posts
-        % end
-      per month)</p>
+
+      % if user.status == "suspended"
+        <p>(subscription canceled)</p>
+      % end
+
+      <p>Posts per month: {{ user.plan.posts }}</p>
       <p>Published posts: <span id="published-posts-sidebar">{{ user.published_posts.size }}</span></p>
       <a class="sidebar-link" href="/post/new">Post job offer</a>
     </span>
