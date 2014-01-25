@@ -37,7 +37,7 @@ class Developers < Cuba
 
     on "history" do
       render("developer/applications", title: "Discarded applications",
-        subtitle: "There aren't any applications in your Applications history",
+        subtitle: "There aren't discarded applications.",
         search: true, query: "", active_applications: false,
         applications: current_user.inactive_applications)
     end

@@ -430,7 +430,7 @@ class Companies < Cuba
     end
 
     on "delete" do
-      company.delete
+      company.update(status: "deleted")
 
       logout(Company)
       session[:success] = "You have successfully deleted your account!"

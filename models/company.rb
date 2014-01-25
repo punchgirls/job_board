@@ -28,6 +28,7 @@ class Company < Ohm::Model
 
   def before_delete
     posts.each(&:delete)
+
     super
   end
 

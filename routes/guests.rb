@@ -59,17 +59,24 @@ class Guests < Cuba
         pass = params["password"]
         remember = params["remember"]
 
-        if login(Company, user, pass)
-          if remember
-            remember(3600)
+        if !Company.fetch(user).deleted?
+          if login(Company, user, pass)
+            if remember
+              remember(3600)
+            end
+
+            session[:success] = "You have successfully logged in!"
+            res.redirect "/dashboard"
+          else
+            session[:error] = "Invalid email/password combination"
+
+            render("login", title: "Login", user: user)
           end
-
-          session[:success] = "You have successfully logged in!"
-          res.redirect "/dashboard"
         else
-          session[:error] = "Invalid email/password combination"
+          session[:error] = "Your have deleted your account"
 
-          render("login", title: "Login", user: user)
+          render("login", title: "Login", user: user,
+            hide_search: true)
         end
       end
 
