@@ -22,6 +22,10 @@ class Company < Ohm::Model
     status == "active"
   end
 
+  def deleted?
+    status == "deleted"
+  end
+
   def published_posts
     self.posts.find(published?: true)
   end
