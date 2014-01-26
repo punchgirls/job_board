@@ -2,7 +2,7 @@ module CompanyRemover
   def self.remove(company)
     company.posts.each do |post|
       post.developers.each do |developer|
-        text = Mailer.render("../mails/delete_account", { post: post,
+        text = Mailer.render("../mails/company_deleted", { post: post,
         developer: developer })
 
         Mailer.deliver(developer.email,

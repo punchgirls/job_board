@@ -36,6 +36,11 @@ class Guests < Cuba
 
           session[:success] = "You have successfully signed up!"
 
+          text = Mailer.render("welcome_company", { company: company })
+
+          Mailer.deliver(company.email,
+            "Welcome to Job Board!", text)
+
           res.redirect "/dashboard"
         end
 

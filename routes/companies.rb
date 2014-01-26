@@ -435,7 +435,7 @@ class Companies < Cuba
       logout(Company)
       session[:success] = "You have successfully deleted your account!"
 
-      Ost[:companies_to_delete].push(company.id)
+      Ost[:deleted_company].push(company.id)
 
       res.redirect "/"
     end

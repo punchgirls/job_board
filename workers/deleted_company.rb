@@ -1,5 +1,5 @@
 require_relative "../app"
 
-Ost[:companies_to_delete].each do |id|
+Ost[:deleted_company].each do |id|
   CompanyRemover.remove(Company[id])
 end
