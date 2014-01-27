@@ -1,1 +1,1 @@
-worker: bundle exec rake workers/deleted_company.rb
+worker: bundle exec ruby workers/deleted_company.rb
