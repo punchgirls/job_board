@@ -1623,8 +1623,8 @@ input:-moz-placeholder {
   /* Sidebar */
 
   .sidebar-search {
-    min-width: 15em;
-    max-width: 15em;
+    min-width: 20em;
+    max-width: 20em;
   }
 
   /* Confirm */
@@ -1752,7 +1752,7 @@ input:-moz-placeholder {
   }
 
   .sidebar-title {
-    display: inline-block;
+    display: inline;
     margin: 0 0 10px 10px;
     font-size: 1.1em;
   }
