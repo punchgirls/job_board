@@ -28,6 +28,7 @@ Cuba.plugin Cuba::TextHelpers
 Cuba.plugin Shield::Helpers
 
 Ohm.connect(url: REDIS_URL)
+Ost.connect(url: REDIS_URL)
 Malone.connect(url: MALONE_URL)
 
 Dir["./models/**/*.rb"].each  { |rb| require rb }
