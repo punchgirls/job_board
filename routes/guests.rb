@@ -143,6 +143,9 @@ class Guests < Cuba
 
             session[:success] = "You have successfully changed
             your password and logged in!"
+
+            Ost[:password_changed].push(company.id)
+
             res.redirect "/", 303
           end
 

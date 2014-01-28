@@ -25,3 +25,12 @@ push:
 db:
 	ruby seed.rb
 
+workers-start:
+	env $$(cat env.sh) ost -d deleted_company
+	env $$(cat env.sh) ost -d welcome_company
+	env $$(cat env.sh) ost -d password_changed
+
+workers-stop:
+	kill $$(cat workers/deleted_company.pid)
+	kill $$(cat workers/welcome_company.pid)
+	kill $$(cat workers/password_changed.pid)

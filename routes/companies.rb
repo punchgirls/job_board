@@ -68,6 +68,10 @@ class Companies < Cuba
           on default do
             company.update(params)
 
+            if !params["password"].nil?
+              Ost[:password_changed].push(company.id)
+            end
+
             session[:success] = "Your account was successfully updated!"
             res.redirect "/profile"
           end
