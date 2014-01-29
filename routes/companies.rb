@@ -340,17 +340,10 @@ class Companies < Cuba
 
     on "application/discard/:id" do |id|
       application = Application[id]
-      developer = application.developer
-      post = application.post
-      company = post.company
-
-      text = Mailer.render("application_discard",
-        { post: post, developer: developer })
-
-      Mailer.deliver(developer.email,
-        "Auto-notice: Regarding '" + post.title + "' post", text)
 
       application.update(status: "discarded")
+
+      Ost[:discarded_applicant].push(id)
 
       session[:success] = "Applicant successfully discarded!"
     end

@@ -31,6 +31,7 @@ workers-start:
 	env $$(cat env.sh) ost -d password_changed
 	env $$(cat env.sh) ost -d canceled_subscription
 	env $$(cat env.sh) ost -d activated_subscription
+	env $$(cat env.sh) ost -d discarded_applicant
 
 workers-stop:
 	kill $$(cat workers/deleted_company.pid)
@@ -38,3 +39,4 @@ workers-stop:
 	kill $$(cat workers/password_changed.pid)
 	kill $$(cat workers/canceled_subscription.pid)
 	kill $$(cat workers/activated_subscription.pid)
+	kill $$(cat workers/discarded_applicant.pid)
