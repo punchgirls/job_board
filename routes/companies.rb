@@ -176,6 +176,8 @@ class Companies < Cuba
           res.redirect "/customer/subscription"
         end
 
+        Ost[:activated_subscription].push(company.id)
+
         res.redirect "/profile"
       end
 
