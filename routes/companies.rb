@@ -188,20 +188,22 @@ class Companies < Cuba
     on "cancel_subscription" do
       cancel = Stripe.cancel_subscription(customer_id)
 
-        on !cancel.instance_of?(Stripe::Customer) do
-          if cancel.instance_of?(Stripe::CardError)
-            session[:error] = cancel.message
-          else
-            session[:error] = "It looks like we are having some problems
-              with your request. Please try again in a few minutes!"
-          end
-
-          res.redirect "/profile"
+      on !cancel.instance_of?(Stripe::Customer) do
+        if cancel.instance_of?(Stripe::CardError)
+          session[:error] = cancel.message
+        else
+          session[:error] = "It looks like we are having some problems
+            with your request. Please try again in a few minutes!"
         end
 
-        company.update(status: "suspended")
-
         res.redirect "/profile"
+      end
+
+      company.update(status: "suspended")
+
+      Ost[:canceled_subscription].push(company.id)
+
+      res.redirect "/profile"
     end
 
     on "post/new" do

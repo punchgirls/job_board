@@ -23,6 +23,7 @@
       <p class="item-subtitle sidebar-plan-title">Plan: <span class="capitalize">{{ plan.name }}</span></p>
       <p class="item-subtitle">Posts per month: {{ plan.posts }}</p>
       <p class="item-subtitle">Price: ${{ plan.price }} per month</p><br/>
+
       <p class="item-subtitle"><a href="/customer/history">Payment history</a></p><br/>
       <p class="item-subtitle">
       % if company.active?
