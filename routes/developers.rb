@@ -67,6 +67,9 @@ class Developers < Cuba
         application = Application.create(params)
 
         session[:success] = "You have successfully applied for a job!"
+
+        Ost[:developer_applied].push(application.id)
+
         res.redirect "/search?query=#{session[:query]}"
       end
 
