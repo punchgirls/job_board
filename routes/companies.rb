@@ -359,13 +359,12 @@ class Companies < Cuba
         mail = Contact.new(params)
 
         if mail.valid?
-          text = Mailer.render("application_contact",
-            { company: company, params: params })
-
-          Mailer.deliver(Developer[id].email,
-            params["subject"], text, company.email)
-
           session[:success] = "You just sent an e-mail to the applicant!"
+
+          data = ({ id: id, subject: params["subject"], body: params["body"] })
+
+          Ost[:contacted_applicant].push(data)
+
           res.redirect "/dashboard"
         else
           session[:error] = "All fields are required"

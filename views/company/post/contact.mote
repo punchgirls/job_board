@@ -2,7 +2,8 @@
   <ul class="list">
     <h2 class="list-title">Contact developer</h2>
 
-    <p class="item-text posts-found">The following message will be sent as an e-mail to {{ Developer[id].name }}. That message will include your registered e-mail address so the developer can reply directly to you:</p>
+    <p class="item-text posts-found">The following message will be sent as an e-mail to {{ Application[id].developer.name }} (with a copy to your e-mail).<br/>
+    That message will include your registered e-mail address so the developer can reply directly to you:</p>
 
     <li class="item">
       <form class="form contact-developer-form"  action="/application/contact/{{ id }}" method="POST">

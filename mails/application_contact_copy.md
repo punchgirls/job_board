@@ -1,10 +1,14 @@
 Job Board Auto-notice
 =====================
 
-{{ company.name }} just sent you this message:
+This is a copy of the message you sent to: {{ developer.name }}
 
 ----------------------------------------------------------
 
+Subject: {{ subject }}
+
+
+Message:
 {{ body }}
 
 ----------------------------------------------------------
@@ -27,7 +31,5 @@ Description:
 
 ----------------------------------------------------------
 
-To respond to this e-mail click on "Reply".
-Good luck!
-
+Kind regards,
 Job Board Team

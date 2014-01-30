@@ -36,7 +36,7 @@
 
           <section class="post-control">
             <span class="cursor">
-              <a href="/application/contact/{{ developer.id }}"><i class="fa fa-envelope-o cursor post-control-icon"></i><span class="underline">Contact</span></a>
+              <a href="/application/contact/{{ application.id }}"><i class="fa fa-envelope-o cursor post-control-icon"></i><span class="underline">Contact</span></a>
             </span>
 
             % if Post[id].favorites.member?(application)
