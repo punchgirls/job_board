@@ -1,3 +1,5 @@
+var notices = document.getElementById('notices');
+
 function ajax () {
   if (window.XMLHttpRequest) {
     request = new XMLHttpRequest();
@@ -238,7 +240,6 @@ function removePost (id) {
   var url = "post/remove/" + id;
   var msg = "Are you sure you want to delete the post?";
   var cancel = confirm(msg);
-  var notices = document.getElementById('notices');
   var span = document.createElement("span");
   notices.appendChild(span);
   span.className = "alert success";
@@ -308,6 +309,9 @@ function removeApplication (id) {
   var appsSizeSidebar = document.getElementById("apps-size-sidebar");
   var msg = "Are you sure you want to delete the application? By performing this action the company will no longer be able to see your application.";
   var cancel = confirm(msg);
+  var span = document.createElement("span");
+  notices.appendChild(span);
+  span.className = "alert success";
 
   if (cancel) {
     var request = ajax();
@@ -318,6 +322,7 @@ function removeApplication (id) {
         applications.removeChild(application);
         appsSize.innerHTML = parseInt(appsSize.innerHTML) - 1;
         appsSizeSidebar.innerHTML = parseInt(appsSizeSidebar.innerHTML) - 1;
+        span.innerHTML = "Application successfully removed! The change will be updated within a few minutes.";
       }
     };
 
