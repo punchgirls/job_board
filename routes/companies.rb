@@ -282,18 +282,9 @@ class Companies < Cuba
     end
 
     on "post/remove/:id" do |id|
-      post = Post[id]
-      developers = post.developers
+      Ost[:deleted_post].push(id)
 
-      developers.each do |developer|
-        text = Mailer.render("post_remove", { post: post, developer: developer })
-
-        Mailer.deliver(developer.email,
-          "Auto-notice: '" + post.title + "' post has been removed", text)
-      end
-
-      post.delete
-      session[:success] = "Post successfully removed!"
+      session[:success] = "Post successfully removed! The change will be updated within a few minutes."
       res.redirect "/dashboard"
     end
 
