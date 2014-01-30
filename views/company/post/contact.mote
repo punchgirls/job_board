@@ -2,14 +2,14 @@
   <ul class="list">
     <h2 class="list-title">Contact developer</h2>
 
-    <p class="item-text posts-found">The following message will be sent as an e-mail to {{ Application[id].developer.name }} (with a copy to your e-mail).<br/>
+    <p class="item-text posts-found">The following message will be sent as an e-mail to {{ application.developer.name }} (with a copy to your e-mail).<br/>
     That message will include your registered e-mail address so the developer can reply directly to you:</p>
 
     <li class="item">
-      <form class="form contact-developer-form"  action="/application/contact/{{ id }}" method="POST">
-        <input class="input" type="text" name="message[subject]" value="{{ message['subject'] }}" placeholder="Subject"><br/>
+      <form class="form contact-developer-form"  action="/application/contact/{{ application.id }}" method="POST">
+        <input class="input" type="text" name="message[subject]" value="{{ message.subject }}" placeholder="Subject"><br/>
 
-        <textarea class="textarea" name="message[body]" placeholder="This mail will be sent to the developer">{{ message['body'] }}</textarea>
+        <textarea class="textarea" name="message[body]" placeholder="This mail will be sent to the developer">{{ message.body }}</textarea>
 
         <span class="send-message-buttons buttons">
           <a class="post-control-link cancel" href="/dashboard">cancel</a>

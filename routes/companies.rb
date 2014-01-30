@@ -355,28 +355,35 @@ class Companies < Cuba
     end
 
     on "application/contact/:id" do |id|
-      on post, param("message") do |params|
-        mail = Contact.new(params)
+      application = Application[id]
 
-        if mail.valid?
-          session[:success] = "You just sent an e-mail to the applicant!"
+      on application do
+        on post, param("message") do |params|
+          mail = Contact.new(params)
 
-          data = ({ id: id, subject: params["subject"], body: params["body"] })
+          if mail.valid?
+            session[:success] = "You just sent an e-mail to the applicant!"
 
-          Ost[:contacted_applicant].push(data)
+            message = Message.create(application_id: id,
+              subject: params["subject"], body: params["body"])
 
-          res.redirect "/dashboard"
-        else
-          session[:error] = "All fields are required"
+            Ost[:contacted_applicant].push(message.id)
+
+            res.redirect "/dashboard"
+          else
+            session[:error] = "All fields are required"
+            render("company/post/contact", title: "Contact developer",
+              application: application, message: mail)
+          end
+        end
+
+        on default do
           render("company/post/contact", title: "Contact developer",
-            id: id, message: params)
+            application: application, message: Contact.new({}))
         end
       end
 
-      on default do
-        render("company/post/contact", title: "Contact developer",
-          id: id, message: {})
-      end
+      on(default) { not_found! }
     end
 
     on "application/favorite/:id" do |id|
