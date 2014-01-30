@@ -238,6 +238,10 @@ function removePost (id) {
   var url = "post/remove/" + id;
   var msg = "Are you sure you want to delete the post?";
   var cancel = confirm(msg);
+  var notices = document.getElementById('notices');
+  var span = document.createElement("span");
+  notices.appendChild(span);
+  span.className = "alert success";
 
   if (cancel) {
     var request = ajax();
@@ -246,6 +250,7 @@ function removePost (id) {
     request.onreadystatechange = function () {
       if ((request.readyState===4) && (request.status===200)) {
         posts.removeChild(post);
+        span.innerHTML = "Post successfully removed! The change will be updated within a few minutes.";
       }
     };
 

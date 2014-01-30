@@ -33,6 +33,8 @@ workers-start:
 	env $$(cat env.sh) ost -d activated_subscription
 	env $$(cat env.sh) ost -d discarded_applicant
 	env $$(cat env.sh) ost -d contacted_applicant
+	env $$(cat env.sh) ost -d deleted_post
+	env $$(cat env.sh) ost -d welcome_developer
 
 workers-stop:
 	kill $$(cat workers/deleted_company.pid)
@@ -41,4 +43,5 @@ workers-stop:
 	kill $$(cat workers/canceled_subscription.pid)
 	kill $$(cat workers/activated_subscription.pid)
 	kill $$(cat workers/discarded_applicant.pid)
-	kill $$(cat workers/contacted_applicant.pid)
+	kill $$(cat workers/deleted_post.pid)
+	kill $$(cat workers/welcome_developer.pid)

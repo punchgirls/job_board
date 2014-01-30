@@ -273,6 +273,9 @@ class Guests < Cuba
           session[:origin] = origin
 
           session[:success] = "You have successfully logged in!"
+
+          Ost[:welcome_developer].push(developer.id)
+
           res.redirect "/dashboard"
         end
 

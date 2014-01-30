@@ -284,7 +284,6 @@ class Companies < Cuba
     on "post/remove/:id" do |id|
       Ost[:deleted_post].push(id)
 
-      session[:success] = "Post successfully removed! The change will be updated within a few minutes."
       res.redirect "/dashboard"
     end
 
