@@ -9,11 +9,16 @@ class Developer < Ohm::Model
   attribute :url
   attribute :avatar
   attribute :bio
+  attribute :status
 
   unique :github_id
 
   def self.fetch(identifier)
     with(:github_id, identifier)
+  end
+
+  def deleted?
+    status == "deleted"
   end
 
   def applied?(post_id)

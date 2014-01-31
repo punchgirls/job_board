@@ -61,24 +61,27 @@ class Guests < Cuba
         pass = params["password"]
         remember = params["remember"]
 
-        if !Company.fetch(user).deleted?
-          if login(Company, user, pass)
+        if login(Company, user, pass)
+          on !Company.fetch(user).deleted? do
             if remember
               remember(3600)
             end
 
             session[:success] = "You have successfully logged in!"
             res.redirect "/dashboard"
-          else
-            session[:error] = "Invalid email/password combination"
+          end
 
-            render("login", title: "Login", user: user)
+          on default do
+            session[:error] = "Your have deleted your account.
+            Please create a new account."
+
+            render("login", title: "Login", user: user,
+              hide_search: true)
           end
         else
-          session[:error] = "Your have deleted your account"
+          session[:error] = "Invalid email/password combination"
 
-          render("login", title: "Login", user: user,
-            hide_search: true)
+          render("login", title: "Login", user: user)
         end
       end
 
@@ -219,33 +222,35 @@ class Guests < Cuba
 
       github_user = GitHub.fetch_user(access_token)
 
-      if !Developer.fetch(github_user["id"]).deleted?
-        developer = Developer.fetch(github_user["id"])
+      developer = Developer.fetch(github_user["id"])
 
-        on developer.nil? do
+      on developer do
+        if !Developer.fetch(github_user["id"]).deleted?
+          authenticate(developer)
+
+          session[:success] = "You have successfully logged in."
+          session[:apply_id] = apply_id
+          session[:favorite_id] = favorite
+          session[:query] = query
+          session[:origin] = origin
+
+          res.redirect "/dashboard"
+        else
+          session[:error] = "Your have just deleted your account.
+          Please try to login again in a few minutes."
+
+          render("login", title: "Login", user: current_user,
+            hide_search: true)
+        end
+      end
+
+      on developer.nil? do
         session[:github_id] = github_user["id"]
         session[:username] = github_user["login"]
         session[:avatar] = github_user["gravatar_id"]
 
         render("confirm", title: "Confirm your user details",
           github_user: github_user)
-        end
-
-        authenticate(developer)
-
-        session[:success] = "You have successfully logged in."
-        session[:apply_id] = apply_id
-        session[:favorite_id] = favorite
-        session[:query] = query
-        session[:origin] = origin
-
-        res.redirect "/dashboard"
-      else
-        session[:error] = "Your have just deleted your account.
-        Please wait a few minutes and try to login again."
-
-        render("login", title: "Login", user: user,
-          hide_search: true)
       end
     end
 
