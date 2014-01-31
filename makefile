@@ -37,6 +37,7 @@ workers-start:
 	env $$(cat env.sh) ost -d welcome_developer
 	env $$(cat env.sh) ost -d developer_applied
 	env $$(cat env.sh) ost -d deleted_application
+	env $$(cat env.sh) ost -d developer_sent_message
 
 workers-stop:
 	kill $$(cat workers/deleted_company.pid)
@@ -45,7 +46,9 @@ workers-stop:
 	kill $$(cat workers/canceled_subscription.pid)
 	kill $$(cat workers/activated_subscription.pid)
 	kill $$(cat workers/discarded_applicant.pid)
+	kill $$(cat workers/contacted_applicant.pid)
 	kill $$(cat workers/deleted_post.pid)
 	kill $$(cat workers/welcome_developer.pid)
 	kill $$(cat workers/developer_applied.pid)
 	kill $$(cat workers/deleted_application.pid)
+	kill $$(cat workers/developer_sent_message.pid)

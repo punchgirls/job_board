@@ -7,10 +7,10 @@ Ost[:contacted_applicant].each do |id|
   post = application.post
   company = post.company
 
-  text = Mailer.render("application_contact",
+  text = Mailer.render("contacted_applicant",
     { post: post, body: message.body, company: company })
 
-  text_copy = Mailer.render("application_contact_copy",
+  text_copy = Mailer.render("contacted_applicant_copy",
     { post: post, subject: message.subject, body: message.body, developer: developer })
 
   Mailer.deliver(developer.email,

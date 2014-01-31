@@ -88,6 +88,8 @@ class Developers < Cuba
 
         on msg.valid? do
           application.update(:message => message)
+
+          Ost[:developer_sent_message].push(application.id)
         end
 
         on defaul do

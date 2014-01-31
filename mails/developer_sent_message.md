@@ -3,7 +3,7 @@ Job Board Auto-notice
 
 Dear {{ post.company.name }},
 
-We want to inform you that {{ application.developer.name }} has applied to the following post:
+We want to inform you that {{ application.developer.name }} has added a message to the following post application:
 
 ----------------------------------------------------------
 
@@ -21,6 +21,9 @@ GitHub: [http://www.github.com/{{ application.developer.username }}] (http://www
 Bio:
 {{ application.developer.bio }}
 % end
+
+Message:
+{{ application.message }}
 
 ----------------------------------------------------------
 
