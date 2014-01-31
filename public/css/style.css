@@ -34,8 +34,8 @@ button {
 }
 
 i {
-  font-size: 2em;
-  vertical-align: middle;
+  font-size: 1.6em;
+  vertical-align: text-top;
 }
 
 textarea {
@@ -476,9 +476,8 @@ input:-moz-placeholder {
 
 .item-title {
   display: inline-block;
-  margin-bottom: 10px;
   font-size: 1.2em;
-  line-height: 1.2em;
+  line-height: 1.7em;
 }
 
 .item-subtitle {
@@ -1752,7 +1751,8 @@ input:-moz-placeholder {
   }
 
   .sidebar-title {
-    display: inline;
+    display: inline-block;
+    width: 12.8em;
     margin: 0 0 10px 10px;
     font-size: 1.1em;
   }
@@ -1788,8 +1788,8 @@ input:-moz-placeholder {
   /* Company profile Subscription info */
 
   .table {
-    width: 45em;
-    max-width: 45em;
+    width: 43em;
+    max-width: 43em;
   }
 
   /* Footer */

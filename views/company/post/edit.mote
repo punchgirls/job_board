@@ -8,7 +8,7 @@
      <span class="alert error">Title is required</span>
     % end
     % if edit.errors[:title] == [:not_in_range]
-     <span class="alert error">Title should not exceed 80 characters</span>
+     <span class="alert error">Title should not exceed 50 characters</span>
     % end
     % if edit.errors[:description].include?(:not_present)
      <span class="alert error">Description is required</span>
@@ -26,7 +26,7 @@
     <h2 class="list-title">Edit your post</h2>
     <li class="item">
       <form class="form edit-post-form" name="postFrm" action="/post/edit/{{ post.id }}" method="POST">
-        <input class="input input-title" type="text" name="post[title]" maxlength="80" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
+        <input class="input input-title" type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
 
         <input id="tags" type="hidden" value="{{ post.tags }}">
 
