@@ -430,7 +430,7 @@ class Companies < Cuba
       company.update(status: "deleted")
 
       logout(Company)
-      session[:success] = "You have successfully deleted your account!"
+      session[:success] = "You have successfully deleted your account"
 
       Ost[:deleted_company].push(company.id)
 

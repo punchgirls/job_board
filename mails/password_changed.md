@@ -1,5 +1,5 @@
-Password change notification
-=============================
+Job Board Auto-notice
+=====================
 
 Dear {{ company.name }},
 

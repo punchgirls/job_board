@@ -1,5 +1,7 @@
 class Developers < Cuba
   define do
+    developer = current_user
+
     on get, root do
       res.redirect "/applications"
     end
@@ -20,7 +22,7 @@ class Developers < Cuba
 
       on default do
         render("developer/applications", title: "My applications",
-        search: true, query: "", applications: current_user.active_applications,
+        search: true, query: "", applications: developer.active_applications,
         active_applications: true)
       end
     end
@@ -31,7 +33,7 @@ class Developers < Cuba
 
     on "applications" do
       render("developer/applications", title: "Active applications",
-        search: true, query: "", applications: current_user.active_applications,
+        search: true, query: "", applications: developer.active_applications,
         active_applications: true)
     end
 
@@ -39,7 +41,7 @@ class Developers < Cuba
       render("developer/applications", title: "Discarded applications",
         subtitle: "There aren't discarded applications.",
         search: true, query: "", active_applications: false,
-        applications: current_user.inactive_applications)
+        applications: developer.inactive_applications)
     end
 
     on "remove/:id" do |id|
@@ -55,7 +57,6 @@ class Developers < Cuba
 
     on "apply/:id" do |id|
       time = Time.new.to_i
-      developer = current_developer
       post = Post[id]
 
       params = { date: time,
@@ -132,12 +133,12 @@ class Developers < Cuba
 
     on "favorite/:id" do |id|
       post = Post[id]
-      favorites = current_user.favorites
+      favorites = developer.favorites
       favorited_by = post.favorited_by
 
       on !favorites.member?(post) do
         favorites.add(post)
-        favorited_by.add(current_user)
+        favorited_by.add(developer)
 
         res.redirect "/search?query=#{session[:query]}"
       end
@@ -152,7 +153,7 @@ class Developers < Cuba
 
         on default do
           favorites.delete(post)
-          favorited_by.delete(current_user)
+          favorited_by.delete(developer)
 
           res.redirect "/search?query=#{session[:query]}"
         end
@@ -165,8 +166,6 @@ class Developers < Cuba
 
     on "profile" do
       on post, param("developer") do |params|
-        developer = current_developer
-
         if !params["url"].empty? &&
           !params["url"].start_with?("http")
           params["url"] = "http://" + params["url"]
@@ -231,9 +230,14 @@ class Developers < Cuba
     end
 
     on "delete" do
-      current_user.delete
+      developer.update(status: "deleted")
 
-      session[:success] = "You have deleted your account."
+      logout(Developer)
+
+      session[:success] = "You have successfully deleted your account"
+
+      Ost[:deleted_developer].push(developer.id)
+
       res.redirect "/"
     end
 

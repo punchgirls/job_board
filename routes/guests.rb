@@ -219,26 +219,34 @@ class Guests < Cuba
 
       github_user = GitHub.fetch_user(access_token)
 
-      developer = Developer.fetch(github_user["id"])
+      if !Developer.fetch(github_user["id"]).deleted?
+        developer = Developer.fetch(github_user["id"])
 
-      on developer.nil? do
+        on developer.nil? do
         session[:github_id] = github_user["id"]
         session[:username] = github_user["login"]
         session[:avatar] = github_user["gravatar_id"]
 
         render("confirm", title: "Confirm your user details",
           github_user: github_user)
+        end
+
+        authenticate(developer)
+
+        session[:success] = "You have successfully logged in."
+        session[:apply_id] = apply_id
+        session[:favorite_id] = favorite
+        session[:query] = query
+        session[:origin] = origin
+
+        res.redirect "/dashboard"
+      else
+        session[:error] = "Your have just deleted your account.
+        Please wait a few minutes and try to login again."
+
+        render("login", title: "Login", user: user,
+          hide_search: true)
       end
-
-      authenticate(developer)
-
-      session[:success] = "You have successfully logged in."
-      session[:apply_id] = apply_id
-      session[:favorite_id] = favorite
-      session[:query] = query
-      session[:origin] = origin
-
-      res.redirect "/dashboard"
     end
 
     on "confirm" do

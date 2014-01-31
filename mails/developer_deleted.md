@@ -2,8 +2,7 @@ Job Board Auto-notice
 =====================
 
 Dear {{ post.company.name }},
-
-We want to inform you that {{ application.developer.name }} has removed the application to the following post:
+We want to inform you that '{{ application.developer.name }}' removed their profile and because of that the application for the following post has been deleted:
 
 -----------------------------------------------------------------
 

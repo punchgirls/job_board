@@ -3,7 +3,7 @@ Job Board Auto-notice
 
 This is a copy of the message you sent to: {{ developer.name }}
 
-----------------------------------------------------------
+-----------------------------------------------------------------
 
 Subject: {{ subject }}
 
@@ -11,11 +11,11 @@ Subject: {{ subject }}
 Message:
 {{ body }}
 
-----------------------------------------------------------
+-----------------------------------------------------------------
 
 This message was sent regarding the following job position:
 
-----------------------------------------------------------
+-----------------------------------------------------------------
 
 {{ post.title }}
 Company: {{ post.company.name }} ({{ post.company.url }})
@@ -29,7 +29,7 @@ Location: {{ post.location }}
 Description:
 {{ post.description }}
 
-----------------------------------------------------------
+-----------------------------------------------------------------
 
 Kind regards,
 Job Board Team

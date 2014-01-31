@@ -1,5 +1,5 @@
-Subscription activated notification
-===================================
+Job Board Auto-notice
+=====================
 
 Dear {{ company.name }},
 

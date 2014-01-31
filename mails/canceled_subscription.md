@@ -1,5 +1,5 @@
-Subscription canceled notification
-==================================
+Job Board Auto-notice
+=====================
 
 Dear {{ company.name }},
 
