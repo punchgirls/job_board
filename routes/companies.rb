@@ -217,7 +217,7 @@ class Companies < Cuba
 
           params["company_id"] = company.id
           params["date"] = time
-          params["tags"] = params["tags"].split(",").uniq.join(",")
+          params["tags"] = params["tags"].split(",").uniq.join(",") + ","
 
           params["status"] = "published"
 
@@ -298,7 +298,7 @@ class Companies < Cuba
             params["remote"] = false
           end
 
-          params["tags"] = params["tags"].split(",").uniq.join(",")
+          params["tags"] = params["tags"].split(",").uniq.join(",") + ","
 
           post.update(params)
 

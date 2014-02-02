@@ -16,7 +16,7 @@ var searchFrm = document.form;
 if (tags != null) {
   tags = tags.value.split(",");
 
-  for(var i = 0; i < tags.length; i++) {
+  for(var i = 0; i < tags.length - 1; i++) {
     addToken(tags[i]);
   }
 }
