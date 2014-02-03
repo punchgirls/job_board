@@ -1,6 +1,6 @@
 % if developer.nil?
   <span class="cursor">
-    <a class="post-control-link" href="/favorite?post_id={{ post.id }}&query={{ query }}">
+    <a class="post-control-link" href="/favorite?post_id={{ post.id }}&query={{ query }}#{{ post.id }}">
       <i class="fa fa-star post-control-icon"></i>
       <span class="underline">Favorite</span>
     </a>

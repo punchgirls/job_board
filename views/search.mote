@@ -14,7 +14,7 @@
       <p class="item-text posts-found">Posts found: {{ posts_found }}</p>
 
       % posts.each do |post|
-        <li class="item">
+        <li class="item" id="{{ post.id }}">
           <article>
             <header class="item-header">
               <img class="item-company-logo" src="{{ post.company.gravatar }}">

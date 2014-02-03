@@ -12,12 +12,12 @@ class Developers < Cuba
 
       if apply_id
         session.delete(:apply_id)
-        res.redirect "/apply/#{apply_id}"
+        res.redirect "/apply/#{apply_id}##{apply_id}"
       end
 
       if favorite_id
         session.delete(:favorite_id)
-        res.redirect "/favorite/#{favorite_id}"
+        res.redirect "/favorite/#{favorite_id}##{favorite_id}"
       end
 
       on default do
