@@ -144,7 +144,7 @@ input:-moz-placeholder {
 
 .button-search, .header-button-search {
   height: 36px;
-  margin: 3px 10px;
+  margin: 3px 5px;
   padding: 0 14px;
   display: inline-block;
   font-size: 0.6em;
@@ -943,7 +943,7 @@ input:-moz-placeholder {
 }
 
 #autocomplete {
-  width: 12.88em;
+  width: 12.50em;
   margin: -2px 0 0 0;
   padding: 0.3em 0.3em;
   position: absolute;
@@ -1525,7 +1525,9 @@ input:-moz-placeholder {
   }
 
   #autocomplete {
-    width: 23.80em;
+    width: 23.45em;
+    max-width: 23.45em;
+    margin-top: -7px;
   }
 
   #autocomplete li {
