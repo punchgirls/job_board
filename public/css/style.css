@@ -1079,11 +1079,20 @@ input:-moz-placeholder {
   line-height: 1.5em;
 }
 
+.token {
+  margin-left: 3px;
+  padding: 0 3px;
+  border: 1px solid #4d4d4d;
+  border-radius: 3px;
+}
+
+.delete-token {
+  cursor: hand;
+  cursor: pointer;
+}
+
 #tokens li {
   display: inline-block;
-  border: none;
-  padding: 0;
-  margin: 0;
 }
 
 .header #tokens li {

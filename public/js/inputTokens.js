@@ -1,5 +1,5 @@
 var request;
-var skills;
+var skills = getSkills();
 var li;
 
 var tokens = document.getElementById("tokens");
@@ -21,21 +21,23 @@ if (tags != null) {
   }
 }
 
-if (window.XMLHttpRequest) {
-  request = new XMLHttpRequest();
-} else {
-  request = new ActiveXObject("Microsoft.XMLHTTP");
-}
-
-request.open("GET", "/js/skills.json");
-
-request.onreadystatechange = function() {
-  if ((request.readyState===4) && (request.status===200)) {
-    skills = JSON.parse(request.responseText);
+function getSkills() {
+  if (window.XMLHttpRequest) {
+    request = new XMLHttpRequest();
+  } else {
+    request = new ActiveXObject("Microsoft.XMLHTTP");
   }
-}
 
-request.send();
+  request.open("GET", "/js/skills.json");
+
+  request.onreadystatechange = function() {
+    if ((request.readyState===4) && (request.status===200)) {
+      skills = JSON.parse(request.responseText);
+    }
+  }
+
+  request.send();
+}
 
 function addToAutocomplete(value) {
   var li = document.createElement("li");
@@ -50,23 +52,36 @@ function addToAutocomplete(value) {
 
 function addToken(value) {
   var listItems = tokens.getElementsByTagName("li");
-  var token = document.createElement("li");
 
-  token.appendChild(document.createTextNode(value + ","));
-  token.style.marginRight = "6px";
-
-  if (listItems.length < 6) {
+   if (listItems.length < 6) {
     var lastChild = listItems[listItems.length - 1];
+
+    var token = document.createElement("li");
+    var token_span = document.createElement("span");
+    var x = document.createElement("span");
+
+    token_span.appendChild(document.createTextNode(value))
+    x.appendChild(document.createTextNode(" X "));
+
+    x.onclick = function() {
+      deleteToken(token);
+    };
+
+    x.setAttribute("class", "delete-token");
+
+    token.appendChild(token_span);
+    token.appendChild(x);
+    token.setAttribute("class", "token");
+
     tokens.insertBefore(token, lastChild);
+
+    searchInput.focus();
+    searchInput.value = "";
+    searchInput.removeAttribute("placeholder");
+    autocomplete.setAttribute("style", "display: none;");
   } else {
     errors.innerHTML = "You can add up to 5 skills";
   }
-
-  searchInput.focus();
-
-  searchInput.value = "";
-  searchInput.removeAttribute("placeholder");
-  autocomplete.style.display = "none";
 }
 
 function deleteToken(token) {
@@ -74,7 +89,7 @@ function deleteToken(token) {
 
   if(tokens.childNodes.length == 3) {
     searchInput.setAttribute("placeholder", "e.g. Ruby, Cuba, Redis");
-    searchInput.style.width = "200px";
+    searchInput.setAttribute("style", "width: 200px;");
   }
 }
 
@@ -84,7 +99,7 @@ tokens.onclick = function() {
 
 document.onclick = function(e) {
   if (e.srcElement.id == "search-field") {
-    autocomplete.style.display = "block";
+    autocomplete.setAttribute("style", "display: block;");
 
     for (var key in skills) {
       addToAutocomplete(skills[key].name);
@@ -166,8 +181,8 @@ postFrm.onsubmit = function() {
   var skills = tokens.getElementsByTagName("li");
   var query = "";
 
-  for (var i = 0; i < skills.length -1; i++) {
-    query += skills[i].innerHTML;
+  for (var i = 0; i < skills.length - 1; i ++) {
+    query = query + skills[i].firstChild.innerHTML + ",";
   }
 
   queryInput.value = query;
