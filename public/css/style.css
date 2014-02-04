@@ -143,15 +143,16 @@ input:-moz-placeholder {
 }
 
 .button-search, .header-button-search {
-  height: 42px;
+  height: 36px;
+  margin: 3px 10px;
+  padding: 0 14px;
   display: inline-block;
-  margin: 0 0 0 0.5em;
   font-size: 0.6em;
   vertical-align: top;
 }
 
 .header-button-search {
-  margin-top: 7px;
+  margin-top: 12px;
 }
 
 .avatar-list-item {
@@ -1021,7 +1022,7 @@ input:-moz-placeholder {
 
 #tokens {
   margin: 0;
-  padding: 0.3em 0.5em;
+  padding: 5px;
   width: 12.40em;
   line-height: 28px;
   text-align: left;
@@ -1051,9 +1052,9 @@ input:-moz-placeholder {
   font-size: 1.6em;
 }
 
-.header #tokens {
-  padding: 0.1em 0.5em;
-}
+/*.header #tokens {
+  padding: 0.3em 0.5em;
+}*/
 
 #token-input {
   margin: 0;
@@ -1080,10 +1081,12 @@ input:-moz-placeholder {
 }
 
 .token {
-  margin-left: 3px;
-  padding: 0 3px;
-  border: 1px solid #4d4d4d;
-  border-radius: 3px;
+  margin: 0;
+  padding: 0 5px;
+  line-height: 1.4em;
+  border: 1px solid #DADADA;
+  background-color: #FCFCFC;
+  display: inline-block;
 }
 
 .delete-token {
@@ -1093,16 +1096,20 @@ input:-moz-placeholder {
 
 #tokens li {
   display: inline-block;
+  line-height: 1.4em;
+  margin-right: 5px;
+  /*margin-bottom: 5px;*/
 }
 
-.header #tokens li {
-  background-color: #fff;
-  padding: 0;
-  margin: 0;
-}
+/*.header #tokens li {
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}*/
 
 #tokens #token-input {
   background-color: white;
+  line-height: 1.4em;
   padding: 0;
   margin: 0;
 }
@@ -1151,7 +1158,8 @@ input:-moz-placeholder {
   }
 
   #autocomplete {
-    width: 22.82em;
+    width: 22.48em;
+    max-width: 22.48em;
     margin-top: -1px;
   }
 
@@ -1512,6 +1520,7 @@ input:-moz-placeholder {
 
   #tokens {
     width: 23.35em;
+    margin: 5px 0;
     display: inline-block;
   }
 
