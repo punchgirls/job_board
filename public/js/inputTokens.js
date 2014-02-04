@@ -61,7 +61,7 @@ function addToken(value) {
     var x = document.createElement("span");
 
     token_span.appendChild(document.createTextNode(value))
-    x.appendChild(document.createTextNode(" X "));
+    x.appendChild(document.createTextNode(" x "));
 
     x.onclick = function() {
       deleteToken(token);
@@ -116,30 +116,31 @@ searchInput.onkeydown = function(e) {
   searchInput.removeAttribute("placeholder");
   searchInput.style.width = "150px";
 
-  if (e.keyCode == '13') {
-    if (searchInput.value == "") {
-      return true;
-    } else if (selectedToken == -1 && searchInput.value != "") {
-      addToken(list[selectedToken + 1].innerHTML);
-    } else  {
-      addToken(list[selectedToken].innerHTML);
-      selectedToken = -1;
-    }
+  switch (e.keyCode) {
+    case 8:
+      if (searchInput.value == "") {
+        var skills = tokens.getElementsByTagName("li");
+        var token = skills[skills.length - 2];
 
-    return false;
-  }
-
-  if ((e.keyCode == '27') || (e.keyCode == '9')) {
-    autocomplete.style.display = "none";
-  }
-
-  if (e.keyCode == '8') {
-    if (searchInput.value == "") {
-      var skills = tokens.getElementsByTagName("li");
-      var token = skills[skills.length - 2];
-
-      deleteToken(token);
-    }
+        deleteToken(token);
+      }
+      break;
+    case 9:
+      autocomplete.style.display = "none";
+      break;
+    case 13:
+      if (selectedToken != -1) {
+        addToken(list[selectedToken].innerHTML);
+        selectedToken = -1;
+      } else {
+        return true;
+      }
+      return false;
+      break;
+    case 27:
+      autocomplete.style.display = "none";
+      searchInput.value = "";
+      break;
   }
 };
 
@@ -165,15 +166,22 @@ searchInput.onkeyup = function(e) {
 
   e = e || window.event;
 
-  if (e.keyCode == '38') {
-    if(selectedToken > 0) {
-      list[--selectedToken].id = "highlight";
-    }
-  }
-  else if (e.keyCode == '40') {
-    if(selectedToken < list.length - 1) {
-      list[++selectedToken].id = "highlight";
-    }
+  switch (e.keyCode) {
+    case 38:
+      if (selectedToken > 0) {
+        list[--selectedToken].id = "highlight";
+      } else if (selectedToken == 0) {
+        selectedToken = -1;
+        searchInput.value = "";
+      }
+      console.log(selectedToken);
+      break;
+    case 40:
+      if (selectedToken < list.length - 1) {
+        list[++selectedToken].id = "highlight";
+      }
+      console.log(selectedToken);
+      break;
   }
 };
 
