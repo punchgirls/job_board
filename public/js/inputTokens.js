@@ -9,7 +9,7 @@ var autocomplete = document.getElementById("autocomplete");
 var tags = document.getElementById("tags");
 var errors = document.getElementById('notices');
 
-var selectedToken = -1;
+var selectedToken = 0;
 var list = autocomplete.childNodes;
 var searchFrm = document.form;
 
