@@ -1,12 +1,11 @@
-% applications = Post[id].active_applications
-
 <section class="two-cols">
   <ul class="list" id="application-list">
-    <h2 class="list-title company-dashboard-title">Position: {{ this.h(Post[id].title) }}</h2>
+    <h2 class="list-title company-dashboard-title">Position: {{ this.h(Post[id].title) }}</h2><br/>
 
     % if applications.empty?
       <p class="item-text posts-found">No one applied to this post yet or the persons who applied removed their applications.</p>
     % else
+      <p class="item-text posts-found"><a href="/post/applications/{{ id }}">Active applications</a> <span class="applications-menu-pipeline"> | </span><span class="applications-menu-breakline"><br/></span> <a href="/post/applications/discarded/{{ id }}">Discarded applications</a></p><br/>
       <p class="item-text posts-found">Applicants: <span id="number-of-applicants">{{ applications.size }}</span></p><br/>
 
       % applications.each do |application|
@@ -64,9 +63,7 @@
         </li>
       % end
     % end
-    <a href="/post/applications/discarded/{{ id }}">See discarded applicants</a>
-  </ul>
+   </ul>
 
   {{ this.partial("sidebar", user: this.current_user, search: true) }}
-
 </section>
