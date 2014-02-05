@@ -320,16 +320,16 @@ class Companies < Cuba
       end
     end
 
-    on "post/applications/:id" do |id|
-      render("company/post/applications", title: "Active applications", id: id,
-        applications: Post[id].active_applications,
-        active_applications: true)
-    end
-
     on "post/applications/discarded/:id" do |id|
       render("company/post/applications", title: "Discarded applications",
         id: id, active_applications: false,
         applications: Post[id].discarded_applications)
+    end
+
+    on "post/applications/:id" do |id|
+      render("company/post/applications", title: "Active applications", id: id,
+        applications: Post[id].active_applications,
+        active_applications: true)
     end
 
     on "application/discard/:id" do |id|

@@ -2,12 +2,12 @@
   <ul class="list" id="application-list">
     <h2 class="list-title company-dashboard-title">Position: {{ this.h(Post[id].title) }}</h2><br/>
 
+    <p class="item-text posts-found"><a href="/post/applications/{{ id }}">Active applications</a> <span class="applications-menu-pipeline"> | </span><span class="applications-menu-breakline"><br/></span> <a href="/post/applications/discarded/{{ id }}">Discarded applications</a></p><br/>
+    <p class="item-text posts-found">Applicants: <span id="number-of-applicants">{{ applications.size }}</span></p><br/>
+
     % if applications.empty?
       <p class="item-text posts-found">No one applied to this post yet or the persons who applied removed their applications.</p>
     % else
-      <p class="item-text posts-found"><a href="/post/applications/{{ id }}">Active applications</a> <span class="applications-menu-pipeline"> | </span><span class="applications-menu-breakline"><br/></span> <a href="/post/applications/discarded/{{ id }}">Discarded applications</a></p><br/>
-      <p class="item-text posts-found">Applicants: <span id="number-of-applicants">{{ applications.size }}</span></p><br/>
-
       % applications.each do |application|
         % developer = application.developer
         <li class="item" id="app-{{ application.id }}">
@@ -34,23 +34,29 @@
           % end
 
           <section class="post-control">
-            <span class="cursor">
-              <a href="/application/contact/{{ application.id }}"><i class="fa fa-envelope-o cursor post-control-icon"></i><span class="underline">Contact</span></a>
-            </span>
+            % if active_applications
+              <span class="cursor">
+                <a href="/application/contact/{{ application.id }}"><i class="fa fa-envelope-o cursor post-control-icon"></i><span class="underline">Contact</span></a>
+              </span>
 
-            % if Post[id].favorites.member?(application)
-              <span onclick="favoriteApplicant({{ application.id }})" id="application-{{ application.id }}" class="favorited cursor">
-                <i class="fa fa-star post-control-icon favorited-icon"></i><span class="favorited-text underline">Favorited</span>
+              % if Post[id].favorites.member?(application)
+                <span onclick="favoriteApplicant({{ application.id }})" id="application-{{ application.id }}" class="favorited cursor">
+                  <i class="fa fa-star post-control-icon favorited-icon"></i><span class="favorited-text underline">Favorited</span>
+                </span>
+              % else
+                <span onclick="favoriteApplicant({{ application.id }})" id="application-{{ application.id }}" class="cursor">
+                  <i class="fa fa-star post-control-icon"></i><span class="underline">Favorite</span>
+                </span>
+              % end
+
+              <span onclick="discardApplicant({{ application.id }})" class="cursor">
+                <i class="fa fa-trash-o cursor post-control-icon delete-icon"></i><span class="underline">Discard</span>
               </span>
             % else
-              <span onclick="favoriteApplicant({{ application.id }})" id="application-{{ application.id }}" class="cursor">
-                <i class="fa fa-star post-control-icon"></i><span class="underline">Favorite</span>
+              <span onclick="addApplicant({{ application.id }})" class="cursor">
+                <i class="fa fa-plus cursor post-control-icon delete-icon"></i><span class="underline">Move to Applicants list</span>
               </span>
             % end
-
-            <span onclick="discardApplicant({{ application.id }})" class="cursor">
-              <i class="fa fa-trash-o cursor post-control-icon delete-icon"></i><span class="underline">Discard</span>
-            </span>
           </section>
 
           <footer class="item-footer">
