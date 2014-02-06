@@ -310,12 +310,8 @@ class Guests < Cuba
       render("pricing", title: "Pricing", plan_id: "small")
     end
 
-    on "how" do
-      render("how", title: "How it works")
-    end
-
-    on "faq" do
-      render("faq", title: "FAQ")
+    on "help" do
+      render("help", title: "Help")
     end
 
     on "contact" do
