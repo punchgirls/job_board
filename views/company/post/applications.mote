@@ -6,7 +6,7 @@
     <p class="item-text posts-found">Applicants: <span id="number-of-applicants">{{ applications.size }}</span></p><br/>
 
     % if applications.empty?
-      <p class="item-text posts-found">No one applied to this post yet or the persons who applied removed their applications.</p>
+      <p class="item-text posts-found">{{ text }}</p>
     % else
       % applications.each do |application|
         % developer = application.developer

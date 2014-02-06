@@ -323,13 +323,16 @@ class Companies < Cuba
     on "post/applications/discarded/:id" do |id|
       render("company/post/applications", title: "Discarded applications",
         id: id, active_applications: false,
-        applications: Post[id].discarded_applications)
+        applications: Post[id].discarded_applications,
+        text: "You haven't discarded any applicants for this position.")
     end
 
     on "post/applications/:id" do |id|
       render("company/post/applications", title: "Active applications", id: id,
         applications: Post[id].active_applications,
-        active_applications: true)
+        active_applications: true,
+        text: "No one applied to this post yet or the persons who applied
+        removed their applications.")
     end
 
     on "application/discard/:id" do |id|
