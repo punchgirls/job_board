@@ -51,7 +51,7 @@ Cuba.use Rack::Protection::RemoteReferrer
 
 Cuba.use Rack::Static,
   urls: %w[/js /css /img],
-  root: "./public"
+  root: File.expand_path("./public", __dir__)
 
 Cuba.define do
   persist_session!
