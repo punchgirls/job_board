@@ -77,6 +77,10 @@ input:-moz-placeholder {
   text-transform: capitalize;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 .alert {
   display: block;
   text-align: center;

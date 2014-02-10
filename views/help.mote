@@ -35,6 +35,8 @@
     <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#deleting_your_company_account">Deleting your account</a></li>
   </ul>
 
+  <h3 class="help_links_subtitle uppercase">Developers</h3>
+
   <h3 class="help_links_subtitle" id="creating_your_dev_account">Creating your account</h3>
   <p class="help_links_text">
     To create your account you need to login using GitHub. This will give us access to your public GitHub information. This information will be made available to the companies when you apply for a job.
@@ -97,6 +99,8 @@
     If you want to remove your account for any reason you can do so by clicking the 'Delete account' link in your profile page. All your information will be permanently deleted.
   </p>
 
+  <h3 class="help_links_subtitle uppercase">Companies</h3>
+
   <h3 class="help_links_subtitle" id="plans_and_pricing">Plans and pricing</h3>
   <p class="help_links_text">
     With your subscription you can publish from 1 to 10 posts concurrently per month.<br/>
@@ -131,6 +135,10 @@
   </p>
   <p class="help_links_text">
     The post will contain a title, tags, location and a description.
+  </p>
+
+  <p class="help_links_text">
+    If you're looking for a skill or programming language to add as a tag and can't find it please contact us.
   </p>
   <p class="help_links_text">
     Some advice:
