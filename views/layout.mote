@@ -16,14 +16,15 @@
         <h1 class="header-title"><a class="header-link" href="/">job board<span></span></a></h1>
         <input class="header-menu-checkbox" type="checkbox" id="toggle">
         <label class="header-label" for="toggle"></label>
-        % if defined?(search)
+        % if search
           <nav class="header-nav">
             {{ this.partial("header_menu", user: this.current_user, search: true) }}
           </nav>
           {{ this.partial("search_box", query: query, search: true) }}
         % else
           <nav class="header-nav">
-            {{ this.partial("header_menu", user: this.current_user) }}
+            {{ this.partial("header_menu", user: this.current_user,
+            search: false, profile: false) }}
           </nav>
         % end
       </header>
@@ -32,11 +33,12 @@
         {{ this.partial("notices", session: this.session) }}
       </p>
 
-      % if defined?(search)
+      % if search
         <section class="content-search">
       % else
         <section class="content">
       % end
+
           {{ content }}
 
           <span class="before-footer"></span>
@@ -53,7 +55,7 @@
             % end
 
             <section class="footer-extra-menu">
-              % if !user && defined?(search)
+              % if !user && search
                   <li class="footer-menu-item"><a class="footer-menu-link" href="/about">About</a></li>
                   <li class="footer-menu-item"><a class="footer-menu-link" href="/pricing">Pricing</a></li>
                   <li class="footer-menu-item"><a class="footer-menu-link" href="/help">Help</a></li>

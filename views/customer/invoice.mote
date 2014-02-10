@@ -29,6 +29,6 @@
     <p class="item-subtitle"><a href="/customer/history">Back to payment history</a></p>
   </ul>
 
-  {{ this.partial("sidebar", user: this.current_user, search: true) }}
+  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
 
 </section>

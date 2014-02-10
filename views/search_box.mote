@@ -1,4 +1,4 @@
-% if defined?(search)
+% if search
   <form class="header__search-box" name="postFrm" action="/search" method="GET">
 % else
   <form class="search-box" name="postFrm" action="/search" method="GET">
@@ -18,7 +18,7 @@
       <input type="hidden" id="query" name="query" value="">
     </div>
 
-    % if defined?(search)
+    % if search
       <button class="header-button-search" type="submit"><i class="fa fa-search"></i></button>
     % else
       <button class="button-search" type="submit"><i class="fa fa-search"></i></button>

@@ -7,7 +7,7 @@ class Guests < Cuba
     on "signup" do
       on get, param("plan_id") do |plan_id|
         render("company/signup", title: "Sign up", plan_id: plan_id,
-          company: {})
+          company: {}, search: false, profile: false)
       end
 
       on post, param("stripe_token"), param("company") do |token, params|
@@ -44,13 +44,13 @@ class Guests < Cuba
         on default do
           render("company/signup", title: "Sign up",
               company: params, signup: signup,
-              plan_id: params["plan_id"])
+              plan_id: params["plan_id"], search: false, profile: false)
         end
       end
 
       on default do
         render("company/signup", title: "Sign up",
-          company: {}, plan_id: "small")
+          company: {}, plan_id: "small", search: false, profile: false)
       end
     end
 
@@ -75,13 +75,14 @@ class Guests < Cuba
             session[:error] = "Your have deleted your account.
             Please create a new account."
 
-            render("login", title: "Login", user: user,
-              hide_search: true)
+            render("login", title: "Login", user: user, search: false,
+              profile: false)
           end
         else
           session[:error] = "Invalid email/password combination"
 
-          render("login", title: "Login", user: user)
+          render("login", title: "Login", user: user, search: false,
+            profile: false)
         end
       end
 
@@ -91,7 +92,8 @@ class Guests < Cuba
       end
 
       on get, root do
-        render("login", title: "Login", user: "")
+        render("login", title: "Login", user: "", search: false,
+          profile: false)
       end
 
       on(default) { not_found! }
@@ -99,7 +101,8 @@ class Guests < Cuba
 
     on "forgot-password" do
       on get do
-        render("forgot-password", title: "Password recovery")
+        render("forgot-password", title: "Password recovery",
+          search: false, profile: false)
       end
 
       on post do
@@ -154,7 +157,8 @@ class Guests < Cuba
 
           on default do
             render("otp", title: "Password recovery",
-              company: company, signature: signature, reset: reset)
+              company: company, signature: signature,
+              reset: reset, search: false, profile: false)
           end
         end
 
@@ -162,7 +166,8 @@ class Guests < Cuba
           reset = PasswordRecovery.new({})
 
           render("otp", title: "Password recovery",
-            company: company, signature: signature, reset: reset)
+            company: company, signature: signature,
+            reset: reset, search: false, profile: false)
         end
       end
 
@@ -240,7 +245,7 @@ class Guests < Cuba
           Please try to login again in a few minutes."
 
           render("login", title: "Login", user: current_user,
-            hide_search: true)
+            search: false, profile: false)
         end
       end
 
@@ -250,7 +255,7 @@ class Guests < Cuba
         session[:avatar] = github_user["gravatar_id"]
 
         render("confirm", title: "Confirm your user details",
-          github_user: github_user)
+          github_user: github_user, search: false, profile: false)
       end
     end
 
@@ -295,27 +300,29 @@ class Guests < Cuba
         on default do
           session[:error] = "Name and E-mail are required and must be valid"
           render("confirm", title: "Confirm your user details",
-            github_user: params)
+            github_user: params, search: false, profile: false)
         end
       end
 
       on get, root do
-        render("confirm", title: "Confirm your user details")
+        render("confirm", title: "Confirm your user details",
+          search: false, profile: false)
       end
 
       on(default) { not_found! }
     end
 
     on "pricing" do
-      render("pricing", title: "Pricing", plan_id: "small")
+      render("pricing", title: "Pricing", plan_id: "small",
+        search: false, profile: false)
     end
 
     on "about" do
-      render("about", title: "About")
+      render("about", title: "About", search: false, profile: false)
     end
 
     on "help" do
-      render("help", title: "Help")
+      render("help", title: "Help", search: false, profile: false)
     end
 
     on "contact" do
@@ -323,11 +330,13 @@ class Guests < Cuba
     end
 
     on "terms" do
-      render("terms", title: "Terms and Conditions")
+      render("terms", title: "Terms and Conditions", search: false,
+        profile: false)
     end
 
     on "privacy" do
-      render("privacy", title: "Privacy Policy")
+      render("privacy", title: "Privacy Policy", search: false,
+        profile: false)
     end
 
     on(default) { not_found! }

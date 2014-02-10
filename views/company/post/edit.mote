@@ -1,6 +1,6 @@
 % post = Post[id]
 
-% if defined?(edit)
+% if edit
     % if edit.errors[:tags] == [:not_present]
      <span class="alert error">At least one skill is required</span>
     % end
@@ -69,7 +69,7 @@
     </li>
   </ul>
 
-  {{ this.partial("sidebar", user: this.current_user, search: true) }}
+  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
 
 </section>
 

@@ -1,4 +1,4 @@
-% if defined?(search)
+% if search
   <section class="login-search">
 % else
   <section>

@@ -1,4 +1,4 @@
-% if defined?(edit)
+% if edit
     % if edit.errors[:name] == [:not_present]
      <span class="alert error">Company name is required</span>
     % end
@@ -49,7 +49,7 @@
     </li>
   </ul>
 
-  {{ this.partial("sidebar", user: this.current_user, search: true) }}
+  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
 
 </section>
 

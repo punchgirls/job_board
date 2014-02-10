@@ -59,7 +59,8 @@ Cuba.define do
   on root do
     latest_posts = Post.active.sort_by(:date, order: "ALPHA DESC", limit: [0, 5])
 
-    render("home", title: "Home", latest_posts: latest_posts)
+    render("home", title: "Home", latest_posts: latest_posts,
+      search: false, profile: false)
   end
 
   on authenticated(Company) do

@@ -13,7 +13,7 @@
     <p class="item-text posts-found"><a href="/applications">Active applications</a> <span class="applications-menu-pipeline"> | </span><span class="applications-menu-breakline"><br/></span> <a href="/history">Discarded applications</a></p><br/>
 
     % if applications.empty?
-      % if defined?(subtitle)
+      % if subtitle
         <p class="item-text posts-found">{{ subtitle }}</p>
       % else
         <p class="item-text posts-found">You haven't applied for any jobs yet. Start your search now!</p>
@@ -104,6 +104,6 @@
     % end
   </ul>
 
-  {{ this.partial("sidebar", user: this.current_user, search: true) }}
+  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
 
 </section>

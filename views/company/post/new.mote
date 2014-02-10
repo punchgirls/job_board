@@ -1,4 +1,4 @@
-% if defined?(post)
+% if post
     % if post.errors[:tags] == [:not_present]
       <span class="alert error">At least one skill is required</span>
     % end

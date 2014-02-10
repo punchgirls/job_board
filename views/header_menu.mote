@@ -1,4 +1,4 @@
-% if defined?(search)
+% if search
   <ul class="header-menu" id="search">
 % else
   <ul class="header-menu">

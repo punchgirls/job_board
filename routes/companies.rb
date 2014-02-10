@@ -5,17 +5,20 @@ class Companies < Cuba
     plan = company.plan
 
     on get, root do
-      render("company/dashboard", title: "Dashboard", plan: plan)
+      render("company/dashboard", title: "Dashboard", plan: plan,
+        search: false, profile: false)
     end
 
     on "dashboard" do
       on param "company" do
         session[:error] = "You need to logout to sign in as a developer"
-        render("company/dashboard", title: "Dashboard", plan: plan)
+        render("company/dashboard", title: "Dashboard", plan: plan,
+          search: false, profile: false)
       end
 
       on get, root do
-        render("company/dashboard", title: "Dashboard", plan: plan)
+        render("company/dashboard", title: "Dashboard", plan: plan,
+          search: false, profile: false)
       end
 
       on(default) { not_found! }
@@ -41,7 +44,8 @@ class Companies < Cuba
         end
       end
 
-      render("company/profile", title: "Profile", card: card, plan: plan)
+      render("company/profile", title: "Profile", card: card,
+        plan: plan, search: false, profile: false)
     end
 
     on "edit" do
@@ -62,7 +66,8 @@ class Companies < Cuba
             Company.with(:email, edit.email) do
 
             session[:error] = "E-mail is already registered"
-            render("company/edit", title: "Edit profile", edit: edit)
+            render("company/edit", title: "Edit profile", edit: edit,
+              search: false, profile: false)
           end
 
           on default do
@@ -78,17 +83,17 @@ class Companies < Cuba
         end
 
         on default do
-          render("company/edit", title: "Edit profile", edit: edit)
+          render("company/edit", title: "Edit profile", edit: edit,
+            search: false, profile: false)
         end
       end
 
-      on get, root do
+      on default do
         edit = EditCompanyAccount.new({})
 
-        render("company/edit", title: "Edit profile", edit: edit)
+        render("company/edit", title: "Edit profile", edit: edit,
+          search: false, profile: false)
       end
-
-      on(default) { not_found! }
     end
 
     on "customer/update" do
@@ -125,7 +130,8 @@ class Companies < Cuba
       end
 
       on default do
-        render("customer/update", title: "Update payment details")
+        render("customer/update", title: "Update payment details",
+          search: false, profile: false)
       end
     end
 
@@ -140,7 +146,8 @@ class Companies < Cuba
             res.redirect "company/profile"
         end
 
-        render("customer/history", title: "Payment details", history: history)
+        render("customer/history", title: "Payment details",
+          history: history, search: false, profile: false)
       end
     end
 
@@ -155,7 +162,8 @@ class Companies < Cuba
           res.redirect "company/profile"
         end
 
-        render("customer/invoice", title: "Invoice details", invoice: invoice, plan: plan)
+        render("customer/invoice", title: "Invoice details",
+          invoice: invoice, plan: plan, search: false, profile: false)
       end
     end
 
@@ -183,7 +191,7 @@ class Companies < Cuba
 
       on default do
         render("customer/subscription", title: "Update subscription",
-          plan_id: plan.name)
+          plan_id: plan.name, search: false, profile: false)
       end
     end
 
@@ -232,18 +240,21 @@ class Companies < Cuba
         end
 
         on default do
-          render("company/post/new", title: "Post job offer", post: post)
+          render("company/post/new", title: "Post job offer",
+            post: post, search: false, profile: false)
         end
       end
 
       on get, root do
         if !company.active?
-          session[:error] = "You have canceled your subscription. Activate it to keep posting job offers."
+          session[:error] = "You have canceled your subscription. Activate it
+          to keep posting job offers."
           res.redirect "/customer/subscription"
         elsif company.published_posts.size <  plan.posts.to_i
           post = PostJobOffer.new({})
 
-          render("company/post/new", title: "Post job offer", post: post)
+          render("company/post/new", title: "Post job offer", post: post,
+            search: false, profile: false)
         else
           session[:error] = "You can only have #{plan.posts} published post."
           res.redirect "/dashboard"
@@ -308,7 +319,7 @@ class Companies < Cuba
 
         on default do
           render("company/post/edit", title: "Edit post",
-            id: id, edit: edit)
+            id: id, edit: edit, search: false, profile: false)
         end
       end
 
@@ -316,7 +327,7 @@ class Companies < Cuba
         edit = PostJobOffer.new({})
 
         render("company/post/edit", title: "Edit post",
-          id: id, edit: edit)
+          id: id, edit: edit, search: false, profile: false)
       end
     end
 
@@ -324,7 +335,8 @@ class Companies < Cuba
       render("company/post/applications", title: "Discarded applications",
         id: id, active_applications: false,
         applications: Post[id].discarded_applications,
-        text: "You haven't discarded any applicants for this position.")
+        text: "You haven't discarded any applicants for this position.",
+        search: false, profile: false)
     end
 
     on "post/applications/:id" do |id|
@@ -332,7 +344,7 @@ class Companies < Cuba
         applications: Post[id].active_applications,
         active_applications: true,
         text: "No one applied to this post yet or the persons who applied
-        removed their applications.")
+        removed their applications.", search: false, profile: false)
     end
 
     on "application/discard/:id" do |id|
@@ -370,13 +382,15 @@ class Companies < Cuba
           else
             session[:error] = "All fields are required"
             render("company/post/contact", title: "Contact developer",
-              application: application, message: mail)
+              application: application, message: mail, search: false,
+              profile: false)
           end
         end
 
         on default do
           render("company/post/contact", title: "Contact developer",
-            application: application, message: Contact.new({}))
+            application: application, message: Contact.new({}),
+            search: false, profile: false)
         end
       end
 
@@ -394,12 +408,14 @@ class Companies < Cuba
       end
 
       on default do
-        render("company/post/applications", title: "Applicants", id: post.id)
+        render("company/post/applications", title: "Applicants", id: post.id,
+          search: false, profile: false)
       end
     end
 
     on "signup" do
-      session[:error] = "If you need to change your plan go to your profile page > Subscription info"
+      session[:error] = "If you need to change your plan go to your
+      profile page > Subscription info"
       res.redirect "/pricing"
     end
 
@@ -410,15 +426,16 @@ class Companies < Cuba
     end
 
     on "pricing" do
-      render("pricing", title: "Pricing", plan_id: "small")
+      render("pricing", title: "Pricing", plan_id: "small",
+        search: false, profile: false)
     end
 
     on "about" do
-      render("about", title: "About")
+      render("about", title: "About", search: false, profile: false)
     end
 
     on "help" do
-      render("help", title: "Help")
+      render("help", title: "Help", search: false, profile: false)
     end
 
     on "contact" do
@@ -426,11 +443,13 @@ class Companies < Cuba
     end
 
     on "terms" do
-      render("terms", title: "Terms and Conditions")
+      render("terms", title: "Terms and Conditions", search: false,
+        profile: false)
     end
 
     on "privacy" do
-      render("privacy", title: "Privacy Policy")
+      render("privacy", title: "Privacy Policy", search: false,
+        profile: false)
     end
 
     on "delete" do

@@ -33,7 +33,8 @@ class Developers < Cuba
 
     on "applications" do
       render("developer/applications", title: "Active applications",
-        search: true, query: "", applications: developer.active_applications,
+        subtitle: false, search: true, query: "",
+        applications: developer.active_applications,
         active_applications: true)
     end
 
@@ -182,19 +183,22 @@ class Developers < Cuba
 
         on default do
           session[:error] = "All fields are required and must be valid"
-          render("developer/profile", title: "Edit profile")
+          render("developer/profile", title: "Edit profile",
+            search: false, profile: false)
         end
       end
 
       on get, root do
-        render("developer/profile", title: "Edit profile")
+        render("developer/profile", title: "Edit profile",
+          search: false, profile: false)
       end
 
       on(default) { not_found! }
     end
 
     on "signup" do
-      session[:error] = "You need to signup as a Company to be able to publish posts."
+      session[:error] = "You need to signup as a Company to be able
+      to publish posts."
       res.redirect "/pricing"
     end
 
@@ -206,15 +210,16 @@ class Developers < Cuba
     end
 
     on "pricing" do
-      render("pricing", title: "Pricing", plan_id: "small")
+      render("pricing", title: "Pricing", plan_id: "small",
+        search: false, profile: false)
     end
 
     on "about" do
-      render("about", title: "About")
+      render("about", title: "About", search: false, profile: false)
     end
 
     on "help" do
-      render("help", title: "Help")
+      render("help", title: "Help", search: false, profile: false)
     end
 
     on "contact" do
@@ -222,11 +227,13 @@ class Developers < Cuba
     end
 
     on "terms" do
-      render("terms", title: "Terms and Conditions")
+      render("terms", title: "Terms and Conditions", search: false,
+        profile: false)
     end
 
     on "privacy" do
-      render("privacy", title: "Privacy Policy")
+      render("privacy", title: "Privacy Policy", search: false,
+        profile: false)
     end
 
     on "delete" do

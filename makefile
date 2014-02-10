@@ -10,7 +10,7 @@ install:
 	dep install
 
 server:
-	env $$(cat env.sh) shotgun -o 0.0.0.0
+	env $$(cat env.sh) rackup -p 9393
 
 console:
 	env $$(cat env.sh) irb -r ./app -r ./cli

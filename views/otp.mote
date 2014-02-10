@@ -1,4 +1,4 @@
-% if defined?(reset)
+% if reset
     % if reset.errors[:password] == [:too_small]
       <span class="alert error">The password length must be at least 6 characters</span>
     % end

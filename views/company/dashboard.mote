@@ -68,6 +68,6 @@
     % end
   </ul>
 
-  {{ this.partial("sidebar", user: this.current_user, search: true) }}
+  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
 
 </section>
