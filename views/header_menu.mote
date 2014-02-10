@@ -17,8 +17,9 @@
     % if user
       <li class="header-menu-item"><a class="header-link header-nav-link" href="/logout">Logout</a></li>
     % else
-      <li class="header-menu-item"><a class="header-link header-nav-link" href="/help">Help</a></li>
+      <li class="header-menu-item"><a class="header-link header-nav-link" href="/about">About</a></li>
       <li class="header-menu-item"><a class="header-link header-nav-link" href="/pricing">Pricing</a></li>
+      <li class="header-menu-item"><a class="header-link header-nav-link" href="/help">Help</a></li>
       <li class="header-menu-item"><a class="header-link header-nav-link" href="/login">Login</a></li>
     % end
   </ul>

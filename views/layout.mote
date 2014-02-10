@@ -46,20 +46,21 @@
         <nav>
           <ul class="footer-menu">
             <li class="footer-menu-item">&copy; 2013 <a class="footer-menu-link" href="http://www.punchgirls.com">Punchgirls</a></li>
-            <li class="footer-menu-item"><a class="footer-menu-link" href="/contact">Contact</a></li>
-
             % if user
-                <li class="footer-menu-item"><a class="footer-menu-link" href="/help">Help</a></li>
+                <li class="footer-menu-item"><a class="footer-menu-link" href="/about">About</a></li>
                 <li class="footer-menu-item"><a class="footer-menu-link" href="/pricing">Pricing</a></li>
+                <li class="footer-menu-item"><a class="footer-menu-link" href="/help">Help</a></li>
             % end
 
             <section class="footer-extra-menu">
               % if !user && defined?(search)
-                  <li class="footer-menu-item"><a class="footer-menu-link" href="/help">Help</a></li>
+                  <li class="footer-menu-item"><a class="footer-menu-link" href="/about">About</a></li>
                   <li class="footer-menu-item"><a class="footer-menu-link" href="/pricing">Pricing</a></li>
+                  <li class="footer-menu-item"><a class="footer-menu-link" href="/help">Help</a></li>
               % end
             </section>
 
+            <li class="footer-menu-item"><a class="footer-menu-link" href="/contact">Contact</a></li>
             <li class="footer-menu-item"><a class="footer-menu-link" href="/terms">Terms</a></li>
             <li class="footer-menu-item"><a class="footer-menu-link" href="/privacy">Privacy Policy</a></li>
           </ul>

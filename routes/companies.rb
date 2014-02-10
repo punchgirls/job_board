@@ -413,6 +413,10 @@ class Companies < Cuba
       render("pricing", title: "Pricing", plan_id: "small")
     end
 
+    on "about" do
+      render("about", title: "About")
+    end
+
     on "help" do
       render("help", title: "Help")
     end
