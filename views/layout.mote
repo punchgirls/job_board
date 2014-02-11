@@ -1,5 +1,6 @@
 % search = params.fetch(:search, false)
 % user = this.current_user
+% query = params.fetch(:query, "")
 
 <!DOCTYPE html>
 <html lang="en">
