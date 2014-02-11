@@ -1,3 +1,5 @@
+% query = params.fetch(:query, false)
+
 <section class="post-control">
 
   {{ this.partial("favorite", post: post, developer: developer, query: query) }}

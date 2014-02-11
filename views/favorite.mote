@@ -1,3 +1,5 @@
+% query = params.fetch(:query, false)
+
 % if developer.nil?
   <span class="cursor">
     <a class="post-control-link" href="/favorite?post_id={{ post.id }}&query={{ query }}#id{{ post.id }}">
