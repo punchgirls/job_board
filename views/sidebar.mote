@@ -1,3 +1,6 @@
+% search = params.fetch(:search, false)
+% profile = params.fetch(:profile, false)
+
 % if search
   <aside class="sidebar-search">
 % else

@@ -1,3 +1,4 @@
+% edit = params.fetch(:edit, false)
 % post = Post[id]
 
 % if edit

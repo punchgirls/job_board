@@ -1,7 +1,7 @@
 <h1 class="tagline">Get a better job today!</h1>
 
 <section>
-  {{ this.partial("search_box", query: "", search: false, profile: false) }}
+  {{ this.partial("search_box", query: "") }}
 </section>
 
 <h2 class="content-subtitle">Latest posts</h2>

@@ -183,14 +183,12 @@ class Developers < Cuba
 
         on default do
           session[:error] = "All fields are required and must be valid"
-          render("developer/profile", title: "Edit profile",
-            search: false, profile: false)
+          render("developer/profile", title: "Edit profile")
         end
       end
 
       on get, root do
-        render("developer/profile", title: "Edit profile",
-          search: false, profile: false)
+        render("developer/profile", title: "Edit profile")
       end
 
       on(default) { not_found! }
@@ -210,16 +208,15 @@ class Developers < Cuba
     end
 
     on "pricing" do
-      render("pricing", title: "Pricing", plan_id: "small",
-        search: false, profile: false)
+      render("pricing", title: "Pricing", plan_id: "small")
     end
 
     on "about" do
-      render("about", title: "About", search: false, profile: false)
+      render("about", title: "About")
     end
 
     on "help" do
-      render("help", title: "Help", search: false, profile: false)
+      render("help", title: "Help")
     end
 
     on "contact" do
@@ -227,13 +224,11 @@ class Developers < Cuba
     end
 
     on "terms" do
-      render("terms", title: "Terms and Conditions", search: false,
-        profile: false)
+      render("terms", title: "Terms and Conditions")
     end
 
     on "privacy" do
-      render("privacy", title: "Privacy Policy", search: false,
-        profile: false)
+      render("privacy", title: "Privacy Policy")
     end
 
     on "delete" do

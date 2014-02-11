@@ -1,3 +1,5 @@
+% search = params.fetch(:search, false)
+
 % if search
   <ul class="header-menu" id="search">
 % else

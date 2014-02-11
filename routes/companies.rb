@@ -5,20 +5,17 @@ class Companies < Cuba
     plan = company.plan
 
     on get, root do
-      render("company/dashboard", title: "Dashboard", plan: plan,
-        search: false, profile: false)
+      render("company/dashboard", title: "Dashboard", plan: plan)
     end
 
     on "dashboard" do
       on param "company" do
         session[:error] = "You need to logout to sign in as a developer"
-        render("company/dashboard", title: "Dashboard", plan: plan,
-          search: false, profile: false)
+        render("company/dashboard", title: "Dashboard", plan: plan)
       end
 
       on get, root do
-        render("company/dashboard", title: "Dashboard", plan: plan,
-          search: false, profile: false)
+        render("company/dashboard", title: "Dashboard", plan: plan)
       end
 
       on(default) { not_found! }
@@ -45,7 +42,7 @@ class Companies < Cuba
       end
 
       render("company/profile", title: "Profile", card: card,
-        plan: plan, search: false, profile: false)
+        plan: plan)
     end
 
     on "edit" do
@@ -66,8 +63,7 @@ class Companies < Cuba
             Company.with(:email, edit.email) do
 
             session[:error] = "E-mail is already registered"
-            render("company/edit", title: "Edit profile", edit: edit,
-              search: false, profile: false)
+            render("company/edit", title: "Edit profile", edit: edit)
           end
 
           on default do
@@ -83,16 +79,14 @@ class Companies < Cuba
         end
 
         on default do
-          render("company/edit", title: "Edit profile", edit: edit,
-            search: false, profile: false)
+          render("company/edit", title: "Edit profile", edit: edit)
         end
       end
 
       on default do
         edit = EditCompanyAccount.new({})
 
-        render("company/edit", title: "Edit profile", edit: edit,
-          search: false, profile: false)
+        render("company/edit", title: "Edit profile", edit: edit)
       end
     end
 
@@ -130,8 +124,7 @@ class Companies < Cuba
       end
 
       on default do
-        render("customer/update", title: "Update payment details",
-          search: false, profile: false)
+        render("customer/update", title: "Update payment details")
       end
     end
 
@@ -147,7 +140,7 @@ class Companies < Cuba
         end
 
         render("customer/history", title: "Payment details",
-          history: history, search: false, profile: false)
+          history: history)
       end
     end
 
@@ -163,7 +156,7 @@ class Companies < Cuba
         end
 
         render("customer/invoice", title: "Invoice details",
-          invoice: invoice, plan: plan, search: false, profile: false)
+          invoice: invoice, plan: plan)
       end
     end
 
@@ -191,7 +184,7 @@ class Companies < Cuba
 
       on default do
         render("customer/subscription", title: "Update subscription",
-          plan_id: plan.name, search: false, profile: false)
+          plan_id: plan.name)
       end
     end
 
@@ -241,7 +234,7 @@ class Companies < Cuba
 
         on default do
           render("company/post/new", title: "Post job offer",
-            post: post, search: false, profile: false)
+            post: post)
         end
       end
 
@@ -253,8 +246,7 @@ class Companies < Cuba
         elsif company.published_posts.size <  plan.posts.to_i
           post = PostJobOffer.new({})
 
-          render("company/post/new", title: "Post job offer", post: post,
-            search: false, profile: false)
+          render("company/post/new", title: "Post job offer", post: post)
         else
           session[:error] = "You can only have #{plan.posts} published post."
           res.redirect "/dashboard"
@@ -319,7 +311,7 @@ class Companies < Cuba
 
         on default do
           render("company/post/edit", title: "Edit post",
-            id: id, edit: edit, search: false, profile: false)
+            id: id, edit: edit)
         end
       end
 
@@ -327,7 +319,7 @@ class Companies < Cuba
         edit = PostJobOffer.new({})
 
         render("company/post/edit", title: "Edit post",
-          id: id, edit: edit, search: false, profile: false)
+          id: id, edit: edit)
       end
     end
 
@@ -335,8 +327,7 @@ class Companies < Cuba
       render("company/post/applications", title: "Discarded applications",
         id: id, active_applications: false,
         applications: Post[id].discarded_applications,
-        text: "You haven't discarded any applicants for this position.",
-        search: false, profile: false)
+        text: "You haven't discarded any applicants for this position.")
     end
 
     on "post/applications/:id" do |id|
@@ -344,7 +335,7 @@ class Companies < Cuba
         applications: Post[id].active_applications,
         active_applications: true,
         text: "No one applied to this post yet or the persons who applied
-        removed their applications.", search: false, profile: false)
+        removed their applications.")
     end
 
     on "application/discard/:id" do |id|
@@ -382,15 +373,13 @@ class Companies < Cuba
           else
             session[:error] = "All fields are required"
             render("company/post/contact", title: "Contact developer",
-              application: application, message: mail, search: false,
-              profile: false)
+              application: application, message: mail)
           end
         end
 
         on default do
           render("company/post/contact", title: "Contact developer",
-            application: application, message: Contact.new({}),
-            search: false, profile: false)
+            application: application, message: Contact.new({}))
         end
       end
 
@@ -408,8 +397,7 @@ class Companies < Cuba
       end
 
       on default do
-        render("company/post/applications", title: "Applicants", id: post.id,
-          search: false, profile: false)
+        render("company/post/applications", title: "Applicants", id: post.id)
       end
     end
 
@@ -426,16 +414,15 @@ class Companies < Cuba
     end
 
     on "pricing" do
-      render("pricing", title: "Pricing", plan_id: "small",
-        search: false, profile: false)
+      render("pricing", title: "Pricing", plan_id: "small")
     end
 
     on "about" do
-      render("about", title: "About", search: false, profile: false)
+      render("about", title: "About")
     end
 
     on "help" do
-      render("help", title: "Help", search: false, profile: false)
+      render("help", title: "Help")
     end
 
     on "contact" do
@@ -443,13 +430,11 @@ class Companies < Cuba
     end
 
     on "terms" do
-      render("terms", title: "Terms and Conditions", search: false,
-        profile: false)
+      render("terms", title: "Terms and Conditions")
     end
 
     on "privacy" do
-      render("privacy", title: "Privacy Policy", search: false,
-        profile: false)
+      render("privacy", title: "Privacy Policy")
     end
 
     on "delete" do

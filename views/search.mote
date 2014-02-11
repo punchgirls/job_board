@@ -1,3 +1,5 @@
+% search = params.fetch(:search)
+
 % developer = this.current_developer
 % user = this.current_user
 

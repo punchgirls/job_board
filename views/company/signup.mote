@@ -1,3 +1,5 @@
+% signup = params.fetch(:signup, false)
+
 % if signup
     % if signup.errors[:name] == [:not_present]
       <span class="alert error">Company name is required</span>

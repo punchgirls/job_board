@@ -1,3 +1,5 @@
+% search = params.fetch(:search, false)
+
 % if search
   <section class="login-search">
 % else
