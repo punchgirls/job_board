@@ -21,8 +21,17 @@ class Searches < Cuba
     end
 
     on param "post_id" do |id|
-      render("search", title: "Search", posts: [Post[id]],
-        search: true, search: true, query: "", profile: true)
+      post = Post[id]
+
+      on post do
+        render("search", title: "Search", posts: [post],
+          search: true, search: true, query: "", profile: true)
+      end
+
+      on default do
+        render("search", title: "Search", posts: nil, search: true,
+          query: "", profile: true)
+      end
     end
 
     on default do
