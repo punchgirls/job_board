@@ -1,4 +1,5 @@
 % developer = this.current_developer
+% subtitle = params.fetch(:subtitle, false)
 
 <section class="two-cols">
   <ul class="list" id="applications-list">
