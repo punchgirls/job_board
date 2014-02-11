@@ -147,16 +147,16 @@ input:-moz-placeholder {
 }
 
 .button-search, .header-button-search {
-  height: 36px;
-  margin: 3px 5px;
+  height: 42px;
+  margin: 0;
   padding: 0 14px;
   display: inline-block;
-  font-size: 0.6em;
+  font-size: 0.8em;
   vertical-align: top;
 }
 
 .header-button-search {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .avatar-list-item {
@@ -1528,6 +1528,10 @@ input:-moz-placeholder {
 
   #search {
     display: none;
+  }
+
+  .button-search {
+    margin: 5px 5px;
   }
 
   .header-link {

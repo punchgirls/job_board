@@ -33,9 +33,9 @@ class Developers < Cuba
 
     on "applications" do
       render("developer/applications", title: "Active applications",
-        subtitle: false, search: true, query: "",
-        applications: developer.active_applications,
-        active_applications: true)
+        subtitle: "You haven't applied for any jobs yet. Start your search now!",
+        search: true, query: "", active_applications: true,
+        applications: developer.active_applications)
     end
 
     on "history" do

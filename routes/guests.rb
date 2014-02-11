@@ -49,7 +49,7 @@ class Guests < Cuba
       end
 
       on default do
-        render("company/signup", title: "Sign up",
+        render("company/signup", title: "Sign up", signup: CompanySignup.new({}),
           company: {}, plan_id: "small", search: false, profile: false)
       end
     end
