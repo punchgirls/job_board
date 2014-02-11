@@ -1,4 +1,4 @@
-% query = params.fetch(:query, false)
+% query = params.fetch(:query, "")
 
 % if developer.nil?
   <span class="cursor">

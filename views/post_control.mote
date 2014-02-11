@@ -1,4 +1,4 @@
-% query = params.fetch(:query, false)
+% query = params.fetch(:query, "")
 
 <section class="post-control">
 

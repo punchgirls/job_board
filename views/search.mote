@@ -1,5 +1,5 @@
 % search = params.fetch(:search, false)
-% query = params.fetch(:query, false)
+% query = params.fetch(:query, "")
 % developer = this.current_developer
 % user = this.current_user
 

@@ -1,5 +1,5 @@
 % search = params.fetch(:search, false)
-% query = params.fetch(:query, false)
+% query = params.fetch(:query, "")
 
 % if search
   <form class="header__search-box" name="postFrm" action="/search" method="GET">
