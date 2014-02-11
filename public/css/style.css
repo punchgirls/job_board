@@ -1835,6 +1835,7 @@ input:-moz-placeholder {
   .sidebar-title {
     display: inline-block;
     width: 12.8em;
+    min-height: 80px;
     margin: 0 0 10px 10px;
     font-size: 1.1em;
   }
