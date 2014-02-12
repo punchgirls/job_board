@@ -42,6 +42,8 @@ class Guests < Cuba
         end
 
         on default do
+          customer.delete
+
           render("company/signup", title: "Sign up",
               company: params, signup: signup,
               plan_id: params["plan_id"])

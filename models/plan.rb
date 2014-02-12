@@ -1,11 +1,13 @@
 class Plan
   POSTS = {
+    "free"  => 0,
     "small"  => 1,
     "medium" => 5,
     "large"  => 10,
   }
 
   PRICING = {
+    "free"  => 0,
     "small"  => 50,
     "medium" => 100,
     "large"  => 150,
