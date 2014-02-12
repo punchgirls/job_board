@@ -3,13 +3,16 @@ We are sorry to inform you that {{ post.company.name }} removed their profile an
 
 
 {{ post.title }}
+
 Tags: {{ post.tags }}
+
 Location: {{ post.location }}
 % if post.remote == "true"
 (Work from anywhere)
 % else
 (On-site only)
 % end
+
 Description:
 {{ post.description }}
 

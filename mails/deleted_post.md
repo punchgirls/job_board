@@ -4,13 +4,16 @@ We want to inform you that {{ post.company.name }} removed the following post:
 
 
 {{ post.title }}
+
 Tags: {{ post.tags }}
+
 Location: {{ post.location }}
 % if post.remote == "true"
 (Work from anywhere)
 % else
 (On-site only)
 % end
+
 Description:
 {{ post.description }}
 
