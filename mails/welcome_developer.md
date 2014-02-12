@@ -1,22 +1,20 @@
-Welcome to jobs.punchgirls.com !
-
 Dear {{ developer.name }},
 
-First of all, thanks for choosing us.
+Welcome to our Job Board!
 
-In the following link you'll find all the important information you need to make the best use of our service.
+Here is a link to important information that will help you get started:
 
 http://jobs.punchgirls.com/help
 
-Remember, we are here to help you so don't hesitate to contact us for any matter.
+For any other questions or feedback you might have, we'd love to hear from you so please mail us at team@punchgirls.com.
+
+Good luck with your job searching!
 
 Kind regards,
 
-Cecilia & Mayn
+Cecilia & Mayn,
 Punchgirls
-team@punchgirls.com
-http://twitter.com/punchgirls
 
-http://github.com/punchgirls
-http://github.com/ceciliarivero
-http://github.com/maynkj
+@punchgirls
+www.punchgirls.com
+www.github.com/punchgirls
