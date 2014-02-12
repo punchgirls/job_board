@@ -17,7 +17,7 @@ Ost[:contacted_applicant].each do |id|
     message.subject, text, company.email)
 
   Mailer.deliver(company.email,
-    "[job board] Copy of you message sent to developer", text_copy)
+    "[job board] Copy of your message sent to developer", text_copy)
 
   message.delete
 end

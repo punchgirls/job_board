@@ -6,4 +6,7 @@ If you didn't perform this action, please contact us as soon as possible.
 
 Thank you!
 
-Job Board Team
+Cecilia & Mayn
+Punchgirls
+team@punchgirls.com
+http://twitter.com/punchgirls

@@ -10,7 +10,7 @@ Description:
 
 
 Applied on: {{ Time.at(application.date.to_i).strftime("%e %B %Y") }}
-GitHub: [http://www.github.com/{{ application.developer.username }}] (http://www.github.com/{{ application.developer.username }})
+GitHub: http://www.github.com/{{ application.developer.username }}
 % if application.developer.bio
 
 Bio:
@@ -24,4 +24,7 @@ URL: {{ application.developer.url }}
 
 Kind regards,
 
-Job Board Team
+Cecilia & Mayn
+Punchgirls
+team@punchgirls.com
+http://twitter.com/punchgirls

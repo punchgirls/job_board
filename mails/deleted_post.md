@@ -15,6 +15,9 @@ Description:
 {{ post.description }}
 
 
-Remember that there are a lot more jobs waiting at [Job Board] (http://jobs.punchgirls.com)!
+Remember that there are a lot more jobs waiting at http://jobs.punchgirls.com !
 
-Job Board Team
+Cecilia & Mayn
+Punchgirls
+team@punchgirls.com
+http://twitter.com/punchgirls
