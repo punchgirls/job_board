@@ -5,5 +5,5 @@ Ost[:welcome_company].each do |id|
   text = Mailer.render("welcome_company", { company: company })
 
   Mailer.deliver(company.email,
-    "Welcome to Job Board!", text)
+    "[job board] Welcome to jobs.punchgirls.com!", text)
 end

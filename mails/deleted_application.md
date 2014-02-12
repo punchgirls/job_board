@@ -1,18 +1,13 @@
-Job Board Auto-notice
-=====================
-
 Dear {{ post.company.name }},
 
-We want to inform you that {{ application.developer.name }} has removed the application to the following post:
+We want to inform you that {{ application.developer.name }} has removed the application regarding the following post:
 
------------------------------------------------------------------
 
 {{ post.title }}
 
 Description:
 {{ post.description }}
 
------------------------------------------------------------------
 
 Applied on: {{ Time.at(application.date.to_i).strftime("%e %B %Y") }}
 GitHub: [http://www.github.com/{{ application.developer.username }}] (http://www.github.com/{{ application.developer.username }})
@@ -31,7 +26,6 @@ Message:
 {{ application.message }}
 % end
 
------------------------------------------------------------------
 
 Kind regards,
 

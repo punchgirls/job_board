@@ -2,11 +2,11 @@ module CompanyRemover
   def self.remove(company)
     company.posts.each do |post|
       post.developers.each do |developer|
-        text = Mailer.render("../mails/company_deleted", { post: post,
+        text = Mailer.render("../mails/deleted_company", { post: post,
         developer: developer })
 
         Mailer.deliver(developer.email,
-          "Auto-notice: '" + post.company.name + "' removed their profile", text)
+          "[job board] " + post.company.name + " removed their profile", text)
       end
     end
 

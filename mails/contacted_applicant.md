@@ -1,17 +1,13 @@
-Job Board Auto-notice
-=====================
+Dear {{ developer.name }},
 
 {{ company.name }} just sent you this message:
 
------------------------------------------------------------------
 
 {{ body }}
 
------------------------------------------------------------------
 
 This message was sent regarding the following job position:
 
------------------------------------------------------------------
 
 {{ post.title }}
 Company: {{ post.company.name }} ({{ post.company.url }})
@@ -25,9 +21,9 @@ Location: {{ post.location }}
 Description:
 {{ post.description }}
 
------------------------------------------------------------------
 
-To respond to this e-mail click on "Reply".
+To respond to this e-mail just click on "Reply".
+
 Good luck!
 
 Job Board Team

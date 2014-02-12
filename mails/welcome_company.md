@@ -1,14 +1,21 @@
-Welcome to Job Board!
-=====================
+Welcome to jobs.punchgirls.com!
 
 Dear {{ company.name }},
 
 First of all, thanks for choosing us.
 
-Here you'll find all the important information to make the best use of our service.
+In the following link you'll find all the important information you need to make the best use of our service.
 
-ADD INFO HERE
+[http://jobs.punchgirls.com/help] (http://jobs.punchgirls.com/help)
 
-Remember, we are here to help you so, don't hesitate to contact us for any matter.
+Remember, we are here to help you so don't hesitate to contact us for any matter.
 
-Job Board Team
+Kind regards,
+
+Cecilia & Mayn
+Punchgirls
+http://twitter.com/punchgirls
+
+http://github.com/punchgirls
+http://github.com/ceciliarivero
+http://github.com/maynkj

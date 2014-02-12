@@ -9,5 +9,5 @@ Ost[:discarded_applicant].each do |id|
     { post: post, developer: developer })
 
   Mailer.deliver(developer.email,
-    "Auto-notice: Regarding '" + post.title + "' post", text)
+    "[job board] Regarding " + post.title + " post", text)
 end

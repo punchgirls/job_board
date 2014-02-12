@@ -8,7 +8,7 @@ Ost[:contacted_applicant].each do |id|
   company = post.company
 
   text = Mailer.render("contacted_applicant",
-    { post: post, body: message.body, company: company })
+    { post: post, body: message.body, company: company, developer: developer })
 
   text_copy = Mailer.render("contacted_applicant_copy",
     { post: post, subject: message.subject, body: message.body, developer: developer })
@@ -17,7 +17,7 @@ Ost[:contacted_applicant].each do |id|
     message.subject, text, company.email)
 
   Mailer.deliver(company.email,
-    "Copy of you message sent to developer", text_copy)
+    "[job board] Copy of you message sent to developer", text_copy)
 
   message.delete
 end

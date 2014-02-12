@@ -1,21 +1,16 @@
-Job Board Auto-notice
-=====================
+Dear {{ post.company.name }},
 
 This is a copy of the message you sent to: {{ developer.name }}
 
------------------------------------------------------------------
 
 Subject: {{ subject }}
-
 
 Message:
 {{ body }}
 
------------------------------------------------------------------
 
 This message was sent regarding the following job position:
 
------------------------------------------------------------------
 
 {{ post.title }}
 Company: {{ post.company.name }} ({{ post.company.url }})
@@ -29,7 +24,7 @@ Location: {{ post.location }}
 Description:
 {{ post.description }}
 
------------------------------------------------------------------
 
 Kind regards,
+
 Job Board Team

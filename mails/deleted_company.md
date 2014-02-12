@@ -1,10 +1,8 @@
 Dear {{ developer.name }},
-
-We are sorry to inform you that you have not been selected for the following job position:
+We are sorry to inform you that {{ post.company.name }} removed their profile and because of that the following post has been deleted:
 
 
 {{ post.title }}
-Company: {{ post.company.name }} ({{ post.company.url }})
 Tags: {{ post.tags }}
 Location: {{ post.location }}
 % if post.remote == "true"

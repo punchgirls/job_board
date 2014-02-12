@@ -7,5 +7,5 @@ Ost[:developer_applied].each do |id|
     application: application, post: application.post })
 
   Mailer.deliver(application.post.company.email,
-    "You have a new applicant", text)
+    "[job board] A developer applied for one of your job posts!", text)
 end

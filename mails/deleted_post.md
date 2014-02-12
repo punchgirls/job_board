@@ -1,10 +1,7 @@
-Job Board Auto-notice
-=====================
-
 Dear {{ developer.name }},
-We are sorry to inform you that '{{ post.company.name }}' removed the following post:
 
------------------------------------------------------------------
+We want to inform you that {{ post.company.name }} removed the following post:
+
 
 {{ post.title }}
 Tags: {{ post.tags }}
@@ -17,8 +14,7 @@ Location: {{ post.location }}
 Description:
 {{ post.description }}
 
------------------------------------------------------------------
 
-Remember that there are a lot more jobs waiting at Job Board (http://os-job-board.herokuapp.com)!
+Remember that there are a lot more jobs waiting at [Job Board] (http://jobs.punchgirls.com)!
 
 Job Board Team

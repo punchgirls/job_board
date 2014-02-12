@@ -7,7 +7,7 @@ Ost[:deleted_application].each do |id|
   post: application.post })
 
   Mailer.deliver(application.post.company.email,
-    "Application remove notification", text)
+    "[job board] Application has been removed by applicant", text)
 
   application.delete
 end

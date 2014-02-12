@@ -6,11 +6,11 @@ Ost[:deleted_developer].each do |id|
   developer.active_applications.ids.each do |id|
     application = Application[id]
 
-    text = Mailer.render("developer_deleted", { application: application,
+    text = Mailer.render("deleted_developer", { application: application,
     post: application.post })
 
     Mailer.deliver(application.post.company.email,
-        "Auto-notice: '" + developer.name + "' removed their profile", text)
+        "[job board] " + developer.name + "'s profile has been removed", text)
   end
 
   developer.delete
