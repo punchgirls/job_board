@@ -15,6 +15,6 @@ Kind regards,
 Cecilia & Mayn,
 Punchgirls
 
-@punchgirls
-www.punchgirls.com
-www.github.com/punchgirls
+http://twitter.com/punchgirls
+http://www.punchgirls.com
+http://github.com/punchgirls
