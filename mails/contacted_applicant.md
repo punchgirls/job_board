@@ -1,8 +1,11 @@
 Dear {{ developer.name }},
 
-{{ company.name }} just sent you this message:
+The company {{ company.name }} just sent you this message:
 
 
+Subject: {{ subject }}
+
+Message:
 {{ body }}
 
 
