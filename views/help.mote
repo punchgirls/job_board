@@ -52,7 +52,7 @@
 
   <h3 class="help_links_subtitle" id="applying_for_a_job">Applying for a job</h3>
   <p class="help_links_text">
-    When you find the perfect job click on Apply and you'll be added to the listed applicants for that post. The company will be able to see your profile and contact you through e-mail.
+    When you find the perfect job click on "Apply" and you'll be added to the listed applicants for that post. The company will be able to see your profile and contact you through e-mail.
   </p>
 
   <h3 class="help_links_subtitle" id="adding_a_message_to_an_application">Adding a message to an application</h3>
@@ -72,13 +72,13 @@
 
   <h3 class="help_links_subtitle" id="application_status">Application status</h3>
   <p class="help_links_text">
-    Each application will have the status 'Active' or 'Discarded'.
+    Each application will have the status "Active" or "Discarded".
   </p>
   <p class="help_links_text">
-    'Active' means you're still being considered for the position.
+    "Active" means you're still being considered for the position.
   </p>
   <p class="help_links_text">
-    'Discarded' means that you haven't been selected for the position but they'll still be able to see your application. Don't worry too much, there're more jobs waiting for you!
+    "Discarded" means that you haven't been selected for the position but they'll still be able to see your application. Don't worry too much, there're more jobs waiting for you!
   </p>
 
   <h3 class="help_links_subtitle" id="removing_an_application">Removing an application</h3>
@@ -96,7 +96,7 @@
 
   <h3 class="help_links_subtitle" id="deleting_your_dev_account">Deleting your account</h3>
   <p class="help_links_text">
-    If you want to remove your account for any reason you can do so by clicking the 'Delete account' link in your profile page. All your information will be permanently deleted.
+    If you want to remove your account for any reason you can do so by clicking the "Delete account" link in your profile page. All your information will be permanently deleted.
   </p>
 
   <h3 class="help_links_subtitle uppercase">Companies</h3>
@@ -136,7 +136,6 @@
   <p class="help_links_text">
     The post will contain a title, tags, location and a description.
   </p>
-
   <p class="help_links_text">
     If you're looking for a skill or programming language to add as a tag and can't find it please contact us.
   </p>
@@ -144,7 +143,7 @@
     Some advice:
   </p>
   <p class="help_links_text">
-    The description has a limit of 600 characters because we know developers prefer short and specific task post descriptions. Be brief and straight to the point about what you seek and what you have to offer. This way you'll attract the best applicants for the job!
+    The description has a limit of 600 characters because we know developers prefer short and specific task post descriptions. Try to be brief and straight to the point about what you seek and what you have to offer. This way you'll attract the best applicants for the job!
   </p>
   <p class="help_links_text">
     Click <a href="#examples">here</a> to see some examples.
@@ -152,10 +151,10 @@
 
   <h3 class="help_links_subtitle" id="editing_a_job_post">Editing a job post</h3>
   <p class="help_links_text">
-    You can edit a job post as many times as you want by clicking on the edit icon next to the post in question.
+    You can edit a job post as many times as you want by clicking on the Edit icon next to the post in question.
   </p>
   <p class="help_links_text">
-    Note that if you edit an unpublished post and this post has applicants they will be able to see the changes you make.
+    Note that if you edit an unpublished post and this post has applicants, these applicants will be able to see the changes you make.
   </p>
 
   <h3 class="help_links_subtitle" id="reviewing_applicants">Reviewing applicants</h3>
@@ -168,7 +167,7 @@
 
   <h3 class="help_links_subtitle" id="contacting_an_applicant">Contacting an applicant</h3>
   <p class="help_links_text">
-    If you want to contact a developer all you have to do is click the "contact" link of the applicant.
+    If you want to contact a developer all you have to do is click the "Contact" link of the applicant.
   </p>
   <p class="help_links_text">
     The message will be sent as an email to the developer. This email will include your registered email address so that the developer can reply to you directly.
@@ -212,11 +211,11 @@
     If you want to cancel your subscription you can just click on the "Cancel subscription" link in your profile page.
   </p>
   <p class="help_links_text">
-    Note that you'll be able to make full use of the website for the entire month you already paid for. After that month, all posts are going to be unpublished and you will only be allowed to login to active your subscription.
+    Note that you'll be able to make full use of the website for the entire month you already paid for. After that month, all posts are going to be unpublished and you will only be allowed to login to activate your subscription.
   </p>
 
   <h3 class="help_links_subtitle" id="deleting_your_company_account">Deleting your account</h3>
   <p class="help_links_text">
-    If you want to remove your account for any reason you can do so by clicking the 'Delete account' link in your profile page. All your information will be permanently deleted.
+    If you want to remove your account for any reason you can do so by clicking the "Delete account" link in your profile page. All your information will be permanently deleted.
   </p>
 </section>

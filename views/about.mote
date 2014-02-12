@@ -1,6 +1,6 @@
 <h2 class="content-title">About the application</h2>
 
-<section>
+<section class="about">
   <p class="pricing-text">This application is the result of our participation in the <a href="http://railsgirlssummerofcode.org/">Rails Girls Summer of Code</a> 2013 program.</p>
 
   <p class="pricing-text">We wanted to make an application that makes communication between companies that are hiring and developers looking

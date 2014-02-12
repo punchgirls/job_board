@@ -224,6 +224,12 @@ input:-moz-placeholder {
   font-size: 1.5em;
 }
 
+/* About */
+
+.about, .pricing {
+  margin: 40px 0 80px 0;
+}
+
 /* Footer*/
 
 .footer {
