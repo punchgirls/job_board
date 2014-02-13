@@ -15,11 +15,16 @@ Ost[:contacted_applicant].each do |id|
     { post: post, subject: message.subject, body: message.body,
       developer: developer })
 
-  Mailer.deliver(developer.email,
-    "[Job Board] You just received a message from " + company.name + "!", text, company.email)
+  Malone.deliver(
+    email: developer.email,
+    subject: "[Job Board] You just received a message from " + company.name + "!",
+    text: text,
+    replyto: company.email)
 
-  Mailer.deliver(company.email,
-    "[Job Board] Copy of your message sent to " + developer.name, text_copy)
+  Malone.deliver(
+    email: company.email,
+    subject: "[Job Board] Copy of your message sent to " + developer.name,
+    text: text_copy)
 
   message.delete
 end

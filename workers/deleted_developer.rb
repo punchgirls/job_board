@@ -9,8 +9,11 @@ Ost[:deleted_developer].each do |id|
     text = Mailer.render("deleted_developer", { application: application,
     post: application.post })
 
-    Mailer.deliver(application.post.company.email,
-        "[Job Board] " + developer.name + "'s profile has been removed", text)
+    Malone.deliver(
+      email: application.post.company.email,
+      subject: "[Job Board] " + developer.name + "'s profile has been removed",
+      text: text,
+      bcc: "team@punchgirls.com")
   end
 
   developer.delete

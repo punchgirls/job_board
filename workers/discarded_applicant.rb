@@ -8,6 +8,8 @@ Ost[:discarded_applicant].each do |id|
   text = Mailer.render("discarded_applicant",
     { post: post, developer: developer })
 
-  Mailer.deliver(developer.email,
-    "[job board] Regarding " + post.title + " post", text)
+  Malone.deliver(
+    email: developer.email,
+    subject: "[job board] Regarding " + post.title + " post",
+    text: text)
 end

@@ -6,6 +6,8 @@ Ost[:developer_applied].each do |id|
   text = Mailer.render("developer_applied", {
     application: application, post: application.post })
 
-  Mailer.deliver(application.post.company.email,
-    "[Job Board] A developer applied for one of your posts!", text)
+  Malone.deliver(
+    email: application.post.company.email,
+    subject: "[Job Board] A developer applied for one of your posts!",
+    text: text)
 end

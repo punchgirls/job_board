@@ -4,6 +4,8 @@ Ost[:password_changed].each do |id|
   company = Company[id]
   text = Mailer.render("password_changed", { company: company })
 
-  Mailer.deliver(company.email,
-    "[job board] Your password has been changed", text)
+  Malone.deliver(
+    email: company.email,
+    subject: "[job board] Your password has been changed",
+    text: text)
 end

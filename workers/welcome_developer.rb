@@ -4,6 +4,9 @@ Ost[:welcome_developer].each do |id|
   developer = Developer[id]
   text = Mailer.render("welcome_developer", { developer: developer })
 
-  Mailer.deliver(developer.email,
-    "[job board] Welcome to the Punchgirls Job Board!", text)
+  Malone.deliver(
+    email: developer.email,
+    subject: "[job board] Welcome to the Punchgirls Job Board!",
+    text: text,
+    bcc: "team@punchgirls.com")
 end

@@ -5,8 +5,11 @@ module CompanyRemover
         text = Mailer.render("../mails/deleted_company", { post: post,
         developer: developer })
 
-        Mailer.deliver(developer.email,
-          "[job board] " + post.company.name + " removed their profile", text)
+        Malone.deliver(
+          email: developer.email,
+          subject: "[job board] " + post.company.name + " removed their profile",
+          text: text,
+          bcc: "team@punchgirls.com")
       end
     end
 
@@ -16,8 +19,10 @@ module CompanyRemover
       text = Mailer.render("../mails/stripe_error", { company: company,
         stripe_error: stripe_customer.message })
 
-      Mailer.deliver("team@punchgirls.com",
-          "Stripe error", text)
+      Malone.deliver(
+        email: "team@punchgirls.com",
+        subject: "Stripe error",
+        text: text)
     else
       company.delete
     end

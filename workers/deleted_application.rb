@@ -6,8 +6,10 @@ Ost[:deleted_application].each do |id|
   text = Mailer.render("deleted_application", { application: application,
   post: application.post })
 
-  Mailer.deliver(application.post.company.email,
-    "[Job Board] Application has been removed by applicant", text)
+  Malone.deliver(
+    email: application.post.company.email,
+    subject: "[Job Board] Application has been removed by applicant",
+    text: text)
 
   application.delete
 end
