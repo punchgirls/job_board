@@ -57,6 +57,8 @@
 
     {{ this.partial("plans", plan_id: plan_id) }}
 
+    <small class="agree">By signing up, you agree to our <a href="/terms">terms and conditions</a> and <a href="/privacy">privacy policy</a></small>
+
     <button type="submit" id="button">Sign up!</button>
   </form>
 </section>
