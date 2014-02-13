@@ -435,6 +435,7 @@ input:-moz-placeholder {
   background-color: #F1F1F1;
   text-decoration: none;
   font-weight: bold;
+  font-size: 0.9em;
 }
 
 .plan:hover {
@@ -1103,10 +1104,6 @@ input:-moz-placeholder {
   font-size: 1.6em;
 }
 
-/*.header #tokens {
-  padding: 0.3em 0.5em;
-}*/
-
 #token-input {
   margin: 0;
   padding: 0;
@@ -1151,12 +1148,6 @@ input:-moz-placeholder {
   margin-right: 5px;
   /*margin-bottom: 5px;*/
 }
-
-/*.header #tokens li {
-  display: inline-block;
-  margin-right: 5px;
-  margin-bottom: 5px;
-}*/
 
 #tokens #token-input {
   background-color: white;
@@ -1430,6 +1421,7 @@ input:-moz-placeholder {
     float: left;
     margin: 0 10px 0 0;
     text-align: center;
+    font-size: 1em;
   }
 
   .plan:last-child {
