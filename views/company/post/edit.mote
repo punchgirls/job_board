@@ -25,6 +25,9 @@
 <section class="two-cols">
   <ul class="list">
     <h2 class="list-title">Edit your post</h2>
+
+    <p class="item-text posts-found">Note that if you edit an unpublished post and this post has applicants, these applicants will be able to see the changes you make.</p>
+
     <li class="item">
       <form class="form edit-post-form" name="postFrm" action="/post/edit/{{ post.id }}" method="POST">
         <input class="input input-title" type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
