@@ -2,7 +2,7 @@ Dear {{ developer.name }},
 
 Welcome to our Job Board!
 
-Here is a link to important information that will help you get started:
+Here is a link to all the information that will help you get started:
 
 http://jobs.punchgirls.com/help
 

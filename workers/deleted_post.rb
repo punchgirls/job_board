@@ -8,7 +8,7 @@ Ost[:deleted_post].each do |id|
     text = Mailer.render("deleted_post", { post: post, developer: developer })
 
     Mailer.deliver(developer.email,
-      "[job board] " + post.title + " post has been removed", text)
+      "[Job Board] " + post.title + " post has been removed", text)
   end
 
   post.delete

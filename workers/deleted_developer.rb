@@ -10,7 +10,7 @@ Ost[:deleted_developer].each do |id|
     post: application.post })
 
     Mailer.deliver(application.post.company.email,
-        "[job board] " + developer.name + "'s profile has been removed", text)
+        "[Job Board] " + developer.name + "'s profile has been removed", text)
   end
 
   developer.delete

@@ -1,29 +1,33 @@
 Dear {{ post.company.name }},
 
-We want to inform you that {{ application.developer.name }} has applied to the following post:
+This is to inform you that {{ application.developer.name }} has applied to the  {{ post.title }} position:
 
+Applicant information:
 
-{{ post.title }}
-
-Description:
-{{ post.description }}
-
-
-Applicant: {{ application.developer.name }}
-
+Name: {{ application.developer.name }}
 Applied on: {{ Time.at(application.date.to_i).strftime("%e %B %Y") }}
-
 GitHub: http://www.github.com/{{ application.developer.username }}
+% if application.developer.url
+URL: {{ application.developer.url }}
+% end
 % if application.developer.bio
-
 Bio:
 {{ application.developer.bio }}
 % end
-% if application.developer.url
 
-URL: {{ application.developer.url }}
+Full post details:
+
+Post title: {{ post.title }}
+Company: {{ post.company.name }} ({{ post.company.url }})
+Tags: {{ post.tags }}
+Location: {{ post.location }}
+% if post.remote == "true"
+(Work from anywhere)
+% else
+(On-site only)
 % end
-
+Description:
+{{ post.description }}
 
 Kind regards,
 

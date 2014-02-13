@@ -1,24 +1,22 @@
 Dear {{ developer.name }},
 
-We want to inform you that {{ post.company.name }} removed the following post:
+This is to inform you that {{ post.company.name }} removed the following post:
 
-
-{{ post.title }}
-
+Post title: {{ post.title }}
+Company: {{ post.company.name }} ({{ post.company.url }})
 Tags: {{ post.tags }}
-
 Location: {{ post.location }}
 % if post.remote == "true"
 (Work from anywhere)
 % else
 (On-site only)
 % end
-
 Description:
 {{ post.description }}
 
+Remember there are more jobs waiting for you at http://jobs.punchgirls.com !
 
-Remember that there are a lot more jobs waiting at http://jobs.punchgirls.com !
+Kind regards,
 
 Cecilia & Mayn,
 Punchgirls
