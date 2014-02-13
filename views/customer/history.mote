@@ -10,10 +10,10 @@
         </tr>
 
         % history.data.each do |invoice|
-          % date = Time.at(invoice.date)
+          % date = Time.at(invoice.date.to_i).strftime("%e/%b/%y")
           <tr class="table-row">
             <td class="table-cell"><a href="/customer/invoice/{{ invoice.id }}">{{ invoice.id }}</a></td>
-            <td class="table-cell">{{ date.day }}-{{ date.month }}-{{ date.year }}</td>
+            <td class="table-cell">{{ date }}</td>
             <td class="table-cell">{{ invoice.total / 100}}  USD</td>
           </tr>
         % end
