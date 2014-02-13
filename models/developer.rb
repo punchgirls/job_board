@@ -11,6 +11,8 @@ class Developer < Ohm::Model
   attribute :bio
   attribute :status
 
+  index :email
+
   unique :github_id
 
   def self.fetch(identifier)

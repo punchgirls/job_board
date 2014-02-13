@@ -41,7 +41,6 @@ Cuba.plugin CompanyHelpers
 Cuba.plugin DeveloperHelpers
 Cuba.plugin UserHelpers
 
-Cuba.use Rack::MethodOverride
 Cuba.use Rack::Session::Cookie,
   key: "job_board",
   secret: APP_SECRET
