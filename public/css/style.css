@@ -410,6 +410,10 @@ input:-moz-placeholder {
   line-height: 40px;
 }
 
+.agree {
+  font-size: 1.2em;
+}
+
 /* Pricing */
 
 .pricing-text {
