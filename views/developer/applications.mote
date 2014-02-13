@@ -44,8 +44,6 @@
               </h3>
             </header>
 
-            <p class="cursor underline item-subtitle" id="show-more-link-{{ application.id }}" onclick="showMore({{ application.id }})">Show more</p><br/>
-
             <section class="more" id="show-more-{{ application.id }}">
               <h3 class="item-subtitle">Post description:</h3>
               <p class="item-text">{{ this.h(post.description) }}</p>
@@ -59,7 +57,9 @@
               % end
 
               <section class="post-control">
-                {{ this.partial("developer/add_message", post: post, developer: developer) }}
+                % if application.status == "active"
+                  {{ this.partial("developer/add_message", post: post, developer: developer) }}
+                % end
 
                 % if !application.note.nil?
                 <span id="note-{{ application.id }}">
@@ -86,6 +86,8 @@
                 % end
               </section>
             </section>
+
+            <p class="cursor underline item-subtitle" id="show-more-link-{{ application.id }}" onclick="showMore({{ application.id }})">Show more</p>
 
             <footer class="item-footer">
               <p class="item-text">
