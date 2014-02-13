@@ -6,9 +6,11 @@ class Contacts < Cuba
       if mail.valid?
         text = Mailer.render("contact", params: params)
 
-        Mailer.deliver("team@punchgirls.com",
-          "Contact Form: " + params["subject"],
-          text, replyto: params["email"])
+        Malone.deliver(
+          to: "team@punchgirls.com",
+          subject: "Contact Form: " + params["subject"],
+          text: text,
+          replyto: params["email"])
 
         session[:success] = "Thanks for contacting us!"
         res.redirect "/"

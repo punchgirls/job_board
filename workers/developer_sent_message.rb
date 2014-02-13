@@ -7,7 +7,7 @@ Ost[:developer_sent_message].each do |id|
     application: application, post: application.post })
 
   Malone.deliver(
-    email: application.post.company.email,
+    to: application.post.company.email,
     subject: "[job board] Message received from applicant!",
     text: text)
 end

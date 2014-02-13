@@ -6,7 +6,7 @@ module CompanyRemover
         developer: developer })
 
         Malone.deliver(
-          email: developer.email,
+          to: developer.email,
           subject: "[job board] " + post.company.name + " removed their profile",
           text: text,
           bcc: "team@punchgirls.com")
@@ -20,7 +20,7 @@ module CompanyRemover
         stripe_error: stripe_customer.message })
 
       Malone.deliver(
-        email: "team@punchgirls.com",
+        to: "team@punchgirls.com",
         subject: "Stripe error",
         text: text)
     else

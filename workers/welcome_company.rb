@@ -5,7 +5,7 @@ Ost[:welcome_company].each do |id|
   text = Mailer.render("welcome_company", { company: company })
 
   Malone.deliver(
-    email: company.email,
+    to: company.email,
     subject: "[job board] Welcome to the Punchgirls Job Board!",
     text: text,
     bcc: "team@punchgirls.com")

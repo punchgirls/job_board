@@ -16,13 +16,13 @@ Ost[:contacted_applicant].each do |id|
       developer: developer })
 
   Malone.deliver(
-    email: developer.email,
+    to: developer.email,
     subject: "[Job Board] You just received a message from " + company.name + "!",
     text: text,
     replyto: company.email)
 
   Malone.deliver(
-    email: company.email,
+    to: company.email,
     subject: "[Job Board] Copy of your message sent to " + developer.name,
     text: text_copy)
 

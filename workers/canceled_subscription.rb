@@ -6,7 +6,7 @@ Ost[:canceled_subscription].each do |id|
   text = Mailer.render("canceled_subscription", { company: company })
 
   Malone.deliver(
-    email: company.email,
+    to: company.email,
     subject: "[Job Board] Your subscription has been canceled",
     text: text,
     bcc: "team@punchgirls.com")

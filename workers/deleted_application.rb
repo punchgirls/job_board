@@ -7,7 +7,7 @@ Ost[:deleted_application].each do |id|
   post: application.post })
 
   Malone.deliver(
-    email: application.post.company.email,
+    to: application.post.company.email,
     subject: "[Job Board] Application has been removed by applicant",
     text: text)
 
