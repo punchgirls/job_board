@@ -10,6 +10,6 @@ Ost[:discarded_applicant].each do |id|
 
   Malone.deliver(
     to: developer.email,
-    subject: "[job board] Regarding " + post.title + " post",
+    subject: "[Job Board] Regarding " + post.title + " post",
     text: text)
 end

@@ -6,7 +6,7 @@ Ost[:welcome_developer].each do |id|
 
   Malone.deliver(
     to: developer.email,
-    subject: "[job board] Welcome to the Punchgirls Job Board!",
+    subject: "[Job Board] Welcome to the Punchgirls Job Board!",
     text: text,
     bcc: "team@punchgirls.com")
 end
