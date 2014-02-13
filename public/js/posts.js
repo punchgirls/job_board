@@ -336,9 +336,11 @@ function showMore (id) {
 
   if (showMoreLink.innerHTML == "Show more") {
     showMoreLink.innerHTML = "Show less";
+    showMoreLink.style.marginTop = "-42px";
     showMoreSection.className = "less";
   } else {
     showMoreLink.innerHTML = "Show more";
+    showMoreLink.style.marginTop = "10px";
     showMoreSection.className = "more";
   }
 }
