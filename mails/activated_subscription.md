@@ -4,7 +4,9 @@ We want to inform you that your subscription has been activated.
 
 Thank you!
 
-Cecilia & Mayn
+Cecilia & Mayn,
 Punchgirls
-team@punchgirls.com
+
 http://twitter.com/punchgirls
+http://www.punchgirls.com
+http://github.com/punchgirls

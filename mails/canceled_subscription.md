@@ -8,7 +8,9 @@ After that month, all posts are going to be unpublished and you will only be all
 
 Thank you!
 
-Cecilia & Mayn
+Cecilia & Mayn,
 Punchgirls
-team@punchgirls.com
+
 http://twitter.com/punchgirls
+http://www.punchgirls.com
+http://github.com/punchgirls

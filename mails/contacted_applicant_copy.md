@@ -31,7 +31,9 @@ Description:
 
 Kind regards,
 
-Cecilia & Mayn
+Cecilia & Mayn,
 Punchgirls
-team@punchgirls.com
+
 http://twitter.com/punchgirls
+http://www.punchgirls.com
+http://github.com/punchgirls

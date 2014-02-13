@@ -33,7 +33,9 @@ To respond to this e-mail just click on "Reply".
 
 Good luck!
 
-Cecilia & Mayn
+Cecilia & Mayn,
 Punchgirls
-team@punchgirls.com
+
 http://twitter.com/punchgirls
+http://www.punchgirls.com
+http://github.com/punchgirls

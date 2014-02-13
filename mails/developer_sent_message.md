@@ -9,7 +9,10 @@ Description:
 {{ post.description }}
 
 
+Applicant: {{ application.developer.name }}
+
 Applied on: {{ Time.at(application.date.to_i).strftime("%e %B %Y") }}
+
 GitHub: http://www.github.com/{{ application.developer.username }}
 % if application.developer.bio
 
@@ -27,7 +30,9 @@ Message:
 
 Kind regards,
 
-Cecilia & Mayn
+Cecilia & Mayn,
 Punchgirls
-team@punchgirls.com
+
 http://twitter.com/punchgirls
+http://www.punchgirls.com
+http://github.com/punchgirls

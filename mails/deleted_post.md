@@ -20,7 +20,9 @@ Description:
 
 Remember that there are a lot more jobs waiting at http://jobs.punchgirls.com !
 
-Cecilia & Mayn
+Cecilia & Mayn,
 Punchgirls
-team@punchgirls.com
+
 http://twitter.com/punchgirls
+http://www.punchgirls.com
+http://github.com/punchgirls

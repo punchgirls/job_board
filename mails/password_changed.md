@@ -6,7 +6,9 @@ If you didn't perform this action, please contact us as soon as possible.
 
 Thank you!
 
-Cecilia & Mayn
+Cecilia & Mayn,
 Punchgirls
-team@punchgirls.com
+
 http://twitter.com/punchgirls
+http://www.punchgirls.com
+http://github.com/punchgirls
