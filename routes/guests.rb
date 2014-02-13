@@ -181,16 +181,14 @@ class Guests < Cuba
       run Searches
     end
 
-    on "apply", param("post_id"), param("query") do |id, query|
+    on "apply", param("post_id") do |id|
       session[:apply_id] = id
-      session[:query] = query
 
       res.redirect "/github_oauth"
     end
 
-    on "favorite", param("post_id"), param("query") do |id, query|
+    on "favorite", param("post_id") do |id|
       session[:favorite_id] = id
-      session[:query] = query
       session[:origin] = "guests"
 
       res.redirect "/github_oauth"
@@ -219,7 +217,6 @@ class Guests < Cuba
 
     on "github_login/:access_token" do |access_token|
       apply_id = session[:apply_id]
-      query = session[:query]
       favorite = session[:favorite_id]
       origin = session[:origin]
 
@@ -234,7 +231,6 @@ class Guests < Cuba
           session[:success] = "You have successfully logged in."
           session[:apply_id] = apply_id
           session[:favorite_id] = favorite
-          session[:query] = query
           session[:origin] = origin
 
           res.redirect "/dashboard"
@@ -258,7 +254,6 @@ class Guests < Cuba
 
     on "confirm" do
       apply_id = session[:apply_id]
-      query = session[:query]
       favorite = session[:favorite_id]
       origin = session[:origin]
 
@@ -284,7 +279,6 @@ class Guests < Cuba
 
           session[:apply_id] = apply_id
           session[:favorite_id] = favorite
-          session[:query] = query
           session[:origin] = origin
 
           session[:success] = "You have successfully logged in!"

@@ -12,12 +12,12 @@ class Developers < Cuba
 
       if apply_id
         session.delete(:apply_id)
-        res.redirect "/apply/#{apply_id}##{apply_id}"
+        res.redirect "/apply/#{apply_id}"
       end
 
       if favorite_id
         session.delete(:favorite_id)
-        res.redirect "/favorite/#{favorite_id}##{favorite_id}"
+        res.redirect "/favorite/#{favorite_id}"
       end
 
       on default do
@@ -72,11 +72,11 @@ class Developers < Cuba
 
         Ost[:developer_applied].push(application.id)
 
-        res.redirect "/search?query=#{session[:query]}"
+        res.redirect "/applications"
       end
 
       on default do
-        res.redirect "/search?query=#{session[:query]}"
+        res.redirect "/applications"
       end
     end
 
@@ -141,7 +141,7 @@ class Developers < Cuba
         favorites.add(post)
         favorited_by.add(developer)
 
-        res.redirect "/search?query=#{session[:query]}"
+        res.redirect "/favorites"
       end
 
       on favorites.member?(post) do
@@ -149,14 +149,14 @@ class Developers < Cuba
         on session[:origin] == "guests" do
           session.delete(:origin)
 
-          res.redirect "/search?query=#{session[:query]}"
+          res.redirect "/favorites"
         end
 
         on default do
           favorites.delete(post)
           favorited_by.delete(developer)
 
-          res.redirect "/search?query=#{session[:query]}"
+          res.redirect "/favorites"
         end
       end
 

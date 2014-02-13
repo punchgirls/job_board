@@ -17,7 +17,7 @@ class Searches < Cuba
     on param "company_id" do |id|
       render("search", title: "Search",
         posts: Post.active.find(company_id: id), search: true,
-        query: "", profile: true)
+        profile: true)
     end
 
     on param "post_id" do |id|
@@ -25,18 +25,18 @@ class Searches < Cuba
 
       on post do
         render("search", title: "Search", posts: [post],
-          search: true, search: true, query: "", profile: true)
+          search: true, search: true, profile: true)
       end
 
       on default do
         render("search", title: "Search", posts: nil, search: true,
-          query: "", profile: true)
+          profile: true)
       end
     end
 
     on default do
       render("search", title: "Search", posts: nil, search: true,
-        query: "", profile: true)
+        profile: true)
     end
   end
 end
