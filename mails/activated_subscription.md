@@ -1,8 +1,8 @@
 Dear {{ company.name }},
 
-We want to inform you that your subscription has been activated.
+This mail is to confirm the reactivation of your subscription.
 
-Thank you!
+We're glad to have you back!
 
 Cecilia & Mayn,
 Punchgirls

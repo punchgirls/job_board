@@ -6,5 +6,5 @@ Ost[:canceled_subscription].each do |id|
   text = Mailer.render("canceled_subscription", { company: company })
 
   Mailer.deliver(company.email,
-    "[job board] Your subscription has been canceled", text)
+    "[Job Board] Your subscription has been canceled", text)
 end

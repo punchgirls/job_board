@@ -1,10 +1,12 @@
 Dear {{ company.name }},
 
-We want to inform you that your password have been changed.
+This is to inform you that your password was changed.
 
 If you didn't perform this action, please contact us as soon as possible.
 
 Thank you!
+
+Kind regards,
 
 Cecilia & Mayn,
 Punchgirls

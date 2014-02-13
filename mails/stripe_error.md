@@ -1,5 +1,4 @@
 Stripe Error
-============
 
 The Stripe customer for the following company could not be deleted:
 

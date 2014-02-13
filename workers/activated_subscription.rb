@@ -6,5 +6,5 @@ Ost[:activated_subscription].each do |id|
   text = Mailer.render("activated_subscription", { company: company })
 
   Mailer.deliver(company.email,
-    "[job board] Your subscription has been activated", text)
+    "[Job Board] Your subscription has been activated", text)
 end

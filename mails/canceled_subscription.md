@@ -1,12 +1,11 @@
 Dear {{ company.name }},
 
-We want to inform you that your subscription has been canceled.
+We want to confirm the cancellation of your subscription. You'll be able to make full use of your account for the entire
+month you already paid for. After that your account will be deactivated and all your posts will be unpublished.
 
-Your account will remain active and you will be able to make full use of it for the entire month you already paid for.
+Remember that you can log in and reactivate your subscription at any time.
 
-After that month, all posts are going to be unpublished and you will only be allowed to login to activate your subscription.
-
-Thank you!
+Kind regards,
 
 Cecilia & Mayn,
 Punchgirls

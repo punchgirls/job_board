@@ -1,26 +1,23 @@
 Dear {{ developer.name }},
 
-We are sorry to inform you that you have not been selected for the following job position:
+This is to inform you that you have not been selected for the following position:
 
-
-{{ post.title }}
-
+Post title: {{ post.title }}
 Company: {{ post.company.name }} ({{ post.company.url }})
-
 Tags: {{ post.tags }}
-
 Location: {{ post.location }}
 % if post.remote == "true"
 (Work from anywhere)
 % else
 (On-site only)
 % end
-
 Description:
 {{ post.description }}
 
+The company will still be able to see your application. Don't worry to much, there are more jobs waiting for you at
+http://jobs.punchgirls.com !
 
-Remember that there are a lot more jobs waiting at http://jobs.punchgirls.com !
+Kind regards,
 
 Cecilia & Mayn,
 Punchgirls
