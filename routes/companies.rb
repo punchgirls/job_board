@@ -392,12 +392,14 @@ class Companies < Cuba
 
       if post.favorites.member?(application)
         post.favorites.delete(application)
+        res.write "deleted"
       else
         post.favorites.add(application)
+        res.write "added"
       end
 
       on default do
-        render("company/post/applications", title: "Applicants", id: post.id)
+        res.redirect "/post/applications/#{post.id}"
       end
     end
 
