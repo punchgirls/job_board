@@ -1,12 +1,12 @@
 % reset = params.fetch(:reset, false)
 
 % if reset
-    % if reset.errors[:password] == [:too_small]
-      <span class="alert error">The password length must be at least 6 characters</span>
-    % end
-    % if reset.errors[:password] == [:not_confirmed]
-      <span class="alert error">Passwords don't match</span>
-    % end
+  % if reset.errors[:password] == [:too_small]
+    <span class="alert error">The password length must be at least 6 characters</span>
+  % end
+  % if reset.errors[:password] == [:not_confirmed]
+    <span class="alert error">Passwords don't match</span>
+  % end
 % end
 
 <h2 class="content-title company-login">Create your new password</h2>

@@ -12,6 +12,7 @@ class CompanySignup < Scrivener
     end
 
     assert_present :name
+    assert_length :name, 1..30
     assert_url :url
     assert_format :plan_id, /\A(small|medium|large)\Z/
     assert password.length > 5, [:password, :too_small]

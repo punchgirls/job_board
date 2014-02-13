@@ -1,21 +1,21 @@
 % edit = params.fetch(:edit, false)
 
 % if edit
-    % if edit.errors[:name] == [:not_present]
-     <span class="alert error">Company name is required</span>
-    % end
-    % if edit.errors[:email] == [:not_email]
-      <span class="alert error">E-mail not valid</span>
-    % end
-    % if edit.errors[:url] == [:not_url]
-      <span class="alert error">URL not valid</span>
-    % end
-    % if edit.errors[:password].include?(:too_small)
-      <span class="alert error">The password length must be at least 6 characters</span>
-    % end
-    % if edit.errors[:password] == [:not_confirmed]
-      <span class="alert error">Passwords don't match</span>
-    % end
+  % if edit.errors[:name] == [:not_in_range]
+   <span class="alert error">Company name should not exceed 30 characters</span>
+  % end
+  % if edit.errors[:email] == [:not_email]
+    <span class="alert error">E-mail not valid</span>
+  % end
+  % if edit.errors[:url] == [:not_url]
+    <span class="alert error">URL not valid</span>
+  % end
+  % if edit.errors[:password].include?(:too_small)
+    <span class="alert error">The password length must be at least 6 characters</span>
+  % end
+  % if edit.errors[:password] == [:not_confirmed]
+    <span class="alert error">Passwords don't match</span>
+  % end
 % end
 
 % if this.current_user.instance_of?(Company)
@@ -30,7 +30,7 @@
     <li class="item">
       <form class="form edit-profile-form" action="/edit/{{ company.id }}" method="POST">
 
-        <input class="input input-name" type="text" name="company[name]" placeholder="Company name" value="{{ this.h(company.name) }}"><br/>
+        <input class="input input-name" type="text" name="company[name]" maxlength="30" placeholder="Company name" value="{{ this.h(company.name) }}"><br/>
 
         <input class="input input-profile" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company.email) }}"><br/>
 

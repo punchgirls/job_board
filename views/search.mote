@@ -6,6 +6,7 @@
 % if !posts.nil?
   % posts_found = posts.size
 % end
+
 <section class="two-cols">
   <ul class="list">
     % if posts.nil?

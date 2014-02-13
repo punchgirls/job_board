@@ -1,5 +1,6 @@
 % developer = this.current_developer
 % favorites = developer.favorites
+
 <section class="two-cols">
   <ul class="list">
     <h2 class="list-title">My favorites (<span id="favs-size-title">{{ favorites.size }}</span>)</h2><br/>
