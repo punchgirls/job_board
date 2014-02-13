@@ -422,6 +422,7 @@ input:-moz-placeholder {
 
 .plans {
   width: 16.5em;
+  min-width: 16.5em;
   margin: 0 auto;
   display: inline-block;
 }
