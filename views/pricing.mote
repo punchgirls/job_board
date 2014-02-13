@@ -11,16 +11,16 @@
     <a class="plan" href="/signup?plan_id=small">
     <span class="plan-title">Small</span>
     <span class="plan-posts">1 Post</span>
-    <span class="plan-price">$50<small>/month</small></span></a>
+    <span class="plan-price">&nbsp;50 <small>USD/month</small></span></a>
 
     <a class="plan" href="/signup?plan_id=medium">
     <span class="plan-title">Medium</span>
     <span class="plan-posts">5 Posts</span>
-    <span class="plan-price">$100<small>/month</small></span></a>
+    <span class="plan-price">100 <small>USD/month</small></span></a>
 
     <a class="plan" href="/signup?plan_id=large">
     <span class="plan-title">Large</span>
     <span class="plan-posts">10 Posts</span>
-    <span class="plan-price">$150<small>/month</small></span></a>
+    <span class="plan-price">150 <small>USD/month</small></span></a>
   </span>
 </section>
