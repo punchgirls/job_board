@@ -87,7 +87,7 @@
               </section>
             </section>
 
-            <p class="cursor underline item-subtitle" id="show-more-link-{{ application.id }}" onclick="showMore({{ application.id }})">Show more</p>
+            <p class="cursor underline item-subtitle show-more-link" id="show-more-link-{{ application.id }}" onclick="showMore({{ application.id }})">Show more</p>
 
             <footer class="item-footer">
               <p class="item-text">

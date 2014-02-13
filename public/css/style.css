@@ -936,11 +936,16 @@ input:-moz-placeholder {
 
 /* Show more */
 
+.show-more-link {
+  margin-top: 10px;
+}
+
 .more {
   display: none;
 }
 
 .less {
+  margin-top: 10px;
   display: block;
 }
 
