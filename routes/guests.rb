@@ -111,8 +111,8 @@ class Guests < Cuba
           signature = nobi.sign(String(company.id))
 
           Malone.deliver(to: company.email,
-            subject: "Password recovery",
-            html: "Please follow this link to reset your password: " +
+            subject: "[Job Board] Password recovery",
+            html: "To reset your password, please copy and paste this link into your browser's URL address bar: " +
             RESET_URL + "/otp/%s" % signature)
 
           res.redirect "/login/?recovery=true", 303
