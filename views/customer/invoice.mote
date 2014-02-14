@@ -7,7 +7,7 @@
       <li class="item">
         <p class="item-subtitle">ID: {{ invoice.id }}</p>
         <p class="item-subtitle">Date: {{ date }}</p>
-        <p class="item-subtitle">Total: ${{ invoice.total / 100 }}</p>
+        <p class="item-subtitle">Total: {{ invoice.total / 100 }} USD</p>
       </li>
     <h2 class="payment-history-title">Specification</h2>
 
@@ -23,7 +23,7 @@
           <p class="item-subtitle">Description: {{ line.description }}</p>
           <p class="item-subtitle">Date: {{ date }}</p>
         % end
-        <p class="item-subtitle">Amount: ${{ line.amount / 100 }}</p>
+        <p class="item-subtitle">Amount: {{ line.amount / 100 }} USD</p>
       </li>
     % end
     <p class="item-subtitle"><a href="/customer/history">Back to payment history</a></p>
