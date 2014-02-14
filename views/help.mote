@@ -218,4 +218,26 @@
   <p class="help_links_text">
     If you want to remove your account for any reason you can do so by clicking the "Delete account" link in your profile page. All your information will be permanently deleted.
   </p>
+
+  <h3 class="help_links_subtitle" id="examples">Some posts examples:</h3>
+  <p class="help_links_text">
+    The following posts were written by developers when being asked what a perfect job post would it be for them:</p>
+
+  <section class="post-example">
+    <p class="help_links_text">Title: Monitoring developer and operations</p>
+    <p class="help_links_text">Tags: Redis, ElasticSearch, Monitoring</p>
+    <p class="help_links_text">Description: Your tasks will be: Develop and maintain our services API, interact with Redis and ElasticSearch and design and implement a monitoring framework. Skills and experience: Knowledge of Ruby, Python or Go programming languages; Redis commands; and ElasticSearch query API. Experience in any of these is a plus though we also have a test project for you to prove yourself! Benefits: Working remotely, no phone calls meetings unless necessary, annual team meeting somewhere around the world :)</p>
+  </section>
+
+  <section class="post-example">
+    <p class="help_links_text">Title: Monitoring developer and operations</p>
+    <p class="help_links_text">Tags: Redis, ElasticSearch, Monitoring</p>
+    <p class="help_links_text">Description: Your tasks will be: Develop and maintain our services API, interact with Redis and ElasticSearch and design and implement a monitoring framework. Skills and experience: Knowledge of Ruby, Python or Go programming languages; Redis commands; and ElasticSearch query API. Experience in any of these is a plus though we also have a test project for you to prove yourself! Benefits: Working remotely, no phone calls meetings unless necessary, annual team meeting somewhere around the world :)</p>
+  </section>
+
+  <section class="post-example">
+    <p class="help_links_text">Title: Monitoring developer and operations</p>
+    <p class="help_links_text">Tags: Redis, ElasticSearch, Monitoring</p>
+    <p class="help_links_text">Description: Your tasks will be: Develop and maintain our services API, interact with Redis and ElasticSearch and design and implement a monitoring framework. Skills and experience: Knowledge of Ruby, Python or Go programming languages; Redis commands; and ElasticSearch query API. Experience in any of these is a plus though we also have a test project for you to prove yourself! Benefits: Working remotely, no phone calls meetings unless necessary, annual team meeting somewhere around the world :)</p>
+  </section>
 </section>

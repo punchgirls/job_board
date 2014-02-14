@@ -491,6 +491,15 @@ input:-moz-placeholder {
   margin-right: 5px;
 }
 
+.post-example {
+  border: 1px solid #DADADA;
+  background-color: #FCFCFC;
+  padding: 0.6em;
+  margin: 10px 0;
+  display: inline-block;
+  font-size: 0.9em;
+}
+
 /* Left column */
 
 .list {
@@ -767,6 +776,14 @@ input:-moz-placeholder {
 
 .new-post-form .login-checkbox {
   vertical-align: middle;
+}
+
+.new-post-text {
+  padding: 0;
+  margin: 0;
+  font-size: 1.6em;
+  line-height: 1.6em;
+  text-align: left;
 }
 
 /* Edit */

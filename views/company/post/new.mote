@@ -25,6 +25,8 @@
   <h2 class="content-title">Create a new job offer</h2>
 
   <form class="form new-post-form" name="postFrm" action="/post/new" method="POST">
+    <p class="new-post-text">Click <a href="/help#examples">here</a> to see some examples that might help you write your post.</p><br/>
+
     <input class="input input-title" type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
 
     <div id="tags_wrapper">
