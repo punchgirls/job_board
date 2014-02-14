@@ -31,7 +31,7 @@
           Cancel subscription</a>
       % else
         <a href="customer/subscription">
-          Activate subscription</a>
+          Reactivate subscription</a>
       % end
       </p>
     </li class="item">

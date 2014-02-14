@@ -22,6 +22,14 @@ class Company < Ohm::Model
     status == "active"
   end
 
+  def suspended?
+    status == "suspended"
+  end
+
+  def canceled?
+    status == "canceled"
+  end
+
   def deleted?
     status == "deleted"
   end

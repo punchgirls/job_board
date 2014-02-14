@@ -62,7 +62,15 @@ Cuba.define do
   end
 
   on authenticated(Company) do
-    run Companies
+    company = current_user
+
+    on company.active? || company.suspended? do
+      run Companies
+    end
+
+    on company.canceled? do
+      run CanceledCompanies
+    end
   end
 
   on authenticated(Developer) do

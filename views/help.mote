@@ -230,14 +230,8 @@
   </section>
 
   <section class="post-example">
-    <p class="help_links_text">Title: Monitoring developer and operations</p>
-    <p class="help_links_text">Tags: Redis, ElasticSearch, Monitoring</p>
-    <p class="help_links_text">Description: Your tasks will be: Develop and maintain our services API, interact with Redis and ElasticSearch and design and implement a monitoring framework. Skills and experience: Knowledge of Ruby, Python or Go programming languages; Redis commands; and ElasticSearch query API. Experience in any of these is a plus though we also have a test project for you to prove yourself! Benefits: Working remotely, no phone calls meetings unless necessary, annual team meeting somewhere around the world :)</p>
-  </section>
-
-  <section class="post-example">
-    <p class="help_links_text">Title: Monitoring developer and operations</p>
-    <p class="help_links_text">Tags: Redis, ElasticSearch, Monitoring</p>
-    <p class="help_links_text">Description: Your tasks will be: Develop and maintain our services API, interact with Redis and ElasticSearch and design and implement a monitoring framework. Skills and experience: Knowledge of Ruby, Python or Go programming languages; Redis commands; and ElasticSearch query API. Experience in any of these is a plus though we also have a test project for you to prove yourself! Benefits: Working remotely, no phone calls meetings unless necessary, annual team meeting somewhere around the world :)</p>
+    <p class="help_links_text">Title: Front end developer</p>
+    <p class="help_links_text">Tags: HTML, CSS, JavaScript</p>
+    <p class="help_links_text">Description: Kittens Inc is a fast-growing digital agency in Buenos Aires. We're currently working on a project where we need a front end developer to finish the responsive design work. This is the project you will be working on: http://kittens.com/. Your daily tasks: Build responsive HTML5 pages and create rich frontend JavaScript components. Your profile: Experience with HTML5, CSS3, JavaScript, JQuery and friends. Experience in a JavaScript framework is a plus. What we offer: Competitive salary, bonuses, full health insurance and casual dress code.</p>
   </section>
 </section>

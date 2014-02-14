@@ -1,6 +1,11 @@
+% company = this.current_user
 <section class="two-cols">
   <ul class="list">
-    <h2 class="list-title">Change subscription</h2>
+    % if company.active?
+      <h2 class="list-title">Change subscription</h2>
+    % else
+      <h2 class="list-title">Reactivate subscription</h2>
+    % end
     <li class="item">
       <form class="form edit-profile-form" action="/customer/subscription" method="POST">
 
@@ -15,6 +20,6 @@
     </li>
   </ul>
 
-  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
+  {{ this.partial("sidebar", user: company, search: true, profile: false) }}
 
 </section>

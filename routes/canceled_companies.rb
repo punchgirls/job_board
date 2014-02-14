@@ -1,24 +1,11 @@
-class Companies < Cuba
+class CanceledCompanies < Cuba
   define do
     company = current_user
     customer_id = company.customer_id
     plan = company.plan
 
     on get, root do
-      render("company/dashboard", title: "Dashboard", plan: plan)
-    end
-
-    on "dashboard" do
-      on param "company" do
-        session[:error] = "You need to logout to sign in as a developer"
-        render("company/dashboard", title: "Dashboard", plan: plan)
-      end
-
-      on get, root do
-        render("company/dashboard", title: "Dashboard", plan: plan)
-      end
-
-      on(default) { not_found! }
+      render("company/profile", title: "Profile", plan: plan)
     end
 
     on "search" do
@@ -32,12 +19,12 @@ class Companies < Cuba
         if card.instance_of?(Stripe::CardError)
           session[:error] = card.message
 
-          res.redirect "/dashboard"
+          res.redirect "/profile"
         else
           session[:error] = "It looks like we are having some problems
             with your request. Please try again in a few minutes!"
 
-          res.redirect "/dashboard"
+          res.redirect "/profile"
         end
       end
 
@@ -209,196 +196,6 @@ class Companies < Cuba
       res.redirect "/profile"
     end
 
-    on "post/new" do
-      on post, param("post") do |params|
-        post = PostJobOffer.new(params)
-
-        on post.valid? do
-          time = Time.new.to_i
-
-          params["company_id"] = company.id
-          params["date"] = time
-          params["tags"] = params["tags"].split(",").uniq.join(",") + ","
-
-          params["status"] = "published"
-
-          if params["remote"].nil?
-            params["remote"] = false
-          end
-
-          job = Post.create(params)
-
-          session[:success] = "You have successfully posted a job offer!"
-          res.redirect "/dashboard"
-        end
-
-        on default do
-          render("company/post/new", title: "Post job offer",
-            post: post)
-        end
-      end
-
-      on get, root do
-        if company.published_posts.size <  plan.posts.to_i
-          post = PostJobOffer.new({})
-
-          render("company/post/new", title: "Post job offer", post: post)
-        else
-          session[:error] = "You can only have #{plan.posts} published post."
-          res.redirect "/dashboard"
-        end
-      end
-
-      on(default) { not_found! }
-    end
-
-    on "post/status/:id" do |id|
-      post = Post[id]
-
-      on post.published? do
-        post.update({ status: "unpublished"})
-
-        post.favorited_by.each do |developer|
-          developer.favorites.delete(post)
-        end
-
-        res.redirect "/dashboard"
-      end
-
-      on !post.published? do
-        on company.published_posts.size <  plan.posts.to_i do
-          post.update({ status: "published"})
-
-          res.redirect "/dashboard"
-        end
-
-        on default do
-          session[:error] = "You can only have #{plan.posts} published post."
-
-          res.redirect "/dashboard"
-        end
-      end
-    end
-
-    on "post/remove/:id" do |id|
-      Ost[:deleted_post].push(id)
-
-      res.redirect "/dashboard"
-    end
-
-    on "post/edit/:id" do |id|
-      on post, param("post") do |params|
-        post = Post[id]
-
-        edit = PostJobOffer.new(params)
-
-        on edit.valid? do
-          if params["remote"].nil?
-            params["remote"] = false
-          end
-
-          params["tags"] = params["tags"].split(",").uniq.join(",") + ","
-
-          post.update(params)
-
-          session[:success] = "Post successfully edited!"
-          res.redirect "/dashboard"
-        end
-
-        on default do
-          render("company/post/edit", title: "Edit post",
-            id: id, edit: edit)
-        end
-      end
-
-      on default do
-        edit = PostJobOffer.new({})
-
-        render("company/post/edit", title: "Edit post",
-          id: id, edit: edit)
-      end
-    end
-
-    on "post/applications/discarded/:id" do |id|
-      render("company/post/applications", title: "Discarded applications",
-        id: id, active_applications: false,
-        applications: Post[id].discarded_applications,
-        text: "You haven't discarded any applicants for this position.")
-    end
-
-    on "post/applications/:id" do |id|
-      render("company/post/applications", title: "Active applications", id: id,
-        applications: Post[id].active_applications,
-        active_applications: true,
-        text: "No one applied to this post yet or the persons who applied
-        removed their applications.")
-    end
-
-    on "application/discard/:id" do |id|
-      application = Application[id]
-
-      application.update(status: "discarded")
-
-      Ost[:discarded_applicant].push(id)
-
-      session[:success] = "Applicant successfully discarded!"
-    end
-
-    on "application/add/:id" do |id|
-      Application[id].update(status: "active")
-
-      session[:success] = "Applicant successfully added to list of active applications!"
-    end
-
-    on "application/contact/:id" do |id|
-      application = Application[id]
-
-      on application do
-        on post, param("message") do |params|
-          mail = Contact.new(params)
-
-          if mail.valid?
-            session[:success] = "You just sent an e-mail to the applicant!"
-
-            message = Message.create(application_id: id,
-              subject: params["subject"], body: params["body"])
-
-            Ost[:contacted_applicant].push(message.id)
-
-            res.redirect "/dashboard"
-          else
-            session[:error] = "All fields are required"
-            render("company/post/contact", title: "Contact developer",
-              application: application, message: mail)
-          end
-        end
-
-        on default do
-          render("company/post/contact", title: "Contact developer",
-            application: application, message: Contact.new({}))
-        end
-      end
-
-      on(default) { not_found! }
-    end
-
-    on "application/favorite/:id" do |id|
-      application = Application[id]
-      post = application.post
-
-      if post.favorites.member?(application)
-        post.favorites.delete(application)
-        res.write "deleted"
-      else
-        post.favorites.add(application)
-        res.write "added"
-      end
-
-      on default do
-        res.redirect "/post/applications/#{post.id}"
-      end
-    end
-
     on "signup" do
       session[:error] = "If you need to change your plan go to your
       profile page > Subscription info"
@@ -446,6 +243,9 @@ class Companies < Cuba
       res.redirect "/"
     end
 
-    on(default) { not_found! }
+    on default do
+      session[:error] = "You need to reactivate your subscription to perform this action"
+      res.redirect "/profile"
+    end
   end
 end

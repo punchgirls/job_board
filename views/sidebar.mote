@@ -34,7 +34,7 @@
       % end
       <p>Plan: <span class="sidebar-plan-title">{{ user.plan.name }}</span></p>
 
-      % if user.status == "suspended"
+      % if user.suspended? || user.canceled?
         <p>(subscription canceled)</p>
       % end
 
