@@ -7,18 +7,18 @@
 for jobs easier.</p>
 
   <p class="pricing-text">Companies want great developers and they in turn want to find rewarding jobs, but the way job searching tools are made
-  usually doesn’t encourage good communication between the two of them.</p>
+  usually doesn&#39;t encourage good communication between the two of them.</p>
 
-  <p class="pricing-text">Our <a href="https://github.com/punchgirls/job_board">Open Source Job Board</a> allows a developer to apply for a job with a single click using GitHub integration. Once a developer applies the company receives the developer’s public GitHub information as a substitute for a traditional CV. By viewing the developer’s GitHub account the company will be able to see what kind of projects the developer is involved in and how the code is written. We hope this encourages developers to share their work and even write better code.</p>
+  <p class="pricing-text">Our <a href="https://github.com/punchgirls/job_board">Open Source Job Board</a> allows a developer to apply for a job with a single click using GitHub integration. Once a developer applies the company receives the developer&#39;s public GitHub information as a substitute for a traditional r&eacute;sum&eacute;. By viewing the developer&#39;s GitHub account the company will be able to see what kind of projects the developer is involved in and how the code is written. We hope this encourages developers to share their work and even write better code.</p>
 
   <p class="pricing-text">We also want to inspire companies to write better posts to succeed in their hunt for the perfect developer.<br/>
-  To achieve this we’ve set a character limit for every post, inspiring companies to be more creative and specific in the description of what they are looking for and what they have to offer.</p>
+  To achieve this we&#39;ve set a character limit for every post, inspiring companies to be more creative and specific in the description of what they are looking for and what they have to offer.</p>
 
   <p class="pricing-text">With great support from the Rails Girls Summer of Code team, the awesome Ruby community and our amazing coaches <a href="https://twitter.com/soveran">@soveran</a>, <a href="https://twitter.com/djanowski">@djanowski</a> and <a href="https://twitter.com/inkel">@inkel</a>, we developed this application from scratch using <a href="https://www.ruby-lang.org/en/">Ruby</a>, <a href="http://cuba.is/">Cuba</a> and <a href="http://redis.io/">Redis</a>. We hope this project will not only provide a service but also serve as an example of how to use these technologies and integrate them with other
   platforms.</p>
 
   <p class="pricing-text">If you want, you can <a href="http://punchgirls.wordpress.com/">read the blog</a> we wrote while working on the project.</p>
 
-  <p class="pricing-text">Mayn and Cecilia,<br/>
+  <p class="pricing-text">Mayn &amp; Cecilia,<br/>
   Punchgirls</p>
 </section>
