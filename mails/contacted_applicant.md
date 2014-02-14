@@ -10,7 +10,8 @@ This message was sent regarding the following job position:
 
 Post title: {{ post.title }}
 Company: {{ post.company.name }} ({{ post.company.url }})
-Tags: {{ post.tags }}
+% tags = post.tags.split(",").join(", ")
+Tags: {{ tags }}
 Location: {{ post.location }}
 % if post.remote == "true"
 (Work from anywhere)
