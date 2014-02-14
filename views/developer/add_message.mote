@@ -1,6 +1,6 @@
 % application = Application.find(:post_id => post.id, :developer_id => developer.id).first
 
-% if application && application.message.nil?
+% if application && application.message.nil? && application.status == "active"
   <span class="send-message-link" onclick="addMsg({{ post.id }})"
   id="add-msg-link-{{ post.id }}">Send message to company</span>
 
