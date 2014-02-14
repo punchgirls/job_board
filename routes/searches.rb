@@ -1,7 +1,9 @@
 class Searches < Cuba
   define do
     on get, param("query") do |query|
-      on query == "all" do
+      query = query.dup.split(",")
+
+      on query[0] == "All posts" do
         render("search", title: "Search", posts: Post.active,
           search: true, query: "all", profile: true)
       end
