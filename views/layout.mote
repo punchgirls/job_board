@@ -66,6 +66,7 @@
             <li class="footer-menu-item"><a class="footer-menu-link" href="/contact">Contact</a></li>
             <li class="footer-menu-item"><a class="footer-menu-link" href="/terms">Terms</a></li>
             <li class="footer-menu-item"><a class="footer-menu-link" href="/privacy">Privacy Policy</a></li>
+            <li class="footer-menu-item"><a class="footer-menu-link" href="http://www.twitter.com/punchgirls"><i class="fa fa-twitter"></i></a></li>
           </ul>
         </nav>
       </footer>
