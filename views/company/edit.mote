@@ -29,10 +29,11 @@
     <h2 class="list-title">Edit your profile</h2>
     <li class="item">
       <form class="form edit-profile-form" action="/edit/{{ company.id }}" method="POST">
+        <input id="gravatar-url" type="hidden" name="company[gravatar]" value="{{ company.gravatar }}">
 
         <input class="input input-name" type="text" name="company[name]" maxlength="30" placeholder="Company name" value="{{ this.h(company.name) }}"><br/>
 
-        <input class="input input-profile" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company.email) }}"><br/>
+        <input id="company-email" class="input input-profile" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company.email) }}"><br/>
 
         <input class="input input-profile" type="text" name="company[url]" placeholder="URL" value="{{ this.h(company.url) }}"><br/><br/>
 

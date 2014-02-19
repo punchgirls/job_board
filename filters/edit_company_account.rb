@@ -1,6 +1,6 @@
 class EditCompanyAccount < Scrivener
   attr_accessor :name, :email, :url,
-  :password, :password_confirmation
+  :password, :password_confirmation, :gravatar
 
   def validate
     assert_present :name
