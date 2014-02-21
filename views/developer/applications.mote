@@ -27,7 +27,8 @@
                 <p class="list-subtitle status">Status: <span class="capitalize">{{ application.status }}</span></p>
                 <span class="item-subtitle company-info">
                   <h3 class="item-subtitle company-name">{{ this.h(post.company.name) }}</h3>
-                  <h3 class="item-subtitle company-url">(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h3><br/>
+                  <h3 class="item-subtitle company-name">|</h3>
+                  <h3 class="item-subtitle company-url"><a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a></h3><br/>
                 </span>
               </span>
 

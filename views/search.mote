@@ -26,7 +26,8 @@
                 <br/>
                 <span class="item-subtitle company-info">
                   <h3 class="item-subtitle company-name"><a href="search?company_id={{ post.company.id }}">{{ this.h(post.company.name) }}</a></h3>
-                  <h3 class="item-subtitle company-url">(<a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a>)</h3><br/>
+                  <h3 class="item-subtitle company-name">|</h3>
+                  <h3 class="item-subtitle company-url"><a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a></h3><br/>
                 </span>
               </span>
 
