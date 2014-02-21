@@ -38,11 +38,13 @@
 
     <h2 class="list-title company-dashboard-title">Payment info <a href="/customer/update"><i class="fa fa-pencil-square-o cursor"></i></a></h2><br/>
 
-    <li class="item">
-
+   % if card.nil?
+    <p class="item-subtitle">You have no registered payment details</p>
+   % else
+     <li class="item">
       {{ this.partial("/customer/payment_details", card: card) }}
-
     </li>
+   % end
 
     <li class="item item-subtitle"><a id="delete" href="">Delete account</a></li>
 

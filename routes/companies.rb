@@ -28,21 +28,16 @@ class Companies < Cuba
     on "profile" do
       card = Stripe.retrieve_card(customer_id)
 
-      on !card.instance_of?(Stripe::Card) do
-        if card.instance_of?(Stripe::CardError)
-          session[:error] = card.message
+      on card.instance_of?(Stripe::CardError) do
+        session[:error] = card.message
 
-          res.redirect "/dashboard"
-        else
-          session[:error] = "It looks like we are having some problems
-            with your request. Please try again in a few minutes!"
-
-          res.redirect "/dashboard"
-        end
+        res.redirect "/dashboard"
       end
 
-      render("company/profile", title: "Profile", card: card,
-        plan: plan)
+      on default do
+        render("company/profile", title: "Profile", card: card,
+          plan: plan)
+      end
     end
 
     on "edit" do
