@@ -15,8 +15,10 @@ Location: {{ post.location }}
 Description:
 {{ post.description }}
 
-The company will still be able to see your application. Don't worry to much, there are more jobs waiting for you at
-http://jobs.punchgirls.com !
+The company will still be able to see your application.
+
+Don't worry to much, there are more jobs waiting for you at
+http://jobs.punchgirls.com!
 
 Kind regards,
 
