@@ -1,6 +1,6 @@
 class Plan
   POSTS = {
-    "free"  => 0,
+    "free"  => 5,
     "small"  => 1,
     "medium" => 5,
     "large"  => 10,
