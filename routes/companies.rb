@@ -360,7 +360,7 @@ class Companies < Cuba
 
             Ost[:contacted_applicant].push(message.id)
 
-            res.redirect "/post/applications/#{id}"
+            res.redirect "/post/applications/#{application.post.id}"
           else
             session[:error] = "All fields are required"
             render("company/post/contact", title: "Contact developer",
