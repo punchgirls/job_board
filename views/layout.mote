@@ -15,7 +15,7 @@
   <body>
     <div class="wrapper">
       <header class="header">
-        <h1 class="header-title"><a class="header-link" href="/"><img class="logo" src="/img/jobs-punchgirls-64x64.png" />job board</a></h1>
+        <h1 class="header-title"><a class="header-link" href="/">job board</a></h1>
         <input class="header-menu-checkbox" type="checkbox" id="toggle">
         <label class="header-label" for="toggle"></label>
         % if search

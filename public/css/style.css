@@ -114,24 +114,17 @@ input:-moz-placeholder {
 
 .header {
   text-align: center;
-  min-height: 80px;
-  line-height: 80px;
+  min-height: 57px;
+  line-height: 57px;
   background-color: #fafafa;
 }
 
 .header-title {
   display: inline;
   padding: 0;
-  margin-right: 20px;
   font-size: 1.2em;
   text-transform: uppercase;
   font-family: 'Share Tech Mono', sans-serif;
-}
-
-.logo {
-  vertical-align: middle;
-  border: none;
-  margin: 8px 15px 8px 0;
 }
 
 .header-link {
@@ -141,6 +134,8 @@ input:-moz-placeholder {
 .header-menu {
   font-size: 0.8em;
   margin: 0;
+  text-transform: uppercase;
+  font-family: 'Share Tech Mono', sans-serif;
 }
 
 .header-menu, .footer-menu {
@@ -165,7 +160,7 @@ input:-moz-placeholder {
 }
 
 .header-button-search {
-  margin-top: 18px;
+  margin-top: 8px;
 }
 
 .avatar-list-item {
