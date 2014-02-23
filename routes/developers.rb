@@ -118,30 +118,22 @@ class Developers < Cuba
       end
     end
 
-    on "note/:id" do |id|
+    on "note/:id", param("note") do |id, note|
       application = Application[id]
 
-      on param("note") do |note|
-        if note == "empty"
-          note = ""
-        end
-
-        text = AddNote.new(:note => note)
-
-        on text.valid? do
-          application.update(:note => note)
-        end
-
-        on defaul do
-          session[:error] = "Your message exceeds the character limit."
-        end
+      if note == "empty"
+        note = ""
       end
 
-      on get, root do
-        res.redirect "/search"
+      text = AddNote.new(note: note)
+
+      on text.valid? do
+        application.update(note: note)
       end
 
-      on(default) { not_found! }
+      on default do
+        session[:error] = "Your message exceeds the character limit."
+      end
     end
 
     on "favorite/:id" do |id|
