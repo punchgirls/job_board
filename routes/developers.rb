@@ -89,19 +89,25 @@ class Developers < Cuba
     end
 
     on "message/:post_id", param("message") do |post_id, message|
-      applications = Post[post_id].applications
-      application = Application[applications.find(:developer_id => developer.id).ids[0]]
+      on developer.applied?(post_id) do
+        applications = Post[post_id].applications
+        application = Application[applications.find(:developer_id => developer.id).ids[0]]
 
-      msg = SendMessage.new(:message => message)
+        msg = SendMessage.new(message: message)
 
-      on msg.valid? do
-        application.update(:message => message)
+        on msg.valid? do
+          application.update(message: msg.message)
 
-        Ost[:developer_sent_message].push(application.id)
+          Ost[:developer_sent_message].push(application.id)
+        end
+
+        on default do
+          session[:error] = "Your message exceeds the character limit."
+        end
       end
 
       on default do
-        session[:error] = "Your message exceeds the character limit."
+        not_found!
       end
     end
 
