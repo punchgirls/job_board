@@ -46,9 +46,16 @@ class Developers < Cuba
     end
 
     on "remove/:id" do |id|
-      Ost[:deleted_application].push(id)
+      application = developer.active_applications[id]
 
-      res.redirect "/applications"
+      on application do
+        Ost[:deleted_application].push(id)
+        res.redirect "/applications"
+      end
+
+      on default do
+        not_found!
+      end
     end
 
     on "favorites" do
