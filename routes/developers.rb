@@ -131,6 +131,7 @@ class Developers < Cuba
 
           on default do
             session[:error] = "Your message exceeds the character limit."
+
             res.redirect("/applications")
           end
         end

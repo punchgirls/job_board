@@ -4,8 +4,8 @@
   <span class="send-message-link" onclick="addMsg({{ post.id }})"
   id="add-msg-link-{{ post.id }}">Send message to company</span>
 
-  {{ this.partial("developer/message_form", post: post, developer: developer) }}
+  {{ this.partial("developer/message_form", post: post) }}
 % end
 
 <span onclick="addMsg({{ post.id }})" id="add-msg-link-{{ post.id }}"></span>
-{{ this.partial("developer/message_form", post: post, developer: developer) }}
+{{ this.partial("developer/message_form", post: post) }}
