@@ -94,7 +94,7 @@ class Developers < Cuba
           Ost[:developer_sent_message].push(application.id)
         end
 
-        on defaul do
+        on default do
           session[:error] = "Your message exceeds the character limit."
         end
       end
