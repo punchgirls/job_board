@@ -90,8 +90,7 @@ class Developers < Cuba
 
     on "message/:post_id", param("message") do |post_id, message|
       on developer.applied?(post_id) do
-        applications = Post[post_id].applications
-        application = Application[applications.find(:developer_id => developer.id).ids[0]]
+        application = developer.applications.find(post_id: post_id).first
 
         msg = SendMessage.new(message: message)
 
