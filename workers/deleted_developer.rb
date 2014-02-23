@@ -3,9 +3,7 @@ require_relative "../app"
 Ost[:deleted_developer].each do |id|
   developer = Developer[id]
 
-  developer.active_applications.ids.each do |id|
-    application = Application[id]
-
+  developer.active_applications.each do |application|
     text = Mailer.render("deleted_developer", { application: application,
     post: application.post })
 
