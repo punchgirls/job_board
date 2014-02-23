@@ -67,26 +67,20 @@ class Developers < Cuba
       post = Post[id]
 
       on post do
-        time = Time.new.to_i
-
-        params = { date: time,
-          developer_id: developer.id,
-          post_id: id,
-          status: "active" }
-
-        if !developer.applied?(post.id)
-          application = Application.create(params)
+        unless developer.applied?(post.id)
+          application = Application.create(
+            date: Time.new.to_i,
+            developer_id: developer.id,
+            post_id: post.id,
+            status: "active"
+          )
 
           session[:success] = "You have successfully applied for a job!"
 
           Ost[:developer_applied].push(application.id)
-
-          res.redirect "/applications"
         end
 
-        on default do
-          res.redirect "/applications"
-        end
+        res.redirect "/applications"
       end
 
       on default do
