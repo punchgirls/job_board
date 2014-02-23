@@ -118,7 +118,7 @@ function displayNote (id) {
   if (noteTxt != "") {
     url = "/note/" + id + "/?note=" + noteTxt;
   } else {
-    url = "/note/" + id + "/?note=empty";
+    url = "/note/" + id + "/?note=''";
   }
 
   var request = ajax();

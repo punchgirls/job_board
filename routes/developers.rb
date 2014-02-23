@@ -120,11 +120,6 @@ class Developers < Cuba
 
     on "note/:id", param("note") do |id, note|
       application = Application[id]
-
-      if note == "empty"
-        note = ""
-      end
-
       text = AddNote.new(note: note)
 
       on text.valid? do
