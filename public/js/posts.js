@@ -113,13 +113,7 @@ function displayNote (id) {
   var noteLink = document.getElementById("note-link-" + id);
   var form = document.getElementById("note-form-" + id);
   var editNoteLink = document.getElementById("edit-note-link-" + id);
-  var url;
-
-  if (noteTxt != "") {
-    url = "/note/" + id + "/?note=" + noteTxt;
-  } else {
-    url = "/note/" + id + "/?note=''";
-  }
+  var url = "/note/" + id + "/?note=" + noteTxt;
 
   var request = ajax();
   request.open("POST", url);

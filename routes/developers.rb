@@ -118,16 +118,29 @@ class Developers < Cuba
       end
     end
 
-    on "note/:id", param("note") do |id, note|
-      application = Application[id]
-      text = AddNote.new(note: note)
+    on "note/:id" do |id|
+      application = developer.active_applications[id]
 
-      on text.valid? do
-        application.update(note: note)
+      on application do
+        on param("note") do |note|
+          text = AddNote.new(note: note)
+
+          on text.valid? do
+            application.update(note: note)
+          end
+
+          on default do
+            session[:error] = "Your message exceeds the character limit."
+          end
+        end
+
+        on default do
+          application.update(note: "")
+        end
       end
 
       on default do
-        session[:error] = "Your message exceeds the character limit."
+        not_found!
       end
     end
 
