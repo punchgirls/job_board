@@ -107,11 +107,9 @@ class Developers < Cuba
         end
       end
 
-      on get, root do
-        res.redirect "/search"
+      on default do
+        not_found!
       end
-
-      on(default) { not_found! }
     end
 
     on "note/:id" do |id|
