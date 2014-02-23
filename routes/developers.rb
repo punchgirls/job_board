@@ -89,11 +89,10 @@ class Developers < Cuba
     end
 
     on "message/:post_id/:developer_id" do |post_id, developer_id|
-      applications = Post[post_id].applications
-
-      application = Application[applications.find(:developer_id => developer_id).ids[0]]
-
       on param("message") do |message|
+        applications = Post[post_id].applications
+        application = Application[applications.find(:developer_id => developer_id).ids[0]]
+
         msg = SendMessage.new(:message => message)
 
         on msg.valid? do
