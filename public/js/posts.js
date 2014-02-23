@@ -49,10 +49,10 @@ function closeMsgFrm (id) {
   messageFrm.style.display = "none";
 }
 
-function sendMsg (postId, developerId) {
+function sendMsg (postId) {
   var messageFrm = document.getElementById("message-form-" + postId);
   var messageTxt = document.getElementById("message-txt-" + postId).value;
-  var url = "/message/" + postId + "/" + developerId + "/?message=" + messageTxt;
+  var url = "/message/" + postId + "?message=" + messageTxt;
   var message = document.getElementById("message-" + postId);
   var sentOK = document.getElementById("sent-ok-" + postId);
 

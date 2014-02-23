@@ -1,5 +1,5 @@
 <form class="send-message-form" id="message-form-{{ post.id }}" method="POST"
-onsubmit="sendMsg({{ post.id }}, {{ developer.id }}); return false;">
+onsubmit="sendMsg({{ post.id }}); return false;">
 
   <textarea class="textarea send-message-textarea" id="message-txt-{{ post.id }}" name="message" placeholder="This message will be attached to your application." onkeyup="updateCountdownMsg({{ post.id }})" maxlength="200"></textarea>
 
