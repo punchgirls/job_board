@@ -169,12 +169,6 @@ class CanceledCompanies < Cuba
       end
     end
 
-    on "signup" do
-      session[:error] = "If you need to change your plan go to your
-      profile page > Subscription info"
-      res.redirect "/pricing"
-    end
-
     on "logout" do
       logout(Company)
       session[:success] = "You have successfully logged out!"
