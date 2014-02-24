@@ -44,13 +44,17 @@
                 <span class="underline">Delete post</span>
               </span>
 
-              <span class="published" onclick="publishPost({{ post.id }})" id="publish-link-{{ post.id }}">
+              <span class="published"/>
                 % if post.status == "published"
-                  <i class="fa fa-check post-control-icon published-icon"></i>
-                  <span class="underline">Unpublish</span>
+                  <a href="/post/status/{{ post.id }}">
+                    <i class="fa fa-check post-control-icon published-icon"></i>
+                    <span class="underline">Unpublish</span>
+                  </a>
                 % else
-                  <i class="fa fa-check post-control-icon"></i>
-                  <span class="underline">Publish</span>
+                  <a href="/post/status/{{ post.id }}">
+                    <i class="fa fa-check post-control-icon"></i>
+                    <span class="underline">Publish</span>
+                  </a>
                 % end
               </span>
             </section>
