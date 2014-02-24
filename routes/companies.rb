@@ -260,30 +260,36 @@ class Companies < Cuba
       end
 
       on "post/status/:id" do |id|
-        post = Post[id]
+        post = company.posts[id]
 
-        on post.published? do
-          post.update({ status: "unpublished"})
+        on post do
+          on post.published? do
+            post.update(status: "unpublished")
 
-          post.favorited_by.each do |developer|
-            developer.favorites.delete(post)
+            post.favorited_by.each do |developer|
+              developer.favorites.delete(post)
+            end
+
+            res.redirect "/dashboard"
           end
 
-          res.redirect "/dashboard"
+          on !post.published? do
+            on company.published_posts.size <  plan.posts do
+              post.update(status: "published")
+
+              res.redirect "/dashboard"
+            end
+
+            on default do
+              session[:error] = "You can only have #{plan.posts} published post(s)."
+
+              res.redirect "/dashboard"
+            end
+          end
         end
 
-        on !post.published? do
-          on company.published_posts.size <  plan.posts.to_i do
-            post.update({ status: "published"})
-
-            res.redirect "/dashboard"
-          end
-
-          on default do
-            session[:error] = "You can only have #{plan.posts} published post."
-
-            res.redirect "/dashboard"
-          end
+        on default do
+          not_found!
         end
       end
 
