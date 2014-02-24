@@ -387,15 +387,22 @@ class Companies < Cuba
         end
       end
 
-      # TODO: Check if application exists.
       on "application/discard/:id" do |id|
         application = Application[id]
 
-        application.update(status: "discarded")
+        on application && company.posts.include?(application.post) do
+          application.update(status: "discarded")
 
-        Ost[:discarded_applicant].push(id)
+          Ost[:discarded_applicant].push(id)
 
-        session[:success] = "Applicant successfully discarded!"
+          session[:success] = "Applicant successfully discarded!"
+
+          res.redirect "/post/applications/#{application.post.id}"
+        end
+
+        on default do
+          not_found!
+        end
       end
 
       # TODO: Check if application exists.
