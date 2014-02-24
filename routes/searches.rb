@@ -4,7 +4,7 @@ class Searches < Cuba
 
       on query.include?("All posts") do
         render("search", title: "Search", posts: Post.active,
-          search: true, query: "all", profile: true)
+          search: true, query: "All posts", profile: true)
       end
 
       on default do
