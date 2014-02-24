@@ -514,6 +514,11 @@ input:-moz-placeholder {
   font-size: 1.3em;
 }
 
+.list-subtitle {
+  font-size: 1.2em;
+  text-align: left;
+}
+
 .item {
   border-bottom: 1px solid #ccc;
   margin-bottom: 30px;
@@ -565,7 +570,6 @@ input:-moz-placeholder {
   margin: 0 auto 20px;
   padding: 0;
   text-align: left;
-  margin-top: 10px;
   font-size: 0.9em;
   clear: both;
   line-height: 1.7em;
@@ -1209,13 +1213,14 @@ input:-moz-placeholder {
   /* Contact Developer */
 
   .contact-developer-form {
-    width: 41em;
-    max-width: 41em;
+    width: 53.5em;
+    max-width: 53.5em;
+    text-align: left;
   }
 
   .contact-developer-form .input, .contact-developer-form .textarea {
-    width: 28.2em;
-    max-width: 28.2em;
+    width: 37.2em;
+    max-width: 37.2em;
   }
 
   /* Input tokens and tags */
@@ -1252,8 +1257,9 @@ input:-moz-placeholder {
   }
 
   .new-post-form #tokens {
-    width: 24.7em;
-    max-width: 24.7em;
+    margin-top: 2px;
+    width: 25em;
+    max-width: 25em;
   }
 
   .new-post-form .input, .new-post-form .textarea {
@@ -1632,8 +1638,9 @@ input:-moz-placeholder {
   }
 
   .edit-post-form #tokens {
-    width: 36.7em;
-    max-width: 36.7em;
+    width: 37em;
+    max-width: 37em;
+    margin-top: 0;
   }
 
   .edit-post-form .input-location {
@@ -1642,8 +1649,8 @@ input:-moz-placeholder {
   }
 
   .edit-post-form #autocomplete {
-    width: 34.9em;
-    max-width: 34.9em;
+    width: 35em;
+    max-width: 35em;
   }
 
   /* Forms */
@@ -1791,7 +1798,9 @@ input:-moz-placeholder {
   /* Applicants */
 
   .see-applicants-link {
+    display: inline-block;
     margin-bottom: 30px;
+    float: left;
   }
 
   /* Company Dashboard */
@@ -1819,18 +1828,19 @@ input:-moz-placeholder {
   /* Edit company profile */
 
   .edit-profile-form {
-    width: 47em;
-    max-width: 47em;
+    width: 61em;
+    max-width: 61em;
+    text-align: left;
   }
 
   .edit-profile-form .input-name {
-    width: 26.7em;
-    max-width: 26.7em;
+    width: 35em;
+    max-width: 35em;
   }
 
   .edit-profile-form .input-profile {
-    width: 30.4em;
-    max-width: 30.4em;
+    width: 39.7em;
+    max-width: 39.7em;
   }
 
   /* Post display */
