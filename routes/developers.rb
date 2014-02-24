@@ -148,34 +148,41 @@ class Developers < Cuba
 
     on "favorite/:id" do |id|
       post = Post[id]
-      favorites = developer.favorites
-      favorited_by = post.favorited_by
 
-      on !favorites.member?(post) do
-        favorites.add(post)
-        favorited_by.add(developer)
+      on post do
+        favorites = developer.favorites
+        favorited_by = post.favorited_by
 
-        res.redirect "/favorites"
-      end
-
-      on favorites.member?(post) do
-
-        on session[:origin] == "guests" do
-          session.delete(:origin)
+        on !favorites.member?(post) do
+          favorites.add(post)
+          favorited_by.add(developer)
 
           res.redirect "/favorites"
         end
 
-        on default do
-          favorites.delete(post)
-          favorited_by.delete(developer)
+        on favorites.member?(post) do
 
+          on session[:origin] == "guests" do
+            session.delete(:origin)
+
+            res.redirect "/favorites"
+          end
+
+          on default do
+            favorites.delete(post)
+            favorited_by.delete(developer)
+
+            res.redirect "/favorites"
+          end
+        end
+
+        on default do
           res.redirect "/favorites"
         end
       end
 
       on default do
-        res.redirect "/favorites"
+        not_found!
       end
     end
 
