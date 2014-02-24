@@ -392,7 +392,7 @@ class Companies < Cuba
       end
 
       on "application/contact/:id" do |id|
-        application = Application[id]
+        application = company.applications[id]
 
         on application do
           on post, param("message") do |params|
