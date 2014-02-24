@@ -7,23 +7,17 @@ class Developers < Cuba
     end
 
     on "dashboard" do
-      apply_id = session[:apply_id]
-      favorite_id = session[:favorite_id]
+      apply_id = session.delete(:apply_id)
+      favorite_id = session.delete(:favorite_id)
 
       if apply_id
-        session.delete(:apply_id)
         res.redirect "/apply/#{apply_id}"
-      end
-
-      if favorite_id
-        session.delete(:favorite_id)
+      elsif favorite_id
         res.redirect "/favorite/#{favorite_id}"
-      end
-
-      on default do
+      else
         render("developer/applications", title: "My applications",
-        search: true, query: "", applications: developer.active_applications,
-        active_applications: true)
+          search: true, query: "", applications: developer.active_applications,
+          active_applications: true)
       end
     end
 
