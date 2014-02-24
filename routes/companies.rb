@@ -237,7 +237,7 @@ class Companies < Cuba
           on post.valid? do
             params["company_id"] = company.id
             params["date"] = Time.new.to_i
-            params["tags"] = params["tags"].split(",").uniq.join(",") + ","
+            params["tags"] = params["tags"].split(",").uniq.join(",")
             params["status"] = "published"
 
             if params["remote"].nil?
