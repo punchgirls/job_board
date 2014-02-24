@@ -10,7 +10,7 @@
     </p>
     <p class="item-text posts-found company-plan-info"><a href="/post/new">Post job offer</a></p>
     % if posts.empty?
-      <p class="list-title">You haven't posted anything yet.<br/><br/>
+      <p class="list-subtitle">You haven't posted anything yet.<br/><br/>
       Click <a href="/post/new">here</a> to get started!</p>
     % else
       % posts.each do |post|

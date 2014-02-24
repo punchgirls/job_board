@@ -19,8 +19,7 @@
           <a class="applicant-gh-link" href="http://www.github.com/{{ developer.username }}" target="_blank">github.com/{{ developer.username }}</a>
 
           % if !developer.url.nil?
-            <h3 class="item-subtitle">URL:</h3>
-            <p class="item-text"><a href="{{ developer.url }}">{{ this.h(developer.url) }}</a></p>
+            <p class="item-text">URL: <a href="{{ developer.url }}">{{ this.h(developer.url) }}</a></p>
           % end
 
           % if !developer.bio.nil?
