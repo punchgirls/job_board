@@ -8,7 +8,7 @@
 % end
     <div id="tags_wrapper">
       % if query && !query.empty?
-          <input id="tags" type="hidden" value="{{ query }}">
+        <input id="tags" type="hidden" value="{{ query }}">
       % end
 
       <ul class="header-menu" id="tokens">

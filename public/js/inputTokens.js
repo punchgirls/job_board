@@ -16,7 +16,7 @@ var searchFrm = document.form;
 if (tags != null) {
   tags = tags.value.split(",");
 
-  for(var i = 0; i < tags.length - 1; i++) {
+  for(var i = 0; i < tags.length; i++) {
     addToken(tags[i]);
   }
 }
@@ -186,12 +186,12 @@ searchInput.onkeyup = function(e) {
 };
 
 postFrm.onsubmit = function() {
-  var skills = tokens.getElementsByTagName("li");
+  var skills = tokens.querySelectorAll("li.token");
   var query = "";
 
-  for (var i = 0; i < skills.length - 1; i ++) {
+  for (var i = 0; i < skills.length; i ++) {
     query = query + skills[i].firstChild.innerHTML + ",";
   }
 
-  queryInput.value = query;
+  queryInput.value = query.slice(0, -1);
 };

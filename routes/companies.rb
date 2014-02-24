@@ -320,35 +320,39 @@ class Companies < Cuba
       end
 
       on "post/edit/:id" do |id|
-        on post, param("post") do |params|
-          post = Post[id]
+        post = company.posts[id]
 
-          edit = PostJobOffer.new(params)
+        on post do
+          on req.post?, param("post") do |params|
+            edit = PostJobOffer.new(params)
 
-          on edit.valid? do
-            if params["remote"].nil?
-              params["remote"] = false
+            on edit.valid? do
+              if params["remote"].nil?
+                params["remote"] = false
+              end
+
+              params["tags"] = params["tags"].split(",").uniq.join(",")
+
+              post.update(params)
+
+              session[:success] = "Post successfully edited!"
+              res.redirect "/dashboard"
             end
 
-            params["tags"] = params["tags"].split(",").uniq.join(",") + ","
-
-            post.update(params)
-
-            session[:success] = "Post successfully edited!"
-            res.redirect "/dashboard"
+            on default do
+              render("company/post/edit", title: "Edit post",
+                post: post, edit: edit)
+            end
           end
 
           on default do
             render("company/post/edit", title: "Edit post",
-              id: id, edit: edit)
+              post: post, edit: PostJobOffer.new({}))
           end
         end
 
         on default do
-          edit = PostJobOffer.new({})
-
-          render("company/post/edit", title: "Edit post",
-            id: id, edit: edit)
+          not_found!
         end
       end
 
