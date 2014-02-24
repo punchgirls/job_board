@@ -306,9 +306,17 @@ class Companies < Cuba
       end
 
       on "post/remove/:id" do |id|
-        Ost[:deleted_post].push(id)
+        post = company.posts[id]
 
-        res.redirect "/dashboard"
+        on post do
+          Ost[:deleted_post].push(id)
+
+          res.redirect "/dashboard"
+        end
+
+        on default do
+          not_found!
+        end
       end
 
       on "post/edit/:id" do |id|
