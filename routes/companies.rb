@@ -455,21 +455,23 @@ class Companies < Cuba
         end
       end
 
-      # TODO: Check that application post is part of
       on "application/favorite/:id" do |id|
         application = Application[id]
-        post = application.post
 
-        if post.favorites.member?(application)
-          post.favorites.delete(application)
-          res.write "deleted"
-        else
-          post.favorites.add(application)
-          res.write "added"
+        on application && company.posts.include?(application.post) do
+          post = application.post
+
+          if post.favorites.member?(application)
+            post.favorites.delete(application)
+          else
+            post.favorites.add(application)
+          end
+
+          res.redirect "/post/applications/#{post.id}"
         end
 
         on default do
-          res.redirect "/post/applications/#{post.id}"
+          not_found!
         end
       end
 
