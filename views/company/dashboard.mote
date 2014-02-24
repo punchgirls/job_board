@@ -46,12 +46,12 @@
 
               <span class="published"/>
                 % if post.status == "published"
-                  <a href="/post/status/{{ post.id }}">
+                  <a href="/post/status/{{ post.id }}#{{ post.id }}">
                     <i class="fa fa-check post-control-icon published-icon"></i>
                     <span class="underline">Unpublish</span>
                   </a>
                 % else
-                  <a href="/post/status/{{ post.id }}">
+                  <a href="/post/status/{{ post.id }}#{{ post.id }}">
                     <i class="fa fa-check post-control-icon"></i>
                     <span class="underline">Publish</span>
                   </a>
