@@ -356,12 +356,19 @@ class Companies < Cuba
         end
       end
 
-      # TODO: Check if post exists and change the template to pass a post param.
       on "post/applications/discarded/:id" do |id|
-        render("company/post/applications", title: "Discarded applications",
-          id: id, active_applications: false,
-          applications: Post[id].discarded_applications,
-          text: "You haven't discarded any applicants for this position.")
+        post = company.posts[id]
+
+        on post do
+          render("company/post/applications", title: "Discarded applications",
+            id: id, active_applications: false,
+            applications: Post[id].discarded_applications,
+            text: "You haven't discarded any applicants for this position.")
+        end
+
+        on default do
+          not_found!
+        end
       end
 
       # TODO: Check if post exists and change the template to pass a post param.
@@ -425,7 +432,7 @@ class Companies < Cuba
         end
       end
 
-      # TODO: Check that application post is part of company.posts.
+      # TODO: Check that application post is part of
       on "application/favorite/:id" do |id|
         application = Application[id]
         post = application.post
