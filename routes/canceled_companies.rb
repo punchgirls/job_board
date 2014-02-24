@@ -143,9 +143,7 @@ class CanceledCompanies < Cuba
 
     on "customer/subscription" do
       on post, param("company") do |params|
-      update = Stripe.update_subscription(customer_id, params["plan_id"])
-
-        company.update(status: "active", plan_id: params["plan_id"])
+        update = Stripe.update_subscription(customer_id, params["plan_id"])
 
         on !update.instance_of?(Stripe::Customer) do
           if update.instance_of?(Stripe::CardError)
@@ -158,9 +156,13 @@ class CanceledCompanies < Cuba
           res.redirect "/customer/subscription"
         end
 
-        Ost[:activated_subscription].push(company.id)
+        on default do
+          company.update(status: "active", plan_id: params["plan_id"])
 
-        res.redirect "/profile"
+          Ost[:activated_subscription].push(company.id)
+
+          res.redirect "/profile"
+        end
       end
 
       on default do
