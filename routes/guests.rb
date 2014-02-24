@@ -299,33 +299,13 @@ class Guests < Cuba
         render("confirm", title: "Confirm your user details")
       end
 
-      on(default) { not_found! }
+      on default do
+        not_found!
+      end
     end
 
-    on "pricing" do
-      render("pricing", title: "Pricing", plan_id: "small")
+    on default do
+      not_found!
     end
-
-    on "about" do
-      render("about", title: "About")
-    end
-
-    on "help" do
-      render("help", title: "Help")
-    end
-
-    on "contact" do
-      run Contacts
-    end
-
-    on "terms" do
-      render("terms", title: "Terms and Conditions")
-    end
-
-    on "privacy" do
-      render("privacy", title: "Privacy Policy")
-    end
-
-    on(default) { not_found! }
   end
 end
