@@ -3,6 +3,7 @@ var paymentFrm = document.getElementById('paymentFrm');
 var errors = document.getElementById('notices');
 var button = document.getElementById('button');
 var digits = document.getElementById('digits');
+var errorMessages = document.getElementsByClassName("alert error");
 
 if (digits) {
   var digitsInputs = digits.getElementsByTagName('input');
@@ -20,6 +21,9 @@ if (digits) {
 var stripeResponseHandler = function(status, response) {
   if (response.error) {
     // Show the errors on the form
+    for (var i = 0; i < errorMessages.length; i++) {
+      errorMessages[i].innerHTML = "";
+    }
     errors.setAttribute("class", "alert error");
     errors.innerHTML = response.error.message;
     button.removeAttribute("disabled");
