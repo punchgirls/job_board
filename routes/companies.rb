@@ -4,23 +4,6 @@ class Companies < Cuba
     customer_id = company.customer_id
     plan = company.plan
 
-    on get, root do
-      render("company/dashboard", title: "Dashboard", plan: plan)
-    end
-
-    on "dashboard" do
-      on param "company" do
-        session[:error] = "You need to logout to sign in as a developer"
-        render("company/dashboard", title: "Dashboard", plan: plan)
-      end
-
-      on get, root do
-        render("company/dashboard", title: "Dashboard", plan: plan)
-      end
-
-      on(default) { not_found! }
-    end
-
     on "search" do
       run Searches
     end
@@ -31,7 +14,7 @@ class Companies < Cuba
       on card.instance_of?(Stripe::CardError) do
         session[:error] = card.message
 
-        res.redirect "/dashboard"
+        res.redirect "/"
       end
 
       on default do
@@ -123,32 +106,32 @@ class Companies < Cuba
     end
 
     on "customer/history" do
-      on get, root do
-        history = Stripe.payment_history(customer_id)
+      history = Stripe.payment_history(customer_id)
 
-        on !history.instance_of?(Stripe::ListObject) do
-           session[:error] = "It looks like we are having some problems
-              with your request. Please try again in a few minutes!"
+      on !history.instance_of?(Stripe::ListObject) do
+         session[:error] = "It looks like we are having some problems
+            with your request. Please try again in a few minutes!"
 
-            res.redirect "company/profile"
-        end
+          res.redirect "company/profile"
+      end
 
+      on default do
         render("customer/history", title: "Payment details",
           history: history)
       end
     end
 
     on "customer/invoice/:id" do |id|
-      on get, root do
-        invoice = Stripe.retrieve_invoice(id)
+      invoice = Stripe.retrieve_invoice(id)
 
-        on !invoice.instance_of?(Stripe::Invoice) do
-          session[:error] = "It looks like we are having some problems
-              with your request. Please try again in a few minutes!"
+      on !invoice.instance_of?(Stripe::Invoice) do
+        session[:error] = "It looks like we are having some problems
+            with your request. Please try again in a few minutes!"
 
-          res.redirect "company/profile"
-        end
+        res.redirect "company/profile"
+      end
 
+      on default do
         render("customer/invoice", title: "Invoice details",
           invoice: invoice, plan: plan)
       end
@@ -157,8 +140,6 @@ class Companies < Cuba
     on "customer/subscription" do
       on post, param("company") do |params|
       update = Stripe.update_subscription(customer_id, params["plan_id"])
-
-        company.update(status: "active", plan_id: params["plan_id"])
 
         on !update.instance_of?(Stripe::Customer) do
           if update.instance_of?(Stripe::CardError)
@@ -171,232 +152,19 @@ class Companies < Cuba
           res.redirect "/customer/subscription"
         end
 
-        Ost[:activated_subscription].push(company.id)
+        on default do
+          company.update(status: "active", plan_id: params["plan_id"])
 
-        res.redirect "/profile"
+          Ost[:activated_subscription].push(company.id)
+
+          res.redirect "/profile"
+        end
       end
 
       on default do
         render("customer/subscription", title: "Update subscription",
           plan_id: plan.name)
       end
-    end
-
-    on "cancel_subscription" do
-      cancel = Stripe.cancel_subscription(customer_id)
-
-      on !cancel.instance_of?(Stripe::Customer) do
-        if cancel.instance_of?(Stripe::CardError)
-          session[:error] = cancel.message
-        else
-          session[:error] = "It looks like we are having some problems
-            with your request. Please try again in a few minutes!"
-        end
-
-        res.redirect "/profile"
-      end
-
-      company.update(status: "suspended")
-
-      Ost[:canceled_subscription].push(company.id)
-
-      res.redirect "/profile"
-    end
-
-    on "post/new" do
-      on post, param("post") do |params|
-        post = PostJobOffer.new(params)
-
-        on post.valid? do
-          time = Time.new.to_i
-
-          params["company_id"] = company.id
-          params["date"] = time
-          params["tags"] = params["tags"].split(",").uniq.join(",") + ","
-
-          params["status"] = "published"
-
-          if params["remote"].nil?
-            params["remote"] = false
-          end
-
-          job = Post.create(params)
-
-          session[:success] = "You have successfully posted a job offer!"
-          res.redirect "/dashboard"
-        end
-
-        on default do
-          render("company/post/new", title: "Post job offer",
-            post: post)
-        end
-      end
-
-      on get, root do
-        if company.published_posts.size <  plan.posts.to_i
-          post = PostJobOffer.new({})
-
-          render("company/post/new", title: "Post job offer", post: post)
-        else
-          session[:error] = "You can only have #{plan.posts} published post."
-          res.redirect "/dashboard"
-        end
-      end
-
-      on(default) { not_found! }
-    end
-
-    on "post/status/:id" do |id|
-      post = Post[id]
-
-      on post.published? do
-        post.update({ status: "unpublished"})
-
-        post.favorited_by.each do |developer|
-          developer.favorites.delete(post)
-        end
-
-        res.redirect "/dashboard"
-      end
-
-      on !post.published? do
-        on company.published_posts.size <  plan.posts.to_i do
-          post.update({ status: "published"})
-
-          res.redirect "/dashboard"
-        end
-
-        on default do
-          session[:error] = "You can only have #{plan.posts} published post."
-
-          res.redirect "/dashboard"
-        end
-      end
-    end
-
-    on "post/remove/:id" do |id|
-      Ost[:deleted_post].push(id)
-
-      res.redirect "/dashboard"
-    end
-
-    on "post/edit/:id" do |id|
-      on post, param("post") do |params|
-        post = Post[id]
-
-        edit = PostJobOffer.new(params)
-
-        on edit.valid? do
-          if params["remote"].nil?
-            params["remote"] = false
-          end
-
-          params["tags"] = params["tags"].split(",").uniq.join(",") + ","
-
-          post.update(params)
-
-          session[:success] = "Post successfully edited!"
-          res.redirect "/dashboard"
-        end
-
-        on default do
-          render("company/post/edit", title: "Edit post",
-            id: id, edit: edit)
-        end
-      end
-
-      on default do
-        edit = PostJobOffer.new({})
-
-        render("company/post/edit", title: "Edit post",
-          id: id, edit: edit)
-      end
-    end
-
-    on "post/applications/discarded/:id" do |id|
-      render("company/post/applications", title: "Discarded applications",
-        id: id, active_applications: false,
-        applications: Post[id].discarded_applications,
-        text: "You haven't discarded any applicants for this position.")
-    end
-
-    on "post/applications/:id" do |id|
-      render("company/post/applications", title: "Active applications", id: id,
-        applications: Post[id].active_applications,
-        active_applications: true,
-        text: "No one applied to this post yet or the persons who applied
-        removed their applications.")
-    end
-
-    on "application/discard/:id" do |id|
-      application = Application[id]
-
-      application.update(status: "discarded")
-
-      Ost[:discarded_applicant].push(id)
-
-      session[:success] = "Applicant successfully discarded!"
-    end
-
-    on "application/add/:id" do |id|
-      Application[id].update(status: "active")
-
-      session[:success] = "Applicant successfully added to list of active applications!"
-    end
-
-    on "application/contact/:id" do |id|
-      application = Application[id]
-
-      on application do
-        on post, param("message") do |params|
-          mail = Contact.new(params)
-
-          if mail.valid?
-            session[:success] = "You just sent an e-mail to the applicant!"
-
-            message = Message.create(application_id: id,
-              subject: params["subject"], body: params["body"])
-
-            Ost[:contacted_applicant].push(message.id)
-
-            res.redirect "/post/applications/#{application.post.id}"
-          else
-            session[:error] = "All fields are required"
-            render("company/post/contact", title: "Contact developer",
-              application: application, message: mail)
-          end
-        end
-
-        on default do
-          render("company/post/contact", title: "Contact developer",
-            application: application, message: Contact.new({}))
-        end
-      end
-
-      on(default) { not_found! }
-    end
-
-    on "application/favorite/:id" do |id|
-      application = Application[id]
-      post = application.post
-
-      if post.favorites.member?(application)
-        post.favorites.delete(application)
-        res.write "deleted"
-      else
-        post.favorites.add(application)
-        res.write "added"
-      end
-
-      on default do
-        res.redirect "/post/applications/#{post.id}"
-      end
-    end
-
-    on "signup" do
-      session[:error] = "If you need to change your plan go to your
-      profile page > Subscription info"
-      res.redirect "/pricing"
     end
 
     on "logout" do
@@ -416,8 +184,250 @@ class Companies < Cuba
       res.redirect "/"
     end
 
-    on default do
-      not_found!
+    on company.canceled? do
+      on "dashboard" do
+        res.redirect("/profile")
+      end
+
+      on default do
+        not_found!
+      end
+    end
+
+    on !company.canceled? do
+      on "cancel_subscription" do
+        cancel = Stripe.cancel_subscription(customer_id)
+
+        on !cancel.instance_of?(Stripe::Customer) do
+          if cancel.instance_of?(Stripe::CardError)
+            session[:error] = cancel.message
+          else
+            session[:error] = "It looks like we are having some problems
+              with your request. Please try again in a few minutes!"
+          end
+
+          res.redirect "/profile"
+        end
+
+        on default do
+          company.update(status: "suspended")
+
+          Ost[:canceled_subscription].push(company.id)
+
+          res.redirect "/profile"
+        end
+      end
+
+      on "post/new" do
+        on post, param("post") do |params|
+          post = PostJobOffer.new(params)
+
+          on post.valid? do
+            params["company_id"] = company.id
+            params["date"] = Time.new.to_i
+            params["tags"] = params["tags"].split(",").uniq.join(",") + ","
+            params["status"] = "published"
+
+            if params["remote"].nil?
+              params["remote"] = false
+            end
+
+            job = Post.create(params)
+
+            session[:success] = "You have successfully posted a job offer!"
+            res.redirect "/dashboard"
+          end
+
+          on default do
+            render("company/post/new", title: "Post job offer", post: post)
+          end
+        end
+
+        on get, root do
+          if company.published_posts.size <  plan.posts.to_i
+            post = PostJobOffer.new({})
+
+            render("company/post/new", title: "Post job offer", post: post)
+          else
+            session[:error] = "You can only have #{plan.posts} published post."
+            res.redirect "/dashboard"
+          end
+        end
+
+        on default do
+          not_found!
+        end
+      end
+
+      on "post/status/:id" do |id|
+        post = Post[id]
+
+        on post.published? do
+          post.update({ status: "unpublished"})
+
+          post.favorited_by.each do |developer|
+            developer.favorites.delete(post)
+          end
+
+          res.redirect "/dashboard"
+        end
+
+        on !post.published? do
+          on company.published_posts.size <  plan.posts.to_i do
+            post.update({ status: "published"})
+
+            res.redirect "/dashboard"
+          end
+
+          on default do
+            session[:error] = "You can only have #{plan.posts} published post."
+
+            res.redirect "/dashboard"
+          end
+        end
+      end
+
+      on "post/remove/:id" do |id|
+        Ost[:deleted_post].push(id)
+
+        res.redirect "/dashboard"
+      end
+
+      on "post/edit/:id" do |id|
+        on post, param("post") do |params|
+          post = Post[id]
+
+          edit = PostJobOffer.new(params)
+
+          on edit.valid? do
+            if params["remote"].nil?
+              params["remote"] = false
+            end
+
+            params["tags"] = params["tags"].split(",").uniq.join(",") + ","
+
+            post.update(params)
+
+            session[:success] = "Post successfully edited!"
+            res.redirect "/dashboard"
+          end
+
+          on default do
+            render("company/post/edit", title: "Edit post",
+              id: id, edit: edit)
+          end
+        end
+
+        on default do
+          edit = PostJobOffer.new({})
+
+          render("company/post/edit", title: "Edit post",
+            id: id, edit: edit)
+        end
+      end
+
+      on "post/applications/discarded/:id" do |id|
+        render("company/post/applications", title: "Discarded applications",
+          id: id, active_applications: false,
+          applications: Post[id].discarded_applications,
+          text: "You haven't discarded any applicants for this position.")
+      end
+
+      on "post/applications/:id" do |id|
+        render("company/post/applications", title: "Active applications", id: id,
+          applications: Post[id].active_applications,
+          active_applications: true,
+          text: "No one applied to this post yet or the persons who applied
+          removed their applications.")
+      end
+
+      on "application/discard/:id" do |id|
+        application = Application[id]
+
+        application.update(status: "discarded")
+
+        Ost[:discarded_applicant].push(id)
+
+        session[:success] = "Applicant successfully discarded!"
+      end
+
+      on "application/add/:id" do |id|
+        Application[id].update(status: "active")
+
+        session[:success] = "Applicant successfully added to list of active applications!"
+      end
+
+      on "application/contact/:id" do |id|
+        application = Application[id]
+
+        on application do
+          on post, param("message") do |params|
+            mail = Contact.new(params)
+
+            if mail.valid?
+              session[:success] = "You just sent an e-mail to the applicant!"
+
+              message = Message.create(application_id: id,
+                subject: params["subject"], body: params["body"])
+
+              Ost[:contacted_applicant].push(message.id)
+
+              res.redirect "/post/applications/#{application.post.id}"
+            else
+              session[:error] = "All fields are required"
+              render("company/post/contact", title: "Contact developer",
+                application: application, message: mail)
+            end
+          end
+
+          on default do
+            render("company/post/contact", title: "Contact developer",
+              application: application, message: Contact.new({}))
+          end
+        end
+
+        on(default) { not_found! }
+      end
+
+      on "application/favorite/:id" do |id|
+        application = Application[id]
+        post = application.post
+
+        if post.favorites.member?(application)
+          post.favorites.delete(application)
+          res.write "deleted"
+        else
+          post.favorites.add(application)
+          res.write "added"
+        end
+
+        on default do
+          res.redirect "/post/applications/#{post.id}"
+        end
+      end
+
+      on "signup" do
+        session[:error] = "If you need to change your plan go to your
+        profile page > Subscription info"
+        res.redirect "/pricing"
+      end
+
+      on "dashboard" do
+        on param "company" do
+          session[:error] = "You need to logout to sign in as a developer"
+          render("company/dashboard", title: "Dashboard", plan: plan)
+        end
+
+        on get, root do
+          render("company/dashboard", title: "Dashboard", plan: plan)
+        end
+
+        on(default) { not_found! }
+      end
+
+      on default do
+        not_found!
+      end
     end
   end
 end

@@ -2,10 +2,6 @@ class Developers < Cuba
   define do
     developer = current_user
 
-    on get, root do
-      res.redirect "/applications"
-    end
-
     on "dashboard" do
       apply_id = session.delete(:apply_id)
       favorite_id = session.delete(:favorite_id)
