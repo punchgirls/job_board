@@ -15,7 +15,7 @@ class CanceledCompanies < Cuba
     on "profile" do
       card = Stripe.retrieve_card(customer_id)
 
-      on !card.instance_of?(Stripe::Card) do
+      on card.instance_of?(Stripe::CardError) do
         session[:error] = card.message
 
         res.redirect "/"
