@@ -160,8 +160,7 @@ class Developers < Cuba
           res.redirect "/favorites"
         end
 
-        on favorites.member?(post) do
-
+        on default do
           on session[:origin] == "guests" do
             session.delete(:origin)
 
