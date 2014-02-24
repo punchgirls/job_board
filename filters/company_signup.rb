@@ -1,12 +1,8 @@
 class CompanySignup < Scrivener
   attr_accessor :gravatar, :name, :email, :url,
-  :password, :password_confirmation, :customer, :plan_id
+  :password, :password_confirmation, :plan_id
 
   def validate
-    unless customer.instance_of?(Stripe::Customer)
-      self.errors[:error_message] = [customer.message]
-    end
-
     if assert_email(:email)
       assert(Company.fetch(email).nil?, [:email, :not_unique])
     end

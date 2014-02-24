@@ -12,10 +12,6 @@ class Guests < Cuba
 
       on post, param("stripe_token"), param("company") do |token, params|
         url = params["url"]
-        customer = Stripe.create_customer(token, params["plan_id"],
-          params["email"], params["name"])
-
-        params["customer"] = customer
 
         unless url.start_with?("http")
           params["url"] = "http://" + url
@@ -24,28 +20,38 @@ class Guests < Cuba
         signup = CompanySignup.new(params)
 
         on signup.valid? do
-          params.delete("password_confirmation")
-          params.delete("customer")
+          customer = Stripe.create_customer(token,
+            params["plan_id"],
+            params["email"],
+            params["name"]
+          )
 
-          params["customer_id"] = customer.id
-          params["status"] = "active"
+          on customer.instance_of?(Stripe::Customer) do
+            params["status"] = "active"
+            params["customer_id"] = customer.id
+            params.delete("password_confirmation")
 
-          company = Company.create(params)
+            company = Company.create(params)
 
-          authenticate(company)
+            authenticate(company)
 
-          session[:success] = "You have successfully signed up!"
+            session[:success] = "You have successfully signed up!"
 
-          Ost[:welcome_company].push(company.id)
+            Ost[:welcome_company].push(company.id)
 
-          res.redirect "/dashboard"
+            res.redirect "/dashboard"
+          end
+
+          on default do
+            signup.errors[:error_message] = [customer.message]
+
+            render("company/signup", title: "Sign up",
+                company: params, signup: signup,
+                plan_id: params["plan_id"])
+          end
         end
 
         on default do
-          if customer.instance_of?(Stripe::Customer)
-            customer.delete
-          end
-
           render("company/signup", title: "Sign up",
               company: params, signup: signup,
               plan_id: params["plan_id"])
