@@ -42,7 +42,9 @@ class Guests < Cuba
         end
 
         on default do
-          customer.delete
+          if customer.instance_of?(Stripe::Customer)
+            customer.delete
+          end
 
           render("company/signup", title: "Sign up",
               company: params, signup: signup,
