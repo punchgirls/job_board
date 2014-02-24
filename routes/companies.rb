@@ -392,19 +392,19 @@ class Companies < Cuba
       end
 
       on "application/contact/:id" do |id|
-        application = company.applications[id]
+        application = Application[id]
 
-        on application do
+        on application && company.posts.include?(application.post) do
           on post, param("message") do |params|
             mail = Contact.new(params)
 
             if mail.valid?
               session[:success] = "You just sent an e-mail to the applicant!"
 
-              message = Message.create(application_id: id,
+              message = JSON.dump(application_id: id,
                 subject: params["subject"], body: params["body"])
 
-              Ost[:contacted_applicant].push(message.id)
+              Ost[:contacted_applicant].push(message)
 
               res.redirect "/post/applications/#{application.post.id}"
             else
