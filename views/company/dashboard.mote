@@ -39,10 +39,10 @@
             </h3>
 
             <section class="post-control">
-              <span class="cursor" onclick="removePost({{ post.id }})">
+              <a href="/post/remove/{{ post.id }}" onclick="return confirm('Are you sure you want to delete this post?')">
                 <i class="fa fa-trash-o cursor post-control-icon delete-icon"></i>
                 <span class="underline">Delete post</span>
-              </span>
+              </a>
 
               <span class="published"/>
                 % if post.status == "published"
