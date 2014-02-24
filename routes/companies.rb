@@ -405,11 +405,20 @@ class Companies < Cuba
         end
       end
 
-      # TODO: Check if application exists.
       on "application/add/:id" do |id|
-        Application[id].update(status: "active")
+        application = Application[id]
 
-        session[:success] = "Applicant successfully added to list of active applications!"
+        on application && company.posts.include?(application.post) do
+          Application[id].update(status: "active")
+
+          session[:success] = "Applicant successfully added to list of active applications!"
+
+          res.redirect "/post/applications/#{application.post.id}"
+        end
+
+        on default do
+          not_found!
+        end
       end
 
       on "application/contact/:id" do |id|
