@@ -425,6 +425,7 @@ class Companies < Cuba
         end
       end
 
+      # TODO: Check that application post is part of company.posts.
       on "application/favorite/:id" do |id|
         application = Application[id]
         post = application.post
