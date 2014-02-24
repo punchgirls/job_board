@@ -155,6 +155,14 @@ class Companies < Cuba
         on default do
           if company.active?
             company.update(plan_id: params["plan_id"])
+
+            posts = company.published_posts
+
+            if posts.size > company.plan.posts
+              posts.each do |post|
+                post.update(status: "unpublished")
+              end
+            end
           else
             company.update(plan_id: params["plan_id"], status: "active")
 
@@ -278,7 +286,7 @@ class Companies < Cuba
           end
 
           on !post.published? do
-            on company.published_posts.size <  plan.posts do
+            on company.published_posts.size < plan.posts do
               post.update(status: "published")
 
               res.redirect "/dashboard"
