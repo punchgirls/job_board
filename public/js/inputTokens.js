@@ -174,7 +174,6 @@ searchInput.onkeyup = function(e) {
         selectedToken = -1;
         searchInput.value = "";
       }
-      console.log(selectedToken);
       break;
     case 40:
       if (selectedToken < list.length - 1) {
