@@ -244,7 +244,7 @@ class Companies < Cuba
         end
 
         on get, root do
-          if company.published_posts.size <  plan.posts.to_i
+          if company.published_posts.size <  plan.posts
             post = PostJobOffer.new({})
 
             render("company/post/new", title: "Post job offer", post: post)
