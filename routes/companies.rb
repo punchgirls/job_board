@@ -356,6 +356,7 @@ class Companies < Cuba
         end
       end
 
+      # TODO: Check if post exists and change the template to pass a post param.
       on "post/applications/discarded/:id" do |id|
         render("company/post/applications", title: "Discarded applications",
           id: id, active_applications: false,
@@ -363,6 +364,7 @@ class Companies < Cuba
           text: "You haven't discarded any applicants for this position.")
       end
 
+      # TODO: Check if post exists and change the template to pass a post param.
       on "post/applications/:id" do |id|
         render("company/post/applications", title: "Active applications", id: id,
           applications: Post[id].active_applications,
@@ -371,6 +373,7 @@ class Companies < Cuba
           removed their applications.")
       end
 
+      # TODO: Check if application exists.
       on "application/discard/:id" do |id|
         application = Application[id]
 
@@ -381,6 +384,7 @@ class Companies < Cuba
         session[:success] = "Applicant successfully discarded!"
       end
 
+      # TODO: Check if application exists.
       on "application/add/:id" do |id|
         Application[id].update(status: "active")
 
@@ -416,7 +420,9 @@ class Companies < Cuba
           end
         end
 
-        on(default) { not_found! }
+        on default do
+          not_found!
+        end
       end
 
       on "application/favorite/:id" do |id|
