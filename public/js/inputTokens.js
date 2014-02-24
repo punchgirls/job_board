@@ -80,6 +80,7 @@ function addToken(value) {
     searchInput.removeAttribute("placeholder");
     autocomplete.setAttribute("style", "display: none;");
   } else {
+    errors.setAttribute("class", "error alert");
     errors.innerHTML = "You can add up to 5 skills";
   }
 }
