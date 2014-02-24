@@ -371,13 +371,20 @@ class Companies < Cuba
         end
       end
 
-      # TODO: Check if post exists and change the template to pass a post param.
       on "post/applications/:id" do |id|
-        render("company/post/applications", title: "Active applications", id: id,
-          applications: Post[id].active_applications,
-          active_applications: true,
-          text: "No one applied to this post yet or the persons who applied
-          removed their applications.")
+        post = company.posts[id]
+
+        on post do
+          render("company/post/applications", title: "Active applications", id: id,
+            applications: Post[id].active_applications,
+            active_applications: true,
+            text: "No one applied to this post yet or the persons who applied
+            removed their applications.")
+        end
+
+        on default do
+          not_found!
+        end
       end
 
       # TODO: Check if application exists.
