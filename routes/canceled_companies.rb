@@ -16,20 +16,14 @@ class CanceledCompanies < Cuba
       card = Stripe.retrieve_card(customer_id)
 
       on !card.instance_of?(Stripe::Card) do
-        if card.instance_of?(Stripe::CardError)
-          session[:error] = card.message
+        session[:error] = card.message
 
-          res.redirect "/profile"
-        else
-          session[:error] = "It looks like we are having some problems
-            with your request. Please try again in a few minutes!"
-
-          res.redirect "/profile"
-        end
+        res.redirect "/"
       end
 
-      render("company/profile", title: "Profile", card: card,
-        plan: plan)
+      on default do
+        render("company/profile", title: "Profile", card: card, plan: plan)
+      end
     end
 
     on "edit" do
