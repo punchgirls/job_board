@@ -1252,8 +1252,9 @@ input:-moz-placeholder {
   }
 
   .new-post-form #tokens {
-    width: 24.7em;
-    max-width: 24.7em;
+    margin-top: 2px;
+    width: 25em;
+    max-width: 25em;
   }
 
   .new-post-form .input, .new-post-form .textarea {
@@ -1632,8 +1633,9 @@ input:-moz-placeholder {
   }
 
   .edit-post-form #tokens {
-    width: 36.7em;
-    max-width: 36.7em;
+    width: 37em;
+    max-width: 37em;
+    margin-top: 0;
   }
 
   .edit-post-form .input-location {
@@ -1642,8 +1644,8 @@ input:-moz-placeholder {
   }
 
   .edit-post-form #autocomplete {
-    width: 34.9em;
-    max-width: 34.9em;
+    width: 35em;
+    max-width: 35em;
   }
 
   /* Forms */
