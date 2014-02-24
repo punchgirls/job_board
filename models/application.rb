@@ -1,5 +1,4 @@
 class Application < Ohm::Model
-  include Shield::Model
   include Ohm::Callbacks
 
   attribute :date

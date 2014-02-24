@@ -1,5 +1,4 @@
 class Developer < Ohm::Model
-  include Shield::Model
   include Ohm::Callbacks
 
   attribute :username
