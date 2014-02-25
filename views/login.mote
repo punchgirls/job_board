@@ -1,30 +1,34 @@
 % search = params.fetch(:search, false)
 
-% if search
-  <section class="login-search">
-% else
-  <section>
-% end
-    <a class="login-search-link" href="/github_oauth"><i class="fa fa-github"></i></a> <a class="login-search-link" href="/github_oauth">Developer Login</a>
+<section id="login-page">
+  <div class="highlight-box">
+    <h2>Developer Login</h2>
+    <a class="link-large" href="/github_oauth"><i class="fa fa-github"></i>Login using GitHub</a>
+  </div>
 
-    <h2 class="content-title company-login">Company Login</h2>
+  <div class="highlight-box">
+    <h2>Company Login</h2>
 
-    <form class="form login-form" action="/login" method="POST">
-      <input class="input login-input" type="email" name="company[email]"
-      placeholder="E-mail" value="{{ this.h(user) }}"><br/>
+    <form id="login-form" action="/login" method="POST">
+      <input type="email" name="company[email]"
+        placeholder="E-mail" value="{{ this.h(user) }}"><br/>
 
-      <input class="input login-input" type="password" name="company[password]"
-      placeholder="Password"><br/>
+      <input type="password" name="company[password]"
+        placeholder="Password"><br/>
 
-      <label class="login-label">
-        <input class="login-checkbox" type="checkbox" name="company[remember]" value="1"> <span>Remember me</span>
-      </label>
-
-      <a class="forgot-password" href="/forgot-password">Forgot password?</a>
-      <br/>
+      <ul>
+        <li>
+          <input id="remember" type="checkbox" name="company[remember]" value="1">
+          <label for="remember">Remember me</label>
+        </li>
+        <li>
+          <a id="forgot-password-link" href="/forgot-password">Forgot password?</a>
+        </li>
+      </ul>
 
       <button class="float-right" type="submit">login</button>
-    </form><br/>
+    </form>
 
-    <a href="/signup">Need an account? Sign up here!</a>
-  </section>
+    <a class="link-large" href="/signup">Need an account? Sign up here!</a>
+  </div>
+</section>

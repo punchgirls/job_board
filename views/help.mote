@@ -1,237 +1,240 @@
-<h2 class="content-title">Help</h2>
+<h2>Help</h2>
 
-<section class="help_links">
-  <h3 class="help_links_subtitle">Developers</h3>
+<h3>Developers</h3>
 
-  <ul class="help_links_list">
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#creating_your_dev_account">Creating your account</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#jobs_searching">Jobs searching</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#applying_for_a_job">Applying for a job</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#adding_a_message_to_an_application">Adding a message to an application</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#adding_a_personal_note_to_an_application">Adding a personal note to an application</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#favoriting_a_job_post">Favoriting a job post</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#application_status">Application status</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#removing_an_application">Removing an application</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#editing_your_profile">Editing your profile</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#deleting_your_dev_account">Deleting your account</a></li>
-  </ul>
+<ul class="help-menu">
+  <li><i class="fa fa-angle-right"></i><a href="#creating_your_dev_account">Creating your account</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#jobs_searching">Jobs searching</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#applying_for_a_job">Applying for a job</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#adding_a_message_to_an_application">Adding a message to an application</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#adding_a_personal_note_to_an_application">Adding a personal note to an application</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#favoriting_a_job_post">Favoriting a job post</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#application_status">Application status</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#removing_an_application">Removing an application</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#editing_your_profile">Editing your profile</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#deleting_your_dev_account">Deleting your account</a></li>
+</ul>
 
-  <h3 class="help_links_subtitle">Companies</h3>
+<h3>Companies</h3>
 
-  <ul class="help_links_list">
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#plans_and_pricing">Plans and pricing</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#creating_your_company_account">Creating your account</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#creating_a_new_job_post">Creating a new job post</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#editing_a_job_post">Editing a job post</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#reviewing_applicants">Reviewing applicants</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#contacting_an_applicant">Contacting an applicant</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#favoriting_an_applicant">Favoriting an applicant</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#discarding_an_applicant">Discarding an applicant</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#publish_unpublish_a_job_post">Publish/Unpublish a job post</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#removing_a_job_post">Removing a job post</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#editing_your_account_settings">Editing your account settings</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#seeing_your_payment_history_and_invoices">Seeing your payment history and invoices</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#canceling_your_subscription">Canceling your subscription</a></li>
-    <li class="help_links_item"><i class="fa fa-angle-right"></i><a href="#deleting_your_company_account">Deleting your account</a></li>
-  </ul>
+<ul class="help-menu">
+  <li><i class="fa fa-angle-right"></i><a href="#plans_and_pricing">Plans and pricing</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#creating_your_company_account">Creating your account</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#creating_a_new_job_post">Creating a new job post</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#editing_a_job_post">Editing a job post</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#reviewing_applicants">Reviewing applicants</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#contacting_an_applicant">Contacting an applicant</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#favoriting_an_applicant">Favoriting an applicant</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#discarding_an_applicant">Discarding an applicant</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#publish_unpublish_a_job_post">Publish/Unpublish a job post</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#removing_a_job_post">Removing a job post</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#editing_your_account_settings">Editing your account settings</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#seeing_your_payment_history_and_invoices">Seeing your payment history and invoices</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#canceling_your_subscription">Canceling your subscription</a></li>
+  <li><i class="fa fa-angle-right"></i><a href="#deleting_your_company_account">Deleting your account</a></li>
+</ul>
 
-  <h3 class="help_links_subtitle uppercase">Developers</h3>
+<h3>Developers</h3>
 
-  <h3 class="help_links_subtitle" id="creating_your_dev_account">Creating your account</h3>
-  <p class="help_links_text">
-    To create your account you need to login using GitHub. This will give us access to your public GitHub information. This information will be made available to the companies when you apply for a job.
-  </p>
-  <p class="help_links_text">
-    You'll also have the possibility to add a short bio. The bio has a limit of 200 characters so use them wisely!
-  </p>
+<h4 id="creating_your_dev_account">Creating your account</h4>
+<p>
+  To create your account you need to login using GitHub. This will give us access to your public GitHub information. This information will be made available to the companies when you apply for a job.
+</p>
+<p>
+  You'll also have the possibility to add a short bio. The bio has a limit of 200 characters so use them wisely!
+</p>
 
-  <h3 class="help_links_subtitle" id="jobs_searching">Jobs searching</h3>
-  <p class="help_links_text">
-    You can select up to 5 different skills or programming languages from the list in the search field. If you're looking for a skill and can't find it please contact us.
-  </p>
+<h4 id="jobs_searching">Jobs searching</h4>
+<p>
+  You can select up to 5 different skills or programming languages from the list in the search field. If you're looking for a skill and can't find it please contact us.
+</p>
 
-  <h3 class="help_links_subtitle" id="applying_for_a_job">Applying for a job</h3>
-  <p class="help_links_text">
-    When you find the perfect job click on "Apply" and you'll be added to the listed applicants for that post. The company will be able to see your profile and contact you through e-mail.
-  </p>
+<h4 id="applying_for_a_job">Applying for a job</h4>
+<p>
+  When you find the perfect job click on "Apply" and you'll be added to the listed applicants for that post. The company will be able to see your profile and contact you through e-mail.
+</p>
 
-  <h3 class="help_links_subtitle" id="adding_a_message_to_an_application">Adding a message to an application</h3>
-  <p class="help_links_text">
-    After you apply for a job you'll have the chance to add a one-time short message to your application. You can use this message to add any extra information specific for this post.
-  </p>
+<h4 id="adding_a_message_to_an_application">Adding a message to an application</h4>
+<p >
+  After you apply for a job you'll have the chance to add a one-time short message to your application. You can use this message to add any extra information specific for this post.
+</p>
 
-  <h3 class="help_links_subtitle" id="adding_a_personal_note_to_an_application">Adding a personal note to an application</h3>
-  <p class="help_links_text">
-    For each application you can add an editable note to keep track of details regarding the application. This note won't be shown to anyone but you.
-  </p>
+<h4 id="adding_a_personal_note_to_an_application">Adding a personal note to an application</h4>
+<p >
+  For each application you can add an editable note to keep track of details regarding the application. This note won't be shown to anyone but you.
+</p>
 
-  <h3 class="help_links_subtitle" id="favoriting_a_job_post">Favoriting a job post</h3>
-  <p class="help_links_text">
-    If you find a job that you like but you're not quite ready to apply you can add it to your favorites list to review it later.
-  </p>
+<h4 id="favoriting_a_job_post">Favoriting a job post</h4>
+<p >
+  If you find a job that you like but you're not quite ready to apply you can add it to your favorites list to review it later.
+</p>
 
-  <h3 class="help_links_subtitle" id="application_status">Application status</h3>
-  <p class="help_links_text">
-    Each application will have the status "Active" or "Discarded".
-  </p>
-  <p class="help_links_text">
-    "Active" means you're still being considered for the position.
-  </p>
-  <p class="help_links_text">
-    "Discarded" means that you haven't been selected for the position but they'll still be able to see your application. Don't worry too much, there're more jobs waiting for you!
-  </p>
+<h4 id="application_status">Application status</h4>
+<p>
+  Each application will have the status "Active" or "Discarded".
+</p>
+<p>
+  "Active" means you're still being considered for the position.
+</p>
+<p>
+  "Discarded" means that you haven't been selected for the position but they'll still be able to see your application. Don't worry too much, there're more jobs waiting for you!
+</p>
 
-  <h3 class="help_links_subtitle" id="removing_an_application">Removing an application</h3>
-  <p class="help_links_text">
-    If you applied for a job and then change your mind you can remove your application.
-  </p>
-  <p class="help_links_text">
-    Note that by performing this action the company will no longer be able to see your application.
-  </p>
+<h4 id="removing_an_application">Removing an application</h4>
+<p>
+  If you applied for a job and then change your mind you can remove your application.
+</p>
+<p>
+  Note that by performing this action the company will no longer be able to see your application.
+</p>
 
-  <h3 class="help_links_subtitle" id="editing_your_profile">Editing your profile</h3>
-  <p class="help_links_text">
-    You can edit your name, e-mail, URL and bio in your profile page. The rest of the information (username and gravatar) is tied to your GitHub account and must be changed from there.
-  </p>
+<h4 id="editing_your_profile">Editing your profile</h4>
+<p>
+  You can edit your name, e-mail, URL and bio in your profile page. The rest of the information (username and gravatar) is tied to your GitHub account and must be changed from there.
+</p>
 
-  <h3 class="help_links_subtitle" id="deleting_your_dev_account">Deleting your account</h3>
-  <p class="help_links_text">
-    If you want to remove your account for any reason you can do so by clicking the "Delete account" link in your profile page. All your information will be permanently deleted.
-  </p>
+<h4 id="deleting_your_dev_account">Deleting your account</h4>
+<p>
+  If you want to remove your account for any reason you can do so by clicking the "Delete account" link in your profile page. All your information will be permanently deleted.
+</p>
 
-  <h3 class="help_links_subtitle uppercase">Companies</h3>
+<h3>Companies</h3>
 
-  <h3 class="help_links_subtitle" id="plans_and_pricing">Plans and pricing</h3>
-  <p class="help_links_text">
-    With your subscription you can publish from 1 to 10 posts concurrently per month.<br/>
-    You can choose between:
-  </p>
-  <p class="help_links_text">
-    - Small: 1 post, 50 USD/month<br/>
-    - Medium: 5 posts, 100 USD/month<br/>
-    - Large: 10 posts, 150 USD/month<br/>
-  </p>
-  <p class="help_links_text">
-    You'll be able to publish, unpublish and edit your posts as many times as you want.
-  </p>
-  <p class="help_links_text">
-    If you need to have more than 10 posts published simultaneously per month, contact us so we can create a plan that suits you!
-  </p>
+<h4 id="plans_and_pricing">Plans and pricing</h4>
+<p>
+  With your subscription you can publish from 1 to 10 posts concurrently per month.<br/>
+  You can choose between:
+</p>
+<p>
+  - Small: 1 post, 50 USD/month<br/>
+  - Medium: 5 posts, 100 USD/month<br/>
+  - Large: 10 posts, 150 USD/month<br/>
+</p>
+<p>
+  You'll be able to publish, unpublish and edit your posts as many times as you want.
+</p>
+<p>
+  If you need to have more than 10 posts published simultaneously per month, contact us so we can create a plan that suits you!
+</p>
 
-  <h3 class="help_links_subtitle" id="creating_your_company_account">Creating your account</h3>
-  <p class="help_links_text">
-    To create an account you'll need to go to the signup page and fill in your company details and your credit card information.
-  </p>
-  <p class="help_links_text">
-    If you register with an e-mail that's linked to Gravatar your Gravatar image will be displayed as your company logo.
-  </p>
-  <p class="help_links_text">
-    If you are not using Gravatar yet you can upload your logo by registering for an account on <a href="http://www.gravatar.com">this page</a>. It's really easy!
-  </p>
+<h4 id="creating_your_company_account">Creating your account</h4>
+<p>
+  To create an account you'll need to go to the signup page and fill in your company details and your credit card information.
+</p>
+<p>
+  If you register with an e-mail that's linked to Gravatar your Gravatar image will be displayed as your company logo.
+</p>
+<p>
+  If you are not using Gravatar yet you can upload your logo by registering for an account on <a href="http://www.gravatar.com">this page</a>. It's really easy!
+</p>
 
-  <h3 class="help_links_subtitle" id="creating_a_new_job_post">Creating a new job post</h3>
-  <p class="help_links_text">
-    Once registered, you can publish job offers by clicking on the "Post job offer" link in your dashboard page.
-  </p>
-  <p class="help_links_text">
-    The post will contain a title, tags, location and a description.
-  </p>
-  <p class="help_links_text">
-    If you're looking for a skill or programming language to add as a tag and can't find it please contact us.
-  </p>
-  <p class="help_links_text">
-    Some advice:
-  </p>
-  <p class="help_links_text">
-    The description has a limit of 600 characters because we know developers prefer short and specific task post descriptions. Try to be brief and straight to the point about what you seek and what you have to offer. This way you'll attract the best applicants for the job!
-  </p>
-  <p class="help_links_text">
-    Click <a href="#examples">here</a> to see some examples.
-  </p>
+<h4 id="creating_a_new_job_post">Creating a new job post</h4>
+<p>
+  Once registered, you can publish job offers by clicking on the "Post job offer" link in your dashboard page.
+</p>
+<p>
+  The post will contain a title, tags, location and a description.
+</p>
+<p>
+  If you're looking for a skill or programming language to add as a tag and can't find it please contact us.
+</p>
+<p>
+  Some advice:
+</p>
+<p>
+  The description has a limit of 600 characters because we know developers prefer short and specific task post descriptions. Try to be brief and straight to the point about what you seek and what you have to offer. This way you'll attract the best applicants for the job!
+</p>
+<p>
+  Click <a href="#examples">here</a> to see some examples.
+</p>
 
-  <h3 class="help_links_subtitle" id="editing_a_job_post">Editing a job post</h3>
-  <p class="help_links_text">
-    You can edit a job post as many times as you want by clicking on the Edit icon next to the post in question.
-  </p>
-  <p class="help_links_text">
-    Note that if you edit an unpublished post and this post has applicants, these applicants will be able to see the changes you make.
-  </p>
+<h4 id="editing_a_job_post">Editing a job post</h4>
+<p>
+  You can edit a job post as many times as you want by clicking on the Edit icon next to the post in question.
+</p>
+<p>
+  Note that if you edit an unpublished post and this post has applicants, these applicants will be able to see the changes you make.
+</p>
 
-  <h3 class="help_links_subtitle" id="reviewing_applicants">Reviewing applicants</h3>
-  <p class="help_links_text">
-    If you want to see who applied for a job offer just click on the "See applicants" link of the post in your dashboard page.
-  </p>
-  <p class="help_links_text">
-    Once there you'll be able to see the public GitHub information for each applicant. If the applicant has added a bio to their profile or a message to the application these will be displayed as well.
-  </p>
+<h4 id="reviewing_applicants">Reviewing applicants</h4>
+<p>
+  If you want to see who applied for a job offer just click on the "See applicants" link of the post in your dashboard page.
+</p>
+<p>
+  Once there you'll be able to see the public GitHub information for each applicant. If the applicant has added a bio to their profile or a message to the application these will be displayed as well.
+</p>
 
-  <h3 class="help_links_subtitle" id="contacting_an_applicant">Contacting an applicant</h3>
-  <p class="help_links_text">
-    If you want to contact a developer all you have to do is click the "Contact" link of the applicant.
-  </p>
-  <p class="help_links_text">
-    The message will be sent as an email to the developer. This email will include your registered email address so that the developer can reply to you directly.
-  </p>
+<h4 id="contacting_an_applicant">Contacting an applicant</h4>
+<p>
+  If you want to contact a developer all you have to do is click the "Contact" link of the applicant.
+</p>
+<p>
+  The message will be sent as an email to the developer. This email will include your registered email address so that the developer can reply to you directly.
+</p>
 
-  <h3 class="help_links_subtitle" id="favoriting_an_applicant">Favoriting an applicant</h3>
-  <p class="help_links_text">
-    While reviewing applications you can mark the ones you like the most as favorites by clicking on the "Favorite" link.
-  </p>
+<h4 id="favoriting_an_applicant">Favoriting an applicant</h4>
+<p>
+  While reviewing applications you can mark the ones you like the most as favorites by clicking on the "Favorite" link.
+</p>
 
-  <h3 class="help_links_subtitle" id="discarding_an_applicant">Discarding an applicant</h3>
-  <p class="help_links_text">
-    If you discard an application by clicking on the "Discard" link, this application will be moved to the "Discarded applicants" list.
-  </p>
-  <p class="help_links_text">
-    In case you change your mind, you can always go to "Discarded applicants" and move applications back to the active list.
-  </p>
+<h4 id="discarding_an_applicant">Discarding an applicant</h4>
+<p>
+  If you discard an application by clicking on the "Discard" link, this application will be moved to the "Discarded applicants" list.
+</p>
+<p>
+  In case you change your mind, you can always go to "Discarded applicants" and move applications back to the active list.
+</p>
 
-  <h3 class="help_links_subtitle" id="publish_unpublish_a_job_post">Publish/Unpublish a job post</h3>
-  <p class="help_links_text">
-    After you create a post you can unpublish and publish it again as many times as you want by clicking on the "Publish"/"Unpublish" link of every post.
-  </p>
+<h4 id="publish_unpublish_a_job_post">Publish/Unpublish a job post</h4>
+<p>
+  After you create a post you can unpublish and publish it again as many times as you want by clicking on the "Publish"/"Unpublish" link of every post.
+</p>
 
-  <h3 class="help_links_subtitle" id="removing_a_job_post">Removing a job post</h3>
-  <p class="help_links_text">
-    If you want to permanently delete a post just click on the "Remove" link and that post will be history!
-  </p>
+<h4 id="removing_a_job_post">Removing a job post</h4>
+<p>
+  If you want to permanently delete a post just click on the "Remove" link and that post will be history!
+</p>
 
-  <h3 class="help_links_subtitle" id="editing_your_account_settings">Editing your account settings</h3>
-  <p class="help_links_text">
-    Whenever you need to edit your account information, change your subscription plan or your credit card details simply go to your profile page and click on the Edit icons of each section.
-  </p>
+<h4 id="editing_your_account_settings">Editing your account settings</h4>
+<p>
+  Whenever you need to edit your account information, change your subscription plan or your credit card details simply go to your profile page and click on the Edit icons of each section.
+</p>
 
-  <h3 class="help_links_subtitle" id="seeing_your_payment_history_and_invoices">Seeing your payment history and invoices</h3>
-  <p class="help_links_text">
-    You can always see the records of the payments you made and their invoices. Just go to your profile page and click on the "Payment history" link.
-  </p>
+<h4 id="seeing_your_payment_history_and_invoices">Seeing your payment history and invoices</h4>
+<p>
+  You can always see the records of the payments you made and their invoices. Just go to your profile page and click on the "Payment history" link.
+</p>
 
-  <h3 class="help_links_subtitle" id="canceling_your_subscription">Canceling your subscription</h3>
-  <p class="help_links_text">
-    If you want to cancel your subscription you can just click on the "Cancel subscription" link in your profile page.
-  </p>
-  <p class="help_links_text">
-    Note that you'll be able to make full use of the website for the entire month you already paid for. After that month, all posts are going to be unpublished and you will only be allowed to login to activate your subscription.
-  </p>
+<h4 id="canceling_your_subscription">Canceling your subscription</h4>
+<p>
+  If you want to cancel your subscription you can just click on the "Cancel subscription" link in your profile page.
+</p>
+<p>
+  Note that you'll be able to make full use of the website for the entire month you already paid for. After that month, all posts are going to be unpublished and you will only be allowed to login to activate your subscription.
+</p>
 
-  <h3 class="help_links_subtitle" id="deleting_your_company_account">Deleting your account</h3>
-  <p class="help_links_text">
-    If you want to remove your account for any reason you can do so by clicking the "Delete account" link in your profile page. All your information will be permanently deleted.
-  </p>
+<h4 id="deleting_your_company_account">Deleting your account</h4>
+<p>
+  If you want to remove your account for any reason you can do so by clicking the "Delete account" link in your profile page. All your information will be permanently deleted.
+</p>
 
-  <h3 class="help_links_subtitle" id="examples">Some posts examples:</h3>
-  <p class="help_links_text">
-    The following posts were written by developers when being asked what a perfect job post would it be for them:</p>
+<h4 id="examples">Some posts examples:</h4>
+<p>
+  The following posts were written by developers when being asked what a perfect job post would it be for them:</p>
 
-  <section class="post-example">
-    <p class="help_links_text">Title: Monitoring developer and operations</p>
-    <p class="help_links_text">Tags: Redis, ElasticSearch, Monitoring</p>
-    <p class="help_links_text">Description: Your tasks will be: Develop and maintain our services API, interact with Redis and ElasticSearch and design and implement a monitoring framework. Skills and experience: Knowledge of Ruby, Python or Go programming languages; Redis commands; and ElasticSearch query API. Experience in any of these is a plus though we also have a test project for you to prove yourself! Benefits: Working remotely, no phone calls meetings unless necessary, annual team meeting somewhere around the world :)</p>
-  </section>
+<ul class="highlight-box">
+  <li>Title: Monitoring developer and operations</li>
+  <li>Tags: Redis, ElasticSearch, Monitoring</li>
+  <li>
+    Description: Your tasks will be: Develop and maintain our services API, interact with Redis and ElasticSearch and design and implement a monitoring framework. Skills and experience: Knowledge of Ruby, Python or Go programming languages; Redis commands; and ElasticSearch query API. Experience in any of these is a plus though we also have a test project for you to prove yourself! Benefits: Working remotely, no phone calls meetings unless necessary, annual team meeting somewhere around the world :)
+  </li>
+</ul>
 
-  <section class="post-example">
-    <p class="help_links_text">Title: Front end developer</p>
-    <p class="help_links_text">Tags: HTML, CSS, JavaScript</p>
-    <p class="help_links_text">Description: Kittens Inc is a fast-growing digital agency in Buenos Aires. We're currently working on a project where we need a front end developer to finish the responsive design work. This is the project you will be working on: http://kittens.com/. Your daily tasks: Build responsive HTML5 pages and create rich frontend JavaScript components. Your profile: Experience with HTML5, CSS3, JavaScript, JQuery and friends. Experience in a JavaScript framework is a plus. What we offer: Competitive salary, bonuses, full health insurance and casual dress code.</p>
-  </section>
-</section>
+<ul class="highlight-box">
+  <li>Title: Front end developer</li>
+  <li>Tags: HTML, CSS, JavaScript</li>
+  <li>
+    Description: Kittens Inc is a fast-growing digital agency in Buenos Aires. We're currently working on a project where we need a front end developer to finish the responsive design work. This is the project you will be working on: http://kittens.com/. Your daily tasks: Build responsive HTML5 pages and create rich frontend JavaScript components. Your profile: Experience with HTML5, CSS3, JavaScript, JQuery and friends. Experience in a JavaScript framework is a plus. What we offer: Competitive salary, bonuses, full health insurance and casual dress code.
+  </li>
+</ul>
+

@@ -1,108 +1,12 @@
-/* General styles */
+/* GENERAL */
 
 html, body {
   height: 100%;
 }
 
 body {
-  margin: 0;
   font-family: "Droid Sans Mono", sans-serif;
-  color: #111;
-}
-
-a:link, a:visited, .underline {
-  color: #4d4d4d;
-}
-
-a:hover, a:active, .underline:hover {
-  color: #4d4d4d;
-  text-decoration: none;
-}
-
-button {
-  display: block;
-  margin: 15px auto;
-  background-color: #FFCC00;
-  cursor: hand;
-  cursor: pointer;
-  font-size: 1.4em;
-  font-family: "Droid Sans Mono", sans-serif;
-  font-weight: bold;
-  text-transform: capitalize;
-  border: 1px solid #FFCC00;
-  padding: 0.5em 1em;
-}
-
-i {
-  font-size: 1.6em;
-  vertical-align: text-top;
-}
-
-textarea {
-  border-top: solid 2px #888888;
-  border-left: solid 2px #888888;
-  border-right: solid 2px #eee;
-  border-bottom: solid 2px #eee;
-}
-
-::-webkit-input-placeholder {
   font-size: 0.9em;
-  line-height: 1.5em;
-  font-family: "Droid Sans Mono", sans-serif;
-}
-
-::-moz-placeholder {
-  font-size: 0.9em;
-  line-height: 1.5em;
-  font-family: "Droid Sans Mono", sans-serif;
-}  /*firefox 19+*/
-
-:-ms-input-placeholder {
-  font-size: 0.9em;
-  line-height: 1.5em;
-  font-family: "Droid Sans Mono", sans-serif;
-} /* ie*/
-
-input:-moz-placeholder {
-  font-size: 0.9em;
-  line-height: 1.5em;
-  font-family: "Droid Sans Mono", sans-serif;
-}
-
-.underline {
-  text-decoration: underline;
-}
-
-.capitalize {
-  text-transform: capitalize;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.alert {
-  display: block;
-  text-align: center;
-  font-size: 0.9em;
-  padding: 0 20px;
-}
-
-.success {
-  color: green;
-}
-
-.error {
-  color: red;
-}
-
-.float-right {
-  float: right;
-}
-
-.cursor {
-  cursor: pointer;
-  cursor: hand;
 }
 
 .wrapper {
@@ -110,327 +14,134 @@ input:-moz-placeholder {
   position: relative;
 }
 
-/* Main Header */
+.content {
+  line-height: 1.8em;
+  /*max-width: 600px;*/
+  padding-bottom: 120px;
+}
 
-.header {
+section {
+  margin: 0 auto;
+}
+
+#home-page, header, #footer-navigation, #login-page {
   text-align: center;
-  min-height: 57px;
-  line-height: 57px;
-  background-color: #fafafa;
 }
 
-.header-title {
+input[type="text"], input[type="email"], input[type="url"], input[type="password"]  {
+  margin-bottom: 15px;
+  height: 30px;
+  width: 385px;
+}
+
+input[type="checkbox"] {
   display: inline;
-  padding: 0;
-  font-size: 1.2em;
 }
 
-.header-link {
+.link-large {
+  display: block;
+  margin: 40px 0;
+  font-size: 1.17em;
+}
+
+a, .link {
+  color: #EB374B;
+}
+
+.highlight-box {
+  margin: 0 auto
+  max-width: 550px;
+  margin-bottom: 30px;
+  background: #fafafa;
+  border: solid 1px #dadada;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* HEADER */
+h1  {
+  display: inline;
+}
+
+#tittel-link {
+  margin-right: 40px;
   text-decoration: none;
 }
 
-.header-menu {
-  font-size: 0.8em;
-  margin: 0;
+#main-navigation a {
+  color: #4d4d4d;
 }
 
-.header-menu, .footer-menu {
-  padding: 0;
+#main-navigation li {
+  margin-right: 30px;
+}
+
+/* HOME */
+#home-page h2 {
+  margin-top: 60px;
+}
+
+#latest-posts {
+  font-size: 1.1em;
+}
+
+#latest-posts li {
+  display: list-item;
+}
+
+#latest-posts a {
+  color: #4d4d4d;
+}
+
+/* SEARCH_BOX */
+
+#search-box {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#search-box input {
+  min-width: 300px;
+  height: 40px;
+}
+
+button {
+  height: 45px;
+  background:  #EDCA45;
+  outline: none;
+  border: none;
+}
+
+/* LISTING ITEM (POST, APPLICATIONS ETC.)*/
+.listing-item {
+   margin-bottom: 20px;
+    width: 800px;
+    border-bottom: 1px solid #fafafa;
+}
+
+img {
+  float: left;
+  margin-right: 20px;
+}
+
+ul  {
+  padding-left: 0;
+}
+
+.content i {
+  margin-right: 5px;
+}
+
+li {
+  display: inline;
   list-style: none;
 }
 
-.header__search-box {
-  background-color: white;
-  display: block;
-  margin: 0;
-  padding: 10px 0 0 0;
-}
-
-.button-search, .header-button-search {
-  height: 42px;
-  margin: 0;
-  padding: 0 14px;
-  display: inline-block;
-  font-size: 0.8em;
-  vertical-align: top;
-}
-
-.header-button-search {
-  margin-top: 8px;
-}
-
-.avatar-list-item {
-  margin: 0;
-  line-height: 36px;
-}
-
-.avatar-list-image {
-  height: 36px;
-  vertical-align: top;
-}
-
-/* Content */
-
-.content, .content-search, .footer {
-  max-width: 960px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.content, .content-search {
-  margin-top: 40px;
-  padding-bottom: 100px;
-}
-
-.content-search {
+.message, .note, .bio {
   margin-top: 20px;
 }
 
-.content-title {
-  font-size: 1em;
-  margin-top: 30px;
-}
-
-.content-subtitle {
-  font-size: 1.1em;
-  margin-top: 30px;
-}
-
-.tagline {
-  margin: 50px 0 40px 0;
-  font-size: 1.2em;
-  text-align: center;
-}
-
-.latest-posts {
-  padding: 0;
-  list-style: none;
-  font-size: 0.8em;
-}
-
-.latest-posts-item {
-  line-height: 1.8em;
-}
-
-.before-footer {
-  margin-bottom: 50px;
-  display: block;
-  clear: both;
-}
-
-.delete {
-  display: block;
-  margin-top: 40px;
-  font-size: 1.5em;
-}
-
-/* About */
-
-.about, .pricing {
-  margin: 40px 0 80px 0;
-}
-
-/* Footer*/
-
-.footer {
-  position: absolute;
-  bottom:0;
-  left:0;
-  right: 0;
-  height: 100px;
-  font-size: 0.8em;
-}
-
-.footer-menu-item {
-  display: inline-block;
-  line-height: 25px;
-  margin: 0 15px;
-}
-
-.footer-menu-link {
-  display: inline-block;
-}
-
-.footer-extra-menu {
-  display: none;
-}
-
-/* Forms */
-
-.form {
-  max-width: 23.40em;
-  margin: 0;
-  display: inline-block;
-  font-size: 0.7em;
-}
-
-.input, .textarea {
-  width: 16em;
-  max-width: 16em;
-  padding: 0.3em;
-  margin-bottom: 6px;
-  font-size: 1.4em;
-  font-family: "Droid Sans Mono", sans-serif;
-  color: #111;
-}
-
-.textarea {
-  min-height: 180px;
-}
-
-.countdown {
-  font-size: 1.1em;
-}
-
-.buttons {
-  font-size: 1.6em;
-}
-
-/* Login */
-
-.login-form {
-  width: 25.5em;
-  max-width: 25.5em;
-  margin: 0 0 20px 0;
-}
-
-.login-input {
-  width: 17.5em;
-  max-width: 17.5em;
-}
-
-.login-label {
-  margin: 0 25px 15px 0;
-  display: block;
-  float: left;
-}
-
-.forgot-password {
-  float: right;
-}
-
-.login-checkbox {
-  width: auto;
-  margin: 0;
-  padding: 0;
-  vertical-align: middle;
-}
-
-.login-search, .sidebar-search {
-  display: none;
-}
-
-/* Confirm */
-
-.confirm-form {
-  width: 27.4em;
-  max-width: 27.4em;
-  font-size: 0.6em;
-}
-
-.confirm-input, .confirm-textarea {
-  width: 18.5em;
-  max-width: 18.5em;
-  padding: 0.5em;
-}
-
-.confirm-image {
-  display: block;
-  vertical-align: top;
-  margin: 0 auto 10px;
-}
-
-.confirm-button {
-  font-size: 1.7em;
-}
-
-/* Contact Developer */
-
-.contact-developer-form {
-  width: 26em;
-  max-width: 26em;
-  font-size: 0.8em;
-}
-
-.contact-developer-form .input, .contact-developer-form .textarea {
-  width: 17.5em;
-  max-width: 17.5em;
-}
-
-/* Signup */
-
-.signup-text {
-  font-size: 1.3em;
-  text-align: left;
-  padding: 0;
-  margin: 0;
-}
-
-.signup-plans {
-  width: 100%;
-  min-height: 30px;
-  margin: 15px 0;
-  padding-left: 5px;
-}
-
-.credit-cards {
-  padding: 0;
-  margin: 15px 0;
-}
-
-.credit-card {
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.card-item {
-  display: inline;
-}
-
-.credit-card-image {
-  width: 37px;
-}
-
-.cvc {
-  margin-right: 16px;
-  width: 39px;
-  float: left;
-}
-
-.short-input {
-  width: 30px;
-  float: left;
-}
-
-.expires_on {
-  display: inline;
-  margin: 0 8px;
-  float: left;
-  font-size: 1em;
-  line-height: 40px;
-}
-
-.agree {
-  font-size: 1.2em;
-}
-
 /* Pricing */
-
-.pricing-text {
-  max-width: 550px;
-  margin: 0 auto 20px;
-  padding: 0 20px;
-  font-size: 0.8em;
-  text-align: left;
-}
-
-.plans {
-  width: 16.5em;
-  min-width: 16.5em;
-  margin: 0 auto;
-  display: inline-block;
-}
-
 .plan {
   margin: 0 0 10px 0;
   padding: 10px;
@@ -451,1482 +162,96 @@ input:-moz-placeholder {
   float: right;
 }
 
-/* Help */
-
-.help_links {
-  width: 17em;
-  max-width: 17em;
-  margin: 0 auto;
-  padding: 0;
+/* HELP PAGE */
+.help-menu li, .example-post li {
+  display: list-item;
 }
 
-.help_links_subtitle {
-  font-size: 0.9em;
-  text-align: left;
-  margin-top: 30px;
-}
-
-.help_links_text {
-  margin: 0 0 10px 0;
-  font-size: 0.8em;
-  line-height: 1.6em;
-  text-align: left;
-}
-
-.help_links_list {
-  list-style-type: none;
-  text-align: left;
-  margin: 0;
-  padding: 0;
-  font-size: 0.9em;
-}
-
-.help_links_item {
-  line-height: 2em;
-}
-
-.fa-angle-right {
-  font-size: 0.9em;
-  vertical-align: 5%;
-  margin-right: 5px;
-}
-
-.post-example {
-  border: 1px solid #DADADA;
-  background-color: #FCFCFC;
-  padding: 0.6em;
-  margin: 10px 0;
-  display: inline-block;
-  font-size: 0.9em;
-}
-
-/* Left column */
-
-.list {
-  margin: 0 auto;
-  padding: 0;
-  width: 21em;
-  list-style: none;
-  font-size: 0.8em;
-}
-
-.list-title {
-  font-size: 1.3em;
-}
-
-.list-subtitle {
-  font-size: 1.2em;
-  text-align: left;
-}
-
-.item {
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
-}
-
-.item:last-child {
-  border: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-.item-header {
-  background-color: #fff;
-  text-align: left;
-  line-height: 1em;
-  margin: 0;
-  padding: 0;
-}
-
-.item-title, .item-subtitle, .item-text {
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
-}
-
-.item-title {
-  display: inline-block;
-  font-size: 1.2em;
-  line-height: 1.7em;
-}
-
-.item-subtitle {
-  font-size: 1em;
-  line-height: 1.9em;
-  text-align: left;
-  clear: both;
-}
-
-.item-company-logo {
-  display: inline-block;
-  width: 50px;
-  margin-right: 10px;
-  vertical-align: top;
-}
-
-.item-text {
-  max-width: 550px;
-  margin: 0 auto 20px;
-  padding: 0;
-  text-align: left;
-  font-size: 0.9em;
-  clear: both;
-  line-height: 1.7em;
-}
-
-.item-footer {
-  margin-top: 15px;
-}
-
-/* Search results */
-
-.posts-found {
-  margin: 0 0 20px 0;
-  font-size: 1.1em;
-}
-
-/* Developer Applications */
-
-.applications-menu-pipeline {
-  display: none;
-}
-
-/* Post control */
-
-.post-control {
-  margin: 20px 0;
-  text-align: right;
-  line-height: 40px;
-  font-size: 0.97em;
-}
-
-.post-control-link {
-  text-decoration: none;
-  color: #111;
-  margin: 0;
-}
-
-.cancel {
-  margin-right: 15px;
-  text-decoration: underline;
-  text-transform: capitalize;
-  cursor: pointer;
-}
-
-.post-control-icon {
-  float: none;
-  margin: 0 3px 0 5px;
-  vertical-align: middle;
-  color: #ccc;
-}
-
-.edit-post {
-  display: none;
-}
-
-.applied, .favorited, .published {
-  cursor: pointer;
-}
-
-.applied-icon, .published-icon {
-  color: green;
-  cursor: default;
-}
-
-.applied-text {
-  color: #4d4d4d;
-  font-style: italic;
-  cursor: default;
-}
-
-.applied-on {
-  float: right;
-}
-
-.favorited-icon {
-  color: #FFCC00;
-}
-
-.favorited-text {
-  color: #4d4d4d;
-  font-style: italic;
-}
-
-.delete-icon {
-  color: #111;
-}
-
-.send-message-link {
-  line-height: 1em;
-  display: block;
-  margin: 10px 0 0 0;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.send-message-link:hover {
-  text-decoration: none;
-  color: #4d4d4d;
-}
-
-.send-message-form {
-  width: 21em;
-  margin: 10px auto 0;
-  font-size: 0.7em;
-  font-size: 1em;
-  display: none;
-}
-
-.send-message-textarea {
-  width: 20em;
-  max-width: 20em;
-  margin-bottom: 0;
-  font-size: 1em;
-  min-height: 140px;
-}
-
-.send-message-countdown {
-  display: block;
-  padding: 0 0 15px 0;
-  line-height: 0.9em;
-  font-size: 0.9em;
-  text-align: center;
-}
-
-.send-message-buttons {
-  width: 100%;
-  display: block;
-  margin: 15px auto 25px;
-  line-height: 25px;
-  text-align: center;
-  margin-bottom: 25px;
-}
-
-.send-message-button, .save-note-button {
-  font-size: 1em;
-  display: inline-block;
-}
-
-.send-message-button {
-  margin: 0;
-}
-
-.save-note-button {
-  display: inline-block;
-  margin: 0;
-}
-
-.message-sent {
-  display: block;
-  margin: 10px 0;
-  line-height: 1.3em;
-  text-align: right;
-}
-
-.message-sent-icon {
-  font-size: 1.3em;
-  vertical-align: top;
-  color: green;
-}
-
-/* Post display */
-
-.status {
-  border: 1px solid #DADADA;
-  background-color: #FCFCFC;
-  padding: 0 0.6em;
-  display: inline-block;
-}
-
-/* Applicants */
-
-.see-applicants-link {
-  text-transform: uppercase;
-  margin: 10px 0;
-}
-
-.applicant-profile {
-  height: 40px;
-  display: block;
-  text-align: left;
-}
-
-.applicant-image {
-  width: 40px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.applicant-name {
-  display: inline-block;
-  margin: 0;
-  font-size: 1.1em;
-}
-
-.applicant-gh-link {
-  display: block;
-  text-align: left;
-  margin: 15px 0;
-  font-size: 1.1em;
-}
-
-/* New post */
-
-.new-post-form .login-label {
-  margin-bottom: 10px;
-  font-size: 1.5em;
-}
-
-.new-post-form .login-checkbox {
-  vertical-align: middle;
-}
-
-.new-post-text {
-  padding: 0;
-  margin: 0;
-  font-size: 1.6em;
-  line-height: 1.6em;
-  text-align: left;
-}
-
-/* Edit */
-
-.edit-post-form, .edit-profile-form, .edit-payment-form {
-  width: 30em;
-  max-width: 30em;
-  font-size: 0.7em;
-}
-
-/* Edit post */
-
-.edit-post-form .countdown {
-  font-size: 1.3em;
-}
-
-.edit-post-form .input, .edit-post-form .textarea {
-  width: 22em;
-  max-width: 22em;
-  font-size: 1.3em;
-  line-height: 1.7em;
-}
-
-.edit-post-form .input-title, .edit-profile-form .input-name {
-  width: 17.8em;
-  max-width: 17.8em;
-  font-size: 1.6em;
-  line-height: 1.6em;
+.help-item-title {
   font-weight: bold;
 }
 
-.edit-post-form .login-label, .edit-profile-form .password-label {
-  font-size: 1.5em;
+h4 {
+  font-size: 1.05em;
+  font-weight: 900;
 }
 
-.edit-post-form .input-location, .edit-profile-form .input-profile {
-  width: 19em;
-  max-width: 19em;
-  font-size: 1.5em;
-  line-height: 1.5em;
-}
-
-/* Edit company profile */
-
-.edit-profile-form .input-name {
-  font-size: 1.6em;
-}
-
-.edit-profile-form .password-label {
-  display: block;
-  text-align: left;
-}
-
-/* Edit payment */
-
-.edit-payment-form {
-  width: 31em;
-  max-width: 31em;
-  margin-top: 20px;
-}
-
-.edit-payment-form .signup-text {
-  font-size: 1.6em;
-}
-
-.edit-payment-form .credit-card-image {
-  width: 41px;
-}
-
-.edit-payment-form .credit-card {
-  width: 25.8em;
-  max-width: 25.8em;
-  font-size: 1.2em;
-}
-
-.edit-payment-form .signup-input {
-  width: 17.4em;
-  max-width: 17.4em;
-}
-
-.edit-payment-form .cvc {
-  width: 3em;
-  max-width: 3em;
-  margin-right: 0;
-}
-
-.edit-payment-form .expires_on {
-  font-size: 1.3em;
-}
-
-/* Company Dashboard */
-
-.company-dashboard-title {
-  float: left;
-  text-align: left;
-  margin-top: 0;
-  text-transform: capitalize;
-}
-
-/* Company profile Subscription info */
-
-.payment-history {
-  width: 23.3em;
-}
-
-.payment-history-title {
-  font-size: 1.2em;
-  text-align: left;
-}
-
-.table {
-  width: 23.3em;
-  max-width: 23.3em;
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.table-row {
-  line-height: 2em;
-  background-color: #FFCC00;
-}
-
-.table-th {
-  padding: 3px;
-}
-
-.table-cell {
-  padding: 3px;
-  line-height: 2em;
-  background-color: #f3f3f3;
-}
-
-/* Company profile Payment info */
-
-.profile-credit-card {
-  width: 26em;
-  max-width: 26em;
-  display: inline-block;
-  font-size: 0.8em;
-}
-
-.profile-card-image {
-  width: 50px;
-  clear: both;
-  display: block;
-  margin-bottom: 20px;
-}
-
-.profile-card-input {
-  width: 17.4em;
-  max-width: 17.4em;
-}
-
-.profile-card-cvc {
-  display: inline-block;
-  width: 2.4em;
-  margin-right: 0.5em;
-}
-
-.profile-card-expires_on {
-  font-size: 1.3em;
-}
-
-.profile-short-input {
-  width: 2.4em;
-}
-
-/* Show more */
-
-.show-more-link {
-  margin-top: 10px;
-}
-
-.more {
-  display: none;
-}
-
-.less {
-  margin-top: 10px;
-  display: block;
-}
-
-/* Toogle menu */
-
-#toggle {
-  display: none;
-}
-
-.header-nav {
-  display: none;
-}
-
-.header-nav-link {
-  display: block;
-}
-
-.header-label:before {
-  float: right;
-  margin-right: 20px;
-  content: "\f0d7";
-  font-family: "FontAwesome";
-  font-size: 1.5em;
-  vertical-align: middle;
-}
-
- .header-menu-item {
-  padding: 0 20px;
-  border-top: 1px dotted #ccc;
-  cursor: pointer;
-  cursor: hand;
-  height: 35px;
-  line-height: 35px;
-}
-
-.header-menu-item:hover, .header-menu-item:active {
-  background: #eee;
-}
-
-.header-menu-checkbox:checked + label {
-  color: #8c9198;
-  cursor: pointer;
-  cursor: hand;
-}
-
-.header-menu-checkbox:checked ~ .header-nav {
-  display: block;
-}
-
-/* Input tokens and tags */
-
-#tags_wrapper {
-  width: auto;
-  margin: 0;
-  display: inline-block;
-}
-
-#autocomplete {
-  width: 12.50em;
-  margin: -2px 0 0 0;
-  padding: 0.3em 0.3em;
-  position: absolute;
-  display: none;
-  border: solid 1px #cccccc;
-  overflow-y: scroll;
-  height: 200px;
-  background-color: #fff;
-  text-align: left;
-  font-size: 1em;
-}
-
-.new-post-form {
-  width: 27em;
-  max-width: 27em;
-  font-size: 0.6em;
-}
-
-.new-post-form #autocomplete {
-  width: 15.98em;
-  margin-top: -7px;
-  font-size: 1.61em;
-}
-
-.edit-post-form #autocomplete {
-  width: 16.8em;
-  max-width: 16.8em;
-  margin-top: -6px;
-  font-size: 1.7em;
-}
-
-.new-post-form .input, .new-post-form .textarea {
-  width: 17.1em;
-  max-width: 17.1em;
-  line-height: 1.5em;
-  font-size: 1.5em;
-}
-
-.location {
-  margin-bottom: 10px;
-}
-
-.remote {
-  display: inline-block;
-  margin-left: 10px;
-}
-
-#autocomplete li {
-  list-style: none;
-  padding: 0.3em;
-  font-size: 0.9em;
-  display: block;
-  border: none;
-}
-
-.header #autocomplete li {
-  padding: 0 0 0 5px;
-}
-
-.header__search-box li {
-  line-height: 30px;
-}
-
-#autocomplete li:hover,
-#autocomplete li:focus {
-  background: #eee;
-  color: #111;
-  cursor: pointer;
-  cursor: hand;
-}
-
-#highlight {
-  background: #eee;
-  color: #111;
-}
-
-#tokens {
-  margin: 0;
-  padding: 5px;
-  width: 12.40em;
-  line-height: 28px;
-  text-align: left;
-  font-size: 1em;
-  font-family: "Droid Sans Mono", sans-serif;
-  border-top: solid 2px #9e9e9e;
-  border-left: solid 2px #9e9e9e;
-  border-right: solid 2px #eee;
-  border-bottom: solid 2px #eee;
-  background-color: #fff;
-  cursor: text;
-}
-
-.new-post-form #tokens {
-  width: 16.7em;
-  max-width: 16.7em;
+.highlight-box li {
   margin-bottom: 5px;
-  font-size: 1.5em;
-  line-height: 23px;
 }
 
-.edit-post-form #tokens {
-  width: 17.4em;
-  max-width: 17.4em;
-  margin-bottom: 4px;
-  line-height: 1.5em;
-  font-size: 1.6em;
+/* LOGIN PAGE */
+#login-form {
+  position: relative;
 }
 
-#token-input {
-  margin: 0;
+#login-form ul {
   padding: 0;
-  border: none;
+  text-align: left;
+  margin: 0 auto;
+  width: 385px;
 }
 
-#search-field {
-  line-height: 24px;
-  width: 200px;
-  outline: none;
-  border: none;
-  margin: 0;
-  padding: 0;
-  font-size: 1em;
+#forgot-password-link {
+  float: right;
 }
 
-.new-post-form #search-field {
-  line-height: 1.6em;
+#login-form button {
+  position: relative;
+  left: 150px;
+  margin-top: 20px;
+  width: 90px;
 }
 
-.edit-post-form #search-field {
-  line-height: 1.5em;
+/* FOOTER */
+.footer {
+  position: absolute;
+  bottom:0;
+  left:0;
+  right: 0;
+  height: 120px;
 }
 
-.token {
-  margin: 0;
-  padding: 0 5px;
-  line-height: 1.4em;
-  border: 1px solid #DADADA;
-  background-color: #FCFCFC;
-  display: inline-block;
+#footer-navigation {
+  margin-bottom: 20px;
 }
 
-.delete-token {
-  cursor: hand;
-  cursor: pointer;
+.fa-twitter {
+  font-size: 1.3em;
 }
 
-#tokens li {
-  display: inline-block;
-  line-height: 1.4em;
-  margin-right: 5px;
-  /*margin-bottom: 5px;*/
+@media only screen and (min-width: 440px)  {
+  body {
+    /*background: url('/img/punchgirls_small.png') 5% 70% no-repeat;*/
+  }
+   .section-footer li {
+    margin-left: 10px;
+  }
+  .section-footer {
+  display: block;
+  text-align: right;
 }
-
-#tokens #token-input {
-  background-color: white;
-  line-height: 1.4em;
-  padding: 0;
-  margin: 0;
-}
-
-.header__search-box #token-input {
-  line-height: 35px;
-}
-
-@media only screen and (min-width: 480px)  {
-
-  /* General styles */
-
-  button {
-    display: inline-block;
-  }
-
-  /* Content */
-
-  .latest-posts {
-    font-size: 0.9em;
-  }
-
-  .delete {
-    display: block;
-    text-align: left;
-    font-size: 1.5em;
-  }
-
-  /* Contact Developer */
-
-  .contact-developer-form {
-    width: 53.5em;
-    max-width: 53.5em;
-    text-align: left;
-  }
-
-  .contact-developer-form .input, .contact-developer-form .textarea {
-    width: 37.2em;
-    max-width: 37.2em;
-  }
-
-  /* Input tokens and tags */
-
-  #tokens {
-    width: 22.35em;
-    display: inline-block;
-  }
-
-  #autocomplete {
-    width: 22.48em;
-    max-width: 22.48em;
-    margin-top: -1px;
-  }
-
-  .header #autocomplete {
-    margin: -10px 0 0 0;
-  }
-
-  .header #autocomplete li {
-    padding: 0 0 0 5px;
-    margin: 0;
-  }
-
-  /* New post */
-
-  .new-post-form {
-    width: 39em;
-    max-width: 39em;
-  }
-
-  .new-post-form #autocomplete {
-    width: 23.4em;
-  }
-
-  .new-post-form #tokens {
-    margin-top: 2px;
-    width: 25em;
-    max-width: 25em;
-  }
-
-  .new-post-form .input, .new-post-form .textarea {
-    width: 25.1em;
-    max-width: 25.1em;
-    line-height: 1.5em;
-    font-size: 1.5em;
-  }
-
-  /* Edit post */
-
-  .edit-post-form {
-    width: 46.5em;
-    max-width: 46.5em;
-  }
-
-  .edit-post-form #tokens {
-    width: 27.6em;
-    max-width: 27.6em;
-  }
-
-  .edit-post-form .input, .edit-post-form .textarea {
-    width: 34.6em;
-    max-width: 34.6em;
-  }
-
-  .edit-post-form .input-title {
-    width: 28em;
-    max-width: 28em;
-  }
-
-  .edit-post-form .input-location {
-    width: 29.9em;
-    max-width: 29.9em;
-  }
-
-  .edit-post-form #autocomplete {
-    width: 26.45em;
-    max-width: 26.45em;
-    margin-top: -6px;
-  }
-
-  /* Edit company profile */
-
-  .edit-profile-form {
-    width: 36em;
-    max-width: 36em;
-  }
-
-  .edit-profile-form .input-name {
-    width: 20.3em;
-    max-width: 20.3em;
-    font-size: 1.7em;
-  }
-
-  .edit-profile-form .input-profile {
-    width: 23.1em;
-    max-width: 23.1em;
-  }
-
-  /* Post control */
-
-  .post-control {
-    font-size: 1em;
-  }
-
-  .post-control-icon {
-    margin: 0 7px 0 20px;
-  }
-
-  .send-message-form {
-    width: 33em;
-  }
-
-  .send-message-textarea {
-    width: 32.4em;
-    max-width: 32.4em;
-    min-height: 105px;
-  }
-
-  .send-message-buttons {
-    display: inline-block;
-    text-align: right;
-  }
-
-  .send-message-button {
-    margin: 0;
-    display: inline;
-  }
-
-  /* Post display */
-
-  .status, .post-remote {
-    display: inline;
-    float: right;
-    margin: 0;
-  }
-
-  .status {
-    padding: 0.4em 0.7em;
-  }
-
-  .post-tags {
-    display: block;
-  }
-
-  .post-info {
-    width: 27.6em;
-    max-width: 27.6em;
-    display: inline-block;
-    line-height: 1em;
-    margin-bottom: 10px;
-  }
-
-  .company-info {
-    display: inline-block;
-  }
-
-  .company-name, .company-url, .post-location {
-    display: inline-block;
-  }
-
-  /* Forms */
-
-  .login-form, .contact-form, .confirm-form {
-    max-width: 35em;
-  }
-
-  /* Login */
-
-  .company-login {
-    margin-top: 50px;
-  }
-
-  /* Signup */
-
-  .signup-form {
-    max-width: 29.40em;
-  }
-
-  .signup-input {
-    width: 20em;
-    max-width: 20em;
-    margin: 0 0 8px 0;
-  }
-
-  .cvc {
-    width: 39px;
-    margin-right: 78px;
-  }
-
-  .credit-card-image {
-    width: 49px;
-  }
-
-  /* Contact */
-
-  .contact-input, .contact-textarea {
-    width: 20em;
-    max-width: 20em;
-  }
-
-  /* Confirm */
-
-  .confirm-input, .confirm-textarea {
-    margin: 0 0 8px 0;
-    width: 18.5em;
-    max-width: 18.5em;
-  }
-
-  .confirm-button {
-    font-size: 1.6em;
-  }
-
-  .confirm-image {
-    display: inline;
-    margin: 0;
-    vertical-align: top;
-  }
-
-  /* Pricing */
-
-  .plans {
-    width: 26.5em;
-    text-align: center;
-  }
-
-  .plan {
-    width: 7.1em;
-    display: inline-block;
-    float: left;
-    margin: 0 10px 0 0;
-    text-align: center;
-    font-size: 1em;
-  }
-
-  .plan:last-child {
-    margin: 0;
-  }
-
-  .plan-title, .plan-posts, .plan-price {
-    display: block;
-    float: none;
-    margin: 15px 0;
-  }
-
-  /* Help */
-
-  .help_links {
-    width: 26em;
-    max-width: 26em;
-  }
-
-  /* Left column */
-
-  .list {
-    margin: 20px auto 0;
-    width: 33em;
-  }
-
-  /* Developer Applications */
-
-  .applications-menu-pipeline {
-    display: inline-block;
-  }
-
-  .applications-menu-breakline {
-    display: none;
-  }
-
-  /* Company profile Payment info */
-
-  .profile-credit-card {
-    width: 34em;
-    max-width: 34em;
-    display: block;
-  }
-
-  .profile-card-input {
-    width: 23.3em;
-    max-width: 23.3em;
-  }
-
-  .profile-short-input {
-    width: 2.7em;
-  }
-
-  .profile-card-cvc {
-    width: 3em;
-    margin-right: 5.2em;
-  }
-
-  /* Company profile Subscription info */
-
-  .table {
-    width: 33.5em;
-    max-width: 33.5em;
-  }
-}
-
-@media only screen and (min-width: 960px)  {
-
-  /* Main Header */
-
-  .header {
-    text-align: center;
-  }
-
-  .header-label {
-    display: none;
-  }
-
-  .header-title, .header-nav, .header-menu, .header-menu-item {
-    display:  inline;
-  }
-
-  .header-menu {
-    line-height: 57px;
-  }
-
-  .header-menu-item {
-    border: none;
-    margin-left: 1.5em;
-  }
-
-  .header__search-box, .search-box {
-    display: inline;
-    height: 57px;
-    margin: 0 0 0 30px;
-    padding: 0;
-    background-color: #fafafa;
-  }
-
-  .search-box {
-    background-color: #fff;
-  }
-
-  #search {
-    display: none;
-  }
-
-  .button-search {
-    margin: 5px 5px;
-  }
-
-  .header-link {
-    display: inline;
-  }
-
-  .header-menu-item:hover, .header-menu-item:active {
-    background: none;
-  }
-
-  .header__search-box #autocomplete li {
-    line-height: 30px;
-  }
-
-  .avatar-list-image {
-    margin-top: -5px;
-    height: 36px;
-    vertical-align: middle;
-  }
-
-  /* Content */
-
-  .content {
-    padding: 0 0 50px 0;
-  }
-
-  .content-search {
-    margin-top: 40px;
-  }
-
-  .tagline {
-    margin-top: 80px;
-    font-size: 1.5em;
-  }
-
-  .latest-posts {
-    font-size: 1em;
-  }
-
-  /* Input tokens and tags */
-
-  #tokens {
-    width: 23.35em;
-    margin: 5px 0;
-    display: inline-block;
-  }
-
-  #autocomplete {
-    width: 23.45em;
-    max-width: 23.45em;
-    margin-top: -7px;
-  }
-
-  #autocomplete li {
-    line-height: 25px;
-  }
-
-  /* Edit post */
-
-  .edit-post-form {
-    width: 61em;
-    max-width: 61em;
-  }
-
-  .edit-post-form .input, .edit-post-form .textarea {
-    width: 45.8em;
-    max-width: 45.8em;
-  }
-
-  .edit-post-form .input-title {
-    width: 37.1em;
-    max-width: 37.1em;
-  }
-
-  .edit-post-form #tokens {
-    width: 37em;
-    max-width: 37em;
-    margin-top: 0;
-  }
-
-  .edit-post-form .input-location {
-    width: 39.6em;
-    max-width: 39.6em;
-  }
-
-  .edit-post-form #autocomplete {
-    width: 35em;
-    max-width: 35em;
-  }
-
-  /* Forms */
-
-  .login-form, .contact-form {
-    width: 33.80em;
-  }
-
-  .login-input, .contact-input, .contact-textarea {
-    width: 23.3em;
-    max-width: 23.3em;
-  }
-
-  /* Login */
-
-  .company-login {
-    margin-top: 70px;
-  }
-
-  .login-label {
-    margin-right: 158px;
-    font-size: 1.1em;
-  }
-
-  .forgot_password {
-    font-size: 1.1em;
-    float: right;
-  }
-
-  .login-search, .sidebar-search {
-    display: inline-block;
-    float: right;
-    text-align: left;
-    font-size: 1.2em;
-  }
-
-  .login-search-link {
-    line-height: 30px;
-  }
-
-  .login-search .login-form {
-    max-width: 25.4em;
-    margin: 0 0 40px 0;
-    display: inline-block;
-    font-size: 0.7em;
-  }
-
-  .login-search .login-input {
-    width: 17.2em;
-    max-width: 17.2em;
-    padding: 0.3em;
-    margin-bottom: 6px;
-    font-size: 1.4em;
-    font-family: "Droid Sans Mono", sans-serif;
-    color: #111;
-  }
-
-  .login-search .login-label {
-    margin: 0 25px 15px 0;
-    display: inline-block;
-    float: left;
-    font-size: 1.1em;
-  }
-
-  .login-search .forgot-password {
-    line-height: 1.3em;
-  }
-
-  .login-search .login-checkbox {
-    width: auto;
-    margin: 0;
-    padding: 0;
-    vertical-align: bottom;
-  }
-
-  /* Sidebar */
-
-  .sidebar-search {
-    min-width: 20em;
-    max-width: 20em;
-  }
-
-  /* Confirm */
-
-  .confirm-form {
-    width: 33em;
-    max-width: 33em;
-  }
-
-  .confirm-input, .confirm-textarea {
-    width: 22.5em;
-    max-width: 22.5em;
-  }
-
-  /* Signup */
-
-  .cvc {
-    margin-right: 77px;
-    width: 39px;
-  }
-
-  .short-input {
-    width: 30px;
-  }
-
-  /* Help */
-
-  .help_links {
-    width: 42em;
-    max-width: 42em;
-  }
-
-  /* Two columns section */
-
-  .two-cols {
-    display: inline-block;
-    margin: 0 auto;
-    font-size: 0.8em;
-    width: 900px;
-  }
-
-  /* Left column */
-
-  .list {
-    margin: 0;
-    width: 43em;
-    max-width: 43em;
-    font-size: 1em;
+  .toggle, .show-applicants {
     float: left;
   }
+}
 
-  .list-title {
-    text-align: left;
-    margin-top: 0;
+@media only screen and (min-width: 1300px)  {
+  body {
+    /*background: url('/img/punchgirls_large.png') left bottom no-repeat;*/
   }
 
-  .item-text {
-    max-width: none;
+  /* HEADER */
+  header {
+    margin: 50px 0;
   }
 
-  .item-footer {
-    padding: 0;
+  #home-page #search-box {
+    margin-top: 90px;
   }
 
-  /* Applicants */
-
-  .see-applicants-link {
-    display: inline-block;
-    margin-bottom: 30px;
-    float: left;
+  #search-box input {
+    width: 385px;
   }
 
-  /* Company Dashboard */
-
-  .company-plan-info {
-    display: none;
-  }
-
-  /* Post control */
-
-  .post-control {
-    margin: 10px 0;
-  }
-
-  .send-message-form {
-    width: 43em;
-    max-width: 43em;
-  }
-
-  .send-message-textarea {
-    width: 42em;
-    max-width: 42em;
-  }
-
-  /* Edit company profile */
-
-  .edit-profile-form {
-    width: 61em;
-    max-width: 61em;
-    text-align: left;
-  }
-
-  .edit-profile-form .input-name {
-    width: 35em;
-    max-width: 35em;
-  }
-
-  .edit-profile-form .input-profile {
-    width: 39.7em;
-    max-width: 39.7em;
-  }
-
-  /* Post display */
-
-  .post-info {
-    width: 37.6em;
-    max-width: 37.6em;
-  }
-
-  /* Company profile Subscription info */
-
-  .payment-history-title {
-    display: block;
-    font-size: 1.3em;
-    text-align: left;
-  }
-
-  /* Sidebar */
-
-  .sidebar {
-    width: 18em;
-    float: right;
-    display: inline-block;
-    font-size: 1.2em;
-  }
-
-  .sidebar-title {
-    display: inline-block;
-    width: 12.8em;
-    min-height: 80px;
-    margin: 0 0 10px 10px;
-    font-size: 1.1em;
-  }
-
-  .sidebar-link {
-    margin: 10px 0;
-    clear: both;
-    display: block;
-    text-align: left;
-    font-size: 0.9em;
-  }
-
-  .sidebar-profile {
-    height: 80px;
-    display: block;
-    text-align: left;
-  }
-
-  .sidebar-profile-link {
-    margin: 0 0 30px 10px;
-    display: inline;
-    font-size: 0.9em;
-  }
-
-  .sidebar-profile-image {
-    float: left;
-  }
-
-  .sidebar-plan-title {
-    text-transform: capitalize;
-  }
-
-  /* Company profile Subscription info */
-
-  .table {
-    width: 43em;
-    max-width: 43em;
-  }
-
-  /* Footer */
-
-  .footer {
-    height: 50px;
-    padding: 2em 2em;
-  }
-
-  .footer-menu-item {
-    margin-left: 0.4em;
-    display: inline;
-  }
-
-  .footer-menu-link {
-    display: inline;
-  }
-
-  .footer-extra-menu {
-    display: inline-block;
-  }
 }

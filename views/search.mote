@@ -7,74 +7,39 @@
   % posts_found = posts.size
 % end
 
-<section class="two-cols">
-  <ul class="list">
-    % if posts.nil?
-      <p class="item-text posts-found">Start searching by adding keywords.</p>
-    % elsif posts.empty?
-      <p class="item-text posts-found">No posts matched your search. Try again!</p>
-    % else
-      <p class="item-text posts-found">Posts found: {{ posts_found }}</p>
+<form id="search-box">
+  <input type="text"/>
+  <button>Search</button>
+</form>
 
-      % posts.each do |post|
-        <li class="item" id="id={{ post.id }}">
-          <article>
-            <header class="item-header">
-              <img class="item-company-logo" src="{{ post.company.gravatar }}">
-              <span class="item-subtitle post-info">
-                <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong></h1>
-                <br/>
-                <span class="item-subtitle company-info">
-                  <h3 class="item-subtitle company-name"><a href="search?company_id={{ post.company.id }}">{{ this.h(post.company.name) }}</a></h3>
-                  <h3 class="item-subtitle company-name">|</h3>
-                  <h3 class="item-subtitle company-url"><a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a></h3><br/>
-                </span>
-              </span>
-
-              % tags = post.tags.split(",").join(", ")
-
-              <h3 class="item-subtitle post-tags">Tags: {{ tags }}</h3>
-              <h3 class="item-subtitle post-location">{{ this.h(post.location) }}</h3>
-              <h3 class="item-subtitle post-remote">
-                % if post.remote == "true"
-                  <i class="item-icon fa fa-globe"></i><p class="item-subtitle remote">Work from anywhere</p>
-                % else
-                  <i class="item-icon fa fa-map-marker"></i><p class="item-subtitle remote">On-site only</p>
-                % end
-              </h3>
-            </header>
-
-            <p class="item-text">{{ this.h(post.description) }}</p>
-
-            % if !this.current_company
-              {{ this.partial("post_control", post: post, developer: developer, query: query) }}
-            % end
-
-            <footer class="item-footer">
-              <p class="item-text">
-                <small>
-                  <time datetime="" pubdate>Posted on {{ post.posted }}</time>
-                  % if developer && developer.applied?(post.id)
-                    % application = developer.applications.find(:post_id => post.id).first
-
-                    <time class="applied-on" datetime="" pubdate>Applied on {{ application.applied }}</time>
-
-                  % end
-                </small>
-              </p>
-            </footer>
-          </article>
-        </li>
-      % end
-    % end
+% posts.each do |post|
+  <section class="listing-item">
+  <img src="{{ post.company.gravatar }}">
+  <ul>
+    <li><a href="#">{{ this.h(post.title) }}</a></li>
+    <li>@</li>
+    <li><a href="#">{{ this.h(post.company.name) }}</a></li>
+    <li>|</li>
+    <li>{{ this.h(post.location) }}</li>
+    <li>|</li>
+    <li>Posted {{ post.posted }}</li>
   </ul>
+  <ul>
+    <li>{{ this.h(post.tags) }}</li>
+    <li>|</li>
+    % if post.remote == "true"
+      <li>Work from anywhere</li>
+    % else
+      <li>On-site only</li>
+    % end
 
-  % if !user
-    {{ this.partial("login", user: this.current_user, search: true, profile: false) }}
-  % end
-
-  % if user
-    {{ this.partial("sidebar", user: this.current_user, search: true, profile: true) }}
-  % end
-
+  </ul>
+  <div>
+    Kittens Inc is a fast-growing digital agency in Buenos Aires. We're currently working on a project where we need a front end developer to finish the responsive design work. This is the project you will be working on: http://kittens.com/. Your daily tasks: Build responsive HTML5 pages and create rich frontend JavaScript components. Your profile: Experience with HTML5, CSS3, JavaScript, JQuery and friends. Experience in a JavaScript framework is a plus. What we offer: Competitive salary, bonuses, full health insurance and casual dress code.
+  </div>
+  <ul class="section-footer">
+    <li><a href="#"><i class="fa fa-star"></i>favorite</a></li>
+    <li><a href="#"><i class="fa fa-check"></i>apply</a></li>
+  </ul>
 </section>
+% end

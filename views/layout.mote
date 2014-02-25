@@ -14,62 +14,31 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="header">
-        <h1 class="header-title"><a class="header-link" href="/">job board<span></span></a></h1>
-        <input class="header-menu-checkbox" type="checkbox" id="toggle">
-        <label class="header-label" for="toggle"></label>
-        % if search
-          <nav class="header-nav">
-            {{ this.partial("header_menu", user: this.current_user, search: true) }}
-          </nav>
-          {{ this.partial("search_box", query: query, search: true) }}
-        % else
-          <nav class="header-nav">
-            {{ this.partial("header_menu", user: this.current_user) }}
-          </nav>
-        % end
-      </header>
+      <header>
+        <ul id="main-navigation">
+          <li><h1><a id="tittel-link"href="/">jobs.punchgirls.com</a></h1></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/help">Help</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+    </header>
 
       <p id="notices">
         {{ this.partial("notices", session: this.session) }}
       </p>
 
-      % if search
-        <section class="content-search">
-      % else
-        <section class="content">
-      % end
+      <section class="content">
+        {{ content }}
+      </section>
 
-          {{ content }}
-
-          <span class="before-footer"></span>
-        </section>
-
-      <footer class="footer">
-        <nav>
-          <ul class="footer-menu">
-            <li class="footer-menu-item">&copy; 2014 <a class="footer-menu-link" href="http://www.punchgirls.com">Punchgirls</a></li>
-            % if user
-                <li class="footer-menu-item"><a class="footer-menu-link" href="/about">About</a></li>
-                <li class="footer-menu-item"><a class="footer-menu-link" href="/pricing">Pricing</a></li>
-                <li class="footer-menu-item"><a class="footer-menu-link" href="/help">Help</a></li>
-            % end
-
-            <section class="footer-extra-menu">
-              % if !user && search
-                  <li class="footer-menu-item"><a class="footer-menu-link" href="/about">About</a></li>
-                  <li class="footer-menu-item"><a class="footer-menu-link" href="/pricing">Pricing</a></li>
-                  <li class="footer-menu-item"><a class="footer-menu-link" href="/help">Help</a></li>
-              % end
-            </section>
-
-            <li class="footer-menu-item"><a class="footer-menu-link" href="/contact">Contact</a></li>
-            <li class="footer-menu-item"><a class="footer-menu-link" href="/terms">Terms</a></li>
-            <li class="footer-menu-item"><a class="footer-menu-link" href="/privacy">Privacy Policy</a></li>
-            <li class="footer-menu-item"><a class="footer-menu-link" href="http://www.twitter.com/punchgirls"><i class="fa fa-twitter"></i></a></li>
-          </ul>
-        </nav>
-      </footer>
+      <ul id="footer-navigation">
+        <li >&copy; 2014 <a href="http://www.punchgirls.com">Punchgirls</a></li>
+        <li ><a href="/contact">Contact</a></li>
+        <li ><a href="/terms">Terms</a></li>
+        <li ><a href="/privacy">Privacy Policy</a></li>
+        <li ><a href="http://www.twitter.com/punchgirls"><i class="fa fa-twitter"></i></a></li>
+      </ul>
     </div>
   </body>
 </html>

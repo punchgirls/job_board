@@ -1,26 +1,26 @@
 <h2 class="content-title">Plans &amp; Pricing</h2>
 
-<section class="pricing">
-  <p class="pricing-text">With your subscription you can publish from 1 to 10 posts concurrently per month.</p>
-  <p class="pricing-text">You'll be able to publish, unpublish and edit your posts as many times as you want.</p>
-  <p class="pricing-text">If you need to have more than 10 posts published simultaneously per month, contact us so we can create a plan that suits you!
-  </p>
-  <p class="pricing-text"><strong>Choose your plan and Sign Up!</strong></p>
+<p>
+  With your subscription you can publish from 1 to 10 posts concurrently per month. You'll be able to publish, unpublish and edit your posts as many times as you want. If you need to have more than 10 posts published simultaneously per month, contact us so we can create a plan that suits you!
+</p>
+<p>
+  Choose your plan and Sign Up!
+</p>
 
-  <span class="plans">
-    <a class="plan" href="/signup?plan_id=small">
-    <span class="plan-title">Small</span>
-    <span class="plan-posts">1 Post</span>
-    <span class="plan-price">&nbsp;50 <small>USD/month</small></span></a>
+<span class="plans">
+  <a class="plan" href="/signup?plan_id=small">
+  <span class="plan-title">Small</span>
+  <span class="plan-posts">1 Post</span>
+  <span class="plan-price">&nbsp;50 <small>USD/month</small></span></a>
 
-    <a class="plan" href="/signup?plan_id=medium">
-    <span class="plan-title">Medium</span>
-    <span class="plan-posts">5 Posts</span>
-    <span class="plan-price">100 <small>USD/month</small></span></a>
+  <a class="plan" href="/signup?plan_id=medium">
+  <span class="plan-title">Medium</span>
+  <span class="plan-posts">5 Posts</span>
+  <span class="plan-price">100 <small>USD/month</small></span></a>
 
-    <a class="plan" href="/signup?plan_id=large">
-    <span class="plan-title">Large</span>
-    <span class="plan-posts">10 Posts</span>
-    <span class="plan-price">150 <small>USD/month</small></span></a>
-  </span>
-</section>
+  <a class="plan" href="/signup?plan_id=large">
+  <span class="plan-title">Large</span>
+  <span class="plan-posts">10 Posts</span>
+  <span class="plan-price">150 <small>USD/month</small></span></a>
+</span>
+
