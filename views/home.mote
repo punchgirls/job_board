@@ -1,4 +1,4 @@
-<section id="home-page">
+<section id="home">
   <form id="search-box">
     <input type="text"/>
     <button>Search</button>

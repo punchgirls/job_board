@@ -12,7 +12,11 @@
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
-  <body>
+  % if params.fetch(:background_img, false)
+    <body class="background-image">
+  % else
+    <body>
+  % end
     <div class="wrapper">
       <header>
         <ul id="main-navigation">
@@ -28,7 +32,7 @@
         {{ this.partial("notices", session: this.session) }}
       </p>
 
-      <section class="content">
+      <section id="content">
         {{ content }}
       </section>
 

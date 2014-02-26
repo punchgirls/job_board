@@ -22,17 +22,24 @@ body {
    padding-bottom: 120px;
 }
 
-#home, #about, #pricing, #help, #login {
+#home, #about, #pricing,
+#help, #login, #contact,
+#terms, #privacy-policy {
   margin: 0 auto;
   line-height: 1.8em;
   max-width: 600px;
  }
 
-#home, header, #footer-navigation, #login {
+#home, header,
+#footer-navigation,
+#login, #contact {
   text-align: center;
 }
 
-input[type="text"], input[type="email"], input[type="url"], input[type="password"]  {
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"]  {
   margin-bottom: 15px;
   height: 30px;
   width: 385px;
@@ -40,6 +47,11 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 
 input[type="checkbox"] {
   display: inline;
+}
+
+textarea {
+  height: 200px;
+  width: 385px;
 }
 
 .link-large {
@@ -212,11 +224,17 @@ h4 {
   float: right;
 }
 
-#login-form button {
+#login-form button, #contact-form button {
   position: relative;
   left: 150px;
   margin-top: 20px;
   width: 90px;
+}
+
+/* PRIVACY */
+#privacy-info-list li {
+  display: list-item;
+  list-style:  square;
 }
 
 /* FOOTER */
