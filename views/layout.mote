@@ -23,6 +23,14 @@
           <li><h1><a id="tittel-link"href="/">jobs.punchgirls.com</a></h1></li>
 
           % if this.current_user
+            % if current_user.instance_of?(Developer)
+              <li><a href="/applications">My applications (<span id="apps-size">{{ user.active_applications.size }}</span>)</a></li>
+              <li><a href="/favorites">My favorites (<span id="favs-size">{{ user.favorites.size }}</span>)</a></li>
+              <li><a href="/profile"><img id="gravatar-mini" src="http://www.gravatar.com/avatar/{{ user.avatar }}" />{{ user.username }}</a></li>
+            % else
+              <li><a href="/dashboard">Dashboard</a></li>
+              <li><a href="/profile"><img id="gravatar-mini" src="{{ user.gravatar }}" /> {{ this.h(user.name) }}</a></li>
+            % end
             <li><a href="/logout">Logout</a></li>
           % else
             <li><a href="/about">About</a></li>
@@ -31,13 +39,13 @@
             <li><a href="/login">Login</a></li>
           % end
         </ul>
-    </header>
-
-      <p id="notices">
-        {{ this.partial("notices", session: this.session) }}
-      </p>
+      </header>
 
       <section id="content">
+        <p id="notices">
+          {{ this.partial("notices", session: this.session) }}
+        </p>
+
         {{ content }}
       </section>
 
