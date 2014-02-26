@@ -7,39 +7,44 @@
   % posts_found = posts.size
 % end
 
-<form id="search-box">
-  <input type="text"/>
-  <button>Search</button>
-</form>
+<section id="search">
+  <form id="search-box">
+    <input type="text"/>
+    <button>Search</button>
+  </form>
 
-% posts.each do |post|
-  <section class="listing-item">
-  <img src="{{ post.company.gravatar }}">
-  <ul>
-    <li><a href="#">{{ this.h(post.title) }}</a></li>
-    <li>@</li>
-    <li><a href="#">{{ this.h(post.company.name) }}</a></li>
-    <li>|</li>
-    <li>{{ this.h(post.location) }}</li>
-    <li>|</li>
-    <li>Posted {{ post.posted }}</li>
-  </ul>
-  <ul>
-    <li>{{ this.h(post.tags) }}</li>
-    <li>|</li>
-    % if post.remote == "true"
-      <li>Work from anywhere</li>
+  % if posts.nil?
+      <p>Start searching by adding keywords.</p>
+    % elsif posts.empty?
+      <p>No posts matched your search. Try again!</p>
     % else
-      <li>On-site only</li>
+      % posts.each do |post|
+        <section class="listing-item">
+          <img src="{{ post.company.gravatar }}">
+          <ul>
+            <li><a href="#">{{ this.h(post.title) }}</a></li>
+            <li>@</li>
+            <li><a href="#">{{ this.h(post.company.name) }}</a></li>
+            <li>|</li>
+            <li>{{ this.h(post.location) }}</li>
+            <li>|</li>
+            <li>Posted {{ post.posted }}</li>
+          </ul>
+          <ul>
+            <li>{{ this.h(post.tags) }}</li>
+            <li>|</li>
+            % if post.remote == "true"
+              <li>Work from anywhere</li>
+            % else
+              <li>On-site only</li>
+            % end
+          </ul>
+          <p class="description">{{ this.h(post.description) }}</p>
+          <ul class="section-footer">
+            <li><a href="/favorite?post_id={{ post.id }}"><i class="fa fa-star"></i>favorite</a></li>
+            <li><a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
+          </ul>
+        </section>
+      % end
     % end
-
-  </ul>
-  <div>
-    Kittens Inc is a fast-growing digital agency in Buenos Aires. We're currently working on a project where we need a front end developer to finish the responsive design work. This is the project you will be working on: http://kittens.com/. Your daily tasks: Build responsive HTML5 pages and create rich frontend JavaScript components. Your profile: Experience with HTML5, CSS3, JavaScript, JQuery and friends. Experience in a JavaScript framework is a plus. What we offer: Competitive salary, bonuses, full health insurance and casual dress code.
-  </div>
-  <ul class="section-footer">
-    <li><a href="#"><i class="fa fa-star"></i>favorite</a></li>
-    <li><a href="#"><i class="fa fa-check"></i>apply</a></li>
-  </ul>
 </section>
-% end

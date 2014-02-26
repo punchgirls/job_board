@@ -9,10 +9,6 @@ body {
   font-size: 0.9em;
 }
 
-.background-image {
-  background: url('/img/punchgirls_large.png') left bottom no-repeat;
-}
-
 .wrapper {
   min-height: 100%;
   position: relative;
@@ -36,24 +32,6 @@ body {
   text-align: center;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"]  {
-  margin-bottom: 15px;
-  height: 30px;
-  width: 385px;
-}
-
-input[type="checkbox"] {
-  display: inline;
-}
-
-textarea {
-  height: 200px;
-  width: 385px;
-}
-
 .link-large {
   display: block;
   margin: 40px 0;
@@ -70,6 +48,62 @@ a, .link {
   border: solid 1px #dadada;
   border-radius: 5px;
   padding: 10px;
+}
+
+/* FORMS AND INPUT */
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"]  {
+  margin-bottom: 15px;
+  height: 30px;
+  width: 33em;
+}
+
+input[type="checkbox"] {
+  display: inline;
+}
+
+textarea {
+  height: 200px;
+  width: 33em;
+}
+
+#search-box input {
+  height: 40px;
+}
+
+#home #search-box {
+  margin: 40px 0;
+}
+
+#login-form {
+  position: relative;
+}
+
+#login-form ul {
+  padding: 0;
+  text-align: left;
+  margin: 0 auto;
+  width: 385px;
+}
+
+#forgot-password-link {
+  float: right;
+}
+
+#login-form button, #contact-form button {
+  float:  right;
+  margin-top: 20px;
+  width: 90px;
+}
+
+button {
+  height: 45px;
+  background:  #EDCA45;
+  outline: none;
+  border: none;
 }
 
 /* HEADER */
@@ -105,25 +139,6 @@ h1  {
 
 #latest-posts a {
   color: #4d4d4d;
-}
-
-/* SEARCH_BOX */
-
-#home #search-box {
-  width: 500px;
-  margin: 0 auto;
-}
-
-#search-box input {
-  min-width: 300px;
-  height: 40px;
-}
-
-button {
-  height: 45px;
-  background:  #EDCA45;
-  outline: none;
-  border: none;
 }
 
 /* SEARCH RESULTS */
@@ -208,29 +223,6 @@ h4 {
   margin-bottom: 5px;
 }
 
-/* LOGIN PAGE */
-#login-form {
-  position: relative;
-}
-
-#login-form ul {
-  padding: 0;
-  text-align: left;
-  margin: 0 auto;
-  width: 385px;
-}
-
-#forgot-password-link {
-  float: right;
-}
-
-#login-form button, #contact-form button {
-  position: relative;
-  left: 150px;
-  margin-top: 20px;
-  width: 90px;
-}
-
 /* PRIVACY */
 #privacy-info-list li {
   display: list-item;
@@ -267,18 +259,30 @@ h4 {
   }
 }
 
-@media only screen and (min-width: 1300px)  {
+@media only screen and (min-width: 1200px)  {
   /* HEADER */
+  .background-image {
+    background: url('/img/punchgirls_large.png') left bottom no-repeat;
+  }
+
   header {
     margin: 50px 0;
   }
 
-  #home-page #search-box {
+  #home #search-box {
     margin-top: 90px;
   }
 
   #search-box input {
     width: 385px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="password"],
+  textarea  {
+    width: 35em;
   }
 
 }
