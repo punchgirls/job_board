@@ -6,7 +6,7 @@ class Developer < Ohm::Model
   attribute :name
   attribute :email
   attribute :url
-  attribute :avatar
+  attribute :gravatar
   attribute :bio
   attribute :status
 

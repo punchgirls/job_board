@@ -3,7 +3,7 @@
 <section>
   <h2 class="content-title">Edit your profile</h2>
 
-  <img class="confirm-image" src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
+  <img class="confirm-image" src="http://www.gravatar.com/avatar/{{ developer.gravatar }}" />
 
   <form class="form confirm-form" action="/profile/{{ developer.id }}" method="POST">
     <input class="input confirm-input" type="text" name="developer[name]"

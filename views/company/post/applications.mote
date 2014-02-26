@@ -12,7 +12,7 @@
         % developer = application.developer
         <li class="item" id="app-{{ application.id }}">
           <span class="applicant-profile">
-            <img class="applicant-image" src="http://www.gravatar.com/avatar/{{ developer.avatar }}" />
+            <img class="applicant-image" src="http://www.gravatar.com/avatar/{{ developer.gravatar }}" />
             <h2 class="applicant-name">{{ this.h(developer.name) }}</h2>
           </span>
 
