@@ -78,15 +78,11 @@ textarea {
   margin: 40px 0;
 }
 
-#login-form {
-  position: relative;
-}
-
 #login-form ul {
   padding: 0;
   text-align: left;
   margin: 0 auto;
-  width: 385px;
+  width: 25.75em;
 }
 
 #forgot-password-link {
@@ -94,7 +90,6 @@ textarea {
 }
 
 #login-form button, #contact-form button {
-  float:  right;
   margin-top: 20px;
   width: 90px;
 }
@@ -246,7 +241,10 @@ h4 {
   font-size: 1.3em;
 }
 
-@media only screen and (min-width: 440px)  {
+@media only screen and (min-width: 780px)  {
+  header {
+    margin: 50px 0;
+  }
   .section-footer li {
     margin-left: 10px;
   }
@@ -265,10 +263,6 @@ h4 {
     background: url('/img/punchgirls_large.png') left bottom no-repeat;
   }
 
-  header {
-    margin: 50px 0;
-  }
-
   #home #search-box {
     margin-top: 90px;
   }
@@ -284,5 +278,12 @@ h4 {
   textarea  {
     width: 35em;
   }
+
+  #login-form ul {
+  padding: 0;
+  text-align: left;
+  margin: 0 auto;
+  width: 27.75em;
+}
 
 }
