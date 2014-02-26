@@ -24,7 +24,7 @@ body {
   margin: 0 auto;
   line-height: 1.8em;
   max-width: 600px;
- }
+}
 
 #home, header,
 #footer-navigation,
@@ -101,6 +101,19 @@ button {
   border: none;
 }
 
+/* NOTICES */
+#notices {
+  text-align: center;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
 /* HEADER */
 h1  {
   display: inline;
@@ -117,6 +130,10 @@ h1  {
 
 #main-navigation li {
   margin-right: 30px;
+}
+
+#gravatar-mini {
+  display: none;
 }
 
 /* HOME */
@@ -261,6 +278,12 @@ h4 {
   /* HEADER */
   .background-image {
     background: url('/img/punchgirls_large.png') left bottom no-repeat;
+  }
+
+  #gravatar-mini {
+    display: inline;
+    float: none;
+    width: 25px;
   }
 
   #home #search-box {
