@@ -85,12 +85,12 @@ class Guests < Cuba
             session[:error] = "Your have deleted your account.
             Please create a new account."
 
-            render("login", title: "Login", user: user)
+            render("login", title: "Login", user: user, background_img: true)
           end
         else
           session[:error] = "Invalid email/password combination"
 
-          render("login", title: "Login", user: user)
+          render("login", title: "Login", user: user, background_img: true)
         end
       end
 
@@ -100,10 +100,12 @@ class Guests < Cuba
       end
 
       on get, root do
-        render("login", title: "Login", user: "")
+        render("login", title: "Login", user: "", background_img: true)
       end
 
-      on(default) { not_found! }
+      on default do
+        not_found!
+      end
     end
 
     on "forgot-password" do

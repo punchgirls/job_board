@@ -16,14 +16,16 @@ class Contacts < Cuba
         res.redirect "/"
       else
         session[:error] = "All fields are required"
-        render("contact", title: "Contact", contact: params)
+        render("contact", title: "Contact", contact: params, background_img: true)
       end
     end
 
     on get, root do
-      render("contact", title: "Contact", contact: {})
+      render("contact", title: "Contact", contact: {}, background_img: true)
     end
 
-    on(default) { not_found! }
+    on default do
+      not_found!
+    end
   end
 end

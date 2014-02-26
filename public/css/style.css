@@ -9,22 +9,26 @@ body {
   font-size: 0.9em;
 }
 
+.background-image {
+  background: url('/img/punchgirls_large.png') left bottom no-repeat;
+}
+
 .wrapper {
   min-height: 100%;
   position: relative;
 }
 
-.content {
-  line-height: 1.8em;
-  /*max-width: 600px;*/
-  padding-bottom: 120px;
+#content {
+   padding-bottom: 120px;
 }
 
-section {
+#home, #about, #pricing, #help, #login {
   margin: 0 auto;
-}
+  line-height: 1.8em;
+  max-width: 600px;
+ }
 
-#home-page, header, #footer-navigation, #login-page {
+#home, header, #footer-navigation, #login {
   text-align: center;
 }
 
@@ -49,8 +53,6 @@ a, .link {
 }
 
 .highlight-box {
-  margin: 0 auto
-  max-width: 550px;
   margin-bottom: 30px;
   background: #fafafa;
   border: solid 1px #dadada;
@@ -64,7 +66,7 @@ h1  {
 }
 
 #tittel-link {
-  margin-right: 40px;
+  margin-right: 70px;
   text-decoration: none;
 }
 
@@ -95,7 +97,7 @@ h1  {
 
 /* SEARCH_BOX */
 
-#search-box {
+#home #search-box {
   width: 500px;
   margin: 0 auto;
 }
@@ -112,11 +114,16 @@ button {
   border: none;
 }
 
+/* SEARCH RESULTS */
+#search {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
 /* LISTING ITEM (POST, APPLICATIONS ETC.)*/
 .listing-item {
    margin-bottom: 20px;
-    width: 800px;
-    border-bottom: 1px solid #fafafa;
+   border-bottom: 1px solid #fafafa;
 }
 
 img {
@@ -128,7 +135,7 @@ ul  {
   padding-left: 0;
 }
 
-.content i {
+.listing-item i {
   margin-right: 5px;
 }
 
@@ -139,6 +146,15 @@ li {
 
 .message, .note, .bio {
   margin-top: 20px;
+}
+
+.description {
+  margin: 0;
+  line-height: 1.5em;
+}
+
+.section-footer {
+  margin-top: 0;
 }
 
 /* Pricing */
@@ -221,10 +237,7 @@ h4 {
 }
 
 @media only screen and (min-width: 440px)  {
-  body {
-    /*background: url('/img/punchgirls_small.png') 5% 70% no-repeat;*/
-  }
-   .section-footer li {
+  .section-footer li {
     margin-left: 10px;
   }
   .section-footer {
@@ -237,10 +250,6 @@ h4 {
 }
 
 @media only screen and (min-width: 1300px)  {
-  body {
-    /*background: url('/img/punchgirls_large.png') left bottom no-repeat;*/
-  }
-
   /* HEADER */
   header {
     margin: 50px 0;
