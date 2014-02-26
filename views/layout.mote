@@ -21,10 +21,15 @@
       <header>
         <ul id="main-navigation">
           <li><h1><a id="tittel-link"href="/">jobs.punchgirls.com</a></h1></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/help">Help</a></li>
-          <li><a href="/login">Login</a></li>
+
+          % if this.current_user
+            <li><a href="/logout">Logout</a></li>
+          % else
+            <li><a href="/about">About</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/help">Help</a></li>
+            <li><a href="/login">Login</a></li>
+          % end
         </ul>
     </header>
 
@@ -38,6 +43,11 @@
 
       <ul id="footer-navigation">
         <li >&copy; 2014 <a href="http://www.punchgirls.com">Punchgirls</a></li>
+        % if this.current_user
+          <li><a href="/about">About</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/help">Help</a></li>
+        % end
         <li ><a href="/contact">Contact</a></li>
         <li ><a href="/terms">Terms</a></li>
         <li ><a href="/privacy">Privacy Policy</a></li>
