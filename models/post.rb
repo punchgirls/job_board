@@ -19,7 +19,7 @@ class Post < Ohm::Model
   end
 
   def posted
-    return Time.at(date.to_i).strftime("%e/%b/%y")
+    return Time.at(date.to_i).strftime("%e %b.")
   end
 
   def published?

@@ -280,10 +280,9 @@ h4 {
   }
 
   #login-form ul {
-  padding: 0;
-  text-align: left;
-  margin: 0 auto;
-  width: 27.75em;
-}
-
+    padding: 0;
+    text-align: left;
+    margin: 0 auto;
+    width: 27.75em;
+  }
 }
