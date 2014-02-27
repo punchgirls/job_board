@@ -102,7 +102,12 @@ input[type="checkbox"] {
 
 textarea {
   height: 200px;
-  width: 33em;
+  width: 20em;
+  border-top: solid 2px #888888;
+  border-left: solid 2px #888888;
+  border-right: solid 2px #eee;
+  border-bottom: solid 2px #eee;
+  padding: 8px 0 0 5px;
 }
 
 #search-box input {
@@ -129,6 +134,7 @@ button {
   background:  #EDCA45;
   outline: none;
   border: none;
+  font-size: 1.2em;
 }
 
 #login-form button,
@@ -309,7 +315,7 @@ h1  {
   background-color: #F1F1F1;
   text-decoration: none;
   font-weight: bold;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
 .plan:hover {
@@ -322,6 +328,10 @@ h1  {
 }
 
 /* HELP PAGE */
+#help {
+  padding-left: 40px;
+}
+
 .help-menu li, .example-post li {
   display: list-item;
 }
@@ -340,9 +350,13 @@ h4 {
 }
 
 /* PRIVACY */
+#privacy-info-list {
+  padding-left: 18px;
+}
+
 #privacy-info-list li {
   display: list-item;
-  list-style:  square;
+  list-style:  disc;
 }
 
 /* COMPANY PROFILE*/
@@ -407,6 +421,10 @@ h4 {
     text-align: left;
     margin: 0 auto;
     width: 25.75em;
+  }
+
+  .plan {
+    font-size: 1em;
   }
 }
 
@@ -476,7 +494,7 @@ h4 {
     padding: 0;
     text-align: left;
     margin: 0 auto;
-    width: 27.75em;
+    width: 31em;
   }
 }
 
