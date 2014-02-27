@@ -20,16 +20,32 @@ body {
 
 #home, #about, #pricing,
 #help, #login, #contact,
-#terms, #privacy-policy {
+#terms, #privacy-policy,
+#new-post {
   margin: 0 auto;
   line-height: 1.8em;
   max-width: 600px;
 }
 
+#search, #company-dashboard {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
 #home, header,
 #footer-navigation,
-#login, #contact {
+#login, #contact,
+#signup, #new-post {
   text-align: center;
+}
+
+ul  {
+  padding-left: 0;
+}
+
+li {
+  display: inline;
+  list-style: none;
 }
 
 .link-large {
@@ -153,34 +169,19 @@ h1  {
   color: #4d4d4d;
 }
 
-/* SEARCH RESULTS */
-#search {
-  margin: 0 auto;
-  max-width: 800px;
-}
-
 /* LISTING ITEM (POST, APPLICATIONS ETC.)*/
 .listing-item {
    margin-bottom: 20px;
    border-bottom: 1px solid #fafafa;
 }
 
-img {
+.listing-item img {
   float: left;
   margin-right: 20px;
 }
 
-ul  {
-  padding-left: 0;
-}
-
 .listing-item i {
   margin-right: 5px;
-}
-
-li {
-  display: inline;
-  list-style: none;
 }
 
 .message, .note, .bio {
@@ -192,9 +193,21 @@ li {
   line-height: 1.5em;
 }
 
-.section-footer {
-  margin-top: 0;
+/* SIGNUP */
+#signup form {
+  text-align: right;
 }
+
+#signup {
+  margin: 0 auto;
+  line-height: 1.8em;
+  max-width: 500px;
+}
+
+#credit-cards img {
+  width: 48px;
+}
+
 
 /* Pricing */
 .plan {
@@ -239,6 +252,11 @@ h4 {
 #privacy-info-list li {
   display: list-item;
   list-style:  square;
+}
+
+/* COMPANY DASHBOARD */
+#company-dashboard h3, .link-large {
+  display: inline;
 }
 
 /* FOOTER */
@@ -300,6 +318,10 @@ h4 {
   input[type="password"],
   textarea  {
     width: 35em;
+  }
+
+  .input-short {
+    width: 5em;
   }
 
   #login-form ul {

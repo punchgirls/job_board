@@ -1,77 +1,53 @@
 % company = this.current_user
 % posts = company.posts
 
-<section class="two-cols">
-  <ul class="list" id="posts-list">
-    <h2 class="list-title company-dashboard-title company-plan-info">Plan: {{ plan.name }}</h2>
-    <p class="item-text posts-found company-plan-info">({{ plan.posts }} posts per month)</p>
-    <p class="item-text posts-found company-plan-info">Published posts:
-      <span id="published-posts-title">{{ company.published_posts.size }}</span>
-    </p>
-    <p class="item-text posts-found company-plan-info"><a href="/post/new">Post job offer</a></p>
-    % if posts.empty?
-      <p class="list-subtitle">You haven't posted anything yet.<br/><br/>
-      Click <a href="/post/new">here</a> to get started!</p>
+<section id="company-dashboard">
+  <a class="link-large" href="/post/new"><i class="fa fa-pencil-square-o"></i> Create new post</a>
+
+   % if posts.empty?
+      <p>
+        You haven't posted anything yet.<br/>
+        Click <a href="/post/new">here</a> to get started!
+      </p>
     % else
+      <h2>Published posts: {{ company.published_posts.size }}</h2>
       % posts.each do |post|
-        <li class="item" id="{{ post.id }}">
-          <article>
-            <header class="item-header">
-              <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong> <a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o cursor"></i></a></h1>
-
-              % tags = post.tags.split(",").join(", ")
-
-              <h3 class="item-subtitle">Tags: {{ tags }}</h3>
-              <h3 class="item-subtitle">{{ this.h(post.location) }}</h3>
+        <section class="listing-item">
+          <ul>
+            <li>{{ this.h(post.title) }}</li>
+            <li>|</li>
+            <li>{{ this.h(post.location) }}</li>
+            <li>|</li>
+            <li>Posted {{ post.posted }}</li>
+          </ul>
+          <ul>
+            <li>{{ post.tags }}</li>
+            <li>|</li>
+            <li>
               % if post.remote == "true"
-                <i class="item-icon fa fa-globe"></i><h3 class="item-subtitle remote">Work from anywhere</h3>
+                Work from anywhere
               % else
-                <i class="item-icon fa fa-map-marker"></i><h3 class="item-subtitle remote">On-site only</h3>
+                On-site only
               % end
-            </header>
-
-            <p class="item-text">{{ this.h(post.description) }}</p>
-
-            <h3 class="item-subtitle see-applicants-link">
-              <a href="/post/applications/{{ post.id }}">
-                <strong>See applicants ({{ post.active_applications.size }})</strong>
+            </li>
+            <li>|</li>
+            <li>Applicants: {{ post.active_applications.size }}</li>
+          </ul>
+          <p class="description">{{ this.h(post.description) }}</p>
+          <ul class="section-footer">
+            <li><a class="show-applicants" href="/post/applications/{{ post.id }}"><i class="fa fa-users"></i>Show list of applicants</a></li>
+            <li><a href="/post/status/{{ post.id }}#{{ post.id }}"><i class="fa fa-check"></i>
+              % if post.status == "published"
+                unpublish
+              % else
+                publish
+              % end
               </a>
-            </h3>
-
-            <section class="post-control">
-              <a href="/post/remove/{{ post.id }}" onclick="return confirm('Are you sure you want to delete this post?')">
-                <i class="fa fa-trash-o cursor post-control-icon delete-icon"></i>
-                <span class="underline">Delete post</span>
-              </a>
-
-              <span class="published"/>
-                % if post.status == "published"
-                  <a href="/post/status/{{ post.id }}#{{ post.id }}">
-                    <i class="fa fa-check post-control-icon published-icon"></i>
-                    <span class="underline">Unpublish</span>
-                  </a>
-                % else
-                  <a href="/post/status/{{ post.id }}#{{ post.id }}">
-                    <i class="fa fa-check post-control-icon"></i>
-                    <span class="underline">Publish</span>
-                  </a>
-                % end
-              </span>
-            </section>
-
-            <footer class="item-footer">
-              <p class="item-text">
-                <small>
-                  <time datetime="" pubdate>Posted on {{ post.posted }}</time>
-                </small>
-              </p>
-            </footer>
-          </article>
-        </li>
+            </li>
+            <li><a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o"></i>edit</a></li>
+            <li><a href="/post/remove/{{ post.id }}"><i class="fa fa-trash-o"></i>delete</a></li>
+          </ul>
+        </section>
       % end
     % end
-  </ul>
-
-  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
-
 </section>
