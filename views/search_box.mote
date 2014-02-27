@@ -12,11 +12,12 @@
     </li>
   </ul>
 
+  <button><i class="fa fa-search"></i></button>
+
   <ul id="autocomplete"></ul>
 
   <input type="hidden" id="query" name="post[tags]" value="">
 
-  <button><i class="fa fa-search"></i></button>
 </form>
 
 <script src="/js/inputTokens.js"></script>

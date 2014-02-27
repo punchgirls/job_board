@@ -67,7 +67,7 @@ function addToken(value) {
       deleteToken(token);
     };
 
-    x.setAttribute("class", "delete-token");
+    // x.setAttribute("class", "delete-token");
 
     token.appendChild(token_span);
     token.appendChild(x);
@@ -78,7 +78,7 @@ function addToken(value) {
     searchInput.focus();
     searchInput.value = "";
     searchInput.removeAttribute("placeholder");
-    autocomplete.setAttribute("style", "display: none;");
+    // autocomplete.setAttribute("style", "display: none;");
   } else {
     errors.setAttribute("class", "error alert");
     errors.innerHTML = "You can add up to 5 skills";
@@ -90,7 +90,7 @@ function deleteToken(token) {
 
   if(tokens.childNodes.length == 3) {
     searchInput.setAttribute("placeholder", "e.g. Ruby, Cuba, Redis");
-    searchInput.setAttribute("style", "width: 200px;");
+    // searchInput.setAttribute("style", "width: 200px;");
   }
 }
 
@@ -113,9 +113,9 @@ document.onclick = function(e) {
 searchInput.onkeydown = function(e) {
   e = e || window.event;
 
-  autocomplete.style.display = "block";
-  searchInput.removeAttribute("placeholder");
-  searchInput.style.width = "150px";
+  // autocomplete.style.display = "block";
+  // searchInput.removeAttribute("placeholder");
+  // searchInput.style.width = "150px";
 
   switch (e.keyCode) {
     case 8:
@@ -152,11 +152,11 @@ searchInput.onkeyup = function(e) {
   autocomplete.innerHTML = "";
 
   if (searchInput.value.length < 2) {
-    autocomplete.style.height = "200px";
-    autocomplete.style.overflowY = "scroll";
+    // autocomplete.style.height = "200px";
+    // autocomplete.style.overflowY = "scroll";
   } else {
-    autocomplete.style.height = "auto";
-    autocomplete.style.overflowY = "hidden";
+    // autocomplete.style.height = "auto";
+    // autocomplete.style.overflowY = "hidden";
   }
 
   for (var key in skills) {

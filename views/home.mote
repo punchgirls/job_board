@@ -1,7 +1,7 @@
 <section id="home">
-  <h2>Latest posts</h2>
+   {{ this.partial("search_box") }}
 
-  {{ this.partial("search_box") }}
+  <h2>Latest posts</h2>
 
   <ul id="latest-posts">
     % latest_posts.each do |post|

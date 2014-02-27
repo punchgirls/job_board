@@ -93,6 +93,7 @@ input[type="email"],
 input[type="url"],
 input[type="password"]  {
   margin-bottom: 15px;
+  padding-left: 5px;
   height: 30px;
   width: 33em;
 }
@@ -144,14 +145,60 @@ button {
   width: 90px;
 }
 
+.hide-form {
+  display: none;
+}
+
+::-webkit-input-placeholder {
+  font-size: 1.2em;
+  line-height: 0.8em;
+  font-family: "Droid Sans Mono", sans-serif;
+}
+
+::-moz-placeholder {
+  font-size: 1.2em;
+  line-height: 0.8em;
+  font-family: "Droid Sans Mono", sans-serif;
+}  /*firefox 19+*/
+
+:-ms-input-placeholder {
+  font-size: 1.2em;
+  line-height: 0.8em;
+  font-family: "Droid Sans Mono", sans-serif;
+} /* ie*/
+
+input:-moz-placeholder {
+  font-size: 1.2em;
+  line-height: 0.8em;
+  font-family: "Droid Sans Mono", sans-serif;
+}
+
+/* SEARCH BOX */
+#search-box {
+  /*position: relative;*/
+  /*border: solid;*/
+}
+#tokens {
+  display: inline;
+}
+
+#autocomplete {
+  display: none;
+  padding-left: 10px;
+  border: solid 1px #4d4d4d;
+  text-align: left;
+  width: 27em;
+}
+
+#autocomplete li {
+  display: list-item;
+}
+
 #search-box button {
+  vertical-align: top;
   width: 45px;
   font-size: 1.8em;
   color: white;
-}
-
-.hide-form {
-  display: none;
 }
 
 /* NOTICES */
