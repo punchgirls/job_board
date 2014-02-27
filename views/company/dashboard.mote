@@ -2,7 +2,10 @@
 % posts = company.posts
 
 <section id="company-dashboard">
-  <a class="link-large" href="/post/new"><i class="fa fa-pencil-square-o"></i> Create new post</a>
+  <a class="link-large" href="/post/new">
+    <i class="fa fa-pencil-square-o"></i>
+    Create new post
+  </a>
 
    % if posts.empty?
       <p>
@@ -12,7 +15,7 @@
     % else
       <h2>Published posts: {{ company.published_posts.size }}</h2>
       % posts.each do |post|
-        <section class="listing-item">
+        <section id="post_{{ post.id }}"class="listing-item">
           <ul>
             <li>{{ this.h(post.title) }}</li>
             <li>|</li>
@@ -35,8 +38,12 @@
           </ul>
           <p class="description">{{ this.h(post.description) }}</p>
           <ul class="section-footer">
-            <li><a class="show-applicants" href="/post/applications/{{ post.id }}"><i class="fa fa-users"></i>Show list of applicants</a></li>
-            <li><a href="/post/status/{{ post.id }}#{{ post.id }}"><i class="fa fa-check"></i>
+            <li>
+              <a class="show-applicants" href="/post/applications/{{ post.id }}">
+              <i class="fa fa-users"></i>Show list of applicants</a>
+            </li>
+            <li><a href="/post/status/{{ post.id }}#{{ post.id }}">
+              <i class="fa fa-check"></i>
               % if post.status == "published"
                 unpublish
               % else
@@ -44,8 +51,15 @@
               % end
               </a>
             </li>
-            <li><a href="/post/edit/{{ post.id }}"><i class="fa fa-pencil-square-o"></i>edit</a></li>
-            <li><a href="/post/remove/{{ post.id }}"><i class="fa fa-trash-o"></i>delete</a></li>
+            <li>
+              <a href="/post/edit/{{ post.id }}">
+              <i class="fa fa-pencil-square-o"></i>edit</a>
+            </li>
+            <li>
+             <a href="/post/remove/{{ post.id }}" onclick="return removePost()"
+               <i class="fa fa-trash-o"></i>Delete post
+             </a>
+            </li>
           </ul>
         </section>
       % end

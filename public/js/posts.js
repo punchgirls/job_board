@@ -228,29 +228,8 @@ function favoriteApplicant (id) {
   request.send();
 }
 
-function removePost (id) {
-  var post = document.getElementById(id);
-  var posts = document.getElementById("posts-list");
-  var url = "post/remove/" + id;
-  var msg = "Are you sure you want to delete the post?";
-  var cancel = confirm(msg);
-  var span = document.createElement("span");
-  notices.appendChild(span);
-  span.className = "alert success";
-
-  if (cancel) {
-    var request = ajax();
-    request.open("POST", url);
-
-    request.onreadystatechange = function () {
-      if ((request.readyState===4) && (request.status===200)) {
-        posts.removeChild(post);
-        span.innerHTML = "Post successfully removed! The change will be updated within a few minutes.";
-      }
-    };
-
-    request.send();
-  }
+function removePost () {
+ return confirm("Are you sure you want to delete this post?");
 }
 
 function addApplicant (id) {
