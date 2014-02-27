@@ -50,14 +50,15 @@
       <span>Work from anywhere</span>
     </label><br>
 
-    <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">
-      {{ this.h(post.description) }}
-    </textarea><br/>
+    <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
 
     <span id="countdown">600 characters remaining.</span><br/>
-    <a href="/dashboard">cancel</a>
 
-    <button>post</button>
+    <span class="buttons">
+      <a href="/dashboard">cancel</a>
+
+      <button type="submit">Post</button>
+    </span>
   </form>
 </section>
 

@@ -142,6 +142,12 @@ button {
   cursor: pointer;
 }
 
+.buttons {
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+}
+
 .btn_search {
   padding: 0;
 }
@@ -303,8 +309,8 @@ h1  {
   line-height: 2em;
 }
 
-/* Signup */
-#signup {
+/* Signup, New post */
+#signup, #new-post {
   margin: 0 auto;
   padding: 0;
   line-height: 1.8em;
@@ -314,14 +320,27 @@ h1  {
   margin-bottom: 10px;
 }
 
-#signup form {
+#signup form, #new-post form {
   margin: 0 auto;
   width: 300px;
   text-align: left;
 }
 
-#signup input {
+#signup input, #new-post input {
   width: 292px;
+  max-width: 292px;
+}
+
+#new-post textarea {
+  width: 277px;
+  max-width: 277px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+#new-post input[type="checkbox"] {
+  width: auto;
+  margin: 0;
 }
 
 #credit-cards img, .card-icon {
@@ -482,6 +501,20 @@ h4 {
 
   .plan {
     font-size: 1em;
+  }
+
+  #new-post form {
+    width: 453px;
+  }
+
+  #new-post input {
+    width: 443px;
+    max-width: 443px;
+  }
+
+  #new-post textarea {
+    width: 428px;
+    max-width: 428px;
   }
 }
 
