@@ -1,11 +1,10 @@
 % application = Application.find(:post_id => post.id, :developer_id => developer.id).first
 
 % if application && application.message.nil? && application.status == "active"
-  <span class="send-message-link" onclick="addMsg({{ post.id }})"
-  id="add-msg-link-{{ post.id }}">Send message to company</span>
+  <span onclick="addMsg({{ post.id }})"id="add-msg-link-{{ post.id }}">
+    Send message to company:
+  </span>
 
   {{ this.partial("developer/message_form", post: post) }}
 % end
 
-<span onclick="addMsg({{ post.id }})" id="add-msg-link-{{ post.id }}"></span>
-{{ this.partial("developer/message_form", post: post) }}

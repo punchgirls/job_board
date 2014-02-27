@@ -1,109 +1,79 @@
 % developer = this.current_developer
 % subtitle = params.fetch(:subtitle, "")
 
-<section class="two-cols">
-  <ul class="list" id="applications-list">
-    <h2 class="list-title">
+<section id="my-applications">
+  <h2>
       % if active_applications
         Active applications
       % else
         Discarded applications
       % end
       (<span id="apps-size">{{ applications.size }}</span>)
-    </h2><br/>
-    <p class="item-text posts-found"><a href="/applications">Active applications</a> <span class="applications-menu-pipeline"> | </span><span class="applications-menu-breakline"><br/></span> <a href="/history">Discarded applications</a></p><br/>
+    </h2>
+
+    <ul>
+      <li><a href="/applications">Active applications</a></li>
+      <li>|</li>
+      <li><a href="/history">Discarded applications</a></li>
+    </ul>
 
     % if applications.empty?
-      <p class="item-text posts-found">{{ subtitle }}</p>
+      <p>{{ subtitle }}</p>
     % else
       % applications.each do |application|
         % post = application.post
-        <li class="item" id="{{ application.id}}">
-          <article id="article_{{ post.id }}">
-            <header class="item-header">
-              <img class="item-company-logo" src="{{ post.company.gravatar }}">
-              <span class="item-subtitle post-info">
-                <h1 class="item-title"><strong>{{ this.h(post.title) }}</strong></h1>
-                <p class="list-subtitle status">Status: <span class="capitalize">{{ application.status }}</span></p>
-                <span class="item-subtitle company-info">
-                  <h3 class="item-subtitle company-name"><a href="search?company_id={{ post.company.id }}">{{ this.h(post.company.name) }}</a></h3>
-                  <h3 class="item-subtitle company-name">|</h3>
-                  <h3 class="item-subtitle company-url"><a href="{{ this.h(post.company.url) }}">{{ this.h(post.company.url) }}</a></h3><br/>
-                </span>
-              </span>
 
-              % tags = post.tags.split(",").join(", ")
-
-              <h3 class="item-subtitle post-tags">Tags: {{ tags }}</h3>
-              <h3 class="item-subtitle post-location">{{ this.h(post.location) }}</h3>
-              <h3 class="item-subtitle post-remote">
-                % if post.remote == "true"
-                  <i class="item-icon fa fa-globe"></i><p class="item-subtitle remote">Work from anywhere</p>
+          <section class="listing-item">
+            <img src="{{ post.company.gravatar }}">
+            <ul>
+              <li>{{ this.h(post.title) }}</li>
+              <li>@</li>
+              <li><a href="search?company_id={{ post.company.id }}">{{ this.h(post.company.name) }}</a></li>
+              <li>|</li>
+              <li>{{ this.h(post.location) }}</li>
+              <li>|</li>
+              <li>Applied {{ application.applied }}</li>
+            </ul>
+            <ul>
+              <li><i class="fa fa-tags"></i>{{ this.h(post.tags) }}</li>
+              <li>|</li>
+              <li>
+                 % if post.remote == "true"
+                  Work from anywhere
                 % else
-                  <i class="item-icon fa fa-map-marker"></i><p class="item-subtitle remote">On-site only</p>
+                  On-site only
                 % end
-              </h3>
-            </header>
-
-            <section class="more" id="show-more-{{ application.id }}">
-              <h3 class="item-subtitle">Post description:</h3>
-              <p class="item-text">{{ this.h(post.description) }}</p>
-
-              % if !application.message.nil?
-                <h3 class="item-subtitle">Sent message:</h3>
-                <p class="item-text">{{ this.h(application.message) }}</p>
-              % else
-                <scan id="message-{{ post.id }}"></scan>
-                <span class="message-sent applied" id="sent-ok-{{ post.id }}"></span>
-              % end
-
-              <section class="post-control">
-                % if application.status == "active"
-                  {{ this.partial("developer/add_message", post: post, developer: developer) }}
-                % end
-
-                % if !application.note.nil?
-                <span id="note-{{ application.id }}">
-                  <h3 class="item-subtitle">Personal note <i id="edit-note-link-{{ application.id }}" class="fa fa-pencil-square-o cursor" onclick="addNote({{ application.id }})"></i></h3>
-                  <p class="item-text">{{ this.h(application.note) }}</p>
-                </span>
-                % else
-                  <p id="note-{{ application.id }}"></p>
-                % end
-
-                <span class="send-message-link" id="note-link-{{ application.id }}" onclick="addNote({{ application.id }})">
-                  % if application.note.nil? || application.note.empty?
-                      Add a personal note?
-                  % end
-                </span>
-
-                {{ this.partial("developer/note_form", application: application) }}
-                <br/>
-                % if application.status == "active"
-                <span onclick="removeApplication({{ application.id }})" class="cursor">
-                  <i class="fa fa-trash-o cursor post-control-icon delete-icon">
-                  </i><span class="underline">Remove application</span>
-                </span>
-                % end
-              </section>
-            </section>
-
-            <p class="cursor underline item-subtitle show-more-link" id="show-more-link-{{ application.id }}" onclick="showMore({{ application.id }})">Show more</p>
-
-            <footer class="item-footer">
-              <p class="item-text">
-                <small>
-                  <time datetime="" pubdate>Posted on {{ post.posted }}</time>
-                  <time class="applied-on" datetime="" pubdate>Applied on {{ application.applied }}</time>
-                </small>
+              </li>
+              <li>|</li>
+              <li>Status: {{ application.status }}</li>
+            </ul>
+            <p>{{ this.h(post.description) }}</p>
+            % if application.message.nil? && application.status == "active"
+              {{ this.partial("developer/message_form", post: post) }}
+            % else
+              <p class="message">
+                <span class="application-msg" id="add-msg-link-{{ post.id }}"><i class="fa fa-envelope"></i>message:</span>
+                {{ this.h(application.message) }}
               </p>
-            </footer>
-          </article>
-        </li>
+            % end
+            % if application.note.nil?
+              {{ this.partial("developer/note_form", application: application) }}
+            % else
+              <p class="note">
+                <span class="link"><i class="fa fa-pencil-square-o"></i>personal note:</span>
+                {{ this.h(application.note) }}
+              </p>
+            % end
+            <ul class="section-footer">
+              <li><a class="toggle" href="#">show more</a></li>
+              % if application.message.nil?
+              <li><span class="link" onclick="addMsg({{ post.id }})"><i class="fa fa-envelope"></i>send message</span></li>
+              % end
+              % if application.note.nil?
+              <li><span class="link"><i class="fa fa-pencil-square-o"></i>personal note</span></li>
+              % end
+              <li><a href="remove/{{ application.id }}"><i class="fa fa-trash-o"></i>delete</a></li>
+            </ul>
+           </section>
       % end
     % end
-  </ul>
-
-  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
-
-</section>

@@ -1,15 +1,12 @@
-<form class="send-message-form" id="message-form-{{ post.id }}" method="POST"
-onsubmit="sendMsg({{ post.id }}); return false;">
+<form class="hide-form" id="message-form-{{ post.id }}" method="POST" onsubmit="sendMsg({{ post.id }}); return false;">
 
-  <textarea class="textarea send-message-textarea" id="message-txt-{{ post.id }}" name="message" placeholder="This message will be attached to your application." onkeyup="updateCountdownMsg({{ post.id }})" maxlength="200"></textarea>
+  <textarea id="message-txt-{{ post.id }}" name="message" placeholder="This message will be attached to your application." onkeyup="updateCountdownMsg({{ post.id }})" maxlength="200"></textarea><br/>
 
-  <span class="countdown send-message-countdown" id="countdown-msg-{{ post.id }}">200 characters remaining</span>
+  <span id="countdown-msg-{{ post.id }}">200 characters remaining</span><br/>
 
-  <span class="send-message-buttons">
-    <a class="post-control-link cancel" onclick="closeMsgFrm({{ post.id }})">cancel</a>
+  <a onclick="closeMsgFrm({{ post.id }})">cancel</a>
 
-    <button class="send-message-button" type="submit">send</button>
-  </span>
+  <button class="btn-large" type="submit">send</button>
 </form>
 
 <script src="/js/limit_description.js"></script>
