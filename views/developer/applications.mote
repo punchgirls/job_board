@@ -4,11 +4,11 @@
 <section id="my-applications">
   <h2>
       % if active_applications
-        Active applications
+        Active applications:
       % else
-        Discarded applications
+        Discarded applications:
       % end
-      (<span id="apps-size">{{ applications.size }}</span>)
+      <span id="apps-size">{{ applications.size }}</span>
     </h2>
 
     <ul>

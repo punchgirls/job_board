@@ -25,14 +25,15 @@ body {
 #company-edit, #subscription,
 #payment-history,
 #edit-payment-info,
-#edit-post {
+#edit-post, #developer-profile {
   margin: 0 auto;
   line-height: 1.8em;
   max-width: 600px;
 }
 
 #search, #company-dashboard,
-#applicants-post, #my-applications {
+#applicants-post, #my-applications,
+#my-favorites {
   margin: 0 auto;
   max-width: 800px;
 }
@@ -44,7 +45,8 @@ body {
 #contact-applicant,
 #company-edit,
 #subscription,
-#payment-history {
+#payment-history,
+#developer-profile {
   text-align: center;
 }
 
@@ -297,7 +299,7 @@ h1  {
   line-height: 1.5em;
 }
 
-/* SIGNUP */
+/* Signup */
 #signup {
   margin: 0 auto;
   padding: 0;
