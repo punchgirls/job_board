@@ -21,44 +21,43 @@
   % end
 % end
 
-<section>
-  <h2 class="content-title">Create a new job offer</h2>
+<section id="new-post">
+  <h2>Create a new job offer</h2>
 
-  <form class="form new-post-form" name="postFrm" action="/post/new" method="POST">
-    <p class="new-post-text">Click <a href="/help#examples">here</a> to see some examples that might help you write your post.</p><br/>
+  <form name="postFrm" action="/post/new" method="POST">
+    <p>Click <a href="/help#examples">here</a> to see some examples that might help you write your post.</p>
 
-    <input class="input input-title" type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
+    <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
 
-    <div id="tags_wrapper">
-      <ul class="header-menu" id="tokens">
-        <li id="token-input">
-          <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
-        </li>
-      </ul>
-      <ul class="header-menu" id="autocomplete"></ul>
+    <ul id="tokens">
+      <li id="token-input">
+        <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
+      </li>
+    </ul>
 
-      <input type="hidden" id="query" name="post[tags]" value="">
-    </div>
+    <ul id="autocomplete"></ul>
+
+    <input type="hidden" id="query" name="post[tags]" value="">
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-    <input class="input location" id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off">
+    <input id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off">
+    <br>
 
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
-    <label class="login-label"><input class="login-checkbox" type="checkbox" name="post[remote]" value="true">
+    <label><input type="checkbox" name="post[remote]" value="true">
       <span>Work from anywhere</span>
-    </label>
+    </label><br>
 
-    <textarea class="textarea" name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
+    <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">
+      {{ this.h(post.description) }}
+    </textarea><br/>
 
-    <span class="countdown" id="countdown">600 characters remaining.</span><br/>
+    <span id="countdown">600 characters remaining.</span><br/>
+    <a href="/dashboard">cancel</a>
 
-    <span class="send-message-buttons buttons">
-      <a class="post-control-link cancel" href="/dashboard">cancel</a>
-
-      <button class="send-message-button" type="submit">post</button>
-    </span>
+    <button>post</button>
   </form>
 </section>
 
