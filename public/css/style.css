@@ -32,7 +32,8 @@ body {
 }
 
 #search, #company-dashboard,
-#applicants-post, #my-applications {
+#applicants-post, #my-applications,
+#my-favorites {
   margin: 0 auto;
   max-width: 800px;
 }
@@ -292,7 +293,7 @@ h1  {
 
 /* SIGNUP */
 #signup form {
-  text-align: right;
+  text-align: left;
 }
 
 #signup {
