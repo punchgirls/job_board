@@ -122,7 +122,7 @@ textarea {
   padding: 0;
   text-align: left;
   margin: 0 auto;
-  width: 18em;
+  width: 19em;
 }
 
 #forgot-password-link {
@@ -130,11 +130,18 @@ textarea {
 }
 
 button {
+  padding: 0 20px;
   height: 45px;
   background:  #EDCA45;
   outline: none;
   border: none;
   font-size: 1.2em;
+  cursor: hand;
+  cursor: pointer;
+}
+
+.btn_search {
+  padding: 0;
 }
 
 #login-form button,
@@ -291,20 +298,63 @@ h1  {
 }
 
 /* SIGNUP */
-#signup form {
-  text-align: right;
-}
-
 #signup {
   margin: 0 auto;
+  padding: 0;
   line-height: 1.8em;
-  max-width: 500px;
+}
+
+#signup img {
+  margin-bottom: 10px;
+}
+
+#signup form {
+  margin: 0 auto;
+  width: 300px;
+  text-align: left;
+}
+
+#signup input {
+  width: 292px;
 }
 
 #credit-cards img, .card-icon {
-  width: 48px;
+  width: 42px;
 }
 
+#signup .cvc {
+  margin-right: 16px;
+  width: 42px;
+  float: left;
+}
+
+#signup .short-input {
+  width: 40px;
+  float: left;
+}
+
+#signup .expires_on {
+  display: inline;
+  margin: 0 8px;
+  float: left;
+  font-size: 1em;
+  line-height: 40px;
+}
+
+#signup h3 {
+  margin-bottom: 0;
+}
+
+#signup .signup-plans {
+  width: 100%;
+  min-height: 40px;
+  margin: 15px 0;
+  padding-left: 5px;
+}
+
+#signup button {
+  float: right;
+}
 
 /* Pricing */
 .plan {
