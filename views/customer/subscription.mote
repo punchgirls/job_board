@@ -1,25 +1,18 @@
 % company = this.current_user
-<section class="two-cols">
-  <ul class="list">
-    % if company.active?
-      <h2 class="list-title">Change subscription</h2>
-    % else
-      <h2 class="list-title">Reactivate subscription</h2>
-    % end
-    <li class="item">
-      <form class="form edit-profile-form" action="/customer/subscription" method="POST">
+<section id="subscription">
+  % if company.active?
+    <h2 class="list-title">Change subscription</h2>
+  % else
+    <h2 class="list-title">Reactivate subscription</h2>
+  % end
+    <form id="edit-subscription" class="form edit-profile-form" action="/customer/subscription" method="POST">
+      {{ this.partial("plans", plan_id: plan_id) }}
+      <br/>
 
-        {{ this.partial("plans", plan_id: plan_id) }}
+      <a class="post-control-link cancel" href="/profile">cancel</a>
 
-        <span class="send-message-buttons buttons">
-          <a class="post-control-link cancel" href="/profile">cancel</a>
-
-          <button class="send-message-button" type="submit">update</button>
-        </span>
-      </form>
+      <button class="send-message-button" type="submit">update</button>
+    </form>
     </li>
   </ul>
-
-  {{ this.partial("sidebar", user: company, search: true, profile: false) }}
-
 </section>

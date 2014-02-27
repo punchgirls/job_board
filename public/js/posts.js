@@ -35,11 +35,11 @@ function apply (id) {
   request.send();
 }
 
-function addMsg (id) {
-  var messageFrm = document.getElementById("message-form-" + id);
-  var addMsgLink = document.getElementById("add-msg-link-" + id);
+function addMsg (post_id) {
+  var msgFrm = document.getElementById("message-form-" + post_id);
+  var addMsgLink = document.getElementById("add-msg-link-" + post_id);
   addMsgLink.style.display = "none";
-  messageFrm.style.display = "block";
+  msgFrm.removeAttribute("class");
 }
 
 function closeMsgFrm (id) {

@@ -21,13 +21,24 @@ body {
 #home, #about, #pricing,
 #help, #login, #contact,
 #terms, #privacy-policy,
-#new-post {
+#new-post, #contact-applicant,
+#company-edit, #subscription,
+#payment-history,
+#edit-payment-info,
+#edit-post {
   margin: 0 auto;
   line-height: 1.8em;
   max-width: 600px;
 }
 
-#search, #company-dashboard {
+ {
+  margin: 0 auto;
+  line-height: 1.8em;
+  max-width: 600px;
+}
+
+#search, #company-dashboard,
+#applicants-post, #my-applications {
   margin: 0 auto;
   max-width: 800px;
 }
@@ -35,7 +46,11 @@ body {
 #home, header,
 #footer-navigation,
 #login, #contact,
-#signup, #new-post {
+#signup, #new-post,
+#contact-applicant,
+#company-edit,
+#subscription,
+#payment-history {
   text-align: center;
 }
 
@@ -54,8 +69,13 @@ li {
   font-size: 1.17em;
 }
 
-a, .link {
+a, .link, .application-msg {
   color: #EB374B;
+}
+
+.link {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .highlight-box {
@@ -105,7 +125,14 @@ textarea {
   float: right;
 }
 
-#login-form button, #contact-form button {
+#login-form button,
+#contact-form button,
+#contact-applicant button,
+#edit-profile button,
+#edit-subscription button,
+#edit-payment button,
+#edit-post-form button,
+.btn-large {
   margin-top: 20px;
   width: 90px;
 }
@@ -115,6 +142,10 @@ button {
   background:  #EDCA45;
   outline: none;
   border: none;
+}
+
+.hide-form {
+  display: none;
 }
 
 /* NOTICES */
@@ -171,8 +202,9 @@ h1  {
 
 /* LISTING ITEM (POST, APPLICATIONS ETC.)*/
 .listing-item {
-   margin-bottom: 20px;
-   border-bottom: 1px solid #fafafa;
+  min-height: 100px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #fafafa;
 }
 
 .listing-item img {
@@ -204,7 +236,7 @@ h1  {
   max-width: 500px;
 }
 
-#credit-cards img {
+#credit-cards img, .card-icon {
   width: 48px;
 }
 
@@ -254,9 +286,15 @@ h4 {
   list-style:  square;
 }
 
-/* COMPANY DASHBOARD */
-#company-dashboard h3, .link-large {
-  display: inline;
+/* COMPANY PROFILE*/
+#company-profile {
+  margin: 0 auto;
+  line-height: 1.8em;
+  max-width: 300px;
+}
+
+#company-profile li {
+  display: list-item;
 }
 
 /* FOOTER */

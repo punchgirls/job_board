@@ -17,59 +17,49 @@
  <span class="alert error">You have to provide a location or select the "work from anywhere" option</span>
 % end
 
-<section class="two-cols">
-  <ul class="list">
-    <h2 class="list-title">Edit your post</h2>
+<section id="edit-post">
+  <h2 class="list-title">Edit your post</h2>
 
-    <p class="item-text posts-found">Note that if you edit an unpublished post and this post has applicants, these applicants will be able to see the changes you make.</p>
+  <p>Note that if you edit an unpublished post and this post has applicants, these applicants will be able to see the changes you make.</p>
 
-    <li class="item">
-      <form class="form edit-post-form" name="postFrm" action="/post/edit/{{ post.id }}" method="POST">
-        <input class="input input-title" type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
+  <form id="edit-post-form" name="postFrm" action="/post/edit/{{ post.id }}" method="POST">
+    <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
 
-        <input id="tags" type="hidden" value="{{ post.tags }}">
+    <input id="tags" type="hidden" value="{{ post.tags }}">
 
-        <div id="tags_wrapper">
-          <ul class="header-menu" id="tokens">
-            <li id="token-input">
-              <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
-            </li>
-          </ul>
-          <ul class="header-menu" id="autocomplete"></ul>
+    <ul id="tokens">
+      <li id="token-input">
+        <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
+      </li>
+    </ul>
 
-          <input type="hidden" id="query" name="post[tags]" value="{{ post.tags }}">
-        </div>
+    <ul id="autocomplete"></ul>
 
-        <!-- START GOOGLE PLACE AUTOCOMPLETE -->
+    <input type="hidden" id="query" name="post[tags]" value="{{ post.tags }}">
 
-        <input class="input input-location" id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off" value="{{ this.h(post.location) }}">
+    <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-        <!-- END GOOGLE PLACE AUTOCOMPLETE -->
+    <input id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off" value="{{ this.h(post.location) }}">
 
-        <label class="login-label">
-          % if post.remote == "true"
-            <input class="login-checkbox" type="checkbox" name="post[remote]" checked="" value="true">
-          % else
-            <input class="login-checkbox" type="checkbox" name="post[remote]" value="true">
-          % end
-          <span>Work from anywhere</span>
-        </label>
+    <!-- END GOOGLE PLACE AUTOCOMPLETE -->
+    <br/>
+    <label>
+      % if post.remote == "true"
+        <input type="checkbox" name="post[remote]" checked="" value="true">
+      % else
+        <input type="checkbox" name="post[remote]" value="true">
+      % end
+      <span>Work from anywhere</span>
+    </label><br/>
 
-        <textarea class="textarea" name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
+    <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
 
-        <span class="countdown" id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/>
+    <span id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/>
 
-        <span class="send-message-buttons buttons">
-          <a class="post-control-link cancel" href="/dashboard">cancel</a>
+    <a href="/dashboard">cancel</a>
 
-          <button class="send-message-button" type="submit">save</button>
-        </span>
-      </form>
-    </li>
-  </ul>
-
-  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
-
+    <button type="submit">save</button>
+  </form>
 </section>
 
 <!-- START GOOGLE PLACE AUTOCOMPLETE -->

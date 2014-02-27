@@ -21,7 +21,7 @@
             <li>Posted {{ post.posted }}</li>
           </ul>
           <ul>
-            <li>{{ post.tags }}</li>
+            <li><i class="fa fa-tags"></i> {{ this.h(post.tags) }}</li>
             <li>|</li>
             <li>
               % if post.remote == "true"

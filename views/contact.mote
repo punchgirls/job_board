@@ -10,6 +10,6 @@
 
     <textarea name="contact[body]" placeholder="Type your message here">{{ contact['body'] }}</textarea><br/>
 
-    <button type="submit">Send</button>
+    <button class="btn-large">Send</button>
   </form>
 </section>

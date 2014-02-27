@@ -1,24 +1,15 @@
-<section class="two-cols">
-  <ul class="list">
-    <h2 class="list-title">Contact developer</h2>
+<section id="contact-applicant">
+  <h2>Contact developer</h2>
 
-    <p class="item-text posts-found">The following message will be sent as an e-mail to {{ application.developer.name }}, with a copy to your e-mail. The message will include your registered e-mail address so the developer can reply directly to you:</p>
+  <p>The following message will be sent as an e-mail to {{ application.developer.name }}, with a copy to your e-mail. The message will include your registered e-mail address so the developer can reply directly to you:</p>
 
-    <li class="item">
-      <form class="form contact-developer-form"  action="/application/contact/{{ application.id }}" method="POST">
-        <input class="input" type="text" name="message[subject]" value="{{ message.subject }}" placeholder="Subject"><br/>
+  <form action="/application/contact/{{ application.id }}" method="POST">
+    <input type="text" name="message[subject]" value="{{ message.subject }}" placeholder="Subject"><br/>
 
-        <textarea class="textarea" name="message[body]" placeholder="This mail will be sent to the developer">{{ message.body }}</textarea>
+    <textarea name="message[body]" placeholder="This mail will be sent to the developer">{{ message.body }}</textarea><br/>
 
-        <span class="send-message-buttons buttons">
-          <a class="post-control-link cancel" href="/dashboard">cancel</a>
+    <a href="/dashboard">cancel</a>
 
-          <button class="send-message-button" type="submit">send</button>
-        </span>
-      </form>
-    </li>
-  </ul>
-
-  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
-
+    <button class="send-message-button" type="submit">send</button>
+  </form>
 </section>

@@ -2,25 +2,25 @@
 
 % if signup
   % if signup.errors[:name] == [:not_in_range]
-    <span class="alert error">Company name should not exceed 30 characters</span>
+    <span class="error">Company name should not exceed 30 characters</span>
   % end
   % if signup.errors[:email] == [:not_email]
-    <span class="alert error">E-mail not valid</span>
+    <span class="error">E-mail not valid</span>
   % end
   % if signup.errors[:email] == [:not_unique]
-    <span class="alert error">This e-mail is already registered</span>
+    <span class="error">This e-mail is already registered</span>
   % end
   % if signup.errors[:url] == [:not_url]
-    <span class="alert error">URL not valid</span>
+    <span class="error">URL not valid</span>
   % end
   % if signup.errors[:password] == [:too_small]
-    <span class="alert error">The password length must be at least 6 characters</span>
+    <span class="error">The password length must be at least 6 characters</span>
   % end
   % if signup.errors[:password] == [:not_confirmed]
-    <span class="alert error">Passwords don't match</span>
+    <span class="error">Passwords don't match</span>
   % end
   % if !signup.errors[:error_message].empty?
-    <span class="alert error">{{ signup.errors[:error_message][0] }}</span>
+    <span class="error">{{ signup.errors[:error_message][0] }}</span>
   % end
 % end
 
@@ -30,34 +30,32 @@
   % gravatar_url = company['gravatar']
 % end
 
-<section>
-  <h2 class="content-title">Sign up and start posting!</h2>
+<section id="signup">
+  <h2>Sign up and start posting!</h2>
 
-  <img class="confirm-image" id="company-gravatar" src="{{ gravatar_url }}">
+  <img src="{{ gravatar_url }}">
 
-  <form class="payment-details form signup-form" action="/signup" method="POST">
+  <form action="/signup" method="POST">
 
     <input id="gravatar-url" type="hidden" name="company[gravatar]" value="{{ gravatar_url }}">
 
-    <input class="input signup-input" type="text" name="company[name]" maxlength="30" placeholder="Company name" value="{{ this.h(company['name']) }}"><br/>
+    <input type="text" name="company[name]" maxlength="30" placeholder="Company name" value="{{ this.h(company['name']) }}"><br/>
 
-    <input id="company-email" class="input signup-input" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company['email']) }}"><br/>
+    <input id="company-email" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company['email']) }}"><br/>
 
-    <input class="input signup-input" type="text" name="company[url]" placeholder="URL" value="{{ this.h(company['url']) }}"><br/>
+    <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company['url']) }}"><br/>
 
-    <input class="input signup-input" type="password" name="company[password]" placeholder="Password"><br/>
+    <input type="password" name="company[password]" placeholder="Password"><br/>
 
-    <input class="input signup-input" type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
+    <input type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/>
 
-    {{ this.partial("accepted_cards") }}
+     {{ this.partial("new_card") }}
 
-    {{ this.partial("new_card") }}
-
-    <p class="signup-text">Selected plan:</p>
+    <h3>Selected plan:</h3>
 
     {{ this.partial("plans", plan_id: plan_id) }}
 
-    <small class="agree">By signing up, you agree to our <a href="/terms">terms and conditions</a> and <a href="/privacy">privacy policy</a></small>
+    <p>By signing up, you agree to our <a href="/terms">terms and conditions</a> and <a href="/privacy">privacy policy</a></p>
 
     <button type="submit" id="button">Sign up!</button>
   </form>

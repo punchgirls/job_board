@@ -2,19 +2,19 @@
 
 % if edit
   % if edit.errors[:name] == [:not_in_range]
-   <span class="alert error">Company name should not exceed 30 characters</span>
+   <span class="error">Company name should not exceed 30 characters</span>
   % end
   % if edit.errors[:email] == [:not_email]
-    <span class="alert error">E-mail not valid</span>
+    <span class="error">E-mail not valid</span>
   % end
   % if edit.errors[:url] == [:not_url]
-    <span class="alert error">URL not valid</span>
+    <span class="error">URL not valid</span>
   % end
   % if edit.errors[:password].include?(:too_small)
-    <span class="alert error">The password length must be at least 6 characters</span>
+    <span class="error">The password length must be at least 6 characters</span>
   % end
   % if edit.errors[:password] == [:not_confirmed]
-    <span class="alert error">Passwords don't match</span>
+    <span class="error">Passwords don't match</span>
   % end
 % end
 
@@ -24,36 +24,28 @@
   % company = Company[id]
 % end
 
-<section class="two-cols">
-  <ul class="list">
-    <h2 class="list-title">Edit your profile</h2>
-    <li class="item">
-      <form class="form edit-profile-form" action="/edit/{{ company.id }}" method="POST">
+<section id="company-edit">
+  <h2>Edit your profile</h2>
+
+  <form id="edit-profile" action="/edit/{{ company.id }}" method="POST">
         <input id="gravatar-url" type="hidden" name="company[gravatar]" value="{{ company.gravatar }}">
 
-        <input class="input input-name" type="text" name="company[name]" maxlength="30" placeholder="Company name" value="{{ this.h(company.name) }}"><br/>
+        <input type="text" name="company[name]" maxlength="30" placeholder="Company name" value="{{ this.h(company.name) }}"><br/>
 
         <input id="company-email" class="input input-profile" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company.email) }}"><br/>
 
-        <input class="input input-profile" type="text" name="company[url]" placeholder="URL" value="{{ this.h(company.url) }}"><br/><br/>
+        <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company.url) }}"><br/><br/>
 
-        <label class="password-label">Change password:</label><br/>
+        <h3>Change password:</h3>
 
-        <input class="input input-profile" type="password" name="company[password]" placeholder="Password"><br/>
+        <input type="password" name="company[password]" placeholder="Password"><br/>
 
-        <input class="input input-profile" type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
+        <input type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/><br/>
 
-        <span class="send-message-buttons buttons">
-          <a class="post-control-link cancel" href="/profile">cancel</a>
+        <a href="/profile">cancel</a>
 
-          <button class="send-message-button" type="submit">save</button>
-        </span>
+        <button type="submit">save</button>
       </form>
-    </li>
-  </ul>
-
-  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
-
 </section>
 
 <script src="/js/gravatar.js"></script>

@@ -1,12 +1,12 @@
-<div class="profile-credit-card" id="digits">
-  <img class="profile-card-image" src="/img/cards/{{ card['type'] }}.png">
+<div id="digits">
+  <img class="card-icon" src="/img/cards/{{ card['type'] }}.png">
 
-  <input class="input profile-card-input" disabled="disabled" type="text" size="20" maxlength="16" value="**** **** **** {{ card['last4'] }}"/><br/>
+  <input disabled="disabled" type="text" size="20" maxlength="16" value="**** **** **** {{ card['last4'] }}"/><br/>
 
-  <input class="input profile-card-cvc" disabled="disabled" type="text" size="4" maxlength="4" value="***"/>
+  <input disabled="disabled" type="text" size="4" maxlength="4" value="***"/>
 
-  <label class="profile-card-expires_on">Expires on</label>
-  <input class="input profile-short-input" disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_month'] }}"/>
-  <span class="profile-card-expires_on"> / </span>
-  <input class="input profile-short-input" disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_year'] }}"/>
+  <label>Expires on</label>
+  <input disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_month'] }}"/>
+  <span > / </span>
+  <input disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_year'] }}"/>
 </div>

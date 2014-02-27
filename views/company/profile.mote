@@ -1,55 +1,50 @@
 % company = this.current_user
 
-<section class="two-cols">
-  <ul class="list">
-    <h2 class="list-title company-dashboard-title">Account info <a href="/edit"><i class="fa fa-pencil-square-o cursor"></i></a></h2>
+<section id="company-profile">
+  <section class="listing-item">
+    <h2>Company details</h2>
+    <ul>
+      <li>{{ this.h(company.name) }}</li>
+      <li>{{ this.h(company.email) }}</li>
+      <li>{{ this.h(company.url) }}</li>
+    </ul>
+    <a href="/edit"><i class="fa fa-pencil-square-o cursor"></i> edit</a>
+  </section>
 
-    <li class="item">
-      <p class="item-subtitle">{{ this.h(company.name) }}</p>
-      <p class="item-subtitle">{{ this.h(company.email) }}</p>
-      <p class="item-subtitle">{{ this.h(company.url) }}</p>
-    </li>
-
-    <h2 class="list-title company-dashboard-title">Subscription info <a href="/customer/subscription"><i class="fa fa-pencil-square-o cursor"></i></a></h2>
-
-    <li class="item">
-      <p class="item-subtitle">Subscription status:
+  <section class="listing-item">
+    <h2>Subscription info </h2>
+    <ul>
+      <li>
+        Subscription status:
         % if company.active?
           Active
         % else
           Suspended
         % end
-      </p>
-      <p class="item-subtitle sidebar-plan-title">Plan: <span class="capitalize">{{ plan.name }}</span></p>
-      <p class="item-subtitle">Posts per month: {{ plan.posts }}</p>
-      <p class="item-subtitle">Price: {{ plan.price }} USD per month</p><br/>
+      </li>
+      <li>Plan: {{ plan.name }}</li>
+      <li>Posts per month: {{ plan.posts }}</li>
+      <li>Price: {{ plan.price }} USD/month</li>
+      <li>
+        % if company.active?
+          <a  id="cancel" href="/cancel_subscription">Cancel subscription</a>
+        % else
+          <a href="customer/subscription">Reactivate subscription</a>
+        % end
+      </li>
+      <li><a href="/customer/history">Payment history</a></li>
+    </ul>
+    <a href="/customer/subscription"><i class="fa fa-pencil-square-o cursor"></i> edit</a>
+  </section>
 
-      <p class="item-subtitle"><a href="/customer/history">Payment history</a></p><br/>
-      <p class="item-subtitle">
-      % if company.active?
-        <a  id="cancel" href="/cancel_subscription">
-          Cancel subscription</a>
-      % else
-        <a href="customer/subscription">
-          Reactivate subscription</a>
-      % end
-      </p>
-    </li class="item">
-
-    <h2 class="list-title company-dashboard-title">Payment info <a href="/customer/update"><i class="fa fa-pencil-square-o cursor"></i></a></h2><br/>
-
-   % if card.nil?
-    <p class="item-subtitle">You have no registered payment details</p>
-   % else
-     <li class="item">
+ <section class="listing-item">
+    <h2>Payment info</h2>
+    % if card.nil?
+      <p class="item-subtitle">You have no registered payment details</p>
+     % else
       {{ this.partial("/customer/payment_details", card: card) }}
     </li>
    % end
-
-    <li class="item item-subtitle"><a id="delete" href="">Delete account</a></li>
-
-  </ul>
-
-  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
-
+    <a href="/customer/update"><i class="fa fa-pencil-square-o cursor"></i> edit</a>
+  </section>
 </section>
