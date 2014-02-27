@@ -35,7 +35,7 @@
 
   <img id="company-gravatar" src="{{ gravatar_url }}">
 
-  <form class="payment-details" id="paymentFrm" action="/signup" method="POST">
+  <form class="payment-details" action="/signup" method="POST">
 
     <input id="gravatar-url" type="hidden" name="company[gravatar]" value="{{ gravatar_url }}">
 
