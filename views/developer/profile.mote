@@ -1,35 +1,32 @@
 % developer = this.current_user
 
-<section>
-  <h2 class="content-title">Edit your profile</h2>
+<section id="developer-profile">
+  <h2>Edit your profile</h2>
 
-  <img class="confirm-image" src="http://www.gravatar.com/avatar/{{ developer.gravatar }}" />
+  <img src="http://www.gravatar.com/avatar/{{ developer.gravatar }}" />
 
-  <form class="form confirm-form" action="/profile/{{ developer.id }}" method="POST">
-    <input class="input confirm-input" type="text" name="developer[name]"
+  <form action="/profile/{{ developer.id }}" method="POST">
+    <input type="text" name="developer[name]"
     value="{{ this.h(developer.name) }}" placeholder="Name"><br/>
 
-    <input class="input confirm-input" type="email" name="developer[email]"
+    <input type="email" name="developer[email]"
     value="{{ this.h(developer.email) }}" placeholder="Email"><br/>
 
-    <input class="input confirm-input" type="text" name="developer[url]"
+    <input type="text" name="developer[url]"
     value="{{ this.h(developer.url) }}" placeholder="URL (optional)"><br/>
 
-    <textarea class="textarea confirm-textarea" name="developer[bio]"
+    <textarea name="developer[bio]"
     placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"
     >{{ this.h(developer.bio) }}</textarea><br/>
 
-    <span class="countdown" id="countdown-bio">200 characters remaining.</span><br/>
+    <span id="countdown-bio">200 characters remaining.</span><br/>
 
-    <span class="send-message-buttons buttons">
-      <a class="post-control-link cancel" href="/dashboard">cancel</a>
+    <a class="post-control-link cancel" href="/dashboard">cancel</a>
 
-      <button class="send-message-button" type="submit">save</button>
-    </span>
-
-    <a class="underline delete" id="delete" href="">Delete account</a>
-
+    <button class="send-message-button" type="submit">save</button>
   </form>
+
+  <a class="underline delete" id="delete" href="">Delete account</a>
 
   <script src="/js/limit_description.js"></script>
 </section>

@@ -25,7 +25,7 @@ body {
 #company-edit, #subscription,
 #payment-history,
 #edit-payment-info,
-#edit-post {
+#edit-post, #developer-profile {
   margin: 0 auto;
   line-height: 1.8em;
   max-width: 600px;
@@ -45,7 +45,8 @@ body {
 #contact-applicant,
 #company-edit,
 #subscription,
-#payment-history {
+#payment-history,
+#developer-profile {
   text-align: center;
 }
 
