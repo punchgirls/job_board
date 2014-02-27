@@ -125,6 +125,13 @@ textarea {
   float: right;
 }
 
+button {
+  height: 45px;
+  background:  #EDCA45;
+  outline: none;
+  border: none;
+}
+
 #login-form button,
 #contact-form button,
 #contact-applicant button,
@@ -137,11 +144,10 @@ textarea {
   width: 90px;
 }
 
-button {
-  height: 45px;
-  background:  #EDCA45;
-  outline: none;
-  border: none;
+#search-box button {
+  width: 45px;
+  font-size: 1.8em;
+  color: white;
 }
 
 .hide-form {

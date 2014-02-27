@@ -1,10 +1,7 @@
 <section id="home">
-  <form id="search-box">
-    <input type="text"/>
-    <button>Search</button>
-  </form>
-
   <h2>Latest posts</h2>
+
+  {{ this.partial("search_box") }}
 
   <ul id="latest-posts">
     % latest_posts.each do |post|
