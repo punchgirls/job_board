@@ -8,7 +8,7 @@
       <li>{{ this.h(company.email) }}</li>
       <li>{{ this.h(company.url) }}</li>
     </ul>
-    <a href="/edit"><i class="fa fa-pencil-square-o cursor"></i> edit</a>
+    <a href="/edit"><i class="fa fa-pencil-square-o cursor"></i>edit</a>
   </section>
 
   <section class="listing-item">
@@ -34,7 +34,7 @@
       </li>
       <li><a href="/customer/history">Payment history</a></li>
     </ul>
-    <a href="/customer/subscription"><i class="fa fa-pencil-square-o cursor"></i> edit</a>
+    <a href="/customer/subscription"><i class="fa fa-pencil-square-o cursor"></i>edit</a>
   </section>
 
  <section class="listing-item">
@@ -45,7 +45,7 @@
       {{ this.partial("/customer/payment_details", card: card) }}
     </li>
    % end
-    <a href="/customer/update"><i class="fa fa-pencil-square-o cursor"></i> edit</a>
+    <a href="/customer/update"><i class="fa fa-pencil-square-o cursor"></i>edit</a>
   </section>
 
   <a id="delete" href="">Delete account</a>
