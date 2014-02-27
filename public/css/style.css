@@ -86,6 +86,10 @@ a, .link, .application-msg {
   padding: 10px;
 }
 
+h2 {
+  font-size: 1.2em;
+}
+
 /* FORMS AND INPUT */
 
 input[type="text"],
@@ -216,6 +220,7 @@ input:-moz-placeholder {
 
 /* HEADER */
 h1  {
+  font-size: 1.5em;
   display: inline;
 }
 
@@ -371,6 +376,16 @@ h4 {
   header {
     margin: 50px 0;
   }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+
   .section-footer li {
     margin-left: 10px;
   }
