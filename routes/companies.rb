@@ -363,7 +363,7 @@ class Companies < Cuba
           render("company/post/applications", title: "Discarded applications",
             id: id, active_applications: false,
             applications: Post[id].discarded_applications,
-            text: "You haven't discarded any applicants for this position.")
+            text: "You have no discarded applications for this post.")
         end
 
         on default do

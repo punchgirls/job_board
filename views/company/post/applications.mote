@@ -26,7 +26,7 @@
         </ul>
         % if !developer.bio.nil?
           <p class="bio">
-            <span class="link"><i class="fa fa-user"></i>bio: </span>
+            <span class="bio-icon"><i class="fa fa-user"></i>bio: </span>
             {{ this.h(developer.bio) }}
           </p>
         % end
