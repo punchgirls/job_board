@@ -10,7 +10,7 @@
     <li><img src="/img/cards/JCB.png"></li>
   </ul>
 
-  <div>
+  <div id="digits">
     <input type="text" size="20" maxlength="16" placeholder="Credit card number" data-stripe="number"/><br/>
 
     <input class="cvc" type="text" size="4" maxlength="4" placeholder="CVC" data-stripe="cvc"/>
