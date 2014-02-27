@@ -299,6 +299,10 @@ h1  {
   line-height: 1.5em;
 }
 
+.section-footer li {
+  line-height: 2em;
+}
+
 /* Signup */
 #signup {
   margin: 0 auto;
@@ -497,10 +501,12 @@ h4 {
   .section-footer li {
     margin-left: 10px;
   }
+
   .section-footer {
-  display: block;
-  text-align: right;
-}
+    display: block;
+    text-align: right;
+  }
+
   .toggle, .show-applicants {
     float: left;
   }

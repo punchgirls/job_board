@@ -40,25 +40,24 @@
           <ul class="section-footer">
             <li>
               <a class="show-applicants" href="/post/applications/{{ post.id }}">
-              <i class="fa fa-users"></i>Show list of applicants</a>
+              <i class="fa fa-users"></i>show list of applicants</a>
             </li>
-            <li><a href="/post/status/{{ post.id }}#{{ post.id }}">
-              <i class="fa fa-check"></i>
+            <li>
               % if post.status == "published"
-                unpublish
+                <a href="/post/status/{{ post.id }}#{{ post.id }}">
+                 <i class="fa fa-check"></i>unpublish</a>
               % else
-                publish
+                 <a href="/post/status/{{ post.id }}#{{ post.id }}">
+                  <i class="fa fa-check"></i>publish</a>
               % end
-              </a>
             </li>
             <li>
               <a href="/post/edit/{{ post.id }}">
               <i class="fa fa-pencil-square-o"></i>edit</a>
             </li>
             <li>
-             <a href="/post/remove/{{ post.id }}" onclick="return removePost()"
-               <i class="fa fa-trash-o"></i>Delete post
-             </a>
+             <a href="/post/remove/{{ post.id }}" onclick="return removePost()">
+               <i class="fa fa-trash-o"></i>delete post</a>
             </li>
           </ul>
         </section>
