@@ -353,7 +353,8 @@ h1  {
 }
 
 #signup button {
-  float: right;
+  margin: 20px auto;
+  display: block;
 }
 
 /* Pricing */
