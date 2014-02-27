@@ -31,12 +31,6 @@ body {
   max-width: 600px;
 }
 
- {
-  margin: 0 auto;
-  line-height: 1.8em;
-  max-width: 600px;
-}
-
 #search, #company-dashboard,
 #applicants-post, #my-applications {
   margin: 0 auto;
@@ -99,7 +93,7 @@ input[type="password"]  {
   margin-bottom: 15px;
   padding-left: 5px;
   height: 30px;
-  width: 33em;
+  width: 20em;
 }
 
 input[type="checkbox"] {
@@ -123,7 +117,7 @@ textarea {
   padding: 0;
   text-align: left;
   margin: 0 auto;
-  width: 25.75em;
+  width: 18em;
 }
 
 #forgot-password-link {
@@ -184,6 +178,12 @@ input:-moz-placeholder {
 }
 #tokens {
   display: inline;
+  width: 20em;
+}
+
+#tokens input {
+  display: inline;
+  width: 20em;
 }
 
 #autocomplete {
@@ -220,8 +220,9 @@ input:-moz-placeholder {
 
 /* HEADER */
 h1  {
+  margin-bottom: 0.8em;
   font-size: 1.5em;
-  display: inline;
+  display: inline-block;
 }
 
 #tittel-link {
@@ -355,6 +356,13 @@ h4 {
   display: list-item;
 }
 
+/* LOGIN PAGE*/
+
+#login .highlight-box {
+  margin: 30px auto;
+  width: 20em;
+}
+
 /* FOOTER */
 .footer {
   position: absolute;
@@ -372,7 +380,37 @@ h4 {
   font-size: 1.3em;
 }
 
-@media only screen and (min-width: 780px)  {
+@media only screen and (min-width: 480px)  {
+  #tokens {
+    width: 33em;
+  }
+
+  #tokens input {
+    width: 33em;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="url"],
+  input[type="password"],
+  textarea  {
+    width: 33em;
+  }
+
+  #login .highlight-box {
+    margin: 30px auto;
+    width: 30em;
+  }
+
+  #login-form ul {
+    padding: 0;
+    text-align: left;
+    margin: 0 auto;
+    width: 25.75em;
+  }
+}
+
+@media only screen and (min-width: 768px)  {
   header {
     margin: 50px 0;
   }
@@ -384,7 +422,6 @@ h4 {
   h2 {
     font-size: 1.5em;
   }
-
 
   .section-footer li {
     margin-left: 10px;
@@ -398,10 +435,10 @@ h4 {
   }
 }
 
-@media only screen and (min-width: 1200px)  {
+@media only screen and (min-width: 1024px)  {
   /* HEADER */
   .background-image {
-    background: url('/img/punchgirls_large.png') left bottom no-repeat;
+    background: url('/img/punchgirls_small.png') left bottom no-repeat;
   }
 
   #gravatar-mini {
@@ -414,8 +451,8 @@ h4 {
     margin-top: 90px;
   }
 
-  #search-box input {
-    width: 385px;
+  #tokens {
+    width: 35em;
   }
 
   input[type="text"],
@@ -437,3 +474,10 @@ h4 {
     width: 27.75em;
   }
 }
+
+@media only screen and (min-width: 1200px)  {
+  /* HEADER */
+  .background-image {
+    background: url('/img/punchgirls_large.png') left bottom no-repeat;
+  }
+ }
