@@ -394,7 +394,7 @@ h4 {
   input[type="url"],
   input[type="password"],
   textarea  {
-    width: 33em;
+    width: 28em;
   }
 
   #login .highlight-box {
@@ -460,6 +460,11 @@ h4 {
   input[type="url"],
   input[type="password"],
   textarea  {
+    width: 33em;
+  }
+
+  #login .highlight-box {
+    margin: 30px auto;
     width: 35em;
   }
 
