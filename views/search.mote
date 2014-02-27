@@ -8,10 +8,7 @@
 % end
 
 <section id="search">
-  <form id="search-box">
-    <input type="text"/>
-    <button>Search</button>
-  </form>
+  {{ this.partial("search_box") }}
 
   % if posts.nil?
       <p>Start searching by adding keywords.</p>

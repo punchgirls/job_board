@@ -10,14 +10,14 @@
     <li><img src="/img/cards/JCB.png"></li>
   </ul>
 
-  <div>
+  <div id="digits">
     <input type="text" size="20" maxlength="16" placeholder="Credit card number" data-stripe="number"/><br/>
 
-    <input style="width:5em;float:left;" type="text" size="4" maxlength="4" placeholder="CVC" data-stripe="cvc"/>
+    <input class="cvc" type="text" size="4" maxlength="4" placeholder="CVC" data-stripe="cvc"/>
 
-    <label>Expires on</label>
-    <input style="width:5em;" class="input-short" type="text" size="2" maxlength="2" placeholder="MM" data-stripe="exp-month"/>
-    <span> / </span>
-    <input style="width:5em;" class="input-short" type="text" size="2" maxlength="2" placeholder="YY" data-stripe="exp-year"/>
+    <label class="expires_on">Expires on</label>
+    <input class="short-input" type="text" size="2" maxlength="2" placeholder="MM" data-stripe="exp-month"/>
+    <span class="expires_on"> / </span>
+    <input class="short-input" type="text" size="2" maxlength="2" placeholder="YY" data-stripe="exp-year"/>
   </div>
 </section>

@@ -33,29 +33,29 @@
 <section id="signup">
   <h2>Sign up and start posting!</h2>
 
-  <img src="{{ gravatar_url }}">
+  <img id="company-gravatar" src="{{ gravatar_url }}">
 
-  <form action="/signup" method="POST">
+  <form class="payment-details" id="paymentFrm" action="/signup" method="POST">
 
     <input id="gravatar-url" type="hidden" name="company[gravatar]" value="{{ gravatar_url }}">
 
-    <input type="text" name="company[name]" maxlength="30" placeholder="Company name" value="{{ this.h(company['name']) }}"><br/>
+    <input type="text" name="company[name]" maxlength="30" placeholder="Company name" value="{{ this.h(company['name']) }}">
 
-    <input id="company-email" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company['email']) }}"><br/>
+    <input id="company-email" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company['email']) }}">
 
-    <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company['url']) }}"><br/>
+    <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company['url']) }}">
 
-    <input type="password" name="company[password]" placeholder="Password"><br/>
+    <input type="password" name="company[password]" placeholder="Password">
 
-    <input type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/>
+    <input type="password" name="company[password_confirmation]" placeholder="Password confirmation">
 
-     {{ this.partial("new_card") }}
+    {{ this.partial("new_card") }}
 
     <h3>Selected plan:</h3>
 
     {{ this.partial("plans", plan_id: plan_id) }}
 
-    <p>By signing up, you agree to our <a href="/terms">terms and conditions</a> and <a href="/privacy">privacy policy</a></p>
+    <small class="agree">By signing up, you agree to our <a href="/terms">terms and conditions</a> and <a href="/privacy">privacy policy</a></small>
 
     <button type="submit" id="button">Sign up!</button>
   </form>
