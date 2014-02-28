@@ -40,6 +40,10 @@ class Developers < Cuba
 
       on application do
         Ost[:deleted_application].push(id)
+
+        session[:success] = "You have successfully removed your application!
+          <br/>The change will be updated in a second."
+
         res.redirect "/applications"
       end
 
@@ -89,6 +93,8 @@ class Developers < Cuba
             application.update(message: msg.message)
 
             Ost[:developer_sent_message].push(application.id)
+
+            res.redirect "/applications"
           end
 
           on default do
@@ -117,6 +123,8 @@ class Developers < Cuba
 
           on text.valid? do
             application.update(note: note)
+
+            res.redirect "/applications"
           end
 
           on default do

@@ -52,7 +52,6 @@
             </ul>
             <p>{{ this.h(post.description) }}</p>
             % if application.message.nil? && application.status == "active"
-              {{ this.partial("developer/message_form", post: post) }}
             % else
               <p class="message">
                 <span class="application-msg" id="add-msg-link-{{ post.id }}"><i class="fa fa-envelope"></i>message:</span>
@@ -63,7 +62,7 @@
               {{ this.partial("developer/note_form", application: application) }}
             % else
               <p class="note">
-                <span class="link"><i class="fa fa-pencil-square-o"></i>personal note:</span>
+                <span class="link"><i class="fa fa-pencil-square-o"></i>note:</span>
                 {{ this.h(application.note) }}
               </p>
             % end
@@ -80,3 +79,5 @@
            </section>
       % end
     % end
+
+<script src="/js/limit_description.js"></script>
