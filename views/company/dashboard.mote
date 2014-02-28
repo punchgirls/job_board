@@ -33,14 +33,17 @@
               % end
             </li>
             <li>|</li>
-            <li>Applicants: {{ post.active_applications.size }}</li>
+            <li>
+              % if post.active_applications.size > 0
+                <a href="/post/{{ post.id }}/applications">
+                  <i class="fa fa-users"></i>show list of applicants:{{ post.active_applications.size }}</a>
+              % else
+                Applicants: {{ post.active_applications.size }}
+              % end
+            </li>
           </ul>
           <p class="description">{{ this.h(post.description) }}</p>
           <ul class="section-footer">
-            <li>
-              <a class="show-applicants" href="/post/{{ post.id }}/applications">
-              <i class="fa fa-users"></i>show list of applicants</a>
-            </li>
             <li>
               % if post.status == "published"
                 <a href="/post/status/{{ post.id }}#{{ post.id }}">

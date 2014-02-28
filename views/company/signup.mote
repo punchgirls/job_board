@@ -1,36 +1,36 @@
-% signup = params.fetch(:signup, false)
-
-% if signup
-  % if signup.errors[:name] == [:not_in_range]
-    <span class="error">Company name should not exceed 30 characters</span>
-  % end
-  % if signup.errors[:email] == [:not_email]
-    <span class="error">E-mail not valid</span>
-  % end
-  % if signup.errors[:email] == [:not_unique]
-    <span class="error">This e-mail is already registered</span>
-  % end
-  % if signup.errors[:url] == [:not_url]
-    <span class="error">URL not valid</span>
-  % end
-  % if signup.errors[:password] == [:too_small]
-    <span class="error">The password length must be at least 6 characters</span>
-  % end
-  % if signup.errors[:password] == [:not_confirmed]
-    <span class="error">Passwords don't match</span>
-  % end
-  % if !signup.errors[:error_message].empty?
-    <span class="error">{{ signup.errors[:error_message][0] }}</span>
-  % end
-% end
-
-% gravatar_url =  "http://www.gravatar.com/avatar/b7fc2ede6c7c125628f983f4f6d3336a"
-
-% if !company.empty?
-  % gravatar_url = company['gravatar']
-% end
-
 <section id="signup">
+  % signup = params.fetch(:signup, false)
+
+  % if signup
+    % if signup.errors[:name] == [:not_in_range]
+      <span class="error">Company name should not exceed 30 characters</span>
+    % end
+    % if signup.errors[:email] == [:not_email]
+      <span class="error">E-mail not valid</span>
+    % end
+    % if signup.errors[:email] == [:not_unique]
+      <span class="error">This e-mail is already registered</span>
+    % end
+    % if signup.errors[:url] == [:not_url]
+      <span class="error">URL not valid</span>
+    % end
+    % if signup.errors[:password] == [:too_small]
+      <span class="error">The password length must be at least 6 characters</span>
+    % end
+    % if signup.errors[:password] == [:not_confirmed]
+      <span class="error">Passwords don't match</span>
+    % end
+    % if !signup.errors[:error_message].empty?
+      <span class="error">{{ signup.errors[:error_message][0] }}</span>
+    % end
+  % end
+
+  % gravatar_url =  "http://www.gravatar.com/avatar/b7fc2ede6c7c125628f983f4f6d3336a"
+
+  % if !company.empty?
+    % gravatar_url = company['gravatar']
+  % end
+
   <h2>Sign up and start posting!</h2>
 
   <img id="company-gravatar" src="{{ gravatar_url }}">

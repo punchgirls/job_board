@@ -378,8 +378,7 @@ class Companies < Cuba
           render("company/post/applications", title: "Active applications", post_id: post_id,
             applications: Post[post_id].active_applications,
             active_applications: true,
-            text: "No one applied to this post yet or the persons who applied
-            removed their applications.")
+            text:"There are no active applications for this post.")
         end
 
         on default do
@@ -387,7 +386,7 @@ class Companies < Cuba
         end
       end
 
-      on "application/discard/:id" do |id|
+      on "application/:id/discard" do |id|
         application = Application[id]
 
         on application && company.posts.include?(application.post) do
@@ -397,7 +396,7 @@ class Companies < Cuba
 
           session[:success] = "Applicant successfully discarded!"
 
-          res.redirect "/post/applications/#{application.post.id}"
+          res.redirect "/post/#{application.post.id}/applications"
         end
 
         on default do
@@ -405,7 +404,7 @@ class Companies < Cuba
         end
       end
 
-      on "application/add/:id" do |id|
+      on "application/:id/add" do |id|
         application = Application[id]
 
         on application && company.posts.include?(application.post) do
@@ -413,7 +412,7 @@ class Companies < Cuba
 
           session[:success] = "Applicant successfully added to list of active applications!"
 
-          res.redirect "/post/applications/#{application.post.id}"
+          res.redirect "/post/#{application.post.id}/applications"
         end
 
         on default do
