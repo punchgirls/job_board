@@ -331,19 +331,20 @@ h1  {
 }
 
 #signup form, #new-post form,
-#edit-post form {
+#edit-post form, #contact-applicant form {
   margin: 0 auto;
   width: 300px;
   text-align: left;
 }
 
 #signup input, #new-post input,
-#edit-post input {
+#edit-post input, #contact-applicant input {
   width: 292px;
   max-width: 292px;
 }
 
-#new-post textarea, #edit-post textarea {
+#new-post textarea, #edit-post textarea,
+#contact-applicant textarea {
   width: 277px;
   max-width: 277px;
   margin-top: 10px;
@@ -540,16 +541,19 @@ h4 {
     font-size: 1em;
   }
 
-  #new-post form, #edit-post form {
+  #new-post form, #edit-post form,
+  #contact-applicant form {
     width: 453px;
   }
 
-  #new-post input, #edit-post input {
+  #new-post input, #edit-post input,
+  #contact-applicant input {
     width: 443px;
     max-width: 443px;
   }
 
-  #new-post textarea, #edit-post textarea {
+  #new-post textarea, #edit-post textarea,
+  #contact-applicant textarea {
     width: 428px;
     max-width: 428px;
   }

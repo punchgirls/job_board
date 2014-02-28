@@ -3,7 +3,7 @@
 
   % if edit
     % if edit.errors[:name] == [:not_in_range]
-     <span class="serror">Company name should not exceed 30 characters</span>
+     <span class="error">Company name should not exceed 30 characters</span>
     % end
     % if edit.errors[:email] == [:not_email]
       <span class="error">E-mail not valid</span>
@@ -40,11 +40,13 @@
 
         <input type="password" name="company[password]" placeholder="Password"><br>
 
-        <input type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br><br>
+        <input type="password" name="company[password_confirmation]" placeholder="Password confirmation">
 
-        <a href="/profile">cancel</a>
+        <span class="buttons">
+          <a href="/profile">cancel</a>&nbsp;&nbsp;
 
-        <button type="submit">save</button>
+          <button type="submit">Save</button>
+        </span>
       </form>
 </section>
 

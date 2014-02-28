@@ -1,15 +1,17 @@
 <section id="contact-applicant">
   <h2>Contact developer</h2>
 
-  <p>The following message will be sent as an e-mail to {{ application.developer.name }}, with a copy to your e-mail. The message will include your registered e-mail address so the developer can reply directly to you:</p>
-
   <form action="/application/{{ application.id }}/contact" method="POST">
+    <p>The following message will be sent as an e-mail to {{ application.developer.name }}, with a copy to your e-mail. The message will include your registered e-mail address so the developer can reply directly to you:</p>
+
     <input type="text" name="message[subject]" value="{{ message.subject }}" placeholder="Subject"><br/>
 
     <textarea name="message[body]" placeholder="This mail will be sent to the developer">{{ message.body }}</textarea><br>
 
-    <a href="/dashboard">cancel</a>
+    <span class="buttons">
+      <a href="/dashboard">cancel</a>&nbsp;&nbsp;
 
-    <button class="send-message-button" type="submit">send</button>
+      <button class="send-message-button" type="submit">send</button>
+    </span>
   </form>
 </section>
