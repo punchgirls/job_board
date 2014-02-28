@@ -1,30 +1,30 @@
-% edit = params.fetch(:edit, false)
-
-% if edit
-  % if edit.errors[:name] == [:not_in_range]
-   <span class="error">Company name should not exceed 30 characters</span>
-  % end
-  % if edit.errors[:email] == [:not_email]
-    <span class="error">E-mail not valid</span>
-  % end
-  % if edit.errors[:url] == [:not_url]
-    <span class="error">URL not valid</span>
-  % end
-  % if edit.errors[:password].include?(:too_small)
-    <span class="error">The password length must be at least 6 characters</span>
-  % end
-  % if edit.errors[:password] == [:not_confirmed]
-    <span class="error">Passwords don't match</span>
-  % end
-% end
-
-% if this.current_user.instance_of?(Company)
-  % company = this.current_company
-% else
-  % company = Company[id]
-% end
-
 <section id="company-edit">
+  % edit = params.fetch(:edit, false)
+
+  % if edit
+    % if edit.errors[:name] == [:not_in_range]
+     <span class="serror">Company name should not exceed 30 characters</span>
+    % end
+    % if edit.errors[:email] == [:not_email]
+      <span class="error">E-mail not valid</span>
+    % end
+    % if edit.errors[:url] == [:not_url]
+      <span class="error">URL not valid</span>
+    % end
+    % if edit.errors[:password].include?(:too_small)
+      <span class="error">The password length must be at least 6 characters</span>
+    % end
+    % if edit.errors[:password] == [:not_confirmed]
+      <span class="error">Passwords don't match</span>
+    % end
+  % end
+
+  % if this.current_user.instance_of?(Company)
+    % company = this.current_company
+  % else
+    % company = Company[id]
+  % end
+
   <h2>Edit your profile</h2>
 
   <form id="edit-profile" action="/edit/{{ company.id }}" method="POST">
