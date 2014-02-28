@@ -25,7 +25,8 @@ body {
 #company-edit, #subscription,
 #payment-history,
 #edit-payment-info,
-#edit-post, #developer-profile {
+#edit-post, #developer-profile,
+#password-recovery, #otp {
   margin: 0 auto;
   line-height: 1.8em;
   max-width: 600px;
@@ -47,7 +48,8 @@ body {
 #subscription,
 #payment-history,
 #developer-profile,
-#edit-post {
+#edit-post, #password-recovery,
+#otp {
   text-align: center;
 }
 
