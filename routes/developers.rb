@@ -40,6 +40,10 @@ class Developers < Cuba
 
       on application do
         Ost[:deleted_application].push(id)
+
+        session[:success] = "You have successfully removed your application!
+          <br/>The change will be updated in a second."
+
         res.redirect "/applications"
       end
 
