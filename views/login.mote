@@ -3,7 +3,7 @@
 <section id="login">
   <div class="highlight-box">
     <h2>Developer Login</h2>
-    <a class="link-large" href="/github_oauth"><i class="fa fa-github"></i> Login using GitHub</a>
+    <a class="link-large" href="/github_oauth"><i class="fa fa-github"></i>Login using GitHub</a>
   </div>
 
   <div class="highlight-box">

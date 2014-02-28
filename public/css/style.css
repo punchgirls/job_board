@@ -26,7 +26,8 @@ body {
 #payment-history,
 #edit-payment-info,
 #edit-post, #developer-profile,
-#password-recovery, #otp {
+#password-recovery, #otp,
+#confirm {
   margin: 0 auto;
   line-height: 1.8em;
   max-width: 600px;
@@ -49,7 +50,7 @@ body {
 #payment-history,
 #developer-profile,
 #edit-post, #password-recovery,
-#otp {
+#otp, #confirm {
   text-align: center;
 }
 
@@ -207,6 +208,31 @@ input:-moz-placeholder {
   line-height: 0.8em;
   font-family: "Droid Sans Mono", sans-serif;
 }
+
+#confirm ::-webkit-input-placeholder {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  font-family: "Droid Sans Mono", sans-serif;
+}
+
+#confim ::-moz-placeholder {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  font-family: "Droid Sans Mono", sans-serif;
+}  /*firefox 19+*/
+
+#confirm :-ms-input-placeholder {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  font-family: "Droid Sans Mono", sans-serif;
+} /* ie*/
+
+#confirm input:-moz-placeholder {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  font-family: "Droid Sans Mono", sans-serif;
+}
+
 
 /* SEARCH BOX */
 #search-box {
