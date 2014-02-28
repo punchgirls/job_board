@@ -66,8 +66,12 @@ li {
   font-size: 1.17em;
 }
 
-a, .link, .application-msg, .bio-icon {
+a, a:visited, .link, .application-msg, .bio-icon {
   color: #EB374B;
+}
+
+a:hover, a:active {
+  text-decoration: none;
 }
 
 .link {
