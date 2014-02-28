@@ -46,7 +46,8 @@ body {
 #company-edit,
 #subscription,
 #payment-history,
-#developer-profile {
+#developer-profile,
+#edit-post {
   text-align: center;
 }
 
@@ -310,7 +311,7 @@ h1  {
 }
 
 /* Signup, New post */
-#signup, #new-post {
+#signup, #new-post, #edit-post {
   margin: 0 auto;
   padding: 0;
   line-height: 1.8em;
@@ -320,25 +321,28 @@ h1  {
   margin-bottom: 10px;
 }
 
-#signup form, #new-post form {
+#signup form, #new-post form,
+#edit-post form {
   margin: 0 auto;
   width: 300px;
   text-align: left;
 }
 
-#signup input, #new-post input {
+#signup input, #new-post input,
+#edit-post input {
   width: 292px;
   max-width: 292px;
 }
 
-#new-post textarea {
+#new-post textarea, #edit-post textarea {
   width: 277px;
   max-width: 277px;
   margin-top: 10px;
   padding: 10px;
 }
 
-#new-post input[type="checkbox"] {
+#new-post input[type="checkbox"],
+#edit-post input[type="checkbox"] {
   width: auto;
   margin: 0;
 }
@@ -503,16 +507,16 @@ h4 {
     font-size: 1em;
   }
 
-  #new-post form {
+  #new-post form, #edit-post form {
     width: 453px;
   }
 
-  #new-post input {
+  #new-post input, #edit-post input {
     width: 443px;
     max-width: 443px;
   }
 
-  #new-post textarea {
+  #new-post textarea, #edit-post textarea {
     width: 428px;
     max-width: 428px;
   }

@@ -12,9 +12,9 @@
 <h2 class="content-title company-login">Create your new password</h2>
 
 <form class="form login-form" action="/otp/{{ signature }}" method="POST">
-  <input class="input login-input" type="password" name="company[password]" placeholder="New password"><br/>
+  <input class="input login-input" type="password" name="company[password]" placeholder="New password"><br>
 
-  <input class="input login-input" type="password" name="company[password_confirmation]" placeholder="New password confirmation"><br/>
+  <input class="input login-input" type="password" name="company[password_confirmation]" placeholder="New password confirmation"><br>
 
   <button type="submit">Create new password</button>
 </form>

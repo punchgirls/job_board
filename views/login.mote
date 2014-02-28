@@ -11,10 +11,10 @@
 
     <form id="login-form" action="/login" method="POST">
       <input type="email" name="company[email]"
-        placeholder="E-mail" value="{{ this.h(user) }}"><br/>
+        placeholder="E-mail" value="{{ this.h(user) }}"><br>
 
       <input type="password" name="company[password]"
-        placeholder="Password"><br/>
+        placeholder="Password"><br>
 
       <ul>
         <li>

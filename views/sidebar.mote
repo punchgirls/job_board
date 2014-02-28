@@ -11,7 +11,7 @@
       <a class="sidebar-profile-link" href="/profile">
         <img class="sidebar-profile-image" src="http://www.gravatar.com/avatar/{{ user.gravatar }}" />
         <span><strong>{{ user.username }}</strong></span></a>
-      <br/><br/>
+      <br><br>
       <a class="sidebar-profile-link" href="/logout">Logout</a>
     </span>
     <a class="sidebar-link" href="/applications">
@@ -30,7 +30,7 @@
         <a class="sidebar-link" href="/dashboard">Dashboard</a>
         <a class="sidebar-link" href="/profile">Account settings</a>
         <a class="sidebar-link" href="/logout">Logout</a>
-        <br/>
+        <br>
       % end
       <p>Plan: <span class="sidebar-plan-title">{{ user.plan.name }}</span></p>
 

@@ -4,11 +4,11 @@
   <a class="link-large" href="mailto:team@punchgirls.com">team@punchgirls.com</a>
 
   <form id="contact-form" action="/contact" method="POST">
-    <input type="email" name="contact[email]" value="{{ contact['email'] }}" placeholder="Your E-mail"><br/>
+    <input type="email" name="contact[email]" value="{{ contact['email'] }}" placeholder="Your E-mail"><br>
 
-    <input type="text" name="contact[subject]" value="{{ contact['subject'] }}" placeholder="Subject"><br/>
+    <input type="text" name="contact[subject]" value="{{ contact['subject'] }}" placeholder="Subject"><br>
 
-    <textarea name="contact[body]" placeholder="Type your message here">{{ contact['body'] }}</textarea><br/>
+    <textarea name="contact[body]" placeholder="Type your message here">{{ contact['body'] }}</textarea><br>
 
     <button class="btn-large">Send</button>
   </form>

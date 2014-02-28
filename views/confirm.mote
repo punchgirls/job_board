@@ -5,19 +5,19 @@
 
   <form class="form confirm-form" action="/confirm" method="POST">
     <input class="input confirm-input" type="text" name="developer[name]"
-    value="{{ github_user['name'] }}" placeholder="Name"><br/>
+    value="{{ github_user['name'] }}" placeholder="Name"><br>
 
     <input class="input confirm-input" type="email" name="developer[email]"
-    value="{{ github_user['email'] }}" placeholder="Email"><br/>
+    value="{{ github_user['email'] }}" placeholder="Email"><br>
 
     <input class="input confirm-input" type="text" name="developer[url]"
-    value="{{ github_user['blog'] }}" placeholder="Website (optional)"><br/>
+    value="{{ github_user['blog'] }}" placeholder="Website (optional)"><br>
 
-    <textarea class="textarea confirm-textarea" id="developer-bio" name="developer[bio]" placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"></textarea><br/>
+    <textarea class="textarea confirm-textarea" id="developer-bio" name="developer[bio]" placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"></textarea><br>
 
-    <span class="countdown" id="countdown-bio">200 characters remaining.</span><br/>
+    <span class="countdown" id="countdown-bio">200 characters remaining.</span><br>
 
-    <button class="confirm-button float-right" type="submit">Confirm</button><br/>
+    <button class="confirm-button float-right" type="submit">Confirm</button><br>
   </form>
 
   <script src="/js/limit_description.js"></script>
