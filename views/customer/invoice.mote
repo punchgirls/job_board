@@ -16,7 +16,7 @@
       % stop = Time.at(line.period.end.to_i).strftime("%e/%b/%y")
       <li class="item">
         % if !line.plan.nil?
-          <p class="item-subtitle">Subscribed to plan: <span class="capitalize">{{ line.plan.id }}</span><br/>
+          <p class="item-subtitle">Subscribed to plan: <span class="capitalize">{{ line.plan.id }}</span><br>
           Plan description: ({{ plan.posts }} posts/month)</p>
           <p class="item-subtitle">Charged period: {{ start }} to {{ stop }}</p>
         % else

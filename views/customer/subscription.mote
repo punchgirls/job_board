@@ -7,7 +7,7 @@
   % end
     <form id="edit-subscription" class="form edit-profile-form" action="/customer/subscription" method="POST">
       {{ this.partial("plans", plan_id: plan_id) }}
-      <br/>
+      <br>
 
       <a class="post-control-link cancel" href="/profile">cancel</a>
 

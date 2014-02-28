@@ -27,7 +27,7 @@
   <form name="postFrm" action="/post/new" method="POST">
     <p>Click <a href="/help#examples">here</a> to see some examples that might help you write your post.</p>
 
-    <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
+    <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br>
 
     <ul id="tokens">
       <li id="token-input">
@@ -50,14 +50,15 @@
       <span>Work from anywhere</span>
     </label><br>
 
-    <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">
-      {{ this.h(post.description) }}
-    </textarea><br/>
+    <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br>
 
-    <span id="countdown">600 characters remaining.</span><br/>
-    <a href="/dashboard">cancel</a>
+    <span id="countdown">600 characters remaining.</span><br>
 
-    <button>post</button>
+    <span class="buttons">
+      <a href="/dashboard">cancel</a>&nbsp;&nbsp;
+
+      <button type="submit">Post</button>
+    </span>
   </form>
 </section>
 

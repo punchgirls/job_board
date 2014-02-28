@@ -18,12 +18,12 @@
 % end
 
 <section id="edit-post">
-  <h2 class="list-title">Edit your post</h2>
-
-  <p>Note that if you edit an unpublished post and this post has applicants, these applicants will be able to see the changes you make.</p>
+  <h2>Edit your post</h2>
 
   <form id="edit-post-form" name="postFrm" action="/post/edit/{{ post.id }}" method="POST">
-    <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br/>
+    <p>Note that if you edit an unpublished post and this post has applicants, these applicants will be able to see the changes you make.</p>
+
+    <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br>
 
     <input id="tags" type="hidden" value="{{ post.tags }}">
 
@@ -39,10 +39,10 @@
 
     <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
-    <input id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off" value="{{ this.h(post.location) }}">
+    <input id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off" value="{{ this.h(post.location) }}"><br>
 
     <!-- END GOOGLE PLACE AUTOCOMPLETE -->
-    <br/>
+
     <label>
       % if post.remote == "true"
         <input type="checkbox" name="post[remote]" checked="" value="true">
@@ -50,15 +50,17 @@
         <input type="checkbox" name="post[remote]" value="true">
       % end
       <span>Work from anywhere</span>
-    </label><br/>
+    </label><br>
 
-    <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br/>
+    <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br>
 
-    <span id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br/>
+    <span id="countdown">{{ 600 - post.description.size }} characters remaining.</span><br>
 
-    <a href="/dashboard">cancel</a>
+    <span class="buttons">
+      <a href="/dashboard">cancel</a>&nbsp;&nbsp;
 
-    <button type="submit">save</button>
+      <button type="submit">Save</button>
+    </span>
   </form>
 </section>
 

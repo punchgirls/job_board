@@ -9,7 +9,7 @@
 
    % if posts.empty?
       <p>
-        You haven't posted anything yet.<br/>
+        You haven't posted anything yet.<br>
         Click <a href="/post/new">here</a> to get started!
       </p>
     % else

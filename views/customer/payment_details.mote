@@ -1,7 +1,7 @@
 <div id="digits">
   <img class="card-icon" src="/img/cards/{{ card['type'] }}.png">
 
-  <input disabled="disabled" type="text" size="20" maxlength="16" value="**** **** **** {{ card['last4'] }}"/><br/>
+  <input disabled="disabled" type="text" size="20" maxlength="16" value="**** **** **** {{ card['last4'] }}"/><br>
 
   <input disabled="disabled" type="text" size="4" maxlength="4" value="***"/>
 

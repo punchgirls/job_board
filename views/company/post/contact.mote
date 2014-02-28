@@ -6,7 +6,7 @@
   <form action="/application/{{ application.id }}/contact" method="POST">
     <input type="text" name="message[subject]" value="{{ message.subject }}" placeholder="Subject"><br/>
 
-    <textarea name="message[body]" placeholder="This mail will be sent to the developer">{{ message.body }}</textarea><br/>
+    <textarea name="message[body]" placeholder="This mail will be sent to the developer">{{ message.body }}</textarea><br>
 
     <a href="/dashboard">cancel</a>
 
