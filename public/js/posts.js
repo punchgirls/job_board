@@ -36,10 +36,8 @@ function apply (id) {
 }
 
 function addMsg (post_id) {
-  var msgFrm = document.getElementById("message-form-" + post_id);
-  var addMsgLink = document.getElementById("add-msg-link-" + post_id);
-  addMsgLink.style.display = "none";
-  msgFrm.removeAttribute("class");
+  var msgSpan = document.getElementById("msg-" + post_id);
+  msgSpan.removeAttribute("class");
 }
 
 function closeMsgFrm (id) {
