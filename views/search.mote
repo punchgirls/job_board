@@ -42,24 +42,26 @@
             % end
           </ul>
           <p class="description">{{ this.h(post.description) }}</p>
-          <ul class="section-footer">
-            <li>
+          % if !this.current_user.instance_of?(Company)
+            <ul class="section-footer">
+              <li>
+                % if this.current_user.nil?
+                  <a href="/favorite?post_id={{ post.id }}"><i class="fa fa-star"></i>favorite</a>
+                % elsif developer && developer.favorites.member?(post)
+                  <a href="/favorite/{{ post.id }}"><i class="fa fa-star"></i>favorited</a>
+                % else
+                  <a href="/favorite/{{ post.id }}"><i class="fa fa-star"></i>favorite</a>
+                % end
+              </li>
               % if this.current_user.nil?
-                <a href="/favorite?post_id={{ post.id }}"><i class="fa fa-star"></i>favorite</a>
-              % elsif developer && developer.favorites.member?(post)
-                <a href="/favorite/{{ post.id }}"><i class="fa fa-star"></i>favorited</a>
+                <li><a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
+              % elsif developer && developer.applied?(post.id)
+                <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>applied</a></li>
               % else
-                <a href="/favorite/{{ post.id }}"><i class="fa fa-star"></i>favorite</a>
+                <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
               % end
-            </li>
-            % if this.current_user.nil?
-              <li><a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
-            % elsif developer && developer.applied?(post.id)
-              <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>applied</a></li>
-            % else
-              <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
-            % end
-          </ul>
+            </ul>
+          % end
         </section>
       % end
     % end
