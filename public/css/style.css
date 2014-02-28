@@ -27,10 +27,14 @@ body {
 #edit-payment-info,
 #edit-post, #developer-profile,
 #password-recovery, #otp,
-#confirm {
+#confirm, #invoice {
   margin: 0 auto;
   line-height: 1.8em;
   max-width: 600px;
+}
+
+#invoice {
+  width: 20em;
 }
 
 #search, #company-dashboard,
@@ -72,6 +76,10 @@ i {
   display: block;
   margin: 40px 0;
   font-size: 1.17em;
+}
+
+.capitalize {
+  text-transform: capitalize;
 }
 
 a, a:visited, .link, .application-msg, .bio-icon {
@@ -678,6 +686,27 @@ h4 {
   max-width: 30px;
 }
 
+/* PAYMENT HISTORY */
+
+#payment-history table {
+  text-align: left;
+  padding: 0;
+  margin: 0 auto;
+  font-size: 0.8em;
+  width: 26.5em;
+}
+
+#payment-history tr th {
+  padding: 0 5px;
+  color: white;
+  background-color: #808080;
+}
+
+#payment-history tr td {
+  padding: 0 5px;
+  background-color: #F8F8F8;
+}
+
 /* LOGIN PAGE*/
 
 #login .highlight-box {
@@ -789,6 +818,10 @@ h4 {
 
   #subscription .signup-plans {
     width: 25em;
+  }
+
+  #payment-history table {
+    width: 40em;
   }
 }
 

@@ -14,6 +14,6 @@
         <td>{{ invoice.total / 100}}  USD</td>
       </tr>
     % end
-    </table>
+    </table><br><br>
   <p><a href="/profile">Back to profile</a></p>
  </section>

@@ -22,7 +22,7 @@
           Suspended
         % end
       </li>
-      <li>Plan: {{ plan.name }}</li>
+      <li class="capitalize">Plan: {{ plan.name }}</li>
       <li>Posts per month: {{ plan.posts }}</li>
       <li>Price: {{ plan.price }} USD/month</li>
       <li>
