@@ -6,12 +6,14 @@
     <h2 class="list-title">Reactivate subscription</h2>
   % end
     <form id="edit-subscription" class="form edit-profile-form" action="/customer/subscription" method="POST">
+
       {{ this.partial("plans", plan_id: plan_id) }}
-      <br>
 
-      <a class="post-control-link cancel" href="/profile">cancel</a>
+      <span class="buttons">
+        <a href="/profile">cancel</a>&nbsp;&nbsp;
 
-      <button class="send-message-button" type="submit">update</button>
+        <button type="submit">Update</button>
+      </span>
     </form>
     </li>
   </ul>

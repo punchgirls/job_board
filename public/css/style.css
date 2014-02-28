@@ -562,11 +562,16 @@ h1  {
   margin-bottom: 0;
 }
 
-#signup .signup-plans {
+#signup .signup-plans,
+#subscription .signup-plans {
   width: 100%;
   min-height: 40px;
   margin: 15px 0;
   padding-left: 5px;
+}
+
+#subscription .signup-plans {
+  width: 20em;
 }
 
 #signup button {
@@ -773,6 +778,10 @@ h4 {
   #contact-applicant textarea {
     width: 428px;
     max-width: 428px;
+  }
+
+  #subscription .signup-plans {
+    width: 25em;
   }
 }
 
