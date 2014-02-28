@@ -1,11 +1,13 @@
 <section id="edit-payment-info">
   <h2>Edit your payment details</h2>
-  <form id="edit-payment" action="/customer/update" method="POST">
+  <form class="payment-details" id="edit-payment" action="/customer/update" method="POST">
 
       {{ this.partial("new_card") }}
 
-      <a href="/profile">cancel</a>
+      <span class="buttons">
+        <a href="/profile">cancel</a>&nbsp;&nbsp;
 
-      <button type="submit" id="button">save</button>
+        <button type="submit" id="button">Save</button>
+      </span>
   </form>
 </section>

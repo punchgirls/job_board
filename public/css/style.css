@@ -50,7 +50,8 @@ body {
 #payment-history,
 #developer-profile,
 #edit-post, #password-recovery,
-#otp, #confirm {
+#otp, #confirm,
+#edit-payment-info {
   text-align: center;
 }
 
@@ -498,7 +499,8 @@ h1  {
 
 /* SIGNUP, NEW POST */
 
-#signup, #new-post, #edit-post {
+#signup, #new-post, #edit-post,
+#edit-payment-info {
   margin: 0 auto;
   padding: 0;
   line-height: 1.8em;
@@ -509,14 +511,16 @@ h1  {
 }
 
 #signup form, #new-post form,
-#edit-post form, #contact-applicant form {
+#edit-post form, #contact-applicant form,
+#edit-payment-info form {
   margin: 0 auto;
   width: 300px;
   text-align: left;
 }
 
 #signup input, #new-post input,
-#edit-post input, #contact-applicant input {
+#edit-post input, #contact-applicant input,
+#edit-payment-info input {
   width: 292px;
   max-width: 292px;
 }
@@ -539,18 +543,21 @@ h1  {
   width: 42px;
 }
 
-#signup .cvc {
+#signup .cvc,
+#edit-payment-info .cvc {
   margin-right: 16px;
   width: 42px;
   float: left;
 }
 
-#signup .short-input {
+#signup .short-input,
+#edit-payment-info .short-input {
   width: 40px;
   float: left;
 }
 
-#signup .expires_on {
+#signup .expires_on,
+#edit-payment-info .expires_on {
   display: inline;
   margin: 0 8px;
   float: left;
@@ -558,7 +565,7 @@ h1  {
   line-height: 40px;
 }
 
-#signup h3 {
+#signup h3, #edit-payment-info h3 {
   margin-bottom: 0;
 }
 
