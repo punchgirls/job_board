@@ -89,6 +89,8 @@ class Developers < Cuba
             application.update(message: msg.message)
 
             Ost[:developer_sent_message].push(application.id)
+
+            res.redirect "/applications"
           end
 
           on default do
