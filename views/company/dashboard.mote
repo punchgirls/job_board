@@ -39,7 +39,7 @@
           <p class="description">{{ this.h(post.description) }}</p>
           <ul class="section-footer">
             <li>
-              <a class="show-applicants" href="/post/applications/{{ post.id }}">
+              <a class="show-applicants" href="/post/{{ post.id }}/applications">
               <i class="fa fa-users"></i>show list of applicants</a>
             </li>
             <li>

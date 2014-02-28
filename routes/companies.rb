@@ -361,7 +361,7 @@ class Companies < Cuba
 
         on post do
           render("company/post/applications", title: "Discarded applications",
-            id: id, active_applications: false,
+            post_id: id, active_applications: false,
             applications: Post[id].discarded_applications,
             text: "You have no discarded applications for this post.")
         end
@@ -371,12 +371,12 @@ class Companies < Cuba
         end
       end
 
-      on "post/applications/:id" do |id|
-        post = company.posts[id]
+      on "post/:post_id/applications" do |post_id|
+        post = company.posts[post_id]
 
         on post do
-          render("company/post/applications", title: "Active applications", id: id,
-            applications: Post[id].active_applications,
+          render("company/post/applications", title: "Active applications", post_id: post_id,
+            applications: Post[post_id].active_applications,
             active_applications: true,
             text: "No one applied to this post yet or the persons who applied
             removed their applications.")
@@ -421,7 +421,7 @@ class Companies < Cuba
         end
       end
 
-      on "application/contact/:id" do |id|
+      on "application/:id/contact" do |id|
         application = Application[id]
 
         on application && company.posts.include?(application.post) do
@@ -436,7 +436,7 @@ class Companies < Cuba
 
               Ost[:contacted_applicant].push(message)
 
-              res.redirect "/post/applications/#{application.post.id}"
+              res.redirect "/post/#{application.post.id}/applications"
             else
               session[:error] = "All fields are required"
               render("company/post/contact", title: "Contact developer",
@@ -455,7 +455,7 @@ class Companies < Cuba
         end
       end
 
-      on "application/favorite/:id" do |id|
+      on "application/:id/favorite" do |id|
         application = Application[id]
 
         on application && company.posts.include?(application.post) do
@@ -467,7 +467,7 @@ class Companies < Cuba
             post.favorites.add(application)
           end
 
-          res.redirect "/post/applications/#{post.id}"
+          res.redirect "/post/#{post.id}/applications/"
         end
 
         on default do
