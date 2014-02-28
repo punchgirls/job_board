@@ -119,6 +119,8 @@ class Developers < Cuba
 
           on text.valid? do
             application.update(note: note)
+
+            res.redirect "/applications"
           end
 
           on default do

@@ -1,12 +1,12 @@
-<form class="hide-form" id="note-form-{{ application.id }}" method="POST" onsubmit="displayNote({{ application.id }}); return false;">
+<p>Add a personal note:</p>
 
-  <textarea id="note-txt-{{ application.id }}" name="note" placeholder="Write your note here..." onkeyup="updateCountdownNote({{ application.id }})" maxlength="200">{{ this.h(application.note) }}</textarea><br>
+<form id="note-form-{{ application.id }}" action="/note/{{ application.id }}"
+  method="POST">
+  <textarea name="note"></textarea><br/>
 
-  <span id="countdown-note-{{ application.id }}">200 characters remaining.</span><br>
+  <span id="countdown-msg-{{ application.id }}">
+    200 characters remaining
+  </span><br/>
 
-  <a onclick="closeNoteFrm({{ application.id }})">cancel</a>
-
-  <button class="btn-large" type="submit">save note</button>
+  <button>Send</button>
 </form>
-
-<script src="/js/limit_description.js"></script>

@@ -49,16 +49,6 @@
             </ul>
             <p>{{ this.h(post.description) }}</p>
             % if application.message.nil? && application.status == "active"
-              <form id="msg-form-{{ post.id }}" action="/message/{{ post.id }}"
-                method="POST">
-                <textarea name="message"></textarea><br/>
-
-                <span id="countdown-msg-{{ post.id }}">
-                  200 characters remaining
-                </span><br/>
-
-                <button>Send</button>
-              </form>
             % else
               <p class="message">
                 <span class="application-msg" id="add-msg-link-{{ post.id }}"><i class="fa fa-envelope"></i>message:</span>
@@ -69,7 +59,7 @@
               {{ this.partial("developer/note_form", application: application) }}
             % else
               <p class="note">
-                <span class="link"><i class="fa fa-pencil-square-o"></i>personal note:</span>
+                <span class="link"><i class="fa fa-pencil-square-o"></i>note:</span>
                 {{ this.h(application.note) }}
               </p>
             % end
