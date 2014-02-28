@@ -24,10 +24,10 @@
 
   <h2>Create a new job offer</h2>
 
-  <form name="postFrm" action="/post/new" method="POST">
+  <form class="new-post-form" name="postFrm" action="/post/new" method="POST">
     <p>Click <a href="/help#examples">here</a> to see some examples that might help you write your post.</p>
 
-    <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br>
+    <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title">
 
     <ul id="tokens">
       <li id="token-input">

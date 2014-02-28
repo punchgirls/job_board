@@ -20,10 +20,10 @@
 
   <h2>Edit your post</h2>
 
-  <form id="edit-post-form" name="postFrm" action="/post/edit/{{ post.id }}" method="POST">
+  <form class="edit-post-form" name="postFrm" action="/post/edit/{{ post.id }}" method="POST">
     <p>Note that if you edit an unpublished post and this post has applicants, these applicants will be able to see the changes you make.</p>
 
-    <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title"><br>
+    <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title">
 
     <input id="tags" type="hidden" value="{{ post.tags }}">
 
