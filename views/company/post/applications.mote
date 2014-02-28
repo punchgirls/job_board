@@ -1,10 +1,10 @@
 <section id="applicants-post">
-  <h2>Position: {{ this.h(Post[id].title) }}</h2>
+  <h2>Position: {{ this.h(Post[post_id].title) }}</h2>
 
   <ul>
-    <li><a href="/post/applications/{{ id }}">Active applications</a></li>
+    <li><a href="/post/applications/{{ post_id }}">Active applications</a></li>
     <li>|</li>
-    <li><a href="/post/applications/discarded/{{ id }}">Discarded applications</a></li>
+    <li><a href="/post/applications/discarded/{{ post_id }}">Discarded applications</a></li>
   </ul>
 
   % if applications.empty?
@@ -37,12 +37,12 @@
         </p>
         % end
         <ul class="section-footer">
-          % if Post[id].favorites.member?(application)
-          <li><a href="/application/favorite/{{ id }}"><i class="fa fa-star"></i>favorited</a></li>
+          % if Post[post_id].favorites.member?(application)
+          <li><a href="/application/{{ application.id }}/favorite"><i class="fa fa-star"></i>favorited</a></li>
           % else
-            <li><a href="/application/favorite/{{ id }}"><i class="fa fa-star"></i>favorite</a></li>
+            <li><a href="/application/{{ application.id }}/favorite"><i class="fa fa-star"></i>favorite</a></li>
           % end
-          <li><a href="/application/contact/{{ application.id }}"><i class="fa fa-envelope"></i>send message</a></li>
+          <li><a href="/application/{{ application.id }}/contact"><i class="fa fa-envelope"></i>send message</a></li>
           <li><a href="post/applications/discarded/{{ application.id }}"><i class="fa fa-trash-o"></i>discard</a></li>
         </ul>
       </section>
