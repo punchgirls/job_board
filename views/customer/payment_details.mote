@@ -3,10 +3,10 @@
 
   <input disabled="disabled" type="text" size="20" maxlength="16" value="**** **** **** {{ card['last4'] }}"/><br>
 
-  <input disabled="disabled" type="text" size="4" maxlength="4" value="***"/>
+  <input class="cvc" disabled="disabled" type="text" size="4" maxlength="4" value="***"/>
 
-  <label>Expires on</label>
-  <input disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_month'] }}"/>
-  <span > / </span>
-  <input disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_year'] }}"/>
+  <label class="expires_on">Expires on</label>
+  <input class="short-input" disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_month'] }}"/>
+  <span class="expires_on"> / </span>
+  <input class="short-input" disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_year'] }}"/>
 </div>

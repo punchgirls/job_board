@@ -1,7 +1,7 @@
 % company = this.current_user
 
 <section id="company-profile">
-  <section class="listing-item">
+  <section class="company-profile-item">
     <h2>Company details</h2>
     <ul>
       <li>{{ this.h(company.name) }}</li>
@@ -11,7 +11,7 @@
     <a href="/edit"><i class="fa fa-pencil-square-o cursor"></i>edit</a>
   </section>
 
-  <section class="listing-item">
+  <section class="company-profile-item">
     <h2>Subscription info </h2>
     <ul>
       <li>
@@ -37,7 +37,7 @@
     <a href="/customer/subscription"><i class="fa fa-pencil-square-o cursor"></i>edit</a>
   </section>
 
- <section class="listing-item">
+  <section class="company-profile-item">
     <h2>Payment info</h2>
     % if card.nil?
       <p class="item-subtitle">You have no registered payment details</p>

@@ -95,6 +95,11 @@ h2 {
   font-size: 1.2em;
 }
 
+a#delete {
+  clear: both;
+  display: block;
+}
+
 /* FORMS AND INPUT */
 
 input[type="text"],
@@ -447,11 +452,35 @@ h4 {
 #company-profile {
   margin: 0 auto;
   line-height: 1.8em;
-  max-width: 300px;
+  max-width: 810px;
+}
+
+#company-profile .company-profile-item {
+  float: left;
+  display: inline-block;
+  width: 250px;
+  max-width: 250px;
+  margin: 0 20px 20px 0;
 }
 
 #company-profile li {
   display: list-item;
+}
+
+#company-profile #digits {
+  max-width: 250px;
+}
+
+#company-profile #digits input {
+  max-width: 240px;
+}
+
+#company-profile #digits input.cvc {
+  max-width: 40px;
+}
+
+#company-profile #digits input.short-input {
+  max-width: 30px;
 }
 
 /* LOGIN PAGE*/
