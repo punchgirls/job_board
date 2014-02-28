@@ -560,6 +560,7 @@ h4 {
     float: none;
     width: 25px;
     vertical-align: text-bottom;
+    margin-right: 10px;
   }
 
   #home #search-box {
