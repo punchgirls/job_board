@@ -135,7 +135,7 @@ textarea {
 button {
   padding: 0 20px;
   height: 45px;
-  background:  #EDCA45;
+  background:  #FFCC00;
   outline: none;
   border: none;
   font-size: 1.2em;
@@ -247,13 +247,13 @@ h1  {
   display: inline-block;
 }
 
+#main-navigation a {
+  color: black;
+}
+
 #tittel-link {
   margin-right: 70px;
   text-decoration: none;
-}
-
-#main-navigation a {
-  color: #4d4d4d;
 }
 
 #main-navigation li {
