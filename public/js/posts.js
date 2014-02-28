@@ -74,20 +74,9 @@ function sendMsg (postId) {
   request.send();
 }
 
-function addNote (id) {
-  var noteLink = document.getElementById("note-link-" + id);
-  var editNoteLink = document.getElementById("edit-note-link-" + id);
-  var form = document.getElementById("note-form-" + id);
-  var note = document.getElementById("note-" + id);
-
-  noteLink.style.display = "none";
-
-  if (editNoteLink) {
-    editNoteLink.style.display = "none";
-  }
-
-  note.style.display = "none";
-  form.style.display = "block";
+function addNote (application_id) {
+  var noteSpan = document.getElementById("note-" + application_id);
+  noteSpan.removeAttribute("class");
 }
 
 function closeNoteFrm (id) {
