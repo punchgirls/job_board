@@ -3,8 +3,7 @@
 
 <section id="company-dashboard">
   <a class="link-large" href="/post/new">
-    <i class="fa fa-pencil-square-o"></i>
-    Create new post
+    <i class="fa fa-pencil-square-o"></i>Create new post
   </a>
 
    % if posts.empty?

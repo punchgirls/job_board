@@ -60,14 +60,22 @@ li {
   list-style: none;
 }
 
+i {
+  margin-right: 5px;
+}
+
 .link-large {
   display: block;
   margin: 40px 0;
   font-size: 1.17em;
 }
 
-a, .link, .application-msg, .bio-icon {
+a, a:visited, .link, .application-msg, .bio-icon {
   color: #EB374B;
+}
+
+a:hover, a:active {
+  text-decoration: none;
 }
 
 .link {
@@ -291,10 +299,6 @@ h1  {
 .listing-item img {
   float: left;
   margin-right: 20px;
-}
-
-.listing-item i {
-  margin-right: 5px;
 }
 
 .message, .note, .bio {
