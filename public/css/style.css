@@ -192,7 +192,7 @@ button {
 
 ::-webkit-input-placeholder {
   font-size: 1.2em;
-  line-height: 0.8em;
+  line-height: 1em;
   font-family: "Droid Sans Mono", sans-serif;
 }
 
@@ -349,8 +349,8 @@ input:-moz-placeholder {
 }
 
 .edit-post-form #tokens {
-  width: 33.8em;
-  max-width: 33.8em;
+  width: 22.15em;
+  max-width: 22.15em;
   margin-bottom: 15px;
   line-height: 34px;
   font-size: 0.9em;
@@ -715,6 +715,11 @@ h4 {
   }
 
   .new-post-form #tokens {
+    width: 33.8em;
+    max-width: 33.8em;
+  }
+
+  .edit-post-form #tokens {
     width: 33.8em;
     max-width: 33.8em;
   }
