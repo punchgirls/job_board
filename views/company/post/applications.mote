@@ -2,7 +2,7 @@
   <h2>Position: {{ this.h(Post[post_id].title) }}</h2>
 
   <ul>
-    <li><a href="/post/applications/{{ post_id }}">Active applications</a></li>
+    <li><a href="/post/{{ post_id }}/applications">Active applications</a></li>
     <li>|</li>
     <li><a href="/post/applications/discarded/{{ post_id }}">Discarded applications</a></li>
   </ul>
@@ -18,9 +18,15 @@
         <ul>
           <li>{{ this.h(developer.name) }}</li>
           <li>|</li>
-          <li>GitHub: <a href="http://www.github.com/{{ developer.username }}">{{ developer.username }}</a></li>
+          <li>
+            GitHub:
+            <a href="http://www.github.com/{{ developer.username }}">
+              {{ developer.username }}</a>
+          </li>
           <li>|</li>
-          <li>URL: <a href="{{ this.h(developer.url) }}">{{ this.h(developer.url) }}</a></li>
+          <li>URL: <a href="{{ this.h(developer.url) }}">
+            {{ this.h(developer.url) }}</a>
+          </li>
           <li>|</li>
           <li>Applied {{ application.applied }}</li>
         </ul>
@@ -37,13 +43,32 @@
         </p>
         % end
         <ul class="section-footer">
-          % if Post[post_id].favorites.member?(application)
-          <li><a href="/application/{{ application.id }}/favorite"><i class="fa fa-star"></i>favorited</a></li>
+          % if active_applications
+            % if Post[post_id].favorites.member?(application)
+            <li>
+              <a href="/application/{{ application.id }}/favorite">
+              <i class="fa fa-star"></i>favorited</a>
+            </li>
+            % else
+              <li>
+                <a href="/application/{{ application.id }}/favorite">
+                <i class="fa fa-star"></i>favorite</a>
+              </li>
+            % end
+            <li>
+              <a href="/application/{{ application.id }}/contact">
+              <i class="fa fa-envelope"></i>send message</a>
+            </li>
+            <li>
+              <a href="/application/{{ application.id }}/discard">
+              <i class="fa fa-trash-o"></i>discard</a>
+            </li>
           % else
-            <li><a href="/application/{{ application.id }}/favorite"><i class="fa fa-star"></i>favorite</a></li>
+            <li>
+              <a href="/application/{{ application.id }}/add">
+              <i class="fa fa-plus"></i>move to applicants list</a>
+            </li>
           % end
-          <li><a href="/application/{{ application.id }}/contact"><i class="fa fa-envelope"></i>send message</a></li>
-          <li><a href="post/applications/discarded/{{ application.id }}"><i class="fa fa-trash-o"></i>discard</a></li>
         </ul>
       </section>
     % end
