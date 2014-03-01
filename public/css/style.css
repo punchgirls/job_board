@@ -140,7 +140,7 @@ textarea {
 }
 
 #search-box input {
-  height: 40px;
+  height: 41px;
 }
 
 #home #search-box {
@@ -377,6 +377,7 @@ input:-moz-placeholder {
   border: none;
   margin: 0;
   padding: 0;
+  line-height: 18px;
   font-size: 0.9em;
 }
 
