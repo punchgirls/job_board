@@ -824,6 +824,10 @@ footer {
   #payment-history table {
     width: 40em;
   }
+
+  #invoice {
+  width: 22em;
+  }
 }
 
 @media only screen and (min-width: 768px)  {

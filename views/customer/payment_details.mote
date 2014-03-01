@@ -8,5 +8,5 @@
   <label class="expires_on">Expires on</label>
   <input class="short-input" disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_month'] }}"/>
   <span class="expires_on"> / </span>
-  <input class="short-input" disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_year'] }}"/>
+  <input class="short-input" disabled="disabled" type="text" size="2" maxlength="2" value="{{ card['exp_year'].to_s[2..3] }}"/>
 </div>
