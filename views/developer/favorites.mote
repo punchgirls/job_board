@@ -21,7 +21,10 @@
               <li>Posted {{ post.posted }}</li>
             </ul>
             <ul>
-              <li><i class="fa fa-tags"></i>{{ this.h(post.tags) }}</li>
+
+              % tags = post.tags.split(",").join(", ")
+
+              <li><i class="fa fa-tags"></i>{{ this.h(tags) }}</li>
               <li>|</li>
               % if post.remote == "true"
                 <li>Work from anywhere</li>

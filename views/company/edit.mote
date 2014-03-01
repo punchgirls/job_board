@@ -34,7 +34,7 @@
 
         <input id="company-email" class="input input-profile" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company.email) }}"><br>
 
-        <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company.url) }}"><br><br>
+        <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company.url) }}">
 
         <h3>Change password:</h3>
 

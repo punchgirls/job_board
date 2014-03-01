@@ -1,7 +1,7 @@
 % search = params.fetch(:search, false)
 % query = params.fetch(:query, "")
 
-<form id="search-box">
+<form id="search-box" name="postFrm" action="/search" method="GET">
   % if query && !query.empty?
     <input id="tags" type="hidden" value="{{ query }}">
   % end

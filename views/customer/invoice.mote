@@ -1,34 +1,31 @@
 % date = Time.at(invoice.date.to_i).strftime("%e/%b/%y")
 % lines = invoice.lines.data
 
-<section class="two-cols">
-  <ul class="list">
-    <h2 class="payment-history-title">Invoice details</h2>
-      <li class="item">
-        <p class="item-subtitle">ID: {{ invoice.id }}</p>
-        <p class="item-subtitle">Date: {{ date }}</p>
-        <p class="item-subtitle">Total: {{ invoice.total / 100 }} USD</p>
+<section id="invoice">
+  <ul class="highlight-box">
+    <h3>Invoice details</h3>
+      <li>
+        <p>ID: {{ invoice.id }}</p>
+        <p>Date: {{ date }}</p>
+        <p>Total: {{ invoice.total / 100 }} USD</p>
       </li>
-    <h2 class="payment-history-title">Specification</h2>
+    <h3>Specification</h3>
 
     % lines.each do |line|
       % start = Time.at(line.period.start.to_i).strftime("%e/%b/%y")
       % stop = Time.at(line.period.end.to_i).strftime("%e/%b/%y")
-      <li class="item">
+      <li>
         % if !line.plan.nil?
-          <p class="item-subtitle">Subscribed to plan: <span class="capitalize">{{ line.plan.id }}</span><br>
-          Plan description: ({{ plan.posts }} posts/month)</p>
-          <p class="item-subtitle">Charged period: {{ start }} to {{ stop }}</p>
+          <p>Subscribed to plan: <span class="capitalize">{{ line.plan.id }}</span></p>
+          <p>Plan description: ({{ plan.posts }} posts/month)</p>
+          <p>Charged period: {{ start }} to {{ stop }}</p>
         % else
-          <p class="item-subtitle">Description: {{ line.description }}</p>
-          <p class="item-subtitle">Date: {{ date }}</p>
+          <p>Description: {{ line.description }}</p>
+          <p>Date: {{ date }}</p>
         % end
-        <p class="item-subtitle">Amount: {{ line.amount / 100 }} USD</p>
+        <p>Amount: {{ line.amount / 100 }} USD</p>
       </li>
     % end
-    <p class="item-subtitle"><a href="/customer/history">Back to payment history</a></p>
   </ul>
-
-  {{ this.partial("sidebar", user: this.current_user, search: true, profile: false) }}
-
+  <p><a href="/customer/history">Back to payment history</a></p>
 </section>
