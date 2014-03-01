@@ -20,7 +20,7 @@
   % else
     % posts.each do |post|
         <section id="post-{{ post.id }}" class="listing-item">
-          % application = Application[developer.applications.find(post_id: post.id).ids[0]]
+          % application = Application[developer.applications.find(post_id: post.id).ids.first]
           <img src="{{ post.company.gravatar }}">
           <ul>
             <li><a href="#">{{ this.h(post.title) }}</a></li>
@@ -73,7 +73,7 @@
                   <span id="apply-link-{{ post.id }}" class="link" onclick="apply({{ post.id }})">
                     <i class="fa fa-check"></i>apply</span>
                 % elsif developer && !application.nil? && application.message.nil?
-                  <span class="link" onclick="showMsgForm({{ post.id }})">
+                  <span id="apply-link-{{ post.id }}" class="link" onclick="showMsgForm({{ post.id }})">
                     <i class="fa fa-envelope"></i>send message</span>
                 % end
              </li>

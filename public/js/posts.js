@@ -53,34 +53,20 @@ function showMsgForm (postId) {
   msgSpan.removeAttribute("class");
 }
 
-function closeMsgFrm (id) {
-  var messageFrm = document.getElementById("message-form-" + id);
-  var addMsgLink = document.getElementById("add-msg-link-" + id);
-  addMsgLink.style.display = "block";
-  messageFrm.style.display = "none";
-}
-
 function sendMsg (postId) {
-  var messageFrm = document.getElementById("message-form-" + postId);
-  var messageTxt = document.getElementById("message-txt-" + postId).value;
-  var url = "/message/" + postId + "?message=" + messageTxt;
-  var message = document.getElementById("message-" + postId);
-  var sentOK = document.getElementById("sent-ok-" + postId);
+  var applyLink = document.getElementById("apply-link-" + postId);
+  var msgSpan = document.getElementById("msg-" + postId);
+  var msgForm = document.getElementById("msg-form-" + postId);
+  var msg = msgForm.firstElementChild.value;
+  var url = "/message/" + postId + "?message=" + msg;
 
   var request = ajax();
   request.open("POST", url);
 
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      messageFrm.style.display = "none";
-
-      if (message) {
-        message.innerHTML = '<h3 class="item-subtitle">Sent message:</h3><p class="item-text">' + messageTxt + '</p>';
-      }
-
-      if (sentOK) {
-        sentOK.innerHTML = '<i class="fa fa-check post-control-icon message-sent-icon"></i>Message sent';
-      }
+      msgSpan.remove();
+      applyLink.remove();
     }
   };
 

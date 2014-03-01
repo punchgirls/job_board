@@ -1,4 +1,4 @@
-<form id="msg-form-{{ post.id }}" action="/message/{{ post.id }}"
+<form onsubmit="sendMsg({{ post.id }}); return false;" id="msg-form-{{ post.id }}" action="/message/{{ post.id }}"
   method="POST">
   <textarea name="message"></textarea><br/>
 
