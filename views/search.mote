@@ -8,61 +8,62 @@
 % end
 
 <section id="search">
-  {{ this.partial("search_box") }}
+
+  {{ this.partial("search_box", query: query) }}
 
   <br><br>
 
   % if posts.nil?
-      <p>Start searching by adding keywords.</p>
-    % elsif posts.empty?
-      <p>No posts matched your search. Try again!</p>
-    % else
-      % posts.each do |post|
-        <section class="listing-item">
-          <img src="{{ post.company.gravatar }}">
-          <ul>
-            <li><a href="#">{{ this.h(post.title) }}</a></li>
-            <li>@</li>
-            <li><a href="#">{{ this.h(post.company.name) }}</a></li>
-            <li>|</li>
-            <li>{{ this.h(post.location) }}</li>
-            <li>|</li>
-            <li>Posted {{ post.posted }}</li>
-          </ul>
-          <ul>
+    <p>Start searching by adding keywords.</p>
+  % elsif posts.empty?
+    <p>No posts matched your search. Try again!</p>
+  % else
+    % posts.each do |post|
+      <section class="listing-item">
+        <img src="{{ post.company.gravatar }}">
+        <ul>
+          <li><a href="#">{{ this.h(post.title) }}</a></li>
+          <li>@</li>
+          <li><a href="#">{{ this.h(post.company.name) }}</a></li>
+          <li>|</li>
+          <li>{{ this.h(post.location) }}</li>
+          <li>|</li>
+          <li>Posted {{ post.posted }}</li>
+        </ul>
+        <ul>
 
-            % tags = post.tags.split(",").join(", ")
+          % tags = post.tags.split(",").join(", ")
 
-            <li><i class="fa fa-tags"></i>{{ this.h(tags) }}</li>
-            <li>|</li>
-            % if post.remote == "true"
-              <li>Work from anywhere</li>
+          <li><i class="fa fa-tags"></i>{{ this.h(tags) }}</li>
+          <li>|</li>
+          % if post.remote == "true"
+            <li>Work from anywhere</li>
+          % else
+            <li>On-site only</li>
+          % end
+        </ul>
+        <p class="description">{{ this.h(post.description) }}</p>
+        % if !this.current_user.instance_of?(Company)
+          <ul class="section-footer">
+            <li>
+              % if this.current_user.nil?
+                <a href="/favorite?post_id={{ post.id }}"><i class="fa fa-star"></i>favorite</a>
+              % elsif developer && developer.favorites.member?(post)
+                <a href="/favorite/{{ post.id }}"><i class="fa fa-star"></i>favorited</a>
+              % else
+                <a href="/favorite/{{ post.id }}"><i class="fa fa-star"></i>favorite</a>
+              % end
+            </li>
+            % if this.current_user.nil?
+              <li><a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
+            % elsif developer && developer.applied?(post.id)
+              <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>applied</a></li>
             % else
-              <li>On-site only</li>
+              <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
             % end
           </ul>
-          <p class="description">{{ this.h(post.description) }}</p>
-          % if !this.current_user.instance_of?(Company)
-            <ul class="section-footer">
-              <li>
-                % if this.current_user.nil?
-                  <a href="/favorite?post_id={{ post.id }}"><i class="fa fa-star"></i>favorite</a>
-                % elsif developer && developer.favorites.member?(post)
-                  <a href="/favorite/{{ post.id }}"><i class="fa fa-star"></i>favorited</a>
-                % else
-                  <a href="/favorite/{{ post.id }}"><i class="fa fa-star"></i>favorite</a>
-                % end
-              </li>
-              % if this.current_user.nil?
-                <li><a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
-              % elsif developer && developer.applied?(post.id)
-                <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>applied</a></li>
-              % else
-                <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
-              % end
-            </ul>
-          % end
-        </section>
-      % end
+        % end
+      </section>
     % end
+  % end
 </section>
