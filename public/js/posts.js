@@ -10,25 +10,20 @@ function ajax () {
   return request;
 }
 
-function apply (id) {
-  var post = document.getElementById("post_" + id);
-  var url = "/apply/" + id;
-  var addMsgLink = document.getElementById("add-msg-link-" + id);
-  var appsSize = document.getElementById("apps-size");
-  var appsSizeSidebar = document.getElementById("apps-size-sidebar");
+function apply (post_id) {
+  var post = document.getElementById("post-" + post_id);
+  var applyLink = document.getElementById("apply-link-" + post_id);
+  var applicationsSize = document.getElementById("apps-size");
+  var applicationsLength = parseInt(applicationsSize.innerHTML);
+  var url = "/apply/" + post_id;
+
   var request = ajax();
   request.open("POST", url);
 
-  post.innerHTML = '<i class="fa fa-check post-control-icon applied-icon"></i><span class="applied-text">Applied</span>';
-  post.removeAttribute("onclick");
-  post.className = ("applied cursor");
-  addMsgLink.innerHTML = "Send message to company";
-  addMsgLink.className = "send-message-link";
-
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      appsSize.innerHTML = parseInt(appsSize.innerHTML) + 1;
-      appsSizeSidebar.innerHTML = parseInt(appsSizeSidebar.innerHTML) + 1;
+      applyLink.innerHTML = "<i class='fa fa-check'></i>applied</span>";
+      applicationsSize.innerHTML = applicationsLength + 1;
     }
   };
 

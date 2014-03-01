@@ -11,14 +11,14 @@
 
   {{ this.partial("search_box", query: query) }}
 
-  <br><br>
+  <br/><br/>
 
   % if posts.nil?
     <p>Start searching by adding keywords.</p>
-    % elsif posts.empty?
-      <p>No posts matched your search. Try again!</p>
-    % else
-      % posts.each do |post|
+  % elsif posts.empty?
+    <p>No posts matched your search. Try again!</p>
+  % else
+    % posts.each do |post|
         <section id="post-{{ post.id }}" class="listing-item">
           <img src="{{ post.company.gravatar }}">
           <ul>
@@ -54,13 +54,17 @@
                     <i class="fa fa-star-o"></i>favorite</span>
                 % end
               </li>
-            % if this.current_user.nil?
-              <li><a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
-            % elsif developer && developer.applied?(post.id)
-              <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>applied</a></li>
-            % else
-              <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
-            % end
+              <li>
+                % if this.current_user.nil?
+                  <a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a>
+                % elsif developer && developer.applied?(post.id)
+                  <span id="apply-link-{{ post.id }}" class="link" onclick="apply({{ post.id }})">
+                    <i class="fa fa-check"></i>applied</span>
+                % else
+                  <span id="apply-link-{{ post.id }}" class="link" onclick="apply({{ post.id }})">
+                    <i class="fa fa-check"></i>apply</span>
+                % end
+            </li>
           </ul>
         % end
       </section>
