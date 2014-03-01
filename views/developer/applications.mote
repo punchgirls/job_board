@@ -78,18 +78,20 @@
               </span>
             </span>
             <ul class="section-footer">
-              <li>
-                <span id="show-more-{{ application.id }}" class="toggle link" onclick="toggle({{ application.id }})">
-                  show more
-                </span>
+              % if application.message || application.note
+                <li>
+                  <span id="show-more-{{ application.id }}" class="toggle link" onclick="toggle({{ application.id }})">
+                    show more
+                  </span>
               </li>
-              % if application.message.nil?
+              % end
+              % if !application.message
                 <li>
                   <span class="link" onclick="addMsg({{ post.id }})">
                   <i class="fa fa-envelope"></i>send message</span>
                 </li>
               % end
-              % if application.note.nil?
+              % if !application.note
                 <li>
                   <span class="link" onclick="addNote({{ application.id }})">
                   <i class="fa fa-pencil-square-o"></i>personal note</span>
