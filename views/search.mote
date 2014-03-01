@@ -39,6 +39,13 @@
             % else
               <li>On-site only</li>
             % end
+            % if developer && developer.applied?(post.id)
+              <li>|</li>
+              <li class="application-status">
+                Application status:
+                {{ Application[developer.applications.find(post_id: post.id).ids[0]].status }}
+              </li>
+            % end
           </ul>
           <p class="description">{{ this.h(post.description) }}</p>
           % if !this.current_user.instance_of?(Company)
@@ -57,14 +64,11 @@
               <li>
                 % if this.current_user.nil?
                   <a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a>
-                % elsif developer && developer.applied?(post.id)
-                  <span id="apply-link-{{ post.id }}" class="link" onclick="apply({{ post.id }})">
-                    <i class="fa fa-check"></i>applied</span>
-                % else
+                % elsif developer && !developer.applied?(post.id)
                   <span id="apply-link-{{ post.id }}" class="link" onclick="apply({{ post.id }})">
                     <i class="fa fa-check"></i>apply</span>
                 % end
-            </li>
+             </li>
           </ul>
         % end
       </section>

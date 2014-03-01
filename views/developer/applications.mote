@@ -48,7 +48,7 @@
                 % end
               </li>
               <li>|</li>
-              <li>Status: {{ application.status }}</li>
+              <li class="application-status">Application status: {{ application.status }}</li>
             </ul>
             <p>{{ this.h(post.description) }}</p>
             <span id="msg-{{ post.id }}" class="message-hidden">

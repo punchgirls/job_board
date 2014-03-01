@@ -82,7 +82,8 @@ i {
   text-transform: capitalize;
 }
 
-a, a:visited, .link, .application-msg, .bio-icon {
+a, a:visited, .link, .application-msg,
+.bio-icon, .application-status {
   color: #EB374B;
 }
 
