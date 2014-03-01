@@ -10,13 +10,13 @@ function ajax () {
   return request;
 }
 
-function apply (post_id) {
-  var post = document.getElementById("post-" + post_id);
-  var applyLink = document.getElementById("apply-link-" + post_id);
-  var postDetails = document.getElementById("post-details-" + post_id);
+function apply (postId) {
+  var post = document.getElementById("post-" + postId);
+  var applyLink = document.getElementById("apply-link-" + postId);
+  var postDetails = document.getElementById("post-details-" + postId);
   var applicationsSize = document.getElementById("apps-size");
   var applicationsLength = parseInt(applicationsSize.innerHTML);
-  var url = "/apply/" + post_id;
+  var url = "/apply/" + postId;
 
   var request = ajax();
   request.open("POST", url);
@@ -33,6 +33,11 @@ function apply (post_id) {
 
       applyLink.innerHTML = "<i class='fa fa-envelope'></i>send message</span>";
 
+      applyLink.onclick = function() {
+        var msgSpan = document.getElementById("msg-" + postId);
+        msgSpan.removeAttribute("class");
+      };
+
       postDetails.appendChild(li);
       postDetails.appendChild(appStatus);
 
@@ -43,8 +48,8 @@ function apply (post_id) {
   request.send();
 }
 
-function addMsg (post_id) {
-  var msgSpan = document.getElementById("msg-" + post_id);
+function showMsgForm (postId) {
+  var msgSpan = document.getElementById("msg-" + postId);
   msgSpan.removeAttribute("class");
 }
 
@@ -141,12 +146,12 @@ function unfavorite (favoriteLink) {
   favoritesSize.innerHTML = favoritesLength - 1;
 }
 
-function favoritePost (post_id) {
-  var post = document.getElementById("post-" + post_id);
-  var favoriteLink = document.getElementById("favorite-link-" + post_id);
+function favoritePost (postId) {
+  var post = document.getElementById("post-" + postId);
+  var favoriteLink = document.getElementById("favorite-link-" + postId);
   var favoritesSize = document.getElementById("favs-size");
   var favoritesLength = parseInt(favoritesSize.innerHTML);
-  var url = "/favorite/" + post_id;
+  var url = "/favorite/" + postId;
 
   var request = ajax();
   request.open("POST", url);

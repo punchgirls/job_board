@@ -20,6 +20,7 @@
   % else
     % posts.each do |post|
         <section id="post-{{ post.id }}" class="listing-item">
+          % application = Application[developer.applications.find(post_id: post.id).ids[0]]
           <img src="{{ post.company.gravatar }}">
           <ul>
             <li><a href="#">{{ this.h(post.title) }}</a></li>
@@ -39,15 +40,19 @@
             % else
               <li>On-site only</li>
             % end
-            % if developer && developer.applied?(post.id)
+            % if developer && !application.nil?
               <li>|</li>
               <li class="application-status">
                 Application status:
-                {{ Application[developer.applications.find(post_id: post.id).ids[0]].status }}
+                {{ application.status }}
               </li>
             % end
           </ul>
           <p class="description">{{ this.h(post.description) }}</p>
+          <span id="msg-{{ post.id }}" class="message-hidden">
+            <p>Add a message to the application:</p>
+              {{ this.partial("developer/message_form", post: post) }}
+          </span>
           % if !this.current_user.instance_of?(Company)
             <ul class="section-footer">
               <li>
@@ -64,9 +69,12 @@
               <li>
                 % if this.current_user.nil?
                   <a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a>
-                % elsif developer && !developer.applied?(post.id)
+                % elsif developer && !application
                   <span id="apply-link-{{ post.id }}" class="link" onclick="apply({{ post.id }})">
                     <i class="fa fa-check"></i>apply</span>
+                % elsif developer && !application.nil? && application.message.nil?
+                  <span class="link" onclick="showMsgForm({{ post.id }})">
+                    <i class="fa fa-envelope"></i>send message</span>
                 % end
              </li>
           </ul>
