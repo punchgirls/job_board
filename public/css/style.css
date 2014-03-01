@@ -864,7 +864,7 @@ footer {
     display: inline;
     float: none;
     width: 25px;
-    vertical-align: text-bottom;
+    vertical-align: middle;
     margin-right: 10px;
   }
 
