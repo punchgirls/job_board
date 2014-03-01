@@ -123,40 +123,35 @@ function displayNote (id) {
   request.send();
 }
 
-function favorite (post) {
-  if (post.className === "favorited cursor") {
-    post.className = "cursor";
-    post.innerHTML = '<i class="fa fa-star post-control-icon"></i><span class="underline">Favorite</span>';
-  } else {
-    post.className = "favorited cursor";
-    post.innerHTML = '<i class="fa fa-star post-control-icon favorited-icon"></i><span class="favorited-text underline">Favorited</span>';
-  }
+function favorite (favoriteLink) {
+  favoriteLink.innerHTML = "<i class='fa fa-star'></i>favorited";
+  favoritesSize.innerHTML = favoritesLength + 1;
 }
 
-function favoritePost (id) {
-  var post = document.getElementById(id);
-  var url = "/favorite/" + id;
-  var favsSize = document.getElementById("favs-size");
-  var favsSizeSidebar = document.getElementById("favs-size-sidebar");
+function unfavorite (favoriteLink) {
+  favoriteLink.innerHTML = "<i class='fa fa-star-o'></i>favorite";
+  favoritesSize.innerHTML = favoritesLength - 1;
+}
+
+function favoritePost (post_id) {
+  var post = document.getElementById("post-" + post_id);
+  var favoriteLink = document.getElementById("favorite-link-" + post_id);
+  var favoritesSize = document.getElementById("favs-size");
+  var favoritesLength = parseInt(favoritesSize.innerHTML);
+  var url = "/favorite/" + post_id;
 
   var request = ajax();
   request.open("POST", url);
 
-  favorite(post);
-
-  if (post.className === "favorited cursor") {
-    favsSize.innerHTML = parseInt(favsSize.innerHTML) + 1;
-    favsSizeSidebar.innerHTML = parseInt(favsSizeSidebar.innerHTML) + 1;
-  } else {
-    favsSize.innerHTML = parseInt(favsSize.innerHTML) - 1;
-    favsSizeSidebar.innerHTML = parseInt(favsSizeSidebar.innerHTML) - 1;
-  }
-
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      var favsSizeTitle = document.getElementById("favs-size-title");
-
-      favsSizeTitle.innerHTML = favsSize.innerHTML;
+      if (favoriteLink.firstElementChild.className == "fa fa-star") {
+         favoritesSize.innerHTML = favoritesLength - 1;
+         unfavorite(favoriteLink);
+      } else {
+        favoritesSize.innerHTML = favoritesLength + 1;
+        favorite(favoriteLink);
+      }
     }
   };
 
