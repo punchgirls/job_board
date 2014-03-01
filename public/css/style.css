@@ -717,12 +717,12 @@ h4 {
 
 /* FOOTER */
 
-.footer {
+footer {
   position: absolute;
   bottom:0;
   left:0;
   right: 0;
-  height: 120px;
+  height: 80px;
 }
 
 #footer-navigation {
