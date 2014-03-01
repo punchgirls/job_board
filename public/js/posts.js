@@ -13,6 +13,7 @@ function ajax () {
 function apply (post_id) {
   var post = document.getElementById("post-" + post_id);
   var applyLink = document.getElementById("apply-link-" + post_id);
+  var postDetails = document.getElementById("post-details-" + post_id);
   var applicationsSize = document.getElementById("apps-size");
   var applicationsLength = parseInt(applicationsSize.innerHTML);
   var url = "/apply/" + post_id;
@@ -22,7 +23,19 @@ function apply (post_id) {
 
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      applyLink.innerHTML = "<i class='fa fa-check'></i>applied</span>";
+      var li = document.createElement("li");
+      var appStatus = document.createElement("li");
+
+      li.appendChild(document.createTextNode(" | "));
+
+      appStatus.setAttribute("class", "application-status");
+      appStatus.appendChild(document.createTextNode("Application status: active"));
+
+      applyLink.innerHTML = "<i class='fa fa-envelope'></i>send message</span>";
+
+      postDetails.appendChild(li);
+      postDetails.appendChild(appStatus);
+
       applicationsSize.innerHTML = applicationsLength + 1;
     }
   };
