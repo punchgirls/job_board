@@ -1,17 +1,16 @@
 class Searches < Cuba
   define do
     on get, param("query") do |query|
-
       on query.include?("All posts") do
         render("search", title: "Search", posts: Post.active,
-          search: true, query: "All posts", profile: true)
+          search: true, profile: true, query: "All posts")
       end
 
       on default do
         posts = Search.posts(query)
 
-        render("search", title: "Search", query: query, posts: posts,
-          search: true, profile: true)
+        render("search", title: "Search", posts: posts,
+          search: true, profile: true, query: query)
       end
     end
 
@@ -25,8 +24,8 @@ class Searches < Cuba
       post = Post[id]
 
       on post do
-        render("search", title: "Search", posts: [post],
-          search: true, search: true, profile: true)
+        render("search", title: "Search", posts: [post], search: true,
+          profile: true)
       end
 
       on default do

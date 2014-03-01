@@ -27,27 +27,30 @@
 
   <h2>Edit your profile</h2>
 
+  <img id="company-gravatar" src="{{ company.gravatar }}">
+
   <form id="edit-profile" action="/edit/{{ company.id }}" method="POST">
-        <input id="gravatar-url" type="hidden" name="company[gravatar]" value="{{ company.gravatar }}">
 
-        <input type="text" name="company[name]" maxlength="30" placeholder="Company name" value="{{ this.h(company.name) }}"><br>
+    <input id="gravatar-url" type="hidden" name="company[gravatar]" value="{{ company.gravatar }}">
 
-        <input id="company-email" class="input input-profile" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company.email) }}"><br>
+    <input type="text" name="company[name]" maxlength="30" placeholder="Company name" value="{{ this.h(company.name) }}"><br>
 
-        <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company.url) }}">
+    <input id="company-email" class="input input-profile" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company.email) }}"><br>
 
-        <h3>Change password:</h3>
+    <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company.url) }}">
 
-        <input type="password" name="company[password]" placeholder="Password"><br>
+    <h3>Change password:</h3>
 
-        <input type="password" name="company[password_confirmation]" placeholder="Password confirmation">
+    <input type="password" name="company[password]" placeholder="Password"><br>
 
-        <span class="buttons">
-          <a href="/profile">cancel</a>&nbsp;&nbsp;
+    <input type="password" name="company[password_confirmation]" placeholder="Password confirmation">
 
-          <button type="submit">Save</button>
-        </span>
-      </form>
+    <span class="buttons">
+      <a href="/profile">cancel</a>&nbsp;&nbsp;
+
+      <button type="submit">Save</button>
+    </span>
+  </form>
 </section>
 
 <script src="/js/gravatar.js"></script>

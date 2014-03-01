@@ -8,12 +8,13 @@
 % end
 
 <section id="search">
-  {{ this.partial("search_box") }}
+
+  {{ this.partial("search_box", query: query) }}
 
   <br><br>
 
   % if posts.nil?
-      <p>Start searching by adding keywords.</p>
+    <p>Start searching by adding keywords.</p>
     % elsif posts.empty?
       <p>No posts matched your search. Try again!</p>
     % else
@@ -30,9 +31,7 @@
             <li>Posted {{ post.posted }}</li>
           </ul>
           <ul>
-
             % tags = post.tags.split(",").join(", ")
-
             <li><i class="fa fa-tags"></i>{{ this.h(tags) }}</li>
             <li>|</li>
             % if post.remote == "true"
@@ -55,16 +54,16 @@
                     <i class="fa fa-star-o"></i>favorite</span>
                 % end
               </li>
-              % if this.current_user.nil?
-                <li><a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
-              % elsif developer && developer.applied?(post.id)
-                <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>applied</a></li>
-              % else
-                <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
-              % end
-            </ul>
-          % end
-        </section>
-      % end
+            % if this.current_user.nil?
+              <li><a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
+            % elsif developer && developer.applied?(post.id)
+              <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>applied</a></li>
+            % else
+              <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
+            % end
+          </ul>
+        % end
+      </section>
     % end
+  % end
 </section>
