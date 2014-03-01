@@ -248,7 +248,7 @@ input:-moz-placeholder {
   font-family: "Droid Sans Mono", sans-serif;
 }
 
-.message-hidden, .note-hidden {
+.message-hidden, .note-hidden, .hidden {
   display: none;
 }
 

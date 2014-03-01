@@ -73,24 +73,9 @@ function sendMsg (postId) {
   request.send();
 }
 
-function addNote (application_id) {
-  var noteSpan = document.getElementById("note-" + application_id);
+function showNoteForm (applicationId) {
+  var noteSpan = document.getElementById("note-" + applicationId);
   noteSpan.removeAttribute("class");
-}
-
-function closeNoteFrm (id) {
-  var noteLink = document.getElementById("note-link-" + id);
-  var form = document.getElementById("note-form-" + id);
-  var note = document.getElementById("note-" + id);
-  var editNoteLink = document.getElementById("edit-note-link-" + id);
-
-  if (editNoteLink) {
-    editNoteLink.style.display = "inline-block";
-  }
-
-  noteLink.style.display = "block";
-  note.style.display = "block";
-  form.style.display = "none";
 }
 
 function displayNote (id) {
@@ -284,17 +269,15 @@ function removeApplication (id) {
   }
 }
 
-function showMore (id) {
-  var showMoreLink = document.getElementById("show-more-link-" + id);
-  var showMoreSection = document.getElementById("show-more-" + id);
+function toggle (applicationId) {
+  var span = document.getElementById("hidden-" + applicationId);
+  var showMoreLink = document.getElementById("show-more-" + applicationId);
 
-  if (showMoreLink.innerHTML == "Show more") {
-    showMoreLink.innerHTML = "Show less";
-    showMoreLink.style.marginTop = "-42px";
-    showMoreSection.className = "less";
+  if (span.className == "hidden") {
+    showMoreLink.innerHTML = "show less";
+    span.removeAttribute("class");
   } else {
-    showMoreLink.innerHTML = "Show more";
-    showMoreLink.style.marginTop = "10px";
-    showMoreSection.className = "more";
+    showMoreLink.innerHTML = "show more";
+    span.setAttribute("class", "hidden");
   }
 }

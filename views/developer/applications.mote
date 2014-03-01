@@ -51,28 +51,38 @@
               <li class="application-status">Application status: {{ application.status }}</li>
             </ul>
             <p>{{ this.h(post.description) }}</p>
-            <span id="msg-{{ post.id }}">
-              % if application.message.nil? && application.status == "active"
-                 {{ this.partial("developer/message_form", post: post) }}
-              % else
+            <span id="hidden-{{ application.id }}" class="hidden">
+              <span id="msg-{{ post.id }}">
+                % if application.message.nil? && application.status == "active"
+                  <span class="message-hidden">
+                    {{ this.partial("developer/message_form", post: post) }}
+                  </span>
+                % else
+                  <p>
+                    <span class="application-msg"><i class="fa fa-envelope"></i>message:</span>
+                    {{ this.h(application.message) }}
+                  </p>
+                % end
+              </span>
+              <span id="note-{{ application.id }}">
+                % if application.note.nil?
+                  <span class="note-hidden">
+                    {{ this.partial("developer/note_form", application: application) }}
+                  </span>
+                % else
                 <p>
-                  <span class="application-msg"><i class="fa fa-envelope"></i>message:</span>
-                  {{ this.h(application.message) }}
+                  <span class="link"><i class="fa fa-pencil-square-o"></i>note:</span>
+                  {{ this.h(application.note) }}
                 </p>
-              % end
-            </span>
-            <span id="note-{{ application.id }}">
-            % if application.note.nil?
-              {{ this.partial("developer/note_form", application: application) }}
-            % else
-              <p>
-                <span class="link"><i class="fa fa-pencil-square-o"></i>note:</span>
-                {{ this.h(application.note) }}
-              </p>
-            % end
+                % end
+              </span>
             </span>
             <ul class="section-footer">
-              <li><a class="toggle" href="#">show more</a></li>
+              <li>
+                <span id="show-more-{{ application.id }}" class="toggle link" onclick="toggle({{ application.id }})">
+                  show more
+                </span>
+              </li>
               % if application.message.nil?
                 <li>
                   <span class="link" onclick="addMsg({{ post.id }})">
