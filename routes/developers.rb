@@ -38,11 +38,12 @@ class Developers < Cuba
     on "remove/:id" do |id|
       application = developer.active_applications[id]
 
+      application.update(status: "deleted")
+
       on application do
         Ost[:deleted_application].push(id)
 
-        session[:success] = "You have successfully removed your application!
-          <br/>The change will be updated in a second."
+        session[:success] = "You have successfully removed your application!"
 
         res.redirect "/applications"
       end

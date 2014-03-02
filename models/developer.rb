@@ -32,7 +32,7 @@ class Developer < Ohm::Model
   end
 
   def inactive_applications
-    self.applications.find(active?: false)
+    self.applications.find(active?: false).except(status: "deleted")
   end
 
   def before_delete
