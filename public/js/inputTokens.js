@@ -105,6 +105,8 @@ document.onclick = function(e) {
     for (var key in skills) {
       addToAutocomplete(skills[key].name);
     }
+
+    list[selectedToken].id = "highlight";
   } else {
     autocomplete.style.display = "none";
   }
