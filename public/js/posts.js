@@ -216,8 +216,8 @@ function favoriteApplicant (id) {
   request.send();
 }
 
-function removePost () {
- return confirm("Are you sure you want to delete this post?");
+function confirmDelete (item) {
+ return confirm("Are you sure you want to delete this " + item + "?");
 }
 
 function addApplicant (id) {
@@ -260,35 +260,6 @@ function discardApplicant (id) {
   };
 
   request.send();
-}
-
-function removeApplication (id) {
-  var application = document.getElementById(id);
-  var applications = document.getElementById("applications-list");
-  var url = "/remove/" + id;
-  var appsSize = document.getElementById("apps-size");
-  var appsSizeSidebar = document.getElementById("apps-size-sidebar");
-  var msg = "Are you sure you want to delete the application? By performing this action the company will no longer be able to see your application.";
-  var cancel = confirm(msg);
-  var span = document.createElement("span");
-  notices.appendChild(span);
-  span.className = "alert success";
-
-  if (cancel) {
-    var request = ajax();
-    request.open("POST", url);
-
-    request.onreadystatechange = function() {
-      if ((request.readyState===4) && (request.status===200)) {
-        applications.removeChild(application);
-        appsSize.innerHTML = parseInt(appsSize.innerHTML) - 1;
-        appsSizeSidebar.innerHTML = parseInt(appsSizeSidebar.innerHTML) - 1;
-        span.innerHTML = "Application successfully removed! The change will be updated within a few minutes.";
-      }
-    };
-
-    request.send();
-  }
 }
 
 function toggle (postId) {

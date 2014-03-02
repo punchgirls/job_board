@@ -90,7 +90,7 @@
                 </li>
               % end
               <li>
-                <a href="remove/{{ application.id }}">
+                <a onclick="return confirmDelete('application')" href="remove/{{ application.id }}">
                 <i class="fa fa-trash-o"></i>delete</a>
               </li>
             </ul>
