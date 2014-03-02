@@ -75,26 +75,27 @@
               % else
                 <span id="show-more-{{ post.id }}" class="toggle link toggle-hidden" onclick="toggle({{ post.id }})">show more</span>
               % end
-
               </li>
-              % if !application.message
+              % if !application.message &&  application.status == "active"
                 <li>
                   <span id="apply-link-{{ post.id }}" class="link" onclick="showMsgForm({{ post.id }})">
                     <i class="fa fa-envelope"></i>send message</span>
                 </li>
               % end
-              % if !application.note
+              % if !application.note &&  application.status == "active"
                 <li>
                   <span id="note-link-{{ application.id }}" class="link" onclick="showNoteForm({{ application.id }})">
                   <i class="fa fa-pencil-square-o"></i>personal note</span>
                 </li>
               % end
-              <li>
-                <a onclick="return confirmDelete('application')" href="remove/{{ application.id }}">
-                <i class="fa fa-trash-o"></i>delete</a>
-              </li>
-            </ul>
-           </section>
+              % if application.status == "active"
+                <li>
+                  <a onclick="return confirmDelete('application')" href="remove/{{ application.id }}">
+                  <i class="fa fa-trash-o"></i>delete</a>
+                </li>
+              % end
+              </ul>
+          </section>
       % end
     % end
 
