@@ -3,14 +3,17 @@
 function noSubmit() {
   var inputLocation = document.getElementById("search-text-field");
 
-  inputLocation.onkeypress = function(e){
-    if (!e) e = window.event;
-    var keyCode = e.keyCode || e.which;
-    if (keyCode == '13'){
-      // Enter pressed
-      return false;
-    }
-  };
+  if (inputLocation) {
+    inputLocation.onkeypress = function(e){
+      if (!e) e = window.event;
+      var keyCode = e.keyCode || e.which;
+
+      if (keyCode == '13'){
+        // Enter pressed
+        return false;
+      }
+    };
+  }
 }
 
 // WHEN THE DOCUMENT LOADS
