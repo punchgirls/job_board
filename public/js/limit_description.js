@@ -15,14 +15,6 @@ function updateCountdownMsg(id) {
   countdownMsg.innerHTML = remaining + " characters remaining.";
 }
 
-function updateCountdownNote(id) {
-  var noteTxt = document.getElementById("note-txt-" + id);
-  var countdownNote = document.getElementById("countdown-note-" + id);
-
-  var remaining = 200 - noteTxt.value.length;
-  countdownNote.innerHTML = remaining + " characters remaining.";
-}
-
 function updateCountdownBio() {
   var bioTxt = document.getElementById("developer-bio");
   var countdownBio = document.getElementById("countdown-bio");

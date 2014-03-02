@@ -120,19 +120,9 @@ class Developers < Cuba
 
       on application do
         on param("note") do |note|
-          text = AddNote.new(note: note)
+          application.update(note: note)
 
-          on text.valid? do
-            application.update(note: note)
-
-            res.redirect "/applications"
-          end
-
-          on default do
-            session[:error] = "Your message exceeds the character limit."
-
-            res.redirect("/applications")
-          end
+          res.redirect "/applications"
         end
 
         on default do
