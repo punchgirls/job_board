@@ -84,33 +84,34 @@ function sendMsg (postId) {
 }
 
 function showNoteForm (applicationId) {
-  var noteSpan = document.getElementById("note-" + applicationId);
-  noteSpan.removeAttribute("class");
+  var noteForm = document.getElementById("note-form-" + applicationId);
+  noteForm.removeAttribute("class");
 }
 
-function displayNote (id) {
-  var noteTxt = document.getElementById("note-txt-" + id).value;
-  var note = document.getElementById("note-" + id);
-  var noteLink = document.getElementById("note-link-" + id);
-  var form = document.getElementById("note-form-" + id);
-  var editNoteLink = document.getElementById("edit-note-link-" + id);
-  var url = "/note/" + id + "/?note=" + noteTxt;
+function addNote (postId, applicationId) {
+  var applicationNote = document.getElementById("note-" + applicationId);
+  var noteLink = document.getElementById("note-link-" + applicationId);
+  var noteForm = document.getElementById("note-form-" + applicationId);
+  var showMoreLink = document.getElementById("show-more-" + postId);
+  var note = noteForm.firstElementChild.value;
+  var url = "/note/" + applicationId + "?note=" + note;
 
   var request = ajax();
   request.open("POST", url);
 
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      if (noteTxt != "") {
-        form.style.display = "none";
-        note.innerHTML = '<h3 class="item-subtitle">Personal note <i id="edit-note-link-' + id + '" class="fa fa-pencil-square-o cursor" onclick="addNote(' + id + ')"></i></h3><p class="item-text">' + noteTxt + '</p>';
-        note.style.display = "block";
-      } else {
-        form.style.display = "none";
-        noteLink.innerHTML = "Add a personal note?";
-        noteLink.style.display = "block";
-        editNoteLink.style.display = "inline-block";
+
+      if (showMoreLink) {
+        showMoreLink.setAttribute("style", "display:block;");
       }
+
+      if (applicationNote) {
+        applicationNote.innerHTML = "<span class='link'><i class='fa fa-pencil-square-o'></i>note:</span> " + note + "</p>";
+      }
+
+      noteForm.remove();
+      noteLink.remove();
     }
   };
 

@@ -51,26 +51,26 @@
             </ul>
             <p>{{ this.h(post.description) }}</p>
             <span id="hidden-{{ post.id }}" class="hidden">
+
               <p id="msg-{{ post.id }}">
                 % if application.message
                   <span class="application-msg"><i class="fa fa-envelope"></i>message:</span>
                   {{ this.h(application.message) }}
-               % end
+                % end
               </p>
-              % if application.note
-                <p id="note-{{ application.id }}">
+
+              <p id="note-{{ application.id }}">
+                % if application.note
                   <span class="link"><i class="fa fa-pencil-square-o"></i>note:</span>
-                  {{ this.h(application.note) }}
-                </p>
-              % end
+                    {{ this.h(application.note) }}
+                % end
+              </p>
             </span>
             % if application.message.nil? && application.status == "active"
               {{ this.partial("developer/message_form", post: post) }}
             % end
             % if application.note.nil?
-              <span id="note-form-span" class="note-hidden">
-                {{ this.partial("developer/note_form", application: application) }}
-              </span>
+              {{ this.partial("developer/note_form", application: application, post: post) }}
             % end
             <ul class="section-footer">
               <li>
@@ -89,7 +89,7 @@
               % end
               % if !application.note
                 <li>
-                  <span class="link" onclick="addNote({{ application.id }})">
+                  <span id="note-link-{{ application.id }}" class="link" onclick="showNoteForm({{ application.id }})">
                   <i class="fa fa-pencil-square-o"></i>personal note</span>
                 </li>
               % end

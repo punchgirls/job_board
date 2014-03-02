@@ -1,8 +1,8 @@
-<p>Add a personal note:</p>
+<form onsubmit="addNote({{ post.id }}, {{ application.id }}); return false;" id="note-form-{{ application.id }}"
+  class="note-hidden" action="/note/{{ application.id }}" method="POST">
 
-<form id="note-form-{{ application.id }}" action="/note/{{ application.id }}"
-  method="POST">
-  <textarea name="note"></textarea><br/>
+  <textarea name="note" placeholder="Add a personal note to your application">
+  </textarea><br/>
 
   <span id="countdown-msg-{{ application.id }}">
     200 characters remaining
