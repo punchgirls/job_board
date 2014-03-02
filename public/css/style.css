@@ -1,7 +1,4 @@
 /* GENERAL */
-.background-image {
-  background: url('/img/punchgirls_large.png') left bottom no-repeat;
-}
 
 html, body {
   height: 100%;
@@ -867,7 +864,9 @@ footer {
 @media only screen and (min-width: 1024px)  {
   /* HEADER */
 
-
+  .background-image {
+    background: url('/img/punchgirls_small.png') left bottom no-repeat;
+  }
 
   #gravatar-mini {
     display: inline;
@@ -926,5 +925,7 @@ footer {
 @media only screen and (min-width: 1200px)  {
   /* HEADER */
 
-
+  .background-image {
+    background: url('/img/punchgirls_large.png') left bottom no-repeat;
+  }
  }
