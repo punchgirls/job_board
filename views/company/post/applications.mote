@@ -14,7 +14,7 @@
       % developer = application.developer
 
       <section class="listing-item">
-        <img src="http://www.gravatar.com/avatar/6a987b05df8202c69a5e0f7f6eb34c32">
+        <img src="http://www.gravatar.com/avatar/{{ developer.gravatar }}">
         <ul>
           <li>{{ this.h(developer.name) }}</li>
           <li>|</li>
