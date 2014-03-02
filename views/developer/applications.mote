@@ -22,7 +22,6 @@
     % else
       % applications.each do |application|
         % post = application.post
-
           <section class="listing-item">
             <img src="{{ post.company.gravatar }}">
             <ul>
@@ -51,44 +50,41 @@
               <li class="application-status">Application status: {{ application.status }}</li>
             </ul>
             <p>{{ this.h(post.description) }}</p>
-            <span id="hidden-{{ application.id }}" class="hidden">
-              <span id="msg-{{ post.id }}">
-                % if application.message.nil? && application.status == "active"
-                  <span class="message-hidden">
-                    {{ this.partial("developer/message_form", post: post) }}
-                  </span>
-                % else
-                  <p>
-                    <span class="application-msg"><i class="fa fa-envelope"></i>message:</span>
-                    {{ this.h(application.message) }}
-                  </p>
-                % end
-              </span>
-              <span id="note-{{ application.id }}">
-                % if application.note.nil?
-                  <span class="note-hidden">
-                    {{ this.partial("developer/note_form", application: application) }}
-                  </span>
-                % else
-                <p>
+            <span id="hidden-{{ post.id }}" class="hidden">
+              <p id="msg-{{ post.id }}">
+                % if application.message
+                  <span class="application-msg"><i class="fa fa-envelope"></i>message:</span>
+                  {{ this.h(application.message) }}
+               % end
+              </p>
+              % if application.note
+                <p id="note-{{ application.id }}">
                   <span class="link"><i class="fa fa-pencil-square-o"></i>note:</span>
                   {{ this.h(application.note) }}
                 </p>
-                % end
-              </span>
-            </span>
-            <ul class="section-footer">
-              % if application.message || application.note
-                <li>
-                  <span id="show-more-{{ application.id }}" class="toggle link" onclick="toggle({{ application.id }})">
-                    show more
-                  </span>
-              </li>
               % end
+            </span>
+            % if application.message.nil? && application.status == "active"
+              {{ this.partial("developer/message_form", post: post) }}
+            % end
+            % if application.note.nil?
+              <span id="note-form-span" class="note-hidden">
+                {{ this.partial("developer/note_form", application: application) }}
+              </span>
+            % end
+            <ul class="section-footer">
+              <li>
+              % if application.message || application.note
+                <span id="show-more-{{ post.id }}" class="toggle link" onclick="toggle({{ post.id }})">show more</span>
+              % else
+                <span id="show-more-{{ post.id }}" class="toggle link toggle-hidden" onclick="toggle({{ post.id }})">show more</span>
+              % end
+
+              </li>
               % if !application.message
                 <li>
-                  <span class="link" onclick="addMsg({{ post.id }})">
-                  <i class="fa fa-envelope"></i>send message</span>
+                  <span id="apply-link-{{ post.id }}" class="link" onclick="showMsgForm({{ post.id }})">
+                    <i class="fa fa-envelope"></i>send message</span>
                 </li>
               % end
               % if !application.note
