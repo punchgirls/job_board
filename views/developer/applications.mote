@@ -61,17 +61,13 @@
 
               <p id="note-{{ application.id }}">
                 % if application.note
-                  <span class="link"><i class="fa fa-pencil-square-o"></i>note:</span>
+                  <span onclick="editNote({{ application.id }})" class="link"><i class="fa fa-pencil-square-o"></i>note:</span>
                     {{ this.h(application.note) }}
                 % end
               </p>
             </span>
-            % if application.message.nil? && application.status == "active"
-              {{ this.partial("developer/message_form", post: post) }}
-            % end
-            % if application.note.nil?
-              {{ this.partial("developer/note_form", application: application, post: post) }}
-            % end
+            {{ this.partial("developer/message_form", post: post) }}
+            {{ this.partial("developer/note_form", application: application, post: post) }}
             <ul class="section-footer">
               <li>
               % if application.message || application.note

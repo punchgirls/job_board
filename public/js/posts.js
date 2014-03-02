@@ -107,15 +107,26 @@ function addNote (postId, applicationId) {
       }
 
       if (applicationNote) {
-        applicationNote.innerHTML = "<span class='link'><i class='fa fa-pencil-square-o'></i>note:</span> " + note + "</p>";
+        applicationNote.innerHTML = "<span onclick='editNote(" + applicationId + ")' class='link'><i class='fa fa-pencil-square-o'></i>note:</span> " + note + "</p>";
       }
 
-      noteForm.remove();
-      noteLink.remove();
+      noteForm.setAttribute("class", "note-hidden");
+
+      if (noteLink) {
+        noteLink.remove();
+      }
     }
   };
 
   request.send();
+}
+
+function editNote (applicationId) {
+  var note = document.getElementById("note-" + applicationId);
+
+  note.setAttribute("class", "note-hidden");
+  showNoteForm(applicationId);
+  note.removeAttribute("class");
 }
 
 function favorite (favoriteLink) {
