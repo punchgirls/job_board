@@ -1,21 +1,21 @@
 <section id="edit-post">
   % if edit.errors[:tags] == [:not_present]
-   <span class="alert error">At least one skill is required</span>
+   <p class="alert error">At least one skill is required</p>
   % end
   % if edit.errors[:title].include?(:not_present)
-   <span class="alert error">Title is required</span>
+   <p class="alert error">Title is required</p>
   % end
   % if edit.errors[:title] == [:not_in_range]
-   <span class="alert error">Title should not exceed 50 characters</span>
+   <p class="alert error">Title should not exceed 50 characters</p>
   % end
   % if edit.errors[:description].include?(:not_present)
-   <span class="alert error">Description is required</span>
+   <p class="alert error">Description is required</p>
   % end
   % if edit.errors[:description] == [:not_in_range]
-   <span class="alert error">Description should not exceed 600 characters</span>
+   <p class="alert error">Description should not exceed 600 characters</p>
   % end
   % if edit.errors[:location] == [:not_present] || edit.errors[:remote] == [:not_present]
-   <span class="alert error">You have to provide a location or select the "work from anywhere" option</span>
+   <p class="alert error">You have to provide a location or select the "work from anywhere" option</p>
   % end
 
   <h2>Edit your post</h2>

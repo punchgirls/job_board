@@ -3,19 +3,19 @@
 
   % if edit
     % if edit.errors[:name] == [:not_in_range]
-     <span class="error">Company name should not exceed 30 characters</span>
+     <p class="error">Company name should not exceed 30 characters</p>
     % end
     % if edit.errors[:email] == [:not_email]
-      <span class="error">E-mail not valid</span>
+      <p class="error">E-mail not valid</p>
     % end
     % if edit.errors[:url] == [:not_url]
-      <span class="error">URL not valid</span>
+      <p class="error">URL not valid</p>
     % end
     % if edit.errors[:password].include?(:too_small)
-      <span class="error">The password length must be at least 6 characters</span>
+      <p class="error">The password length must be at least 6 characters</p>
     % end
     % if edit.errors[:password] == [:not_confirmed]
-      <span class="error">Passwords don't match</span>
+      <p class="error">Passwords don't match</p>
     % end
   % end
 

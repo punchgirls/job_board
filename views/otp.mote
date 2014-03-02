@@ -3,10 +3,10 @@
 
   % if reset
     % if reset.errors[:password] == [:too_small]
-      <span class="alert error">The password length must be at least 6 characters</span>
+      <p class="alert error">The password length must be at least 6 characters</p>
     % end
     % if reset.errors[:password] == [:not_confirmed]
-      <span class="alert error">Passwords don't match</span>
+      <p class="alert error">Passwords don't match</p>
     % end
   % end
 
