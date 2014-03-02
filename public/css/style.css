@@ -27,7 +27,7 @@ body {
 #edit-payment-info,
 #edit-post, #developer-profile,
 #password-recovery, #otp,
-#confirm, #invoice {
+#confirm, #invoice, #not-found {
   margin: 0 auto;
   line-height: 1.8em;
   max-width: 600px;
@@ -55,7 +55,8 @@ body {
 #developer-profile,
 #edit-post, #password-recovery,
 #otp, #confirm,
-#edit-payment-info {
+#edit-payment-info,
+#not-found {
   text-align: center;
 }
 
