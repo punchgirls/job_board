@@ -94,7 +94,10 @@ function showNoteForm (applicationId) {
 }
 
 function hideNoteForm (applicationId) {
+  var note = document.getElementById("note-" + applicationId);
   var noteForm = document.getElementById("note-form-" + applicationId);
+
+  note.removeAttribute("class");
   noteForm.setAttribute("class", "message-hidden");
 }
 
@@ -125,6 +128,8 @@ function addNote (postId, applicationId) {
       if (noteLink) {
         noteLink.remove();
       }
+
+      applicationNote.removeAttribute("class");
     }
   };
 
@@ -136,7 +141,6 @@ function editNote (applicationId) {
 
   note.setAttribute("class", "note-hidden");
   showNoteForm(applicationId);
-  note.removeAttribute("class");
 }
 
 function favorite (favoriteLink) {
