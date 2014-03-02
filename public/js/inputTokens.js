@@ -197,9 +197,6 @@ searchInput.onkeyup = function(e) {
         list[0].id = "highlight";
       }
       break;
-    default:
-      list[0].id = "highlight";
-      break;
   }
 };
 
