@@ -217,7 +217,7 @@ function favoriteApplicant (id) {
 }
 
 function confirmDelete (item) {
- return confirm("Are you sure you want to delete this " + item + "?");
+ return confirm("Are you sure you want to remove this " + item + "?");
 }
 
 function addApplicant (id) {

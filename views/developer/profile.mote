@@ -26,7 +26,7 @@
     <button class="send-message-button" type="submit">save</button>
   </form>
 
-  <a class="underline delete" id="delete" href="">Delete account</a>
+  <a id="delete" href="/delete">Delete account</a>
 
   <script src="/js/limit_description.js"></script>
 </section>

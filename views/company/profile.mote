@@ -48,5 +48,5 @@
     <a href="/customer/update"><i class="fa fa-pencil-square-o cursor"></i>edit</a>
   </section>
 
-  <a id="delete" href="">Delete account</a>
+  <a onclick="confirmDelte('account')" id="delete" href="">Delete account</a>
 </section>
