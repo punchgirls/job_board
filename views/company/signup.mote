@@ -3,28 +3,28 @@
 
   % if signup
     % if signup.errors[:name] == [:not_present, :not_in_range]
-      <span class="error">Company name is required</span>
+      <p class="error">Company name is required</p>
     % end
     % if signup.errors[:name] == [:not_in_range]
-      <span class="error">Company name should not exceed 30 characters</span>
+      <p class="error">Company name should not exceed 30 characters</p>
     % end
     % if signup.errors[:email] == [:not_email]
-      <span class="error">E-mail not valid</span>
+      <p class="error">E-mail not valid</p>
     % end
     % if signup.errors[:email] == [:not_unique]
-      <span class="error">This e-mail is already registered</span>
+      <p class="error">This e-mail is already registered</p>
     % end
     % if signup.errors[:url] == [:not_url]
-      <span class="error">URL not valid</span>
+      <p class="error">URL not valid</p>
     % end
     % if signup.errors[:password] == [:too_small]
-      <span class="error">The password length must be at least 6 characters</span>
+      <p class="error">The password length must be at least 6 characters</p>
     % end
     % if signup.errors[:password] == [:not_confirmed] || signup.errors[:password] == [:too_small, :not_confirmed]
-      <span class="error">Passwords don't match</span>
+      <p class="error">Passwords don't match</p>
     % end
     % if !signup.errors[:error_message].empty?
-      <span class="error">{{ signup.errors[:error_message][0] }}</span>
+      <p class="error">{{ signup.errors[:error_message][0] }}</p>
     % end
   % end
 
