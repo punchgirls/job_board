@@ -116,7 +116,7 @@ class Developers < Cuba
     end
 
     on "note/:id" do |id|
-      application = developer.active_applications[id]
+      application = developer.applications[id]
 
       on application do
         on param("note") do |note|
