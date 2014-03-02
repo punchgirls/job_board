@@ -1,4 +1,7 @@
 /* GENERAL */
+.background-image {
+  background: url('/img/punchgirls_large.png') left bottom no-repeat;
+}
 
 html, body {
   height: 100%;
@@ -925,7 +928,5 @@ footer {
 @media only screen and (min-width: 1200px)  {
   /* HEADER */
 
-  .background-image {
-    background: url('/img/punchgirls_large.png') left bottom no-repeat;
-  }
+
  }
