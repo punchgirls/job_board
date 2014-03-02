@@ -867,9 +867,7 @@ footer {
 @media only screen and (min-width: 1024px)  {
   /* HEADER */
 
-  .background-image {
-    background: url('/img/punchgirls_small.png') left bottom no-repeat;
-  }
+
 
   #gravatar-mini {
     display: inline;
