@@ -34,8 +34,8 @@ function apply (postId) {
       applyLink.innerHTML = "<i class='fa fa-envelope'></i>send message</span>";
 
       applyLink.onclick = function() {
-        var msgSpan = document.getElementById("msg-" + postId);
-        msgSpan.removeAttribute("class");
+        var msgForm = document.getElementById("msg-form-" + postId);
+        msgForm.removeAttribute("class");
       };
 
       postDetails.appendChild(li);
@@ -49,14 +49,15 @@ function apply (postId) {
 }
 
 function showMsgForm (postId) {
-  var msgSpan = document.getElementById("msg-" + postId);
-  msgSpan.removeAttribute("class");
+  var msgForm = document.getElementById("msg-form-" + postId);
+  msgForm.removeAttribute("class");
 }
 
 function sendMsg (postId) {
+  var applicationMsg = document.getElementById("msg-" + postId);
   var applyLink = document.getElementById("apply-link-" + postId);
-  var msgSpan = document.getElementById("msg-" + postId);
   var msgForm = document.getElementById("msg-form-" + postId);
+  var showMoreLink = document.getElementById("show-more-" + postId);
   var msg = msgForm.firstElementChild.value;
   var url = "/message/" + postId + "?message=" + msg;
 
@@ -65,7 +66,16 @@ function sendMsg (postId) {
 
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      msgSpan.remove();
+
+      if (showMoreLink) {
+        showMoreLink.setAttribute("style", "display:block;");
+      }
+
+      if (applicationMsg) {
+        applicationMsg.innerHTML = "<span class='application-msg'><i class='fa fa-envelope'></i>message:</span> " + msg + "</p>";
+      }
+
+      msgForm.remove();
       applyLink.remove();
     }
   };
@@ -269,9 +279,9 @@ function removeApplication (id) {
   }
 }
 
-function toggle (applicationId) {
-  var span = document.getElementById("hidden-" + applicationId);
-  var showMoreLink = document.getElementById("show-more-" + applicationId);
+function toggle (postId) {
+  var span = document.getElementById("hidden-" + postId);
+  var showMoreLink = document.getElementById("show-more-" + postId);
 
   if (span.className == "hidden") {
     showMoreLink.innerHTML = "show less";

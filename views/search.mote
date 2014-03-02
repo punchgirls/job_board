@@ -20,7 +20,9 @@
   % else
     % posts.each do |post|
         <section id="post-{{ post.id }}" class="listing-item">
-          % application = Application[developer.applications.find(post_id: post.id).ids.first]
+          % if this.current_developer
+            % application = Application[developer.applications.find(post_id: post.id).ids.first]
+          % end
           <img src="{{ post.company.gravatar }}">
           <ul>
             <li><a href="#">{{ this.h(post.title) }}</a></li>
@@ -49,10 +51,7 @@
             % end
           </ul>
           <p class="description">{{ this.h(post.description) }}</p>
-          <span id="msg-{{ post.id }}" class="message-hidden">
-            <p>Add a message to the application:</p>
-              {{ this.partial("developer/message_form", post: post) }}
-          </span>
+          {{ this.partial("developer/message_form", post: post) }}
           % if !this.current_user.instance_of?(Company)
             <ul class="section-footer">
               <li>

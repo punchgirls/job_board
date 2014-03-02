@@ -1,6 +1,7 @@
-<form onsubmit="sendMsg({{ post.id }}); return false;" id="msg-form-{{ post.id }}" action="/message/{{ post.id }}"
-  method="POST">
-  <textarea name="message"></textarea><br/>
+<form onsubmit="sendMsg({{ post.id }}); return false;" id="msg-form-{{ post.id }}"
+  class="message-hidden" action="/message/{{ post.id }}" method="POST">
+
+  <textarea name="message" placeholder="Add a message to your application"></textarea><br/>
 
   <span id="countdown-msg-{{ post.id }}">
     200 characters remaining
