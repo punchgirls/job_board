@@ -11,18 +11,6 @@
     <link href="/css/style.css" rel="stylesheet" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <style type="text/css">
-      @media only screen and (min-width: 1024px)  {
-        .background-image {
-          background: url('/img/punchgirls_small.png') left bottom no-repeat;
-        }
-      }
-      @media only screen and (min-width: 1200px)  {
-        .background-image {
-          background: url('/img/punchgirls_large.png') left bottom no-repeat;
-        }
-       }
-    </style>
   </head>
   % if params.fetch(:background_img, false)
     <body class="background-image">
