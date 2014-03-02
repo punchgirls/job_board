@@ -45,9 +45,7 @@
               </li>
               % if this.current_user.nil?
                 <li><a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
-              % elsif developer && developer.applied?(post.id)
-                <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>applied</a></li>
-              % else
+              % elsif developer && !developer.applied?(post.id)
                 <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
               % end
             </ul>

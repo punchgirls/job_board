@@ -6,7 +6,8 @@
     200 characters remaining
   </span><br/>
 
-  <button>Send</button>
+  <span class="link" onclick="hideNoteForm({{ application.id }})">cancel</span>
+  <button>Save</button>
 </form>
 
 <script src="/js/limit_description.js"></script>

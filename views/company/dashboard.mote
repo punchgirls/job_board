@@ -61,7 +61,7 @@
               <i class="fa fa-pencil-square-o"></i>edit</a>
             </li>
             <li>
-             <a href="/post/remove/{{ post.id }}" onclick="return removePost()">
+             <a href="/post/remove/{{ post.id }}" onclick="return confirmDelete('post')">
                <i class="fa fa-trash-o"></i>delete post</a>
             </li>
           </ul>

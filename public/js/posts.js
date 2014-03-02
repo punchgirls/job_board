@@ -53,6 +53,11 @@ function showMsgForm (postId) {
   msgForm.removeAttribute("class");
 }
 
+function hideMsgForm (postId) {
+  var msgForm = document.getElementById("msg-form-" + postId);
+  msgForm.setAttribute("class", "message-hidden");
+}
+
 function sendMsg (postId) {
   var applicationMsg = document.getElementById("msg-" + postId);
   var applyLink = document.getElementById("apply-link-" + postId);
@@ -86,6 +91,11 @@ function sendMsg (postId) {
 function showNoteForm (applicationId) {
   var noteForm = document.getElementById("note-form-" + applicationId);
   noteForm.removeAttribute("class");
+}
+
+function hideNoteForm (applicationId) {
+  var noteForm = document.getElementById("note-form-" + applicationId);
+  noteForm.setAttribute("class", "message-hidden");
 }
 
 function addNote (postId, applicationId) {

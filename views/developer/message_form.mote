@@ -6,7 +6,8 @@
     200 characters remaining
   </span><br/>
 
-  <button>Send</button>
+  <span class="link" onclick="hideMsgForm({{ post.id }})">cancel</span>
+  <button>Add message</button>
 </form>
 
 <script src="/js/limit_description.js"></script>
