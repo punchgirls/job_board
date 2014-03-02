@@ -1,24 +1,29 @@
-var msg = "Are you sure you want to cancel your account?";
-var cancelMsg = "Are you sure you want to cancel your subscription?";
 var link = document.getElementById('delete');
 var cancelLink = document.getElementById('cancel');
 
-link.onclick = function () {
-  var cancel = confirm(msg);
+if (link) {
+  link.onclick = function () {
+    var cancel = confirm(msg);
+    var msg = "Are you sure you want to cancel your account?";
 
-  if (cancel) {
-    window.location = '/delete';
-  }
+    if (cancel) {
+      window.location = '/delete';
+    }
 
-  return false;
-};
+    return false;
+  };
+}
 
-cancelLink.onclick = function () {
-  var cancel = confirm(cancelMsg);
+if (cancelLink) {
+  cancelLink.onclick = function () {
+    var cancel = confirm(cancelMsg);
+    var cancelMsg = "Are you sure you want to cancel your subscription?";
 
-  if (cancel) {
-    window.location = '/cancel_subscription';
-  }
+    if (cancel) {
+      window.location = '/cancel_subscription';
+    }
 
-  return false;
-};
+    return false;
+  };
+}
+
