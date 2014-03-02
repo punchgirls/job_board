@@ -226,30 +226,6 @@ class Developers < Cuba
       res.redirect "/"
     end
 
-    on "pricing" do
-      render("pricing", title: "Pricing", plan_id: "small")
-    end
-
-    on "about" do
-      render("about", title: "About")
-    end
-
-    on "help" do
-      render("help", title: "Help")
-    end
-
-    on "contact" do
-      run Contacts
-    end
-
-    on "terms" do
-      render("terms", title: "Terms and Conditions")
-    end
-
-    on "privacy" do
-      render("privacy", title: "Privacy Policy")
-    end
-
     on "delete" do
       developer.update(status: "deleted")
 
