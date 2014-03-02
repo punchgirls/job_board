@@ -26,7 +26,7 @@
             % if current_user.instance_of?(Developer)
               <li><a href="/applications">My applications (<span id="apps-size">{{ user.active_applications.size }}</span>)</a></li>
               <li><a href="/favorites">My favorites (<span id="favs-size">{{ user.favorites.size }}</span>)</a></li>
-              <li><a href="/profile"><img id="gravatar-mini" src="http://www.gravatar.com/avatar/{{ user.gravatar }}" /> {{ this.h(user.username ) }}</a></li>
+              <li><a href="/profile"><img id="gravatar-mini" src="http://www.gravatar.com/avatar/{{ user.gravatar }}" />{{ this.h(user.username ) }}</a></li>
             % else
               <li><a href="/dashboard">Dashboard</a></li>
               <li><a href="/profile"><img id="gravatar-mini" src="{{ user.gravatar }}" />{{ this.h(user.name) }}</a></li>
