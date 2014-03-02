@@ -37,8 +37,8 @@
           </p>
         % end
         % if !application.message.nil?
-          <p class="message">
-            <span class="link"><i class="fa fa-envelope"></i>message: </span>
+          <p>
+            <span class="application-msg"><i class="fa fa-envelope"></i>message: </span>
             {{ this.h(application.message) }}
         </p>
         % end
