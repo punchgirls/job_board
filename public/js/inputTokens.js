@@ -109,6 +109,8 @@ document.onclick = function(e) {
     list[selectedToken].id = "highlight";
   } else {
     autocomplete.style.display = "none";
+    list[selectedToken].removeAttribute("id");
+    selectedToken = 0;
   }
 };
 
@@ -144,6 +146,13 @@ searchInput.onkeydown = function(e) {
       autocomplete.style.display = "none";
       searchInput.value = "";
       break;
+    case 40:
+      if (selectedToken < list.length - 1) {
+        list[selectedToken].id = "highlight";
+      } else {
+        list[0].id = "highlight";
+      }
+      break;
   }
 };
 
@@ -173,16 +182,23 @@ searchInput.onkeyup = function(e) {
     case 38:
       if (selectedToken > 0) {
         list[--selectedToken].id = "highlight";
-      } else if (selectedToken == 0) {
+      } else if (selectedToken === 0) {
         selectedToken = -1;
         searchInput.value = "";
+        list[--selectedToken].id = "highlight";
+      } else {
+        list[0].id = "highlight";
       }
       break;
     case 40:
       if (selectedToken < list.length - 1) {
         list[++selectedToken].id = "highlight";
+      } else {
+        list[0].id = "highlight";
       }
-      console.log(selectedToken);
+      break;
+    default:
+      list[0].id = "highlight";
       break;
   }
 };
