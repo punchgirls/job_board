@@ -50,12 +50,12 @@ function apply (postId) {
 
 function showMsgForm (postId) {
   var msgForm = document.getElementById("msg-form-" + postId);
-  msgForm.removeAttribute("class");
+  msgForm.setAttribute("class", "msg-form");
 }
 
 function hideMsgForm (postId) {
   var msgForm = document.getElementById("msg-form-" + postId);
-  msgForm.setAttribute("class", "message-hidden");
+  msgForm.setAttribute("class", "message-hidden msg-form");
 }
 
 function sendMsg (postId) {
@@ -90,7 +90,7 @@ function sendMsg (postId) {
 
 function showNoteForm (applicationId) {
   var noteForm = document.getElementById("note-form-" + applicationId);
-  noteForm.removeAttribute("class");
+  noteForm.setAttribute("class", "note-form");
 }
 
 function hideNoteForm (applicationId) {
@@ -98,7 +98,7 @@ function hideNoteForm (applicationId) {
   var noteForm = document.getElementById("note-form-" + applicationId);
 
   note.removeAttribute("class");
-  noteForm.setAttribute("class", "message-hidden");
+  noteForm.setAttribute("class", "message-hidden msg-form");
 }
 
 function addNote (postId, applicationId) {
@@ -123,7 +123,7 @@ function addNote (postId, applicationId) {
         applicationNote.innerHTML = "<span onclick='editNote(" + applicationId + ")' class='link'><i class='fa fa-pencil-square-o'></i>note:</span> " + note + "</p>";
       }
 
-      noteForm.setAttribute("class", "note-hidden");
+      noteForm.setAttribute("class", "note-hidden note-form");
 
       if (noteLink) {
         noteLink.remove();
@@ -139,7 +139,7 @@ function addNote (postId, applicationId) {
 function editNote (applicationId) {
   var note = document.getElementById("note-" + applicationId);
 
-  note.setAttribute("class", "note-hidden");
+  note.setAttribute("class", "note-hidden note-form");
   showNoteForm(applicationId);
 }
 

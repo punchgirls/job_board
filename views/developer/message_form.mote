@@ -1,10 +1,10 @@
-<form class="msg-form" onsubmit="sendMsg({{ post.id }}); return false;" id="msg-form-{{ post.id }}" class="message-hidden" action="/message/{{ post.id }}" method="POST">
+<form class="message-hidden msg-form" onsubmit="sendMsg({{ post.id }}); return false;" id="msg-form-{{ post.id }}" action="/message/{{ post.id }}" method="POST">
 
   <textarea onkeyup="updateCountdownMsg({{ post.id }})" id="message-txt-{{ post.id }}" name="message" maxlength="200" placeholder="Add a message to your application"></textarea><br/>
 
   <span class="countdown" id="countdown-msg-{{ post.id }}">
     200 characters remaining
-  </span><br/>
+  </span>
 
   <span class="link" onclick="hideMsgForm({{ post.id }})">cancel</span>
   <button>Add message</button>
