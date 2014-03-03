@@ -31,7 +31,7 @@
 
     <ul id="tokens">
       <li id="token-input">
-        <input type="text" id="search-field" autocomplete="off" placeholder="e.g. Ruby, Cuba, Redis">
+        <input type="text" id="search-field" autocomplete="off" placeholder="e.g. ruby, cuba, redis">
       </li>
     </ul>
 
