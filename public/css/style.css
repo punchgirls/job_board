@@ -193,7 +193,8 @@ button {
   margin: 0;
 }
 
-#confirm-form {
+#confirm-form, #developer-profile-form,
+#edit-profile {
   margin-top: 10px;
 }
 

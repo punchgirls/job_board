@@ -5,7 +5,7 @@
 
   <img src="http://www.gravatar.com/avatar/{{ developer.gravatar }}" />
 
-  <form action="/profile/{{ developer.id }}" method="POST">
+  <form id="developer-profile-form" action="/profile/{{ developer.id }}" method="POST">
     <input type="text" name="developer[name]"
     value="{{ this.h(developer.name) }}" placeholder="Name"><br>
 
