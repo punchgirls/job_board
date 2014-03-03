@@ -4,6 +4,7 @@
 
       {{ this.partial("new_card") }}
 
+      <br><br>
       <span class="buttons">
         <a href="/profile">cancel</a>&nbsp;&nbsp;
 
