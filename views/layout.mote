@@ -16,7 +16,7 @@
     % if params.fetch(:background_img, false)
       <div class="wrapper background-image">
     % else
-      <body class="wrapper">
+      <div class="wrapper">
     % end
 
     <header>

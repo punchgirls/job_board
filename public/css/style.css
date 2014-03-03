@@ -1,12 +1,16 @@
 /* GENERAL */
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: "Droid Sans Mono", sans-serif;
   font-size: 0.9em;
 }
 
 .wrapper {
-  height: 100%;
+  min-height: 100%;
   position: relative;
 }
 
@@ -693,15 +697,12 @@ h4 {
 /* FOOTER */
 
 footer {
+  height: 70px;
   position: absolute;
   bottom:0;
   left:0;
   right: 0;
   margin-top: 120px;
-}
-
-#footer-navigation {
-  margin-bottom: 20px;
 }
 
 .fa-twitter {
