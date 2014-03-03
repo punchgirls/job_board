@@ -240,6 +240,10 @@ input:-moz-placeholder {
   margin: 5px 0 10px 0;
 }
 
+#developer-profile .countdown {
+  margin: 0 auto;
+}
+
 /* SEARCH BOX */
 
 #tags_wrapper {

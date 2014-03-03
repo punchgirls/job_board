@@ -24,7 +24,7 @@
     <a class="post-control-link cancel" href="/dashboard">cancel</a>
 
     <button class="send-message-button" type="submit">save</button>
-  </form>
+  </form><br><br>
 
   <a id="delete" href="/delete">Delete account</a>
 
