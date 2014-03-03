@@ -79,6 +79,10 @@ i {
   font-size: 1.17em;
 }
 
+#search .link-large {
+  margin: 10px 0 0 0;
+}
+
 .capitalize {
   text-transform: capitalize;
 }

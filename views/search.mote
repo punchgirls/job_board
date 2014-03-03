@@ -11,6 +11,8 @@
 
   {{ this.partial("search_box", query: query) }}
 
+  <a class="link-large" href="/search?query=All+posts">All posts</a>
+
   <br/><br/>
 
   % if posts.nil?
