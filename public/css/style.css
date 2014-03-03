@@ -152,6 +152,11 @@ textarea {
   margin: 40px 0;
 }
 
+.edit-post-form label,  .new-post-form label {
+  display: block;
+  margin-bottom: 15px;
+}
+
 #login-form ul {
   padding: 0;
   text-align: left;

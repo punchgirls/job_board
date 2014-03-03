@@ -48,7 +48,7 @@
 
     <label><input type="checkbox" name="post[remote]" value="true">
       <span>Work from anywhere</span>
-    </label><br>
+    </label>
 
     <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br>
 
