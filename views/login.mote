@@ -26,7 +26,7 @@
         </li>
       </ul>
 
-      <button class="float-right" type="submit">Login</button>
+      <button type="submit">Login</button>
     </form>
 
     <a class="link-large" href="/signup">Need an account? Sign up here!</a>
