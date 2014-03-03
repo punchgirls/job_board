@@ -1,6 +1,6 @@
 Dear {{ post.company.name }},
 
-This is to inform you that {{ application.developer.name }} has applied to the  {{ post.title }} position:
+This is to inform you that {{ application.developer.name }} has applied to the {{ post.title }} position:
 
 Applicant information:
 
