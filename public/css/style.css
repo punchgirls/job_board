@@ -455,7 +455,7 @@ h1  {
 .listing-item {
   min-height: 100px;
   margin-bottom: 20px;
-  border-bottom: 1px solid #fafafa;
+  border-bottom: 1px solid #e1e8ed;
 }
 
 .listing-item img {
