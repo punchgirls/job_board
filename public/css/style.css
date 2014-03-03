@@ -616,6 +616,7 @@ h4 {
 }
 
 .highlight-box li {
+  display: list-item;
   margin-bottom: 5px;
 }
 
