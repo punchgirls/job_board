@@ -3,7 +3,7 @@
 
   <img src="http://www.gravatar.com/avatar/{{ github_user['gravatar_id'] }}" />
 
-  <form class="confirm-form" action="/confirm" method="POST">
+  <form id="confirm-form" action="/confirm" method="POST">
     <input type="text" name="developer[name]"
     value="{{ github_user['name'] }}" placeholder="Name"><br>
 

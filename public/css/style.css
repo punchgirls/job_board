@@ -1,21 +1,17 @@
 /* GENERAL */
 
-html, body {
-  height: 100%;
-}
-
 body {
   font-family: "Droid Sans Mono", sans-serif;
   font-size: 0.9em;
 }
 
 .wrapper {
-  min-height: 100%;
+  height: 100%;
   position: relative;
 }
 
 #content {
-   padding-bottom: 120px;
+  padding-bottom: 120px;
 }
 
 #home, #about, #pricing,
@@ -125,6 +121,7 @@ input[type="password"]  {
   height: 30px;
   width: 20em;
   font-family: "Droid Sans Mono", sans-serif;
+  font-size: 1em;
 }
 
 input[type="checkbox"] {
@@ -132,6 +129,8 @@ input[type="checkbox"] {
 }
 
 textarea {
+  font-family: "Droid Sans Mono", sans-serif;
+  font-size: 1em;
   height: 200px;
   width: 20em;
   border-top: solid 2px #888888;
@@ -185,6 +184,10 @@ button {
   margin: 0;
 }
 
+#confirm-form {
+  margin-top: 10px;
+}
+
 #login-form button,
 #contact-form button,
 #contact-applicant button,
@@ -192,7 +195,7 @@ button {
 #edit-subscription button,
 #edit-payment button,
 #edit-post-form button,
-.btn-large {
+.btn-large, #confirm-form button {
   margin-top: 20px;
 }
 
@@ -201,50 +204,18 @@ button {
 }
 
 ::-webkit-input-placeholder {
-  font-size: 1.2em;
-  line-height: 1em;
   font-family: "Droid Sans Mono", sans-serif;
 }
 
 ::-moz-placeholder {
-  font-size: 1.2em;
-  line-height: 0.8em;
   font-family: "Droid Sans Mono", sans-serif;
 }  /*firefox 19+*/
 
 :-ms-input-placeholder {
-  font-size: 1.2em;
-  line-height: 0.8em;
   font-family: "Droid Sans Mono", sans-serif;
 } /* ie*/
 
 input:-moz-placeholder {
-  font-size: 1.2em;
-  line-height: 0.8em;
-  font-family: "Droid Sans Mono", sans-serif;
-}
-
-#confirm ::-webkit-input-placeholder {
-  font-size: 1.2em;
-  line-height: 1.2em;
-  font-family: "Droid Sans Mono", sans-serif;
-}
-
-#confim ::-moz-placeholder {
-  font-size: 1.2em;
-  line-height: 1.2em;
-  font-family: "Droid Sans Mono", sans-serif;
-}  /*firefox 19+*/
-
-#confirm :-ms-input-placeholder {
-  font-size: 1.2em;
-  line-height: 1.2em;
-  font-family: "Droid Sans Mono", sans-serif;
-} /* ie*/
-
-#confirm input:-moz-placeholder {
-  font-size: 1.2em;
-  line-height: 1.2em;
   font-family: "Droid Sans Mono", sans-serif;
 }
 
@@ -726,7 +697,7 @@ footer {
   bottom:0;
   left:0;
   right: 0;
-  height: 80px;
+  margin-top: 120px;
 }
 
 #footer-navigation {
@@ -785,7 +756,7 @@ footer {
   input[type="url"],
   input[type="password"],
   textarea  {
-    width: 28em;
+    width: 25em;
   }
 
   #login .highlight-box {
@@ -902,7 +873,7 @@ footer {
   input[type="url"],
   input[type="password"],
   textarea  {
-    width: 33em;
+    width: 25em;
   }
 
   #login .highlight-box {
@@ -918,7 +889,7 @@ footer {
     padding: 0;
     text-align: left;
     margin: 0 auto;
-    width: 31em;
+    width: 26em;
   }
 }
 
@@ -926,6 +897,6 @@ footer {
   /* HEADER */
 
   .background-image {
-    background: url('/img/punchgirls_large.png') left bottom no-repeat;
+    background: url('http://jobs.punchgirls.com/img/punchgirls_large.png') left bottom no-repeat;
   }
  }
