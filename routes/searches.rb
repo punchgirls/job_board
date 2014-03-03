@@ -2,21 +2,21 @@ class Searches < Cuba
   define do
     on get, param("query") do |query|
       on query.include?("All posts") do
-        render("search", title: "Search", posts: Post.active,
+        render("search", title: "Search", posts: Post.active.sort_by(:date, order: "ALPHA DESC"),
           search: true, profile: true, query: "All posts")
       end
 
       on default do
         posts = Search.posts(query)
 
-        render("search", title: "Search", posts: posts,
+        render("search", title: "Search", posts: posts.sort_by(:date, order: "ALPHA DESC"),
           search: true, profile: true, query: query)
       end
     end
 
     on param "company_id" do |id|
       render("search", title: "Search",
-        posts: Post.active.find(company_id: id), search: true,
+        posts: Post.active.find(company_id: id).sort_by(:date, order: "ALPHA DESC"), search: true,
         profile: true)
     end
 

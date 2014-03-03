@@ -12,9 +12,15 @@
     </h2>
 
     <ul>
-      <li><a href="/applications">Active applications</a></li>
-      <li>|</li>
-      <li><a href="/history">Discarded applications</a></li>
+      % if active_applications
+        <li><a id="active-link" href="/applications">Active applications</a></li>
+        <li>|</li>
+        <li><a id="underline-none" href="/history">Discarded applications</a></li>
+      % else
+        <li><a id="underline-none" href="/applications">Active applications</a></li>
+        <li>|</li>
+        <li><a id="active-link" href="/history">Discarded applications</a></li>
+      % end
     </ul>
 
     % if applications.empty?

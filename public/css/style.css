@@ -92,6 +92,14 @@ a:hover, a:active {
   text-decoration: none;
 }
 
+#active-link {
+  text-decoration: underline;
+}
+
+#underline-none {
+  text-decoration: none;
+}
+
 .link {
   text-decoration: underline;
   cursor: pointer;
