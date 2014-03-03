@@ -1,8 +1,12 @@
 Dear {{ company.name }},
 
-This mail is to confirm the reactivation of your subscription.
+This mail is to confirm that your subscription has been updated.
 
-We're glad to have you back!
+Your current plan is: {{ company.plan.name }}
+Posts per month: {{ company.plan.posts }}
+Price: {{ company.plan.price }} USD/month
+
+Kind regards,
 
 Cecilia & Mayn,
 Punchgirls
