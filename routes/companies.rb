@@ -165,9 +165,9 @@ class Companies < Cuba
             end
           else
             company.update(plan_id: params["plan_id"], status: "active")
-
-            Ost[:activated_subscription].push(company.id)
           end
+
+          Ost[:activated_subscription].push(company.id)
 
           res.redirect "/profile"
         end
