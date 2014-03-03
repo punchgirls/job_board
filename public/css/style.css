@@ -203,10 +203,6 @@ button {
   margin-top: 20px;
 }
 
-.hide-form {
-  display: none;
-}
-
 ::-webkit-input-placeholder {
   font-family: "Droid Sans Mono", sans-serif;
 }
@@ -226,7 +222,6 @@ input:-moz-placeholder {
 .message-hidden, .note-hidden, .hidden, .toggle-hidden {
   display: none;
 }
-
 
 /* SEARCH BOX */
 
@@ -266,13 +261,6 @@ input:-moz-placeholder {
   max-width: 20em;
   margin-top: -16px;
   font-size: 1em;
-}
-
-.new-post-form .input, .new-post-form .textarea {
-  width: 17.1em;
-  max-width: 17.1em;
-  line-height: 1.5em;
-  font-size: 1.5em;
 }
 
 .location {
@@ -330,16 +318,16 @@ input:-moz-placeholder {
 }
 
 .new-post-form #tokens {
-  width: 22.1em;
-  max-width: 22.1em;
+  width: 22em;
+  max-width: 22em;
   margin-bottom: 15px;
   font-size: 0.9em;
   line-height: 34px;
 }
 
 .edit-post-form #tokens {
-  width: 22.15em;
-  max-width: 22.15em;
+  width: 22em;
+  max-width: 22em;
   margin-bottom: 15px;
   line-height: 34px;
   font-size: 0.9em;
@@ -500,28 +488,8 @@ h1  {
 #edit-post form, #contact-applicant form,
 #edit-payment-info form {
   margin: 0 auto;
-  width: 300px;
+  width: 20em;
   text-align: left;
-}
-
-#signup input, #new-post input,
-#edit-post input, #contact-applicant input,
-#edit-payment-info input {
-  width: 292px;
-  max-width: 292px;
-}
-
-#new-post textarea, #edit-post textarea,
-#contact-applicant textarea {
-  width: 277px;
-  max-width: 277px;
-  padding: 10px;
-}
-
-#new-post input[type="checkbox"],
-#edit-post input[type="checkbox"] {
-  width: auto;
-  margin: 0 0 15px 0;
 }
 
 #credit-cards img, .card-icon {
@@ -732,24 +700,23 @@ footer {
     margin: 0;
   }
 
-  .new-post-form #tokens {
-    width: 33.8em;
-    max-width: 33.8em;
+  .new-post-form #tokens, .edit-post-form #tokens {
+    width: 27.5em;
+    max-width: 27.5em;
   }
 
-  .edit-post-form #tokens {
-    width: 33.8em;
-    max-width: 33.8em;
-  }
-
-  .new-post-form #autocomplete {
-    width: 30.6em;
-    max-width: 30.6em;
-  }
-
+  .new-post-form #autocomplete,
   .edit-post-form #autocomplete {
-    width: 30.6em;
-    max-width: 30.6em;
+    width: 24.9em;
+    max-width: 24.9em;
+  }
+
+  #signup form, #new-post form,
+  #edit-post form, #contact-applicant form,
+  #edit-payment-info form {
+    margin: 0 auto;
+    width: 25em;
+    text-align: left;
   }
 
   input[type="text"],
@@ -774,23 +741,6 @@ footer {
 
   .plan {
     font-size: 1em;
-  }
-
-  #new-post form, #edit-post form,
-  #contact-applicant form {
-    width: 453px;
-  }
-
-  #new-post input, #edit-post input,
-  #contact-applicant input {
-    width: 443px;
-    max-width: 443px;
-  }
-
-  #new-post textarea, #edit-post textarea,
-  #contact-applicant textarea {
-    width: 428px;
-    max-width: 428px;
   }
 
   #subscription .signup-plans {
@@ -867,14 +817,6 @@ footer {
 
   #autocomplete li {
     line-height: 25px;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="url"],
-  input[type="password"],
-  textarea  {
-    width: 25em;
   }
 
   #login .highlight-box {

@@ -40,17 +40,17 @@
 
   <form class="payment-details" action="/signup" method="POST">
 
-    <input id="gravatar-url" type="hidden" name="company[gravatar]" value="{{ gravatar_url }}">
+    <input id="gravatar-url" type="hidden" name="company[gravatar]" value="{{ gravatar_url }}"><br/>
 
-    <input type="text" name="company[name]" maxlength="30" placeholder="Company name" value="{{ this.h(company['name']) }}">
+    <input type="text" name="company[name]" maxlength="30" placeholder="Company name" value="{{ this.h(company['name']) }}"><br/>
 
-    <input id="company-email" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company['email']) }}">
+    <input id="company-email" type="email" name="company[email]" placeholder="E-email" value="{{ this.h(company['email']) }}"><br/>
 
-    <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company['url']) }}">
+    <input type="text" name="company[url]" placeholder="URL" value="{{ this.h(company['url']) }}"><br/>
 
-    <input type="password" name="company[password]" placeholder="Password">
+    <input type="password" name="company[password]" placeholder="Password"><br/>
 
-    <input type="password" name="company[password_confirmation]" placeholder="Password confirmation">
+    <input type="password" name="company[password_confirmation]" placeholder="Password confirmation"><br/>
 
     {{ this.partial("new_card") }}
 
