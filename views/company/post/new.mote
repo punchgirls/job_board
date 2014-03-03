@@ -52,7 +52,7 @@
 
     <textarea name="post[description]" id="description" maxlength="600" placeholder="Post description">{{ this.h(post.description) }}</textarea><br>
 
-    <span id="countdown">600 characters remaining.</span><br>
+    <span class="countdown" id="countdown">600 characters remaining.</span><br>
 
     <span class="buttons">
       <a href="/dashboard">cancel</a>&nbsp;&nbsp;

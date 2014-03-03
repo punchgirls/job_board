@@ -228,6 +228,17 @@ input:-moz-placeholder {
   display: none;
 }
 
+.msg-form, .note-form {
+  width: 20em;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.countdown {
+  width: 20em;
+  display: block;
+}
+
 /* SEARCH BOX */
 
 #tags_wrapper {
@@ -733,7 +744,10 @@ footer {
   input[type="email"],
   input[type="url"],
   input[type="password"],
-  textarea  {
+  textarea,
+  #subscription .signup-plans,
+  .msg-form, .note-form,
+  .countdown {
     width: 25em;
   }
 
@@ -751,10 +765,6 @@ footer {
 
   .plan {
     font-size: 1em;
-  }
-
-  #subscription .signup-plans {
-    width: 25em;
   }
 
   #payment-history table {

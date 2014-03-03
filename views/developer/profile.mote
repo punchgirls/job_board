@@ -19,7 +19,7 @@
     placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"
     >{{ this.h(developer.bio) }}</textarea><br>
 
-    <span id="countdown-bio">200 characters remaining.</span><br>
+    <span class="countdown" id="countdown-bio">200 characters remaining.</span><br>
 
     <a class="post-control-link cancel" href="/dashboard">cancel</a>
 
