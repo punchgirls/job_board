@@ -14,7 +14,7 @@ class Application < Ohm::Model
   end
 
   def applied
-    return Time.at(date.to_i).strftime("%e/%b/%y")
+    return Time.at(date.to_i).strftime("%e %b.")
   end
 
   def before_delete
