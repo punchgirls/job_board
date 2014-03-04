@@ -63,7 +63,7 @@
             % end
             <li>
               <a href="/application/{{ application.id }}/contact">
-              <i class="fa fa-envelope"></i>send message</a>
+              <i class="fa fa-envelope"></i>contact developer</a>
             </li>
             <li>
               <a href="/application/{{ application.id }}/discard">
