@@ -7,7 +7,7 @@ Ost[:activated_subscription].each do |id|
 
   Malone.deliver(
     to: company.email,
-    subject: "[Job Board] Your subscription has been activated",
+    subject: "[Job Board] Your subscription has been updated",
     text: text,
     bcc: "team@punchgirls.com")
 end
