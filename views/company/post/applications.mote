@@ -1,15 +1,15 @@
 <section id="applicants-post">
-  <h2>Position: {{ this.h(Post[post_id].title) }}</h2>
+  <h2>Position: {{ this.h(post.title) }} | Active applicants: <span id="active-applications">{{ post.active_applications.size }}</span></h2>
 
   <ul>
     % if active_applications
-      <li><a id="active-link" href="/post/{{ post_id }}/applications">Active applications</a></li>
+      <li><a id="active-link" href="/post/{{ post.id }}/applications">Active applications</a></li>
       <li>|</li>
-      <li><a id="underline-none" href="/post/applications/discarded/{{ post_id }}">Discarded applications</a></li>
+      <li><a id="underline-none" href="/post/applications/discarded/{{ post.id }}">Discarded applications</a></li>
     % else
-      <li><a id="underline-none"  href="/post/{{ post_id }}/applications">Active applications</a></li>
+      <li><a id="underline-none"  href="/post/{{ post.id }}/applications">Active applications</a></li>
       <li>|</li>
-      <li><a id="active-link" href="/post/applications/discarded/{{ post_id }}">Discarded applications</a></li>
+      <li><a id="active-link" href="/post/applications/discarded/{{ post.id }}">Discarded applications</a></li>
     % end
   </ul>
 
@@ -19,7 +19,7 @@
     % applications.each do |application|
       % developer = application.developer
 
-      <section class="listing-item">
+      <section id="application-{{ application.id }}" class="listing-item">
         <img src="http://www.gravatar.com/avatar/{{ developer.gravatar }}">
         <ul>
           <li>{{ this.h(developer.name) }}</li>
@@ -50,7 +50,7 @@
         % end
         <ul class="section-footer">
           % if active_applications
-            % if Post[post_id].favorites.member?(application)
+            % if post.favorites.member?(application)
             <li>
               <span class="link" id="favorite-link-{{ application.id }}" onclick="favoriteApplicant({{ application.id }})">
               <i class="fa fa-star"></i>favorited</span>
@@ -66,8 +66,8 @@
               <i class="fa fa-envelope"></i>contact developer</a>
             </li>
             <li>
-              <a href="/application/{{ application.id }}/discard">
-              <i class="fa fa-trash-o"></i>discard</a>
+              <span class="link" id="discard-link-{{ application.id }}" onclick="discardApplicant({{ application.id }})">
+              <i class="fa fa-trash-o"></i>discard</span>
             </li>
           % else
             <li>

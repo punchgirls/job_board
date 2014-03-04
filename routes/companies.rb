@@ -361,8 +361,8 @@ class Companies < Cuba
 
         on post do
           render("company/post/applications", title: "Discarded applications",
-            post_id: id, active_applications: false,
-            applications: Post[id].discarded_applications,
+            post: post, active_applications: false,
+            applications: post.discarded_applications,
             text: "You have no discarded applications for this post.")
         end
 
@@ -375,8 +375,8 @@ class Companies < Cuba
         post = company.posts[post_id]
 
         on post do
-          render("company/post/applications", title: "Active applications", post_id: post_id,
-            applications: Post[post_id].active_applications,
+          render("company/post/applications", title: "Active applications", post: post,
+            applications: post.active_applications,
             active_applications: true,
             text:"There are no active applications for this post.")
         end
