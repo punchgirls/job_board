@@ -9,7 +9,7 @@
     % else
       % favorites.each do |post|
         % if post.published?
-          % application = Application[developer.applications.find(post_id: post.id).ids.first]
+          % application = developer.applications.find(post_id: post.id).first
           <section class="listing-item">
             <img src="{{ post.company.gravatar }}">
             <ul>
@@ -30,7 +30,7 @@
               % else
                 <li>On-site only</li>
               % end
-              % if !application.nil?
+              % if application
                 <li>|</li>
                 <li class="application-status">
                   Application status:
