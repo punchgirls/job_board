@@ -529,12 +529,12 @@ h1  {
 }
 
 #credit-cards img, .card-icon {
-  width: 42px;
+  width: 41px;
 }
 
 #signup .cvc,
 #edit-payment-info .cvc {
-  margin-right: 16px;
+  margin-right: 14px;
   width: 42px;
   float: left;
 }
@@ -793,6 +793,10 @@ footer {
 
   #invoice {
   width: 22em;
+  }
+
+  #credit-cards img, .card-icon {
+    width: 53px;
   }
 }
 
