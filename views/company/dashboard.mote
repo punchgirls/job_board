@@ -11,7 +11,7 @@
         You have no posts yet. Click <a href="/post/new">here</a> to get started!
       </p>
     % else
-      <h2>Published posts: {{ company.published_posts.size }}</h2>
+      <h2>Published posts: <span id="published-posts-size">{{ company.published_posts.size }}</span></h2>
       % posts.each do |post|
         <section id="post_{{ post.id }}"class="listing-item">
           <ul>
@@ -48,11 +48,11 @@
           <ul class="section-footer">
             <li>
               % if post.status == "published"
-                <a href="/post/status/{{ post.id }}#{{ post.id }}">
-                 <i class="fa fa-check"></i>unpublish</a>
+                <span class="link" id="publish-link-{{ post.id }}" onclick="publishPost({{ post.id }}, {{ company.plan.posts }})">
+                  <i class="fa fa-check published"></i>unpublish</span>
               % else
-                 <a href="/post/status/{{ post.id }}#{{ post.id }}">
-                  <i class="fa fa-check"></i>publish</a>
+                <span class="link" id="publish-link-{{ post.id }}" onclick="publishPost({{ post.id }}, {{ company.plan.posts }})">
+                  <i class="fa fa-check unpublished"></i>publish</span>
               % end
             </li>
             <li>

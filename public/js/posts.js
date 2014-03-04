@@ -178,35 +178,30 @@ function favoritePost (postId) {
   request.send();
 }
 
-function publishPost (id) {
-  var publishLink = document.getElementById("publish-link-" + id);
-  var icon = publishLink.childNodes[1];
-  var span = publishLink.childNodes[3];
-  var publishedPostsTitle = document.getElementById("published-posts-title");
-  var publishedPostsSidebar = document.getElementById("published-posts-sidebar");
-  var numberOfPosts = parseInt(publishedPostsTitle.innerHTML);
-  var url = "/post/status/" + id;
+function publishPost (postId, planPosts) {
+  var publishLink = document.getElementById("publish-link-" + postId);
+  var publishedPostsSpan = document.getElementById("published-posts-size");
+  var publishedPostsSize = parseInt(publishedPostsSpan.innerHTML);
+
+  var url = "/post/status/" + postId;
 
   var request = ajax();
   request.open("POST", url);
 
-  if (icon.className == "fa fa-check post-control-icon published-icon") {
-    icon.className = "fa fa-check post-control-icon";
-    span.innerHTML = "Publish";
-
-  } else {
-    icon.className = "fa fa-check post-control-icon published-icon";
-    span.innerHTML = "Unpublish";
-  }
-
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      if (icon.className == "fa fa-check post-control-icon published-icon") {
-        publishedPostsTitle.innerHTML = numberOfPosts + 1;
-        publishedPostsSidebar.innerHTML = numberOfPosts + 1;
+
+      if (publishLink.firstElementChild.className == "fa fa-check published") {
+        publishLink.innerHTML = "<i class='fa fa-check unpublished'></i>publish";
+        publishedPostsSpan.innerHTML = publishedPostsSize - 1;
+        notices.innerHTML = "";
       } else {
-        publishedPostsTitle.innerHTML = numberOfPosts - 1;
-        publishedPostsSidebar.innerHTML = numberOfPosts - 1;
+        if (publishedPostsSize < planPosts) {
+          publishLink.innerHTML = "<i class='fa fa-check published'></i>unpublish";
+          publishedPostsSpan.innerHTML = publishedPostsSize + 1;
+        } else {
+          notices.innerHTML = "You can only have " + planPosts + " published post(s).";
+        }
       }
     }
   };

@@ -9,7 +9,7 @@
     <textarea name="message[body]" placeholder="This mail will be sent to the developer">{{ message.body }}</textarea><br>
 
     <span class="buttons">
-      <a href="/dashboard">cancel</a>&nbsp;&nbsp;
+      <a href="/post/{{ application.post.id }}/applications">cancel</a>&nbsp;&nbsp;
 
       <button class="send-message-button" type="submit">send</button>
     </span>
