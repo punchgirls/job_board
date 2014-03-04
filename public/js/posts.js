@@ -219,9 +219,9 @@ function favoriteApplicant (applicationId) {
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
       if (favoriteLink.firstElementChild.className == "fa fa-star") {
-        favoriteLink.innerHTML = "<i class='fa fa-star-o'></i>favorite"
+        favoriteLink.innerHTML = "<i class='fa fa-star-o'></i>favorite";
       } else {
-        favoriteLink.innerHTML = "<i class='fa fa-star'></i>favorited"
+        favoriteLink.innerHTML = "<i class='fa fa-star'></i>favorited";
       }
     }
   };
