@@ -21,16 +21,21 @@
               <li>|</li>
               <li>Posted {{ post.posted }}</li>
             </ul>
-            <ul>
-
+            <ul id="post-details-{{ post.id }}">
               % tags = post.tags.split(",").join(", ")
-
               <li><i class="fa fa-tags"></i>{{ this.h(tags) }}</li>
               <li>|</li>
               % if post.remote == "true"
                 <li>Work from anywhere</li>
               % else
                 <li>On-site only</li>
+              % end
+              % if !application.nil?
+                <li>|</li>
+                <li class="application-status">
+                  Application status:
+                  {{ application.status }}
+                </li>
               % end
             </ul>
             <p class="description">{{ this.h(post.description) }}</p>
