@@ -92,7 +92,7 @@ a, a:visited, .link, .application-msg,
   color: #EB374B;
 }
 
-a:hover, a:active {
+a:hover, a:active, .link:hover {
   text-decoration: none;
 }
 
