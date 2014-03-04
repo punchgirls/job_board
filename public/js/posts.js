@@ -209,16 +209,20 @@ function publishPost (postId, planPosts) {
   request.send();
 }
 
-function favoriteApplicant (id) {
-  var application = document.getElementById("application-" + id);
-  var url = "/application/favorite/" + id;
+function favoriteApplicant (applicationId) {
+  var favoriteLink = document.getElementById("favorite-link-" + applicationId);
+  var url = "/application/" + applicationId + "/favorite/";
 
   var request = ajax();
   request.open("POST", url);
 
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      favorite(application);
+      if (favoriteLink.firstElementChild.className == "fa fa-star") {
+        favoriteLink.innerHTML = "<i class='fa fa-star-o'></i>favorite"
+      } else {
+        favoriteLink.innerHTML = "<i class='fa fa-star'></i>favorited"
+      }
     }
   };
 

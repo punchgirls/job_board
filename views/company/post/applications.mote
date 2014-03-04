@@ -52,13 +52,13 @@
           % if active_applications
             % if Post[post_id].favorites.member?(application)
             <li>
-              <a href="/application/{{ application.id }}/favorite">
-              <i class="fa fa-star"></i>favorited</a>
+              <span class="link" id="favorite-link-{{ application.id }}" onclick="favoriteApplicant({{ application.id }})">
+              <i class="fa fa-star"></i>favorited</span>
             </li>
             % else
               <li>
-                <a href="/application/{{ application.id }}/favorite">
-                <i class="fa fa-star"></i>favorite</a>
+                <span class="link" id="favorite-link-{{ application.id }}" onclick="favoriteApplicant({{ application.id }})">
+                <i class="fa fa-star-o"></i>favorite</span>
               </li>
             % end
             <li>
