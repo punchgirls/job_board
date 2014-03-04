@@ -15,9 +15,9 @@
 
     <textarea id="developer-bio" name="developer[bio]" placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"></textarea><br>
 
-    <span class="countdown" id="countdown-bio">200 characters remaining.</span><br>
+    <span class="countdown" id="countdown-bio">200 characters remaining.</span>
 
-    <button>Confirm</button>
+    <button type="submit">Confirm</button>
   </form>
 
   <script src="/js/limit_description.js"></script>

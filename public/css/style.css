@@ -253,7 +253,8 @@ input:-moz-placeholder {
   margin: 5px 0 10px 0;
 }
 
-#developer-profile .countdown {
+#developer-profile .countdown,
+#confirm .countdown {
   margin: 0 auto;
 }
 

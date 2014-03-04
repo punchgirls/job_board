@@ -15,8 +15,7 @@
     <input type="text" name="developer[url]"
     value="{{ this.h(developer.url) }}" placeholder="URL (optional)"><br>
 
-    <textarea name="developer[bio]"
-    placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"
+    <textarea id="developer-bio" name="developer[bio]" placeholder="A short bio that will be added to your applications (optional)" onkeyup="updateCountdownBio()" maxlength="200"
     >{{ this.h(developer.bio) }}</textarea><br>
 
     <span class="countdown" id="countdown-bio">200 characters remaining.</span><br>
