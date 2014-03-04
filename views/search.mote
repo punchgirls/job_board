@@ -59,7 +59,7 @@
               <li>
                 % if this.current_user.nil?
                   <a href="/favorite?post_id={{ post.id }}"><i class="fa fa-star"></i>favorite</a>
-                % elsif developer && developer.favorites.member?(post)
+                % elsif developer.favorites.member?(post)
                   <span id="favorite-link-{{ post.id }}" class="link" href="/favorite/{{ post.id }}" onclick="favoritePost({{ post.id }})">
                     <i class="fa fa-star"></i>favorited</span>
                 % else
@@ -70,10 +70,10 @@
               <li>
                 % if this.current_user.nil?
                   <a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a>
-                % elsif developer && !application
+                % elsif application.nil?
                   <span id="apply-link-{{ post.id }}" class="link" onclick="apply({{ post.id }})">
                     <i class="fa fa-check"></i>apply</span>
-                % elsif developer && !application.nil? && application.message.nil?
+                % elsif application && application.message.nil?
                   <span id="apply-link-{{ post.id }}" class="link" onclick="showMsgForm({{ post.id }})">
                     <i class="fa fa-envelope"></i>send message</span>
                 % end

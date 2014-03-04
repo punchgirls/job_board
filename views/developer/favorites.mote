@@ -50,10 +50,10 @@
                   <a href="/favorite/{{ post.id }}"><i class="fa fa-star"></i>favorite</a>
                 % end
               </li>
-              % if !application
+              % if application.nil?
                 <span id="apply-link-{{ post.id }}" class="link" onclick="apply({{ post.id }})">
                 <i class="fa fa-check"></i>apply</span>
-              % elsif !application.nil? && application.message.nil?
+              % elsif application.message.nil?
                 <span id="apply-link-{{ post.id }}" class="link" onclick="showMsgForm({{ post.id }})">
                 <i class="fa fa-envelope"></i>send message</span>
               % end
