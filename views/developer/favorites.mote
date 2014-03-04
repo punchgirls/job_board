@@ -9,6 +9,7 @@
     % else
       % favorites.each do |post|
         % if post.published?
+          % application = Application[developer.applications.find(post_id: post.id).ids.first]
           <section class="listing-item">
             <img src="{{ post.company.gravatar }}">
             <ul>
@@ -33,6 +34,7 @@
               % end
             </ul>
             <p class="description">{{ this.h(post.description) }}</p>
+            {{ this.partial("developer/message_form", post: post) }}
             <ul class="section-footer">
               <li>
                 % if this.current_user.nil?
@@ -43,10 +45,12 @@
                   <a href="/favorite/{{ post.id }}"><i class="fa fa-star"></i>favorite</a>
                 % end
               </li>
-              % if this.current_user.nil?
-                <li><a href="/apply?post_id={{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
-              % elsif developer && !developer.applied?(post.id)
-                <li><a href="/apply/{{ post.id }}"><i class="fa fa-check"></i>apply</a></li>
+              % if !application
+                <span id="apply-link-{{ post.id }}" class="link" onclick="apply({{ post.id }})">
+                <i class="fa fa-check"></i>apply</span>
+              % elsif !application.nil? && application.message.nil?
+                <span id="apply-link-{{ post.id }}" class="link" onclick="showMsgForm({{ post.id }})">
+                <i class="fa fa-envelope"></i>send message</span>
               % end
             </ul>
           </section>
