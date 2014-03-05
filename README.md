@@ -1,11 +1,12 @@
 Open Source Job Board
 =====================
 
-This repository contains the application we'll be developing during our participation in the [Rails Girls Summer of Code 2013] (http://railsgirlssummerofcode.org/) project.
+This repository contains the application we developed during our participation in the [Rails Girls Summer of Code 2013] (http://railsgirlssummerofcode.org/) project.
+You can see it online at [jobs.punchgirls.com] (http://jobs.punchgirls.com/).
 
 Description of project
 ----------------------
-The Open Source Job Board is a job board for developers built with the Cuba microframework. The application uses the developer's GitHub information as a substitution for filling out a CV and will simplify the process of applying for job offers.
+The Open Source Job Board is a job board for developers built with the Cuba microframework. The application uses the developer's GitHub information as a substitution for filling out a CV and aims to simplify the process of applying for job offers.
 
 Installation
 ------------
