@@ -47,12 +47,12 @@
 
   <h4 id="jobs_searching">Jobs searching</h4>
   <p>
-    You can select up to 5 different skills or programming languages from the list in the search field. If you're looking for a skill and can't find it please contact us.
+    You can select up to 5 different skills or programming languages from the list in the search field. If you're looking for a skill and can't find it please <a href="/contact">contact us</a>.
   </p>
 
   <h4 id="applying_for_a_job">Applying for a job</h4>
   <p>
-    When you find the perfect job click on "Apply" and you'll be added to the listed applicants for that post. The company will be able to see your profile and contact you through e-mail.
+    When you find the perfect job click on "apply" and you'll be added to the listed applicants for that post. The company will be able to see your profile and contact you through e-mail.
   </p>
 
   <h4 id="adding_a_message_to_an_application">Adding a message to an application</h4>
@@ -72,7 +72,7 @@
 
   <h4 id="application_status">Application status</h4>
   <p>
-    Each application will have the status "Active" or "Discarded".
+    Each application will have the status "active" or "discarded".
   </p>
   <p>
     "Active" means you're still being considered for the position.
@@ -86,7 +86,7 @@
     If you applied for a job and then change your mind you can remove your application.
   </p>
   <p>
-    Note that by performing this action the company will no longer be able to see your application.
+    Note that by performing this action the company will no longer be able to see your application, in case they change their mind and want to put your application back to their "active applications" list.
   </p>
 
   <h4 id="editing_your_profile">Editing your profile</h4>
@@ -115,7 +115,7 @@
     You'll be able to publish, unpublish and edit your posts as many times as you want.
   </p>
   <p>
-    If you need to have more than 10 posts published simultaneously per month, contact us so we can create a plan that suits you!
+    If you need to have more than 10 posts published simultaneously per month, <a href="/contact">contact us</a> so we can create a plan that suits you!
   </p>
 
   <h4 id="creating_your_company_account">Creating your account</h4>
@@ -131,13 +131,13 @@
 
   <h4 id="creating_a_new_job_post">Creating a new job post</h4>
   <p>
-    Once registered, you can publish job offers by clicking on the "Post job offer" link in your dashboard page.
+    Once registered, you can publish job offers by clicking on the "Create new post" link in your dashboard page.
   </p>
   <p>
     The post will contain a title, tags, location and a description.
   </p>
   <p>
-    If you're looking for a skill or programming language to add as a tag and can't find it please contact us.
+    If you're looking for a skill or programming language to add as a tag and can't find it please <a href="/contact">contact us</a>.
   </p>
   <p>
     Some advice:
@@ -151,7 +151,7 @@
 
   <h4 id="editing_a_job_post">Editing a job post</h4>
   <p>
-    You can edit a job post as many times as you want by clicking on the Edit icon next to the post in question.
+    You can edit a job post as many times as you want by clicking on the "edit" link next to the post in question.
   </p>
   <p>
     Note that if you edit an unpublished post and this post has applicants, these applicants will be able to see the changes you make.
@@ -159,7 +159,7 @@
 
   <h4 id="reviewing_applicants">Reviewing applicants</h4>
   <p>
-    If you want to see who applied for a job offer just click on the "See applicants" link of the post in your dashboard page.
+    If you want to see who applied for a job offer just click on the "show list of applicants" link of the post in your dashboard page.
   </p>
   <p>
     Once there you'll be able to see the public GitHub information for each applicant. If the applicant has added a bio to their profile or a message to the application these will be displayed as well.
@@ -167,7 +167,7 @@
 
   <h4 id="contacting_an_applicant">Contacting an applicant</h4>
   <p>
-    If you want to contact a developer all you have to do is click the "Contact" link of the applicant.
+    If you want to contact a developer all you have to do is click the "contact developer" link of the applicant.
   </p>
   <p>
     The message will be sent as an email to the developer. This email will include your registered email address so that the developer can reply to you directly.
@@ -175,30 +175,30 @@
 
   <h4 id="favoriting_an_applicant">Favoriting an applicant</h4>
   <p>
-    While reviewing applications you can mark the ones you like the most as favorites by clicking on the "Favorite" link.
+    While reviewing applications you can mark the ones you like the most as favorites by clicking on the "favorite" link.
   </p>
 
   <h4 id="discarding_an_applicant">Discarding an applicant</h4>
   <p>
-    If you discard an application by clicking on the "Discard" link, this application will be moved to the "Discarded applicants" list.
+    If you discard an application by clicking on the "discard" link, this application will be moved to the "Discarded applications" list.
   </p>
   <p>
-    In case you change your mind, you can always go to "Discarded applicants" and move applications back to the active list.
+    In case you change your mind, you can always go to "Discarded applications" and move applications back to the "Active applications" list.
   </p>
 
   <h4 id="publish_unpublish_a_job_post">Publish/Unpublish a job post</h4>
   <p>
-    After you create a post you can unpublish and publish it again as many times as you want by clicking on the "Publish"/"Unpublish" link of every post.
+    After you create a post you can unpublish and publish it again as many times as you want by clicking on the "publish"/"unpublish" link of every post.
   </p>
 
   <h4 id="removing_a_job_post">Removing a job post</h4>
   <p>
-    If you want to permanently delete a post just click on the "Remove" link and that post will be history!
+    If you want to permanently delete a post just click on the "delete post" link and that post will be history!
   </p>
 
   <h4 id="editing_your_account_settings">Editing your account settings</h4>
   <p>
-    Whenever you need to edit your account information, change your subscription plan or your credit card details simply go to your profile page and click on the Edit icons of each section.
+    Whenever you need to edit your account information, change your subscription plan or your credit card details simply go to your profile page and click on the "edit" links of each section.
   </p>
 
   <h4 id="seeing_your_payment_history_and_invoices">Seeing your payment history and invoices</h4>
@@ -211,7 +211,7 @@
     If you want to cancel your subscription you can just click on the "Cancel subscription" link in your profile page.
   </p>
   <p>
-    Note that you'll be able to make full use of the website for the entire month you already paid for. After that month, all posts are going to be unpublished and you will only be allowed to login to activate your subscription.
+    Note that you'll be able to make full use of the website for the entire month you already paid for. After that month, all posts are going to be unpublished and you will only be allowed to login to reactivate your subscription.
   </p>
 
   <h4 id="deleting_your_company_account">Deleting your account</h4>
