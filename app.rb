@@ -32,7 +32,7 @@ Cuba.plugin Shield::Helpers
 
 Ohm.connect(url: REDIS_URL)
 Ost.connect(url: REDIS_URL)
-Malone.connect(url: MALONE_URL)
+Malone.connect(url: MALONE_URL, tls: false, domain: "punchgirls.com")
 
 Dir["./models/**/*.rb"].each  { |rb| require rb }
 Dir["./routes/**/*.rb"].each  { |rb| require rb }
