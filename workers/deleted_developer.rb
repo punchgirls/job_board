@@ -8,6 +8,7 @@ Ost[:deleted_developer].each do |id|
     post: application.post })
 
     Malone.deliver(
+      from: "team@punchgirls.com",
       to: application.post.company.email,
       subject: "[Job Board] " + developer.name + "'s profile has been removed",
       text: text,

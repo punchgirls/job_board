@@ -120,7 +120,9 @@ class Guests < Cuba
           nobi = Nobi::TimestampSigner.new('my secret here')
           signature = nobi.sign(String(company.id))
 
-          Malone.deliver(to: company.email,
+          Malone.deliver(
+            from: "team@punchgirls.com",
+            to: company.email,
             subject: "[Job Board] Password recovery",
             html: "To reset your password, please copy and paste this link into your browser's URL address bar: " +
             RESET_URL + "/otp/%s" % signature)

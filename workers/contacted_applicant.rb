@@ -21,6 +21,7 @@ Ost[:contacted_applicant].each do |json|
     developer: developer)
 
   Malone.deliver(
+    from: "team@punchgirls.com",
     to: developer.email,
     subject: "[Job Board] You just received a message from #{company.name}!",
     text: text,
@@ -28,6 +29,7 @@ Ost[:contacted_applicant].each do |json|
   )
 
   Malone.deliver(
+    from: "team@punchgirls.com",
     to: company.email,
     subject: "[Job Board] Copy of your message sent to #{developer.name}",
     text: text_copy

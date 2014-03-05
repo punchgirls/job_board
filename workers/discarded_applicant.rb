@@ -9,6 +9,7 @@ Ost[:discarded_applicant].each do |id|
     { post: post, developer: developer })
 
   Malone.deliver(
+    from: "team@punchgirls.com",
     to: developer.email,
     subject: "[Job Board] Regarding " + post.title + " post",
     text: text)

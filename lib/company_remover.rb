@@ -6,6 +6,7 @@ module CompanyRemover
         developer: developer })
 
         Malone.deliver(
+          from: "team@punchgirls.com",
           to: developer.email,
           subject: "[job board] " + post.company.name + " removed their profile",
           text: text,
@@ -20,6 +21,7 @@ module CompanyRemover
         stripe_error: stripe_customer.message })
 
       Malone.deliver(
+        from: "team@punchgirls.com",
         to: "team@punchgirls.com",
         subject: "Stripe error",
         text: text)

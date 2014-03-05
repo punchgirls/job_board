@@ -6,6 +6,7 @@ Ost[:activated_subscription].each do |id|
   text = Mailer.render("activated_subscription", { company: company })
 
   Malone.deliver(
+    from: "team@punchgirls.com",
     to: company.email,
     subject: "[Job Board] Your subscription has been updated",
     text: text,

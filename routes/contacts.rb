@@ -7,6 +7,7 @@ class Contacts < Cuba
         text = Mailer.render("contact", params: params)
 
         Malone.deliver(
+          from: "team@punchgirls.com",
           to: "team@punchgirls.com",
           subject: "Contact Form: " + params["subject"],
           text: text,

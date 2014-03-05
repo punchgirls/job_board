@@ -7,6 +7,7 @@ Ost[:developer_applied].each do |id|
   { application: application, post: application.post })
 
   Malone.deliver(
+    from: "team@punchgirls.com",
     to: application.post.company.email,
     subject: "[Job Board] A developer applied for one of your posts!",
     text: text)
