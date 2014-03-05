@@ -58,7 +58,7 @@
             <ul class="section-footer">
               <li>
                 % if this.current_user.nil?
-                  <a href="/favorite?post_id={{ post.id }}"><i class="fa fa-star"></i>favorite</a>
+                  <a href="/favorite?post_id={{ post.id }}"><i class="fa fa-star-o"></i>favorite</a>
                 % elsif developer.favorites.member?(post)
                   <span id="favorite-link-{{ post.id }}" class="link" href="/favorite/{{ post.id }}" onclick="favoritePost({{ post.id }})">
                     <i class="fa fa-star"></i>favorited</span>
