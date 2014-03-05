@@ -233,21 +233,20 @@ function confirmDelete (item) {
  return confirm("Are you sure you want to remove this " + item + "?");
 }
 
-function addApplicant (id) {
-  var applications = document.getElementById("application-list");
-  var application = document.getElementById("app-" + id);
-  var numberOfApplicants = document.getElementById("number-of-applicants");
-  var value = numberOfApplicants.innerHTML;
-  var url = "/application/add/" + id;
+function addApplicant (applicationId) {
+  var application = document.getElementById("application-" + applicationId);
+  var activeApplications = document.getElementById("active-applications");
+  var activeApplicationsSize = parseInt(activeApplications.innerHTML);
+
+  var url = "/application/" + applicationId + "/add";
 
   var request = ajax();
   request.open("POST", url);
 
   request.onreadystatechange = function () {
     if ((request.readyState===4) && (request.status===200)) {
-      console.log(request);
-      applications.removeChild(application);
-      numberOfApplicants.innerHTML = parseInt(value) - 1;
+      activeApplications.innerHTML = activeApplicationsSize + 1;
+      application.remove();
     }
   };
 
@@ -255,7 +254,6 @@ function addApplicant (id) {
 }
 
 function discardApplicant (applicationId) {
-  var discardLink = document.getElementById("discard-link-" + applicationId);
   var application = document.getElementById("application-" + applicationId);
   var activeApplications = document.getElementById("active-applications");
   var activeApplicationsSize = parseInt(activeApplications.innerHTML);

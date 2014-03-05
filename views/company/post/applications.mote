@@ -66,13 +66,13 @@
               <i class="fa fa-envelope"></i>contact developer</a>
             </li>
             <li>
-              <span class="link" id="discard-link-{{ application.id }}" onclick="discardApplicant({{ application.id }})">
+              <span class="link" onclick="discardApplicant({{ application.id }})">
               <i class="fa fa-trash-o"></i>discard</span>
             </li>
           % else
             <li>
-              <a href="/application/{{ application.id }}/add">
-              <i class="fa fa-plus"></i>move to applicants list</a>
+              <span class="link" onclick="addApplicant({{ application.id }})">
+              <i class="fa fa-plus"></i>move to applicants list</span>
             </li>
           % end
         </ul>
