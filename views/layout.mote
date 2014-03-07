@@ -9,7 +9,7 @@
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/style.css" rel="stylesheet" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono' rel='stylesheet' type='text/css'>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="/img/favicon.png">
   </head>
@@ -22,7 +22,7 @@
 
     <header>
       <ul id="main-navigation">
-        <li><h1><a id="tittel-link"href="/">jobs.punchgirls.com</a></h1></li>
+        <li><h1><a id="tittel-link" href="/">jobs.punchgirls.com</a></h1></li>
 
         % if this.current_user
           % if current_user.instance_of?(Developer)
