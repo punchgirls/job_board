@@ -15,13 +15,13 @@ Location: {{ post.location }}
 Description:
 {{ post.description }}
 
-Remember there are more jobs waiting for you at http://jobs.punchgirls.com !
+Remember there are more jobs waiting for you at https://jobs.punchgirls.com !
 
 Kind regards,
 
 Cecilia & Mayn,
 Punchgirls
 
-http://twitter.com/punchgirls
+https://twitter.com/punchgirls
 http://www.punchgirls.com
-http://github.com/punchgirls
+https://github.com/punchgirls

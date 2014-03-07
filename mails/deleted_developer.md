@@ -7,7 +7,7 @@ Applicant information:
 
 Name: {{ application.developer.name }}
 Applied on: {{ Time.at(application.date.to_i).strftime("%e %B %Y") }}
-GitHub: http://www.github.com/{{ application.developer.username }}
+GitHub: https://www.github.com/{{ application.developer.username }}
 % if application.developer.url
 URL: {{ application.developer.url }}
 % end
@@ -40,6 +40,6 @@ Kind regards,
 Cecilia & Mayn,
 Punchgirls
 
-http://twitter.com/punchgirls
+https://twitter.com/punchgirls
 http://www.punchgirls.com
-http://github.com/punchgirls
+https://github.com/punchgirls

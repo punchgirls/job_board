@@ -13,7 +13,7 @@
     With great support from the Rails Girls Summer of Code team, the awesome Ruby community and our amazing coaches <a href="https://twitter.com/soveran">@soveran</a>, <a href="https://twitter.com/djanowski">@djanowski</a> and <a href="https://twitter.com/inkel">@inkel</a>, we developed this application from scratch using <a href="https://www.ruby-lang.org/en/">Ruby</a>, <a href="http://cuba.is/">Cuba</a> and <a href="http://redis.io/">Redis</a>. We hope this project will not only provide a service but also serve as an example of how to use these technologies and integrate them with other platforms.
   </p>
 
-  <p>If you want, you can <a href="http://punchgirls.wordpress.com/">read the blog</a> we wrote while working on the project.</p>
+  <p>If you want, you can <a href="https://punchgirls.wordpress.com/">read the blog</a> we wrote while working on the project.</p>
 
   <p>Mayn &amp; Cecilia,<br>
   Punchgirls</p>

@@ -2,7 +2,7 @@ Open Source Job Board
 =====================
 
 This repository contains the application we developed during our participation in the [Rails Girls Summer of Code 2013] (http://railsgirlssummerofcode.org/) project.
-You can see it online at [jobs.punchgirls.com] (http://jobs.punchgirls.com/).
+You can see it online at [jobs.punchgirls.com] (https://jobs.punchgirls.com/).
 
 Description of project
 ----------------------
