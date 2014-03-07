@@ -18,7 +18,7 @@
     <input type="hidden" id="query" name="query" value="">
   </div>
 
-  <button class="btn_search"><i class="fa fa-search"></i></button>
+  <button class="btn_search" type="submit"><i class="fa fa-search"></i></button>
 
   <ul id="autocomplete"></ul>
 
