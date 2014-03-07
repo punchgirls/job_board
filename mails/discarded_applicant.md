@@ -16,7 +16,7 @@ Description:
 {{ post.description }}
 
 Don't worry to much, there are more jobs waiting for you at
-http://jobs.punchgirls.com!
+https://jobs.punchgirls.com!
 
 Kind regards,
 

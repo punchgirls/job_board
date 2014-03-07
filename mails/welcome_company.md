@@ -4,7 +4,7 @@ Welcome to our Job Board!
 
 Here is a link to all the information that will help you get started:
 
-http://jobs.punchgirls.com/help
+https://jobs.punchgirls.com/help
 
 For any other questions or feedback you might have, we'd love to hear from you so please mail us at team@punchgirls.com.
 

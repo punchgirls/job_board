@@ -2,7 +2,7 @@
   <h2 class="content-title">Privacy Policy</h2>
 
   <section class="about">
-    <p>This Privacy Policy governs the manner in which Punchgirls, LLC. collects, uses, maintains and discloses information collected from users (each, a "User") of the <a href="http://jobs.punchgirls.com">http://jobs.punchgirls.com</a> website ("Site"). This privacy policy applies to the Site and all products and services offered by Punchgirls, LLC.</p>
+    <p>This Privacy Policy governs the manner in which Punchgirls, LLC. collects, uses, maintains and discloses information collected from users (each, a "User") of the <a href="https://jobs.punchgirls.com">https://jobs.punchgirls.com</a> website ("Site"). This privacy policy applies to the Site and all products and services offered by Punchgirls, LLC.</p>
 
     <h3>Personal identification information</h3>
     <p>
@@ -52,6 +52,10 @@
       We adopt appropriate data collection, storage and processing practices and security measures to protect against unauthorized access, alteration, disclosure or destruction of your personal information, username, password, transaction information and data stored on our Site.
     </p>
 
+    <p>
+      Sensitive and private data exchange between the Site and its Users happens over a SSL secured communication channel and is encrypted and protected with digital signatures.
+    </p>
+
     <h3>Sharing your personal information</h3>
     <p>We do not sell, trade, or rent Users personal identification information to others.</p>
 
@@ -74,7 +78,7 @@
     <p>
       If you have any questions about this Privacy Policy, the practices of this site, or your dealings with this site, please contact us at:<br>
     Punchgirls, LLC.<br>
-    <a href="/contact">http://jobs.punchgirls.com/contact</a><br>
+    <a href="/contact">https://jobs.punchgirls.com/contact</a><br>
     <a href="mailto:team@punchgirls.com">team@punchgirls.com</a>
   </p>
 

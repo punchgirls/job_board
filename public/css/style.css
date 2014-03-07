@@ -884,6 +884,6 @@ footer {
   /* HEADER */
 
   .background-image {
-    background: url('http://jobs.punchgirls.com/img/punchgirls_large.png') left bottom no-repeat;
+    background: url('/img/punchgirls_large.png') left bottom no-repeat;
   }
  }
