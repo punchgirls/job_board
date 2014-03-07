@@ -23,7 +23,7 @@ class Searches < Cuba
     on param "post_id" do |id|
       post = Post[id]
 
-      on post do
+      on post && post.published? do
         render("search", title: "Search", posts: [post], search: true,
           profile: true)
       end
