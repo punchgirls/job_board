@@ -1,7 +1,7 @@
 <section id="confirm">
   <h2>Please confirm your details!</h2>
 
-  <img src="http://www.gravatar.com/avatar/{{ github_user['gravatar_id'] }}" />
+  <img src="//www.gravatar.com/avatar/{{ github_user['gravatar_id'] }}" />
 
   <form id="confirm-form" action="/confirm" method="POST">
     <input type="text" name="developer[name]"

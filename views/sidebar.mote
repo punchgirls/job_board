@@ -9,7 +9,7 @@
 % if user.instance_of?(Developer)
     <span class="sidebar-profile">
       <a class="sidebar-profile-link" href="/profile">
-        <img class="sidebar-profile-image" src="http://www.gravatar.com/avatar/{{ user.gravatar }}" />
+        <img class="sidebar-profile-image" src="//www.gravatar.com/avatar/{{ user.gravatar }}" />
         <span><strong>{{ user.username }}</strong></span></a>
       <br><br>
       <a class="sidebar-profile-link" href="/logout">Logout</a>
