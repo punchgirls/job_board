@@ -1,6 +1,6 @@
 Job Board Contact Form
 
-Email: {{ email }} just sent you this message:
+Email: {{ email }}
 
 Subject: {{ subject }}
 
