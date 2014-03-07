@@ -4,16 +4,14 @@ class Contacts < Cuba
       mail = ContactUs.new(params)
 
       if mail.valid?
-        text = Mailer.render("contact", params: params)
-
-        Malone.deliver(
-          from: "team@punchgirls.com",
-          to: "team@punchgirls.com",
-          subject: "Contact Form: " + params["subject"],
-          text: text,
-          replyto: params["email"])
-
         session[:success] = "Thanks for contacting us!"
+
+        message = JSON.dump(email: params["email"],
+          subject: params["subject"],
+          body: params["body"])
+
+        Ost[:contact_us].push(message)
+
         res.redirect "/"
       else
         session[:error] = "All fields are required"
@@ -21,12 +19,8 @@ class Contacts < Cuba
       end
     end
 
-    on get, root do
-      render("contact", title: "Contact", contact: {}, background_img: true)
-    end
-
     on default do
-      not_found!
+      render("contact", title: "Contact", contact: {}, background_img: true)
     end
   end
 end

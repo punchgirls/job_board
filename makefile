@@ -20,7 +20,6 @@ test:
 
 push:
 	git push
-	git push heroku master
 
 db:
 	ruby seed.rb
@@ -39,6 +38,7 @@ workers-start:
 	env $$(cat env.sh) ost -d deleted_application
 	env $$(cat env.sh) ost -d developer_sent_message
 	env $$(cat env.sh) ost -d deleted_developer
+	env $$(cat env.sh) ost -d contact_us
 
 workers-stop:
 	kill $$(cat workers/deleted_company.pid)
