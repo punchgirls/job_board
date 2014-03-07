@@ -28,7 +28,7 @@
     % end
   % end
 
-  % gravatar_url = "http://www.gravatar.com/avatar/b7fc2ede6c7c125628f983f4f6d3336a"
+  % gravatar_url = "https://www.gravatar.com/avatar/b7fc2ede6c7c125628f983f4f6d3336a"
 
   % if !company.empty?
     % gravatar_url = company['gravatar']
