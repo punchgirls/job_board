@@ -6,7 +6,8 @@ class Guests < Cuba
 
     on "signup" do
       on get, param("plan_id") do |plan_id|
-        render("company/signup", title: "Sign up", plan_id: plan_id,
+        render("company/signup",
+          title: "jobs.punchgirls.com | Sign up", plan_id: plan_id,
           company: {})
       end
 
@@ -45,22 +46,23 @@ class Guests < Cuba
           on default do
             signup.errors[:error_message] = [customer.message]
 
-            render("company/signup", title: "Sign up",
-                company: params, signup: signup,
-                plan_id: params["plan_id"])
+            render("company/signup",
+              title: "jobs.punchgirls.com | Sign up", company: params,
+              signup: signup, plan_id: params["plan_id"])
           end
         end
 
         on default do
-          render("company/signup", title: "Sign up",
-              company: params, signup: signup,
-              plan_id: params["plan_id"])
+          render("company/signup",
+            title: "jobs.punchgirls.com | Sign up", company: params,
+            signup: signup, plan_id: params["plan_id"])
         end
       end
 
       on default do
-        render("company/signup", title: "Sign up", signup: CompanySignup.new({}),
-          company: {}, plan_id: "small")
+        render("company/signup",
+          title: "jobs.punchgirls.com | Sign up", company: {},
+          signup: CompanySignup.new({}), plan_id: "small")
       end
     end
 
@@ -85,12 +87,14 @@ class Guests < Cuba
             session[:error] = "Your have deleted your account.
             Please create a new account."
 
-            render("login", title: "Login", user: user, background_img: true)
+            render("login", title: "jobs.punchgirls.com | Login",
+              user: user, background_img: true)
           end
         else
           session[:error] = "Invalid email/password combination"
 
-          render("login", title: "Login", user: user, background_img: true)
+          render("login", title: "jobs.punchgirls.com | Login",
+            user: user, background_img: true)
         end
       end
 
@@ -100,7 +104,8 @@ class Guests < Cuba
       end
 
       on get, root do
-        render("login", title: "Login", user: "", background_img: true)
+        render("login", title: "jobs.punchgirls.com | Login",
+          user: "", background_img: true)
       end
 
       on default do
@@ -110,7 +115,8 @@ class Guests < Cuba
 
     on "forgot-password" do
       on get do
-        render("forgot-password", title: "Password recovery")
+        render("forgot-password",
+          title: "jobs.punchgirls.com | Password recovery")
       end
 
       on post do
@@ -166,7 +172,7 @@ class Guests < Cuba
           end
 
           on default do
-            render("otp", title: "Password recovery",
+            render("otp", title: "jobs.punchgirls.com | Password recovery",
               company: company, signature: signature,
               reset: reset)
           end
@@ -175,7 +181,7 @@ class Guests < Cuba
         on default do
           reset = PasswordRecovery.new({})
 
-          render("otp", title: "Password recovery",
+          render("otp", title: "jobs.punchgirls.com | Password recovery",
             company: company, signature: signature,
             reset: reset)
         end
@@ -250,7 +256,8 @@ class Guests < Cuba
           session[:error] = "Your have just deleted your account.
           Please try to login again in a few minutes."
 
-          render("login", title: "Login", user: current_user)
+          render("login", title: "jobs.punchgirls.com | Login",
+            user: current_user)
         end
       end
 
@@ -259,7 +266,8 @@ class Guests < Cuba
         session[:username] = github_user["login"]
         session[:gravatar] = github_user["gravatar_id"]
 
-        render("confirm", title: "Confirm your user details",
+        render("confirm",
+          title: "jobs.punchgirls.com | Confirm your user details",
           github_user: github_user)
       end
     end
@@ -302,13 +310,15 @@ class Guests < Cuba
 
         on default do
           session[:error] = "Name and E-mail are required and must be valid"
-          render("confirm", title: "Confirm your user details",
+          render("confirm",
+            title: "jobs.punchgirls.com | Confirm your user details",
             github_user: params)
         end
       end
 
       on get, root do
-        render("confirm", title: "Confirm your user details")
+        render("confirm",
+          title: "jobs.punchgirls.com | Confirm your user details")
       end
 
       on default do

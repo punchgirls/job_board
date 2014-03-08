@@ -11,8 +11,10 @@ class Developers < Cuba
       elsif favorite_id
         res.redirect "/favorite/#{favorite_id}"
       else
-        render("developer/applications", title: "My applications",
-          search: true, query: "", applications: developer.active_applications,
+        render("developer/applications",
+          title: "jobs.punchgirls.com | My applications",
+          search: true, query: "",
+          applications: developer.active_applications,
           active_applications: true)
       end
     end
@@ -22,14 +24,16 @@ class Developers < Cuba
     end
 
     on "applications" do
-      render("developer/applications", title: "Active applications",
+      render("developer/applications",
+        title: "jobs.punchgirls.com | Active applications",
         subtitle: "You haven't applied for any jobs yet. Start your search now!",
         search: true, query: "", active_applications: true,
         applications: developer.active_applications)
     end
 
     on "history" do
-      render("developer/applications", title: "Discarded applications",
+      render("developer/applications",
+        title: "jobs.punchgirls.com | Discarded applications",
         subtitle: "You have no discarded applications.",
         search: true, query: "", active_applications: false,
         applications: developer.inactive_applications)
@@ -54,7 +58,8 @@ class Developers < Cuba
     end
 
     on "favorites" do
-      render("developer/favorites", title: "Favorites",
+      render("developer/favorites",
+        title: "jobs.punchgirls.com | Favorites",
         search: true, query: "")
     end
 
@@ -192,12 +197,14 @@ class Developers < Cuba
 
         on default do
           session[:error] = "All fields are required and must be valid"
-          render("developer/profile", title: "Edit profile")
+          render("developer/profile",
+            title: "jobs.punchgirls.com | Edit profile")
         end
       end
 
       on get, root do
-        render("developer/profile", title: "Edit profile")
+        render("developer/profile",
+          title: "jobs.punchgirls.com | Edit profile")
       end
 
       on(default) { not_found! }
