@@ -48,7 +48,7 @@ Cuba.use Rack::Session::Cookie,
   key: "job_board",
   secret: APP_SECRET
 
-Cuba.use Rack::Protection
+Cuba.use Rack::Protection, except: :http_origin
 Cuba.use Rack::Protection::RemoteReferrer
 
 Cuba.use Rack::Static,
