@@ -54,3 +54,4 @@ workers-stop:
 	kill $$(cat workers/deleted_application.pid)
 	kill $$(cat workers/developer_sent_message.pid)
 	kill $$(cat workers/deleted_developer.pid)
+	kill $$(cat workers/contact_us.pid)
