@@ -15,8 +15,7 @@ Location: {{ post.location }}
 Description:
 {{ post.description }}
 
-Don't worry to much, there are more jobs waiting for you at
-https://jobs.punchgirls.com!
+Don't worry to much, there are more jobs waiting for you at https://jobs.punchgirls.com !
 
 Kind regards,
 

@@ -16,7 +16,7 @@ Location: {{ post.location }}
 Description:
 {{ post.description }}
 
-Remember there are more jobs waiting for you at https://jobs.punchgirls.com!
+Remember there are more jobs waiting for you at https://jobs.punchgirls.com !
 
 Kind regards,
 

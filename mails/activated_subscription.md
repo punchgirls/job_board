@@ -6,6 +6,8 @@ Your current plan is: {{ company.plan.name }}
 Posts per month: {{ company.plan.posts }}
 Price: {{ company.plan.price }} USD/month
 
+Thank you!
+
 Kind regards,
 
 Cecilia & Mayn,
