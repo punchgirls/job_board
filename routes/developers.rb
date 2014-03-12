@@ -12,7 +12,7 @@ class Developers < Cuba
         res.redirect "/favorite/#{favorite_id}"
       else
         render("developer/applications",
-          title: "jobs.punchgirls.com | My applications",
+          title: "My applications",
           search: true, query: "",
           applications: developer.active_applications,
           active_applications: true)
@@ -25,7 +25,7 @@ class Developers < Cuba
 
     on "applications" do
       render("developer/applications",
-        title: "jobs.punchgirls.com | Active applications",
+        title: "Active applications",
         subtitle: "You haven't applied for any jobs yet. Start your search now!",
         search: true, query: "", active_applications: true,
         applications: developer.active_applications)
@@ -33,7 +33,7 @@ class Developers < Cuba
 
     on "history" do
       render("developer/applications",
-        title: "jobs.punchgirls.com | Discarded applications",
+        title: "Discarded applications",
         subtitle: "You have no discarded applications.",
         search: true, query: "", active_applications: false,
         applications: developer.inactive_applications)
@@ -59,7 +59,7 @@ class Developers < Cuba
 
     on "favorites" do
       render("developer/favorites",
-        title: "jobs.punchgirls.com | Favorites",
+        title: "Favorites",
         search: true, query: "")
     end
 
@@ -198,13 +198,13 @@ class Developers < Cuba
         on default do
           session[:error] = "All fields are required and must be valid"
           render("developer/profile",
-            title: "jobs.punchgirls.com | Edit profile")
+            title: "Edit profile")
         end
       end
 
       on get, root do
         render("developer/profile",
-          title: "jobs.punchgirls.com | Edit profile")
+          title: "Edit profile")
       end
 
       on(default) { not_found! }

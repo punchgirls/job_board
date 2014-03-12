@@ -19,7 +19,7 @@ class Companies < Cuba
 
       on default do
         render("company/profile",
-          title: "jobs.punchgirls.com | Profile", card: card, plan: plan)
+          title: "Profile", card: card, plan: plan)
       end
     end
 
@@ -42,7 +42,7 @@ class Companies < Cuba
 
             session[:error] = "E-mail is already registered"
             render("company/edit",
-              title: "jobs.punchgirls.com | Edit profile", edit: edit)
+              title: "Edit profile", edit: edit)
           end
 
           on default do
@@ -59,7 +59,7 @@ class Companies < Cuba
 
         on default do
           render("company/edit",
-            title: "jobs.punchgirls.com | Edit profile", edit: edit)
+            title: "Edit profile", edit: edit)
         end
       end
 
@@ -67,7 +67,7 @@ class Companies < Cuba
         edit = EditCompanyAccount.new({})
 
         render("company/edit",
-          title: "jobs.punchgirls.com | Edit profile", edit: edit)
+          title: "Edit profile", edit: edit)
       end
     end
 
@@ -106,7 +106,7 @@ class Companies < Cuba
 
       on default do
         render("customer/update",
-          title: "jobs.punchgirls.com | Update payment details")
+          title: "Update payment details")
       end
     end
 
@@ -122,7 +122,7 @@ class Companies < Cuba
 
       on default do
         render("customer/history",
-          title: "jobs.punchgirls.com | Payment details",
+          title: "Payment details",
           history: history)
       end
     end
@@ -139,7 +139,7 @@ class Companies < Cuba
 
       on default do
         render("customer/invoice",
-          title: "jobs.punchgirls.com | Invoice details",
+          title: "Invoice details",
           invoice: invoice, plan: plan)
       end
     end
@@ -182,7 +182,7 @@ class Companies < Cuba
 
       on default do
         render("customer/subscription",
-          title: "jobs.punchgirls.com | Update subscription",
+          title: "Update subscription",
           plan_id: plan.name)
       end
     end
@@ -260,7 +260,7 @@ class Companies < Cuba
 
           on default do
             render("company/post/new",
-              title: "jobs.punchgirls.com | Post job offer", post: post)
+              title: "Post job offer", post: post)
           end
         end
 
@@ -269,7 +269,7 @@ class Companies < Cuba
             post = PostJobOffer.new({})
 
             render("company/post/new",
-              title: "jobs.punchgirls.com | Post job offer", post: post)
+              title: "Post job offer", post: post)
           else
             session[:error] = "You can only have #{plan.posts} published post."
             res.redirect "/dashboard"
@@ -351,14 +351,14 @@ class Companies < Cuba
 
             on default do
               render("company/post/edit",
-                title: "jobs.punchgirls.com | Edit post",
+                title: "Edit post",
                 post: post, edit: edit)
             end
           end
 
           on default do
             render("company/post/edit",
-              title: "jobs.punchgirls.com | Edit post",
+              title: "Edit post",
               post: post, edit: PostJobOffer.new({}))
           end
         end
@@ -373,7 +373,7 @@ class Companies < Cuba
 
         on post do
           render("company/post/applications",
-            title: "jobs.punchgirls.com | Discarded applications",
+            title: "Discarded applications",
             post: post, active_applications: false,
             applications: post.discarded_applications,
             text: "You have no discarded applications for this post.")
@@ -389,7 +389,7 @@ class Companies < Cuba
 
         on post do
           render("company/post/applications",
-            title: "jobs.punchgirls.com | Active applications", post: post,
+            title: "Active applications", post: post,
             applications: post.active_applications,
             active_applications: true,
             text:"There are no active applications for this post.")
@@ -453,14 +453,14 @@ class Companies < Cuba
             else
               session[:error] = "All fields are required"
               render("company/post/contact",
-                title: "jobs.punchgirls.com | Contact developer",
+                title: "Contact developer",
                 application: application, message: mail)
             end
           end
 
           on default do
             render("company/post/contact",
-              title: "jobs.punchgirls.com | Contact developer",
+              title: "Contact developer",
               application: application, message: Contact.new({}))
           end
         end
@@ -500,12 +500,12 @@ class Companies < Cuba
         on param "company" do
           session[:error] = "You need to logout to sign in as a developer"
           render("company/dashboard",
-            title: "jobs.punchgirls.com | Dashboard", plan: plan)
+            title: "Dashboard", plan: plan)
         end
 
         on get, root do
           render("company/dashboard",
-            title: "jobs.punchgirls.com | Dashboard", plan: plan)
+            title: "Dashboard", plan: plan)
         end
 
         on(default) { not_found! }

@@ -61,22 +61,22 @@ Cuba.define do
   on root do
     latest_posts = Post.active.sort_by(:date, order: "ALPHA DESC", limit: [0, 5])
 
-    render("home", title: "jobs.punchgirls.com | Home",
+    render("home", title: "Home",
       latest_posts: latest_posts, background_img: true)
   end
 
   on "pricing" do
-    render("pricing", title: "jobs.punchgirls.com | Pricing",
+    render("pricing", title: "Pricing",
       plan_id: "small", background_img: true)
   end
 
   on "about" do
-    render("about", title: "jobs.punchgirls.com | About",
+    render("about", title: "About",
       background_img: true)
   end
 
   on "help" do
-    render("help", title: "jobs.punchgirls.com | Help",
+    render("help", title: "Help",
       background_img: true)
   end
 
@@ -85,12 +85,12 @@ Cuba.define do
   end
 
   on "terms" do
-    render("terms", title: "jobs.punchgirls.com | Terms and Conditions",
+    render("terms", title: "Terms and Conditions",
       background_img: true)
   end
 
   on "privacy" do
-    render("privacy", title: "jobs.punchgirls.com | Privacy Policy",
+    render("privacy", title: "Privacy Policy",
       background_img: true)
   end
 
