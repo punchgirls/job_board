@@ -144,15 +144,7 @@ class Guests < Cuba
     end
 
     on "otp/:signature" do |signature|
-      nobi = Nobi::TimestampSigner.new('my secret here')
-
-      company =
-        begin
-          company_id = nobi.unsign(signature, max_age: 7200)
-
-          Company[company_id]
-        rescue Nobi::BadData
-        end
+      company = Otp.unsign(signature, 7200)
 
       on company do
         on post, param("company") do |params|
@@ -179,16 +171,13 @@ class Guests < Cuba
         end
 
         on default do
-          reset = PasswordRecovery.new({})
-
           render("otp", title: "Password recovery",
-            company: company, signature: signature,
-            reset: reset)
+            company: company, signature: signature)
         end
       end
 
       on get, root do
-        session[:error] = "Invalid URL. Please try again!"
+        session[:error] = "Invalid or expired URL. Please try again!"
         res.redirect("/forgot-password")
       end
 
