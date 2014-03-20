@@ -6,11 +6,11 @@ Your account has been created with the email {{ company.email }}. Follow this li
 
 {{ url }}
 
+Note: The URL expires in 7 days.
+
 Here is a link to all the information that will help you get started:
 
 https://jobs.punchgirls.com/help
-
-Note: The URL expires in 7 days.
 
 For any other questions or feedback you might have, we'd love to hear from you so please mail us at team@punchgirls.com.
 
