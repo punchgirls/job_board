@@ -10,6 +10,8 @@ Here is a link to all the information that will help you get started:
 
 https://jobs.punchgirls.com/help
 
+Note: The URL expires in 7 days.
+
 For any other questions or feedback you might have, we'd love to hear from you so please mail us at team@punchgirls.com.
 
 Happy job posting!
