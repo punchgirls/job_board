@@ -184,6 +184,48 @@ class Guests < Cuba
       on(default) { not_found! }
     end
 
+    on "password/:signature" do |signature|
+      company = Otp.unsign(signature, 604800)
+
+      on company do
+        on post, param("company") do |params|
+          reset = PasswordRecovery.new(params)
+
+          on reset.valid? do
+            company.update(password: reset.password)
+
+            authenticate(company)
+
+            session[:success] = "You have successfully changed
+            your password and logged in!"
+
+            Ost[:password_changed].push(company.id)
+
+            res.redirect "/", 303
+          end
+
+          on default do
+            render("first_time_login", title: "First time login",
+              company: company, signature: signature, reset: reset)
+          end
+        end
+
+        on default do
+          render("first_time_login", title: "First time login",
+            company: company, signature: signature)
+        end
+      end
+
+      on get, root do
+        session[:error] = "This URL has expired. Send a mail to team@punchgirls.com and we'll send you a new one right away!"
+        res.redirect "/password"
+      end
+
+      on default do
+        not_found!
+      end
+    end
+
     on "search" do
       run Searches
     end
