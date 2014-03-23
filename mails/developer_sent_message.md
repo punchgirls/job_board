@@ -23,7 +23,11 @@ Post title: {{ post.title }}
 Company: {{ post.company.name }} ({{ post.company.url }})
 % tags = post.tags.split(",").join(", ")
 Tags: {{ tags }}
+% if post.location
 Location: {{ post.location }}
+% else
+Location: Not specified
+% end
 % if post.remote == "true"
 (Work from anywhere)
 % else

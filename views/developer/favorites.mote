@@ -16,8 +16,12 @@
               <li><a href="#">{{ this.h(post.title) }}</a></li>
               <li>@</li>
               <li><a href="#">{{ this.h(post.company.name) }}</a></li>
-              <li>|</li>
-              <li>{{ this.h(post.location) }}</li>
+
+              % if post.location
+                <li>|</li>
+                <li>{{ this.h(post.location) }}</li>
+              % end
+
               <li>|</li>
               <li>Posted {{ post.posted }}</li>
             </ul>

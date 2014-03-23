@@ -34,8 +34,12 @@
               <li>{{ this.h(post.title) }}</li>
               <li>@</li>
               <li><a href="search?company_id={{ post.company.id }}">{{ this.h(post.company.name) }}</a></li>
-              <li>|</li>
-              <li>{{ this.h(post.location) }}</li>
+
+              % if post.location
+                <li>|</li>
+                <li>{{ this.h(post.location) }}</li>
+              % end
+
               <li>|</li>
               <li>Applied {{ application.applied }}</li>
             </ul>

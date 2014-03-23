@@ -16,8 +16,12 @@
         <section id="post_{{ post.id }}"class="listing-item">
           <ul>
             <li>{{ this.h(post.title) }}</li>
-            <li>|</li>
-            <li>{{ this.h(post.location) }}</li>
+
+            % if post.location
+              <li>|</li>
+              <li>{{ this.h(post.location) }}</li>
+            % end
+
             <li>|</li>
             <li>Posted {{ post.posted }}</li>
           </ul>
