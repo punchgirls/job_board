@@ -29,6 +29,8 @@
 
     <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title">
 
+    <p>Select a skill from the list of keywords:</p>
+
     <ul id="tokens">
       <li id="token-input">
         <input type="text" id="search-field" autocomplete="off" placeholder="e.g. ruby, cuba, redis">
