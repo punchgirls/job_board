@@ -254,6 +254,8 @@ class Companies < Cuba
 
             job = Post.create(params)
 
+            Ost[:new_post].push(job.id)
+
             session[:success] = "You have successfully posted a job offer!"
             res.redirect "/dashboard"
           end
