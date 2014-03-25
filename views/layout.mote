@@ -23,6 +23,7 @@
     <header>
       <ul id="main-navigation">
         <li><h1><a id="tittel-link" href="/">jobs.punchgirls.com</a></h1></li>
+        <span id="menu-separation"></span>
         % if this.current_user
           % if current_user.instance_of?(Developer)
             <li><a href="/applications">My applications (<span id="apps-size">{{ user.active_applications.size }}</span>)</a></li>

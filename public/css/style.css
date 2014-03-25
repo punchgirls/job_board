@@ -44,7 +44,8 @@ body {
   max-width: 850px;
 }
 
-#home, #footer-navigation,
+#home, header,
+#footer-navigation,
 #login, #contact,
 #signup, #new-post,
 #contact-applicant,
@@ -438,13 +439,7 @@ input:-moz-placeholder {
 
 /* HEADER */
 
-header {
-  margin: 0 auto;
-  max-width: 850px;
-}
-
 h1  {
-  margin-right: 158px;
   margin-bottom: 0.8em;
   font-size: 1.5em;
   display: inline-block;
@@ -455,6 +450,7 @@ h1  {
 }
 
 #tittel-link {
+  margin-right: 70px;
   text-decoration: none;
 }
 
@@ -813,6 +809,14 @@ footer {
 }
 
 @media only screen and (min-width: 768px)  {
+  header {
+    margin: 0 0 50px 0;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
   h2 {
     font-size: 1.5em;
   }
@@ -829,12 +833,18 @@ footer {
   .toggle {
     float: left;
   }
+
+  #menu-separation {
+    display: none;
+  }
+
+  #tittel-link {
+    margin-right: 60px;
+  }
 }
 
 @media only screen and (min-width: 1024px)  {
-  h1 {
-    font-size: 2em;
-  }
+  /* HEADER */
 
   .background-image {
     background: url('/img/punchgirls_small.png') left bottom no-repeat;
@@ -883,6 +893,10 @@ footer {
     text-align: left;
     margin: 0 auto;
     width: 26em;
+  }
+
+  #tittel-link {
+    margin-right: 70px;
   }
 }
 
