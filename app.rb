@@ -59,7 +59,7 @@ Cuba.define do
   persist_session!
 
   on root do
-    latest_posts = Post.active.sort_by(:date, order: "ALPHA DESC", limit: [0, 5])
+    latest_posts = Post.active.sort_by(:date, order: "ALPHA DESC", limit: [0, 10])
 
     render("home", title: "Home",
       latest_posts: latest_posts, background_img: true)
