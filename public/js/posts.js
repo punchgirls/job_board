@@ -254,23 +254,27 @@ function addApplicant (applicationId) {
 }
 
 function discardApplicant (applicationId) {
-  var application = document.getElementById("application-" + applicationId);
-  var activeApplications = document.getElementById("active-applications");
-  var activeApplicationsSize = parseInt(activeApplications.innerHTML);
+  var discard = confirm("When discarding an applicant, he/she will receive a notification. Continue?");
 
-  var url = "/application/" + applicationId + "/discard";
+  if (discard) {
+    var application = document.getElementById("application-" + applicationId);
+    var activeApplications = document.getElementById("active-applications");
+    var activeApplicationsSize = parseInt(activeApplications.innerHTML);
 
-  var request = ajax();
-  request.open("POST", url);
+    var url = "/application/" + applicationId + "/discard";
 
-  request.onreadystatechange = function () {
-    if ((request.readyState===4) && (request.status===200)) {
-      activeApplications.innerHTML = activeApplicationsSize - 1;
-      application.remove();
-    }
-  };
+    var request = ajax();
+    request.open("POST", url);
 
-  request.send();
+    request.onreadystatechange = function () {
+      if ((request.readyState===4) && (request.status===200)) {
+        activeApplications.innerHTML = activeApplicationsSize - 1;
+        application.remove();
+      }
+    };
+
+    request.send();
+  }
 }
 
 function toggle (postId) {
