@@ -8,7 +8,7 @@ class Guests < Cuba
       on get, param("plan_id") do |plan_id|
         render("company/signup",
           title: "Sign up", plan_id: plan_id,
-          company: {})
+          company: {}, show_menu: false)
       end
 
       on post, param("stripe_token"), param("company") do |token, params|
@@ -48,21 +48,24 @@ class Guests < Cuba
 
             render("company/signup",
               title: "Sign up", company: params,
-              signup: signup, plan_id: params["plan_id"])
+              signup: signup, plan_id: params["plan_id"],
+              show_menu: false)
           end
         end
 
         on default do
           render("company/signup",
             title: "Sign up", company: params,
-            signup: signup, plan_id: params["plan_id"])
+            signup: signup, plan_id: params["plan_id"],
+            show_menu: false)
         end
       end
 
       on default do
         render("company/signup",
           title: "Sign up", company: {},
-          signup: CompanySignup.new({}), plan_id: "small")
+          signup: CompanySignup.new({}), plan_id: "small",
+          show_menu: false)
       end
     end
 
