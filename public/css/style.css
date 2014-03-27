@@ -192,8 +192,10 @@ button, #post_ad {
 }
 
 #post_ad {
+  background: #EB374B;
   text-decoration: none;
-  color: black;
+  color: white;
+  font-weight: bold;
   line-height: 45px;
   margin-bottom: 40px;
   display: inline-block;
