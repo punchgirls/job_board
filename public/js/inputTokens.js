@@ -89,7 +89,7 @@ function deleteToken(token) {
   tokens.removeChild(token);
 
   if(tokens.childNodes.length == 3) {
-    searchInput.setAttribute("placeholder", "e.g. ruby, cuba, redis");
+    searchInput.setAttribute("placeholder", "Search: Ruby, Cuba, Redis");
     searchInput.setAttribute("style", "width: 200px;");
   }
 }

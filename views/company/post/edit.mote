@@ -29,7 +29,7 @@
 
     <ul id="tokens">
       <li id="token-input">
-        <input type="text" id="search-field" autocomplete="off" placeholder="e.g. ruby, cuba, redis">
+        <input type="text" id="search-field" autocomplete="off" placeholder="Search: Ruby, Cuba, Redis">
       </li>
     </ul>
 
