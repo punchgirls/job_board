@@ -197,8 +197,9 @@ button, #post_ad {
   color: white;
   font-weight: bold;
   line-height: 45px;
-  margin-bottom: 40px;
+  margin-top: 40px;
   display: inline-block;
+  text-transform: uppercase;
 }
 
 .buttons {
