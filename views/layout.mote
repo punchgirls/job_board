@@ -23,7 +23,14 @@
 
     <header>
       <ul id="main-navigation">
-        <li><h1><a id="tittel-link" href="/">jobs.punchgirls.com</a></h1></li>
+        % if show_menu
+          <li><h1><a id="title-link" href="/">
+        % else
+          <li><h1 id="center"><a id="title-link-center" href="/">
+        % end
+
+        jobs.punchgirls.com</a></h1></li>
+
         % if show_menu
           <span id="menu-separation"></span>
           % if this.current_user

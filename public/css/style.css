@@ -445,12 +445,24 @@ h1  {
   display: inline-block;
 }
 
+#center  {
+  margin: 0 auto 0.8em;
+  font-size: 1.5em;
+  display: block;
+}
+
 #main-navigation a {
   color: black;
 }
 
-#tittel-link {
+#title-link {
   margin-right: 70px;
+  text-decoration: none;
+}
+
+#title-link-center {
+  margin: 0 auto;
+  display: block;
   text-decoration: none;
 }
 
@@ -817,6 +829,10 @@ footer {
     font-size: 2em;
   }
 
+  #center {
+    font-size: 2em;
+  }
+
   h2 {
     font-size: 1.5em;
   }
@@ -838,7 +854,7 @@ footer {
     display: none;
   }
 
-  #tittel-link {
+  #title-link {
     margin-right: 60px;
   }
 }
@@ -895,7 +911,7 @@ footer {
     width: 26em;
   }
 
-  #tittel-link {
+  #title-link {
     margin-right: 70px;
   }
 }
