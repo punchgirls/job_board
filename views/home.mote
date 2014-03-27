@@ -1,6 +1,8 @@
 <section id="home">
    {{ this.partial("search_box") }}
 
+  <a href="/signup" id="post_ad">Post your ad</a>
+
   <h2>Latest posts</h2>
 
   <ul id="latest-posts">
