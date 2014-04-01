@@ -10,7 +10,7 @@
     % end
   % end
 
-  <h2 class="content-title company-login">Welcome!</h2>
+  <h2 class="content-title company-login">Welcome {{ company.name }}!</h2>
 
   <p>The first time you log in to our service you have to set a password for your account.</p>
   <p>
