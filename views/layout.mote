@@ -48,6 +48,7 @@
             <li><a href="/pricing">Pricing</a></li>
             <li><a href="/help">Help</a></li>
             <li><a href="/login">Login</a></li>
+            <li><a href="/signup" id="post_ad">Post a job offer!</a></li>
           % end
         % end
       </ul>

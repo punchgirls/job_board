@@ -191,17 +191,6 @@ button, #post_ad {
   cursor: pointer;
 }
 
-#post_ad {
-  background: #EB374B;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  line-height: 45px;
-  margin-top: 40px;
-  display: inline-block;
-  text-transform: uppercase;
-}
-
 .buttons {
   display: block;
   margin: 10px auto;
@@ -487,6 +476,19 @@ h1  {
 
 #gravatar-mini {
   display: none;
+}
+
+#main-navigation #post_ad {
+  height: 40px;
+  background: #EB374B;
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 40px;
+  margin-top: 40px;
+  display: inline-block;
+  text-transform: uppercase;
 }
 
 /* HOME */
