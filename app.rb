@@ -76,8 +76,7 @@ Cuba.define do
   end
 
   on "help" do
-    render("help", title: "Help",
-      background_img: true)
+    render("help", title: "Help")
   end
 
   on "contact" do
@@ -85,13 +84,11 @@ Cuba.define do
   end
 
   on "terms" do
-    render("terms", title: "Terms and Conditions",
-      background_img: true)
+    render("terms", title: "Terms and Conditions")
   end
 
   on "privacy" do
-    render("privacy", title: "Privacy Policy",
-      background_img: true)
+    render("privacy", title: "Privacy Policy")
   end
 
   on authenticated(Company) do
