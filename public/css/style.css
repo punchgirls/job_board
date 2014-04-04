@@ -128,7 +128,7 @@ a#delete {
 
 /* FORMS AND INPUT */
 
-input[type="text"],
+/*input[type="text"],*/
 input[type="email"],
 input[type="url"],
 input[type="password"]  {
@@ -178,7 +178,7 @@ textarea {
 
 button, #post_ad {
   padding: 0 20px;
-  height: 45px;
+  height: 44px;
   background:  #FFCC00;
   outline: none;
   border: none;
@@ -191,14 +191,6 @@ button, #post_ad {
   display: block;
   margin: 10px auto;
   text-align: center;
-}
-
-.btn_search {
-  padding: 0 15px;
-}
-
-.btn_search i {
-  margin: 0;
 }
 
 #confirm-form, #developer-profile-form,
@@ -586,6 +578,87 @@ footer {
 
 .fa-twitter {
   font-size: 1.3em;
+}
+
+/* SEARCH BOX and PUNCHTOKENS */
+
+form {
+  position: relative;
+  width: 22em;
+  margin: 0 auto;
+}
+
+#token-list {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16.5em;
+  min-height: 40px;
+  border: 2px solid cornflowerblue;
+  padding: 0;
+  text-align: left;
+  list-style: none;
+}
+
+#last-child {
+  display: inline-block;
+}
+
+#input-field {
+  padding-left: 6px;
+  width: 180px;
+  border: none;
+  outline: none;
+  height: 33px;
+}
+
+#autocomplete-list {
+  position: absolute;
+  background: white;
+  list-style: none;
+  display: none;
+  width: 15.8em;
+  margin: -17px auto 0;
+  padding: 5px;
+  text-align: left;
+  border: 2px solid cornflowerblue;
+}
+
+#autocomplete-list li {
+  display: block;
+}
+
+#search-btn {
+  vertical-align: middle;
+  width: 3.75em;
+  padding: 0 12px;
+  color: white;
+  border: none;
+  background: aquamarine;
+  font-size: 1em;
+}
+
+#search-btn i {
+  margin: 0;
+  font-size: 2em;
+}
+
+.token {
+  display: inline-block;
+  margin: 4px 2px 0 2px;
+  padding: 3px 7px;
+  border: 2px solid cornflowerblue;
+  font-size: 1.2em;
+}
+
+.token-delete {
+  color: aquamarine;
+  cursor: hand;
+  cursor: pointer;
+}
+
+#highlight, #autocomplete-list li:hover {
+  font-weight: bold;
+  color: aquamarine;
 }
 
 @media only screen and (min-width: 480px)  {

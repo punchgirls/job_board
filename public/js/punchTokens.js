@@ -136,7 +136,7 @@ inputField.oninput = function() {
   autocompleteList.setAttribute("style", "display: block;");
 
   for (var key in skillsList) {
-    if (skillsList[key].skill.search(regExp) != -1 ) {
+    if (skillsList[key].name.search(regExp) != -1 ) {
       addToAutocomplete(skillsList[key].name);
     }
   }

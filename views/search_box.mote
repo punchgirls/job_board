@@ -8,11 +8,13 @@
     </li>
   </ul>
 
+  <button id="search-btn"><i class="fa fa-search"></i></button>
+
   <ul id="autocomplete-list"></ul>
 
-  <input type="hidden" id="tokenString" name="query" value="">
+  <a class="link-large" href="/search?query=All+posts">All posts</a>
 
-  <button class="btn_search"><i class="fa fa-search"></i></button>
+  <input type="hidden" id="tokenString" name="query" value="">
 </form>
 
 <script src="/js/punchTokens.js"></script>
