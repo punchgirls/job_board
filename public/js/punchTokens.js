@@ -189,7 +189,9 @@ inputField.onkeydown = function(e) {
 punchTokens.onsubmit = function() {
   if (highlightIndex > -1) {
     addToken();
+    return false;
   } else {
+    var query = document.getElementById("query");
     var tokenString = "";
 
     while(tokenArray.length > 0) {
@@ -202,10 +204,8 @@ punchTokens.onsubmit = function() {
     hideAutocomplete();
     inputField.value = "";
 
-    alert("Form submitted with the following values: " + tokenString.slice(0, -1));
+    query.value = tokenString.slice(0, -1);
 
     inputField.blur();
   }
-
-  return false;
 };
