@@ -1,29 +1,18 @@
 % search = params.fetch(:search, false)
 % query = params.fetch(:query, "")
 
-<form id="search-box" name="postFrm" action="/search" method="GET">
-  <div id="tags_wrapper">
+<form id="punchTokens" name="punchTokens" action="/search" method="GET">
+  <ul id="token-list">
+    <li id="last-child">
+      <input id="input-field" placeholder="Search: Ruby, Cuba, Redis" autocomplete="off" type="text">
+    </li>
+  </ul>
 
-    % if query && !query.empty?
-      <input id="tags" type="hidden" value="{{ query }}">
-    % end
+  <ul id="autocomplete-list"></ul>
 
-    <ul class="header-menu" id="tokens">
-      <li id="token-input">
-        <input type="text" id="search-field" autocomplete="off" placeholder="Search: Ruby, Cuba, Redis">
-      </li>
-    </ul>
-    <ul class="header-menu" id="autocomplete"></ul>
+  <input type="hidden" id="tokenString" name="query" value="">
 
-    <input type="hidden" id="query" name="query" value="">
-  </div>
-
-  <button class="btn_search" type="submit"><i class="fa fa-search"></i></button>
-
-  <ul id="autocomplete"></ul>
-
-  <input type="hidden" id="query" name="post[tags]" value="">
-
+  <button class="btn_search"><i class="fa fa-search"></i></button>
 </form>
 
-<script src="/js/inputTokens.js"></script>
+<script src="/js/punchTokens.js"></script>
