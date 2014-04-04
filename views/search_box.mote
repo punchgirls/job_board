@@ -14,7 +14,7 @@
 
   <a class="link-large" href="/search?query=All+posts">All posts</a>
 
-  <input type="hidden" id="query" name="query" value="">
+  <input type="hidden" id="query" name="query" value="{{ query }}">
 </form>
 
 <script src="/js/punchTokens.js"></script>

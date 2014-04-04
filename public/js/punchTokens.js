@@ -3,8 +3,19 @@ var autocompleteList = document.getElementById("autocomplete-list");
 var autocompleteArray = autocompleteList.children;
 var tokenList = document.getElementById("token-list");
 var tokenArray = tokenList.getElementsByClassName("token");
+var query = document.getElementById("query");
 var skillsList = getSkills();
 var highlightIndex = -1;
+
+if (query !== null) {
+  skills = query.value.split(",");
+
+  for(var i = 0; i < skills.length; i++) {
+    var skill = skills[i];
+    if (skill != "All posts") addToken(skill);
+    inputField.removeAttribute("placeholder");
+  }
+}
 
 function getSkills() {
   if (window.XMLHttpRequest) {
@@ -191,7 +202,6 @@ punchTokens.onsubmit = function() {
     addToken();
     return false;
   } else {
-    var query = document.getElementById("query");
     var tokenString = "";
 
     while(tokenArray.length > 0) {
@@ -199,10 +209,6 @@ punchTokens.onsubmit = function() {
       tokenString = tokenString + first.firstChild.innerHTML + ",";
       tokenList.removeChild(first);
     }
-
-    highlightIndex = -1;
-    hideAutocomplete();
-    inputField.value = "";
 
     query.value = tokenString.slice(0, -1);
 
