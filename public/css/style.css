@@ -723,10 +723,6 @@ form {
     width: 50px;
   }
 
-/*  #main-navigation li {
-    margin-right: 30px;
-  }*/
-
   /* SEARCH BOX and PUNCHTOKENS */
 
   #punchTokens {
@@ -735,6 +731,10 @@ form {
 
   #token-list {
     width: 25em;
+  }
+
+  #autocomplete-list {
+    width: 24.3em;
   }
 }
 
@@ -780,6 +780,10 @@ form {
 
   #token-list {
     width: 35em;
+  }
+
+  #autocomplete-list {
+    width: 34.3em;
   }
 }
 
