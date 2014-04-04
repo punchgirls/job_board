@@ -7,7 +7,7 @@ var query = document.getElementById("query");
 var skillsList = getSkills();
 var highlightIndex = -1;
 
-if (query !== null) {
+if (query.value !== "") {
   skills = query.value.split(",");
 
   for(var i = 0; i < skills.length; i++) {
@@ -173,11 +173,10 @@ inputField.onkeydown = function(e) {
     case 9:
       if(autocompleteArray.length > 0) {
         addToken();
+        return false;
       } else {
         inputField.value = "";
       }
-
-      return false;
     break;
     case 27:
       autocompleteList.innerHTML = "";
