@@ -13,7 +13,7 @@ function getSkills() {
     request = new ActiveXObject("Microsoft.XMLHTTP");
   }
 
-  request.open("GET", "/skills.json");
+  request.open("GET", "/js/skills.json");
 
   request.onreadystatechange = function() {
     if ((request.readyState===4) && (request.status===200)) {
@@ -90,7 +90,7 @@ function addToAutocomplete(value) {
 function showAutocomplete() {
   autocompleteList.setAttribute("style", "display: block;");
   for (var key in skillsList) {
-    addToAutocomplete(skillsList[key].skill);
+    addToAutocomplete(skillsList[key].name);
   }
 }
 
@@ -137,7 +137,7 @@ inputField.oninput = function() {
 
   for (var key in skillsList) {
     if (skillsList[key].skill.search(regExp) != -1 ) {
-      addToAutocomplete(skillsList[key].skill);
+      addToAutocomplete(skillsList[key].name);
     }
   }
 
@@ -186,7 +186,7 @@ inputField.onkeydown = function(e) {
   }
 };
 
-tokens.onsubmit = function() {
+punchTokens.onsubmit = function() {
   if (highlightIndex > -1) {
     addToken();
   } else {
