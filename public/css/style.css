@@ -128,7 +128,7 @@ a#delete {
 
 /* FORMS AND INPUT */
 
-/*input[type="text"],*/
+input[type="text"],
 input[type="email"],
 input[type="url"],
 input[type="password"]  {
@@ -274,7 +274,6 @@ input:-moz-placeholder {
 /* HEADER */
 
 h1  {
-  margin-bottom: 0.8em;
   font-size: 1.5em;
   display: inline-block;
 }
@@ -303,8 +302,9 @@ h1  {
   margin-right: 15px;
 }
 
-#menu-separation {
+#main-navigation #page-title {
   display: block;
+  margin-right: 0;
 }
 
 #gravatar-mini {
@@ -604,6 +604,7 @@ form {
 }
 
 #input-field {
+  margin: 0;
   padding-left: 6px;
   width: 180px;
   border: none;
@@ -722,14 +723,24 @@ form {
     width: 50px;
   }
 
-  #main-navigation li {
+/*  #main-navigation li {
     margin-right: 30px;
+  }*/
+
+  /* SEARCH BOX and PUNCHTOKENS */
+
+  #punchTokens {
+    width: 30em;
+  }
+
+  #token-list {
+    width: 25em;
   }
 }
 
 @media only screen and (min-width: 768px)  {
-  header {
-    margin: 0 0 50px 0;
+  #main-navigation #page-title {
+    display: inline;
   }
 
   h1 {
@@ -757,14 +768,27 @@ form {
     float: left;
   }
 
-  #menu-separation {
-    display: none;
-  }
-
   #title-link {
     margin-right: 60px;
   }
+
+  /* SEARCH BOX and PUNCHTOKENS*/
+
+  #punchTokens {
+    width: 40em;
+  }
+
+  #token-list {
+    width: 35em;
+  }
 }
+
+@media only screen and (min-width: 915px)  {
+
+  #punchTokens {
+    margin: 0;
+  }
+ }
 
 @media only screen and (min-width: 1024px)  {
   /* HEADER */

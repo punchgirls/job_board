@@ -24,15 +24,14 @@
     <header>
       <ul id="main-navigation">
         % if show_menu
-          <li><h1><a id="title-link" href="/">
+          <li id="page-title"><h1><a id="title-link" href="/">
         % else
-          <li><h1 id="center"><a id="title-link-center" href="/">
+          <li id="page-title"><h1 id="center"><a id="title-link-center" href="/">
         % end
 
         jobs.punchgirls.com</a></h1></li>
 
         % if show_menu
-          <span id="menu-separation"></span>
           % if this.current_user
             % if current_user.instance_of?(Developer)
               <li><a href="/applications">My applications (<span id="apps-size">{{ user.active_applications.size }}</span>)</a></li>
