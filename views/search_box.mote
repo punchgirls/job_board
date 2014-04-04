@@ -12,7 +12,9 @@
 
   <ul id="autocomplete-list"></ul>
 
-  <a class="link-large" href="/search?query=All+posts">All posts</a>
+  % if all_posts_link
+    <a class="link-large" href="/search?query=All+posts">All posts</a>
+  % end
 
   <input type="hidden" id="query" name="query" value="{{ query }}">
 </form>
