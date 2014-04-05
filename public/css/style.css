@@ -593,7 +593,7 @@ form {
   vertical-align: middle;
   width: 16.5em;
   min-height: 40px;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #eee;
   padding: 0;
   text-align: left;
   list-style: none;
@@ -621,7 +621,7 @@ form {
   margin: -17px auto 0;
   padding: 5px;
   text-align: left;
-  border: 2px solid cornflowerblue;
+  border: 2px solid #eee;
 }
 
 #autocomplete-list li {
@@ -629,12 +629,13 @@ form {
 }
 
 #search-btn {
+  margin-left: -9px;
   vertical-align: middle;
   width: 3.75em;
   padding: 0 12px;
   color: white;
   border: none;
-  background: aquamarine;
+  background: #fc0;
   font-size: 1em;
 }
 
@@ -647,19 +648,18 @@ form {
   display: inline-block;
   margin: 4px 2px 0 2px;
   padding: 3px 7px;
-  border: 2px solid cornflowerblue;
   font-size: 1.2em;
 }
 
 .token-delete {
-  color: aquamarine;
+  color: #fc0;
   cursor: hand;
   cursor: pointer;
 }
 
 #highlight, #autocomplete-list li:hover {
-  font-weight: bold;
-  color: aquamarine;
+  font-weight: bolder;
+  color: #fc0;
 }
 
 @media only screen and (min-width: 480px)  {

@@ -179,7 +179,7 @@ inputField.onkeydown = function(e) {
       }
     break;
     case 27:
-      autocompleteList.innerHTML = "";
+      hideAutocomplete();
     break;
     case 38:
       moveUp();
