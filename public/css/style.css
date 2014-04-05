@@ -581,7 +581,7 @@ footer {
 
 /* SEARCH BOX and PUNCHTOKENS */
 
-form {
+punchTokens {
   position: relative;
   width: 22em;
   margin: 0 auto;
