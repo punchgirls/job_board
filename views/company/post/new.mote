@@ -29,7 +29,7 @@
 
     <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title">
 
-    <p>Select a skill from the list of keywords:</p>
+    <span>Select a skill from the list of keywords:</span>
 
     <ul id="token-list">
       <li id="last-child">

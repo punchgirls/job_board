@@ -61,6 +61,8 @@
     <small class="agree">By signing up, you agree to our <a href="/terms">terms and conditions</a> and <a href="/privacy">privacy policy</a></small>
 
     <button type="submit" id="button">Sign up!</button>
+
+    <a class="link-large" href="/login">Already have an account?<br/> Log in here!</a>
   </form>
 </section>
 

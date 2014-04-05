@@ -20,24 +20,24 @@
 
   <h2>Edit your post</h2>
 
-  <form class="edit-post-form" name="postFrm" action="/post/edit/{{ post.id }}" method="POST">
+  <form class="edit-post-form" name="punchTokens" action="/post/edit/{{ post.id }}" method="POST">
     <p>Note that if you edit an unpublished post and this post has applicants, these applicants will be able to see the changes you make.</p>
 
     <input type="text" name="post[title]" maxlength="50" value="{{ this.h(post.title) }}" placeholder="Post title">
 
-    <input id="tags" type="hidden" value="{{ post.tags }}">
+    <span>Select a skill from the list of keywords:</span>
 
-    <ul id="tokens">
-      <li id="token-input">
-        <input type="text" id="search-field" autocomplete="off" placeholder="Search: Ruby, Cuba, Redis">
+    <ul id="token-list">
+      <li id="last-child">
+        <input id="input-field" placeholder="Add skill: Ruby, Cuba, Redis" autocomplete="off" type="text">
       </li>
     </ul>
 
-    <ul id="autocomplete"></ul>
+    <ul id="autocomplete-list"></ul>
 
-    <input type="hidden" id="query" name="post[tags]" value="{{ post.tags }}">
+    <input id="query" type="hidden" name="post[tags]" value="{{ post.tags }}">
 
-    <!-- START GOOGLE PLACE AUTOCOMPLETE -->
+   <!-- START GOOGLE PLACE AUTOCOMPLETE -->
 
     <input id="search-text-field" type="text" size="50" placeholder="Location" name="post[location]" autocomplete="off" value="{{ this.h(post.location) }}"><br>
 
@@ -72,5 +72,5 @@
 
 <!-- END GOOGLE PLACE AUTOCOMPLETE -->
 
-<script src="/js/inputTokens.js"></script>
+<script src="/js/punchTokens.js"></script>
 <script src="/js/limit_description.js"></script>
