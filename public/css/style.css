@@ -638,6 +638,7 @@ punchTokens {
 
 #autocomplete-list li {
   display: block;
+  margin: 4px 0;
 }
 
 #search-btn {
