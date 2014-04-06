@@ -628,6 +628,9 @@ punchTokens {
   padding: 5px;
   text-align: left;
   border: 2px solid #eee;
+  z-index: 1;
+  max-height: 250px;
+  overflow: auto;
 }
 
 #new-post #autocomplete-list,
