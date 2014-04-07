@@ -58,14 +58,15 @@ function createToken (skill) {
 function addToken(value) {
   var value = value || autocompleteArray[highlightIndex].innerHTML;
 
-  if (tokenArray.length < 5) {
+  if (tokenArray.length < 8) {
     var token = createToken(value);
     var lastChild = document.getElementById("last-child");
 
     tokenList.insertBefore(token, lastChild);
   } else {
-    var errorMsg = document.getElementById("error-msg");
-    errorMsg.innerHTML = "You can add up to 5 skills.";
+    var errorMsg = document.getElementById("notices");
+    errorMsg.setAttribute("class", "error");
+    errorMsg.innerHTML = "You can only add up to 8 skills.";
   }
 
   highlightIndex = -1;
