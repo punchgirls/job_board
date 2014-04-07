@@ -12,7 +12,7 @@ if (query.value !== "") {
 
   for(var i = 0; i < skills.length; i++) {
     var skill = skills[i];
-    if (skill != "All posts") addToken(skill);
+    if (skill != "All posts") { addToken(skill); }
     inputField.removeAttribute("placeholder");
   }
 }
