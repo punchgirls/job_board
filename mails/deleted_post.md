@@ -1,9 +1,9 @@
 Dear {{ developer.name }},
 
-This is to inform you that {{ post.company.name }} removed the following post:
+This is to inform you that {{ post.posted_by }} removed the following post:
 
 Post title: {{ post.title }}
-Company: {{ post.company.name }} ({{ post.company.url }})
+Company: {{ post.posted_by }} ({{ post.company_url }})
 % tags = post.tags.split(",").join(", ")
 Tags: {{ tags }}
 % if post.location

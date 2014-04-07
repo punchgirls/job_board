@@ -8,7 +8,7 @@ module CompanyRemover
         Malone.deliver(
           from: "team@punchgirls.com",
           to: developer.email,
-          subject: "[job board] " + post.company.name + " removed their profile",
+          subject: "[job board] " + post.posted_by + " removed their profile",
           text: text,
           bcc: "team@punchgirls.com")
       end

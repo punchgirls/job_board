@@ -1,4 +1,4 @@
-{{ post.company.name }} has published a new post!
+{{ post.posted_by }} has published a new post!
 
 Company email: {{ post.company.email }}
 Company ID: {{ post.company.id }}
@@ -6,7 +6,7 @@ Company ID: {{ post.company.id }}
 Full post details:
 
 Post title: {{ post.title }}
-Company: {{ post.company.name }} ({{ post.company.url }})
+Company: {{ post.posted_by }} ({{ post.company_url }})
 % tags = post.tags.split(",").join(", ")
 Tags: {{ tags }}
 % if post.location

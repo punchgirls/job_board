@@ -1,10 +1,10 @@
 Dear {{ developer.name }},
 
-This is to inform you that {{ post.company.name }} removed their profile and the following post has been
+This is to inform you that {{ post.posted_by }} removed their profile and the following post has been
 deleted:
 
 Post title: {{ post.title }}
-Company: {{ post.company.name }} ({{ post.company.url }})
+Company: {{ post.posted_by }} ({{ post.company_url }})
 % tags = post.tags.split(",").join(", ")
 Tags: {{ tags }}
 % if post.location

@@ -15,7 +15,14 @@
       % posts.each do |post|
         <section id="post_{{ post.id }}"class="listing-item">
           <ul>
-            <li>{{ this.h(post.title) }}</li>
+            <li><a href="/search?post_id={{ post.id }}">{{ this.h(post.title) }}</a></li>
+            <li>@</li>
+            <li><a href="/search?company_id={{ post.company.id }}">{{ this.h(post.posted_by) }}</a></li>
+
+            % if post.company_url
+              <li> |</li>
+              <li><a href="{{ this.h(post.company_url) }}">{{ this.h(post.company_url) }}</a></li>
+            % end
 
             % if post.location
               <li>|</li>

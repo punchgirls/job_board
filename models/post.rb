@@ -8,11 +8,21 @@ class Post < Ohm::Model
   attribute :title
   attribute :description
   attribute :status
+  attribute :company_name
+  attribute :url
 
   index :tag
   index :location
   index :remote
   index :published?
+
+  def posted_by
+    company_name || company.name
+  end
+
+  def company_url
+    url || company.url
+  end
 
   def self.active
     find(published?: true)

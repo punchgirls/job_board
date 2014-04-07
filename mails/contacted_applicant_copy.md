@@ -1,4 +1,4 @@
-Dear {{ post.company.name }},
+Dear {{ post.posted_by }},
 
 This is a copy of the message you sent to: {{ developer.name }}
 
@@ -9,7 +9,7 @@ Message:
 This message was sent regarding the following job position:
 
 Post title: {{ post.title }}
-Company: {{ post.company.name }} ({{ post.company.url }})
+Company: {{ post.posted_by }} ({{ post.company_url }})
 % tags = post.tags.split(",").join(", ")
 Tags: {{ tags }}
 % if post.location

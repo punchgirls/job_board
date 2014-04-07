@@ -1,4 +1,4 @@
-Dear {{ post.company.name }},
+Dear {{ post.posted_by }},
 
 This is to inform you that {{ application.developer.name }} has applied to the {{ post.title }} position:
 
@@ -18,7 +18,7 @@ Bio:
 Full post details:
 
 Post title: {{ post.title }}
-Company: {{ post.company.name }} ({{ post.company.url }})
+Company: {{ post.posted_by }} ({{ post.company_url }})
 % tags = post.tags.split(",").join(", ")
 Tags: {{ tags }}
 % if post.location
