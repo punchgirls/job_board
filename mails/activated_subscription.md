@@ -13,6 +13,6 @@ Kind regards,
 Cecilia & Mayn,
 Punchgirls
 
-https://twitter.com/punchgirls
+https://twitter.com/jobspunchgirls
 http://www.punchgirls.com
 https://github.com/punchgirls
