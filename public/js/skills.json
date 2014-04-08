@@ -16,7 +16,7 @@
   {"name":"Cucumber"},{"name":"Cython"},{"name":"D"},
   {"name":"D-ObjDump"},{"name":"DCPU-16 ASM"},{"name":"DOT"},
   {"name":"Darcs Patch"},{"name":"Dart"},{"name":"Delphi"},{"name":"DevOps"},
-  {"name":"Diff"},{"name":"Django"},{"name":"Dylan"}, {"name", "EC2"},
+  {"name":"Diff"},{"name":"Django"},{"name":"Dylan"}, {"name":"EC2"},
   {"name":"Ecere Projects"},{"name":"Ecl"},{"name":"Eiffel"},
   {"name":"ElasticSearch"}, {"name":"Elixir"},{"name":"Elm"},
   {"name":"Emacs Lisp"},{"name":"Ember.js"},
