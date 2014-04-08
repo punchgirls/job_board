@@ -6,6 +6,7 @@ post was deleted:
 Applicant information:
 
 Name: {{ application.developer.name }}
+Email: {{ application.developer.email }}
 Applied on: {{ Time.at(application.date.to_i).strftime("%e %B %Y") }}
 GitHub: https://www.github.com/{{ application.developer.username }}
 % if application.developer.url
