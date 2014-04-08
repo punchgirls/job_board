@@ -1,5 +1,5 @@
 [
-  {"name":"ABAP"},{"name":"ASP"},{"name":"ASP.NET"},
+  {"name":"ABAP"},{"name":"Amazon Web Services"},{"name":"ASP"},{"name":"ASP.NET"},
   {"name":"ActionScript"},{"name":"Ada"},{"name":"Android"},{"name":"AngularJS"},
   {"name":"Apache"},{"name":"ApacheConf"},{"name":"Apex"},
   {"name":"AppleScript"},{"name":"Arc"},{"name":"Arduino"},
@@ -29,7 +29,7 @@
   {"name":"Groovy Server Pages"}, {"name":"Handlebars"}, {"name":"HTML"},
   {"name":"HTML+Django"},{"name":"HTML+ERB"},{"name":"HTML+PHP"},
   {"name":"HTTP"},{"name":"Haml"},{"name":"Handlebars"},
-  {"name":"Haskell"},{"name":"Haxe"},{"name":"IIS"},{"name":"INI"},
+  {"name":"Haskell"},{"name":"Haxe"},{"name":"IIS"},{"name":"INI"}, {"name":"iOS"},
   {"name":"IRC log"},{"name":"Io"},{"name":"Ioke"},{"name":"J2EE"},
   {"name":"JSON"},{"name":"Java"},{"name":"Java Server Pages"},
   {"name":"JavaScript"},{"name":"Julia"},{"name":"Kotlin"},
@@ -52,9 +52,9 @@
   {"name":"PostgreSQL"},{"name":"PowerShell"},{"name":"Prolog"},
   {"name":"Puppet"},{"name":"Pure Data"},{"name":"Python"},
   {"name":"Python traceback"},{"name":"R"},{"name":"RHTML"},
-  {"name":"Racket"},{"name":"Raw token data"},{"name":"Rebol"},
-  {"name":"Redcode"},{"name":"Redis"},{"name":"Rexx"},{"name":"Rouge"},
-  {"name":"Ruby"},{"name":"Ruby on Rails"},{"name":"Rust"},
+  {"name":"Racket"},{"name":"Raw token data"},{"name":"RDS"},{"name":"Rebol"},
+  {"name":"Redcode"},{"name":"Redis"},{"name":"Rexx"},{"name":"Rouge"},{"name":"S3"},
+  {"name":"RSpec"},{"name":"Ruby"},{"name":"Ruby on Rails"},{"name":"Rust"},
   {"name":"SCSS"},{"name":"SQL"},{"name":"Sage"},{"name":"Sass"},
   {"name":"Scala"},{"name":"Scheme"},{"name":"Scilab"},{"name":"Scrum"},
   {"name":"Self"},{"name":"Shell"},{"name":"Sinatra"},
@@ -68,5 +68,5 @@
   {"name":"XML"},{"name":"XProc"},{"name":"XQuery"},{"name":"XS"},
   {"name":"XSLT"},{"name":"Xtend"},{"name":"YAML"},{"name":"Zend"},
   {"name":"eC"},{"name":"edn"},{"name":"fish"},{"name":"jQuery"},
-  {"name":"mupad"},{"name":"ooc"},{"name":"reStructuredText"}
+  {"name":"mupad"},{"name":"ooc"},{"name":"reStructuredText"}, {"name":"Web APIs"}
 ]
