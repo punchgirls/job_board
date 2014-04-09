@@ -4,6 +4,7 @@ class Plan
     "small"  => 1,
     "medium" => 5,
     "large"  => 10,
+    "punchgirls"  => 1000
   }
 
   PRICING = {
@@ -11,6 +12,7 @@ class Plan
     "small"  => 50,
     "medium" => 100,
     "large"  => 150,
+    "punchgirls"  => 0
   }
 
   attr :id

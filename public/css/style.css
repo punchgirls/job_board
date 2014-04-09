@@ -245,17 +245,6 @@ input:-moz-placeholder {
   margin: 0 auto;
 }
 
-/* SEARCH BOX */
-
-.location {
-  margin-bottom: 10px;
-}
-
-.remote {
-  display: inline-block;
-  margin-left: 10px;
-}
-
 /* NOTICES */
 
 #notices {
@@ -575,8 +564,8 @@ footer {
   margin-top: 120px;
 }
 
-.fa-twitter {
-  font-size: 1.3em;
+.fa-twitter, .fa-github {
+  font-size: 1.8em;
 }
 
 /* SEARCH BOX and PUNCHTOKENS */
@@ -683,6 +672,14 @@ punchTokens {
   color: #fc0;
 }
 
+.location {
+  margin-bottom: 10px;
+}
+
+.remote {
+  display: inline-block;
+  margin-left: 10px;
+}
 @media only screen and (min-width: 480px)  {
   /* SEARCH BOX */
 
