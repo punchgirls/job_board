@@ -47,7 +47,7 @@
             </li>
             <li>|</li>
             <li>
-              % if post.active_applications.size > 0
+              % if post.applications.size > 0
                 <a href="/post/{{ post.id }}/applications">
                   <i class="fa fa-users"></i>show list of applicants:{{ post.active_applications.size }}</a>
               % else
