@@ -29,10 +29,12 @@
             <a href="https://www.github.com/{{ developer.username }}">
               {{ developer.username }}</a>
           </li>
-          <li>|</li>
-          <li>URL: <a href="{{ this.h(developer.url) }}">
-            {{ this.h(developer.url) }}</a>
-          </li>
+          % if developer.url
+            <li>|</li>
+            <li>URL: <a href="{{ this.h(developer.url) }}">
+              {{ this.h(developer.url) }}</a>
+            </li>
+          % end
           <li>|</li>
           <li>Applied {{ application.applied }}</li>
         </ul>
