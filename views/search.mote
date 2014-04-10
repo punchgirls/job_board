@@ -3,6 +3,7 @@
 % developer = this.current_developer
 % user = this.current_user
 % all_posts_link = params.fetch(:all_posts_link, false)
+% locations = params.fetch(:locations, false)
 
 % if !posts.nil?
   % posts_found = posts.size
@@ -19,6 +20,13 @@
   % elsif posts.empty?
     <p>No posts matched your search. Try again!</p>
   % else
+    % if locations
+      % locations.each do |location|
+        <a href="/search?location={{ location[0] }}">{{ location[0] }} ({{ location[1] }})</a>&nbsp;&nbsp;
+      % end
+      <br><br>
+    % end
+
     % posts.each do |post|
         <section id="post-{{ post.id }}" class="listing-item">
           % if this.current_developer
