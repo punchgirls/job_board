@@ -22,7 +22,7 @@
   % else
     % if locations
       % locations.each do |location|
-        <a href="/search?location={{ location[0] }}">{{ location[0] }} ({{ location[1] }})</a>&nbsp;&nbsp;
+        <a href="/search?query={{ query }}&location={{ location[0] }}">{{ location[0] }} ({{ location[1] }})</a>&nbsp;&nbsp;
       % end
       <br><br>
     % end
