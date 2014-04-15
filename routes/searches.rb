@@ -14,7 +14,8 @@ class Searches < Cuba
 
           render("search", title: "Search",
             posts: posts.sort_by(:date, order: "ALPHA DESC"),
-            locations: locations, location: location, query: "All posts", all_posts_link: true)
+            locations: locations, location: location,
+            query: "All posts", all_posts_link: true)
         end
 
         render("search", title: "Search",
@@ -35,7 +36,8 @@ class Searches < Cuba
 
           render("search", title: "Search",
             posts: posts.sort_by(:date, order: "ALPHA DESC"),
-            locations: locations, location: location, query: query, all_posts_link: true)
+            locations: locations, location: location,
+            query: query, all_posts_link: true)
         end
 
         render("search", title: "Search",
@@ -66,6 +68,22 @@ class Searches < Cuba
         render("search", title: "Search", locations: locations,
           posts: nil, all_posts_link: true)
       end
+    end
+
+    on param "location" do |location|
+      posts = Post.active
+      locations = Location.count(posts)
+
+      if location == "Work from anywhere"
+        posts = posts.find(remote: "true")
+      else
+        posts = posts.find(location: location)
+      end
+
+      render("search", title: "Search",
+        posts: posts.sort_by(:date, order: "ALPHA DESC"),
+        locations: locations, location: location,
+        query: "All posts", all_posts_link: true)
     end
 
     on default do
