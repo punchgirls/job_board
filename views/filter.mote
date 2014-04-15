@@ -2,8 +2,13 @@
   <span>Filter results:</span>
   <select id="filter-select" name="locations" onchange="filter()">
     <option value="All results">All results</option>
-    % locations.each do |location, occurences|
-      <option value="{{ location }}">{{ location }} ({{ occurences }})</option>
+    % unless locations["Work from anywhere"] == 0
+    <option value="Work from anywhere">Work from anywhere ({{ locations["Work from anywhere"]}})</option>
+    % end
+    % locations.keys.sort.each do |location, occurences|
+      % unless location ==  "Work from anywhere"
+        <option value="{{ location }}">{{ location }} ({{ occurences }})</option>
+      % end
     % end
   </select>
 
