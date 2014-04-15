@@ -5,9 +5,9 @@
     % unless locations["Work from anywhere"] == 0
     <option value="Work from anywhere">Work from anywhere ({{ locations["Work from anywhere"]}})</option>
     % end
-    % locations.keys.sort.each do |location, occurences|
+    % locations.keys.sort.each do |location|
       % unless location ==  "Work from anywhere"
-        <option value="{{ location }}">{{ location }} ({{ occurences }})</option>
+        <option value="{{ location }}">{{ location }} ({{ locations[location] }})</option>
       % end
     % end
   </select>
