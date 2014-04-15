@@ -15,7 +15,7 @@ class Searches < Cuba
           render("search", title: "Search",
             posts: posts.sort_by(:date, order: "ALPHA DESC"),
             locations: locations, search: true,
-            profile: true, query: query, all_posts_link: true)
+            profile: true, query: "All+posts", all_posts_link: true)
         end
 
         render("search", title: "Search",
