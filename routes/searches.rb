@@ -14,14 +14,12 @@ class Searches < Cuba
 
           render("search", title: "Search",
             posts: posts.sort_by(:date, order: "ALPHA DESC"),
-            locations: locations, search: true,
-            query: "", all_posts_link: true)
+            locations: locations, query: "All+posts", all_posts_link: true)
         end
 
         render("search", title: "Search",
           posts: posts.sort_by(:date, order: "ALPHA DESC"),
-          locations: locations,
-          search: true, query: "All+posts", all_posts_link: true)
+          locations: locations, query: "All+posts", all_posts_link: true)
       end
 
       on default do
@@ -37,14 +35,12 @@ class Searches < Cuba
 
           render("search", title: "Search",
             posts: posts.sort_by(:date, order: "ALPHA DESC"),
-            locations: locations, search: true,
-            query: query, all_posts_link: true)
+            locations: locations, query: query, all_posts_link: true)
         end
 
         render("search", title: "Search",
           posts: posts.sort_by(:date, order: "ALPHA DESC"),
-            locations: locations, search: true,
-            query: query, all_posts_link: true)
+            locations: locations, query: query, all_posts_link: true)
       end
     end
 
@@ -53,7 +49,7 @@ class Searches < Cuba
 
       render("search", title: "Search",
         posts: Post.active.find(company_id: id).sort_by(:date, order: "ALPHA DESC"),
-        locations: locations, search: true, all_posts_link: true)
+        locations: locations, all_posts_link: true)
     end
 
     on param "post_id" do |id|
@@ -63,18 +59,18 @@ class Searches < Cuba
 
       on post && post.published? do
         render("search", title: "Search", locations: locations,
-          posts: [post], search: true, all_posts_link: true)
+          posts: [post], all_posts_link: true)
       end
 
       on default do
         render("search", title: "Search", locations: locations,
-          posts: nil, search: true, all_posts_link: true)
+          posts: nil, all_posts_link: true)
       end
     end
 
     on default do
       render("search", title: "Search",
-        posts: nil, search: true, all_posts_link: true)
+        posts: nil, all_posts_link: true)
     end
   end
 end

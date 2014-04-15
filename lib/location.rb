@@ -1,22 +1,20 @@
 module Location
   def self.count(posts)
-    cities = []
+    locations = []
 
     posts.each do |post|
-      cities << post.location
+      locations << post.location
       if post.remote == "true"
-        cities << "Work from anywhere"
+        locations << "Work from anywhere"
       end
     end
 
-    locations = Hash.new { |k, v| k[v] = 0 }
+    occurences = Hash.new(0)
 
-    cities.each do |location|
-      locations[location] += 1
+    locations.each do |location|
+      occurences[location] += 1
     end
 
-    locations = locations.sort_by { |h| -h[1] }
-
-    return locations
+    return occurences
   end
 end
