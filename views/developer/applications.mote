@@ -76,7 +76,7 @@
 
               <p id="note-{{ application.id }}">
                 % if application.note
-                  <span onclick="editNote({{ application.id }})" class="link"><i class="fa fa-pencil-square-o"></i>note:</span>
+                  <span onclick="editNote({{ application.id }})" class="link"><i class="fa fa-pencil-square-o"></i>note to self:</span>
                     {{ this.h(application.note) }}
                 % end
               </p>
@@ -94,13 +94,13 @@
               % if !application.message &&  application.status == "active"
                 <li>
                   <span id="apply-link-{{ post.id }}" class="link" onclick="showMsgForm({{ post.id }})">
-                    <i class="fa fa-envelope"></i>send message</span>
+                    <i class="fa fa-envelope"></i>send message to company</span>
                 </li>
               % end
               % if !application.note &&  application.status == "active"
                 <li>
                   <span id="note-link-{{ application.id }}" class="link" onclick="showNoteForm({{ application.id }})">
-                  <i class="fa fa-pencil-square-o"></i>personal note</span>
+                  <i class="fa fa-pencil-square-o"></i>note to self</span>
                 </li>
               % end
               % if application.status == "active"

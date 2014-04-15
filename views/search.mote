@@ -83,7 +83,7 @@
                     <i class="fa fa-check"></i>apply</span>
                 % elsif application && application.message.nil?
                   <span id="apply-link-{{ post.id }}" class="link" onclick="showMsgForm({{ post.id }})">
-                    <i class="fa fa-envelope"></i>send message</span>
+                    <i class="fa fa-envelope"></i>send message to company</span>
                 % end
              </li>
           </ul>

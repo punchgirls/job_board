@@ -1,6 +1,6 @@
 <form class="note-hidden note-form" onsubmit="addNote({{ post.id }}, {{ application.id }}); return false;" id="note-form-{{ application.id }}" action="/note/{{ application.id }}" method="POST">
 
-  <textarea id="note-txt-{{ application.id }}" name="note" placeholder="Add a personal note to your application">{{ this.h(application.note) }}</textarea><br><br>
+  <textarea id="note-txt-{{ application.id }}" name="note" placeholder="Add a personal note for yourself to keep track of your application">{{ this.h(application.note) }}</textarea><br><br>
 
   <span class="link" onclick="hideNoteForm({{ application.id }})">cancel</span>
   <button>Save</button>

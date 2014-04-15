@@ -31,7 +31,7 @@ function apply (postId) {
       appStatus.setAttribute("class", "application-status");
       appStatus.appendChild(document.createTextNode("Application status: active"));
 
-      applyLink.innerHTML = "<i class='fa fa-envelope'></i>send message</span>";
+      applyLink.innerHTML = "<i class='fa fa-envelope'></i>send message to company</span>";
 
       applyLink.onclick = function() {
         var msgForm = document.getElementById("msg-form-" + postId);
@@ -120,7 +120,7 @@ function addNote (postId, applicationId) {
       }
 
       if (applicationNote) {
-        applicationNote.innerHTML = "<span onclick='editNote(" + applicationId + ")' class='link'><i class='fa fa-pencil-square-o'></i>note:</span> " + note + "</p>";
+        applicationNote.innerHTML = "<span onclick='editNote(" + applicationId + ")' class='link'><i class='fa fa-pencil-square-o'></i>note to self:</span> " + note + "</p>";
       }
 
       noteForm.setAttribute("class", "note-hidden note-form");
