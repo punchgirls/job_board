@@ -5,18 +5,18 @@ class Searches < Cuba
         posts = Post.active
         locations = Location.count(posts)
 
-        on param "location" do |location|
-          if location == "Work from anywhere"
-            posts = posts.find(remote: "true")
-          else
-            posts = posts.find(location: location)
-          end
+      #   on param "location" do |location|
+      #     if location == "Work from anywhere"
+      #       posts = posts.find(remote: "true")
+      #     else
+      #       posts = posts.find(location: location)
+      #     end
 
-          render("search", title: "Search",
-            posts: posts.sort_by(:date, order: "ALPHA DESC"),
-            locations: locations, search: true,
-            query: "", all_posts_link: true)
-        end
+      #     render("search", title: "Search",
+      #       posts: posts.sort_by(:date, order: "ALPHA DESC"),
+      #       locations: locations, search: true,
+      #       query: "All+posts", all_posts_link: true)
+      #   end
 
         render("search", title: "Search",
           posts: posts.sort_by(:date, order: "ALPHA DESC"),

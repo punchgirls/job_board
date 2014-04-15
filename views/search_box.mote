@@ -17,6 +17,16 @@
   % end
 
   <input type="hidden" id="query" name="query" value="{{ query }}">
+
+  Filter results:
+  <select name="location" onchange="punchTokens.submit()">
+    % if locations
+      % locations.each do |location|
+        <option value="{{ location[0] }}">{{ location[0] }} ({{ location[1] }})</option>
+      % end
+      <br><br>
+    % end
+ </select>
 </form>
 
 <script src="/js/punchTokens.js"></script>

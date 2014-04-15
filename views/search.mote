@@ -11,7 +11,7 @@
 
 <section id="search">
 
-  {{ this.partial("search_box", query: query, all_posts_link: all_posts_link) }}
+  {{ this.partial("search_box", query: query, all_posts_link: all_posts_link, locations: locations) }}
 
   <br/><br/>
 
@@ -20,12 +20,7 @@
   % elsif posts.empty?
     <p>No posts matched your search. Try again!</p>
   % else
-    % if locations
-      % locations.each do |location|
-        <a href="/search?query={{ query }}&location={{ location[0] }}">{{ location[0] }} ({{ location[1] }})</a>&nbsp;&nbsp;
-      % end
-      <br><br>
-    % end
+
 
     % posts.each do |post|
         <section id="post-{{ post.id }}" class="listing-item">
