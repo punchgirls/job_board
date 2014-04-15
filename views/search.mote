@@ -11,7 +11,10 @@
 
 <section id="search">
   {{ this.partial("search_box", query: query, all_posts_link: all_posts_link) }}
-  {{ this.partial("filter", locations: locations, location: location) }}
+
+  % unless posts.empty?
+    {{ this.partial("filter", locations: locations, location: location) }}
+  % end
 
   % if posts.nil?
     <p>Start searching by adding keywords.</p>
