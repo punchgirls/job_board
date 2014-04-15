@@ -4,6 +4,8 @@ var autocompleteArray = autocompleteList.children;
 var tokenList = document.getElementById("token-list");
 var tokenArray = tokenList.getElementsByClassName("token");
 var query = document.getElementById("query");
+var filterSelect = document.getElementById("filter-select");
+var selectedLocation = document.getElementById("selected-location").innerHTML;
 var skillsList = getSkills();
 var highlightIndex = -1;
 
@@ -12,9 +14,19 @@ if (query.value !== "") {
 
   for(var i = 0; i < skills.length; i++) {
     var skill = skills[i];
-    if (skill != "All+posts") {
+    if (skill != "All posts") {
       addToken(skill);
       inputField.removeAttribute("placeholder");
+    }
+  }
+}
+
+if (selectedLocation !== "") {
+  var locationList = filterSelect.children;
+
+  for (var i = 0; i < locationList.length; i++) {
+    if (locationList[i].value === selectedLocation) {
+      locationList[i].setAttribute("selected", "selected");
     }
   }
 }
@@ -199,6 +211,22 @@ inputField.onkeydown = function(e) {
   }
 };
 
+function filter() {
+  var filter = document.getElementById("filter-select").value;
+
+  if(filter !== "All results") {
+    input = document.createElement("input");
+    input.setAttribute("type", "hidden");
+    input.setAttribute("id", "location-filter");
+    input.setAttribute("name", "location");
+    input.setAttribute("value", filter);
+
+    punchTokens.appendChild(input);
+  }
+
+  punchTokens.submit();
+}
+
 punchTokens.onsubmit = function() {
   if (highlightIndex > -1) {
     addToken();
@@ -212,7 +240,7 @@ punchTokens.onsubmit = function() {
       tokenList.removeChild(first);
     }
 
-    query.value = tokenString.slice(0, -1);
+    query.value = tokenString.slice(0, -1) || "All posts";
 
     inputField.blur();
   }

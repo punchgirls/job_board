@@ -1,6 +1,7 @@
 module Location
   def self.count(posts)
     locations = []
+    occurences = Hash.new(0)
 
     posts.each do |post|
       locations << post.location
@@ -8,8 +9,6 @@ module Location
         locations << "Work from anywhere"
       end
     end
-
-    occurences = Hash.new(0)
 
     locations.each do |location|
       occurences[location] += 1

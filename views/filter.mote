@@ -1,0 +1,13 @@
+<section id="filter">
+  <span>Filter results:</span>
+  <select id="filter-select" name="locations" onchange="filter()">
+    <option value="All results">All results</option>
+    % locations.each do |location, occurences|
+      <option value="{{ location }}">{{ location }} ({{ occurences }})</option>
+    % end
+  </select>
+
+  <span id="selected-location">{{ location }}</span>
+</section>
+
+<script src="/js/punchTokens.js"></script>

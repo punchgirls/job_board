@@ -3,29 +3,21 @@
 % user = this.current_user
 % all_posts_link = params.fetch(:all_posts_link, false)
 % locations = params.fetch(:locations, false)
+% location = params.fetch(:location, "")
 
 % if !posts.nil?
   % posts_found = posts.size
 % end
 
 <section id="search">
-
   {{ this.partial("search_box", query: query, all_posts_link: all_posts_link) }}
-
-  <br/><br/>
+  {{ this.partial("filter", locations: locations, location: location) }}
 
   % if posts.nil?
     <p>Start searching by adding keywords.</p>
   % elsif posts.empty?
     <p>No posts matched your search. Try again!</p>
   % else
-    % if locations
-      % locations.each do |location, occurens|
-        <a href="/search?query={{ query }}&location={{ location }}">{{ location }} ({{ occurens }})</a>&nbsp;&nbsp;
-      % end
-      <br><br>
-    % end
-
     % posts.each do |post|
         <section id="post-{{ post.id }}" class="listing-item">
           % if this.current_developer
