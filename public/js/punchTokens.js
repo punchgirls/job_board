@@ -5,7 +5,7 @@ var tokenList = document.getElementById("token-list");
 var tokenArray = tokenList.getElementsByClassName("token");
 var query = document.getElementById("query");
 var filterSelect = document.getElementById("filter-select");
-var selectedLocation = document.getElementById("selected-location").innerHTML;
+var selectedLocation = document.getElementById("selected-location");
 var skillsList = getSkills();
 var highlightIndex = -1;
 
@@ -21,11 +21,11 @@ if (query.value !== "") {
   }
 }
 
-if (selectedLocation !== "") {
+if (selectedLocation && selectedLocation.innerHTML !== "") {
   var locationList = filterSelect.children;
 
   for (var i = 0; i < locationList.length; i++) {
-    if (locationList[i].value === selectedLocation) {
+    if (locationList[i].value === selectedLocation.innerHTML) {
       locationList[i].setAttribute("selected", "selected");
     }
   }

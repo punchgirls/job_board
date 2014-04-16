@@ -1,18 +1,15 @@
+% posts = params.fetch(:posts, nil)
 % query = params.fetch(:query, "")
 % developer = this.current_developer
 % user = this.current_user
 % all_posts_link = params.fetch(:all_posts_link, false)
-% locations = params.fetch(:locations, false)
+% locations = params.fetch(:locations, {})
 % location = params.fetch(:location, "")
-
-% if !posts.nil?
-  % posts_found = posts.size
-% end
 
 <section id="search">
   {{ this.partial("search_box", query: query, all_posts_link: all_posts_link) }}
 
-  % unless posts.empty?
+  % unless locations.empty?
     {{ this.partial("filter", locations: locations, location: location) }}
   % end
 

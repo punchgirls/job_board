@@ -45,32 +45,31 @@ class Searches < Cuba
     end
 
     on param "company_id" do |id|
-      locations = Location.count(Post.all)
+      posts = Post.active.find(company_id: id)
+      locations = Location.count(posts)
 
       render("search", title: "Search",
-        posts: Post.active.find(company_id: id).sort_by(:date, order: "ALPHA DESC"),
+        posts: posts.sort_by(:date, order: "ALPHA DESC"),
         locations: locations, all_posts_link: true)
     end
 
     on param "post_id" do |id|
       post = Post[id]
 
-      locations = Location.count(Post.all)
-
       on post && post.published? do
-        render("search", title: "Search", locations: locations,
+        render("search", title: "Search",
           posts: [post], all_posts_link: true)
       end
 
       on default do
-        render("search", title: "Search", locations: locations,
-          posts: nil, all_posts_link: true)
+        render("search", title: "Search",
+          all_posts_link: true)
       end
     end
 
     on default do
       render("search", title: "Search",
-        posts: nil, all_posts_link: true)
+        all_posts_link: true)
     end
   end
 end
