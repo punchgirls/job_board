@@ -15,5 +15,3 @@
 
   <input type="hidden" id="query" name="query" value="{{ query }}">
 </form>
-
-<script src="/js/punchTokens.js"></script>

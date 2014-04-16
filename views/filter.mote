@@ -14,5 +14,3 @@
 
   <span id="selected-location">{{ location }}</span>
 </section>
-
-<script src="/js/punchTokens.js"></script>
