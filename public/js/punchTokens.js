@@ -234,10 +234,8 @@ punchTokens.onsubmit = function() {
   } else {
     var tokenString = "";
 
-    while(tokenArray.length > 0) {
-      var first = tokenList.firstElementChild;
-      tokenString = tokenString + first.firstChild.innerHTML + ",";
-      tokenList.removeChild(first);
+    for (var i = 0; i < tokenArray.length; i++) {
+      tokenString = tokenString + tokenArray[i].firstChild.innerHTML + ",";
     }
 
     query.value = tokenString.slice(0, -1) || "All posts";
