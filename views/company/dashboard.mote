@@ -1,5 +1,5 @@
 % company = this.current_user
-% posts = company.posts
+% posts = company.posts.sort_by(:date, order: "ALPHA DESC")
 
 <section id="company-dashboard">
   <a class="link-large" href="/post/new">
