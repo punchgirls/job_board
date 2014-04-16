@@ -3,7 +3,7 @@
   <select id="filter-select" name="locations" onchange="filter()">
     <option value="All results">All results</option>
     % unless locations["Work from anywhere"] == 0
-    <option value="Work from anywhere">Work from anywhere ({{ locations["Work from anywhere"]}})</option>
+      <option value="Work from anywhere">Work from anywhere ({{ locations["Work from anywhere"]}})</option>
     % end
     % locations.keys.sort.each do |location|
       % unless location ==  "Work from anywhere"

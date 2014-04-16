@@ -4,7 +4,9 @@ module Location
     occurences = Hash.new(0)
 
     posts.each do |post|
-      locations << post.location
+      unless post.location.nil?
+        locations << post.location
+      end
       if post.remote == "true"
         locations << "Work from anywhere"
       end
