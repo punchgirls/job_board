@@ -5,7 +5,7 @@ class Searches < Cuba
         posts = Post.active
         locations = Location.count(posts)
 
-        on param "location" do |location|
+        on param("location") do |location|
           if location == "Work from anywhere"
             posts = posts.find(remote: "true")
           else
@@ -27,7 +27,7 @@ class Searches < Cuba
         posts = Search.posts(query)
         locations = Location.count(posts)
 
-        on param "location" do |location|
+        on param("location") do |location|
           if location == "Work from anywhere"
             posts = posts.find(remote: "true")
           else
@@ -66,7 +66,7 @@ class Searches < Cuba
       end
     end
 
-    on param "location" do |location|
+    on param("location") do |location|
       posts = Post.active
       locations = Location.count(posts)
 
