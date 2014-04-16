@@ -4,6 +4,8 @@ var autocompleteArray = autocompleteList.children;
 var tokenList = document.getElementById("token-list");
 var tokenArray = tokenList.getElementsByClassName("token");
 var query = document.getElementById("query");
+var filterSelect = document.getElementById("filter-select");
+var selectedLocation = document.getElementById("selected-location");
 var skillsList = getSkills();
 var highlightIndex = -1;
 
@@ -15,6 +17,16 @@ if (query.value !== "") {
     if (skill != "All posts") {
       addToken(skill);
       inputField.removeAttribute("placeholder");
+    }
+  }
+}
+
+if (selectedLocation && selectedLocation.innerHTML !== "") {
+  var locationList = filterSelect.children;
+
+  for (var i = 0; i < locationList.length; i++) {
+    if (locationList[i].value === selectedLocation.innerHTML) {
+      locationList[i].setAttribute("selected", "selected");
     }
   }
 }
@@ -199,6 +211,22 @@ inputField.onkeydown = function(e) {
   }
 };
 
+function filter() {
+  var filter = document.getElementById("filter-select").value;
+
+  if(filter !== "All results") {
+    input = document.createElement("input");
+    input.setAttribute("type", "hidden");
+    input.setAttribute("id", "location-filter");
+    input.setAttribute("name", "location");
+    input.setAttribute("value", filter);
+
+    punchTokens.appendChild(input);
+  }
+
+  punchTokens.submit();
+}
+
 punchTokens.onsubmit = function() {
   if (highlightIndex > -1) {
     addToken();
@@ -206,13 +234,11 @@ punchTokens.onsubmit = function() {
   } else {
     var tokenString = "";
 
-    while(tokenArray.length > 0) {
-      var first = tokenList.firstElementChild;
-      tokenString = tokenString + first.firstChild.innerHTML + ",";
-      tokenList.removeChild(first);
+    for (var i = 0; i < tokenArray.length; i++) {
+      tokenString = tokenString + tokenArray[i].firstChild.innerHTML + ",";
     }
 
-    query.value = tokenString.slice(0, -1);
+    query.value = tokenString.slice(0, -1) || "All posts";
 
     inputField.blur();
   }

@@ -1,6 +1,3 @@
-% search = params.fetch(:search, false)
-% query = params.fetch(:query, "")
-
 <form id="punchTokens" name="punchTokens" action="/search" method="GET">
   <ul id="token-list">
     <li id="last-child">
@@ -18,5 +15,3 @@
 
   <input type="hidden" id="query" name="query" value="{{ query }}">
 </form>
-
-<script src="/js/punchTokens.js"></script>
