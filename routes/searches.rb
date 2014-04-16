@@ -47,12 +47,9 @@ class Searches < Cuba
     end
 
     on param "company_id" do |id|
-      posts = Post.active.find(company_id: id)
-      locations = Location.count(posts)
-
       render("search", title: "Search",
-        posts: posts.sort_by(:date, order: "ALPHA DESC"),
-        locations: locations, all_posts_link: true)
+        posts: Post.active.find(company_id: id).sort_by(:date, order: "ALPHA DESC"),
+        all_posts_link: true)
     end
 
     on param "post_id" do |id|
