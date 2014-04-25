@@ -123,7 +123,7 @@ class Guests < Cuba
         company = Company.fetch(req[:email])
 
         on company do
-          nobi = Nobi::TimestampSigner.new('my secret here')
+          nobi = Nobi::TimestampSigner.new(NOBI_SECRET)
           signature = nobi.sign(String(company.id))
 
           Malone.deliver(
