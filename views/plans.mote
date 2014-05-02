@@ -1,19 +1,19 @@
 <select class="signup-plans" name="company[plan_id]">
   % if plan_id == "small"
-    <option value="small" selected>Small (1 Post) 50 USD/month</option>
+    <option value="small" selected>Small (1 Post) {{ Plan::PRICING["small"] }} USD/month</option>
   % else
-    <option value="small">Small (1 Post) 50 USD/month</option>
+    <option value="small">Small (1 Post) {{ Plan::PRICING["small"] }} USD/month</option>
   % end
 
   % if plan_id == "medium"
-    <option value="medium" selected>Medium (5 Posts) 100 USD/month</option>
+    <option value="medium" selected>Medium (5 Posts) {{ Plan::PRICING["medium"] }} USD/month</option>
   % else
-    <option value="medium">Medium (5 Posts) 100 USD/month</option>
+    <option value="medium">Medium (5 Posts) {{ Plan::PRICING["medium"] }} USD/month</option>
   % end
 
   % if plan_id == "large"
-    <option value="large" selected>Large (10 Posts) 150 USD/month</option>
+    <option value="large" selected>Large (10 Posts) {{ Plan::PRICING["large"] }} USD/month</option>
   % else
-    <option value="large">Large (10 Posts) 150 USD/month</option>
+    <option value="large">Large (10 Posts) {{ Plan::PRICING["large"] }} USD/month</option>
   % end
 </select>

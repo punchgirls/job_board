@@ -12,16 +12,16 @@
     <a class="plan" href="/signup?plan_id=small">
     <span>Small</span>
     <span>1 Post</span>
-    <span class="plan-price">&nbsp;50 <small>USD/month</small></span></a>
+    <span class="plan-price">&nbsp;{{ Plan::PRICING["small"] }} <small>USD/month</small></span></a>
 
     <a class="plan" href="/signup?plan_id=medium">
     <span>Medium</span>
     <span>5 Posts</span>
-    <span class="plan-price">100 <small>USD/month</small></span></a>
+    <span class="plan-price">{{ Plan::PRICING["medium"] }} <small>USD/month</small></span></a>
 
     <a class="plan" href="/signup?plan_id=large">
     <span>Large</span>
     <span>10 Posts</span>
-    <span class="plan-price">150 <small>USD/month</small></span></a>
+    <span class="plan-price">{{ Plan::PRICING["large"] }} <small>USD/month</small></span></a>
   </span>
 </section>

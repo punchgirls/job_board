@@ -9,9 +9,9 @@ class Plan
 
   PRICING = {
     "free"  => 0,
-    "small"  => 50,
-    "medium" => 100,
-    "large"  => 150,
+    "small"  => 9,
+    "medium" => 15,
+    "large"  => 25,
     "punchgirls"  => 0
   }
 

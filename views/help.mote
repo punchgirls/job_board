@@ -38,7 +38,7 @@
   <h3>Developers</h3>
 
   <h4 id="creating_your_dev_account">Creating your account</h4>
-  <p>
+  <P>
     To create your account you need to login using GitHub. This will give us access to your public GitHub information. This information will be made available to the companies when you apply for a job.
   </p>
   <p>
@@ -107,9 +107,9 @@
     You can choose between:
   </p>
   <p>
-    - Small: 1 post, 50 USD/month<br>
-    - Medium: 5 posts, 100 USD/month<br>
-    - Large: 10 posts, 150 USD/month<br>
+    - Small: 1 post, {{ Plan::PRICING["small"] }} USD/month<br>
+    - Medium: 5 posts, {{ Plan::PRICING["medium"] }} USD/month<br>
+    - Large: 10 posts, {{ Plan::PRICING["large"] }} USD/month<br>
   </p>
   <p>
     You'll be able to publish, unpublish and edit your posts as many times as you want.
