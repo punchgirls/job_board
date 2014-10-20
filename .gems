@@ -8,7 +8,7 @@ requests -v 0.0.6
 ohm-contrib -v 1.2
 nobi -v 0.0.1
 stripe -v 1.8.7
-shield -v 2.1.0
+shield -v 2.1.1
 ost -v 0.1.5
 malone -v 1.0.6
 ost-bin -v 0.0.3
